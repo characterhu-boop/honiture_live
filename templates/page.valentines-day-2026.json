@@ -1,0 +1,1447 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_simple_banner_VxQdhh": {
+      "type": "custom-simple-banner",
+      "disabled": true,
+      "name": "Simple Banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Group_114.webp",
+        "mobile_image": "shopify:\/\/shop_images\/cordless-robot-vaccums-xmas-promotion.webp",
+        "show_on_desktop": true,
+        "text_align": 15,
+        "title": "Merry Christmas!",
+        "title_tag": "h2",
+        "title_text_color": "#ffffff",
+        "subtitle": "Make this christmas sparkle with smart cleaning deals",
+        "text_color": "#ffffff",
+        "title_size": 40,
+        "subtitle_size": 18,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "slideshow_tDn6WT": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_7HNPxC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-vacuum-cleaner-valentines-day-sale.webp",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-vacuum-valentines-day-sale.jpg",
+            "slide_link": "",
+            "video_background": false,
+            "show_content": false,
+            "badge_text": "",
+            "subheading": "Add a tagline",
+            "heading": "Slide Heading",
+            "heading_size": "h1",
+            "content": "Add descriptive text for your slide here.",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_7HNPxC"
+      ],
+      "custom_css": [],
+      "name": "Slideshow",
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "sticky_nav_cprXhd": {
+      "type": "sticky-nav",
+      "blocks": {
+        "nav_item_3RDYcz": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Cupid’s Mystery Bag",
+            "target_id": "shopify-section-template--20704037437487__spin_win_PkPG33"
+          }
+        },
+        "nav_item_c4rx9i": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Flash Sale",
+            "target_id": "shopify-section-template--20704037437487__xmas_one_year_TPUDhh"
+          }
+        },
+        "nav_item_k9gDRk": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Cordless Vacuum Deals",
+            "target_id": "shopify-section-template--20704037437487__vd_clean_WDCmwf"
+          }
+        },
+        "nav_item_4EzMnE": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Robot Vacuum Deals",
+            "target_id": "shopify-section-template--20704037437487__vd_acce_pLnYQ7"
+          }
+        },
+        "nav_item_EfkP9w": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Accessories Deals",
+            "target_id": "shopify-section-template--20704037437487__vd_tab_hTC9eR"
+          }
+        },
+        "nav_item_HypjR6": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Bundle Gifts",
+            "target_id": "shopify-section-template--20704037437487__vd_combo_WFpLhL"
+          }
+        }
+      },
+      "block_order": [
+        "nav_item_3RDYcz",
+        "nav_item_c4rx9i",
+        "nav_item_k9gDRk",
+        "nav_item_4EzMnE",
+        "nav_item_EfkP9w",
+        "nav_item_HypjR6"
+      ],
+      "custom_css": [
+        ".slideshow__slide-bg {background-color: #ae3028;}",
+        ".sticky-nav__link {border-radius: 36px; border-bottom: 0; padding: 12px 16px;}",
+        ".sticky-nav a:focus {color: #ff91bb;}",
+        ".cus-sticky-nav {margin-top: -1px;}"
+      ],
+      "name": "Sticky Navigation",
+      "settings": {
+        "top_position": 40,
+        "top_position_mobile": 75,
+        "background": "linear-gradient(180deg, rgba(252, 239, 244, 1), rgba(252, 239, 244, 1) 100%)",
+        "text_color": "#838383",
+        "active_background": "rgba(0,0,0,0)",
+        "active_text_color": "#ff91bb"
+      }
+    },
+    "sticky_nav_khqXgG": {
+      "type": "sticky-nav",
+      "blocks": {
+        "nav_item_Y6TMWp": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Lowest Price Guarantee",
+            "target_id": "",
+            "icon": "shopify:\/\/shop_images\/Mask_group_69cd7061-7cdd-43fe-9c4d-0e9d182ee645.png"
+          }
+        },
+        "nav_item_f4meBG": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Money Back Guarantee",
+            "target_id": "",
+            "icon": "shopify:\/\/shop_images\/4_1.png"
+          }
+        },
+        "nav_item_7zThmb": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Free & Fast 2–3 Day Delivery",
+            "target_id": "",
+            "icon": "shopify:\/\/shop_images\/3_1.png"
+          }
+        },
+        "nav_item_nFPLJ6": {
+          "type": "nav_item",
+          "settings": {
+            "title": "1-3 Year Warranty",
+            "target_id": "",
+            "icon": "shopify:\/\/shop_images\/2_1.png"
+          }
+        },
+        "nav_item_tb83h8": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Interest-free Installments",
+            "target_id": "",
+            "icon": "shopify:\/\/shop_images\/1_95ecae89-1697-437b-8ade-12cb12af6980.png"
+          }
+        }
+      },
+      "block_order": [
+        "nav_item_Y6TMWp",
+        "nav_item_f4meBG",
+        "nav_item_7zThmb",
+        "nav_item_nFPLJ6",
+        "nav_item_tb83h8"
+      ],
+      "custom_css": [
+        ".slideshow__slide-bg {background-color: #ae3028;}",
+        ".sticky-nav__link {font-size: 14px; flex: 1; color: #000; font-weight: 400; border-radius: 36px; border-bottom: 0; padding: 6px 20px; background: linear-gradient(180deg, #fed3e4 0%, #cac9f1 100%); gap: 15px; cursor: default; pointer-events: none;}",
+        ".sticky-nav__icon {height: 30px;}",
+        ".cus-sticky-nav {position: static; z-index: 1;}"
+      ],
+      "name": "Sticky Navigation",
+      "settings": {
+        "top_position": 105,
+        "top_position_mobile": 20,
+        "background": "",
+        "text_color": "#838383",
+        "active_background": "rgba(0,0,0,0)",
+        "active_text_color": "#ff91bb"
+      }
+    },
+    "spin_win_PkPG33": {
+      "type": "spin-win",
+      "blocks": {
+        "decoration_Hipnjr": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_69_1.png",
+            "top": 74,
+            "left": 95,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        },
+        "decoration_YkUhe8": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_112.webp",
+            "top": 30,
+            "left": 100,
+            "width": 200,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        },
+        "decoration_Ew6CXk": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_110_1.webp",
+            "top": 26,
+            "left": -25,
+            "width": 400,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "rotation": 0
+          }
+        }
+      },
+      "block_order": [
+        "decoration_Hipnjr",
+        "decoration_YkUhe8",
+        "decoration_Ew6CXk"
+      ],
+      "custom_css": [
+        ".content-wrapper {background: linear-gradient(180deg, #fed3e4 0%, #cac9f1 100%);}",
+        ".spin-wheel .subscribe-box input[type=\"email\"],.spin-wheel .signup-container label {height: 10px !important;}",
+        "@media screen and (min-width: 768px) {.spin-wheel .subscribe-box input[type=\"email\"], .spin-wheel .signup-container label {height: 30px !important; } .spin-wheel {padding: 0; } .spin-wheel-section {transform: scale(0.8); }}",
+        "@media screen and (max-width: 768px) {#subscribeBox .signup-container button {width: 46px; font-size: 10px; padding: 0; }}"
+      ],
+      "name": "Spin & Win",
+      "settings": {
+        "title": "Cupid’s Mystery Bag",
+        "sub_heading": "Subscribe for a Chance to Win a Mystery Gift!",
+        "view_more_label": "View More",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/image_49.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": false,
+        "subscribe_image": "shopify:\/\/shop_images\/Mask_group_42674b8b-fa8c-4a94-b5df-ffafe5be15c6.png",
+        "card_cover": "shopify:\/\/shop_images\/image_35.png",
+        "modal_bg": "shopify:\/\/shop_images\/vd-modal-bg.webp",
+        "activity_id": "13",
+        "is_test": false,
+        "subscribe_title": "Enter your email to receive 1 lucky draw entry!",
+        "eligibility_text": "<p><strong>How lt Works:<\/strong><\/p><p>. Enter your order email & draw a gift pack.<br\/>. Copy and apply your coupon within 60 days.<br\/>. Gift card winners get a code by email later.<br\/>. When you win a free gift, it will be delivered to you within a week.<br\/><br\/><\/p>",
+        "fontColor": "#000000"
+      }
+    },
+    "xmas_one_year_TPUDhh": {
+      "type": "xmas-one-year",
+      "blocks": {
+        "count_down_Lp6x8n": {
+          "type": "count-down",
+          "settings": {
+            "end_date": "2026-02-18 16:00:01",
+            "heading": "",
+            "message": "",
+            "hide_on_complete": true,
+            "show_days": true,
+            "show_hours": true,
+            "show_minutes": true,
+            "show_seconds": true,
+            "style": "modern",
+            "text_alignment": "center",
+            "numbers_size": "medium",
+            "labels_size": "small",
+            "background_color": "rgba(0,0,0,0)",
+            "heading_color": "#333333",
+            "numbers_color": "#ffffff",
+            "numbers_background": "#8c90f7",
+            "labels_color": "#666666",
+            "message_color": "#f5aae5",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "wrap_bg_whTgME": {
+          "type": "wrap_bg",
+          "settings": {
+            "image_position": "left",
+            "product": "x7",
+            "custom_product_image": "shopify:\/\/shop_images\/Honiture_X7_cordless_vaccum_03.webp",
+            "custom_product_image_m": "shopify:\/\/shop_images\/Honiture_X7_cordless_vaccum_03.webp",
+            "product_title": "Honiture X7 Cordless Vacuum",
+            "custom_sale_price": "",
+            "custom_compare_price": "",
+            "extra_discount": 12,
+            "product_desc": "<p>✨Customer Favorite<br\/>✨45kPa Powerful Suction<br\/>✨ 7-Layer HEPA Filtration<\/p><p><br\/>⚡<strong>Price Drop! Save Extra 12% Instantly — Final Price:<\/strong><\/p>",
+            "discount_code": "VLOVE12",
+            "show_discount_badge": true,
+            "badge_bg_image": "shopify:\/\/shop_images\/Group_68_1.png",
+            "badge_top": -4,
+            "badge_left": 0,
+            "badge_text": "57%",
+            "product_top_logo_width": 200,
+            "product_custom_label": "",
+            "product_custom_label_color": "#ffffff",
+            "shop_now": "Shop now",
+            "dec_1_top": 0,
+            "dec_1_left": 90,
+            "dec_1_width": 100,
+            "dec_2_top": 10,
+            "dec_2_left": 10,
+            "dec_2_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "count_down_Lp6x8n",
+        "wrap_bg_whTgME"
+      ],
+      "custom_css": [
+        ".xmas-one-year-section {max-width: 1280px;}",
+        ".xmas-one-year-btn-secondary,.xmas-one-year-code-box .btn-copy {background: #e78ba6;}",
+        ".xmas-one-year-code-box {background: #fdf0f4;}"
+      ],
+      "name": "Xmas One Year (Custom)",
+      "settings": {
+        "title": "Valentine's Flash Deal",
+        "sub_heading": "Special Valentine’s Price. Limited-Time 57% OFF Discount on Our Best Seller!",
+        "show_sub_heading": true,
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/image_55.png",
+        "title_icon_size": 68,
+        "title_icon_mirror_right": true
+      }
+    },
+    "vd_clean_WDCmwf": {
+      "type": "vd-clean",
+      "blocks": {
+        "decoration_cJCePW": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_69_1.png",
+            "top": 80,
+            "left": -30,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "rotation": 0
+          }
+        },
+        "decoration_cDTThc": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/widget1.png",
+            "top": 40,
+            "left": 100,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "rotation": 0
+          }
+        },
+        "decoration_4LDiAa": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_113_1.png",
+            "top": 20,
+            "left": -15,
+            "width": 200,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        },
+        "large_card_mKtBy3": {
+          "type": "large_card",
+          "settings": {
+            "product": "p7-pro-cordless-vacuum",
+            "image": "shopify:\/\/shop_images\/Mask_group_15.webp",
+            "gift_image": "shopify:\/\/shop_images\/Group_732.png",
+            "discount_bg": "shopify:\/\/shop_images\/Group_68_1.png",
+            "discount_text": "55%",
+            "title": "【NEW】Honiture P7 Pro Cordless Vacuum",
+            "description": "<p>✨Advanced filtration system<br\/>✨Long runtime for deep cleaning<br\/>✨All-in-one strong performance<\/p><p>💖Valentine's Day Exclusive Deals 10% OFF & Free Gift.<br\/><\/p>",
+            "custom_icon": "shopify:\/\/shop_images\/p7pro-vacuum-disount.png",
+            "price": "",
+            "extra_discount": 10,
+            "code": "VLOVE10",
+            "code_label": "10% Off Code:",
+            "btn_text": "Shop Now",
+            "btn_link": "https:\/\/honiture.com\/collections\/all-vacuums\/products\/p7-pro-cordless-vacuum"
+          }
+        },
+        "large_card_qLeEPG": {
+          "type": "large_card",
+          "settings": {
+            "product": "x7",
+            "image": "shopify:\/\/shop_images\/Mask_group_16.webp",
+            "discount_bg": "shopify:\/\/shop_images\/Group_68_1.png",
+            "discount_text": "57%",
+            "title": "【HOT】Honiture X7 Cordless Vacuum",
+            "description": "<p>✨Powerful suction you can see<br\/>✨Works on multiple surfaces<br\/>✨Lightweight & easy to handle<\/p><p>💖Valentine's Day Exclusive Deals 10% OFF.<\/p>",
+            "custom_icon": "shopify:\/\/shop_images\/X7discount.png",
+            "price": "",
+            "extra_discount": 12,
+            "code": "VLOVE12",
+            "code_label": "12% Off Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "small_card_Qg6TyQ": {
+          "type": "small_card",
+          "settings": {
+            "product": "y10-cordless-stick-vacuum",
+            "discount_bg": "shopify:\/\/shop_images\/Group_68_1.png",
+            "discount_text": "66%",
+            "title": "Honiture Y10 Cordless Vacuum",
+            "description": "Best value vacuum with a green dust-detection light.",
+            "code": "VLOVE20",
+            "code_label": "20% Off Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "small_card_3y3cwX": {
+          "type": "small_card",
+          "settings": {
+            "product": "s12",
+            "discount_bg": "shopify:\/\/shop_images\/Group_68_1.png",
+            "discount_text": "55%",
+            "title": "",
+            "description": "Delivers 33KPA suction power, up to 55 minutes of runtime.",
+            "code": "VLOVE8",
+            "code_label": "8% Off Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "decoration_cJCePW",
+        "decoration_cDTThc",
+        "decoration_4LDiAa",
+        "large_card_mKtBy3",
+        "large_card_qLeEPG",
+        "small_card_Qg6TyQ",
+        "small_card_3y3cwX"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {.copy-code-container {font-size: 12px; }}"
+      ],
+      "name": "VD Clean Section",
+      "settings": {
+        "title": "Clean with Love, Live with Love",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/image_53_1.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "sub_heading": "The Perfect Gift for Every Room in Your Home",
+        "view_more_link": "",
+        "view_more_label": "View More",
+        "show_header_divider": false,
+        "header_divider_color": "#ffffff",
+        "line_position_top": 90,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "rgba(0,0,0,0)"
+      }
+    },
+    "xmas_one_zEkHwR": {
+      "type": "xmas-one",
+      "blocks": {
+        "count_down_kpKfiC": {
+          "type": "count-down",
+          "settings": {
+            "end_date": "2026-02-31 23:59:59",
+            "heading": "",
+            "message": "",
+            "hide_on_complete": false,
+            "show_days": true,
+            "show_hours": true,
+            "show_minutes": true,
+            "show_seconds": true,
+            "style": "modern",
+            "text_alignment": "left",
+            "numbers_size": "small",
+            "labels_size": "small",
+            "background_color": "#f9f9f9",
+            "heading_color": "#333333",
+            "numbers_color": "#ffffff",
+            "numbers_background": "#ff3d00",
+            "labels_color": "#666666",
+            "message_color": "#ff3d00",
+            "padding_top": 30,
+            "padding_bottom": 30,
+            "margin_top": 0,
+            "margin_bottom": 30
+          }
+        }
+      },
+      "block_order": [
+        "count_down_kpKfiC"
+      ],
+      "disabled": true,
+      "name": "Xmas One Card",
+      "settings": {
+        "title": "Valentine's Flash Deal",
+        "sub_heading": "Special Valentine's Price — Limited Time",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Mask_group_42674b8b-fa8c-4a94-b5df-ffafe5be15c6.png",
+        "title_icon_size": 62,
+        "title_icon_mirror_right": true,
+        "product": "honiture-t10-robot-vacuum",
+        "custom_product_image": "shopify:\/\/shop_images\/honiture-t10-robotic-vaccum-black-Friday-sale.png",
+        "custom_product_image_m": "shopify:\/\/shop_images\/honiture-t10-robotic-vaccum-black-Friday-sale.png",
+        "product_title": "Honiture T10 Robot Vacuum",
+        "custom_sale_price": "",
+        "custom_compare_price": "",
+        "product_desc": "<p>✨6000 Pa 3-in-1 Cleaning<br\/>✨Smart App & Voice Control <br\/>✨Slim Design, Big Reach <\/p>",
+        "show_discount_badge": true,
+        "badge_text": "50",
+        "badge_background_image": "shopify:\/\/shop_images\/Group_68_1.png",
+        "shop_now": "Shop now",
+        "learn_more": "Learn more"
+      }
+    },
+    "vd_acce_pLnYQ7": {
+      "type": "vd--acce",
+      "blocks": {
+        "decoration_9e4HYX": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_69_1.png",
+            "top": 60,
+            "left": 100,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        },
+        "decoration_fPphWd": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_73_1.png",
+            "top": 30,
+            "left": 100,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "rotation": 0
+          }
+        },
+        "decoration_zipaYe": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_110_1.webp",
+            "top": 30,
+            "left": -30,
+            "width": 400,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        },
+        "acce_product_nqX9UF": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-t10-robot-vacuum",
+            "variant_id": "",
+            "title": "",
+            "show_discount_badge": true,
+            "discount_badge_text": "62%",
+            "discount_badge_bg": "shopify:\/\/shop_images\/Group_68_1.png",
+            "custom_description": "Ultra-Slim 3.3\" Vacuum & Mop Smart Robot Vacuum",
+            "code_label": "20% Off:",
+            "discount_code": "VLOVE20"
+          }
+        },
+        "acce_product_LW9VVQ": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-robot-vacuum-cleaner-g20pro",
+            "variant_id": "",
+            "title": "",
+            "show_discount_badge": true,
+            "discount_badge_text": "56%",
+            "discount_badge_bg": "shopify:\/\/shop_images\/Group_68_1.png",
+            "custom_description": "4500PA Powerful Suction & 3-in-1 Vacuum & Mop",
+            "code_label": "8% Off:",
+            "discount_code": "VLOVE8"
+          }
+        },
+        "acce_product_8XRnqP": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-robot-vacuum-cleaner-g20",
+            "variant_id": "",
+            "title": "",
+            "show_discount_badge": true,
+            "discount_badge_text": "57%",
+            "discount_badge_bg": "shopify:\/\/shop_images\/Group_68_1.png",
+            "custom_description": "4000PA Suction & App and Voice Control Robot Vacuum",
+            "code_label": "8% Off:",
+            "discount_code": "VLOVE8"
+          }
+        }
+      },
+      "block_order": [
+        "decoration_9e4HYX",
+        "decoration_fPphWd",
+        "decoration_zipaYe",
+        "acce_product_nqX9UF",
+        "acce_product_LW9VVQ",
+        "acce_product_8XRnqP"
+      ],
+      "custom_css": [
+        ".xmas-viewmore {display: none !important;}",
+        ".countdown-timer {padding: 0px !important;}",
+        ".xmax_section__title {color: #fbf5d4;}",
+        ".acce__container {max-width: 1200px;}",
+        ".acce-card__badge {background-color: #00d0cd;}",
+        "@media (max-width: 768px) {.xmax_section__title {font-size: 16px; } .xmax_section__header {margin-bottom: 0px; }}"
+      ],
+      "name": "Vd Acce",
+      "settings": {
+        "title": "Clean Floors, Fresh Air, Every Day",
+        "sub_heading": "Breathe in the fresh air, embrace romance every day.",
+        "show_sub_heading": true,
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/image_53.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "banner_bg": "shopify:\/\/shop_images\/Group_77.webp",
+        "banner_bg_mobile": "shopify:\/\/shop_images\/Group_77_75abaa9b-8f76-4f76-8100-9c5425dbec47.webp",
+        "banner_richtext": "<p>Let our robot vacuum take care of the space <\/p><p>for the ones you love!<\/p><p><br\/>Great Deals: Get up to an extra 20% OFF<\/p>",
+        "banner_subtitle": "",
+        "banner_bg_link_url": "",
+        "banner_bg_link_label": "",
+        "code_label": "Code:",
+        "discount_code": "VLOVE8"
+      }
+    },
+    "xmas_acce_year_YMGELP": {
+      "type": "xmas-acce-year",
+      "blocks": {
+        "acce_product_dmwpi6": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-t10-robot-vacuum",
+            "variant_id": "",
+            "title": "",
+            "show_discount_badge": true,
+            "discount_badge_text": "57% OFF",
+            "custom_description": "Ultra-Slim 3.3\" Vacuum & Mop Smart Robot Vacuum",
+            "discount_code": "NEWYEAR10"
+          }
+        },
+        "acce_product_mgz4Q4": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-robot-vacuum-cleaner-g20pro",
+            "variant_id": "",
+            "title": "",
+            "show_discount_badge": true,
+            "discount_badge_text": "58% OFF",
+            "custom_description": "4500PA Powerful Suction & 3-in-1 Vacuum & Mop",
+            "discount_code": "NEWYEAR10"
+          }
+        },
+        "acce_product_AEa3ti": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-robot-vacuum-cleaner-g20",
+            "variant_id": "",
+            "title": "",
+            "show_discount_badge": true,
+            "discount_badge_text": "59% OFF",
+            "custom_description": "4000PA Suction & App\nand Voice Control Robot Vacuum",
+            "discount_code": "NEWYEAR10"
+          }
+        }
+      },
+      "block_order": [
+        "acce_product_dmwpi6",
+        "acce_product_mgz4Q4",
+        "acce_product_AEa3ti"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".xmas-viewmore {display: none !important;}",
+        ".countdown-timer {padding: 0px !important;}",
+        ".xmax_section__title {color: #fbf5d4;}",
+        ".xmas-acce-year .acce-year__container {max-width: 1200px;}",
+        ".acce-year-card__badge {background-color: #00d0cd;}",
+        "@media (max-width: 768px) {.xmax_section__title {font-size: 16px; } .xmax_section__header {margin-bottom: 0px; }}"
+      ],
+      "name": "Xmas Acce Year (Custom)",
+      "settings": {
+        "title": "Breathe in the fresh air, embrace romance every day.",
+        "sub_heading": "Let our robot vacuum take care of the space for the ones you love!",
+        "show_sub_heading": true,
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/3-1.png",
+        "title_icon_size": 80,
+        "title_icon_mirror_right": true,
+        "banner_bg": "shopify:\/\/shop_images\/honiture-robot-vacuum-2026.png",
+        "banner_bg_mobile": "shopify:\/\/shop_images\/honiture-g20pro-and-t10.webp",
+        "banner_richtext": "<p>Upgrade to smarter cleaning for less.  <\/p><p>Save 10% on all robot vacuums!<\/p>",
+        "banner_subtitle": "",
+        "banner_bg_link_url": "",
+        "banner_bg_link_label": "Learn More"
+      }
+    },
+    "vd_tab_hTC9eR": {
+      "type": "vd-tab",
+      "blocks": {
+        "decoration_hzGTrW": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_46_1_1.png",
+            "top": 24,
+            "left": 15,
+            "width": 200,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "rotation": 0,
+            "mobile_top": 14,
+            "mobile_left": 15,
+            "mobile_width": 100,
+            "mobile_rotation": 15
+          }
+        },
+        "decoration_ep46yD": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_45_1.png",
+            "top": 24,
+            "left": 70,
+            "width": 200,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "rotation": 0,
+            "mobile_top": 22,
+            "mobile_left": 60,
+            "mobile_width": 100,
+            "mobile_rotation": -20
+          }
+        },
+        "decoration_gLzKyr": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_110_1.webp",
+            "top": 20,
+            "left": 100,
+            "width": 400,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_rotation": 0
+          }
+        },
+        "decoration_igMazp": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_69_1.png",
+            "top": 10,
+            "left": -30,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_rotation": 0
+          }
+        },
+        "decoration_eg6tYP": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/widget1.png",
+            "top": 40,
+            "left": -30,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_rotation": 0
+          }
+        },
+        "product_card_jUDTAn": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "hepa-filters-for-honiture-p7-pro",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "3pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_93t7R4": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "honiture-s12-hepa-filters",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "4pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_KNmiCL": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "honiture-x7-hepa-filters",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "3pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_Yn8fEt": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "hepa-filters-for-honiture-y10",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "3pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_jCCVBn": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "honiture-g20-pro-dust-bin-filter",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "2pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_tjHKLM": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "honiture-s13-pro-hepa-filters",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "3pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_hgyfgp": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "replacement-filter-for-honiture-t10",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "2pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_cpAcNe": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "honiture-g20-dust-bin-filter",
+            "badge_text": "50%",
+            "gift_product": "",
+            "gift_title": "2pcs\/pack",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_ABqVHj": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "2",
+            "product": "flocking-roller-brush-for-honiture-s12",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_RF64Bq": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "2",
+            "product": "roller-brush-for-honiture-p7-pro",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_y73GbK": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "2",
+            "product": "honiture-x7-roller-brush",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_zGC9XM": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "2",
+            "product": "honiture-s12-floor-brush",
+            "badge_text": "26%",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_whaXKi": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "2",
+            "product": "honiture-x7-floor-brush",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_waKkm7": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "2",
+            "product": "cleaner-head-for-honiture-p7-pro",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_BdXEW9": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "3",
+            "product": "battery-replacement-for-honiture-p7-pro",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_X9ycic": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "3",
+            "product": "replacement-battery-for-honiture-s12",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_AYkm36": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "3",
+            "product": "honiture-x7-replacement-battery",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_rNAPcb": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "3",
+            "product": "charger-for-honiture-s12",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_cFapFw": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "3",
+            "product": "honiture-x7-charger",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_yHzUEk": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "3",
+            "product": "honiture-v8-pro-charging-dock",
+            "badge_text": "",
+            "gift_product": "",
+            "gift_title": "",
+            "gift_price": "$0",
+            "gift_compare_price": "get",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "decoration_hzGTrW",
+        "decoration_ep46yD",
+        "decoration_gLzKyr",
+        "decoration_igMazp",
+        "decoration_eg6tYP",
+        "product_card_jUDTAn",
+        "product_card_93t7R4",
+        "product_card_KNmiCL",
+        "product_card_Yn8fEt",
+        "product_card_jCCVBn",
+        "product_card_tjHKLM",
+        "product_card_hgyfgp",
+        "product_card_cpAcNe",
+        "product_card_ABqVHj",
+        "product_card_RF64Bq",
+        "product_card_y73GbK",
+        "product_card_zGC9XM",
+        "product_card_whaXKi",
+        "product_card_waKkm7",
+        "product_card_BdXEW9",
+        "product_card_X9ycic",
+        "product_card_AYkm36",
+        "product_card_rNAPcb",
+        "product_card_cFapFw",
+        "product_card_yHzUEk"
+      ],
+      "custom_css": [
+        ".xmax_section__title-row {padding: 0 220px;}",
+        ".xmax_section__title {text-align: center;}",
+        ".xmas-view-more-container {flex-direction: column;}",
+        ".xmas-viewmore {background: #ff8da7; border: none;}",
+        "@media (max-width: 768px) {.xmas-view-more-container {flex-direction: column; } .xmax_section__title-icon {width: 30px !important; } .xmax_section__title {font-size: 17px; } .xmax_section__title-row {padding: 0; }}"
+      ],
+      "name": "VD Tab Section",
+      "settings": {
+        "title": "Romantic Deals Await: Celebrate Love with Special Discounts!",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/image_53_1.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "sub_heading": "Buy One, Get One Free on All HEPA Filters! Plus, Enjoy Sitewide Accessory Discounts!",
+        "view_more_link": "shopify:\/\/collections\/accessories",
+        "view_more_label": "Shop All Accessories",
+        "coupon_image_1": "shopify:\/\/shop_images\/Group_70_1_1.png",
+        "coupon_code_1": "HEART8",
+        "coupon_image_2": "shopify:\/\/shop_images\/Group_71_1.png",
+        "coupon_code_2": "HEART10",
+        "tab_1_title": "HEPA filter",
+        "tab_2_title": "Brush & Head",
+        "tab_3_title": "Battery",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "bg_color": "rgba(0,0,0,0)",
+        "badge_bg": "shopify:\/\/shop_images\/Group_68_1.png"
+      }
+    },
+    "vd_combo_WFpLhL": {
+      "type": "vd-combo",
+      "blocks": {
+        "decoration_TCLk8h": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/widget1.png",
+            "top": 50,
+            "left": 100,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        },
+        "decoration_dtPMEK": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_113_1.png",
+            "top": 30,
+            "left": -15,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        },
+        "combo_card_TJwPKK": {
+          "type": "combo_card",
+          "settings": {
+            "product_1": "p7-pro-cordless-vacuum",
+            "title_1": "",
+            "variant_1_id": "",
+            "quantity_1": 1,
+            "product_2": "battery-replacement-for-p7-pro",
+            "custom_price_2": "$62.99",
+            "title_2": "",
+            "variant_2_id": "",
+            "quantity_2": 1,
+            "image_2": "shopify:\/\/shop_images\/battery-replacement-for-Honiture-P7-Pro-cordless-vacuum.jpg",
+            "product_3": "hepa-filters-for-honiture-p7-pro",
+            "title_3": "",
+            "variant_3_id": "",
+            "quantity_3": 1,
+            "custom_sum_price_1": "SAVE $39",
+            "custom_sum_price_2": "$259.97",
+            "custom_sum_price_3": "$298.97",
+            "button_label": "Buy now",
+            "button_link": ""
+          }
+        },
+        "combo_card_Dqdc9t": {
+          "type": "combo_card",
+          "settings": {
+            "product_1": "x7",
+            "title_1": "",
+            "variant_1_id": "",
+            "quantity_1": 1,
+            "product_2": "origianl-battery-for-honiture-x7",
+            "custom_price_2": "$62.99",
+            "title_2": "",
+            "variant_2_id": "",
+            "quantity_2": 1,
+            "image_2": "shopify:\/\/shop_images\/2_5e345ddb-5dd2-40bf-943b-3636a4c18fb5.jpg",
+            "product_3": "honiture-x7-hepa-filters",
+            "title_3": "",
+            "variant_3_id": "",
+            "quantity_3": 1,
+            "custom_sum_price_1": "SAVE $39",
+            "custom_sum_price_2": "$239.97",
+            "custom_sum_price_3": "$278.97",
+            "button_label": "Buy now",
+            "button_link": ""
+          }
+        },
+        "combo_card_ddjAmy": {
+          "type": "combo_card",
+          "settings": {
+            "product_1": "x7",
+            "title_1": "",
+            "variant_1_id": "",
+            "quantity_1": 1,
+            "product_2": "honiture-robot-vacuum-cleaner-g20pro",
+            "custom_price_2": "",
+            "title_2": "",
+            "variant_2_id": "",
+            "quantity_2": 1,
+            "product_3": "honiture-g20-pro-accessories-pack",
+            "title_3": "",
+            "variant_3_id": "",
+            "quantity_3": 1,
+            "custom_sum_price_1": "SAVE $80",
+            "custom_sum_price_2": "$369.97",
+            "custom_sum_price_3": "$449.97",
+            "button_label": "Buy now",
+            "button_link": "shopify:\/\/products\/honiture-x7-cordless-vacuum-and-g20-pro-robot-vacuum"
+          }
+        }
+      },
+      "block_order": [
+        "decoration_TCLk8h",
+        "decoration_dtPMEK",
+        "combo_card_TJwPKK",
+        "combo_card_Dqdc9t",
+        "combo_card_ddjAmy"
+      ],
+      "name": "VD 组合模块",
+      "settings": {
+        "title": "Grab Both & Save: Special Bundle for Love",
+        "sub_heading": "Order your vacuum and battery together and save — more power, less hassle.",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/image_77_1.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "bg_color": "#f9f9f9"
+      }
+    },
+    "xmax_reward_Fb9q8e": {
+      "type": "xmax-reward",
+      "blocks": {
+        "decoration_RdP4gF": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/widget1.png",
+            "top": 0,
+            "left": 100,
+            "width": 300,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "rotation": 0
+          }
+        },
+        "decoration_G9hHzb": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_112.webp",
+            "top": 30,
+            "left": -20,
+            "width": 200,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0
+          }
+        }
+      },
+      "block_order": [
+        "decoration_RdP4gF",
+        "decoration_G9hHzb"
+      ],
+      "custom_css": [
+        ".reviews {padding: 0; background: transparent;}",
+        ".reviews-dot {background: #8080809c;}",
+        ".review-box {color: #000;}",
+        ".reviews-slider {min-height: 440px;}",
+        ".reviews-slider::before {background: none;}",
+        "@media (max-width: 768px) {.reviews-slider {min-height: 600px; } review-text, .review-user {font-size: 16px; }}"
+      ],
+      "name": "Xmas Reward",
+      "settings": {
+        "title": "Loved by Our Customers",
+        "sub_heading": "",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/image_65.png",
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "content_bg": "shopify:\/\/shop_images\/Group_78.webp",
+        "content_bg_mobile": "shopify:\/\/shop_images\/review432.webp",
+        "review_1_user": "Anne W.",
+        "review_1_text": "This vacuum delivers everything it promises to. It is lighter than my previous Dyson which was quite heavy and uncomfortable by comparison it’s very powerful and an all round great buy.",
+        "review_2_user": "Angela Daz Delgado",
+        "review_2_text": "I purchased as a gift for my daughter in law. She loves it!",
+        "review_3_user": "Gloria R.",
+        "review_3_text": "I love it. It does a great job picking up the cat and dog hair off the floor. The light on the front helps see the hair and dirt. It's is worth every penny. Thanks"
+      }
+    },
+    "custom_liquid_M7x7eH": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "name": "Custom liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<style>\n.shopify-section{\noverflow:hidden;\n}\n.copy-code-container,.xmas-one-card-discount-code{\njustify-content: space-between;\n    padding: 10px 15px 10px 20px;\n    width: 260px;\n    margin: 0 auto 15px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/copycode-bg.png?v=1769503033);\n    background-size: 100%;\n    background-repeat: no-repeat;\n    background-position: center;\ndisplay:flex;\n}\n\n#wrapper #main-content {\nbackground: linear-gradient(180deg, #FCEFF4 0%, #eaeeff 100%);\n\n}\n.xmax_section__title{\n color: #000000!important;\n    width: 100%!important;\n}\n.xmas-sub-heading{\ncolor: #616161!important;\n}\n\n@media (max-width: 768px) {\n    #shopify-section-template--20704037437487__sticky_nav_khqXgG .sticky-nav {\n        justify-content: center;\n        gap: 10px;\n        flex-wrap: wrap;\n               \n     }\n     #shopify-section-template--20704037437487__sticky_nav_khqXgG .sticky-nav__link{\n        width: calc(33% - 10px);\n        display: flex;\n        flex-direction: column;\n        white-space: wrap;\n        gap: 5px;\n        font-size: 12px;\n                padding: 10px;\n        border-radius: 12px;\n         flex: unset;\n     }\n     #shopify-section-template--20704037437487__sticky_nav_khqXgG .sticky-nav__icon{\n        width: auto;\n        height: 30px;\n     }\n     .copy-code-container,.xmas-one-card-discount-code{\n         width: 100%;\n      }\n.xmax_section__title{\nfont-size: 16px!important;\n}\n}\n\n<\/style>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_simple_banner_VxQdhh",
+    "slideshow_tDn6WT",
+    "sticky_nav_cprXhd",
+    "sticky_nav_khqXgG",
+    "spin_win_PkPG33",
+    "xmas_one_year_TPUDhh",
+    "vd_clean_WDCmwf",
+    "xmas_one_zEkHwR",
+    "vd_acce_pLnYQ7",
+    "xmas_acce_year_YMGELP",
+    "vd_tab_hTC9eR",
+    "vd_combo_WFpLhL",
+    "xmax_reward_Fb9q8e",
+    "custom_liquid_M7x7eH"
+  ]
+}

@@ -1,0 +1,1590 @@
+{% comment %}
+  FD New Arrivel
+  Product launch hero with background art, configurable desktop/mobile selling points,
+  coupon copy image, and cart/checkout actions that open in new tabs.
+{% endcomment %}
+
+{% liquid
+  assign product_obj = section.settings.product
+  assign variant_id = section.settings.variant_id
+  assign selected_variant = blank
+  assign extra_discount_percent = section.settings.extra_discount_percent | default: 0
+  assign current_sale_cents = blank
+  assign current_compare_cents = blank
+  assign product_title_url = blank
+  assign product_card_url = section.settings.card_link
+
+  if product_obj != blank
+    assign selected_variant = product_obj.selected_or_first_available_variant
+    assign product_title_url = product_obj.url
+    if variant_id == blank
+      assign variant_id = selected_variant.id
+    endif
+  endif
+ 
+  assign product_title = section.settings.title
+  if product_title == blank and product_obj != blank
+    assign product_title = product_obj.title
+  endif
+
+  assign sale_price = section.settings.price_text
+  if sale_price == blank and selected_variant != blank
+    assign current_sale_cents = selected_variant.price
+    if extra_discount_percent > 0
+      assign discount_multiplier = 100 | minus: extra_discount_percent
+      assign current_sale_cents = current_sale_cents | times: discount_multiplier | divided_by: 100
+    endif
+    assign sale_price = current_sale_cents | money
+  endif
+
+  assign compare_price = section.settings.compare_price_text
+  if compare_price == blank and selected_variant != blank
+    if selected_variant.compare_at_price > selected_variant.price
+      assign current_compare_cents = selected_variant.compare_at_price
+    elsif extra_discount_percent > 0
+      assign current_compare_cents = selected_variant.price
+    endif
+    if current_compare_cents != blank
+      assign compare_price = current_compare_cents | money
+    endif
+  endif
+%}
+
+<section
+  id="fd-new-arrivel-{{ section.id }}"
+  class="fd-new-arrivel"
+  style="
+    --fdna-bg-color: {{ section.settings.background_color }};
+    --fdna-text-color: {{ section.settings.text_color }};
+    --fdna-accent-color: {{ section.settings.accent_color }};
+    --fdna-line-color: {{ section.settings.line_color }};
+    --fdna-content-width: {{ section.settings.content_width }}px;
+    --fdna-min-height: {{ section.settings.desktop_height }}px;
+    --fdna-mobile-height: {{ section.settings.mobile_height }}px;
+    --fdna-padding-top: {{ section.settings.padding_top }}px;
+    --fdna-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --fdna-mobile-padding-top: {{ section.settings.mobile_padding_top }}px;
+    --fdna-mobile-padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    --fdna-card-radius: {{ section.settings.card_radius }}px;
+    --fdna-card-shadow: {{ section.settings.card_shadow }};
+    {% if section.settings.background_image != blank %}
+      --fdna-bg-desktop: url('{{ section.settings.background_image | image_url: width: 2400 }}');
+    {% endif %}
+    {% if section.settings.mobile_background_image != blank %}
+      --fdna-bg-mobile: url('{{ section.settings.mobile_background_image | image_url: width: 900 }}');
+    {% elsif section.settings.background_image != blank %}
+      --fdna-bg-mobile: url('{{ section.settings.background_image | image_url: width: 900 }}');
+    {% endif %}
+  "
+>
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'header' -%}
+        {% render 'xmas-section-header', block: block %}
+    {%- endcase -%}
+  {%- endfor -%}
+
+  <div class="fd-new-arrivel__inner">
+    <div
+      class="fd-new-arrivel__card{% if product_card_url != blank %} is-clickable{% endif %}"
+      {% if product_card_url != blank %}
+        data-fdna-card-url="{{ product_card_url }}"
+      {% endif %}
+    >
+      <div class="fd-new-arrivel__content">
+        {% if section.settings.discount_badge != blank %}
+          <div class="fd-new-arrivel__badge">
+            {{ section.settings.discount_badge | image_url: width: 360 | image_tag: loading: 'lazy', alt: section.settings.discount_badge_alt }}
+          </div>
+        {% elsif section.settings.discount_badge_text != blank %}
+          <div class="fd-new-arrivel__badge-fallback">{{ section.settings.discount_badge_text | escape }}</div>
+        {% endif %}
+
+        {% if product_title != blank %}
+          <h2 class="fd-new-arrivel__title">
+            {% if product_title_url != blank %}
+              <a href="{{ product_title_url }}" target="_blank" rel="noopener">
+                {{ product_title | escape | newline_to_br }}
+              </a>
+            {% else %}
+              {{ product_title | escape | newline_to_br }}
+            {% endif %}
+          </h2>
+        {% endif %}
+
+        <div class="fd-new-arrivel__features">
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="fd-new-arrivel__feature" {{ block.shopify_attributes }}>
+                <div class="fd-new-arrivel__feature-icon" aria-hidden="true">
+                  {% if block.settings.icon_image != blank %}
+                    {{ block.settings.icon_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: block.settings.pc_title }}
+                  {% else %}
+                    {% case block.settings.icon %}
+                      {% when 'leaf' %}
+                        <svg viewBox="0 0 48 48"><path d="M40 9C22 9 10 20 10 33c0 5 4 9 10 9 13 0 21-13 20-33Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M15 36c7-9 14-14 23-20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                      {% when 'wave' %}
+                        <svg viewBox="0 0 48 48"><path d="M7 30c5-13 10-13 15 0s10 13 19 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+                      {% when 'clean' %}
+                        <svg viewBox="0 0 48 48"><path d="M10 30c9-1 16-5 21-13 5 3 8 8 8 14H10Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M13 35h23" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                      {% else %}
+                        <svg viewBox="0 0 48 48"><path d="m24 7 3 9 9 3-9 3-3 9-3-9-9-3 9-3 3-9Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m13 29 1.5 4.5L19 35l-4.5 1.5L13 41l-1.5-4.5L7 35l4.5-1.5L13 29Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+                    {% endcase %}
+                  {% endif %}
+                </div>
+                <div class="fd-new-arrivel__feature-copy">
+                  <div class="fd-new-arrivel__feature-title fd-new-arrivel__feature-title--pc">{{ block.settings.pc_title | escape }}</div>
+                  <div class="fd-new-arrivel__feature-title fd-new-arrivel__feature-title--mobile">{{ block.settings.mobile_title | default: block.settings.pc_title | escape }}</div>
+                  {% if block.settings.pc_text != blank %}
+                    <div class="fd-new-arrivel__feature-text fd-new-arrivel__feature-text--pc">{{ block.settings.pc_text | escape }}</div>
+                  {% endif %}
+                  {% assign mobile_feature_text = block.settings.mobile_text | default: block.settings.pc_text %}
+                  {% if mobile_feature_text != blank %}
+                    <div class="fd-new-arrivel__feature-text fd-new-arrivel__feature-text--mobile">{{ mobile_feature_text | escape }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      {% if section.settings.coupon_image != blank or section.settings.coupon_code != blank %}
+        <button
+          type="button"
+          class="fd-new-arrivel__coupon"
+          data-fdna-copy
+          data-code="{{ section.settings.coupon_code | escape }}"
+          data-toast="{{ section.settings.copied_text | default: 'copied' | escape }}"
+          aria-label="{{ section.settings.copy_aria_label | escape }}"
+        >
+          {% if section.settings.coupon_image != blank %}
+            {{ section.settings.coupon_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.copy_aria_label }}
+          {% else %}
+            <span>{{ section.settings.coupon_fallback_text | escape }}</span>
+            <strong>{{ section.settings.coupon_claim_text | escape }}</strong>
+          {% endif %}
+        </button>
+      {% endif %}
+
+      <div class="fd-new-arrivel__divider" aria-hidden="true"></div>
+
+      <div class="fd-new-arrivel__buy-row">
+        <div class="fd-new-arrivel__price-wrap">
+          {% if sale_price != blank %}
+            <div class="fd-new-arrivel__price">{{ sale_price | escape }}</div>
+          {% endif %}
+          {% if compare_price != blank %}
+            <div class="fd-new-arrivel__compare">{{ compare_price | escape }}</div>
+          {% endif %}
+        </div>
+        <div class="fd-new-arrivel__actions">
+          {% if section.settings.add_to_cart_label != blank %}
+            <button
+              type="button"
+              class="fd-new-arrivel__btn fd-new-arrivel__btn--cart"
+              data-fdna-action="cart"
+              data-variant-id="{{ variant_id }}"
+              data-cart-url="{{ section.settings.cart_url | default: '/cart' }}"
+              {% if variant_id == blank %}disabled{% endif %}
+            >
+              {{ section.settings.add_to_cart_label | escape }}
+            </button>
+          {% endif %}
+          {% if section.settings.shop_now_label != blank %}
+            <button
+              type="button"
+              class="fd-new-arrivel__btn fd-new-arrivel__btn--shop"
+              data-fdna-action="checkout"
+              data-variant-id="{{ variant_id }}"
+              data-checkout-url="{{ section.settings.checkout_url | default: '/checkout' }}"
+              {% if variant_id == blank %}disabled{% endif %}
+            >
+              {{ section.settings.shop_now_label | escape }}
+            </button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fd-new-arrivel__toast" role="status" aria-live="polite"></div>
+</section>
+
+{% render 'section-decorations', section: section %}
+
+{% style %}
+  #fd-new-arrivel-{{ section.id }} {
+    min-height: var(--fdna-min-height);
+    padding: var(--fdna-padding-top) 18px var(--fdna-padding-bottom);
+    color: var(--fdna-text-color);
+    background-color: var(--fdna-bg-color);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #fd-new-arrivel-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__inner {
+    width: 100%;
+    max-width: var(--fdna-content-width);
+    min-height: calc(var(--fdna-min-height) - var(--fdna-padding-top) - var(--fdna-padding-bottom));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__card {
+    width: 100%;
+    min-height: calc(var(--fdna-min-height) - var(--fdna-padding-top) - var(--fdna-padding-bottom));
+    padding: 28px 34px 30px;
+    border-radius: var(--fdna-card-radius);
+    box-shadow: var(--fdna-card-shadow);
+    background-color: var(--fdna-bg-color);
+    background-image: var(--fdna-bg-desktop);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__card.is-clickable {
+    cursor: pointer;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__content {
+    width: min(100%, 520px);
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__badge {
+    width: {{ section.settings.discount_badge_width }}px;
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__badge img,
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__coupon img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__badge-fallback {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 6px 26px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: #f83220;
+    color: #fff;
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__title {
+    max-width: 430px;
+    margin: 0 0 24px;
+    color: inherit;
+    font-size: {{ section.settings.title_size }}px;
+    line-height: 1.22;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 24px;
+    margin-bottom: 34px;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: {{ section.settings.feature_icon_size }}px minmax(0, 1fr);
+    align-items: center;
+    gap: 13px;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-icon {
+    width: {{ section.settings.feature_icon_size }}px;
+    height: {{ section.settings.feature_icon_size }}px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-icon svg {
+    width: 66%;
+    height: 66%;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-title {
+    color: inherit;
+    font-size: {{ section.settings.feature_title_size }}px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-text {
+    margin-top: 5px;
+    color: inherit;
+    font-size: {{ section.settings.feature_text_size }}px;
+    line-height: 1.35;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-title--mobile,
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-text--mobile {
+    display: none;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__coupon {
+    width: {{ section.settings.coupon_width }}px;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__coupon span {
+    min-height: 44px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(90deg, #2150aa, #0fcde0);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__coupon strong {
+    min-height: 44px;
+    padding: 0 26px;
+    display: inline-flex;
+    align-items: center;
+    background: #08cbd4;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 700;
+    text-decoration: underline;
+    clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 50%, calc(100% - 24px) 100%, 0 100%);
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__divider {
+    width: {{ section.settings.divider_width }}px;
+    max-width: 100%;
+    height: 1px;
+    margin: 28px 0 24px;
+    background: var(--fdna-line-color);
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__buy-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__price {
+    color: inherit;
+    font-size: {{ section.settings.price_size }}px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__compare {
+    color: inherit;
+    font-size: {{ section.settings.compare_size }}px;
+    line-height: 1;
+    font-weight: 500;
+    opacity: 0.72;
+    text-decoration: line-through;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__btn {
+    width: {{ section.settings.button_width }}px;
+    min-height: {{ section.settings.button_height }}px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--fdna-accent-color);
+    font-size: {{ section.settings.button_text_size }}px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__btn:hover {
+    transform: translateY(-1px);
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__btn:disabled {
+    cursor: not-allowed;
+    opacity: .45;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__btn--cart {
+    background: transparent;
+    color: var(--fdna-accent-color);
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__btn--shop {
+    background: var(--fdna-accent-color);
+    color: {{ section.settings.shop_button_text_color }};
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 120px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, .82);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    z-index: 9999;
+  }
+
+  #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__toast.is-visible {
+    opacity: 1;
+  }
+
+  @media (max-width: 767px) {
+    #fd-new-arrivel-{{ section.id }} {
+      min-height: var(--fdna-mobile-height);
+      padding: var(--fdna-mobile-padding-top) {{ section.settings.mobile_side_padding }}px var(--fdna-mobile-padding-bottom);
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__inner {
+      min-height: calc(var(--fdna-mobile-height) - var(--fdna-mobile-padding-top) - var(--fdna-mobile-padding-bottom));
+      align-items: flex-start;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__card {
+      min-height: calc(var(--fdna-mobile-height) - var(--fdna-mobile-padding-top) - var(--fdna-mobile-padding-bottom));
+      padding: 16px 12px 18px;
+      background-image: var(--fdna-bg-mobile);
+      background-position: {{ section.settings.mobile_background_position }};
+      background-size: cover;
+      border-radius: calc(var(--fdna-card-radius) - 4px);
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__content {
+      width: 100%;
+      min-height: calc(var(--fdna-mobile-height) - var(--fdna-mobile-padding-top) - var(--fdna-mobile-padding-bottom));
+      display: flex;
+      flex-direction: column;
+      align-items: {{ section.settings.mobile_content_align }};
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__badge {
+      width: {{ section.settings.mobile_discount_badge_width }}px;
+      margin-bottom: 10px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__title {
+      max-width: {{ section.settings.mobile_title_width }}px;
+      margin-bottom: auto;
+      font-size: {{ section.settings.mobile_title_size }}px;
+      line-height: 1.28;
+      text-align: {{ section.settings.mobile_text_align }};
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__features {
+      width: 100%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 14px;
+      margin: {{ section.settings.mobile_feature_top_gap }}px 0 18px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature {
+      grid-template-columns: {{ section.settings.mobile_feature_icon_size }}px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-icon {
+      width: {{ section.settings.mobile_feature_icon_size }}px;
+      height: {{ section.settings.mobile_feature_icon_size }}px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-title {
+      font-size: {{ section.settings.mobile_feature_title_size }}px;
+      line-height: 1.15;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-text {
+      margin-top: 4px;
+      font-size: {{ section.settings.mobile_feature_text_size }}px;
+      line-height: 1.32;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-title--pc,
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-text--pc {
+      display: none;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-title--mobile,
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__feature-text--mobile {
+      display: block;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__coupon {
+      width: 100%;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__divider {
+      width: 100%;
+      margin: 18px 0 18px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__buy-row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr {{ section.settings.mobile_button_width }}px;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__price-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__price {
+      font-size: {{ section.settings.mobile_price_size }}px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__compare {
+      font-size: {{ section.settings.mobile_compare_size }}px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__actions {
+      width: {{ section.settings.mobile_button_width }}px;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #fd-new-arrivel-{{ section.id }} .fd-new-arrivel__btn {
+      width: 100%;
+      min-height: {{ section.settings.mobile_button_height }}px;
+      font-size: {{ section.settings.mobile_button_text_size }}px;
+    }
+  }
+{% endstyle %}
+
+<script>
+  (function() {
+    var root = document.getElementById('fd-new-arrivel-{{ section.id }}');
+    if (!root) return;
+
+    var toast = root.querySelector('.fd-new-arrivel__toast');
+    var toastTimer;
+
+    function showToast(message) {
+      if (!toast) return;
+      toast.textContent = message || 'copied';
+      toast.classList.add('is-visible');
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(function() {
+        toast.classList.remove('is-visible');
+      }, 1800);
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+      return new Promise(function(resolve, reject) {
+        try {
+          var textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.top = '-1000px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          var success = document.execCommand('copy');
+          document.body.removeChild(textarea);
+          success ? resolve() : reject(new Error('Copy failed'));
+        } catch (error) {
+          reject(error);
+        }
+      });
+    }
+
+    function addToCart(variantId) {
+      return fetch((window.Shopify && window.Shopify.routes ? window.Shopify.routes.root : '/') + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({ id: Number(variantId), quantity: 1 })
+      }).then(function(response) {
+        if (!response.ok) throw new Error('Add failed');
+        return response.json();
+      });
+    }
+
+    root.addEventListener('click', function(event) {
+      var copyBtn = event.target.closest('[data-fdna-copy]');
+      if (copyBtn) {
+        var code = copyBtn.getAttribute('data-code') || '';
+        if (!code) return;
+        copyText(code).then(function() {
+          showToast(copyBtn.getAttribute('data-toast') || 'copied');
+        }).catch(function() {
+          showToast(copyBtn.getAttribute('data-toast') || 'copied');
+        });
+        return;
+      }
+
+      var actionBtn = event.target.closest('[data-fdna-action]');
+      if (actionBtn) {
+        if (actionBtn.disabled) return;
+
+        var variantId = actionBtn.getAttribute('data-variant-id');
+        if (!variantId) return;
+
+        var targetWindow = window.open('about:blank', '_blank');
+        var destination = actionBtn.getAttribute('data-fdna-action') === 'checkout'
+          ? (actionBtn.getAttribute('data-checkout-url') || '/checkout')
+          : (actionBtn.getAttribute('data-cart-url') || '/cart');
+
+        addToCart(variantId).then(function() {
+          if (targetWindow) {
+            targetWindow.location.href = destination;
+          } else {
+            window.location.href = destination;
+          }
+        }).catch(function() {
+          if (targetWindow) targetWindow.close();
+        });
+        return;
+      }
+
+      var card = event.target.closest('[data-fdna-card-url]');
+      if (!card || !root.contains(card)) return;
+      if (event.target.closest('a, button, input, select, textarea, [data-fdna-copy], [data-fdna-action]')) return;
+
+      var cardUrl = card.getAttribute('data-fdna-card-url') || '';
+      if (cardUrl) window.open(cardUrl, '_blank', 'noopener');
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FD New Arrivel",
+  "tag": "section",
+  "class": "section fd-new-arrivel-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "产品与背景"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "产品"
+    },
+    {
+      "type": "text",
+      "id": "variant_id",
+      "label": "变体 ID（可选）"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "PC 背景图"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "移动端背景图"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景色",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "产品标题",
+      "default": "Smart Flagship Wet & Dry\nVacuum Cleaner"
+    },
+    {
+      "type": "url",
+      "id": "card_link",
+      "label": "产品卡片跳转链接（留空不跳转）"
+    },
+    {
+      "type": "header",
+      "content": "折扣与优惠码"
+    },
+    {
+      "type": "image_picker",
+      "id": "discount_badge",
+      "label": "折扣标签图片"
+    },
+    {
+      "type": "text",
+      "id": "discount_badge_alt",
+      "label": "折扣标签 alt",
+      "default": "New 20% off"
+    },
+    {
+      "type": "text",
+      "id": "discount_badge_text",
+      "label": "无图片时标签文案",
+      "default": "New 20% OFF"
+    },
+    {
+      "type": "image_picker",
+      "id": "coupon_image",
+      "label": "复制折扣码图片"
+    },
+    {
+      "type": "text",
+      "id": "coupon_code",
+      "label": "折扣码",
+      "default": "MOMLOVE12"
+    },
+    {
+      "type": "text",
+      "id": "coupon_fallback_text",
+      "label": "无图片时优惠文案",
+      "default": "Extra 12 % OFF: MOMLOVE12"
+    },
+    {
+      "type": "text",
+      "id": "coupon_claim_text",
+      "label": "无图片时右侧文案",
+      "default": "Claim"
+    },
+    {
+      "type": "text",
+      "id": "copy_aria_label",
+      "label": "复制按钮无障碍文案",
+      "default": "Copy discount code"
+    },
+    {
+      "type": "text",
+      "id": "copied_text",
+      "label": "复制成功提示",
+      "default": "copied"
+    },
+    {
+      "type": "header",
+      "content": "价格与按钮"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "售价（留空读取产品）",
+      "default": "$344.00"
+    },
+    {
+      "type": "range",
+      "id": "extra_discount_percent",
+      "label": "额外折扣百分比",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "compare_price_text",
+      "label": "划线价（留空读取产品）",
+      "default": "$516.00"
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_label",
+      "label": "加购按钮文案",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "shop_now_label",
+      "label": "购买按钮文案",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "cart_url",
+      "label": "加购后打开地址"
+    },
+    {
+      "type": "url",
+      "id": "checkout_url",
+      "label": "Shop Now 打开地址"
+    },
+    {
+      "type": "header",
+      "content": "桌面样式"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "内容最大宽度",
+      "min": 900,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "PC 高度",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "卡片圆角",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "text",
+      "id": "card_shadow",
+      "label": "卡片阴影",
+      "default": "0 6px 24px rgba(0,0,0,.18)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "PC 上间距",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "PC 下间距",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "discount_badge_width",
+      "label": "PC 折扣标签宽",
+      "min": 80,
+      "max": 260,
+      "step": 4,
+      "unit": "px",
+      "default": 204
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "PC 标题字号",
+      "min": 20,
+      "max": 56,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "feature_icon_size",
+      "label": "PC 卖点图标尺寸",
+      "min": 34,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "feature_title_size",
+      "label": "PC 卖点标题字号",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "feature_text_size",
+      "label": "PC 卖点描述字号",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "coupon_width",
+      "label": "优惠码图片宽",
+      "min": 220,
+      "max": 520,
+      "step": 4,
+      "unit": "px",
+      "default": 324
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "label": "分割线宽",
+      "min": 220,
+      "max": 620,
+      "step": 10,
+      "unit": "px",
+      "default": 410
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "label": "PC 售价字号",
+      "min": 22,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "compare_size",
+      "label": "PC 划线价字号",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_width",
+      "label": "PC 按钮宽",
+      "min": 120,
+      "max": 260,
+      "step": 4,
+      "unit": "px",
+      "default": 188
+    },
+    {
+      "type": "range",
+      "id": "button_height",
+      "label": "PC 按钮高",
+      "min": 36,
+      "max": 68,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "label": "PC 按钮字号",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "移动端样式"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "移动端高度",
+      "min": 520,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "移动端上间距",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "移动端下间距",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "mobile_side_padding",
+      "label": "移动端左右间距",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "select",
+      "id": "mobile_background_position",
+      "label": "移动端背景位置",
+      "options": [
+        { "value": "center top", "label": "居中顶部" },
+        { "value": "center center", "label": "居中" },
+        { "value": "center bottom", "label": "居中底部" }
+      ],
+      "default": "center top"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_align",
+      "label": "移动端内容对齐",
+      "options": [
+        { "value": "flex-start", "label": "左" },
+        { "value": "center", "label": "中" },
+        { "value": "flex-end", "label": "右" }
+      ],
+      "default": "flex-end"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_align",
+      "label": "移动端文字对齐",
+      "options": [
+        { "value": "left", "label": "左" },
+        { "value": "center", "label": "中" },
+        { "value": "right", "label": "右" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "mobile_discount_badge_width",
+      "label": "移动端折扣标签宽",
+      "min": 80,
+      "max": 190,
+      "step": 2,
+      "unit": "px",
+      "default": 122
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_width",
+      "label": "移动端标题宽",
+      "min": 180,
+      "max": 360,
+      "step": 4,
+      "unit": "px",
+      "default": 276
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "移动端标题字号",
+      "min": 18,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 21
+    },
+    {
+      "type": "range",
+      "id": "mobile_feature_top_gap",
+      "label": "移动端卖点上方空间",
+      "min": 0,
+      "max": 360,
+      "step": 5,
+      "unit": "px",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "mobile_feature_icon_size",
+      "label": "移动端卖点图标尺寸",
+      "min": 34,
+      "max": 58,
+      "step": 2,
+      "unit": "px",
+      "default": 38
+    },
+    {
+      "type": "range",
+      "id": "mobile_feature_title_size",
+      "label": "移动端卖点标题字号",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "mobile_feature_text_size",
+      "label": "移动端卖点描述字号",
+      "min": 8,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_width",
+      "label": "移动端按钮列宽",
+      "min": 120,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "default": 142
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_height",
+      "label": "移动端按钮高",
+      "min": 32,
+      "max": 52,
+      "step": 2,
+      "unit": "px",
+      "default": 38
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_text_size",
+      "label": "移动端按钮字号",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "mobile_price_size",
+      "label": "移动端售价字号",
+      "min": 22,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "mobile_compare_size",
+      "label": "移动端划线价字号",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "颜色"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "文字颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "按钮主色",
+      "default": "#05cdd1"
+    },
+    {
+      "type": "color",
+      "id": "shop_button_text_color",
+      "label": "Shop Now 文字色",
+      "default": "#ffffff" 
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "分割线颜色",
+      "default": "#555555"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Section Header",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Section Title",
+          "default": "FD New Arrivel"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Sub Heading"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_sub_heading",
+          "label": "Show Sub Heading",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "view_more_label",
+          "label": "View More Label",
+          "default": "View More"
+        },
+        {
+          "type": "url",
+          "id": "view_more_link",
+          "label": "View More Link"
+        },
+        {
+          "type": "text",
+          "id": "view_more_color",
+          "label": "View More Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "view_more_border_color",
+          "label": "View More Border Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title_icons",
+          "label": "Show Title Icons",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "title_icon",
+          "label": "Title Icon"
+        },
+        {
+          "type": "range",
+          "id": "title_icon_size",
+          "label": "Title Icon Size",
+          "min": 24,
+          "max": 96,
+          "step": 2,
+          "unit": "px",
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "title_icon_size_mobile",
+          "label": "Mobile Title Icon Size",
+          "min": 18,
+          "max": 72,
+          "step": 2,
+          "unit": "px",
+          "default": 30
+        },
+        {
+          "type": "checkbox",
+          "id": "title_icon_mirror_right",
+          "label": "Mirror Right Icon",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text Align",
+          "options": [
+            { "value": "center", "label": "Center" },
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "label": "Bottom Margin",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 50
+        },
+        {
+          "type": "text",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Title Size",
+          "min": 20,
+          "max": 56,
+          "step": 1,
+          "unit": "px",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "title_size_mobile",
+          "label": "Mobile Title Size",
+          "min": 16,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 24
+        },
+        {
+          "type": "text",
+          "id": "sub_heading_color",
+          "label": "Sub Heading Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "sub_heading_size",
+          "label": "Sub Heading Size",
+          "min": 10,
+          "max": 28,
+          "step": 1,
+          "unit": "px",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "sub_heading_size_mobile",
+          "label": "Mobile Sub Heading Size",
+          "min": 10,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 14
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "卖点",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "图标图片"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "无图片时图标",
+          "options": [
+            { "value": "spark", "label": "清洁" },
+            { "value": "leaf", "label": "叶子" },
+            { "value": "wave", "label": "防缠绕" },
+            { "value": "clean", "label": "湿拖" }
+          ],
+          "default": "spark"
+        },
+        {
+          "type": "text",
+          "id": "pc_title",
+          "label": "PC 标题",
+          "default": "Effortless Cleaning"
+        },
+        {
+          "type": "text",
+          "id": "pc_text",
+          "label": "PC 描述",
+          "default": "Self-Propelled & Smart Modes"
+        },
+        {
+          "type": "text",
+          "id": "mobile_title",
+          "label": "移动端标题",
+          "default": "Effortless Cleaning"
+        },
+        {
+          "type": "text",
+          "id": "mobile_text",
+          "label": "移动端描述",
+          "default": "Self-Propelled & Smart Modes"
+        }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Desktop image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+        { "type": "range", "id": "top", "label": "Top", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "left", "label": "Left", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "top_offset", "label": "Top offset", "min": -500, "max": 500, "step": 10, "unit": "px", "default": 0 },
+        { "type": "range", "id": "left_offset", "label": "Left offset", "min": -500, "max": 500, "step": 10, "unit": "px", "default": 0 },
+        { "type": "range", "id": "width", "label": "Width", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "z_index", "label": "Z-index", "default": 1 },
+        { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+        { "type": "checkbox", "id": "hide_on_pc", "label": "Hide on desktop", "default": false },
+        { "type": "range", "id": "rotation", "label": "Rotation", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "range", "id": "mobile_top", "label": "Mobile top", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "mobile_left", "label": "Mobile left", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "mobile_width", "label": "Mobile width", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "mobile_z_index", "label": "Mobile z-index", "default": 1 },
+        { "type": "range", "id": "mobile_rotation", "label": "Mobile rotation", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FD New Arrivel",
+      "blocks": [
+        {
+          "type": "header",
+          "settings": {
+            "title": "FD New Arrivel",
+            "sub_heading": "",
+            "show_sub_heading": true,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#ffffff",
+            "view_more_border_color": "#ffffff",
+            "show_title_icons": true,
+            "title_icon_size_mobile": 30,
+            "title_icon_size": 40,
+            "title_icon_mirror_right": true,
+            "text_align": "center",
+            "margin_bottom": 50,
+            "title_color": "#ffffff",
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "sub_heading_color": "#ffffff",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 14
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "spark",
+            "pc_title": "Effortless Cleaning",
+            "pc_text": "Self-Propelled & Smart Modes",
+            "mobile_title": "Effortless Cleaning",
+            "mobile_text": "Self-Propelled & Smart Modes"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "pc_title": "No More Odors",
+            "pc_text": "Self-Cleaning & Full-System Drying",
+            "mobile_title": "No More Odors",
+            "mobile_text": "Self-Cleaning & Full-System Drying"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "wave",
+            "pc_title": "No More Tangles",
+            "pc_text": "Anti-Tangle Comb Scraper",
+            "mobile_title": "No More Tangles",
+            "mobile_text": "Anti-Tangle Comb Scraper"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "clean",
+            "pc_title": "Powerful Wet & Dry Cleaning",
+            "pc_text": "One-Pass Pickup for Everyday Messes",
+            "mobile_title": "Powerful Wet & Dry Cleaning",
+            "mobile_text": "One-Pass Pickup for Everyday Messes"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

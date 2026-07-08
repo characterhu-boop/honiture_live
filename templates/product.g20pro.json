@@ -1,0 +1,1296 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_GXFebR": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_xTcMXk": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_cJAVTk": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/60.svg",
+            "text": "60-Day Price Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_nDEefw": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "24-Hour Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_KFmXRV": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": "Enhanced Navigation and Obstacle | Application, Alexa and Remote"
+          }
+        },
+        "text_rXTGJT": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Enhanced Navigation and Obstacle | Application, Alexa and Remote",
+            "text_style": "style_vendor"
+          }
+        },
+        "klarna_on_site_messaging_app_block_gdPph4": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "settings": {}
+        },
+        "hextom_timer_bar_ctb_custom_placement_NYUQAJ": {
+          "type": "shopify:\/\/apps\/hextom-timer-bar\/blocks\/ctb-custom-placement\/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+          "settings": {}
+        },
+        "qikify_bogo_freegift_free_gift_dgpcDL": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "coupon_code_PDChk9": {
+          "type": "coupon_code",
+          "settings": {
+            "icon": "price_tag",
+            "image": "shopify:\/\/shop_images\/Group_240.png",
+            "has_background": true,
+            "text": "<p><strong>🌟4th of July Sale: Save an Extra 10% Today!<\/strong><\/p>",
+            "coupon_text": "JULY10",
+            "copy_text": "Copy Code",
+            "coupon_box_color": "#e7820e",
+            "coupon_box_color_link": "#00d0cd",
+            "coupon_bg_color": "#fdf1ea"
+          }
+        },
+        "coupon_code_2_NjdfHR": {
+          "type": "coupon_code_2",
+          "disabled": true,
+          "settings": {
+            "left_label_text": "Save",
+            "left_value_text": "12%",
+            "right_richtext_top": "<p>Extra 12% Off Auto-Applied!🔥<\/p>",
+            "copy_button_label": "",
+            "discount_code": "",
+            "right_richtext_bottom": "<p>Shop Mother’s Day Deals. <a href=\"\/pages\/mothers-day-sale\" target=\"_blank\" title=\"Mothers Day Sale\">Explore now<\/a><\/p>",
+            "right_bg_image": "shopify:\/\/shop_images\/Group_228.png",
+            "coupon_background": "linear-gradient(90deg, rgba(255, 236, 210, 1), rgba(249, 206, 192, 1) 100%)",
+            "left_text_color": "#f68403",
+            "body_text_color": "#18181d",
+            "accent_color": "#1d665e",
+            "desktop_width": 0,
+            "mobile_width": 0,
+            "desktop_height": 108,
+            "mobile_height": 100,
+            "right_bg_size_desktop": 60,
+            "right_bg_size_mobile": 50,
+            "right_bg_right_desktop": 2,
+            "right_bg_bottom_desktop": 29,
+            "right_bg_right_mobile": 5,
+            "right_bg_bottom_mobile": 0
+          }
+        },
+        "coupon_code_new_cxxJw3": {
+          "type": "coupon_code_new",
+          "disabled": true,
+          "settings": {
+            "has_background": false,
+            "text": "<p>⏰Limited-time Deal<\/p>",
+            "text_2": "<p>Apply & Save 10% Today<\/p>",
+            "discount_text": "10% OFF",
+            "coupon_text": "HONITURE10",
+            "copy_text": "Copy code",
+            "text_color": "#f68403",
+            "coupon_bg": "#fcf3e9",
+            "coupon_btn_text": "#e48924",
+            "coupon_btn_bg": "#fcf3e9"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li>Powerful 4500PA Suction<\/li><li>3 in 1 Sweep, Vacuum and Mop<\/li><li>Up to 3 Hours of Run Time<\/li><li>Enhanced Navigation and Obstacle<\/li><li>Application, Alexa and Remote<\/li><li>Voice & APP Control<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_YaJFa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-g201 {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"#shopify-section-template--17331162120239__product_details_XQbPGx\" }}\"\nclass=\"custom-button-g201\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "custom_liquid_Ykn8q6": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-g201 {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"#shopify-section-template--17331162120239__product_details_XQbPGx\" }}\"\nclass=\"custom-button-g201\">\n  {{ \"View Product Feature Video\" }}\n<\/a>"
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-g202 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_G20_Pro_Manual-EN.pdf?v=1724834067\" }}\" class=\"custom-button-g202\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "variant_picker_DaWYDx": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_8WtkiW": {
+          "type": "quantity",
+          "settings": {
+            "justify_content": "flex-end"
+          }
+        },
+        "buy_buttons_8BPnpD": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_FfgKcC": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "linked_products_z9UCqy": {
+          "type": "linked-products",
+          "settings": {
+            "title": "Related Products",
+            "show_images": true,
+            "product_1": "honiture-p7-pro-cordless-vacuum-g20-pro-robot-vacuum",
+            "product_title_1": "",
+            "product_2": "honiture-x7-cordless-vacuum-and-g20-pro-robot-vacuum",
+            "product_title_2": "",
+            "product_3": "m7-wet-dry-vacuum",
+            "product_title_3": "",
+            "product_4": "honiture-x7-cordless-vacuum-t10-robot-vacuum",
+            "product_title_4": "",
+            "product_5": "",
+            "product_title_5": "",
+            "product_6": "",
+            "product_title_6": ""
+          }
+        },
+        "collapsible_tab_bnxRfb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "User Manual",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p><strong>Need help getting started? <\/strong>Download the full user manual for step-by-step instructions, safety tips, maintenance guidance, and more.<br\/><br\/>📄<strong>[<\/strong><a href=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_G20_Pro_User_Manual.pdf?v=1782896624\" target=\"_blank\" title=\"Honiture G20 Pro Robot Vacuum Cleaner User Manual\"><strong>Click here to view the manual<\/strong><\/a><strong>]<\/strong><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_FcrdUp": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fast Shipping & Delivery",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Orders will be shipped within 24 business hours and usually delivered within 2-3 days. Explore More <a href=\"https:\/\/honiture.com\/policies\/shipping-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/shipping-policy\"><strong>Here<\/strong><\/a>.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_9x9Hmq": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "60 Days Price Match Policy",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Buy with confidence — Found a lower price within 60 days? We'll refund the difference! Learn More at<a href=\"https:\/\/honiture.com\/pages\/price-match-guarantee\" target=\"_blank\" title=\"Price Match Guarantee\">Price Match Guarantee<\/a><a href=\"https:\/\/honiture.com\/policies\/refund-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/refund-policy\">.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "payment_security_ggtmTK": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_GXFebR",
+        "info_box_xTcMXk",
+        "info_box_cJAVTk",
+        "info_box_nDEefw",
+        "label_KFmXRV",
+        "title",
+        "text_rXTGJT",
+        "klarna_on_site_messaging_app_block_gdPph4",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "separator_dMbKEh",
+        "hextom_timer_bar_ctb_custom_placement_NYUQAJ",
+        "qikify_bogo_freegift_free_gift_dgpcDL",
+        "coupon_code_PDChk9",
+        "coupon_code_2_NjdfHR",
+        "coupon_code_new_cxxJw3",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_YaJFa3",
+        "custom_liquid_Ykn8q6",
+        "custom_liquid_tCypYt",
+        "variant_picker_DaWYDx",
+        "quantity_8WtkiW",
+        "buy_buttons_8BPnpD",
+        "complementary_FfgKcC",
+        "linked_products_z9UCqy",
+        "collapsible_tab_bnxRfb",
+        "collapsible_tab_FcrdUp",
+        "collapsible_tab_9x9Hmq",
+        "payment_security_ggtmTK",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 768px) {.thb-product-detail .product-title {font-size: 28px; }}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": true,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 35,
+        "spacer_desktop": 90,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "ny_video_gallery_UGktQf": {
+      "type": "ny-video-gallery",
+      "blocks": {
+        "video_card_UjizMz": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/ssstik.io_@honiture_1747299023490.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_hFLCQN": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/ge20pro1.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_yFVdFe": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Honiture-G20pro-robot-vacuum-review.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_AajHnx": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/ge20pro2.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_p46hLf": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Honiture-G20pro-robot-vacuum-cleaner-review.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_card_UjizMz",
+        "video_card_hFLCQN",
+        "video_card_yFVdFe",
+        "video_card_AajHnx",
+        "video_card_p46hLf"
+      ],
+      "custom_css": [
+        ".ny-video-gallery {padding: 20px 0;}"
+      ],
+      "name": "NY Video Gallery",
+      "settings": {
+        "title": "",
+        "title_color": "#ffffff",
+        "title_font_size": 36,
+        "title_font_size_mobile": 24,
+        "sub_heading": "",
+        "sub_heading_color": "#ffffff",
+        "sub_heading_font_size": 18,
+        "sub_heading_font_size_mobile": 14,
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "bg_color": "#0d123d",
+        "bg_gradient": "linear-gradient(180deg, rgba(13, 18, 61, 1), rgba(26, 31, 80, 1) 100%)",
+        "text_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "video_7QRzBa": {
+      "type": "video",
+      "settings": {
+        "heading": "4500Pa Cyclone Suction – No Dust, Crumbs or Pet Hair",
+        "marker_style": "style1",
+        "description": "<p>Deep cleaning with 3 hours runtime—ideal for large homes and all flooring types. Outperforms cordless vacuums in suction power & endurance!<\/p>",
+        "full_width": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_hosted": "shopify:\/\/files\/videos\/EN_1.mp4",
+        "video_autoplay": true,
+        "show_progress": true,
+        "disable_download": false,
+        "playback_rate": 1,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "slideshow_bgBDYm": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_7ewwHC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_A__01_banner_1_1.png",
+            "mobile_image": "shopify:\/\/shop_images\/Honiture_G20_Pro_PP_04.jpg",
+            "slide_link": "",
+            "video_background": false,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Honiture G20 Pro",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-right",
+            "text_alignment": "right",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#ffffff",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "white",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_7ewwHC"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_GTBAPQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qhgNN4": {
+          "type": "heading",
+          "settings": {
+            "text": "3 in 1 Sweep ,Vacuum And Mop",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_qfGVDW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The G20 Robot Vacuum Cleaner can vacuum and mopat the same time, cleaning both dry waste and wet pollution in one go, greatly improving cleaning efficiency.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qhgNN4",
+        "text_qfGVDW"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_a3AmwY": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_A__02.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture_G20_Pro_A__02_1dd5ded9-4038-4b7d-ab33-781ef939b1f4.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_m6pAab": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_E4HjVM": {
+          "type": "heading",
+          "settings": {
+            "text": "4500Pa Super Strong Suction",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_99yMPB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Optimized fan, upgraded battery, support for G20 Pro for longer cleaning with stronger suction.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_E4HjVM",
+        "text_99yMPB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_PP_01.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_QLJxaA": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_EAXwTq": {
+          "type": "heading",
+          "settings": {
+            "text": "Carpet Auto-Boost",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_HkH7rT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The robot vacuum cleaner will automatically adjust the suction to the maximum level, deeply cleaning the dust and garbage in the carpet<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EAXwTq",
+        "text_HkH7rT"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_PP_04_2ba7aee2-aafc-4a55-9aee-fcb240bd6cd1.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_iCiXHh": {
+      "type": "rich-text",
+      "blocks": {
+        "badge_xifAnY": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "text": "Battery level is less than 30%",
+            "color_bg": "#10b5b2",
+            "color_text": "#ffffff"
+          }
+        },
+        "badge_8thniP": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "text": "Increasing cleaning efficiency by 55%",
+            "color_bg": "#10b5b2",
+            "color_text": "#ffffff"
+          }
+        },
+        "badge_9aCY6k": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "text": "Battery level is less than 30%",
+            "color_bg": "#10b5b2",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_ePwmBT": {
+          "type": "heading",
+          "settings": {
+            "text": "Efficient Z-shaped CIeaning Path",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_kPEjDU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>G20 Pro follows a Z-shaped path during cleaning, it will automatically return to the base, making cleaning resmart.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "badge_xifAnY",
+        "badge_8thniP",
+        "badge_9aCY6k",
+        "heading_ePwmBT",
+        "text_kPEjDU"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_GBnWG9": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_A__05.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture_G20_Pro_PP_03.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "gallery_qqFJtK": {
+      "type": "gallery",
+      "blocks": {
+        "image_TmXmV6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "Random Cleaning",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_bfLpaA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_d2c4f5e1-85a4-45cf-9530-3e64de3c95c1.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "Zig-zag Cleaning",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_t4fgQ8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_bd619dd4-1cfc-4baf-b832-26be186faad7.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "Spot Cleaning",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_Jxcf7y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_d39dc548-90a2-4223-9dca-7e0b62f9fbc8.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "Edge Cleaning",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "image_TmXmV6",
+        "image_bfLpaA",
+        "image_t4fgQ8",
+        "image_Jxcf7y"
+      ],
+      "settings": {
+        "columns_desktop": 4,
+        "full_width": false,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "content_position": "bottom-left",
+        "text_alignment": "left",
+        "column_spacing": "small",
+        "heading_size": "h3",
+        "description_size": "medium",
+        "overlay_color": "#000000",
+        "overlay_opacity": 6,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_V4BQ7E": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_7VJLBw": {
+          "type": "heading",
+          "settings": {
+            "text": "Multiple cleaning modes available",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_wUQMeU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Choose the appropriate cleaning mode according to the type of trash, which is more energy-saving and environmentally friendly.<\/p>"
+          }
+        },
+        "collapsible_tab_P6HCYp": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Low",
+            "open": false,
+            "content": "<p>For 180 minutes<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_efthnE": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Medium",
+            "open": false,
+            "content": "<p>For 150 minutes<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_yJQhpc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "High",
+            "open": false,
+            "content": "<p>For 100 minutes<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_7VJLBw",
+        "text_wUQMeU",
+        "collapsible_tab_P6HCYp",
+        "collapsible_tab_efthnE",
+        "collapsible_tab_yJQhpc"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_PP_02.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_zXBF8t": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cr8Rre": {
+          "type": "heading",
+          "settings": {
+            "text": "Three Layer Filtration, Efficient Dust Removal",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_cqxprm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Provide a clean and tidy<br\/>home environment<br\/>forfamily members.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cr8Rre",
+        "text_cqxprm"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_A__08_1_1.png",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_DbNcfP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MdiPeM": {
+          "type": "heading",
+          "settings": {
+            "text": "Magnetic Strip Virtual Boundaries – Effortless Zone Control",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_fftgj7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Instantly create no-go zones with reusable strips—no app needed. Perfect for pet bowls, rugs, or room dividers.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MdiPeM",
+        "text_fftgj7"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_NAhPcA": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_A__10.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_LKVBxb": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-G20-pro-robot-vacuum-cleaner-ultra-thin.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-G20-pro-smart-robot-vacuum-cleaner.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "slideshow_4XCVG3": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_ecCAmm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture_G20_Pro_A__11.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Honiture_G20_Pro_PP_05_APP_c235a7d7-6e70-4697-b991-31340b130c71.jpg",
+            "slide_link": "",
+            "video_background": false,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Schedule cleaning",
+            "heading_size": "h2",
+            "content": "Schedule cleaning time on the Honysmart intine with your needs.",
+            "description_size": "small",
+            "content_position": "top-right",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_ecCAmm"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "slide",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product_details_XQbPGx": {
+      "type": "product-details",
+      "blocks": {
+        "tab_TCaqXU": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "tab_label": "Spec",
+            "icon": "none",
+            "text": "",
+            "text_columns": "2",
+            "page": "spec-for-g20-pro"
+          }
+        },
+        "custom_liquid_xmLzzk": {
+          "type": "custom_liquid",
+          "settings": {
+            "tab_label": "Spec",
+            "icon": "none",
+            "custom_liquid": "<div class=\"product-specs\">\n  <style>\n    .product-specs {\n      margin: 1.5rem 0;\n      overflow-x: auto;\n      -webkit-overflow-scrolling: touch;\n    }\n    .spec-table {\n      width: 100%;\n      min-width: 500px;\n      border-collapse: collapse;\n    }\n    .spec-table td {\n      padding: 16px 20px;\n      border-bottom: 1px solid #f0f0f0;\n      vertical-align: top;\n      line-height: 1.4;\n    }\n    .spec-table td:first-child {\n      font-weight: 500;\n      color: #666;\n      width: 40%;\n    }\n    .spec-table td:last-child {\n      color: #333;\n      width: 60%;\n    }\n\n    @media (min-width: 750px) {\n      .spec-table { min-width: auto; table-layout: fixed; }\n      .spec-table td { padding: 18px 24px; }\n    }\n\n    @media (max-width: 749px) {\n      .spec-table td { padding: 14px 16px; font-size: 15px; }\n    }\n  <\/style>\n\n  <table class=\"spec-table\">\n    <tbody>\n      <tr><td>Navigation Method<\/td><td>Gyroscope Navigation<\/td><\/tr>\n      <tr><td>Functions<\/td><td>Sweep & Vacuum & Mop<\/td><\/tr>\n      <tr><td>Suction<\/td><td>4500Pa<\/td><\/tr>\n      <tr><td>Suction Gear<\/td><td>Quiet\/Standard\/Strong<\/td><\/tr>\n      <tr><td>Mopping Gear<\/td><td>Min\/Middle\/Max<\/td><\/tr>\n      <tr><td>Controller Type<\/td><td>Remote Control, App Control, Button Control, Voice Control<\/td><\/tr>\n      <tr><td>Virtual Wall Set<\/td><td>by magnetic strip<\/td><\/tr>\n      <tr><td>Cleaning method<\/td><td>Automatic cleaning,Spot cleaning,Scheduled cleaning,Edge cleaning<\/td><\/tr>\n      <tr><td>Filtering System<\/td><td>HEPA Filter<\/td><\/tr>\n      <tr><td>Dust Cup Capacity<\/td><td>450ml<\/td><\/tr>\n      <tr><td>Water Tank Capacity<\/td><td>250ml<\/td><\/tr>\n      <tr><td>Battery<\/td><td>3200mAh Lithium-ion<\/td><\/tr>\n      <tr><td>Running Time<\/td><td>180mins<\/td><\/tr>\n      <tr><td>Product Dimensions<\/td><td>32.00×32.00×7.60 cm<\/td><\/tr>\n      <tr><td>Product Weight<\/td><td>2.600 kg<\/td><\/tr>\n      <tr><td>Color<\/td><td>Black<\/td><\/tr>\n      <tr><td>Manufacture Year<\/td><td>2022<\/td><\/tr>\n    <\/tbody>\n  <\/table>\n<\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_TCaqXU",
+        "custom_liquid_xmLzzk"
+      ],
+      "settings": {
+        "heading": "Product details",
+        "marker_style": "style1",
+        "description": "",
+        "text_size": "regular",
+        "tab_alignment": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_tabs": "#2c2d2e",
+        "color_text": "#2c2d2e",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_GT3bqd": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_CXXzFY": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is the maximum suction power of the Honiture G20 Pro?",
+            "open": false,
+            "content": "<p>Honiture G20 Pro provides super strong suction power of up to 4500Pa and supports three-in-one functions of sweeping, vacuuming and mopping.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_RCGpCR": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What kind of navigation does the Honiture G20 Pro use, and how does it plan its cleaning path?",
+            "open": false,
+            "content": "<p>The G20 Pro features Gyroscope Navigation, which follows an efficient zigzag path during cleaning, ensuring a thorough and systematic cleaning of the coverage area, minimizing missed areas.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_kwCEaX": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Does the honiture G20 pro support smart control? What are the control methods?",
+            "open": false,
+            "content": "<p>Yes, the G20 Pro supports multiple smart control methods, including:<\/p><ul><li>App control (Honysmart App): for scheduling cleaning times and switching modes.<\/li><li>Voice control: supports smart voice assistants like Alexa.<\/li><li>Remote control and on-body buttons: provide convenient physical control options.<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_VwMC8R": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How does the Honiture G20 Pro handle carpeted areas and setting \"no-go zones\"?",
+            "open": false,
+            "content": "<p>The G20 Pro features Carpet Auto-Boost, which automatically maximizes suction power when carpet is detected for a deep clean. The G20 Pro uses Magnetic Strip Virtual Boundaries to easily define areas that don't need to be cleaned, without having to use the app.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_wqrYY3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What are the maximum battery life and cleaning modes of the Honiture G20 Pro?",
+            "open": false,
+            "content": "<p>The G20 Pro features a 3200mAh lithium-ion battery with a runtime of up to 180 minutes (3 hours), making it ideal for larger homes. It supports four cleaning modes: automatic, spot cleaning, edge cleaning, and scheduled cleaning.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_CXXzFY",
+        "collapsible_tab_RCGpCR",
+        "collapsible_tab_kwCEaX",
+        "collapsible_tab_VwMC8R",
+        "collapsible_tab_wqrYY3"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQs",
+        "marker_style": "style1",
+        "description": "<p>Meet Honiture G20 Pro<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "173943675328578ff5": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_zDp6Ur": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_zDp6Ur"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Upgrade your cleaning routine with these products.<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "16623877721f33fb14",
+    "ny_video_gallery_UGktQf",
+    "video_7QRzBa",
+    "slideshow_bgBDYm",
+    "rich_text_GTBAPQ",
+    "single_image_a3AmwY",
+    "image_with_text_m6pAab",
+    "image_with_text_QLJxaA",
+    "rich_text_iCiXHh",
+    "single_image_GBnWG9",
+    "gallery_qqFJtK",
+    "image_with_text_V4BQ7E",
+    "image_with_text_zXBF8t",
+    "rich_text_DbNcfP",
+    "single_image_NAhPcA",
+    "single_image_LKVBxb",
+    "slideshow_4XCVG3",
+    "product_details_XQbPGx",
+    "collapsible_content_GT3bqd",
+    "173943675328578ff5",
+    "product-recommendations"
+  ]
+}

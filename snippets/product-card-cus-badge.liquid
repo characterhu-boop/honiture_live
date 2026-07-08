@@ -1,0 +1,27 @@
+{% comment %} 在含有某个特定标签的情况下，显示一个贴图 {% endcomment %}
+{%- liquid
+  assign product_tags = product_card_product.tags
+-%}
+{% assign tagstring = '' %}
+{%- for product_tag in product_tags -%}
+  {% assign tagstring = tagstring | append: product_tag %}
+{%- endfor -%}
+
+{% assign title = product_card_product.title | strip %}
+{% assign newProductName = 'Honiture P7 Pro Cordless Vacuum' %}
+{% assign cusTag = 'Free Gift' %}
+
+{% assign isproduct = false %}
+{% if title == newProductName %}
+  {% assign isproduct = true %}
+{% endif %}
+
+{% if tagstring contains cusTag %}
+  {%- capture custom_badges -%}
+			<img src="{{ 'gift.png' |  asset_img_url }}">
+		{%- endcapture -%}
+{% endif %}
+
+<span class="product-card--badges product-card--cus-badges bottom right">
+  {{ custom_badges }}
+</span>

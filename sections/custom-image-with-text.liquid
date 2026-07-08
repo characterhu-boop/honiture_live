@@ -1,0 +1,289 @@
+{%- schema -%}
+{
+  "name": "Custom Image with Text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image (optional)",
+      "info": "If not set, desktop image will be used on all devices"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your Title Here"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Your text here</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "Item Text",
+          "default": "Item text"
+        },
+        {
+          "type": "url",
+          "id": "item_link",
+          "label": "Item Link"
+        },
+        {
+          "type": "range",
+          "id": "item_position_x",
+          "label": "Horizontal Position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "item_position_y",
+          "label": "Vertical Position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image with Text",
+      "category": "Image"
+    }
+  ]
+}
+{%- endschema -%}
+
+{%- style -%}
+  .custom-image-with-text {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .custom-image-with-text__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .custom-image-with-text__image--desktop {
+    display: block;
+  }
+  
+  .custom-image-with-text__image--mobile {
+    display: none;
+  }
+  
+  .custom-image-with-text__content {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+  
+  .custom-image-with-text__content--left {
+    text-align: left;
+  }
+  
+  .custom-image-with-text__content--center {
+    text-align: center;
+  }
+  
+  .custom-image-with-text__content--right {
+    text-align: right;
+  }
+  
+  .custom-image-with-text__title {
+    margin: 0 0 10px;
+    font-size: 2em;
+    color: #fff;
+    opacity: .7;
+  }
+  
+  .custom-image-with-text__text {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  .custom-image-with-text__text p{
+     color: #fff;
+    opacity: .7;
+  }
+  
+  .custom-image-with-text__items {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .custom-image-with-text__item {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    font-size: 0.8em;
+    padding: 0px 10px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-image-with-text__item a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+ .play-icon {
+  position: relative;
+  width: 30px;
+  height: 29px;
+  right: -10px;
+  border-radius: 50%;
+  background-color: #00d0cd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid white;
+  transform: rotate(70deg);
+  margin-left: 2px;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .custom-image-with-text__image--desktop {
+    display: none;
+  }
+  
+  .custom-image-with-text__image--mobile {
+    display: block;
+  }
+  
+  .play-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .arrow {
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 8px solid white;
+    margin-left: 2px;
+    margin-top: 2px;
+  }
+  
+  .custom-image-with-text__item {
+    font-size: 0.5em;
+  }
+}
+{%- endstyle -%}
+
+<div class="custom-image-with-text">
+  {%- if section.settings.image != blank -%}
+    {%- if section.settings.image_mobile != blank -%}
+      <img class="custom-image-with-text__image custom-image-with-text__image--desktop"
+           src="{{ section.settings.image | img_url: '1200x' }}"
+           alt="{{ section.settings.image.alt | escape }}"
+           loading="lazy"
+           width="{{ section.settings.image.width }}"
+           height="{{ section.settings.image.height }}">
+      <img class="custom-image-with-text__image custom-image-with-text__image--mobile"
+           src="{{ section.settings.image_mobile | img_url: '800x' }}"
+           alt="{{ section.settings.image_mobile.alt | escape }}"
+           loading="lazy"
+           width="{{ section.settings.image_mobile.width }}"
+           height="{{ section.settings.image_mobile.height }}">
+    {%- else -%}
+      <img class="custom-image-with-text__image"
+           src="{{ section.settings.image | img_url: '1200x' }}"
+           alt="{{ section.settings.image.alt | escape }}"
+           loading="lazy"
+           width="{{ section.settings.image.width }}"
+           height="{{ section.settings.image.height }}">
+    {%- endif -%}
+  {%- else -%}
+    {{ 'image' | placeholder_svg_tag: 'custom-image-with-text__image' }}
+  {%- endif -%}
+  
+  <div class="custom-image-with-text__content custom-image-with-text__content--{{ section.settings.text_alignment }}">
+    {%- if section.settings.title != blank -%}
+      <h2 class="custom-image-with-text__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+    
+    {%- if section.settings.text != blank -%}
+      <div class="custom-image-with-text__text">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+  
+  <div class="custom-image-with-text__items">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'item' -%}
+        <div class="custom-image-with-text__item" 
+             style="left: {{ block.settings.item_position_x }}%; top: {{ block.settings.item_position_y }}%;"
+             {{ block.shopify_attributes }}>
+          {%- if block.settings.item_link != blank -%}
+            <a href="{{ block.settings.item_link }}">{{ block.settings.item_text }}</a>
+            <span class="play-icon">
+              <span class="arrow"></span>
+            </span>
+          {%- else -%}
+            {{ block.settings.item_text }}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>

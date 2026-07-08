@@ -1,0 +1,361 @@
+{%- style -%}
+  .custom-slider-section {
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 1480px;
+    padding-top: 35px;
+  }
+
+  .custom-slider__container {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .custom-slider__pc-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .custom-slider__slide-inner {
+    padding: 0 10px; /* 添加幻灯片之间的间距 */
+  }
+
+  .custom-slider__image-container {
+    height: {{ section.settings.image_height }}px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .custom-slider__image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .custom-slider__content {
+    padding: 0 10px;
+  }
+
+  .custom-slider__button-wrapper {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0;
+    background: #f0f2f2;
+  }
+
+  .custom-slider__button-29 {
+    padding: 2px 30px;
+    background: #00d0cd;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .custom-slider__button:hover {
+    color: #fff;
+  }
+
+  .custom-slider__mobile-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 2px 30px;
+    background: #00d0cd;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: none;
+    font-size: 12px;
+    }
+
+  .custom-slider__nav-button {
+    position: absolute;
+    top: -35px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #f0f2f2;
+    color:#575757;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    border: none;
+    transition: opacity 0.3s ease;
+  }
+
+  /* .custom-slider__container:hover .custom-slider__nav-button {
+    opacity: 1;
+  } */
+
+  .custom-slider__nav-button--prev {
+    right: 80px;
+  }
+
+  .custom-slider__nav-button--next {
+    right: 20px;
+  }
+
+  .custom-slider__nav-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom-slider__pc-wrapper {
+      display: block;
+    }
+
+    .custom-slider__button-wrapper {
+      display: none;
+    }
+
+    .custom-slider__mobile-button {
+      display: inline-block;
+    }
+     .custom-slider__nav-button--prev {
+      right: 60px;
+    }
+    .custom-slider__slide-inner {
+      padding: 0; /* 移动端移除内边距 */
+    }
+    .custom-slider__nav-button {
+      position: absolute;
+      bottom: -70px;
+      top: inherit;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      background: #f0f2f2;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      color: #575757;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 10;
+      border: none;
+      transition: opacity 0.3s ease;
+    }
+    .custom-slider__nav-button--next{
+      right: 12px;
+    }
+    .custom-slider-section{
+      padding-top: 0px;
+      padding-bottom: 35px;
+    }
+  }
+
+  .custom-slider__swiper {
+    overflow: hidden;
+  }
+
+  .custom-slider__slide {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+{%- endstyle -%}
+
+<div class="custom-slider-section">
+  <div class="custom-slider__container">
+    {% if section.blocks.size > 0 %}
+      <div class="swiper custom-slider__swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide custom-slider__slide" {{ block.shopify_attributes }}>
+              <div class="custom-slider__slide-inner">
+                <div class="custom-slider__pc-wrapper">
+                  <div class="custom-slider__image-container">
+                    {% assign image_to_use = block.settings.image_mobile | default: block.settings.image_pc %}
+                    
+                    {% if image_to_use != blank %}
+                      <img 
+                        src="{{ image_to_use | img_url: 'master' }}" 
+                        alt="{{ image_to_use.alt | escape }}" 
+                        loading="lazy"
+                        width="{{ image_to_use.width }}"
+                        height="{{ image_to_use.height }}"
+                        class="custom-slider__image"
+                      >
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                    
+                    {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                      <a 
+                        href="{{ block.settings.button_link }}" 
+                        class="custom-slider__mobile-button"
+                      >
+                        {{ block.settings.button_text }} <span> > </span>
+                      </a>
+                    {% endif %}
+                  </div>
+                  
+                  {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                    <div class="custom-slider__button-wrapper">
+                      <a 
+                        href="{{ block.settings.button_link }}" 
+                        class="custom-slider__button custom-slider__button-29"
+                      >
+                        {{ block.settings.button_text }} <span> > </span>
+                      </a>
+                      
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if section.blocks.size > 1 %}
+        <button class="custom-slider__nav-button custom-slider__nav-button--prev">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="custom-slider__nav-button custom-slider__nav-button--next">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof Swiper !== 'undefined' && document.querySelector('.custom-slider__swiper')) {
+    const customSlider = new Swiper('.custom-slider__swiper', {
+      slidesPerView: 1, // 默认每次只显示一个slide
+      spaceBetween: 15,
+      loop: true, // 无限循环
+      loopAdditionalSlides: 1, // 循环时额外克隆的slide数量
+      navigation: {
+        nextEl: '.custom-slider__nav-button--next',
+        prevEl: '.custom-slider__nav-button--prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.1, // 移动端每次显示一个slide
+          spaceBetween: 0
+        },
+        769: {
+          slidesPerView: 3, // PC端显示三个slide
+          spaceBetween: 15
+        }
+      }
+    });
+    
+    // 确保导航按钮只在有多个slide时显示
+    if (document.querySelectorAll('.custom-slider__slide').length <= 1) {
+      document.querySelectorAll('.custom-slider__nav-button').forEach(btn => {
+        btn.style.display = 'none';
+      });
+    }
+  }
+});
+</script>
+{% schema %}
+{
+  "name": "Custom Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "default": 1200,
+      "unit": "px",
+      "label": "Section max width"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "default": 400,
+      "unit": "px",
+      "label": "Image height"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_pc",
+          "label": "PC Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Slider",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

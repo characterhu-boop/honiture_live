@@ -1,0 +1,974 @@
+{% comment %}
+  New Year image navigation feature.
+  The section owns the hero image/text. Blocks only control navigation cards.
+{% endcomment %}
+
+{%- liquid
+  assign hero_pc = section.settings.hero_image_pc
+  assign hero_mobile = section.settings.hero_image_mobile | default: hero_pc
+  assign hero_alt = hero_pc.alt | default: section.settings.hero_title | escape
+  assign first_block = section.blocks | first
+  assign first_title = first_block.settings.card_title | default: section.settings.hero_title
+-%}
+ 
+<section
+  id="ny-image-nav-feature-{{ section.id }}"
+  class="ny-image-nav-feature"
+  data-ny-image-nav-feature
+>
+  <div class="ny-image-nav-feature__hero" data-ny-hero-wrap>
+    {%- if hero_pc != blank -%}
+      <picture>
+        {%- if hero_mobile != blank -%}
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              {{ hero_mobile | image_url: width: 480 }} 480w,
+              {{ hero_mobile | image_url: width: 750 }} 750w,
+              {{ hero_mobile | image_url: width: 1000 }} 1000w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        <img
+          class="ny-image-nav-feature__hero-image"
+          src="{{ hero_pc | image_url: width: 1920 }}"
+          srcset="
+            {{ hero_pc | image_url: width: 960 }} 960w,
+            {{ hero_pc | image_url: width: 1440 }} 1440w,
+            {{ hero_pc | image_url: width: 1920 }} 1920w
+          "
+          sizes="100vw"
+          width="{{ hero_pc.width }}"
+          height="{{ hero_pc.height }}"
+          alt="{{ hero_alt }}"
+          loading="lazy"
+        >
+      </picture>
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'ny-image-nav-feature__placeholder' }}
+    {%- endif -%}
+
+    <div class="ny-image-nav-feature__hero-content">
+      {%- if section.settings.hero_title != blank -%}
+        <h2 class="ny-image-nav-feature__hero-title">{{ section.settings.hero_title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.hero_text != blank -%}
+        <div class="ny-image-nav-feature__hero-text">{{ section.settings.hero_text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="ny-image-nav-feature__nav">
+      <div class="ny-image-nav-feature__nav-inner">
+        <div class="ny-image-nav-feature__arrows" aria-label="{{ first_title | escape }}">
+          <button class="ny-image-nav-feature__arrow ny-image-nav-feature__arrow--prev" type="button" aria-label="Previous slide" data-ny-prev>
+            <svg viewBox="0 0 14 26" aria-hidden="true" focusable="false">
+              <path d="M12 2 2 13l10 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="ny-image-nav-feature__arrow ny-image-nav-feature__arrow--next" type="button" aria-label="Next slide" data-ny-next>
+            <svg viewBox="0 0 14 26" aria-hidden="true" focusable="false">
+              <path d="m2 2 10 11L2 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="ny-image-nav-feature__slider swiper" data-ny-slider>
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign card_image = block.settings.card_image
+                assign card_alt = card_image.alt | default: block.settings.card_title | escape
+              -%}
+              <button
+                class="ny-image-nav-feature__card swiper-slide{% if forloop.first %} is-active{% endif %}"
+                type="button"
+                data-ny-card="{{ forloop.index0 }}"
+                aria-label="{{ block.settings.card_title | escape }}"
+              >
+                {%- if card_image != blank -%}
+                  <img
+                    class="ny-image-nav-feature__card-image"
+                    src="{{ card_image | image_url: width: 620 }}"
+                    srcset="
+                      {{ card_image | image_url: width: 360 }} 360w,
+                      {{ card_image | image_url: width: 620 }} 620w,
+                      {{ card_image | image_url: width: 900 }} 900w
+                    "
+                    sizes="(max-width: 767px) 68vw, 30vw"
+                    width="{{ card_image.width }}"
+                    height="{{ card_image.height }}"
+                    alt="{{ card_alt }}"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'ny-image-nav-feature__card-placeholder' }}
+                {%- endif -%}
+                <span class="ny-image-nav-feature__card-shade"></span>
+                <span class="ny-image-nav-feature__card-copy">
+                  {%- if block.settings.card_title != blank -%}
+                    <span class="ny-image-nav-feature__card-title">{{ block.settings.card_title }}</span>
+                  {%- endif -%}
+                  {%- if block.settings.card_text != blank -%}
+                    <span class="ny-image-nav-feature__card-text">{{ block.settings.card_text }}</span>
+                  {%- endif -%}
+                </span>
+              </button>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{%- style -%}
+  #ny-image-nav-feature-{{ section.id }} {
+    --ny-max-width: {{ section.settings.max_width }}px;
+    --ny-hero-height: {{ section.settings.hero_height }}px;
+    --ny-mobile-hero-height: {{ section.settings.mobile_hero_height }}px;
+    --ny-card-radius: {{ section.settings.card_radius }}px;
+    --ny-title-color: {{ section.settings.hero_title_color }};
+    --ny-text-color: {{ section.settings.hero_text_color }};
+    background: {{ section.settings.background_color }};
+    overflow: hidden;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero {
+    position: relative;
+    width: 100%;
+    height: min(var(--ny-hero-height), 63.333vw);
+    min-height: {{ section.settings.hero_min_height }}px;
+    overflow: hidden;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-image,
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.hero_image_position }};
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__placeholder {
+    background: #ececec;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-content {
+    position: absolute;
+    z-index: 2;
+    top: {{ section.settings.content_top }}%;
+    left: 50%;
+    width: min(1109px, calc(100% - 40px));
+    transform: translate(-50%, -50%);
+    color: var(--ny-text-color);
+    text-align: center;
+    pointer-events: none;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-title {
+    max-width: 711px;
+    margin: 0 auto 4px;
+    color: var(--ny-title-color);
+    font-family: "Source Han Sans CN", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0;
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-text {
+    color: var(--ny-text-color);
+    font-family: "Source Han Sans CN", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.text_size }}px;
+    font-weight: 350;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  #ny-image-nav-feature-{{ section.id }}.is-hero-visible .ny-image-nav-feature__hero-title {
+    animation: ny-image-nav-feature-fade-down-{{ section.id }} 900ms ease forwards;
+  }
+
+  #ny-image-nav-feature-{{ section.id }}.is-hero-visible .ny-image-nav-feature__hero-text {
+    animation: ny-image-nav-feature-fade-down-{{ section.id }} 900ms ease 160ms forwards;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-text p {
+    margin: 0;
+    color: inherit;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__nav {
+    position: relative;
+    z-index: 3;
+    padding: {{ section.settings.nav_padding_top }}px 0 {{ section.settings.nav_padding_bottom }}px;
+    background: {{ section.settings.nav_background_color }};
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__nav-inner {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    width: min(var(--ny-max-width), calc(100% - 48px));
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrows {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrow {
+    box-sizing: border-box;
+    flex: 0 0 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    min-width: 42px;
+    max-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    max-height: 42px;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    appearance: none;
+    color: #ffffff;
+    background: transparent;
+    cursor: pointer;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrow:not(.swiper-button-disabled):hover,
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrow:not(.swiper-button-disabled):focus-visible {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrow svg {
+    width: 14px;
+    height: 26px;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrow.swiper-button-disabled {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: default;
+    opacity: 1;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__slider {
+    position: relative;
+    z-index: 1;
+    width: min(calc((509px * 2.2) + ({{ section.settings.card_gap }}px * 1.2)), 100%);
+    overflow: visible;
+    clip-path: inset(0 -100vw 0 0);
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card {
+    position: relative;
+    display: block;
+    width: 509px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 509 / 370;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    border-radius: var(--ny-card-radius);
+    background: #202020;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-image,
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 360ms ease;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.68) 100%);
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-copy {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-title {
+    color: inherit;
+    font-family: "Source Han Sans CN", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.card_title_size }}px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-text {
+    max-width: 416px;
+    color: inherit;
+    font-family: "Source Han Sans CN", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.card_text_size }}px;
+    font-weight: 350;
+    line-height: 1.5;
+  }
+
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card:hover .ny-image-nav-feature__card-image,
+  #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card:focus-visible .ny-image-nav-feature__card-image {
+    transform: scale(1.035);
+  }
+
+  @keyframes ny-image-nav-feature-fade-down-{{ section.id }} {
+    from {
+      opacity: 0;
+      transform: translateY(-24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-title,
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-text {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-image,
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-placeholder {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero {
+      height: var(--ny-mobile-hero-height);
+      min-height: 0;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-image,
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__placeholder {
+      object-position: {{ section.settings.mobile_hero_image_position }};
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-content {
+      top: {{ section.settings.mobile_content_top }}%;
+      width: calc(100% - 32px);
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-title {
+      max-width: 300px;
+      font-size: {{ section.settings.mobile_title_size }}px;
+      line-height: 1.35;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__hero-text {
+      font-size: {{ section.settings.mobile_text_size }}px;
+      line-height: 1.4;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__nav {
+      margin-top: calc(-{{ section.settings.mobile_nav_overlap }}px - 48px);
+      padding: 0 0 {{ section.settings.mobile_nav_padding_bottom }}px;
+      background: transparent;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__nav-inner {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 10px;
+      width: calc(100% - 34px);
+      margin-left: 17px;
+      margin-right: 0;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrows {
+      justify-content: center;
+      gap: 8px;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrow {
+      flex-basis: 16px;
+      width: 16px;
+      min-width: 16px;
+      max-width: 16px;
+      height: 16px;
+      min-height: 16px;
+      max-height: 16px;
+      border-width: 1px;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__arrow svg {
+      width: 4px;
+      height: 8px;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__slider {
+      overflow: visible;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      aspect-ratio: auto;
+      overflow: hidden;
+      border-radius: {{ section.settings.mobile_card_radius }}px;
+      background: transparent;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-image,
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-placeholder {
+      display: block;
+      width: 100%;
+      aspect-ratio: 509 / 370;
+      height: auto;
+      object-fit: cover;
+      border-radius: {{ section.settings.mobile_card_radius }}px;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-shade {
+      display: none;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-copy {
+      position: static;
+      display: flex;
+      min-height: 50px;
+      padding: 12px 8px 0;
+      color: #ffffff;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-title {
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    #ny-image-nav-feature-{{ section.id }} .ny-image-nav-feature__card-text {
+      max-width: 150px;
+      margin-top: 4px;
+      font-size: 8px;
+      line-height: 1.35;
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  (function() {
+    var sectionId = 'ny-image-nav-feature-{{ section.id }}';
+
+    function initSection() {
+      var section = document.getElementById(sectionId);
+      if (!section || section.dataset.nyImageNavReady === 'true') return;
+
+      var sliderEl = section.querySelector('[data-ny-slider]');
+      var cards = Array.prototype.slice.call(section.querySelectorAll('[data-ny-card]'));
+
+      if (!sliderEl || !cards.length) return;
+
+      function revealHero() {
+        section.classList.add('is-hero-visible');
+      }
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            revealHero();
+            observer.disconnect();
+          });
+        }, { threshold: 0.28 });
+        observer.observe(section);
+      } else {
+        revealHero();
+      }
+
+      function setActive(index) {
+        cards.forEach(function(card) {
+          card.classList.toggle('is-active', Number(card.dataset.nyCard) === index);
+        });
+      }
+
+      function bootSwiper() {
+        if (typeof window.Swiper === 'undefined') {
+          window.setTimeout(bootSwiper, 60);
+          return;
+        }
+
+        section.dataset.nyImageNavReady = 'true';
+        var swiper = new window.Swiper(sliderEl, {
+          slidesPerView: {{ section.settings.mobile_slides_per_view }},
+          spaceBetween: {{ section.settings.mobile_card_gap }},
+          speed: 360,
+          watchSlidesProgress: true,
+          navigation: {
+            nextEl: section.querySelector('[data-ny-next]'),
+            prevEl: section.querySelector('[data-ny-prev]')
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 2.2,
+              spaceBetween: {{ section.settings.card_gap }}
+            }
+          }
+        });
+
+        cards.forEach(function(card) {
+          card.addEventListener('click', function() {
+            var index = Number(card.dataset.nyCard);
+            swiper.slideTo(index);
+            setActive(index);
+          });
+        });
+
+        swiper.on('slideChange', function() {
+          setActive(swiper.activeIndex);
+        });
+
+        setActive(0);
+      }
+
+      bootSwiper();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSection);
+    } else {
+      initSection();
+    }
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.detail && event.detail.sectionId === '{{ section.id }}') {
+        var section = document.getElementById(sectionId);
+        if (section) {
+          section.dataset.nyImageNavReady = 'false';
+          section.classList.remove('is-hero-visible');
+        }
+        initSection();
+      }
+    });
+
+    document.addEventListener('shopify:block:select', function(event) {
+      var section = document.getElementById(sectionId);
+      if (!section || !event.target) return;
+      var card = event.target.closest('[data-ny-card]');
+      if (!card) return;
+      card.click();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "NY Image Nav Feature",
+  "tag": "section",
+  "class": "section-ny-image-nav-feature",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Navigation max width",
+      "min": 960,
+      "max": 1680,
+      "step": 20,
+      "unit": "px",
+      "default": 1280
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "label": "Desktop hero max height",
+      "min": 520,
+      "max": 1216,
+      "step": 8,
+      "unit": "px",
+      "default": 760
+    },
+    {
+      "type": "range",
+      "id": "hero_min_height",
+      "label": "Desktop hero min height",
+      "min": 360,
+      "max": 760,
+      "step": 10,
+      "unit": "px",
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "mobile_hero_height",
+      "label": "Mobile hero height",
+      "min": 480,
+      "max": 860,
+      "step": 10,
+      "unit": "px",
+      "default": 650
+    },
+    {
+      "type": "select",
+      "id": "hero_image_position",
+      "label": "Desktop hero image position",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "center top", "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_hero_image_position",
+      "label": "Mobile hero image position",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "center top", "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "header",
+      "content": "Hero content"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_pc",
+      "label": "Desktop hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile hero image"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero title",
+      "default": "Fresh Water Cleaning System"
+    },
+    {
+      "type": "richtext",
+      "id": "hero_text",
+      "label": "Hero subtitle",
+      "default": "<p>Always clean water for mopping & washing</p>"
+    },
+    {
+      "type": "header",
+      "content": "Hero text style"
+    },
+    {
+      "type": "range",
+      "id": "content_top",
+      "label": "Desktop content top",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "unit": "%",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_top",
+      "label": "Mobile content top",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "unit": "%",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Desktop title size",
+      "min": 20,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Desktop subtitle size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Mobile title size",
+      "min": 14,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Mobile subtitle size",
+      "min": 9,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Navigation cards"
+    },
+    {
+      "type": "range",
+      "id": "nav_padding_top",
+      "label": "Desktop nav top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "nav_padding_bottom",
+      "label": "Desktop nav bottom padding",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_nav_overlap",
+      "label": "Mobile nav overlap",
+      "min": 0,
+      "max": 260,
+      "step": 5,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "mobile_nav_padding_bottom",
+      "label": "Mobile nav bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Desktop card gap",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_gap",
+      "label": "Mobile card gap",
+      "min": 8,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_slides_per_view",
+      "label": "Mobile slides per view",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Desktop card radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 33
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_radius",
+      "label": "Mobile card radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Desktop card title size",
+      "min": 14,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "label": "Desktop card text size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_title_size",
+      "label": "Mobile card title size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_text_size",
+      "label": "Mobile card text size",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "nav_background_color",
+      "label": "Desktop nav background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "hero_title_color",
+      "label": "Hero title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "hero_text_color",
+      "label": "Hero subtitle color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Navigation card image"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Navigation card title",
+          "default": "Even Water Distribution"
+        },
+        {
+          "type": "textarea",
+          "id": "card_text",
+          "label": "Navigation card text",
+          "default": "Spreads and rinses with continuous fresh water for consistent cleaning."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NY Image Nav Feature",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "card_title": "High-Speed Brush Roll",
+            "card_text": "Spin at 520RPMs to lift and absorb stains."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "card_title": "Advanced Scraper System",
+            "card_text": "Scrapes, separates, and removes residue after washing."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,562 @@
+{% comment %}
+  VD Combo (Bundle) Section
+  - Max width 1200px
+  - Title via snippet `xmas-section-header`
+  - Structure: (Product 1 & Product 2) + Product 3 (Free Gift) = Price
+{% endcomment %}
+
+<section id="vd-combo-{{ section.id }}" class="vd-combo">
+  <div class="combo__container">
+
+    {% render 'xmas-section-header', section: section %}
+    <div class="combo__cards">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'combo_card' %}
+
+          {% assign sum_price_1 = block.settings.custom_sum_price_1 %}
+          {% assign sum_price_2 = block.settings.custom_sum_price_2 %}
+          {% assign sum_price_3 = block.settings.custom_sum_price_3 %}
+
+ 
+          {% assign p1 = block.settings.product_1 %}
+          {% assign p2 = block.settings.product_2 %}
+          {% assign p3 = block.settings.product_3 %}
+          {% assign has_p1 = block.settings.product_1.id %}
+          {% assign has_p2 = block.settings.product_2.id %}
+          {% assign has_p3 = block.settings.product_3.id %}
+
+          {% assign sum_price = 0 %}
+          {% assign sum_compare = 0 %}
+
+          {% comment %} helper to fetch variant obj for a product by id, or fallback {% endcomment %}
+          {% assign v1_id = block.settings.variant_1_id %}
+          {% assign v2_id = block.settings.variant_2_id %}
+          {% assign v3_id = block.settings.variant_3_id %}
+
+          {% if has_p1 %}
+            {% assign v1 = p1.variants | where: 'id', v1_id | first %}
+            {% if v1 == blank %}{% assign v1 = p1.selected_or_first_available_variant %}{% endif %}
+            {% assign p1_price = v1.price %}
+            {% assign p1_compare = v1.compare_at_price | default: p1_price %}
+            {% assign sum_price = sum_price | plus: p1_price %}
+            {% assign sum_compare = sum_compare | plus: p1_compare %}
+          {% endif %}
+
+          {% if has_p2 %}
+            {% assign v2 = p2.variants | where: 'id', v2_id | first %}
+            {% if v2 == blank %}{% assign v2 = p2.selected_or_first_available_variant %}{% endif %}
+            {% assign p2_price = v2.price %}
+            {% assign p2_compare = v2.compare_at_price | default: p2_price %}
+            {% assign sum_price = sum_price | plus: p2_price %}
+            {% assign sum_compare = sum_compare | plus: p2_compare %}
+          {% endif %}
+
+          {% if has_p3 %}
+            {% assign v3 = p3.variants | where: 'id', v3_id | first %}
+            {% if v3 == blank %}{% assign v3 = p3.selected_or_first_available_variant %}{% endif %}
+            {% assign p3_price = v3.price %}
+            {% assign p3_compare = v3.compare_at_price | default: p3_price %}
+            {% assign sum_price = sum_price | plus: p3_price %}
+            {% assign sum_compare = sum_compare | plus: p3_compare %}
+          {% endif %}
+
+          <div class="combo-card" {{ block.shopify_attributes }}>
+            
+            <div class="combo-card__content">
+                <!-- Group 1: Product 1 & Product 2 -->
+                <div class="combo-group combo-group-main">
+                    {% if has_p1 %}
+                        <div class="combo-item combo-item-1">
+                        <div class="combo-item__media">
+                            {% assign img1 = block.settings.image_1 | default: p1.featured_image %}
+                            {% if img1 %}
+                            <img src="{{ img1 | image_url: width: 400 }}" alt="{{ p1.title | escape }}" loading="lazy" />
+                            {% endif %}
+                        </div>
+                        <div class="combo-item__meta">
+                            {% assign item_title1 = block.settings.title_1 | default: p1.title %}
+                            <div class="combo-item__title">{{ item_title1 }}</div>
+                            <div class="combo-item__price">{{ p1_price | money }}</div>
+                        </div>
+                        </div>
+                    {% endif %}
+
+                    {% if has_p2 %}
+                        <div class="combo-item combo-item-2">
+                        <div class="combo-item__media">
+                            {% assign img2 = block.settings.image_2 | default: p2.featured_image %}
+                            {% if img2 %}
+                            <img src="{{ img2 | image_url: width: 400 }}" alt="{{ p2.title | escape }}" loading="lazy" />
+                            {% endif %}
+                        </div>
+                        <div class="combo-item__meta">
+                            {% assign item_title2 = block.settings.title_2 | default: p2.title %}
+                            <div class="combo-item__title">{{ item_title2 }}</div>
+                            <div class="combo-item__price">
+                              {% if block.settings.custom_price_2 != blank %}
+                                {{ block.settings.custom_price_2 }}
+                              {% else %}
+                                {{ p2_price | money }}
+                              {% endif %}
+                            </div>
+                        </div>
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if has_p3 %}
+                    <div class="combo-plus">+</div>
+                    <!-- Group 2: Product 3 (Gift) -->
+                    <div class="combo-group combo-group-gift">
+                        <div class="gift-badge">FREE</div>
+                        <div class="combo-item combo-item-3">
+                        <div class="combo-item__media">
+                            {% assign img3 = block.settings.image_3 | default: p3.featured_image %}
+                            {% if img3 %}
+                           
+                            <img src="{{ img3 | image_url: width: 400 }}" alt="{{ p3.title | escape }}" loading="lazy" />
+                           {% endif %}
+                        </div>
+                        <div class="combo-item__meta">
+                            {% assign item_title3 = block.settings.title_3 | default: p3.title %}
+                            <div class="combo-item__title">{{ item_title3 }}</div>
+                            <div class="combo-item__price">{{ p3_price | money }}</div>
+                        </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="combo-card__summary">
+              <div class="combo-card__summary_price">
+                <div class="combo-save">{{ sum_price_1 }}</div>
+                <div class="combo-price">{{ sum_price_2 }} <span class="combo-compare">{{ sum_price_3 }}</span></div>
+              </div>
+              {% if block.settings.button_link != blank %}
+                <a class="btn btn--buy combo-link-btn" target="_blank" href="{{ block.settings.button_link }}">
+                  {{ block.settings.button_label | default: 'Buy now' }}
+                </a>
+              {% else %}
+                <button type="button"
+                        class="btn btn--buy combo-buy-btn"
+                        data-vids="{% if v1 %}{{ v1.id }}{% endif %}{% if v2 %},{% endif %}{% if v2 %}{{ v2.id }}{% endif %}{% if v3 %},{% endif %}"
+                        data-q1="{{ block.settings.quantity_1 | default: 1 }}"
+                        data-q2="{{ block.settings.quantity_2 | default: 1 }}"> 
+                  {{ block.settings.button_label | default: 'Buy now' }}
+                </button>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="combo__toast" role="status" aria-live="polite"></div>
+</section>
+{% render 'section-decorations', section: section %}
+<style>
+  #vd-combo-{{ section.id }} { 
+    padding: 40px 0;
+  }
+  #vd-combo-{{ section.id }} .combo__container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  #vd-combo-{{ section.id }} .combo__cards { 
+    display: flex; 
+    flex-direction: column;
+    gap: 30px; 
+    background:  transparent;
+  }
+  
+  #vd-combo-{{ section.id }} .combo-card { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    background: linear-gradient(90deg, #ffeef6 0%, #e0e4ff 100%);
+    border-radius: 20px; 
+    padding: 30px;
+    gap: 20px;
+  }
+  
+  #vd-combo-{{ section.id }} .combo-card__content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
+
+  #vd-combo-{{ section.id }} .combo-group {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
+  
+  #vd-combo-{{ section.id }} .combo-group-main {
+    flex: 2;
+    justify-content: space-around;
+  }
+  
+  #vd-combo-{{ section.id }} .combo-group-gift {
+    flex: 1;
+    justify-content: center;
+  }
+
+  #vd-combo-{{ section.id }} .gift-badge {
+    position: absolute;
+    top: 15px;
+    left: -6px;
+    background: #ff8ba7;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 12px;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 2;
+    width: 80px;
+    text-align: center;
+  }
+  /* Ribbon style adjustment if needed, simple badge for now */
+  #vd-combo-{{ section.id }} .gift-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+    transform: none;
+    box-shadow: none;
+  }
+  #vd-combo-{{ section.id }} .gift-badge::before {
+content: 'FREE';
+    position: absolute;
+    width: 150%;
+    height: 21px;
+    background: linear-gradient(90deg, #FFC5D8 0%, #FF6E91 49%, #FFC5D8 100%);
+    transform: rotate(-45deg) translateY(-20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 23px;
+    left: -12px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #vd-combo-{{ section.id }} .combo-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;  
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  #vd-combo-{{ section.id }} .combo-item__media {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px; 
+  }
+  
+  #vd-combo-{{ section.id }} .combo-item__media img { 
+    max-width: 100%; 
+    max-height: 100%; 
+    width: auto; 
+    height: auto; 
+    object-fit: contain;
+  }
+  
+  #vd-combo-{{ section.id }} .combo-item__title { font-size: 14px; font-weight: 500; margin-bottom: 4px; line-height: 1.4; color: #333; }
+  #vd-combo-{{ section.id }} .combo-item__price { font-size: 14px; color: #ff5e62; font-weight: 600; text-decoration: line-through; }
+  
+  #vd-combo-{{ section.id }} .combo-plus { 
+    font-size: 24px; 
+    color: #fff;
+    background: #ff8ba7;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  #vd-combo-{{ section.id }} .combo-card__summary { 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 200px;
+    padding-left: 20px;
+  }
+  
+  #vd-combo-{{ section.id }} .combo-save { color: #ff0000; font-weight: 700; font-size: 20px; margin-bottom: 8px; }
+  #vd-combo-{{ section.id }} .combo-price { font-size: 32px; font-weight: 800; color: #000; display: flex; align-items: baseline; gap: 10px; }
+  #vd-combo-{{ section.id }} .combo-compare { color: #999; text-decoration: line-through; font-weight: 400; font-size: 18px; }
+  
+  #vd-combo-{{ section.id }} .btn { 
+    display: inline-flex; align-items: center; justify-content: center; 
+    border: none; cursor: pointer; border-radius: 99px; 
+    padding: 12px 40px; font-size: 16px; font-weight: 600;
+    margin-top: 15px;
+    width: 100%;
+  }
+  #vd-combo-{{ section.id }} .btn--buy { 
+    background: #ff8ba7;
+    color: #fff;
+    transition: background 0.3s;
+  }
+  #vd-combo-{{ section.id }} .btn--buy:hover {
+    background: #ff6b8b;
+  }
+
+  #vd-combo-{{ section.id }} .combo__toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: 24px; background: rgba(0,0,0,0.85); color: #fff; padding: 10px 12px; border-radius: 8px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s ease; z-index: 999; }
+  #vd-combo-{{ section.id }} .combo__toast.is-visible { opacity: 1; }
+
+  @media (max-width: 990px) {
+    #vd-combo-{{ section.id }} .combo-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+    #vd-combo-{{ section.id }} .combo-card__content {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+    #vd-combo-{{ section.id }} .combo-group {
+        width: 100%;
+        justify-content: center;
+    }
+    #vd-combo-{{ section.id }} .combo-card__summary {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding-left: 0;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    #vd-combo-{{ section.id }} .combo-price {
+        justify-content: center;
+    }
+    #vd-combo-{{ section.id }} .btn {
+        max-width: 300px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #vd-combo-{{ section.id }} .combo-item__media {
+        height: 120px;
+    }
+    #vd-combo-{{ section.id }} .combo-group-main {
+        gap: 15px;
+    }
+    #vd-combo-{{ section.id }} .combo-item-3 {
+        max-width: unset;
+            flex-direction: row;
+    }
+    #vd-combo-{{ section.id }} .combo-item .combo-item__link{
+      height: 100%;
+    }
+     #vd-combo-{{ section.id }} .combo-item-3 .combo-item__media{
+      margin-bottom: 0;
+    }
+    #vd-combo-{{ section.id }} .combo-item-3 .combo-item__media {
+        height: 60px;
+    }
+      #vd-combo-{{ section.id }} .combo-item__media img { 
+        height: 100%;
+      }
+      #vd-combo-{{ section.id }} .combo-card__summary_price{
+            text-align: left;
+      }
+      #vd-combo-{{ section.id }} .btn{
+        width: auto;
+        padding: 12px 25px;
+      }
+       #vd-combo-{{ section.id }} .combo-group{
+        padding: 10px;
+       }
+       #vd-combo-{{ section.id }} .combo-price {
+        font-size: 20px;
+       }
+       #vd-combo-{{ section.id }} .combo-compare {
+        font-size: 16px;
+       }
+  }
+</style>
+
+<script>
+  (function() {
+    function showToast(message) {
+      var toast = document.querySelector('#vd-combo-{{ section.id }} .combo__toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      setTimeout(function() { toast.classList.remove('is-visible'); }, 2200);
+    }
+
+    function addItems(items) {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: items })
+      }).then(function(res) { if (!res.ok) throw new Error('Add failed'); return res.json(); });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var root = document.getElementById('vd-combo-{{ section.id }}');
+      if (!root) return;
+
+      root.querySelectorAll('.combo-buy-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var vids = (btn.getAttribute('data-vids') || '').split(',').filter(Boolean);
+          var q1 = parseInt(btn.getAttribute('data-q1') || '1', 10);
+          var q2 = parseInt(btn.getAttribute('data-q2') || '1', 10);
+          var q3 = parseInt(btn.getAttribute('data-q3') || '1', 10);
+          var items = [];
+          if (vids[0]) items.push({ id: Number(vids[0]), quantity: q1 });
+          if (vids[1]) items.push({ id: Number(vids[1]), quantity: q2 });
+          if (vids[2]) items.push({ id: Number(vids[2]), quantity: q3 });
+          if (!items.length) return;
+          addItems(items).then(function(){ 
+            window.open('/cart', '_blank');
+          }).catch(function(){  });
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "VD 组合模块",
+  "tag": "section",
+  "class": "section vd-combo",
+  "settings": [
+   {
+      "type": "header",
+      "content": "Section Header 设置"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "限时优惠 立省20%"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    },
+    { "type": "color", "id": "bg_color", "label": "背景色", "default": "#f9f9f9" }
+  ],
+  "blocks": [
+    {
+      "type": "combo_card",
+      "name": "组合卡片",
+      "limit": 3,
+      "settings": [
+        {"type": "product", "id": "product_1", "label": "产品1"},
+        {"type": "text", "id": "title_1", "label": "产品1自定义标题(可选)"},
+        {"type": "text", "id": "variant_1_id", "label": "产品1变体ID(可选)"},
+        {"type": "range", "id": "quantity_1", "label": "产品1数量", "min": 1, "max": 10, "step": 1, "default": 1},
+        {"type": "image_picker", "id": "image_1", "label": "产品1自定义图(可选)"},
+
+        {"type": "product", "id": "product_2", "label": "产品2"},
+        {"type": "text", "id": "custom_price_2", "label": "产品2自定义价格"},
+        {"type": "text", "id": "title_2", "label": "产品2自定义标题(可选)"},
+        {"type": "text", "id": "variant_2_id", "label": "产品2变体ID(可选)"},
+        {"type": "range", "id": "quantity_2", "label": "产品2数量", "min": 1, "max": 10, "step": 1, "default": 1},
+        {"type": "image_picker", "id": "image_2", "label": "产品2自定义图(可选)"},
+
+        {"type": "product", "id": "product_3", "label": "产品3(赠品)"},
+        {"type": "text", "id": "title_3", "label": "产品3自定义标题(可选)"},
+        {"type": "text", "id": "variant_3_id", "label": "产品3变体ID(可选)"},
+        {"type": "range", "id": "quantity_3", "label": "产品3数量", "min": 1, "max": 10, "step": 1, "default": 1},
+        {"type": "image_picker", "id": "image_3", "label": "产品3自定义图(可选)"},
+
+        {"type": "text", "id": "custom_sum_price_1", "label": "自定义 Save 文案 (e.g. Save $33)"},
+        {"type": "text", "id": "custom_sum_price_2", "label": "自定义当前价格"},
+        {"type": "text", "id": "custom_sum_price_3", "label": "自定义原价"},
+        {"type": "text", "id": "button_label", "label": "按钮文案", "default": "Buy now"},
+        {"type": "url", "id": "button_link", "label": "按钮跳转链接(可选)"}
+      ]
+    },
+        {
+        "type": "decoration",
+        "name": "装饰图片",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "图片" },
+          { "type": "range", "id": "top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "number", "id": "z_index", "label": "层级", "default": 1 },
+          { "type": "checkbox", "id": "hide_on_mobile", "label": "在移动端隐藏", "default": false },
+          { "type": "range", "id": "rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+        ]
+      } 
+  ],
+  "presets": [
+    {
+      "name": "VD 组合模块",
+      "blocks": [
+        {"type": "combo_card"}
+      ]
+    }
+  ]
+}
+{% endschema %}

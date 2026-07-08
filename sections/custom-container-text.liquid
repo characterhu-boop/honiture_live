@@ -1,0 +1,164 @@
+<div class="custom-container {% if section.settings.enable_fade_in %}fade-in-enabled{% endif %}">
+    <h2>
+        <span>{{ section.settings.title_prefix }}</span> 
+        <span class="custom-container-span">{{ section.settings.title_highlight }}</span>
+        <span class="custom-container-span1">{{ section.settings.title_suffix }}</span>
+        <span class="custom-container-span2">{{ section.settings.title_highlight }} <span class="custom-container-span3">{{ section.settings.title_suffix }}</span></span>
+    </h2>
+    <p>
+        {{ section.settings.description }}
+    </p>
+    <a href="{{ section.settings.button_link }}" class="learn-more">{{ section.settings.button_text }}</a>
+    <div class="circle-icon"></div>
+</div>
+
+<style>
+.custom-container {
+  max-width: 800px;
+  margin: 50px auto;
+  margin-bottom: 0px;
+  padding: 20px;
+  text-align: center;
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.8s ease-in-out; /* 淡入过渡效果 */
+}
+
+/* 启用淡入效果时的类 */
+.fade-in-enabled.active {
+  opacity: 1;
+}
+
+/* 标题样式 */
+.custom-container h2 {
+  font-size: 36px;
+  color: #19586e;
+  margin-bottom: 10px;
+}
+.custom-container-span2{
+  display: none;
+}
+/* 高亮部分样式 */
+.custom-container .custom-container-span {
+  color: #00d0cd;
+}
+
+/* 段落样式 */
+p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* 链接样式 */
+.learn-more {
+  font-size: 18px;
+  color: #00d0cd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+  color: #00d0cd;
+}
+  @media (max-width: 768px) {
+  .custom-container {
+    text-align: left; /* 移动端文本左对齐 */
+    margin: 20px auto; /* 调整外边距以适应移动端 */
+    margin-bottom: 0px;
+  }
+  .custom-container h2 {
+    font-size: 28px;
+    color: #19586e;
+    margin-bottom: 10px;
+  }
+  .custom-container-span2{
+    display: block;
+     color: #00d0cd;
+  }
+     .custom-container-span3{
+     color: #19586e;
+  }
+    
+    .custom-container-span,.custom-container-span1{
+      display: none;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".custom-container.fade-in-enabled");
+
+  // 如果没有启用淡入效果，则直接显示
+  if (!container) return;
+
+  let isAnimated = false; // 标记是否已经触发动画
+
+  // 检测滚动事件
+  window.addEventListener("scroll", function () {
+    if (isAnimated) return; // 如果已经触发过动画，则不再执行
+
+    const rect = container.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      container.classList.add("active"); // 添加激活类以触发动画
+      isAnimated = true; // 标记为已触发
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Container Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Title Prefix",
+      "default": "WHY BUY AT"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Title Highlight",
+      "default": "HONITURE.COM"
+    },
+    {
+      "type": "text",
+      "id": "title_suffix",
+      "label": "Title Suffix",
+      "default": "?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover cutting-edge smart home solutions backed by 6 years of expertise. Unbeatable prices and exceptional customer service—all in one trust place. Shop smarter, live better!"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More >"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_fade_in",
+      "label": "Enable Fade-In Effect",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Container",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

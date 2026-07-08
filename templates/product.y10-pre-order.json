@@ -1,0 +1,1098 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_6qnD4q": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_WEffcw": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box2.svg",
+            "text": "30-Day Refund Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_7q3Lbz": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_Lqfy7H": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_VxAikC": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": "38KPA Strong Suction | Self-stand | Anti-tangle | Dust Illumination"
+          }
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "klarna_on_site_messaging_app_block_LHUka7": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "disabled": true,
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_cLBxc3": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "settings": {}
+        },
+        "qikify_bogo_freegift_free_gift_wize7N": {
+          "type": "shopify:\/\/apps\/qikify-bogo-freegift\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "coupon_code_wBFykr": {
+          "type": "coupon_code",
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p><strong>🔥New Arrival - Enjoy 10%Off Early Bird Limited Offer Now!<\/strong><\/p>",
+            "coupon_text": "Y10New",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li>38KPA Strong Suction & 2 Working Modes<\/li><li>400W Powerful Brushless Motor<\/li><li>45 Mins Battery Life <\/li><li>5-Stage Filtration System<\/li><li>Anti-Tangle V-shaped brush design<\/li><li>Flexible Clean Head with LED lights <\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "variant_picker_qpHTdC": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_feaebV": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_68QwXm": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "payment_methods_DYVW3E": {
+          "type": "payment_methods",
+          "disabled": true,
+          "settings": {}
+        },
+        "complementary_Q9cnW9": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "product_list_limit": 10
+          }
+        },
+        "collapsible_tab_WDKbxb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "User Manual",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p><strong>Need help getting started?<\/strong><br\/>Download the full user manual for step-by-step instructions, safety tips, maintenance guidance, and more.<br\/><br\/>📄 <strong>[<\/strong><a href=\"https:\/\/drive.google.com\/file\/d\/1B3m096-s3VS99EmEescSvMjKyrhvAUeE\/view?usp=drive_link\" target=\"_blank\" title=\"Y10 Cordless Vacuum User Manual\"><strong>Click here to view the manual<\/strong><\/a><strong>]<\/strong><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_9CJwUc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Specification",
+            "open": false,
+            "use_modal": true,
+            "link": "",
+            "content": "",
+            "page": "spec-for-y10",
+            "custom_liquid": "<style>\n    \/* 美化表格并让它撑满弹窗 *\/\n    table[style*=\"border-collapse: collapse;\"],\n    table[data-mce-fragment=\"1\"] {\n        width: 100%!important;\n        table-layout: fixed;\n        border-collapse: collapse;\n        margin: 20px 0;\n        font-family: Arial, sans-serif;\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);\n        background-color: #fff;\n        overflow: hidden;\n    }\n\n    table[style*=\"border-collapse: collapse;\"],\n    table[data-mce-fragment=\"1\"] {\n        border-radius: 0;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] col,\n    table[data-mce-fragment=\"1\"] col {\n        width: auto !important;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] td,\n    table[data-mce-fragment=\"1\"] td {\n        padding: 14px 20px;\n        text-align: left;\n        border-bottom: 1px solid #e0e0e0;\n        word-break: break-word;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] tr:nth-child(even) td,\n    table[data-mce-fragment=\"1\"] tr:nth-child(even) td {\n        background-color: #f9f9f9;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] tr:hover td,\n    table[data-mce-fragment=\"1\"] tr:hover td {\n        background-color: #f3faff;\n        transition: background-color 0.2s ease;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] td.et2,\n    table[data-mce-fragment=\"1\"] td.et2 {\n        font-weight: normal;\n        color: #333;\n    }\n\n    \/* 响应式样式 - 移动端适配 *\/\n    @media (max-width: 768px) {\n        .modal-content {\n            overflow-y: scroll !important;\n            overflow-x: scroll !important;\n        }\n\n        .close {\n            position: absolute;\n            top: 89px;\n            right: 13px;\n        }\n    }\n<\/style>"
+          }
+        },
+        "collapsible_tab_ACwKhQ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping Time",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Y10 is pre-ordered now! All orders will be shipped starting on October 28th, dispatched according to the order sequence.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_NpFgWw": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "30 Days Price Match Policy",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Buy with confidence —Found a lower price within 30 days? We'll refund the difference! Learn More at <a href=\"\/pages\/price-match-guarantee\" target=\"_blank\" title=\"Price Match Guarantee\">Price Match Guarantee<\/a><a href=\"https:\/\/honiture.com\/policies\/refund-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/refund-policy\">.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default2 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/www.honiture.com\/\" }}\" class=\"custom-button-default2\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "payment_security_yaWh9B": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        }
+      },
+      "block_order": [
+        "info_box_6qnD4q",
+        "info_box_WEffcw",
+        "info_box_7q3Lbz",
+        "info_box_Lqfy7H",
+        "label_VxAikC",
+        "title",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "klarna_on_site_messaging_app_block_LHUka7",
+        "judge_me_reviews_preview_badge_cLBxc3",
+        "separator_dMbKEh",
+        "qikify_bogo_freegift_free_gift_wize7N",
+        "coupon_code_wBFykr",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "variant_picker_qpHTdC",
+        "quantity_feaebV",
+        "buy_buttons_68QwXm",
+        "payment_methods_DYVW3E",
+        "complementary_Q9cnW9",
+        "collapsible_tab_WDKbxb",
+        "collapsible_tab_9CJwUc",
+        "collapsible_tab_ACwKhQ",
+        "collapsible_tab_NpFgWw",
+        "custom_liquid_tCypYt",
+        "payment_security_yaWh9B"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--product-form,.product-recommendations--loaded {margin-bottom: 30px;}",
+        ".custom-more-payment-options {margin-bottom: 25px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "background_video_MegFpc": {
+      "type": "background-video",
+      "blocks": {
+        "button_GkJKzt": {
+          "type": "button",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "button_GkJKzt"
+      ],
+      "custom_css": [
+        "@media only screen and (min-width: 768px) {.desktop-height-650 {min-height: 648px; }}"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-200",
+        "full_width": false,
+        "video_controls": true,
+        "video": "https:\/\/youtu.be\/J_wj1QUFD8w",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_swiper_carousel_hVP76M": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_aL7hfy": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-Vaccum-one-click-empty-the-dust-bin.webp",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "One Button Empty",
+            "card_text": "Quick and hygienic dustbin release with a single press.",
+            "channel": ""
+          }
+        },
+        "slide_KXMBUC": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-Y10-good-affordable-vacuum-cleaner.webp",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Multi-Surfaces Cleaning",
+            "card_text": "Suitable for hardwood, tile, laminate, and low-pile carpets.",
+            "channel": ""
+          }
+        },
+        "slide_QRxCKV": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-Y10-best-affordable-cordless-vacuum.webp",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "3 Charging Methods",
+            "card_text": "Charge your way: wall-mounted, desktop dock, or Type-C cable.",
+            "channel": ""
+          }
+        },
+        "slide_g78F9t": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-Y10-best-budget-cordless-vaccum.webp",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Self-Standing Design",
+            "card_text": "No need to lean—Y10 stands upright on its own for easy storage.",
+            "channel": ""
+          }
+        },
+        "slide_z7LM9f": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-Vaccum-60dB.webp",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "60dB Low Noise",
+            "card_text": "Powerful yet quiet—cleans without disturbing your space.",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_aL7hfy",
+        "slide_KXMBUC",
+        "slide_QRxCKV",
+        "slide_g78F9t",
+        "slide_z7LM9f"
+      ],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<p>Designed for Your Comfort<\/p>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 100,
+        "slide_aspect_ratio_mobile": 122,
+        "slides_per_view": 3.4,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_mobile": 1.2,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 3,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "progressbar",
+        "pagination_color": "#000000"
+      }
+    },
+    "single_image_EUQnQg": {
+      "type": "single-image",
+      "custom_css": [
+        ".wrap {display: flex; flex-direction: column; align-items: start; background: #ffffffc0; padding: 30px; width: max-content; border-radius: 10px; color: #19586e; line-height: 1;}",
+        ".title {font-size: 2.4vw; font-weight: 700; line-height: 1.2;}",
+        ".text {margin-bottom: 30px; font-size: 1.2vw; text-align: start;}",
+        ".text:last-of-type {margin-bottom: 0;}",
+        "@media screen and (max-width: 768px) {.wrap {padding: 15px; } .title {font-size: 26px; } .text {font-size: 16px; line-height: 1.2; }}"
+      ],
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-Y10-good-affordable-vacuums-cleaner.webp",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-Vaccum-with-LED-Headlight.webp",
+        "full_width": true,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "<div class=\"wrap\">\n        <span class=\"title\">45 Mins<\/span>\n        <span class=\"text\">Long Runtime<\/span>\n\n        <span class=\"title\">38KPa<\/span>\n        <span class=\"text\">Powerful Suction<\/span>\n\n        <span class=\"title\">400W <\/span>\n        <span class=\"text\">Brushless Motor  <\/span>\n\n        <span class=\"title\">5-Layer<\/span>\n        <span class=\"text\">HEPA Filtration\n<\/span>\n\n    <\/div>",
+        "d_position_x": 23,
+        "d_position_y": 67,
+        "d_content_width": 13,
+        "d_size": 24,
+        "d_position_x_mobile": 9,
+        "d_position_y_mobile": 49,
+        "d_content_width_mobile": 31,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_zCLLtB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JkffBd": {
+          "type": "heading",
+          "settings": {
+            "text": "Adaptable for Every Cleaning Task",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_i7aba4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Honiture Y10 deep clean your home with adjustable modes and long-lasting performance.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JkffBd",
+        "text_i7aba4"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_4_m9UttW": {
+      "type": "media-4",
+      "name": "Four Image Grid",
+      "settings": {
+        "full_width": false,
+        "image_1_desktop": "shopify:\/\/shop_images\/Honiture-Y10-cordless-vaccum-cleaner-for-car-seat.webp",
+        "image_2_desktop": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-Vaccum-clean-the-windoew-dust.webp",
+        "image_3_desktop": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-stick-Vaccum-cleaner.webp",
+        "image_4_desktop": "shopify:\/\/shop_images\/Honiture-Y10-affordable-cordless-vaccum-for-carpet.webp"
+      }
+    },
+    "slideshow_new_product_DLkgEV": {
+      "type": "slideshow-new-product",
+      "blocks": {
+        "slide_8PUyUn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-Vaccum-38kpa-Strong-suction.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Honiture-Y10-cordless-handheld-vacuum-strong-suction-38kpa.webp",
+            "slide_link": "",
+            "video_background": false,
+            "heading": "<h3>Powerful Suction & Long Battery Life<\/h3>",
+            "content": "The Y10 cordless vacuum delivers 38KPa of powerful suction to easily handle dust, debris, and pet hair.",
+            "position_x": 5,
+            "position_y": 4,
+            "content_width": 56,
+            "text_alignment": "left",
+            "position_x_mobile": 2,
+            "position_y_mobile": 1,
+            "content_width_mobile": 93,
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#000000",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_8PUyUn"
+      ],
+      "custom_css": [
+        ".slideshow-new-product__slide-content strong {color: #00d0cd;}",
+        ".slideshow-new-product__slide-content-2 h3 {color: #fff;}",
+        ".slideshow-new-product__slide-content {text-align: start;}",
+        ".cus-slide-3 {display: flex; gap: 20px; margin-top: 20px;}",
+        ".cus-slide-3 span {font-size: 30px; font-weight: 700;}",
+        "@media screen and (max-width: 768px) {.slideshow-new-product__slide-content {text-align: center; font-size: 15px; color: #2c2d2e; } .slideshow-new-product__slide-content h3 {font-size: 24px; margin-bottom: 5px; } .cus-slide-3 {display: none; }}"
+      ],
+      "name": "Slideshow-new-product",
+      "settings": {
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 6,
+        "transition": "slide",
+        "controls": "arrows",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "slideshow_new_product_QWWMwG": {
+      "type": "slideshow-new-product",
+      "blocks": {
+        "slide_raQphx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-Vaccum-with-5-layer-HEPA-filter.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-stick-Vaccum-cleaner.jpg",
+            "slide_link": "",
+            "video_background": false,
+            "heading": "<h3>5-Stage Filtration for a Healthier Home<\/h3>",
+            "content": "Effectively removes up to 99.99% of dust particles, ensuring a healthier environment for you and your family.",
+            "position_x": 5,
+            "position_y": 4,
+            "content_width": 56,
+            "text_alignment": "left",
+            "position_x_mobile": 2,
+            "position_y_mobile": 1,
+            "content_width_mobile": 93,
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_raQphx"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.slideshow-new-product__slide-content {text-align: center; font-size: 15px; color: #2c2d2e; } .slideshow-new-product__slide-content h3 {margin-bottom: 5px; }}"
+      ],
+      "name": "Slideshow-new-product",
+      "settings": {
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 6,
+        "transition": "slide",
+        "controls": "arrows",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_6Cx6im": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_r78hUE": {
+          "type": "heading",
+          "settings": {
+            "text": "Smarter, Smoother Cleaning",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Ke7F3k": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience a smarter clean with Y10 V-shaped anti-tangle roller brush that effectively reduces hair wrap. Equipped with LED headlights and a flexible floor brush head that rotates 90° front and back, and 180° left and right, this vacuum easily reaches every corner, delivering thorough cleaning even in tight spaces. <\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_r78hUE",
+        "text_Ke7F3k"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "slideshow_new_product_Ctk4Rt": {
+      "type": "slideshow-new-product",
+      "blocks": {
+        "slide_j9yFc6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Stick-Cordless-Vaccum-for-hardwood-floors.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Cordless-Vaccum-Anti-Tangle-Brush.webp",
+            "slide_link": "",
+            "video_background": false,
+            "heading": "",
+            "content": "",
+            "position_x": 4,
+            "position_y": 11,
+            "content_width": 81,
+            "text_alignment": "center",
+            "position_x_mobile": 2,
+            "position_y_mobile": 1,
+            "content_width_mobile": 97,
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_j9yFc6"
+      ],
+      "custom_css": [
+        ".slideshow-new-product__slide-content {color: #fff;}",
+        ".slideshow-new-product__slide-content h3 {color: #fff; margin-bottom: 10px;}",
+        ".slideshow-new-product__slide-content strong {color: #fff;}",
+        "@media screen and (max-width: 768px) {.slideshow-new-product__slide-content {text-align: center; } .slideshow-new-product__slide-content {font-size: 15px; } .slideshow-new-product__slide-content h3 {font-size: 24px; }}"
+      ],
+      "name": "Slideshow-new-product",
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "slide",
+        "controls": "arrows",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_swiper_carousel_AGdXah": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_JX9nHA": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/wIfmkB-FPSA",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "How to Replace the Dustbin",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        },
+        "slide_8z4zpk": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/G16TJmyI3JU",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "How to Replace the Scented Disc",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        },
+        "slide_GyMp4m": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/isP7JFnQWUA",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "How to Replace the Battery",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        },
+        "slide_LmbnAr": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/vUX6gC8Csxw",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "How to Replace the Brush",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        }
+      },
+      "block_order": [
+        "slide_JX9nHA",
+        "slide_8z4zpk",
+        "slide_GyMp4m",
+        "slide_LmbnAr"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {font-size: 24px; color: #19586e; margin-bottom: 0;}"
+      ],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<h2>Product Video<\/h2>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 56,
+        "slide_aspect_ratio_mobile": 56,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "progressbar",
+        "pagination_color": "#000000"
+      }
+    },
+    "single_image_6MNeTh": {
+      "type": "single-image",
+      "custom_css": [
+        "h2 {font-size: 24px; color: #19586e;}"
+      ],
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-Y10-cordless-vaccum-package.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-Y10-Cordless-Vaccum-Packing-List.jpg",
+        "full_width": false,
+        "title": "<h2>What's In The Box？<\/h2>",
+        "title_alignment": "center",
+        "position_x": 1,
+        "title_size": 24,
+        "position_x_mobile": 1,
+        "title_size_mobile": 16,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_kk9pF8": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_fiFLCD": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What are the suction power and motor specifications of the Honiture Y10?",
+            "open": false,
+            "content": "<p>It uses a <strong>400W brushless motor<\/strong> and provides up to <strong>38KPa strong suction<\/strong> (Max mode). It has 2 modes (Eco\/Max) for versatile cleaning, easily handling pet hair and debris.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_RXzwWg": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is the battery life, and how long does it take to charge?",
+            "open": false,
+            "content": "<p>The Y10 runs for up to <strong>45 minutes<\/strong> in Eco mode with its 6*2500mAh battery. The charging time to fully charge the unit is approximately <strong>4 hours<\/strong>.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_tpbacp": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How does the Y10 handle hair tangles and corner cleaning?",
+            "open": false,
+            "content": "<p>It features a <strong>V-shaped anti-tangle roller brush<\/strong> to reduce hair wrap. The cleaning head includes <strong>LED headlights<\/strong> and offers <strong>90°\/180° flexible rotation<\/strong> for thorough cleaning in dark or tight spaces.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_bDiURF": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How effective are the Y10's filtration and dust collection features?",
+            "open": false,
+            "content": "<p>It uses a <strong>5-stage HEPA filtration system<\/strong> to remove up to <strong>99.99%<\/strong> of fine dust and allergens. It has a large <strong>1-liter dust cup<\/strong> with a <strong>one-touch emptying<\/strong> function for hygienic disposal.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_iWyhzA": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is the Honiture Y10 convenient for storage and charging?",
+            "open": false,
+            "content": "<p>Yes, it has a <strong>Self-Standing Design<\/strong> for easy, upright storage anywhere. It offers <strong>three charging options<\/strong>: wall-mount, desktop dock, or <strong>Type-C cable<\/strong> direct charging.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_fiFLCD",
+        "collapsible_tab_RXzwWg",
+        "collapsible_tab_tpbacp",
+        "collapsible_tab_bDiURF",
+        "collapsible_tab_iWyhzA"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQ",
+        "marker_style": "style1",
+        "description": "<p>Meet Honiture G20 Pro<\/p>",
+        "color_bg": "transparent",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#FD6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#DADCE0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "174192665807f31313": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ybmJRG": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ybmJRG"
+      ],
+      "custom_css": [
+        "h2 {color: #19586e;}"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 450,
+        "max_height_mobile": 500,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_collection_carousel_Xm7dLe": {
+      "type": "custom-collection-carousel",
+      "name": "Collection carousel",
+      "settings": {
+        "title": "<p>Featured Vacuums<\/p>",
+        "heading_size": "h1",
+        "collection": "all-vacuums",
+        "show_description": true,
+        "text_color": "#1a1a1a",
+        "sale_price_color": "#000000",
+        "nav_button_bg": "#ffffff",
+        "nav_button_color": "#1a1a1a",
+        "nav_button_bg_hover": "#f5f5f5",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "url_text_MJTLM9": {
+      "type": "url-text",
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 768px) {.url-text-wrapper {display: block; padding-top: 0; }}"
+      ],
+      "name": "URL Text",
+      "settings": {
+        "text_content": "Need help deciding?",
+        "link_url": "",
+        "text_align": "center",
+        "font_size": 24,
+        "text_color": "#19586e",
+        "padding_top": 50,
+        "padding_bottom": 0
+      }
+    },
+    "custom_simple_banner_kUmy3B": {
+      "type": "custom-simple-banner",
+      "custom_css": [
+        "@media (max-width: 768px) {.banner__content {display: none; }}"
+      ],
+      "name": "Simple Banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture_smart_home_better_life.jpg",
+        "show_on_desktop": false,
+        "text_align": 15,
+        "title": "",
+        "title_tag": "h2",
+        "title_text_color": "#19586e",
+        "subtitle": "",
+        "text_color": "#19586e",
+        "title_size": 36,
+        "subtitle_size": 18,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "product_details_7MmVqp": {
+      "type": "product-details",
+      "blocks": {
+        "tab_MnrVqL": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "tab_label": "",
+            "icon": "none",
+            "text": "",
+            "text_columns": "2",
+            "page": "spec-for-t10"
+          }
+        },
+        "custom_liquid_Eydhf9": {
+          "type": "custom_liquid",
+          "settings": {
+            "tab_label": "Tab label",
+            "icon": "none",
+            "custom_liquid": "<div class=\"product-specs\">\n  <style>\n    .product-specs {\n      margin: 1.5rem 0;\n      overflow-x: auto;\n      -webkit-overflow-scrolling: touch;\n    }\n    .spec-table {\n      width: 100%;\n      min-width: 500px;\n      border-collapse: collapse;\n    }\n    .spec-table td {\n      padding: 16px 20px;\n      border-bottom: 1px solid #f0f0f0;\n      vertical-align: top;\n      line-height: 1.4;\n    }\n    .spec-table td:first-child {\n      font-weight: 500;\n      color: #666;\n      width: 40%;\n    }\n    .spec-table td:last-child {\n      color: #333;\n      width: 60%;\n    }\n\n    \/* 电脑端优化 *\/\n    @media (min-width: 750px) {\n      .spec-table {\n        min-width: auto;\n        table-layout: fixed;\n      }\n      .spec-table td {\n        padding: 18px 24px;\n      }\n    }\n\n    \/* 移动端优化 *\/\n    @media (max-width: 749px) {\n      .spec-table td {\n        padding: 14px 16px;\n        font-size: 15px;\n      }\n      .spec-table td:first-child {\n        width: 45%;\n      }\n      .spec-table td:last-child {\n        width: 55%;\n      }\n    }\n  <\/style>\n\n  <table class=\"spec-table\">\n    <tbody>\n      <tr>\n        <td>Dimensions<\/td>\n        <td>330mm × 330mm × 83mm (1.083ft × 1.083ft × 0.272ft)<\/td>\n      <\/tr>\n      <tr>\n        <td>Universal Wheel<\/td>\n        <td>Detachable bracket<\/td>\n      <\/tr>\n      <tr>\n        <td>Middle Sweep Cover<\/td>\n        <td>Fixed cover<\/td>\n      <\/tr>\n      <tr>\n        <td>Middle Sweep Roller<\/td>\n        <td>Brush and rubber brush, detachable at both ends<\/td>\n      <\/tr>\n      <tr>\n        <td>Middle Sweep Length<\/td>\n        <td>160mm<\/td>\n      <\/tr>\n      <tr>\n        <td>Carpet Recognition<\/td>\n        <td>Roller carpet pressure boost<\/td>\n      <\/tr>\n      <tr>\n        <td>Suction Levels<\/td>\n        <td>Up to 5000Pa<\/td>\n      <\/tr>\n      <tr>\n        <td>Dust Cup Capacity<\/td>\n        <td>250ml<\/td>\n      <\/tr>\n      <tr>\n        <td>Water Tank Capacity<\/td>\n        <td>300ml<\/td>\n      <\/tr>\n      <tr>\n        <td>Control Buttons<\/td>\n        <td>Mechanical buttons ×2<\/td>\n      <\/tr>\n      <tr>\n        <td>Button Lights<\/td>\n        <td>Status: Supports constant light\/ slow flash\/fast flash\/breathing<\/td>\n      <\/tr>\n      <tr>\n        <td>WIFI<\/td>\n        <td>2.4G<\/td>\n      <\/tr>\n      <tr>\n        <td>Remote Control<\/td>\n        <td>APP remote control<\/td>\n      <\/tr>\n      <tr>\n        <td>Battery Capacity<\/td>\n        <td>2600mAh<\/td>\n      <\/tr>\n      <tr>\n        <td>Product Weight<\/td>\n        <td>3.1kg<\/td>\n      <\/tr>\n      <tr>\n        <td>Color<\/td>\n        <td>White<\/td>\n      <\/tr>\n    <\/tbody>\n  <\/table>\n<\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_MnrVqL",
+        "custom_liquid_Eydhf9"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "T10 |Specification|",
+        "marker_style": "style1",
+        "description": "",
+        "text_size": "regular",
+        "tab_alignment": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_tabs": "#2c2d2e",
+        "color_text": "#2c2d2e",
+        "marker_color": "#00d0cd",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_liquid_9PhDP3": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "background_video_MegFpc",
+    "custom_swiper_carousel_hVP76M",
+    "single_image_EUQnQg",
+    "rich_text_zCLLtB",
+    "media_4_m9UttW",
+    "slideshow_new_product_DLkgEV",
+    "slideshow_new_product_QWWMwG",
+    "rich_text_6Cx6im",
+    "slideshow_new_product_Ctk4Rt",
+    "custom_swiper_carousel_AGdXah",
+    "single_image_6MNeTh",
+    "collapsible_content_kk9pF8",
+    "174192665807f31313",
+    "custom_collection_carousel_Xm7dLe",
+    "url_text_MJTLM9",
+    "custom_simple_banner_kUmy3B",
+    "product_details_7MmVqp",
+    "product-recommendations",
+    "custom_liquid_9PhDP3"
+  ]
+}

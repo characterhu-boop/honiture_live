@@ -1,0 +1,115 @@
+{% comment %} 
+使用的schame
+
+    {% render 'section-decorations', section: section %}
+
+    {
+        "type": "decoration",
+        "name": "装饰图片",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "图片" },
+          { "type": "range", "id": "top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "number", "id": "z_index", "label": "层级", "default": 1 },
+          { "type": "checkbox", "id": "hide_on_mobile", "label": "在移动端隐藏", "default": false },
+          { "type": "range", "id": "rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+        ]
+      } 
+
+{% endcomment %}
+
+ 
+
+{% assign deco_blocks = blocks | default: section.blocks %}
+{% assign deco_type = block_type | default: 'decoration' %}
+{% assign deco_class = class | default: 'decoration' %}
+{% assign img_w = image_width | default: 800 %}
+{% assign include_styles = include_styles | default: true %}
+
+<style>
+
+    #shopify-section-{{ section.id }}.shopify-section{
+        position: relative;
+    }
+    .shopify-section > .{{ deco_class }}{
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 0;
+        width: 1600px;
+        height: 100%;
+    }
+
+    .{{ deco_class }} img {
+        position: absolute;
+        pointer-events: none;
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+    @media (max-width: 768px) {
+        .{{ deco_class }}.hide-on-mobile {
+            display: none;
+        }
+        .shopify-section > .{{ deco_class }}{
+            width: 100%;
+        }
+    }
+    @media (min-width: 769px) {
+        .{{ deco_class }}.hide-on-pc {
+            display: none;
+        }
+    }
+</style> 
+ 
+{% for block in deco_blocks %}
+  {% if block.type == deco_type and block.settings.image != blank %}
+    {% assign unique_class = 'deco-img-' | append: block.id %}
+    <style>
+      .{{ unique_class }} {
+        top: calc({{ block.settings.top }}% + {{ block.settings.top_offset | default: 0 }}px);
+        left: calc({{ block.settings.left }}% + {{ block.settings.left_offset | default: 0 }}px);
+        {% if block.settings.width != blank %}width: {{ block.settings.width }}px;{% endif %}
+        {% if block.settings.z_index != blank %}z-index: {{ block.settings.z_index }};{% endif %}
+        {% if block.settings.rotation != blank %}transform: rotate({{ block.settings.rotation }}deg);{% endif %}
+      } 
+      @media (max-width: 768px) {
+        .{{ unique_class }} {
+          top: calc({{ block.settings.mobile_top | default: block.settings.top }}% + {{ block.settings.top_offset | default: block.settings.top_offset | default: 0 }}px);
+          left: calc({{ block.settings.mobile_left | default: block.settings.left }}% + {{ block.settings.left_offset | default: block.settings.left_offset | default: 0 }}px);
+          {% assign m_width = block.settings.mobile_width | default: block.settings.width %}
+          {% if m_width != blank %}width: {{ m_width }}px;{% endif %}
+          
+          {% assign m_z_index = block.settings.mobile_z_index | default: block.settings.z_index %}
+          {% if m_z_index != blank %}z-index: {{ m_z_index }};{% endif %}
+          
+          {% assign m_rotation = block.settings.mobile_rotation | default: block.settings.rotation %}
+          {% if m_rotation != blank %}transform: rotate({{ m_rotation }}deg);{% endif %}
+        }
+      }
+    </style>
+    <div class="{{ deco_class }} {% if block.settings.hide_on_mobile %}hide-on-mobile{% endif %} {% if block.settings.hide_on_pc %}hide-on-pc{% endif %} {{ section.id }}">
+      {% if block.settings.mobile_image != blank %}
+        <picture>
+            <source media="(max-width: 768px)" srcset="{{ block.settings.mobile_image | image_url: width: img_w }}">
+            <img 
+                class="{{ unique_class }}"
+                src="{{ block.settings.image | image_url: width: img_w }}" 
+                alt="{{ block.settings.image.alt | default: '' }}"
+                loading="lazy"
+            >
+        </picture>
+      {% else %}
+        <img 
+            class="{{ unique_class }}"
+            src="{{ block.settings.image | image_url: width: img_w }}" 
+            alt="{{ block.settings.image.alt | default: '' }}"
+            loading="lazy"
+        >
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}

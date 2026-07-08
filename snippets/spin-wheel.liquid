@@ -1,0 +1,1341 @@
+{% comment %} 引入assets中的js文件 {% endcomment %}
+<style>
+  .spin-wheel{
+    overflow: hidden;
+  }
+    .section-{{ section.id }} #my-lucky {
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    .section-{{ section.id }} .spin-wheel-container {
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        flex-shrink: 0;
+      position: relative;
+    }
+
+    /* 翻牌卡片网格 */
+    .section-{{ section.id }} .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+        "a1 a2 a3 a4"
+        "a5 center center a6"
+        "a7 a8 a9 a10";
+      gap: 12px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .section-{{ section.id }} .flip-grid.disabled .flip-card {
+      pointer-events: none;
+    }
+    .section-{{ section.id }} .flip-grid.disabled {
+      filter: grayscale(10%);
+    }
+    .section-{{ section.id }} .flip-card { perspective: 1000px; cursor: pointer; }
+    .section-{{ section.id }} .flip-card.disabled { cursor: not-allowed; opacity: 0.6; }
+    .section-{{ section.id }} .flip-card-inner {
+      position: relative;
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+    .section-{{ section.id }} .flip-card-inner.spinning {
+      transition: none;
+      animation: flipSpin 0.6s ease-in-out 3;
+    }
+
+    /* 翻开后的轻微弹跳过渡（在 rotateY(180deg) 基础上做轻微缩放回弹） */
+    .section-{{ section.id }} .flip-card.flipped .flip-card-inner.bounce {
+      animation: revealBounce 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes revealBounce {
+      0%   { transform: rotateY(180deg) scale(1.02); }
+      40%  { transform: rotateY(180deg) scale(0.98); }
+      70%  { transform: rotateY(180deg) scale(1.01); }
+      100% { transform: rotateY(180deg) scale(1.00); }
+    }
+
+    .section-{{ section.id }} .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .section-{{ section.id }} .flip-face {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: #fff; 
+    }
+    .section-{{ section.id }} .flip-card-front {
+      background: #fff;
+      /* border: 2px solid #FFAE00; */
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+    }
+    /* 统一正反两面图片尺寸 */
+    .section-{{ section.id }} .flip-face img {
+      width: 72%;
+      /* height: 72%; */
+      /* object-fit: contain; */
+    }
+    .section-{{ section.id }} .flip-card-front img.card-cover {
+      /* filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15)); */
+      animation: floatCard 3.5s ease-in-out infinite;
+    }
+    .section-{{ section.id }} .flip-card:not(.flipped):hover .flip-card-inner {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    .section-{{ section.id }} .flip-card-front::after {
+      content: "";
+      position: absolute;
+      top: -100%; left: -50%;
+      width: 200%; height: 300%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 65%);
+      transform: rotate(25deg);
+      animation: shimmer 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .section-{{ section.id }} .flip-card-back { 
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 15px;
+    }
+    .section-{{ section.id }} .flip-card-back img {
+       /* filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));  */ 
+       width: 60%;
+      }
+    .section-{{ section.id }} .flip-card-back .prize-title{
+      font-size: 12px;
+    }
+    /* 订阅模块 */
+    .section-{{ section.id }} .spin-wheel-container .subscribe-box {
+      grid-area: center;
+      width: 100%;
+      background: #fff;
+      color: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    .section-{{ section.id }} .spin-wheel-container .signup-container{
+      width: 100%;
+    }
+    .section-{{ section.id }} .spin-wheel-container .signup-container{
+      margin-bottom: 0;
+      margin-top: 8px;
+    }
+    .section-{{ section.id }} .spin-wheel-container .subscribe-box input[type="email"] {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+    .section-{{ section.id }} .spin-wheel-container .subscribe-box button {
+      background: #FFAE00;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .section-{{ section.id }} .spin-wheel-container .field {
+        border: 1px solid #DA2B2B ;
+        border-radius: 10px;
+    }
+    .section-{{ section.id }} .subscribe-tip { text-align: center; margin-top: 8px; color: #fff; }
+
+
+     /* 弹窗样式 */
+   .section-{{ section.id }} .prize-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%; 
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-{{ section.id }} .modal-content {
+        background: url('{{ section.settings.modal_bg | img_url: '1024x1024' }}');
+        background-size: 100% 100%;
+        background-position: center;
+        padding: 30px;
+        padding-bottom: 20px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        text-align: center;
+        position: relative;
+        animation: popIn 0.5s ease-out;
+    }
+    .section-{{ section.id }} .modal-content-wrap{
+        width: 720px;
+        height: 540px;
+        overflow: hidden;
+        border-radius: 12px; 
+    }
+    .section-{{ section.id }} #save-error-tip{
+        color: red;
+        text-align: center;
+        width: 100%;
+    }
+    @keyframes popIn {
+        0% { transform: scale(0.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes flipSpin {
+      0% { transform: rotateY(0); }
+      50% { transform: rotateY(180deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-20%) rotate(25deg); opacity: 0.0; }
+      20% { transform: translateX(0) rotate(25deg); opacity: 0.35; }
+      40% { transform: translateX(20%) rotate(25deg); opacity: 0.0; }
+      100% { transform: translateX(20%) rotate(25deg); opacity: 0.0; }
+    }
+
+    .section-{{ section.id }} .modal-close {
+        position: sticky;
+        display: block;
+        top: 0;
+        left: 100%;
+        transform: translate(12px, -12px);
+        font-size: 20px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        color: #fff;
+        transition: color 0.3s;
+        background: #00000027;
+        border-radius: 50%;
+    }
+
+    .section-{{ section.id }} .modal-close:hover {
+        color: #333;
+        background: #00000060;
+    }
+
+    .section-{{ section.id }} .prize-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #482C00;
+        margin-bottom: 15px;
+        padding: 0 30px;
+    }
+
+    .section-{{ section.id }} .prize-description {
+        font-size: 16px;
+        color: #8A6734;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+  .section-{{ section.id }} .prize-name{
+    font-size: 36px;
+    font-weight: 700;
+  }
+    .section-{{ section.id }} .prize-image {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        margin: 0 auto 10px;
+        border-radius: 8px;
+    }
+    .section-{{ section.id }} .prize-image-tk {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto 20px;
+        border-radius: 8px;
+        position: absolute;
+        left: 0;
+        bottom: -20px;
+    }
+
+    .section-{{ section.id }} .celebrate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 999;
+    }
+    .prize-code{
+        padding: 10px 50px;
+        border: 1px dashed #FFAE00;
+        background: #fff;
+        border-radius: 6px;
+        color: #FFAE00;
+        font-size: 30px;
+        margin-top: 100px;
+        position: relative;
+        cursor: pointer;
+        width: 80%;
+        margin: 30px auto;
+    }
+    .prize-code::before{
+        content: "✄";
+        margin-right: 5px;
+        position: absolute;
+        top: -24px;
+        left: -13px;
+        color: black;
+        font-size: 30px;
+    }
+
+    /* 转盘蒙层样式 */
+    .section-{{ section.id }} .wheel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 10px;
+        width: calc( 100% - 20px);
+        height: calc( 100% - 20px);
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+
+    .section-{{ section.id }} .wheel-overlay.hidden {
+        display: none;
+    }
+
+    .section-{{ section.id }} .overlay-message {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: #333;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 地址确认样式 */
+    .section-{{ section.id }} .address-section {
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .section-{{ section.id }} .address-display {
+        margin-bottom: 15px;
+        line-height: 1.4;
+        font-size: 20px;
+    }
+
+    .section-{{ section.id }} .address-form {
+        display: none;
+        font-size: 16px;
+    }
+
+    .section-{{ section.id }} .address-form.active {
+        display: block;
+    }
+
+    .section-{{ section.id }} .form-group {
+        margin-bottom: 15px;
+    }
+
+    .section-{{ section.id }} .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #482C00;
+    }
+
+    .section-{{ section.id }} .form-group input,
+    .section-{{ section.id }} .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    .section-{{ section.id }} .form-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .section-{{ section.id }} .btn {
+        padding: 4px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 10px;
+        font-size: 20px;
+    }
+
+    .section-{{ section.id }} .btn-edit {
+        background-color: #FFAE00;
+        color: white;
+    }
+
+    .section-{{ section.id }} .btn-save {
+        background-color: #FFAE00;
+        color: white;
+    }
+
+    .section-{{ section.id }} .btn-cancel {
+        background-color: #ccc;
+        color: #333;
+    }
+    /* 移动端适配转盘容器 */
+    @media screen and (max-width: 768px) {
+          .section-{{ section.id }} .flip-card-front {
+height: 90px;
+      padding: 0px;
+    }
+        .section-{{ section.id }} .prize-name{
+    font-size: 24px;
+    font-weight: 700;
+  }
+   .section-{{ section.id }} .flip-card-back{
+      gap: 5px;
+  }
+      .section-{{ section.id }} .flip-card-back .prize-title{
+          font-size: 10px;
+    padding: 0;
+    }
+      .section-{{ section.id }} .spin-wheel-container {
+        width: 100%;
+        /* height: 90vw; */
+      }
+        .section-{{ section.id }} .spin-wheel-container::after{
+          bottom: -160px;
+    left: -185px;
+        }
+    }
+    /* 移动端适配 */
+    @media screen and (max-width: 1024px) {
+
+        .section-{{ section.id }} .modal-content-wrap {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            max-height: 90vh;
+        }
+        
+        .section-{{ section.id }} .modal-content {
+            padding: 40px 20px;
+            max-height: 500px;
+            overflow: scroll;
+        }
+        
+        .section-{{ section.id }} .prize-title {
+            font-size: 32px;
+            padding: 0 15px;
+        }
+        
+        .section-{{ section.id }} .prize-description {
+            font-size: 15px;
+        }
+        
+        .section-{{ section.id }} .prize-image {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .section-{{ section.id }} .prize-code {
+            font-size: 20px;
+            padding: 8px 40px;
+        }
+        
+        .section-{{ section.id }} .address-display {
+            font-size: 18px;
+        }
+        
+        .section-{{ section.id }} .btn {
+            font-size: 18px;
+            padding: 6px 15px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .section-{{ section.id }} .spin-wheel-container {
+            width: 100%;
+        }
+        
+        .section-{{ section.id }} .modal-content-wrap {
+            width: 95%;
+            max-width: 95%;
+            max-height: 95vh;
+        }
+        
+        .section-{{ section.id }} .modal-content {
+            padding: 30px 15px;
+        }
+        
+        .section-{{ section.id }} .prize-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .section-{{ section.id }} .prize-description {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .section-{{ section.id }} .prize-image {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto;
+        }
+        .section-{{ section.id }} .prize-image-tk {
+          width: 100%;
+          position: static;
+        }
+        .section-{{ section.id }} .prize-code {
+            font-size: 18px;
+            padding: 6px 30px;
+            margin-top: 20px;
+        }
+        
+        .section-{{ section.id }} .prize-code::before {
+            font-size: 24px;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .section-{{ section.id }} .address-section {
+            margin-top: 20px;
+            padding: 15px;
+        }
+        
+        .section-{{ section.id }} .address-display {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .section-{{ section.id }} .btn {
+            font-size: 16px;
+            padding: 5px 12px;
+            margin: 0 5px;
+        }
+        
+        .section-{{ section.id }} .form-group label {
+            font-size: 14px;
+        }
+        
+        .section-{{ section.id }} .form-group input,
+        .section-{{ section.id }} .form-group select {
+            padding: 8px;
+            font-size: 14px;
+        }
+        .section-{{ section.id }} .modal-close {
+           transform: translate(0px, -15px);
+        }
+
+        /* 移动端九宫格：3×3，九个格子全部为卡片 */
+        .section-{{ section.id }} .flip-grid {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: auto auto auto;
+          grid-template-areas:
+            "a1 a2 a3"
+            "a4 a5 a6"
+            "a7 a8 a9";
+        }
+        /* 订阅模块在移动端放到九宫格下方显示 */
+        .section-{{ section.id }} .spin-wheel-container .subscribe-box {
+          grid-area: unset;
+          margin-top: 12px;
+          width: 100%;
+        }
+
+    }
+/* 转盘加载样式 */
+.section-{{ section.id }} .wheel-loading {
+  position: absolute;
+  top: 0;
+  left: 62px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 20;
+  border-radius: 50%;
+}
+
+.section-{{ section.id }} .loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #FFAE00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.section-{{ section.id }} .wheel-loading p {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+  margin: 0;
+}
+.spin-wheel-container .signup-container .form-notification{
+  color: #000;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 移动端适配加载样式 */
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }} .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+  }
+  
+  .section-{{ section.id }} .wheel-loading p {
+    font-size: 16px;
+  }
+  .section-{{ section.id }} .wheel-loading {
+    left: 0;
+    width: 90vw;
+    height: 90vw;
+  }
+}
+/* 订阅表单样式 */
+.section-{{ section.id }} .subscribe-box .newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.section-{{ section.id }} .subscribe-box input[type="email"] {
+  width: 100%;
+  max-width: 360px;
+  height: 40px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+}
+.section-{{ section.id }} .subscribe-box button[type="submit"] {
+  background: #DA2B2B;
+  color: #fff!important;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.section-{{ section.id }} .subscribe-tip {
+  font-size: 12px;
+  margin-top: 6px;
+  color: #000;
+  opacity: 0.9;
+}
+.section-{{ section.id }} .subscribe-title{
+  font-size: 18px;
+  font-weight: 600;
+  color: #DA2B2B;
+}
+        #subscribeBox .subscribe-box__inner { display: flex; gap: 16px; align-items: center; }
+        #subscribeBox .subscribe-box__media { flex: 0 0 20%; }
+        #subscribeBox .subscribe-box__media img { width: 100%; height: auto; display: block; border-radius: 8px; }
+        #subscribeBox .subscribe-box__content { flex: 1; }
+        @media (max-width: 768px) {
+          .section-{{ section.id }} .subscribe-title{
+            font-size: 12px;
+          }
+.section-{{ section.id }} .subscribe-box button[type="submit"] {
+      font-size: 12px;
+      padding: 6px 6px;
+}
+          #subscribeBox .signup-container button{
+            width: 80px;
+          }
+          #subscribeBox .subscribe-box__inner { flex-direction: row; }
+          #subscribeBox .subscribe-box__media { flex: 0 0 auto; width: 20%; }
+        }
+</style>
+<div class="spin-wheel-container">
+  <div id="my-lucky" data-activity="{{ section.settings.activity_id }}" data-istest="{{ section.settings.is_test }}">
+    <div id="cardGrid" class="flip-grid disabled" data-card-cover="{{ section.settings.card_cover | image_url: width: 800 }}">
+      <div class="subscribe-box" id="subscribeBox">
+        <div class="subscribe-box__inner">
+          <div class="subscribe-box__media">
+            {% if section.settings.subscribe_image != blank %}
+              <img src="{{ section.settings.subscribe_image | image_url: width: 800 }}" alt="{{ section.settings.subscribe_image.alt | default: 'Subscribe image' }}" loading="lazy" />
+            {% endif %}
+          </div>
+          <div class="subscribe-box__content">
+            {% if section.settings.subscribe_title != blank %}
+              <div class="subscribe-title">{{ section.settings.subscribe_title }}</div>
+            {% endif %}
+            {% render 'email-signup-spin' section: section %}
+            <div class="subscribe-tip" id="subTip"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- prize-modal -->
+<div class="prize-modal" id="prizeModal">
+  <div class="modal-content-wrap">
+    <div class="modal-content">
+      <span class="modal-close" id="closeModal">&times;</span>
+      <h2 class="prize-title" id="prizeTitle"></h2>
+      <p class="prize-description" id="prizeDescription"></p>
+      {% comment %} prizeName {% endcomment %}
+      <div class="prize-name" id="prizeName"></div>
+      <img class="prize-image" id="prizeImage" src="" alt="prize-image" />
+      <div class="prize-code" id="prizeCode" onclick="copyCode(this)"></div>
+
+      <!-- 地址确认部分 -->
+      <div class="address-section" id="addressSection">
+        <div class="address-display" id="addressDisplay"></div>
+        <button class="btn btn-edit" id="editAddressBtn">Edit Address</button>
+
+        <div class="address-form" id="addressForm">
+          <div class="form-group">
+            <label for="consignee">Consignee</label>
+            <input type="text" id="consignee" name="consignee" />
+          </div>
+          <div class="form-group">
+            <label for="countryCode">Country</label>
+            <input type="text" id="countryCode" name="countryCode" disabled/>
+          </div>
+          <div class="form-group">
+            <label for="stateOrProvinceCode">State/Province</label>
+            <input
+              type="text"
+              id="stateOrProvinceCode"
+              name="stateOrProvinceCode"
+            />
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" />
+          </div>
+          <div class="form-group">
+            <label for="addressLineOne">Address Line 1</label>
+            <input type="text" id="addressLineOne" name="addressLineOne" />
+          </div>
+          <div class="form-group">
+            <label for="addressLineTwo">Address Line 2</label>
+            <input type="text" id="addressLineTwo" name="addressLineTwo" />
+          </div>
+          <div class="form-group">
+            <label for="postalCode">Postal Code</label>
+            <input type="text" id="postalCode" name="postalCode" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="userEmail" name="email" />
+          </div>
+          <div id="save-error-tip"></div>
+          <div class="form-actions">
+            <button class="btn btn-save" id="saveAddressBtn">Save</button>
+            <button class="btn btn-cancel" id="cancelAddressBtn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const base_url_test = "https://shopify-api-test-01.external.sub.puture-in.com"; // 测试环境 
+  // const base_url_test = "http://localhost:8083"; // 本地环境 
+  const base_url = "https://shopify-api.puture-in.com"; // 正式环境 
+
+  const copyCode = (element) => {
+    const code = element.textContent.replace("Code: ", "").trim();
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        const originalText = `Code: ${code}`;
+        element.textContent = "Copied!";
+        setTimeout(() => {
+          element.textContent = originalText;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy code: ", err);
+      });
+  };
+  // 当文档加载完成后执行
+ // 当文档加载完成后执行
+document.addEventListener("DOMContentLoaded", function () {
+  // 获取DOM元素
+  const prizeModal = document.getElementById("prizeModal");
+  const prizeTitle = document.getElementById("prizeTitle");
+  const modalContentWrap = document.querySelector(".modal-content-wrap");
+  const prizeDescription = document.getElementById("prizeDescription");
+  const prizeName = document.getElementById("prizeName");
+  const prizeImage = document.getElementById("prizeImage");
+  const closeModal = document.getElementById("closeModal");
+  const prizeCode = document.getElementById("prizeCode");
+  const cardGrid = document.getElementById("cardGrid");
+  const subTip = document.getElementById("subTip");
+  // const wheelOverlay = document.getElementById("wheelOverlay"); // 蒙层元素
+  const activityId = document.getElementById("my-lucky").dataset.activity;
+  const isTest = document.getElementById("my-lucky").dataset.istest; 
+  // 地址相关元素
+  const addressSection = document.getElementById("addressSection");
+  const addressDisplay = document.getElementById("addressDisplay");
+  const editAddressBtn = document.getElementById("editAddressBtn");
+  const addressForm = document.getElementById("addressForm");
+  const saveAddressBtn = document.getElementById("saveAddressBtn");
+  const cancelAddressBtn = document.getElementById("cancelAddressBtn");
+
+  // 当前中奖记录数据
+  let currentDrawRecord = null;
+  // 转盘实例
+  let myLucky = null;
+  // 添加抽奖状态标识
+  let isSpinning = false;
+  // 订阅状态
+  let subscribed = false;
+  let subscribedEmail = "";
+
+  // 关闭弹窗
+  closeModal.addEventListener("click", function () {
+    prizeModal.style.display = "none";
+    modalContentWrap.style.height = "720px";
+    modalContentWrap.style.height = "540px";
+  });
+  // 通过 URL 参数判断是否已订阅，形如 ?customer_posted=true#contact_form
+  try {
+    const params = new URLSearchParams(window.location.search || "");
+    const hash = (window.location.hash || "").toLowerCase();
+    const posted = params.get('customer_posted');
+    if (posted === 'true' ) {
+      window.subscribed = true;
+      if (cardGrid) cardGrid.classList.remove('disabled');
+      if (subTip) subTip.textContent = 'select a card and click';
+    }
+  } catch (e) {
+    console.warn('URL 订阅检测失败', e);
+  }
+
+
+  // 地址编辑功能
+  editAddressBtn.addEventListener("click", function () {
+    showAddressForm();
+  });
+
+  cancelAddressBtn.addEventListener("click", function () {
+    hideAddressForm();
+  });
+
+  saveAddressBtn.addEventListener("click", function () {
+    saveAddress();
+  }); 
+
+
+  // 点击弹窗外部也可关闭
+  // prizeModal.addEventListener('click', function(e) {
+  //     if (e.target === prizeModal) {
+  //         prizeModal.style.display = 'none';
+  //     }
+  // });
+
+  // 从服务端获取数据的函数
+  function fetchWheelData() {
+    return new Promise((resolve, reject) => {
+      // 使用Shopify的AJAX API获取数据
+      fetch(`${isTest==='true'?base_url_test:base_url}/activity/${activityId}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data.data, "奖品信息", activityId);
+          if (data.code === 200) {
+            resolve(data.data);
+          } else {
+            reject(data.msg);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching wheel data:", error);
+          reject(error);
+        });
+    });
+  }
+
+  // 显示地址表单
+  function showAddressForm() {
+    if (!currentDrawRecord) return;
+
+    // 填充表单数据
+    document.getElementById("consignee").value =
+      currentDrawRecord.consignee || "";
+    document.getElementById("countryCode").value =
+      currentDrawRecord.countryCode || "";
+    document.getElementById("stateOrProvinceCode").value =
+      currentDrawRecord.stateOrProvinceCode || "";
+    document.getElementById("city").value = currentDrawRecord.city || "";
+    document.getElementById("addressLineOne").value =
+      currentDrawRecord.addressLineOne || "";
+    document.getElementById("addressLineTwo").value =
+      currentDrawRecord.addressLineTwo || "";
+    document.getElementById("postalCode").value =
+      currentDrawRecord.postalCode || "";
+    document.getElementById("phone").value = currentDrawRecord.phone || "";
+    document.getElementById("userEmail").value =
+      currentDrawRecord.email || "";
+
+    addressDisplay.style.display = "none";
+    editAddressBtn.style.display = "none";
+    addressForm.classList.add("active");
+  }
+
+  // 隐藏地址表单
+  function hideAddressForm() {
+    addressForm.classList.remove("active");
+    addressDisplay.style.display = "block";
+    editAddressBtn.style.display = "inline-block";
+  }
+
+  // 保存地址
+  function saveAddress() {
+    if (!currentDrawRecord) return;
+
+    const updatedData = {
+      id: currentDrawRecord.id,
+      activityId: currentDrawRecord.activityId,
+      orderNumber: currentDrawRecord.orderNumber,
+      consignee: document.getElementById("consignee").value,
+      countryCode: document.getElementById("countryCode").value,
+      stateOrProvinceCode: document.getElementById("stateOrProvinceCode")
+        .value,
+      city: document.getElementById("city").value,
+      addressLineOne: document.getElementById("addressLineOne").value,
+      addressLineTwo: document.getElementById("addressLineTwo").value,
+      postalCode: document.getElementById("postalCode").value,
+      phone: document.getElementById("phone").value,
+      email: document.getElementById("userEmail").value,
+    };
+
+    // 调用保存地址的API
+    fetch(`${isTest==='true'?base_url_test:base_url}/draw-records/updateAddress`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.code === 200) {
+          // 更新当前记录数据
+          currentDrawRecord = { ...currentDrawRecord, ...updatedData };
+          // 更新显示的地址
+          displayAddress(currentDrawRecord);
+          // 隐藏表单
+          hideAddressForm();
+          // 显示成功提示（可选）
+        } else {
+          // save-error-tip 中展示错误提示
+          const saveTip = document.getElementById("save-error-tip");
+          saveTip.textContent = result.msg || "Failed to update address. Please try again.";
+        }
+      })
+      .catch((error) => {
+        console.error("Error saving address:", error);
+      });
+  }
+
+  // 显示地址信息
+  function displayAddress(record) {
+    if (!record) return;
+
+    const addressLines = [
+      record.consignee,
+      record.addressLineOne,
+      record.addressLineTwo,
+      `${record.city}, ${record.stateOrProvinceCode} ${record.postalCode}`,
+      record.countryCode,
+      record.email,
+      record.phone,
+    ].filter((line) => line && line.trim() !== "");
+
+    addressDisplay.innerHTML = `
+                <strong>Shipping Address:</strong><br>
+                ${addressLines.join(", ")}
+            `;
+  }
+
+  // 显示中奖弹窗
+  function showPrizeModal(prize) {
+    // 保存中奖记录数据
+    currentDrawRecord = prize;
+    prizeTitle.innerHTML = prozeTip[prize.prizeType]?.title;
+    prizeDescription.textContent = prozeTip[prize.prizeType]?.description;
+    prizeName.textContent = prize.prizeName || "";
+    prizeImage.src =
+      prize.prizeImageUrl ||
+      "https://cdn.shopify.com/s/files/1/0277/1160/2768/files/thankyou.webp?v=1756268576";
+    // 0 谢谢回顾 1 优惠券 2 实物
+    prizeImage.classList.remove("prize-image-tk");
+    if (prize.prizeType === 1) {
+      prizeCode.textContent = `Code: ${prize.discountCode || "COUPONCODE"}`;
+      prizeCode.style.display = "block";
+      prizeImage.style.display = "none";
+      addressSection.style.display = "none";
+      // modalContentWrap.style.width = "520px";
+      // modalContentWrap.style.height = "400px"; 
+    } else { 
+      if (prize.prizeType === 0) {
+          prizeImage.src ="https://cdn.shopify.com/s/files/1/0277/1160/2768/files/thankyou.webp?v=1756268576";
+          prizeCode.style.display = "none";
+          prizeImage.classList.add("prize-image-tk");
+          prizeImage.style.display = "block";
+          addressSection.style.display = "none";
+          // modalContentWrap.style.width = "520px";
+          // modalContentWrap.style.height = "360px";
+      } else if (prize.prizeType === 2) {
+         // 显示地址信息（仅对实物奖品显示地址）
+        // 实物奖品
+        addressSection.style.display = "block"; 
+        prizeImage.style.display = "block";
+        prizeCode.style.display = "none";
+        displayAddress(prize);
+      } 
+    }
+
+    prizeModal.style.display = "flex";
+
+    // 添加庆祝效果
+    createConfetti();
+  }
+  
+  const prozeTip = {
+    0: {
+      title: "Thank you！",
+      description:
+        "Thank you for your trust and support in Honiture, and look forward to your 100% lucky index next time!",
+    },
+    1: {
+      title: "Congratulations!<br /> Get a Honiture coupon! <br />Use it quickly!",
+      description: "Each discount code is limited to one time.",
+    },
+    2: {
+      title: "Congratulations!",
+      description:
+        "We will deliver free gifts to your hands within a week! Stay tuned.",
+    },
+  };
+  
+  // 创建庆祝效果
+  function createConfetti() {
+    // 简单的庆祝效果 - 实际项目中可以使用专门的库如canvas-confetti
+    const colors = [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ffff00",
+      "#ff00ff",
+      "#00ffff",
+    ];
+    const celebrate = document.createElement("div");
+    celebrate.className = "celebrate";
+    prizeModal.appendChild(celebrate);
+
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement("div");
+      confetti.style.position = "absolute";
+      confetti.style.width = "10px";
+      confetti.style.height = "10px";
+      confetti.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.borderRadius = Math.random() > 0.5 ? "50%" : "0";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animation = `fall ${
+        Math.random() * 2 + 1
+      }s linear forwards`;
+
+      // 创建动画
+      const style = document.createElement("style");
+      style.textContent = `
+                      @keyframes fall {
+                          to {
+                              transform: translateY(100vh) rotate(${
+                                Math.random() * 360
+                              }deg);
+                              opacity: 0;
+                          }
+                      }
+                  `;
+      document.head.appendChild(style);
+
+      celebrate.appendChild(confetti);
+
+      // 移除元素
+      setTimeout(() => {
+        confetti.remove();
+      }, 3000);
+    }
+
+    // 移除庆祝容器
+    setTimeout(() => {
+      celebrate.remove();
+    }, 3000);
+  }
+  
+  // 邮箱格式校验函数
+  function validateEmail(email) {
+    // 基本的邮箱格式正则表达式
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  
+  // lucky canvas 不支持单词换行，因此需要手动处理换行逻辑
+  function getFonts(item, isMobile) {
+    const fonts = [];
+    let baseTop = 25; // 起始位置
+    const lineHeight = 20; // 行高
+    const baseConfig = {
+      fontSize: isMobile? "13px":"27px",
+      fontWeight: "700",
+      lengthLimit: "100%",
+      fontColor: "#f2dfa7",
+    };
+    // 处理标题，支持<br>换行
+    if (item.name && item.name.includes("<br>")) {
+      const lines = item.name.split("<br>");
+      lines.forEach((line, index) => {
+        fonts.push({
+          text: line,
+          top: `${baseTop + index * lineHeight}%`,
+          ...baseConfig,
+        });
+      });
+      baseTop += lines.length * lineHeight; // 更新基础位置
+    } else if (item.name) {
+      fonts.push({
+        text: item.name,
+        top: `${baseTop}%`,
+        ...baseConfig,
+      });
+      baseTop += lineHeight; // 更新基础位置
+    }
+
+    // 处理描述文本
+    if (item.description) {
+      fonts.push({
+        text: item.description,
+        top: `${baseTop}%`,
+        fontSize: isMobile?"12px":"15px",
+      });
+    }
+
+    return fonts;
+  }
+  
+  // 保存数据变量，用于在转盘初始化后使用
+  let data = null;
+  
+  /// 初始化环形 10 张翻牌卡片（第一排4、第二排2+订阅、第三排4）
+  function initFlipCards(wheelData) {
+    data = wheelData; // 保存数据供后续使用
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    const gridEl = document.getElementById('cardGrid');
+    const centerBox = document.getElementById('subscribeBox');
+    gridEl.innerHTML = '';
+    if (isMobile) {
+      // 移动端：订阅模块移到九宫格下方
+      if (centerBox && gridEl && gridEl.parentNode) {
+        gridEl.parentNode.insertBefore(centerBox, gridEl.nextSibling);
+      }
+    } else {
+      // 桌面端：保持订阅模块在网格中心区域
+      gridEl.appendChild(centerBox);
+    }
+    const coverUrl = gridEl.dataset.cardCover || 'https://cdn.shopify.com/s/files/1/0277/1160/2768/files/card_back.webp?v=1756900100';
+
+    // 移动端渲染9张卡片以匹配九宫格；桌面端保持10张
+    const areas = isMobile
+      ? ['a1','a2','a3','a4','a5','a6','a7','a8','a9']
+      : ['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10'];
+
+    for (let i = 0; i < areas.length; i++) {
+      const card = document.createElement('div');
+      card.className = 'flip-card';
+      card.dataset.index = String(i);
+      card.style.gridArea = areas[i];
+      card.innerHTML = `
+        <div class="flip-card-inner">
+          <div class="flip-face flip-card-front">
+            <img class="card-cover" src="${coverUrl}" alt="card-cover" />
+          </div>
+          <div class="flip-face flip-card-back">
+            <img alt="prize" />
+            <div class="prize-title"></div>
+          </div>
+        </div>
+      `;
+
+      card.addEventListener('click', function(){
+        if (!window.subscribed) {
+          const t = document.getElementById('subTip');
+          if (t) t.textContent = 'subscribe first';
+          return;
+        }
+        handleCardFlip(card);
+      });
+      gridEl.appendChild(card);
+    }
+
+  }
+
+  // 翻牌逻辑（覆盖）：只传 activityId，翻牌后展示奖品弹窗
+  async function handleCardFlip(card) {
+    const inner = card.querySelector('.flip-card-inner');
+    if (!inner || card.classList.contains('flipped') || inner.classList.contains('spinning')) return;
+
+    // 旋转开始前：正反两面都显示封面图，避免背面空白或提前露出结果
+    const gridEl = document.getElementById('cardGrid');
+    const coverUrlSpin = gridEl && gridEl.dataset ? gridEl.dataset.cardCover : '';
+    if (coverUrlSpin) {
+      const frontImgSpin = card.querySelector('.flip-card-front img');
+      const backImgSpin = card.querySelector('.flip-card-back img');
+      if (frontImgSpin) frontImgSpin.src = coverUrlSpin;
+      if (backImgSpin) backImgSpin.src = coverUrlSpin;
+    }
+
+    // start pre-reveal multi-flip animation
+    inner.classList.add('spinning');
+    const spinPromise = new Promise((resolve) => {
+      const onEnd = () => resolve();
+      inner.addEventListener('animationend', onEnd, { once: true });
+    });
+
+    // request draw result in parallel
+    let prize = null;
+    let errorMsg = '';
+    const drawPromise = fetch(`${isTest==='true'?base_url_test:base_url}/draw-records/draw`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        activityId: Number(activityId),
+        userEmail: localStorage.getItem('subscribeEmail'),
+        drawType: 'subscribe'
+      })
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result && result.code === 200) {
+          prize = result.data;
+        } else {
+          errorMsg = (result && result.msg) || 'draw failed, please try again later';
+        }
+      })
+      .catch((e) => {
+        console.error('flip error', e);
+        errorMsg = 'network error, please try again later';
+      });
+
+    // wait for both animation and draw to finish
+    await Promise.all([spinPromise, drawPromise]);
+    inner.classList.remove('spinning');
+
+    if (!prize) {
+      const t = document.getElementById('subTip');
+      if (t) t.textContent = errorMsg;
+      return;
+    }
+
+    // set back image and reveal
+    const backImg = card.querySelector('.flip-card-back img');
+    const prizeTitle = card.querySelector('.prize-title');
+    
+    if (backImg) {
+      // 以接口返回的 prizeImageUrl 为准，保证展示正确奖品图片
+      const apiImg = prize && (prize.prizeImageUrl || prize.imageUrl || prize.imgUrl);
+      if (apiImg) {
+        backImg.src = apiImg;
+        backImg.style.width = '40%';
+      } else {
+        // 回退逻辑：若后端未提供图片，使用本地匹配或默认资源
+        const matched = (data && data.prizes || []).find(p => p.id === prize.prizeId);
+        backImg.src = matched && matched.imgs && matched.imgs.length ? matched.imgs[0].imgUrl : (matched && matched.icon && matched.icon.src ? matched.icon.src : (data && data.card_back_src ? data.card_back_src : ''));
+      }
+    }
+    
+    // 设置奖品标题
+    if (prizeTitle) {
+      // 优先使用接口返回的prizeName
+      const apiTitle = prize && (prize.prizeName || prize.title || prize.name);
+      if (apiTitle) {
+        prizeTitle.textContent = apiTitle;
+      } else {
+        // 回退逻辑：从本地数据中查找标题
+        const matched = (data && data.prizes || []).find(p => p.id === prize.prizeId);
+        prizeTitle.textContent = matched && matched.name ? matched.name : '';
+      }
+    }
+    card.classList.add('flipped');
+    // 翻开后轻微弹跳过渡，提升反馈感
+    inner.classList.add('bounce');
+    inner.addEventListener('animationend', () => {
+      inner.classList.remove('bounce');
+    }, { once: true });
+    setTimeout(() => {
+      showPrizeModal(prize);
+    }, 250);
+  }
+
+  // 移除旧版重复的翻牌函数（使用上方的 handleCardFlip(card)）
+
+  // 初始化环形 10 张翻牌卡片
+  fetchWheelData().then((wheelData) => {
+    initFlipCards(wheelData);
+  
+    // 隐藏加载指示器
+    // const loadingElement = document.getElementById('wheelLoading');
+    // if (loadingElement) {
+    //   loadingElement.style.display = 'none';
+    // }
+  });
+});
+</script>
+ 

@@ -1,0 +1,1881 @@
+{%- liquid
+  assign countdown_blocks = section.blocks | where: 'type', 'count-down'
+-%}
+
+<style>
+  .fd-best--{{ section.id }} {
+    --vp-s: 1px;
+    background: {{ section.settings.bg_color | default: '#f4f8ff' }};
+    padding: calc({{ section.settings.padding_top | default: 48 }} * var(--vp-s)) 0 calc({{ section.settings.padding_bottom | default: 64 }} * var(--vp-s));
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 850px) and (max-width: 1500px) {
+    .fd-best--{{ section.id }} {
+      --vp-s: calc(100vw / 1500);
+    }
+  }
+
+  @media screen and (max-width: 849px) {
+    .fd-best--{{ section.id }} {
+      --vp-s: calc(100vw / 375);
+    }
+  }
+
+  .fd-best--{{ section.id }} .fd-best__container {
+    max-width: calc(1200 * var(--vp-s));
+    margin: 0 auto;
+    padding: 0 calc(16 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__header {
+    margin-bottom: calc(18 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .xmax_section__title {
+    color: {{ section.settings.title_color | default: '#191919' }};
+  }
+
+  .fd-best--{{ section.id }} .xmas-sub-heading {
+    color: {{ section.settings.sub_heading_color | default: '#5c6470' }};
+  }
+
+  .fd-best--{{ section.id }} .fd-best__countdown {
+    display: flex;
+    justify-content: center;
+    margin: calc(8 * var(--vp-s)) 0 calc(28 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(20 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__card {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    grid-template-areas: "media info";
+    background: #fff;
+    border-radius: calc(16 * var(--vp-s));
+    overflow: visible;
+    box-shadow: 0 calc(10 * var(--vp-s)) calc(30 * var(--vp-s)) rgba(0, 35, 92, 0.08);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-card {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background: #fff;
+    border-radius: calc(8 * var(--vp-s));
+    overflow: hidden;
+    box-shadow: 0 calc(10 * var(--vp-s)) calc(30 * var(--vp-s)) rgba(0, 35, 92, 0.08);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-media {
+    position: relative;
+    height: calc(var(--fd-small-image-height, 332) * var(--vp-s));
+    background: linear-gradient(135deg, #d9ebff 0%, #a8d5ff 100%);
+    overflow: hidden;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-media a,
+  .fd-best--{{ section.id }} .fd-best__small-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-media img {
+    object-fit: cover;
+  }
+
+  .fd-best--{{ section.id }} .common-badge {
+    position: absolute;
+    top: calc(var(--common-badge-top, 0) * var(--vp-s));
+    left: calc(var(--common-badge-left, 24) * var(--vp-s));
+    z-index: 2;
+    display: inline-grid;
+    place-items: center;
+    width: calc(var(--common-badge-width, 56) * var(--vp-s));
+    min-width: calc(var(--common-badge-width, 56) * var(--vp-s));
+    height: calc(var(--common-badge-height, 70) * var(--vp-s));
+    min-height: calc(var(--common-badge-height, 70) * var(--vp-s));
+    padding: calc(8 * var(--vp-s)) calc(8 * var(--vp-s)) calc(16 * var(--vp-s));
+    background: var(--common-badge-bg, #ff9f35);
+    color: var(--common-badge-color, #fff);
+    font-size: calc(var(--common-badge-font-size, 18) * var(--vp-s));
+    font-weight: 900;
+    line-height: 1.05;
+    text-align: center;
+    white-space: pre-line;
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+    pointer-events: none;
+  }
+
+  .fd-best--{{ section.id }} .common-badge__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .fd-best--{{ section.id }} .common-badge__bg--mobile {
+    display: none;
+  }
+
+  .fd-best--{{ section.id }} .common-badge__text {
+    position: relative;
+    z-index: 1;
+    transform: translate(calc(var(--common-badge-text-left, 0) * var(--vp-s)), calc(var(--common-badge-text-top, 0) * var(--vp-s)));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-info {
+    display: grid;
+    align-content: start;
+    gap: calc(16 * var(--vp-s));
+    padding: calc(34 * var(--vp-s)) calc(26 * var(--vp-s)) calc(26 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-title {
+    margin: 0;
+    color: #191919;
+    font-size: calc(24 * var(--vp-s));
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-points {
+    display: grid;
+    justify-items: start;
+    gap: calc(8 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-point {
+    display: inline-flex;
+    min-width: calc(260 * var(--vp-s));
+    padding: calc(3 * var(--vp-s)) calc(8 * var(--vp-s));
+    background: var(--fd-small-point-bg, #d8e5ff);
+    color: var(--fd-small-point-color, #2f3642);
+    font-size: calc(13 * var(--vp-s));
+    line-height: 1.1;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-coupon .fd-best__coupon.is-custom {
+    width: 100%;
+    min-width: 0;
+    min-height: calc(46 * var(--vp-s));
+    padding: calc(6 * var(--vp-s)) calc(10 * var(--vp-s)) calc(6 * var(--vp-s)) calc(44 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+    gap: calc(20 * var(--vp-s));
+    align-items: stretch;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-prices {
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(8 * var(--vp-s));
+    height: 100%;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-actions {
+    display: grid;
+    gap: calc(12 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__small-actions .fd-best__btn {
+    width: 100%;
+    height: calc(46 * var(--vp-s));
+    min-height: calc(46 * var(--vp-s));
+    padding: 0 calc(24 * var(--vp-s));
+    line-height: 1;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__card.is-image-right {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-areas: "info media";
+  }
+
+  .fd-best--{{ section.id }} .fd-best__card.is-image-right .fd-best__media {
+    border-radius: 0 calc(16 * var(--vp-s)) calc(16 * var(--vp-s)) 0;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__media {
+    grid-area: media;
+    position: relative;
+    min-height: 100%;
+    background: linear-gradient(135deg, #d9ebff 0%, #a8d5ff 100%);
+    display: grid;
+    place-items: center;
+    border-radius: calc(16 * var(--vp-s)) 0 0 calc(16 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__media-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__badge {
+    position: absolute;
+    top: calc(var(--fd-badge-top, 14) * var(--vp-s));
+    left: calc(var(--fd-badge-left, 14) * var(--vp-s));
+    z-index: 2;
+    width: calc(106 * var(--vp-s));
+    height: calc(88 * var(--vp-s));
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__card.is-image-right .fd-best__badge {
+    left: auto;
+    right: calc(var(--fd-badge-left, 14) * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__badge-text {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: calc(20 * var(--vp-s));
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    padding: calc(8 * var(--vp-s)) calc(16 * var(--vp-s)) 0 calc(10 * var(--vp-s));
+    transform: rotate(var(--fd-badge-text-rotate, -14deg));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__info {
+    grid-area: info;
+    padding: calc(22 * var(--vp-s)) calc(22 * var(--vp-s)) calc(24 * var(--vp-s));
+    display: grid;
+    align-content: center;
+    gap: calc(14 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__title {
+    display: flex;
+    flex-direction: column;
+    gap: calc(10 * var(--vp-s));
+    margin: 0;
+    font-size: calc(24 * var(--vp-s));
+    line-height: 1.18;
+    font-weight: 900;
+    color: #191919;
+    text-align: var(--fd-title-align, left);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__title-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: var(--fd-title-label-width, auto);
+    min-height: 2em;
+    margin-right: 0.34em;
+    padding: 0.14em 1.2em 0.14em var(--fd-title-label-padding-left, 3.2em);
+    border-radius: calc(999 * var(--vp-s));
+    background: var(--fd-title-label-bg, linear-gradient(90deg, #0db7d7 0%, #35d9de 100%));
+    color: #fff;
+    font-size: 0.67em;
+    font-weight: 900;
+    line-height: 1;
+    vertical-align: 0.18em;
+    white-space: nowrap;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__title-label-icon {
+    position: absolute;
+    top: var(--fd-title-label-icon-top, 50%);
+    left: var(--fd-title-label-icon-left, -0.42em);
+    width: var(--fd-title-label-icon-size, 2.7em);
+    height: var(--fd-title-label-icon-size, 2.7em);
+    object-fit: contain;
+    transform: translateY(-50%);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__mobile-title-label {
+    display: none;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__desc {
+    color: rgba(25, 25, 25, 0.7);
+    font-size: calc(15 * var(--vp-s));
+    line-height: 1.55;
+    text-align: var(--fd-desc-align, left);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__desc > *:first-child {
+    margin-top: 0;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__desc > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift {
+    position: relative;
+    width: var(--fd-gift-width, calc(440 * var(--vp-s)));
+    max-width: 100%;
+    margin-top: calc(4 * var(--vp-s));
+    margin-left: var(--fd-gift-align-margin-left, 0);
+    margin-right: var(--fd-gift-align-margin-right, auto);
+    padding-top: calc(22 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift.is-center {
+    --fd-gift-align-margin-left: auto;
+    --fd-gift-align-margin-right: auto;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-icon {
+    position: absolute;
+    top: 0;
+    left: calc(var(--fd-gift-icon-left, -30) * var(--vp-s));
+    z-index: 2;
+    width: var(--fd-gift-icon-width, calc(78 * var(--vp-s)));
+    height: auto;
+    transform: rotate(var(--fd-gift-icon-rotate, -14deg));
+    pointer-events: none;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-inner {
+    overflow: hidden;
+    border: calc(2 * var(--vp-s)) solid var(--fd-gift-border, #418eff);
+    border-radius: calc(8 * var(--vp-s));
+    background: var(--fd-gift-bg, #fff);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-heading {
+    min-height: calc(32 * var(--vp-s));
+    padding: calc(7 * var(--vp-s)) calc(18 * var(--vp-s)) calc(6 * var(--vp-s));
+    background: var(--fd-gift-heading-bg, #418eff);
+    color: var(--fd-gift-heading-color, #fff);
+    font-size: calc(16 * var(--vp-s));
+    font-weight: 900;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-divider {
+    position: relative;
+    width: calc(310 * var(--vp-s));
+    max-width: calc(100% - calc(88 * var(--vp-s)));
+    height: calc(13 * var(--vp-s));
+    margin: 0 auto;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-divider::before,
+  .fd-best--{{ section.id }} .fd-best__gift-divider::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-divider::before {
+    width: 100%;
+    border-top: calc(1 * var(--vp-s)) dashed var(--fd-gift-border, #418eff);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-divider::after {
+    width: calc(14 * var(--vp-s));
+    height: calc(14 * var(--vp-s));
+    background:
+      linear-gradient(var(--fd-gift-border, #418eff), var(--fd-gift-border, #418eff)) center / calc(1 * var(--vp-s)) 100% no-repeat,
+      linear-gradient(var(--fd-gift-border, #418eff), var(--fd-gift-border, #418eff)) center / 100% calc(1 * var(--vp-s)) no-repeat,
+      var(--fd-gift-bg, #fff);
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-body {
+    display: grid;
+    grid-template-columns: var(--fd-gift-image-width, calc(110 * var(--vp-s))) minmax(0, 1fr);
+    align-items: center;
+    gap: calc(22 * var(--vp-s));
+    min-height: calc(84 * var(--vp-s));
+    padding: calc(6 * var(--vp-s)) calc(36 * var(--vp-s)) calc(16 * var(--vp-s)) calc(36 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-media {
+    display: block;
+    width: var(--fd-gift-image-width, calc(110 * var(--vp-s)));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-media img,
+  .fd-best--{{ section.id }} .fd-best__gift-media svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-title {
+    display: block;
+    color: var(--fd-gift-title-color, #191919);
+    font-size: calc(14 * var(--vp-s));
+    font-weight: 400;
+    line-height: 1.25;
+    text-decoration: none;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-price {
+    display: flex;
+    align-items: baseline;
+    gap: calc(16 * var(--vp-s));
+    margin-top: calc(8 * var(--vp-s));
+    font-size: calc(15 * var(--vp-s));
+    line-height: 1;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-free {
+    color: var(--fd-gift-free-color, #00c7c9);
+    font-weight: 900;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__gift-compare {
+    color: rgba(25, 25, 25, 0.42);
+    font-weight: 500;
+    text-decoration: line-through;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__desc-image {
+    display: block;
+    width: 100%;
+    max-width: calc(var(--fd-desc-image-width, 220) * var(--vp-s));
+    height: auto;
+    margin: 0 0 calc(2 * var(--vp-s));
+    object-fit: contain;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__desc-image-wrap {
+    display: flex;
+    width: 100%;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__desc-image-wrap.is-left {
+    justify-content: flex-start;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__desc-image-wrap.is-center {
+    justify-content: center;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__progress {
+    display: grid;
+    gap: calc(8 * var(--vp-s));
+    margin-top: calc(2 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__progress-text {
+    font-size: calc(13 * var(--vp-s));
+    font-weight: 800;
+    color: {{ section.settings.primary_color | default: '#10b7d7' }};
+    line-height: 1;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__progress-track {
+    height: calc(7 * var(--vp-s));
+    border-radius: calc(999 * var(--vp-s));
+    background: rgba(17, 24, 39, 0.12);
+    overflow: hidden;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__progress-fill {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #11b6d7 0%, #4de0e4 100%);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__coupon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__coupon img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__coupon.is-custom {
+    justify-content: space-between;
+    gap: calc(16 * var(--vp-s));
+    min-width: calc(368 * var(--vp-s));
+    min-height: calc(44 * var(--vp-s));
+    padding: calc(6 * var(--vp-s)) calc(10 * var(--vp-s)) calc(6 * var(--vp-s)) calc(40 * var(--vp-s));
+    border-radius: calc(999 * var(--vp-s));
+    background: var(--fd-coupon-bg, #ff9f35);
+    color: var(--fd-coupon-color, #fff);
+    font-size: calc(16 * var(--vp-s));
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__coupon-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__coupon-claim {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: calc(78 * var(--vp-s));
+    min-height: calc(26 * var(--vp-s));
+    padding: calc(4 * var(--vp-s)) calc(16 * var(--vp-s));
+    border-radius: calc(999 * var(--vp-s));
+    background: var(--fd-coupon-claim-bg, #fff);
+    color: var(--fd-coupon-claim-color, #1f1f1f);
+    font-size: calc(14 * var(--vp-s));
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: underline;
+    flex: 0 0 auto;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.82);
+    color: #fff;
+    font-size: calc(14 * var(--vp-s));
+    font-weight: 700;
+    line-height: 1;
+    padding: calc(12 * var(--vp-s)) calc(20 * var(--vp-s));
+    border-radius: calc(999 * var(--vp-s));
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__toast.is-show {
+    opacity: 1;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__price-row {
+    display: grid;
+    gap: calc(18 * var(--vp-s));
+    margin-top: calc(2 * var(--vp-s));
+    padding-top: calc(14 * var(--vp-s));
+    border-top: calc(1 * var(--vp-s)) solid rgba(17, 24, 39, 0.12);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__coupon-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__purchase-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(18 * var(--vp-s));
+    width: 100%;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__prices {
+    display: flex;
+    align-items: baseline;
+    gap: calc(10 * var(--vp-s));
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(12 * var(--vp-s));
+    flex: 0 0 auto;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__cta {
+    display: inline-flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: calc(999 * var(--vp-s));
+    flex: 0 0 auto;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__cta-main,
+  .fd-best--{{ section.id }} .fd-best__cta-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__cta-main {
+    padding: 0 calc(24 * var(--vp-s));
+    min-height: calc(56 * var(--vp-s));
+    background: linear-gradient(90deg, #11b6d7 0%, #35d9de 100%);
+    font-size: calc(16 * var(--vp-s));
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__cta-icon {
+    width: calc(64 * var(--vp-s));
+    background: #15386a;
+    flex: 0 0 calc(64 * var(--vp-s));
+  }
+
+  .fd-best--{{ section.id }} .fd-best__cta-icon svg {
+    width: calc(24 * var(--vp-s));
+    height: calc(24 * var(--vp-s));
+    display: block;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__sale-price {
+    font-size: calc(30 * var(--vp-s));
+    font-weight: 900;
+    color: #222;
+    line-height: 1;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__compare-price {
+    font-size: calc(16 * var(--vp-s));
+    color: rgba(25, 25, 25, 0.45);
+    text-decoration: line-through;
+    line-height: 1;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: calc(130 * var(--vp-s));
+    padding: calc(13 * var(--vp-s)) calc(24 * var(--vp-s));
+    border-radius: calc(999 * var(--vp-s));
+    border: 0;
+    background: linear-gradient(90deg, #0db7d7 0%, #35d9de 100%);
+    color: #fff;
+    font-size: calc(16 * var(--vp-s));
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .fd-best--{{ section.id }} .fd-best__btn:hover {
+    color: #fff;
+    filter: brightness(0.98);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__btn.fd-best__small-learn {
+    background: var(--fd-small-learn-bg, #d9d9d9);
+    color: var(--fd-small-learn-color, #fff);
+  }
+
+  .fd-best--{{ section.id }} .fd-best__btn.fd-best__small-shop {
+    background: var(--fd-small-shop-bg, linear-gradient(90deg, #0db7d7 0%, #35d9de 100%));
+    color: var(--fd-small-shop-color, #fff);
+  }
+
+  @media screen and (max-width: 849px) {
+    .fd-best--{{ section.id }} {
+      padding: calc({{ section.settings.padding_top_mobile | default: 28 }} * var(--vp-s)) 0 calc({{ section.settings.padding_bottom_mobile | default: 38 }} * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__container {
+      padding: 0 calc(14 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fd-best--{{ section.id }} .common-badge {
+      top: calc(var(--common-badge-top-mobile, var(--common-badge-top, 0)) * var(--vp-s));
+      left: calc(var(--common-badge-left-mobile, var(--common-badge-left, 24)) * var(--vp-s));
+      width: calc(var(--common-badge-width-mobile, var(--common-badge-width, 56)) * var(--vp-s));
+      min-width: calc(var(--common-badge-width-mobile, var(--common-badge-width, 56)) * var(--vp-s));
+      height: calc(var(--common-badge-height-mobile, var(--common-badge-height, 70)) * var(--vp-s));
+      min-height: calc(var(--common-badge-height-mobile, var(--common-badge-height, 70)) * var(--vp-s));
+      background: var(--common-badge-bg-mobile, var(--common-badge-bg, #ff9f35));
+      color: var(--common-badge-color-mobile, var(--common-badge-color, #fff));
+      font-size: calc(var(--common-badge-font-size-mobile, var(--common-badge-font-size, 18)) * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .common-badge__text {
+      transform: translate(calc(var(--common-badge-text-left-mobile, var(--common-badge-text-left, 0)) * var(--vp-s)), calc(var(--common-badge-text-top-mobile, var(--common-badge-text-top, 0)) * var(--vp-s)));
+    }
+
+    .fd-best--{{ section.id }} .common-badge--has-mobile-bg .common-badge__bg--desktop {
+      display: none;
+    }
+
+    .fd-best--{{ section.id }} .common-badge--has-mobile-bg .common-badge__bg--mobile {
+      display: block;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__badge {
+      width: calc(76 * var(--vp-s));
+      height: calc(43 * var(--vp-s));
+    }
+    .fd-best--{{ section.id }} .fd-best__card,
+    .fd-best--{{ section.id }} .fd-best__card.is-image-right {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "media"
+        "info";
+    }
+
+    .fd-best--{{ section.id }} .fd-best__media {
+      min-height: calc(250 * var(--vp-s));
+      border-radius: calc(16 * var(--vp-s)) calc(16 * var(--vp-s)) 0 0;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__card.is-image-right .fd-best__media {
+      border-radius: calc(16 * var(--vp-s)) calc(16 * var(--vp-s)) 0 0;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__badge {
+      top: calc(var(--fd-badge-top-mobile, var(--fd-badge-top, 10)) * var(--vp-s));
+      left: calc(var(--fd-badge-left-mobile, var(--fd-badge-left, 10)) * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__card.is-image-right .fd-best__badge {
+      right: calc(var(--fd-badge-left-mobile, 10) * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__info {
+      padding: calc(18 * var(--vp-s)) calc(16 * var(--vp-s)) calc(20 * var(--vp-s));
+      gap: calc(12 * var(--vp-s));
+      justify-items: center;
+      text-align: var(--fd-title-align-mobile, var(--fd-title-align, left));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__title {
+      font-size: calc(20 * var(--vp-s));
+      text-align: var(--fd-title-align-mobile, var(--fd-title-align, left));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__title .fd-best__title-label {
+      display: none;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__mobile-title-label {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__mobile-title-label .fd-best__title-label {
+      width: var(--fd-title-label-width-mobile, var(--fd-title-label-width, auto));
+      margin-right: 0;
+      font-size: calc(14 * var(--vp-s));
+      vertical-align: 0;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__desc {
+      text-align: var(--fd-desc-align-mobile, var(--fd-desc-align, left));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift {
+      width: var(--fd-gift-width-mobile, min(100%, calc(335 * var(--vp-s))));
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: calc(18 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift-icon {
+      left: calc(var(--fd-gift-icon-left-mobile, -14) * var(--vp-s));
+      width: var(--fd-gift-icon-width-mobile, var(--fd-gift-icon-width, calc(62 * var(--vp-s))));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift-heading {
+      min-height: calc(28 * var(--vp-s));
+      padding: calc(6 * var(--vp-s)) calc(14 * var(--vp-s));
+      font-size: calc(13 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift-divider {
+      width: calc(230 * var(--vp-s));
+      max-width: calc(100% - calc(70 * var(--vp-s)));
+      height: calc(10 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift-body {
+      grid-template-columns: var(--fd-gift-image-width-mobile, var(--fd-gift-image-width, calc(82 * var(--vp-s)))) minmax(0, 1fr);
+      gap: calc(14 * var(--vp-s));
+      min-height: calc(72 * var(--vp-s));
+      padding: calc(4 * var(--vp-s)) calc(20 * var(--vp-s)) calc(13 * var(--vp-s)) calc(34 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift-media {
+      width: var(--fd-gift-image-width-mobile, var(--fd-gift-image-width, calc(82 * var(--vp-s))));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift-title {
+      font-size: calc(14 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__gift-price {
+      gap: calc(10 * var(--vp-s));
+      margin-top: calc(6 * var(--vp-s));
+      font-size: calc(13 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__progress {
+      width: 90%;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__desc-image {
+      max-width: calc(var(--fd-desc-image-width-mobile, 180) * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__sale-price {
+      font-size: calc(24 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__btn {
+      min-width: 100%;
+      width: 100%;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__price-row {
+      gap: calc(12 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__prices {
+      flex: 1 1 auto;
+      min-width: 0;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: calc(6 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__purchase-row {
+      gap: calc(10 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__actions {
+      width: auto;
+      flex: 0 0 auto;
+      justify-content: flex-end;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__coupon {
+      flex: 0 0 auto;
+      max-width: calc(86 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__coupon.is-custom {
+      gap: calc(8 * var(--vp-s));
+      min-width: 0;
+      max-width: calc(220 * var(--vp-s));
+      min-height: calc(36 * var(--vp-s));
+      padding: calc(5 * var(--vp-s)) calc(7 * var(--vp-s)) calc(5 * var(--vp-s)) calc(16 * var(--vp-s));
+      font-size: calc(12 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__coupon-claim {
+      min-width: calc(54 * var(--vp-s));
+      min-height: calc(22 * var(--vp-s));
+      padding: calc(3 * var(--vp-s)) calc(10 * var(--vp-s));
+      font-size: calc(12 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__price-row > .fd-best__coupon-row {
+      width: 100%;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__price-row > .fd-best__coupon-row .fd-best__coupon,
+    .fd-best--{{ section.id }} .fd-best__price-row > .fd-best__coupon-row .fd-best__coupon.is-custom {
+      width: 100%;
+      max-width: 100%;
+      flex: 0 1 auto;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__btn,
+    .fd-best--{{ section.id }} .fd-best__cta {
+      width: auto;
+      min-width: calc(128 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-info {
+      gap: calc(12 * var(--vp-s));
+      padding: calc(20 * var(--vp-s)) calc(16 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-title {
+      font-size: calc(20 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-media {
+      height: calc(var(--fd-small-image-height-mobile, var(--fd-small-image-height, 220)) * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-point {
+      min-width: calc(170 * var(--vp-s));
+      font-size: calc(12 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-coupon {
+      width: 100%;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-coupon .fd-best__coupon,
+    .fd-best--{{ section.id }} .fd-best__small-coupon .fd-best__coupon.is-custom {
+      width: 100%;
+      max-width: 100%;
+      flex: 0 1 auto;
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-bottom {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: calc(10 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-prices {
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(6 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-actions {
+      gap: calc(8 * var(--vp-s));
+    }
+
+    .fd-best--{{ section.id }} .fd-best__small-actions .fd-best__btn {
+      min-width: 0;
+      width: 100%;
+      height: calc(36 * var(--vp-s));
+      min-height: calc(36 * var(--vp-s));
+      padding: 0 calc(14 * var(--vp-s));
+      font-size: calc(12 * var(--vp-s));
+    }
+  }
+</style>
+
+<section class="fd-best fd-best--{{ section.id }}" data-fdbs-section="{{ section.id }}" data-cart-add-url="{{ routes.cart_add_url }}" data-checkout-url="{{ routes.checkout_url }}">
+  <div class="fd-best__container">
+    <div class="fd-best__header">
+      {% render 'xmas-section-header' %}
+    </div>
+
+    {%- for block in countdown_blocks -%}
+      <div class="fd-best__countdown" {{ block.shopify_attributes }}>
+        {% render 'count-down', block: block, cusId: section.id %}
+      </div>
+    {%- endfor -%}
+
+    <div class="fd-best__grid">
+      {%- for block in section.blocks -%}
+        {%- unless block.type == 'large_card' or block.type == 'small_card' -%}
+          {%- continue -%}
+        {%- endunless -%}
+        {%- assign product = block.settings.product -%}
+        {%- assign variant = blank -%}
+        {%- assign title = block.settings.title -%}
+        {%- assign description = block.settings.description -%}
+        {%- assign image = block.settings.image -%}
+        {%- assign shop_now_link = block.settings.btn_link -%}
+        {%- assign button_label = block.settings.button_label | default: 'Shop Now' -%}
+        {%- assign sale_price = 0 -%}
+        {%- assign compare_price = 0 -%}
+        {%- assign original_sale_price = 0 -%}
+        {%- if product != blank -%}
+          {%- assign variant = product.selected_or_first_available_variant -%}
+          {%- if title == blank -%}
+            {%- assign title = product.title -%}
+          {%- endif -%}
+          {%- if description == blank -%}
+            {%- assign description = product.description -%}
+          {%- endif -%}
+          {%- if image == blank -%}
+            {%- assign image = product.featured_image -%}
+          {%- endif -%}
+          {%- assign sale_price = product.price -%}
+          {%- assign original_sale_price = sale_price -%}
+          {%- assign compare_price = product.compare_at_price_max -%}
+          {%- if block.settings.extra_discount > 0 -%}
+            {%- assign discount_multiplier = 100 | minus: block.settings.extra_discount -%}
+            {%- assign sale_price = sale_price | times: discount_multiplier | divided_by: 100 -%}
+            {%- if compare_price == blank or compare_price <= sale_price -%}
+              {%- assign compare_price = original_sale_price -%}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- if block.settings.price != blank -%}
+          {%- assign sale_price_text = block.settings.price -%}
+        {%- else -%}
+          {%- assign sale_price_text = sale_price | money -%}
+        {%- endif -%}
+
+        {%- case block.type -%}
+          {%- when 'large_card' -%}
+        {%- liquid
+          assign gift_product = block.settings.gift_card_product
+          assign gift_title = block.settings.gift_card_item_title
+          assign gift_image = block.settings.gift_card_image
+          assign gift_compare_text = block.settings.gift_card_compare_price
+          assign gift_heading = block.settings.gift_card_heading
+          assign show_gift_card = false
+
+          if gift_title == blank and gift_product != blank
+            assign gift_title = gift_product.title
+          endif
+
+          if gift_image == blank and gift_product != blank
+            assign gift_image = gift_product.featured_image
+          endif
+
+          if gift_compare_text == blank and gift_product != blank
+            assign gift_compare_text = gift_product.price | money
+          endif
+
+          if gift_heading == blank
+            if title != blank
+              capture gift_heading
+                echo 'Gifts for '
+                echo title | strip_html
+              endcapture
+            else
+              assign gift_heading = 'Gifts'
+            endif
+          endif
+
+          if gift_product != blank or gift_title != blank or gift_image != blank
+            assign show_gift_card = true
+          elsif block.settings.show_gift_card
+            assign show_gift_card = true
+          endif
+        -%}
+        <article class="fd-best__card {% if block.settings.layout_direction == 'right' %}is-image-right{% endif %}" {{ block.shopify_attributes }}
+          style="--fd-desc-image-width: {{ block.settings.description_image_width | default: section.settings.description_image_width | default: 220 }}; --fd-desc-image-width-mobile: {{ block.settings.description_image_width_mobile | default: section.settings.description_image_width_mobile | default: 180 }}; --fd-badge-top: {{ block.settings.badge_top | default: 14 }}; --fd-badge-left: {{ block.settings.badge_left | default: 14 }}; --fd-badge-top-mobile: {{ block.settings.badge_top_mobile | default: 10 }}; --fd-badge-left-mobile: {{ block.settings.badge_left_mobile | default: 10 }}; --fd-badge-text-rotate: {{ block.settings.badge_text_rotate | default: -14 }}deg; --fd-title-label-bg: {{ block.settings.title_label_bg | default: 'linear-gradient(90deg, #0db7d7 0%, #35d9de 100%)' }}; {%- if block.settings.title_label_width != blank -%} --fd-title-label-width: calc({{ block.settings.title_label_width }} * var(--vp-s));{%- endif -%} {%- if block.settings.title_label_width_mobile != blank -%} --fd-title-label-width-mobile: calc({{ block.settings.title_label_width_mobile }} * var(--vp-s));{%- endif -%} --fd-title-label-icon-size: calc({{ block.settings.title_label_icon_size | default: 54 }} * var(--vp-s)); --fd-title-label-icon-left: calc({{ block.settings.title_label_icon_left | default: -8 }} * var(--vp-s)); --fd-title-label-icon-top: {{ block.settings.title_label_icon_top | default: 50 }}%; --fd-title-label-padding-left: calc({{ block.settings.title_label_padding_left | default: 54 }} * var(--vp-s)); --fd-title-align: {{ block.settings.title_text_align | default: 'left' }}; --fd-title-align-mobile: {{ block.settings.title_text_align_mobile | default: block.settings.title_text_align | default: 'center' }}; --fd-desc-align: {{ block.settings.description_text_align | default: 'left' }}; --fd-desc-align-mobile: {{ block.settings.description_text_align_mobile | default: block.settings.description_text_align | default: 'center' }};"
+          data-progress-start="{{ block.settings.progress_start_time | escape }}"
+          data-progress-end="{{ block.settings.progress_end_time | escape }}"
+          data-progress-bezier="{{ block.settings.progress_bezier | escape }}"
+          data-progress-label="{{ block.settings.progress_label | escape }}"
+          data-progress-fallback="{{ block.settings.progress_fallback_percent }}"
+          data-progress-min="{{ block.settings.progress_min_percent }}"
+          data-progress-enabled="{{ block.settings.show_progress_bar }}">
+          <div class="fd-best__media">
+            {%- if block.settings.discount_bg != blank or block.settings.discount_text != blank -%}
+              <div class="fd-best__badge" aria-hidden="true">
+                {%- if block.settings.discount_bg != blank -%}
+                  <img src="{{ block.settings.discount_bg | image_url: width: 240 }}" alt="" loading="lazy">
+                {%- endif -%}
+                {%- if block.settings.discount_text != blank -%}
+                  <span class="fd-best__badge-text{% if block.settings.badge_text_nowrap == false %} is-wrap{% endif %}">{{ block.settings.discount_text }}{% if block.settings.badge_text_nowrap == false %}<br>{% endif %}OFF</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            {%- if image != blank -%}
+              <a class="fd-best__media-link" href="{{ product.url | default: '#' }}" target="_blank" rel="noopener">
+                <img src="{{ image | image_url: width: 1200 }}" alt="{{ title | escape }}" loading="lazy">
+              </a>
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {%- endif -%}
+          </div>
+
+          <div class="fd-best__info">
+            {%- if block.settings.title_label != blank -%}
+              <div class="fd-best__mobile-title-label">
+                <span class="fd-best__title-label">
+                  {%- if block.settings.title_label_icon != blank -%}
+                    <img class="fd-best__title-label-icon" src="{{ block.settings.title_label_icon | image_url: width: 120 }}" alt="" loading="lazy">
+                  {%- endif -%}
+                  <span>{{ block.settings.title_label | escape }}</span>
+                </span>
+              </div>
+            {%- endif -%}
+            <h3 class="fd-best__title">
+              {%- if block.settings.title_label != blank -%}
+                <span class="fd-best__title-label">
+                  {%- if block.settings.title_label_icon != blank -%}
+                    <img class="fd-best__title-label-icon" src="{{ block.settings.title_label_icon | image_url: width: 120 }}" alt="" loading="lazy">
+                  {%- endif -%}
+                  <span>{{ block.settings.title_label | escape }}</span>
+                </span>
+              {%- endif -%}
+              <a href="{{ product.url | default: '#' }}" target="_blank" rel="noopener">{{ title }}</a>
+            </h3>
+
+            {%- if description != blank -%}
+              <div class="fd-best__desc rte">{{ description }}</div>
+            {%- endif -%}
+
+            {%- if show_gift_card -%}
+              <div class="fd-best__gift {% if block.settings.gift_card_align == 'center' %}is-center{% endif %}"
+                style="--fd-gift-width: calc({{ block.settings.gift_card_width | default: 440 }} * var(--vp-s)); --fd-gift-width-mobile: calc({{ block.settings.gift_card_width_mobile | default: 335 }} * var(--vp-s)); --fd-gift-image-width: calc({{ block.settings.gift_card_image_width | default: 110 }} * var(--vp-s)); --fd-gift-image-width-mobile: calc({{ block.settings.gift_card_image_width_mobile | default: 82 }} * var(--vp-s)); --fd-gift-icon-width: calc({{ block.settings.gift_card_icon_width | default: 78 }} * var(--vp-s)); --fd-gift-icon-width-mobile: calc({{ block.settings.gift_card_icon_width_mobile | default: 62 }} * var(--vp-s)); --fd-gift-icon-left: {{ block.settings.gift_card_icon_left | default: -30 }}; --fd-gift-icon-left-mobile: {{ block.settings.gift_card_icon_left_mobile | default: -14 }}; --fd-gift-icon-rotate: {{ block.settings.gift_card_icon_rotate | default: -14 }}deg; --fd-gift-border: {{ block.settings.gift_card_border_color | default: '#418eff' }}; --fd-gift-bg: {{ block.settings.gift_card_bg | default: '#ffffff' }}; --fd-gift-heading-bg: {{ block.settings.gift_card_heading_bg | default: '#418eff' }}; --fd-gift-heading-color: {{ block.settings.gift_card_heading_color | default: '#ffffff' }}; --fd-gift-title-color: {{ block.settings.gift_card_title_color | default: '#191919' }}; --fd-gift-free-color: {{ block.settings.gift_card_free_color | default: '#00c7c9' }};">
+                {%- if block.settings.gift_card_icon != blank -%}
+                  <img class="fd-best__gift-icon" src="{{ block.settings.gift_card_icon | image_url: width: 240 }}" alt="" loading="lazy">
+                {%- endif -%}
+                <div class="fd-best__gift-inner">
+                  <div class="fd-best__gift-heading">{{ gift_heading | escape }}</div>
+                  <div class="fd-best__gift-body">
+                    <a class="fd-best__gift-media" href="{{ gift_product.url | default: '#' }}" target="_blank" rel="noopener">
+                      {%- if gift_image != blank -%}
+                        <img src="{{ gift_image | image_url: width: 420 }}" alt="{{ gift_title | escape }}" loading="lazy">
+                      {%- else -%}
+                        {{ 'product-1' | placeholder_svg_tag }}
+                      {%- endif -%}
+                    </a>
+                    <div class="fd-best__gift-info">
+                      {%- if gift_title != blank -%}
+                        <a class="fd-best__gift-title" href="{{ gift_product.url | default: '#' }}" target="_blank" rel="noopener">{{ gift_title | escape }}</a>
+                      {%- endif -%}
+                      <div class="fd-best__gift-price">
+                        <span class="fd-best__gift-free">{{ block.settings.gift_card_free_label | default: 'FREE' | escape }}</span>
+                        {%- if gift_compare_text != blank -%}
+                          <span class="fd-best__gift-compare">{{ gift_compare_text | escape }}</span>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.description_image != blank -%}
+              <div class="fd-best__desc-image-wrap {% if block.settings.description_image_align == 'center' %}is-center{% else %}is-left{% endif %}">
+                <img class="fd-best__desc-image" src="{{ block.settings.description_image | image_url: width: 1200 }}" alt="" loading="lazy">
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.show_progress_bar -%}
+              <div class="fd-best__progress">
+                <div class="fd-best__progress-text" data-fdbs-progress-text>0% {{ block.settings.progress_label | default: 'Sold' }}</div>
+                <div class="fd-best__progress-track" aria-hidden="true">
+                  <span class="fd-best__progress-fill" data-fdbs-progress-fill></span>
+                </div>
+              </div>
+            {%- endif -%}
+
+            <div class="fd-best__price-row">
+              {%- if block.settings.coupon_code != blank and block.settings.coupon_image != blank -%}
+                <div class="fd-best__coupon-row">
+                  <button class="fd-best__coupon" type="button" data-fdbs-copy-code data-code="{{ block.settings.coupon_code | escape }}">
+                    <img src="{{ block.settings.coupon_image | image_url: width: 600 }}" alt="" loading="lazy">
+                  </button>
+                </div>
+              {%- elsif block.settings.coupon_code != blank -%}
+                {%- assign coupon_text = block.settings.coupon_text | default: block.settings.coupon_code -%}
+                <div class="fd-best__coupon-row">
+                  <button class="fd-best__coupon is-custom" type="button" data-fdbs-copy-code data-code="{{ block.settings.coupon_code | escape }}"
+                    style="--fd-coupon-bg: {{ block.settings.coupon_background | default: '#ff9f35' }}; --fd-coupon-color: {{ block.settings.coupon_text_color | default: '#ffffff' }}; --fd-coupon-claim-bg: {{ block.settings.coupon_claim_bg | default: '#ffffff' }}; --fd-coupon-claim-color: {{ block.settings.coupon_claim_color | default: '#1f1f1f' }};">
+                    <span class="fd-best__coupon-text">{{ coupon_text | escape }}</span>
+                    <span class="fd-best__coupon-claim">{{ block.settings.coupon_claim_label | default: 'Claim' | escape }}</span>
+                  </button>
+                </div>
+              {%- endif -%}
+
+              <div class="fd-best__purchase-row">
+                <div class="fd-best__prices">
+                  <span class="fd-best__sale-price">{{ sale_price_text }}</span>
+                {%- if compare_price and compare_price > sale_price -%}
+                  <span class="fd-best__compare-price">{{ compare_price | money }}</span>
+                {%- endif -%}
+                </div>
+
+                <div class="fd-best__actions">
+                  {%- if block.settings.show_add_button and variant != blank -%}
+                    <div class="fd-best__cta">
+                      {%- if shop_now_link != blank -%}
+                        <a class="fd-best__cta-main" href="{{ shop_now_link }}" target="_blank" rel="noopener">{{ button_label | escape }}</a>
+                      {%- else -%}
+                        <button class="fd-best__cta-main" type="button" data-fdbs-shop-now data-variant-id="{{ variant.id }}" data-checkout-url="{{ routes.checkout_url }}" {% if variant == blank %}disabled{% endif %}>{{ button_label | escape }}</button>
+                      {%- endif -%}
+                      <button class="fd-best__cta-icon" type="button" aria-label="Add to cart" data-fdbs-add-cart data-variant-id="{{ variant.id }}" {% if variant == blank %}disabled{% endif %}>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M3 5h2l1 9h10l1.2-6H7.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <circle cx="10" cy="19" r="1.5" fill="currentColor"/>
+                          <circle cx="17" cy="19" r="1.5" fill="currentColor"/>
+                          <path d="M15 10v6M12 13h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  {%- else -%}
+                    {%- if shop_now_link != blank -%}
+                      <a class="fd-best__btn" href="{{ shop_now_link }}" target="_blank" rel="noopener">{{ button_label | escape }}</a>
+                    {%- else -%}
+                      <button class="fd-best__btn" type="button" data-fdbs-shop-now data-variant-id="{{ variant.id }}" data-checkout-url="{{ routes.checkout_url }}" {% if variant == blank %}disabled{% endif %}>{{ button_label | escape }}</button>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+          {%- when 'small_card' -%}
+        <article class="fd-best__small-card" {{ block.shopify_attributes }}
+          style="--fd-small-image-height: {{ block.settings.image_height | default: 332 }}; --fd-small-image-height-mobile: {{ block.settings.image_height_mobile | default: 220 }}; --fd-small-point-bg: {{ block.settings.selling_point_bg | default: '#d8e5ff' }}; --fd-small-point-color: {{ block.settings.selling_point_color | default: '#2f3642' }}; --fd-coupon-bg: {{ block.settings.coupon_background | default: '#ff9f35' }}; --fd-coupon-color: {{ block.settings.coupon_text_color | default: '#ffffff' }}; --fd-coupon-claim-bg: {{ block.settings.coupon_claim_bg | default: '#ffffff' }}; --fd-coupon-claim-color: {{ block.settings.coupon_claim_color | default: '#1f1f1f' }}; --fd-small-learn-bg: {{ block.settings.learn_button_bg | default: '#d9d9d9' }}; --fd-small-learn-color: {{ block.settings.learn_button_color | default: '#ffffff' }}; --fd-small-shop-bg: {{ block.settings.shop_button_bg | default: 'linear-gradient(90deg, #0db7d7 0%, #35d9de 100%)' }}; --fd-small-shop-color: {{ block.settings.shop_button_color | default: '#ffffff' }};">
+          <div class="fd-best__small-media">
+            {% render 'common-badge',
+              show: block.settings.show_discount_badge,
+              product: product,
+              sale_price: sale_price,
+              compare_price: compare_price,
+              text: block.settings.discount_text,
+              off_text: block.settings.discount_off_text,
+              split: block.settings.discount_text_split,
+              background: block.settings.discount_badge_bg,
+              color: block.settings.discount_badge_color,
+              background_image: block.settings.discount_badge_bg_image,
+              background_mobile: block.settings.discount_badge_bg_mobile,
+              color_mobile: block.settings.discount_badge_color_mobile,
+              background_image_mobile: block.settings.discount_badge_bg_image_mobile,
+              width: block.settings.discount_badge_width,
+              height: block.settings.discount_badge_height,
+              width_mobile: block.settings.discount_badge_width_mobile,
+              height_mobile: block.settings.discount_badge_height_mobile,
+              font_size: block.settings.discount_badge_font_size,
+              font_size_mobile: block.settings.discount_badge_font_size_mobile,
+              top: block.settings.discount_badge_top,
+              left: block.settings.discount_badge_left,
+              top_mobile: block.settings.discount_badge_top_mobile,
+              left_mobile: block.settings.discount_badge_left_mobile,
+              text_top: block.settings.discount_badge_text_top,
+              text_left: block.settings.discount_badge_text_left,
+              text_top_mobile: block.settings.discount_badge_text_top_mobile,
+              text_left_mobile: block.settings.discount_badge_text_left_mobile
+            %}
+
+            {%- if image != blank -%}
+              <a href="{{ product.url | default: '#' }}" target="_blank" rel="noopener">
+                <img src="{{ image | image_url: width: 1000 }}" alt="{{ title | escape }}" loading="lazy">
+              </a>
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {%- endif -%}
+          </div>
+
+          <div class="fd-best__small-info">
+            <h3 class="fd-best__small-title">
+              <a href="{{ product.url | default: '#' }}" target="_blank" rel="noopener">{{ title }}</a>
+            </h3>
+
+            {%- if block.settings.selling_point_1 != blank or block.settings.selling_point_2 != blank or block.settings.selling_point_3 != blank -%}
+              <div class="fd-best__small-points">
+                {%- if block.settings.selling_point_1 != blank -%}
+                  <span class="fd-best__small-point">{{ block.settings.selling_point_1 | escape }}</span>
+                {%- endif -%}
+                {%- if block.settings.selling_point_2 != blank -%}
+                  <span class="fd-best__small-point">{{ block.settings.selling_point_2 | escape }}</span>
+                {%- endif -%}
+                {%- if block.settings.selling_point_3 != blank -%}
+                  <span class="fd-best__small-point">{{ block.settings.selling_point_3 | escape }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.coupon_code != blank -%}
+              {%- assign coupon_text = block.settings.coupon_text | default: block.settings.coupon_code -%}
+              <div class="fd-best__small-coupon">
+                <button class="fd-best__coupon is-custom" type="button" data-fdbs-copy-code data-code="{{ block.settings.coupon_code | escape }}">
+                  <span class="fd-best__coupon-text">{{ coupon_text | escape }}</span>
+                  <span class="fd-best__coupon-claim">{{ block.settings.coupon_claim_label | default: 'Claim' | escape }}</span>
+                </button>
+              </div>
+            {%- endif -%}
+
+            <div class="fd-best__small-bottom">
+              <div class="fd-best__prices fd-best__small-prices">
+                <span class="fd-best__sale-price">{{ sale_price_text }}</span>
+                {%- if compare_price and compare_price > sale_price -%}
+                  <span class="fd-best__compare-price">{{ compare_price | money }}</span>
+                {%- endif -%}
+              </div>
+
+              <div class="fd-best__small-actions">
+                {%- if block.settings.learn_button_label != blank -%}
+                  <a class="fd-best__btn fd-best__small-learn" href="{{ block.settings.learn_button_link | default: product.url | default: '#' }}" target="_blank" rel="noopener">{{ block.settings.learn_button_label | escape }}</a>
+                {%- endif -%}
+                {%- if block.settings.shop_button_label != blank -%}
+                  {%- if block.settings.shop_button_link != blank -%}
+                    <a class="fd-best__btn fd-best__small-shop" href="{{ block.settings.shop_button_link }}" target="_blank" rel="noopener">{{ block.settings.shop_button_label | escape }}</a>
+                  {%- else -%}
+                    <button class="fd-best__btn fd-best__small-shop" type="button" data-fdbs-shop-now data-variant-id="{{ variant.id }}" data-checkout-url="{{ routes.checkout_url }}" {% if variant == blank %}disabled{% endif %}>{{ block.settings.shop_button_label | escape }}</button>
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        </article>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.querySelector('.fd-best--{{ section.id }}');
+    if (!root || root.dataset.fdbsReady === '1') return;
+    root.dataset.fdbsReady = '1';
+
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
+    function parseBezier(raw) {
+      var fallback = [0.42, 0, 0.58, 1];
+      if (!raw) return fallback;
+      var parts = raw.split(',').map(function (value) { return parseFloat(value.trim()); }).filter(function (value) { return Number.isFinite(value); });
+      if (parts.length !== 4) return fallback;
+      return parts;
+    }
+
+    function cubicBezier(p1x, p1y, p2x, p2y) {
+      var NEWTON_ITERATIONS = 6;
+      var NEWTON_MIN_SLOPE = 0.001;
+      var SUBDIVISION_PRECISION = 0.0000001;
+      var SUBDIVISION_MAX_ITERATIONS = 10;
+      var kSplineTableSize = 11;
+      var kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
+      var float32ArraySupported = typeof Float32Array === 'function';
+
+      function A(aA1, aA2) {
+        return 1.0 - 3.0 * aA2 + 3.0 * aA1;
+      }
+      function B(aA1, aA2) {
+        return 3.0 * aA2 - 6.0 * aA1;
+      }
+      function C(aA1) {
+        return 3.0 * aA1;
+      }
+      function calcBezier(aT, aA1, aA2) {
+        return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT;
+      }
+      function getSlope(aT, aA1, aA2) {
+        return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1);
+      }
+
+      var sampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
+      for (var i = 0; i < kSplineTableSize; ++i) {
+        sampleValues[i] = calcBezier(i * kSampleStepSize, p1x, p2x);
+      }
+
+      function binarySubdivide(aX, aA, aB) {
+        var currentX, currentT, i = 0;
+        do {
+          currentT = aA + (aB - aA) / 2.0;
+          currentX = calcBezier(currentT, p1x, p2x) - aX;
+          if (currentX > 0.0) {
+            aB = currentT;
+          } else {
+            aA = currentT;
+          }
+        } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
+        return currentT;
+      }
+
+      function newtonRaphsonIterate(aX, aGuessT) {
+        for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
+          var currentSlope = getSlope(aGuessT, p1x, p2x);
+          if (currentSlope === 0.0) return aGuessT;
+          var currentX = calcBezier(aGuessT, p1x, p2x) - aX;
+          aGuessT -= currentX / currentSlope;
+        }
+        return aGuessT;
+      }
+
+      function getTForX(aX) {
+        var intervalStart = 0.0;
+        var currentSample = 1;
+        var lastSample = kSplineTableSize - 1;
+
+        for (; currentSample !== lastSample && sampleValues[currentSample] <= aX; ++currentSample) {
+          intervalStart += kSampleStepSize;
+        }
+        --currentSample;
+
+        var dist = (aX - sampleValues[currentSample]) /
+          (sampleValues[currentSample + 1] - sampleValues[currentSample]);
+        var guessForT = intervalStart + dist * kSampleStepSize;
+
+        var initialSlope = getSlope(guessForT, p1x, p2x);
+        if (initialSlope >= NEWTON_MIN_SLOPE) {
+          return newtonRaphsonIterate(aX, guessForT);
+        }
+        if (initialSlope === 0.0) {
+          return guessForT;
+        }
+        return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize);
+      }
+
+      return function (x) {
+        if (p1x === p1y && p2x === p2y) return x;
+        if (x === 0 || x === 1) return x;
+        return calcBezier(getTForX(x), p1y, p2y);
+      };
+    }
+
+    function updateProgress(card) {
+      if (card.dataset.progressEnabled !== 'true') return;
+      var fill = card.querySelector('[data-fdbs-progress-fill]');
+      var text = card.querySelector('[data-fdbs-progress-text]');
+      if (!fill || !text) return;
+
+      var start = Date.parse(card.dataset.progressStart || '');
+      var end = Date.parse(card.dataset.progressEnd || '');
+      var min = Number(card.dataset.progressMin || 0);
+      var fallback = Number(card.dataset.progressFallback || 0);
+      var label = card.dataset.progressLabel || 'Sold';
+      var bezier = parseBezier(card.dataset.progressBezier || '');
+      var easing = cubicBezier(bezier[0], bezier[1], bezier[2], bezier[3]);
+      var percent = fallback;
+
+      if (Number.isFinite(start) && Number.isFinite(end) && end > start) {
+        var now = Date.now();
+        var t = clamp((now - start) / (end - start), 0, 1);
+        percent = easing(t) * 100;
+      }
+
+      percent = clamp(percent, min, 100);
+      fill.style.width = percent.toFixed(2) + '%';
+      text.textContent = Math.round(percent) + '% ' + label;
+    }
+
+    function updateAllProgress() {
+      root.querySelectorAll('.fd-best__card').forEach(updateProgress);
+    }
+
+    function showToast(message) {
+      var toast = root.querySelector('.fd-best__toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'fd-best__toast';
+        root.appendChild(toast);
+      }
+      toast.textContent = message || 'Copied';
+      toast.classList.add('is-show');
+      clearTimeout(window.__fdBestToastTimer);
+      window.__fdBestToastTimer = setTimeout(function () {
+        toast.classList.remove('is-show');
+      }, 1500);
+    }
+
+    root.addEventListener('click', function (event) {
+      var copyButton = event.target.closest('[data-fdbs-copy-code]');
+      if (copyButton && root.contains(copyButton)) {
+        var code = copyButton.getAttribute('data-code') || '';
+        if (!code) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(function () {
+            showToast('Copied');
+          });
+        } else {
+          var input = document.createElement('input');
+          input.value = code;
+          document.body.appendChild(input);
+          input.select();
+          try {
+            document.execCommand('copy');
+            showToast('Copied');
+          } finally {
+            document.body.removeChild(input);
+          }
+        }
+        return;
+      }
+
+      var addButton = event.target.closest('[data-fdbs-add-cart]');
+      if (addButton && root.contains(addButton)) {
+        var addVariantId = addButton.getAttribute('data-variant-id');
+        if (!addVariantId) return;
+        var addForm = document.createElement('form');
+        addForm.method = 'post';
+        addForm.action = root.dataset.cartAddUrl || '/cart/add';
+        addForm.target = '_blank';
+        addForm.style.display = 'none';
+
+        var addIdInput = document.createElement('input');
+        addIdInput.type = 'hidden';
+        addIdInput.name = 'id';
+        addIdInput.value = addVariantId;
+        addForm.appendChild(addIdInput);
+
+        var addQuantityInput = document.createElement('input');
+        addQuantityInput.type = 'hidden';
+        addQuantityInput.name = 'quantity';
+        addQuantityInput.value = '1';
+        addForm.appendChild(addQuantityInput);
+
+        document.body.appendChild(addForm);
+        addForm.submit();
+        setTimeout(function () {
+          addForm.remove();
+        }, 1000);
+        return;
+      }
+
+      var button = event.target.closest('[data-fdbs-shop-now]');
+      if (!button || !root.contains(button)) return;
+
+      var variantId = button.getAttribute('data-variant-id');
+      if (!variantId) return;
+
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action = root.dataset.cartAddUrl || '/cart/add';
+      form.target = '_blank';
+      form.style.display = 'none';
+
+      var idInput = document.createElement('input');
+      idInput.type = 'hidden';
+      idInput.name = 'id';
+      idInput.value = variantId;
+      form.appendChild(idInput);
+
+      var quantityInput = document.createElement('input');
+      quantityInput.type = 'hidden';
+      quantityInput.name = 'quantity';
+      quantityInput.value = '1';
+      form.appendChild(quantityInput);
+
+      var returnToInput = document.createElement('input');
+      returnToInput.type = 'hidden';
+      returnToInput.name = 'return_to';
+      returnToInput.value = root.dataset.checkoutUrl || '/checkout';
+      form.appendChild(returnToInput);
+
+      document.body.appendChild(form);
+      form.submit();
+      setTimeout(function () {
+        form.remove();
+      }, 1000);
+    });
+
+    updateAllProgress();
+    setInterval(updateAllProgress, 30000);
+  })();
+</script>
+
+{% render 'section-decorations', section: section %}
+
+{% schema %}
+{
+  "name": "FD Best Seller Pro",
+  "class": "section-fd-best-seller-pro",
+  "settings": [
+    { "type": "header", "content": "Header Settings" },
+    { "type": "text", "id": "title", "label": "Section Title", "default": "Flash Deals" },
+    { "type": "checkbox", "id": "show_title_icons", "label": "Show Title Icons", "default": true },
+    { "type": "image_picker", "id": "title_icon", "label": "Title Icon" },
+    { "type": "range", "id": "title_icon_size", "min": 20, "max": 100, "step": 2, "unit": "px", "label": "Title Icon Size", "default": 40 },
+    { "type": "range", "id": "title_icon_size_mobile", "min": 10, "max": 80, "step": 2, "unit": "px", "label": "Mobile Icon Size", "default": 30 },
+    { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror Right Icon", "default": true },
+    { "type": "textarea", "id": "sub_heading", "label": "Description", "default": "Celebrate a fresher, cleaner home." },
+    { "type": "url", "id": "view_more_link", "label": "View More Link" },
+    { "type": "text", "id": "view_more_label", "label": "View More Label", "default": "View More" },
+    { "type": "color", "id": "title_color", "label": "Title Color", "default": "#191919" },
+    { "type": "color", "id": "sub_heading_color", "label": "Sub Heading Color", "default": "#5c6470" },
+    { "type": "checkbox", "id": "show_header_divider", "label": "Show Header Divider", "default": false },
+    { "type": "color", "id": "header_divider_color", "label": "Header Divider Color", "default": "#ffffff" },
+    { "type": "number", "id": "line_position_top", "label": "Line Position Top (px)", "default": 90 },
+    { "type": "header", "content": "Section Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding Top", "default": 50 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding Bottom", "default": 50 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Padding Top Mobile", "default": 28 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Padding Bottom Mobile", "default": 38 },
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#f4f8ff" },
+    { "type": "color", "id": "primary_color", "label": "Primary Color", "default": "#10b7d7" },
+    { "type": "range", "id": "description_image_width", "min": 80, "max": 500, "step": 10, "unit": "px", "label": "Description Image Width", "default": 220 },
+    { "type": "range", "id": "description_image_width_mobile", "min": 60, "max": 360, "step": 10, "unit": "px", "label": "Description Image Width Mobile", "default": 180 }
+  ],
+  "blocks": [
+    {
+      "type": "count-down",
+      "name": "Countdown",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "end_date", "label": "End date", "info": "YYYY-MM-DD HH:MM:SS", "default": "2026-12-31 23:59:59" },
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "text", "id": "message", "label": "Message" },
+        { "type": "checkbox", "id": "hide_on_complete", "label": "Hide when finished", "default": false },
+        { "type": "checkbox", "id": "show_days", "label": "Show days", "default": true },
+        { "type": "checkbox", "id": "show_hours", "label": "Show hours", "default": true },
+        { "type": "checkbox", "id": "show_minutes", "label": "Show minutes", "default": true },
+        { "type": "checkbox", "id": "show_seconds", "label": "Show seconds", "default": true },
+        { "type": "select", "id": "style", "label": "Style", "options": [
+          { "value": "minimal", "label": "Minimal" },
+          { "value": "rounded", "label": "Rounded" },
+          { "value": "boxed", "label": "Boxed" },
+          { "value": "modern", "label": "Modern" }
+        ], "default": "modern" },
+        { "type": "select", "id": "text_alignment", "label": "Text alignment", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" },
+          { "value": "right", "label": "Right" }
+        ], "default": "center" },
+        { "type": "select", "id": "numbers_size", "label": "Numbers size", "options": [
+          { "value": "small", "label": "Small" },
+          { "value": "medium", "label": "Medium" },
+          { "value": "large", "label": "Large" },
+          { "value": "x-large", "label": "X-Large" }
+        ], "default": "large" },
+        { "type": "select", "id": "labels_size", "label": "Labels size", "options": [
+          { "value": "small", "label": "Small" },
+          { "value": "medium", "label": "Medium" },
+          { "value": "large", "label": "Large" }
+        ], "default": "small" },
+        { "type": "color", "id": "background_color", "label": "Background color", "default": "#f6f7fb" },
+        { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#2b2420" },
+        { "type": "color", "id": "numbers_color", "label": "Numbers color", "default": "#ffffff" },
+        { "type": "color", "id": "numbers_background", "label": "Numbers background", "default": "#11b6d7" },
+        { "type": "color_background", "id": "numbers_background_gradient", "label": "Numbers background gradient" },
+        { "type": "color", "id": "labels_color", "label": "Labels color", "default": "#2b2420" },
+        { "type": "color", "id": "message_color", "label": "Message color", "default": "#ff3d00" },
+        { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 100, "step": 5, "default": 0 },
+        { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 100, "step": 5, "default": 0 }
+      ]
+    },
+    {
+      "type": "large_card",
+      "name": "Product card",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "image", "label": "Main image" },
+        { "type": "select", "id": "layout_direction", "label": "Layout direction", "default": "left", "options": [
+          { "value": "left", "label": "Image left" },
+          { "value": "right", "label": "Image right" }
+        ] },
+        { "type": "image_picker", "id": "discount_bg", "label": "Discount badge image" },
+        { "type": "text", "id": "discount_text", "label": "Discount text", "default": "20%" },
+        { "type": "checkbox", "id": "badge_text_nowrap", "label": "Badge text nowrap", "default": false },
+        { "type": "range", "id": "badge_top", "label": "Badge top (desktop)", "min": -80, "max": 80, "step": 2, "unit": "px", "default": 14 },
+        { "type": "range", "id": "badge_left", "label": "Badge left (desktop)", "min": -80, "max": 80, "step": 2, "unit": "px", "default": 14 },
+        { "type": "range", "id": "badge_top_mobile", "label": "Badge top (mobile)", "min": -80, "max": 80, "step": 2, "unit": "px", "default": 10 },
+        { "type": "range", "id": "badge_left_mobile", "label": "Badge left (mobile)", "min": -80, "max": 80, "step": 2, "unit": "px", "default": 10 },
+        { "type": "range", "id": "badge_text_rotate", "label": "Badge text rotate", "min": -45, "max": 45, "step": 1, "unit": "deg", "default": -14 },
+        { "type": "text", "id": "title_label", "label": "Title label" },
+        { "type": "image_picker", "id": "title_label_icon", "label": "Title label icon" },
+        { "type": "color_background", "id": "title_label_bg", "label": "Title label background", "default": "linear-gradient(90deg, #0db7d7 0%, #35d9de 100%)" },
+        { "type": "number", "id": "title_label_width", "label": "Title label width (px)" },
+        { "type": "number", "id": "title_label_width_mobile", "label": "Title label width mobile (px)" },
+        { "type": "range", "id": "title_label_icon_size", "label": "Title label icon size", "min": 20, "max": 100, "step": 2, "unit": "px", "default": 54 },
+        { "type": "range", "id": "title_label_icon_left", "label": "Title label icon left", "min": -40, "max": 40, "step": 1, "unit": "px", "default": -8 },
+        { "type": "range", "id": "title_label_icon_top", "label": "Title label icon top", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 50 },
+        { "type": "range", "id": "title_label_padding_left", "label": "Title label text left padding", "min": 20, "max": 120, "step": 2, "unit": "px", "default": 54 },
+        { "type": "text", "id": "title", "label": "Custom title" },
+        { "type": "select", "id": "title_text_align", "label": "Title alignment", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" }
+        ], "default": "left" },
+        { "type": "select", "id": "title_text_align_mobile", "label": "Title alignment mobile", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" }
+        ], "default": "center" },
+        { "type": "richtext", "id": "description", "label": "Custom description" },
+        { "type": "select", "id": "description_text_align", "label": "Description alignment", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" }
+        ], "default": "left" },
+        { "type": "select", "id": "description_text_align_mobile", "label": "Description alignment mobile", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" }
+        ], "default": "center" },
+        { "type": "image_picker", "id": "description_image", "label": "Description image" },
+        { "type": "select", "id": "description_image_align", "label": "Description image align", "options": [
+          { "value": "left", "label": "靠左" },
+          { "value": "center", "label": "居中" }
+        ], "default": "left" },
+        { "type": "range", "id": "description_image_width", "min": 80, "max": 500, "step": 10, "unit": "px", "label": "Description image width (override)", "default": 220 },
+        { "type": "range", "id": "description_image_width_mobile", "min": 60, "max": 360, "step": 10, "unit": "px", "label": "Description image width mobile (override)", "default": 180 },
+        { "type": "header", "content": "Gift card" },
+        { "type": "checkbox", "id": "show_gift_card", "label": "Show gift card", "default": false },
+        { "type": "product", "id": "gift_card_product", "label": "Gift product" },
+        { "type": "text", "id": "gift_card_heading", "label": "Gift card heading" },
+        { "type": "image_picker", "id": "gift_card_icon", "label": "Gift corner icon" },
+        { "type": "image_picker", "id": "gift_card_image", "label": "Gift product image override" },
+        { "type": "text", "id": "gift_card_item_title", "label": "Gift product title override" },
+        { "type": "text", "id": "gift_card_free_label", "label": "Gift free label", "default": "FREE" },
+        { "type": "text", "id": "gift_card_compare_price", "label": "Gift compare price override" },
+        { "type": "select", "id": "gift_card_align", "label": "Gift card alignment", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" }
+        ], "default": "left" },
+        { "type": "range", "id": "gift_card_width", "label": "Gift card width", "min": 260, "max": 560, "step": 5, "unit": "px", "default": 440 },
+        { "type": "range", "id": "gift_card_width_mobile", "label": "Gift card width mobile", "min": 260, "max": 360, "step": 5, "unit": "px", "default": 335 },
+        { "type": "range", "id": "gift_card_image_width", "label": "Gift image width", "min": 60, "max": 180, "step": 2, "unit": "px", "default": 110 },
+        { "type": "range", "id": "gift_card_image_width_mobile", "label": "Gift image width mobile", "min": 50, "max": 140, "step": 2, "unit": "px", "default": 82 },
+        { "type": "range", "id": "gift_card_icon_width", "label": "Gift corner icon width", "min": 40, "max": 120, "step": 2, "unit": "px", "default": 78 },
+        { "type": "range", "id": "gift_card_icon_width_mobile", "label": "Gift corner icon width mobile", "min": 32, "max": 100, "step": 2, "unit": "px", "default": 62 },
+        { "type": "range", "id": "gift_card_icon_left", "label": "Gift corner icon left", "min": -80, "max": 40, "step": 2, "unit": "px", "default": -30 },
+        { "type": "range", "id": "gift_card_icon_left_mobile", "label": "Gift corner icon left mobile", "min": -50, "max": 30, "step": 2, "unit": "px", "default": -14 },
+        { "type": "range", "id": "gift_card_icon_rotate", "label": "Gift corner icon rotate", "min": -30, "max": 30, "step": 1, "unit": "deg", "default": -14 },
+        { "type": "color", "id": "gift_card_border_color", "label": "Gift card border color", "default": "#418eff" },
+        { "type": "color", "id": "gift_card_bg", "label": "Gift card background", "default": "#ffffff" },
+        { "type": "color", "id": "gift_card_heading_bg", "label": "Gift card heading background", "default": "#418eff" },
+        { "type": "color", "id": "gift_card_heading_color", "label": "Gift card heading color", "default": "#ffffff" },
+        { "type": "color", "id": "gift_card_title_color", "label": "Gift card title color", "default": "#191919" },
+        { "type": "color", "id": "gift_card_free_color", "label": "Gift free label color", "default": "#00c7c9" },
+        { "type": "header", "content": "Progress bar" },
+        { "type": "checkbox", "id": "show_progress_bar", "label": "Show progress bar", "default": true },
+        { "type": "text", "id": "progress_start_time", "label": "Progress start time", "info": "YYYY-MM-DD HH:MM:SS", "default": "2026-12-01 00:00:00" },
+        { "type": "text", "id": "progress_end_time", "label": "Progress end time", "info": "YYYY-MM-DD HH:MM:SS", "default": "2026-12-31 23:59:59" },
+        {
+          "type": "select",
+          "id": "progress_bezier",
+          "label": "Bezier curve",
+          "options": [
+            { "value": "0,0,1,1", "label": "linear 线性" },
+            { "value": "0.42,0,1,1", "label": "ease-in 先慢后快" },
+            { "value": "0,0,0.58,1", "label": "ease-out 先快后慢" },
+            { "value": "0.42,0,0.58,1", "label": "ease-in-out 平滑" }
+          ],
+          "default": "0,0,1,1"
+        },
+        { "type": "text", "id": "progress_label", "label": "Progress label", "default": "Sold" },
+        { "type": "range", "id": "progress_min_percent", "label": "Minimum percent", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 2 },
+        { "type": "range", "id": "progress_fallback_percent", "label": "Fallback percent", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 75 },
+        { "type": "header", "content": "Coupon" },
+        { "type": "image_picker", "id": "coupon_image", "label": "Coupon image" },
+        { "type": "text", "id": "coupon_code", "label": "Coupon code" },
+        { "type": "text", "id": "coupon_text", "label": "Coupon text", "default": "Extra 12 % OFF: MOMLOVE12" },
+        { "type": "color_background", "id": "coupon_background", "label": "Coupon background", "default": "#ff9f35" },
+        { "type": "color", "id": "coupon_text_color", "label": "Coupon text color", "default": "#ffffff" },
+        { "type": "text", "id": "coupon_claim_label", "label": "Coupon button label", "default": "Claim" },
+        { "type": "color", "id": "coupon_claim_bg", "label": "Coupon button background", "default": "#ffffff" },
+        { "type": "color", "id": "coupon_claim_color", "label": "Coupon button color", "default": "#1f1f1f" },
+        { "type": "text", "id": "price", "label": "Custom sale price text" },
+        { "type": "range", "id": "extra_discount", "label": "Extra discount", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 0 },
+        { "type": "checkbox", "id": "show_add_button", "label": "Show add to cart icon button", "default": false },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Now" },
+        { "type": "url", "id": "btn_link", "label": "Shop Now link", "info": "Leave blank to open checkout in a new tab" }
+      ]
+    },
+    {
+      "type": "small_card",
+      "name": "Small product card",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "image", "label": "Main image" },
+        { "type": "range", "id": "image_height", "label": "Image height", "min": 160, "max": 520, "step": 4, "unit": "px", "default": 332 },
+        { "type": "range", "id": "image_height_mobile", "label": "Image height mobile", "min": 120, "max": 360, "step": 4, "unit": "px", "default": 220 },
+        { "type": "checkbox", "id": "show_discount_badge", "label": "Show discount badge", "default": true },
+        { "type": "text", "id": "discount_text", "label": "Discount label" },
+        { "type": "text", "id": "discount_off_text", "label": "Discount suffix", "default": "OFF" },
+        { "type": "checkbox", "id": "discount_text_split", "label": "Show percent and OFF on separate lines", "default": true },
+        { "type": "image_picker", "id": "discount_badge_bg_image", "label": "Discount label background image" },
+        { "type": "image_picker", "id": "discount_badge_bg_image_mobile", "label": "Discount label background image mobile" },
+        { "type": "color_background", "id": "discount_badge_bg", "label": "Discount label background", "default": "#ff9f35" },
+        { "type": "color", "id": "discount_badge_color", "label": "Discount label color", "default": "#ffffff" },
+        { "type": "color_background", "id": "discount_badge_bg_mobile", "label": "Discount label background mobile", "default": "#ff9f35" },
+        { "type": "color", "id": "discount_badge_color_mobile", "label": "Discount label color mobile", "default": "#ffffff" },
+        { "type": "range", "id": "discount_badge_width", "label": "Discount label width", "min": 30, "max": 160, "step": 2, "unit": "px", "default": 56 },
+        { "type": "range", "id": "discount_badge_height", "label": "Discount label height", "min": 40, "max": 180, "step": 2, "unit": "px", "default": 70 },
+        { "type": "range", "id": "discount_badge_width_mobile", "label": "Discount label width mobile", "min": 24, "max": 120, "step": 2, "unit": "px", "default": 48 },
+        { "type": "range", "id": "discount_badge_height_mobile", "label": "Discount label height mobile", "min": 32, "max": 140, "step": 2, "unit": "px", "default": 60 },
+        { "type": "range", "id": "discount_badge_font_size", "label": "Discount text size", "min": 10, "max": 40, "step": 1, "unit": "px", "default": 18 },
+        { "type": "range", "id": "discount_badge_font_size_mobile", "label": "Discount text size mobile", "min": 8, "max": 32, "step": 1, "unit": "px", "default": 14 },
+        { "type": "range", "id": "discount_badge_top", "label": "Discount label top", "min": -80, "max": 80, "step": 2, "unit": "px", "default": 0 },
+        { "type": "range", "id": "discount_badge_left", "label": "Discount label left", "min": -80, "max": 120, "step": 2, "unit": "px", "default": 24 },
+        { "type": "range", "id": "discount_badge_top_mobile", "label": "Discount label top mobile", "min": -80, "max": 80, "step": 2, "unit": "px", "default": 0 },
+        { "type": "range", "id": "discount_badge_left_mobile", "label": "Discount label left mobile", "min": -80, "max": 120, "step": 2, "unit": "px", "default": 16 },
+        { "type": "range", "id": "discount_badge_text_top", "label": "Discount text top", "min": -40, "max": 40, "step": 1, "unit": "px", "default": 0 },
+        { "type": "range", "id": "discount_badge_text_left", "label": "Discount text left", "min": -40, "max": 40, "step": 1, "unit": "px", "default": 0 },
+        { "type": "range", "id": "discount_badge_text_top_mobile", "label": "Discount text top mobile", "min": -40, "max": 40, "step": 1, "unit": "px", "default": 0 },
+        { "type": "range", "id": "discount_badge_text_left_mobile", "label": "Discount text left mobile", "min": -40, "max": 40, "step": 1, "unit": "px", "default": 0 },
+        { "type": "text", "id": "title", "label": "Custom title" },
+        { "type": "text", "id": "selling_point_1", "label": "Selling point 1", "default": "Multi-surface cleaning" },
+        { "type": "text", "id": "selling_point_2", "label": "Selling point 2", "default": "Multi-surface cleaning" },
+        { "type": "text", "id": "selling_point_3", "label": "Selling point 3" },
+        { "type": "color_background", "id": "selling_point_bg", "label": "Selling point background", "default": "#d8e5ff" },
+        { "type": "color", "id": "selling_point_color", "label": "Selling point color", "default": "#2f3642" },
+        { "type": "header", "content": "Coupon" },
+        { "type": "text", "id": "coupon_code", "label": "Coupon code" },
+        { "type": "text", "id": "coupon_text", "label": "Coupon text", "default": "Extra 12 % OFF: MOMLOVE12" },
+        { "type": "color_background", "id": "coupon_background", "label": "Coupon background", "default": "#ff9f35" },
+        { "type": "color", "id": "coupon_text_color", "label": "Coupon text color", "default": "#ffffff" },
+        { "type": "text", "id": "coupon_claim_label", "label": "Coupon button label", "default": "Claim" },
+        { "type": "color", "id": "coupon_claim_bg", "label": "Coupon button background", "default": "#ffffff" },
+        { "type": "color", "id": "coupon_claim_color", "label": "Coupon button color", "default": "#1f1f1f" },
+        { "type": "header", "content": "Price" },
+        { "type": "text", "id": "price", "label": "Custom sale price text" },
+        { "type": "range", "id": "extra_discount", "label": "Extra discount", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 0 },
+        { "type": "header", "content": "Buttons" },
+        { "type": "text", "id": "learn_button_label", "label": "Learn more label", "default": "Learn more" },
+        { "type": "url", "id": "learn_button_link", "label": "Learn more link" },
+        { "type": "color_background", "id": "learn_button_bg", "label": "Learn more background", "default": "#d9d9d9" },
+        { "type": "color", "id": "learn_button_color", "label": "Learn more color", "default": "#ffffff" },
+        { "type": "text", "id": "shop_button_label", "label": "Shop now label", "default": "Shop Now" },
+        { "type": "url", "id": "shop_button_link", "label": "Shop now link", "info": "Leave blank to open checkout in a new tab" },
+        { "type": "color_background", "id": "shop_button_bg", "label": "Shop now background", "default": "linear-gradient(90deg, #0db7d7 0%, #35d9de 100%)" },
+        { "type": "color", "id": "shop_button_color", "label": "Shop now color", "default": "#ffffff" }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Desktop image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+        { "type": "range", "id": "top", "label": "Top", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "left", "label": "Left", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "top_offset", "label": "Top offset", "min": -500, "max": 500, "step": 10, "unit": "px", "default": 0 },
+        { "type": "range", "id": "left_offset", "label": "Left offset", "min": -500, "max": 500, "step": 10, "unit": "px", "default": 0 },
+        { "type": "range", "id": "width", "label": "Width", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "z_index", "label": "Z-index", "default": 1 },
+        { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+        { "type": "checkbox", "id": "hide_on_pc", "label": "Hide on desktop", "default": false },
+        { "type": "range", "id": "rotation", "label": "Rotation", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "range", "id": "mobile_top", "label": "Mobile top", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "mobile_left", "label": "Mobile left", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "mobile_width", "label": "Mobile width", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "mobile_z_index", "label": "Mobile z-index", "default": 1 },
+        { "type": "range", "id": "mobile_rotation", "label": "Mobile rotation", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FD Best Seller Pro",
+      "blocks": [
+        { "type": "count-down" },
+        { "type": "large_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

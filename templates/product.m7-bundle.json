@@ -1,0 +1,592 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_JhVKU6": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "shopify:\/\/policies\/shipping-policy",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_VnRqBN": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/60.svg",
+            "text": "60-Day Price Guarantee",
+            "link": "shopify:\/\/pages\/price-match-guarantee",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_DGUEKC": {
+          "type": "info_box",
+          "settings": {
+            "icon": "star",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_gwiW3B": {
+          "type": "info_box",
+          "settings": {
+            "icon": "clipboard",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "24-Hour Reliable Support",
+            "link": "shopify:\/\/pages\/contact",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_UAMMDQ": {
+          "type": "label",
+          "settings": {}
+        },
+        "text_4KCLki": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "🔥 Black Friday Direct Price Drop: $50 Off on Popular Bundles!",
+            "text_style": "subheading"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": false,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "klarna_on_site_messaging_app_block_6LhEBe": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "separator_7fztUT": {
+          "type": "separator",
+          "settings": {}
+        },
+        "coupon_code_2_Jp9DPN": {
+          "type": "coupon_code_2",
+          "settings": {
+            "left_label_text": "Save",
+            "left_value_text": "40%",
+            "right_richtext_top": "<p><strong>Enjoy 40% Off in this Home Cleaning Bundle.<\/strong><\/p>",
+            "copy_button_label": "",
+            "discount_code": "",
+            "right_richtext_bottom": "<p><strong>Better together — shop the set and save big!<\/strong><\/p>",
+            "coupon_background": "linear-gradient(90deg, rgba(255, 236, 210, 1), rgba(252, 182, 159, 1) 100%)",
+            "left_text_color": "#18181d",
+            "body_text_color": "#18181d",
+            "accent_color": "#e63e3e",
+            "desktop_width": 0,
+            "mobile_width": 0,
+            "desktop_height": 0,
+            "mobile_height": 0,
+            "right_bg_size_desktop": 320,
+            "right_bg_size_mobile": 220,
+            "right_bg_right_desktop": 0,
+            "right_bg_bottom_desktop": 0,
+            "right_bg_right_mobile": 0,
+            "right_bg_bottom_mobile": 0
+          }
+        },
+        "separator_VH9j4F": {
+          "type": "separator",
+          "settings": {}
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "settings": {
+            "seo_text_max_height": 300,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "collapsible_tab_hGXWrC": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "More Key Features",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p><strong>Floor Washer M7:<\/strong><\/p><ul><li>Powerful Suction, Vacuum & Mop & Wash in One.<\/li><li>Self-Cleaning & Air Drying.<\/li><li>Zero Hair Tangling Technology.<\/li><li>Bigger water tanks and extended battery life.<\/li><li>99.9% Bacteria Removal with electrolyzed water.<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_NhzH9V": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Key Features-T10",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li>LiDAR Mapping for Precise Coverage <\/li><li>6000Pa Ultra-Strong Suction<\/li><li>3-in-1 Vacuum, Sweep, Mop<\/li><li>Ultra-Slim Design for Tight Spaces<\/li><li>Control via App & Voice Assistants<\/li><li>120-Minute Runtime & Auto-Recharge<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "hextom_timer_bar_ctb_custom_placement_aDERke": {
+          "type": "shopify:\/\/apps\/hextom-timer-bar\/blocks\/ctb-custom-placement\/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+          "settings": {}
+        },
+        "qikify_bogo_freegift_free_gift_wpJVBE": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "separator_mtY8Ch": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "coupon_code_TYjGg7": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p><strong>🔥 Early Access Black Friday Deals 13% OFF:<\/strong><\/p>",
+            "coupon_text": "BF13OFF",
+            "copy_text": "Auto Code",
+            "coupon_box_color": "#000000",
+            "coupon_box_color_link": "#00d0cd",
+            "coupon_bg_color": "#fdf1ea"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li>Powerful 45KPA cordless vacuum cleaner<\/li><li>Up to 60 minutes of run time<\/li><li>Great autonomy & removeable battery<\/li><li>Touch screen & 3 modes<\/li><li>Lightweight stickbody<\/li><li>Works on multiple surfaces<\/li><li>Self-standing & 3-in-1 versatile stick vacuum <\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_YaJFa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-X701 {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"#shopify-section-template--17330655592495__product_details_YbyQTX\" }}\"\nclass=\"custom-button-X701\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "variant_picker_g9CVBy": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_YjFAgN": {
+          "type": "quantity",
+          "settings": {
+            "justify_content": "flex-end"
+          }
+        },
+        "buy_buttons_YXR4gN": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-X702 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/drive.google.com\/file\/d\/1G_uqOn1cLzvXgq45CM0aXV63kg0vzuI5\/view?usp=drive_link\" }}\" class=\"custom-button-X702\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "complementary_HKMCQV": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "linked_products_rhYpfe": {
+          "type": "linked-products",
+          "settings": {
+            "title": "You may also like",
+            "show_images": true,
+            "product_1": "honiture-p7-pro-cordless-vacuum-t10-robot-vacuum",
+            "product_title_1": "",
+            "product_2": "m7-wet-dry-vacuum",
+            "product_title_2": "",
+            "product_3": "honiture-p7-pro-cordless-vacuum-g20-pro-robot-vacuum",
+            "product_title_3": "",
+            "product_4": "p7-pro-cordless-vacuum",
+            "product_title_4": "",
+            "product_5": "",
+            "product_title_5": "",
+            "product_6": "",
+            "product_title_6": ""
+          }
+        },
+        "collapsible_tab_VJhtag": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "User Manual",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p><strong>Need help getting started?<\/strong><br\/>Download the full user manual for step-by-step instructions, safety tips, maintenance guidance, and more.<br\/>📄<strong>[<\/strong><a href=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_M7_Wet_Dry_Vacuum_Manual.pdf?v=1782896540\" target=\"_blank\" title=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_M7_Wet_Dry_Vacuum_Manual.pdf?v=1782896540\"><strong>M7 Manual<\/strong><\/a><strong>]<\/strong><br\/><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_Qw8pLr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fast Shipping & Delivery",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p><strong>Estimated delivery times:<\/strong><\/p><p>Vacuum cleaner: 2–3 business days<\/p><p>Extra spare accessories: 7–15 business days. Explore More <a href=\"https:\/\/honiture.com\/policies\/shipping-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/shipping-policy\"><strong>Here<\/strong><\/a>. <\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_cXK4Pi": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How We Ship Bundles?",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Items that come in bundles will be delivered in multiple shipments. A separate email will be sent for each tracking number.<\/p><p><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_r7den6": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "60-Day Price Match Policy",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Buy with confidence —Found a lower price within 60 days? We'll refund the difference! Learn More at <a href=\"https:\/\/honiture.com\/pages\/price-match-guarantee\" target=\"_blank\" title=\"Price Match Guarantee\"><strong>Price Match Guarantee<\/strong><\/a><a href=\"https:\/\/honiture.com\/policies\/refund-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/refund-policy\">.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "payment_security_mgFBxV": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        },
+        "separator_ffazEp": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_JhVKU6",
+        "info_box_VnRqBN",
+        "info_box_DGUEKC",
+        "info_box_gwiW3B",
+        "label_UAMMDQ",
+        "text_4KCLki",
+        "title",
+        "klarna_on_site_messaging_app_block_6LhEBe",
+        "separator_7fztUT",
+        "coupon_code_2_Jp9DPN",
+        "separator_VH9j4F",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "collapsible_tab_hGXWrC",
+        "collapsible_tab_NhzH9V",
+        "hextom_timer_bar_ctb_custom_placement_aDERke",
+        "qikify_bogo_freegift_free_gift_wpJVBE",
+        "separator_mtY8Ch",
+        "coupon_code_TYjGg7",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_YaJFa3",
+        "variant_picker_g9CVBy",
+        "quantity_YjFAgN",
+        "buy_buttons_YXR4gN",
+        "custom_liquid_tCypYt",
+        "complementary_HKMCQV",
+        "linked_products_rhYpfe",
+        "collapsible_tab_VJhtag",
+        "collapsible_tab_Qw8pLr",
+        "collapsible_tab_cXK4Pi",
+        "collapsible_tab_r7den6",
+        "payment_security_mgFBxV",
+        "separator_ffazEp",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--product-form,.product-recommendations--loaded {margin-bottom: 30px;}",
+        ".custom-more-payment-options {margin-bottom: 25px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": true,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "spacer_WE49Ak": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "rich_text_rGtfC7": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_eQQmT7": {
+          "type": "subheading",
+          "settings": {
+            "text": "FOR ALL HARD FLOOR"
+          }
+        },
+        "heading_9NyLAw": {
+          "type": "heading",
+          "settings": {
+            "text": "Honiture M7 Cordless Wet Dry Vacuum Cleaner",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_ThUrGV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Instantly removes dirty water and debris for spotless, dry floors.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        },
+        "button_dnAyxx": {
+          "type": "button",
+          "settings": {
+            "link_label": "Learn More",
+            "link": "shopify:\/\/products\/m7-wet-dry-vacuum"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_eQQmT7",
+        "heading_9NyLAw",
+        "text_ThUrGV",
+        "button_dnAyxx"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "slideshow_jTbdE4": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_MrQyXd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mask_group_31.webp",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-m7-floor-washer-for-sale.jpg",
+            "slide_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+            "video_background": false,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_MrQyXd"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": false,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product_details_zfnmBJ": {
+      "type": "product-details",
+      "blocks": {
+        "custom_liquid_xgAFq3": {
+          "type": "custom_liquid",
+          "settings": {
+            "tab_label": "Spec",
+            "icon": "none",
+            "custom_liquid": "<div class=\"product-specs\">\n  <style>\n    .product-specs {\n      margin: 1.5rem 0;\n      overflow-x: auto;\n      -webkit-overflow-scrolling: touch;\n    }\n    .spec-table {\n      width: 100%;\n      min-width: 500px;\n      border-collapse: collapse;\n    }\n    .spec-table td {\n      padding: 16px 20px;\n      border-bottom: 1px solid #f0f0f0;\n      vertical-align: top;\n      line-height: 1.4;\n    }\n    .spec-table td:first-child {\n      font-weight: 500;\n      color: #666;\n      width: 40%;\n    }\n    .spec-table td:last-child {\n      color: #333;\n      width: 60%;\n    }\n\n    @media (min-width: 750px) {\n      .spec-table {\n        min-width: auto;\n        table-layout: fixed;\n      }\n      .spec-table td {\n        padding: 18px 24px;\n      }\n    }\n\n    @media (max-width: 749px) {\n      .spec-table td {\n        padding: 14px 16px;\n        font-size: 15px;\n      }\n    }\n  <\/style>\n\n  <table class=\"spec-table\">\n    <tbody>\n      <tr>\n        <td>Suction<\/td>\n        <td>20000 PA<\/td>\n      <\/tr>\n      <tr>\n        <td>Cleaning Mode<\/td>\n        <td>ECO Mode; MAX Mode; Suction Mode<\/td>\n      <\/tr>\n      <tr>\n        <td>Runtime<\/td>\n        <td>50 Min (ECO Mode)<\/td>\n      <\/tr>\n      <tr>\n        <td>Charging Time<\/td>\n        <td>≤4 Hours<\/td>\n      <\/tr>\n      <tr>\n        <td>Clean Water Tank<\/td>\n        <td>800 ML<\/td>\n      <\/tr>\n      <tr>\n        <td>Dirt Water Tank<\/td>\n        <td>720 ML<\/td>\n      <\/tr>\n      <tr>\n        <td>Filter Type<\/td>\n        <td>HEPA Filter<\/td>\n      <\/tr>\n      <tr>\n        <td>Control Method<\/td>\n        <td>LED Touch<\/td>\n      <\/tr>\n      <tr>\n        <td>Intelligent Interaction<\/td>\n        <td>Display Panel &amp; Audio Notice (Multilingual)<\/td>\n      <\/tr>\n      <tr>\n        <td>Surface Recommendation<\/td>\n        <td>Hardwood, Tile, Marble and Other Sealed Hard Floors<\/td>\n      <\/tr>\n      <tr>\n        <td>Battery Description<\/td>\n        <td>Rechargeable<\/td>\n      <\/tr>\n      <tr>\n        <td>Battery<\/td>\n        <td>6×4000 mAh<\/td>\n      <\/tr>\n      <tr>\n        <td>Noise Level<\/td>\n        <td>≤68 dB<\/td>\n      <\/tr>\n      <tr>\n        <td>Weight<\/td>\n        <td>8.8 lbs<\/td>\n      <\/tr>\n      <tr>\n        <td>Product Dimensions<\/td>\n        <td>10.6 × 10.4 × 43.3 inches<\/td>\n      <\/tr>\n    <\/tbody>\n  <\/table>\n<\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "custom_liquid_xgAFq3"
+      ],
+      "settings": {
+        "heading": "M7 Details",
+        "marker_style": "style1",
+        "description": "",
+        "text_size": "regular",
+        "tab_alignment": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_tabs": "#2c2d2e",
+        "color_text": "#2c2d2e",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1739437136ce3d8d18": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_t6tWit": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_t6tWit"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "spacer_WE49Ak",
+    "rich_text_rGtfC7",
+    "slideshow_jTbdE4",
+    "product_details_zfnmBJ",
+    "1739437136ce3d8d18",
+    "product-recommendations"
+  ]
+}

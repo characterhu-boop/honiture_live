@@ -1,0 +1,294 @@
+{{ 'single-image.css' | asset_url | stylesheet_tag }}
+{%- liquid
+	assign full_width = section.settings.full_width
+	assign image = section.settings.image
+	assign image_mobile = section.settings.image_mobile
+	assign disable_top_spacing = section.settings.disable_top_spacing
+	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+-%}
+<div class="single-image full-width--{{ full_width }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} section-{{ section.id }}">
+	{%- if image_mobile -%}
+		{%- liquid
+			assign master_width = image_mobile.src.width | append: 'x' | append: image_mobile.src.height
+
+			render 'responsive-image', image: image_mobile, class: 'single-image--mobile', sizes: master_width
+		 -%}
+	{%- endif -%}
+	{%- if image -%}
+		{%- liquid
+			assign master_width = image.src.width | append: 'x' | append: image.src.height
+
+			assign class = ''
+			if image_mobile
+				assign class = 'single-image--desktop'
+			endif
+			render 'responsive-image', image: image, class: class, sizes: master_width
+		-%}
+	{%- else -%}
+		<div class="thb-placeholder{% if image_mobile %} single-image--desktop{% endif %}">
+			{{ 'lifestyle-1' | placeholder_svg_tag }}
+		</div>
+	{%- endif -%}
+    {% if section.settings.title != blank %}
+		<div class="single-title">
+			<span>{{ section.settings.title }}</span>
+		</div>
+    {% endif %}
+    {% if section.settings.content != blank %}
+        <div class="single-content">
+			{{ section.settings.content }}
+		</div>
+    {% endif %}
+</div>
+<style>
+	.section-{{ section.id }}{
+		position: relative;
+	}
+	.section-{{ section.id }} .single-title{
+		display: flex;
+		justify-content: {{ section.settings.title_alignment }};
+		width: 100%;
+		position: absolute;
+		top: {{ section.settings.position_x}}%;
+		left: 0;
+		font-size: {{ section.settings.title_size}}px;
+	}
+	.section-{{ section.id }} .single-content{
+		position: absolute;
+		top: {{ section.settings.d_position_x}}%;
+		left: {{ section.settings.d_position_y}}%;
+		width: {{ section.settings.d_content_width}}%;
+		font-size: {{ section.settings.d_size}}px;
+	}
+	@media screen and (max-width: 768px) {
+		.section-{{ section.id }} .single-title{
+			top: {{ section.settings.position_x_mobile}}%;
+			font-size: {{ section.settings.title_size_mobile}}px;
+		}
+		.section-{{ section.id }} .single-content{
+			position: absolute;
+			top: {{ section.settings.d_position_x_mobile}}%;
+			left: {{ section.settings.d_position_y_mobile}}%;
+			width: {{ section.settings.d_content_width_mobile}}%;
+			font-size: {{ section.settings.d_size_mobile}}px;
+		}
+	}
+</style>
+{% schema %}
+  {
+    "name": "Single image",
+		"class": "section-single-image",
+    "settings": [
+			{
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+			{
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Mobile image (optional)"
+      },
+			{
+				"type": "checkbox",
+				"id": "full_width",
+				"label": "Make section full width",
+				"default": false
+			},
+			{
+			"type": "header",
+			"content": "Title Setting PC"
+		},
+	    {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+          },
+		          {
+						"type": "select",
+						"id": "title_alignment",
+						"options": [
+							{
+								"value": "left",
+								"label": "Left"
+							},
+							{
+								"value": "center",
+								"label": "Center"
+							},
+							{
+								"value": "right",
+								"label": "Right"
+							}
+						],
+						"default": "center",
+						"label": "Title alignment"
+					},
+					{
+				"type": "range",
+				"id": "position_x",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Content padding to top",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "title_size",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Font size",
+				"default": 24
+			},
+			{
+		    "type": "header",
+		    "content": "Title Setting Mobile"
+		  },
+		  
+					{
+				"type": "range",
+				"id": "position_x_mobile",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Content padding to top",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "title_size_mobile",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Font size",
+				"default": 24
+			},
+			{
+		    "type": "header",
+		    "content": "Description Setting PC"
+		  },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Description"
+          },
+		  {
+				"type": "range",
+				"id": "d_position_x",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Content padding to top",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "d_position_y",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Content padding to left",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "d_content_width",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Content width",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "d_size",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Font size",
+				"default": 24
+			},
+			{
+		    "type": "header",
+		    "content": "Description Setting Mobile"
+		  },
+		  {
+				"type": "range",
+				"id": "d_position_x_mobile",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "padding to top",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "d_position_y_mobile",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "padding to left",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "d_content_width_mobile",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Content width",
+				"default": 50
+			},
+			{
+				"type": "range",
+				"id": "d_size_mobile",
+				"min": 1,
+				"max": 100,
+				"step": 1,
+				"unit": "%",
+				"label": "Font size",
+				"default": 16
+			},
+			{
+				"type": "header",
+				"content": "Spacing"
+			},
+			{
+				"type": "checkbox",
+				"id": "disable_top_spacing",
+				"default": false,
+				"label": "Remove top spacing"
+			},
+			{
+				"type": "checkbox",
+				"id": "disable_bottom_spacing",
+				"default": false,
+				"label": "Remove bottom spacing"
+			}
+    ],
+    "presets": [
+      {
+        "name": "Single image"
+      }
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
+  }
+{% endschema %}

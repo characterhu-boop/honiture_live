@@ -1,0 +1,70 @@
+{%- liquid
+  assign badge_show = show
+  if badge_show == nil
+    assign badge_show = true
+  endif
+
+  assign badge_text = text
+  assign badge_compare_price = compare_price
+  assign badge_sale_price = sale_price
+
+  if badge_compare_price == blank or badge_compare_price <= badge_sale_price
+    if product != blank
+      assign badge_compare_price = product.compare_at_price_max
+    endif
+  endif
+
+  if badge_sale_price == blank or badge_sale_price == 0
+    if product != blank
+      assign badge_sale_price = product.price
+    endif
+  endif
+
+  if badge_text == blank and badge_compare_price and badge_compare_price > badge_sale_price
+    assign badge_save = badge_compare_price | minus: badge_sale_price
+    assign badge_percent = badge_save | times: 100 | divided_by: badge_compare_price
+    assign badge_text = badge_percent | append: '%'
+  endif
+
+  assign badge_split = split | default: false
+  assign badge_off_text = off_text
+  if badge_off_text == nil
+    assign badge_off_text = 'OFF'
+  endif
+  assign badge_top = top | default: 0
+  assign badge_left = left | default: 24
+  assign badge_text_top = text_top | default: 0
+  assign badge_text_left = text_left | default: 0
+  assign badge_top_mobile = top_mobile | default: badge_top
+  assign badge_left_mobile = left_mobile | default: badge_left
+  assign badge_text_top_mobile = text_top_mobile | default: badge_text_top
+  assign badge_text_left_mobile = text_left_mobile | default: badge_text_left
+  assign badge_bg = background | default: '#ff9f35'
+  assign badge_color = color | default: '#ffffff'
+  assign badge_bg_mobile = background_mobile | default: badge_bg
+  assign badge_color_mobile = color_mobile | default: badge_color
+  assign badge_width = width | default: 56
+  assign badge_height = height | default: 70
+  assign badge_width_mobile = width_mobile | default: badge_width
+  assign badge_height_mobile = height_mobile | default: badge_height
+  assign badge_font_size = font_size | default: 18
+  assign badge_font_size_mobile = font_size_mobile | default: badge_font_size
+-%}
+
+{%- if badge_show and badge_text != blank -%}
+  <div
+    class="common-badge{% if background_image != blank %} common-badge--has-bg{% endif %}{% if background_image_mobile != blank %} common-badge--has-mobile-bg{% endif %}"
+    style="--common-badge-top: {{ badge_top }}; --common-badge-left: {{ badge_left }}; --common-badge-text-top: {{ badge_text_top }}; --common-badge-text-left: {{ badge_text_left }}; --common-badge-top-mobile: {{ badge_top_mobile }}; --common-badge-left-mobile: {{ badge_left_mobile }}; --common-badge-text-top-mobile: {{ badge_text_top_mobile }}; --common-badge-text-left-mobile: {{ badge_text_left_mobile }}; --common-badge-bg: {{ badge_bg }}; --common-badge-color: {{ badge_color }}; --common-badge-bg-mobile: {{ badge_bg_mobile }}; --common-badge-color-mobile: {{ badge_color_mobile }}; --common-badge-width: {{ badge_width }}; --common-badge-height: {{ badge_height }}; --common-badge-width-mobile: {{ badge_width_mobile }}; --common-badge-height-mobile: {{ badge_height_mobile }}; --common-badge-font-size: {{ badge_font_size }}; --common-badge-font-size-mobile: {{ badge_font_size_mobile }};"
+    aria-hidden="true"
+  >
+    {%- if background_image != blank -%}
+      <img class="common-badge__bg common-badge__bg--desktop" src="{{ background_image | image_url: width: 240 }}" alt="" loading="lazy">
+    {%- endif -%}
+    {%- if background_image_mobile != blank -%}
+      <img class="common-badge__bg common-badge__bg--mobile" src="{{ background_image_mobile | image_url: width: 240 }}" alt="" loading="lazy">
+    {%- endif -%}
+    <span class="common-badge__text">
+      {{ badge_text | escape }}{%- if badge_off_text != blank -%}{%- if badge_split -%}<br>{%- else -%} {%- endif -%}{{ badge_off_text | escape }}{%- endif -%}
+    </span>
+  </div>
+{%- endif -%}

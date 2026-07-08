@@ -1,0 +1,331 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_overlay_Kmd4tP": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_8H9UTD": {
+          "type": "heading",
+          "settings": {
+            "text": "Price Match Guarantee",
+            "heading_size": "h1-large",
+            "heading_tag": "h1"
+          }
+        },
+        "text_k6McD3": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "",
+            "description_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8H9UTD",
+        "text_k6McD3"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/6-02_ba8b3d63-db7d-42bf-bcf2-54d8f9100bc1.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/IFA_2025_Honiture_2.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "small",
+        "content_position": "middle-left",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 15,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_HgFVyX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_eAFMEf": {
+          "type": "heading",
+          "settings": {
+            "text": "Eligibility Criteria",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_8APBtn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Honiture, we offer a Price Match Guarantee to ensure you always get the best value when shopping on our official website. If you find the same product at a lower price from an eligible retailer within 60 days of your purchase, simply contact our customer service team with valid proof, and we’ll refund you the difference.<\/p><p><strong>What is Eligible?<\/strong><\/p><ul><li>Applies to the same product, same model and specs purchased from the Honiture official website(honiture.com).<\/li><li>The item for price matching must come from a qualifying website or platform, the compared price must include shipping, and the product must not appear on the exclusions list.<\/li><li>The request must be submitted within 30 days of the original purchase date.<\/li><\/ul>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_eAFMEf",
+        "text_8APBtn"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_8tiR3B": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QWnJfi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ICON_2_1.png",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Step 1: Find a Better Price",
+            "text": "<p>Locate a lower price for the same eligible product you purchased on Honiture.com from a qualified retailer’s website or platform. Make sure it meets the requirements for our Price Match Guarantee.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PtPgaU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ICON_2_2.png",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Step 2: Apply for Price Match",
+            "text": "<p>Contact us at <a><strong>help@honiture.com<\/strong><\/a> with the following information: a valid link to the lower-priced product from an eligible retailer, a screenshot clearly showing the lower price and product details, and your Honiture.com order number.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7WrWYp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ICON_2.png",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Step 3: Get Your Refund",
+            "text": "<p>Once your request is submitted, please allow 1–3 business days for verification. If approved, the price difference will be refunded to the original payment method used for your Honiture.com purchase.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_QWnJfi",
+        "column_PtPgaU",
+        "column_7WrWYp"
+      ],
+      "name": "Multicolumn",
+      "settings": {
+        "heading": "How to Request a Price Match ?",
+        "marker_style": "style1",
+        "description": "<p>Please provide your order number and a screenshot of the lower price on another platform.<\/p>",
+        "columns_desktop": 3,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "left",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_9Fe6zw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_f3JB9U": {
+          "type": "heading",
+          "settings": {
+            "text": "Exclusions",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_MbyLCR": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Corporate (B2B) prices and quotes; Commercial quantities and pricing (e.g., a reduced price not available to the public);<\/li><li>Overseas models & color variations that are not available locally (e.g., from parallel importers and grey market distributors);<\/li><li>Prices where an item is part of a package or bundle;<\/li><li>Pricing errors that are lower as a result of an error by the retailer (e.g., technical issues, misquoted prices);<\/li><li>Affiliate promotions that are promoted on behalf of a retailer; Marketplace sellers and drop shippers;<\/li><li>Clearance or warehouse outlets; Flash sales lasting less than 12 hours and “doorbuster” sales;<\/li><li>Interest-Free and Finance offers where the payment method is part of the condition of a price;<\/li><li>Offers and promotions where loyalty points may make up a component of the payment;<\/li><li>Products sold by non-authorized distributors；<\/li><li>Clearance, close out, liquidation sales, damaged, used, open package, refurbished, pre-owned, or rent\/lease to own items, storewide or category promotions, non-branded items, or prices that only display on a website after guests log in. Items out of stock, on backorder, or end-of-line products;<\/li><\/ul>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_f3JB9U",
+        "text_MbyLCR"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_YyqMbn": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_ikWct9": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is my order eligible for the 60-day Price Guarantee?",
+            "open": false,
+            "content": "<p>Our price match program is designed for purchases made on Honiture.com. If you find a lower price on the same item within 60 days of your purchase, during our easy return and exchange period, our Price Guarantee ensures you’ll be refunded the price difference.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_HkdJB7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What if I saw a lower price before purchasing?",
+            "open": false,
+            "content": "<p>Thank you for choosing us. If you find a lower price before placing your order but wish to purchase directly from our official website, please note that the price difference refund is only available after the order has been successfully placed.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_iKr6eF": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "When will I receive the price difference refund?",
+            "open": false,
+            "content": "<p>Once your price guarantee request is verified, we will process your refund within 1–3 business days and notify you as soon as it’s completed. Please note that the actual time for the refund to appear may vary depending on your payment method or your bank’s processing time.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_9W6Urz": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is this price match guarantee only available on Honiture.com?",
+            "open": false,
+            "content": "<p>Yes. Our price match program ensures you always get the best value when shopping on Honiture. The price guarantee applies only to products purchased directly from our official website (Honiture.com).<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_ikWct9",
+        "collapsible_tab_HkdJB7",
+        "collapsible_tab_iKr6eF",
+        "collapsible_tab_9W6Urz"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQs",
+        "marker_style": "style1",
+        "description": "<p>about Honiture’s Price Match Guarantee.<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_KkRYYL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_i3XUaC": {
+          "type": "heading",
+          "settings": {
+            "text": "Need Help?",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_9p8RXd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To better assist you, please provide more details. For price match requests, please email us directly at <a>help@honiture.com<\/a> and include your order number and valid proof.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        },
+        "button_UtUJzc": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "link_label": "Learn More",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_i3XUaC",
+        "text_9p8RXd",
+        "button_UtUJzc"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "contact_form_Hmpmrb": {
+      "type": "contact-form",
+      "name": "Contact form",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "show_phone_number": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Kmd4tP",
+    "rich_text_HgFVyX",
+    "multicolumn_8tiR3B",
+    "rich_text_9Fe6zw",
+    "collapsible_content_YyqMbn",
+    "rich_text_KkRYYL",
+    "contact_form_Hmpmrb"
+  ]
+}

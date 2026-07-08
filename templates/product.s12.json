@@ -1,0 +1,1065 @@
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_MVzYzg": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_DfdhdR": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box2.svg",
+            "text": "30-Day Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_qYLrM6": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_YrywEQ": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_aHAExd": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "klarna_on_site_messaging_app_block_4ePWQd": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_3yTqhq": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "settings": {}
+        },
+        "coupon_code_8ER699": {
+          "type": "coupon_code",
+          "settings": {
+            "icon": "fire",
+            "image": "shopify:\/\/shop_images\/Honiture-coupon-icon.png",
+            "has_background": true,
+            "text": "<p><strong>Summer Special - Extra 12% OFF!<\/strong><\/p>",
+            "coupon_text": "SUMMERGIFT",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "qikify_bogo_freegift_free_gift_yJBkH8": {
+          "type": "shopify:\/\/apps\/qikify-bogo-freegift\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ol><li>Up to 33KPA Suction<\/li><li>55 Mins Running Time<\/li><li>LED Touch Screen<\/li><li>1.2L Large Dust Cup<\/li><li>Upgraded Turbo Brush<\/li><li>Five-layer Filtration<\/li><\/ol>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_YaJFa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"shopify-section-template--17320672493615__product_details_mXPkEF\" }}\"\nclass=\"custom-button-default\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default2 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/drive.google.com\/file\/d\/1eBF1II0pop36Jiuh3-bDiCRsyy9so35k\/view?usp=sharing\/\" }}\" class=\"custom-button-default2\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "separator_ffazEp": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker_tKcde3": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_JVEVMg": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_cMPEHQ": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_HEpwFg": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "payment_security_pHKYjc": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-1.png",
+            "security_image_width": 220
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_MVzYzg",
+        "info_box_DfdhdR",
+        "info_box_qYLrM6",
+        "info_box_YrywEQ",
+        "label_aHAExd",
+        "title",
+        "klarna_on_site_messaging_app_block_4ePWQd",
+        "judge_me_reviews_preview_badge_3yTqhq",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "separator_dMbKEh",
+        "coupon_code_8ER699",
+        "qikify_bogo_freegift_free_gift_yJBkH8",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_YaJFa3",
+        "custom_liquid_tCypYt",
+        "separator_ffazEp",
+        "variant_picker_tKcde3",
+        "quantity_JVEVMg",
+        "buy_buttons_cMPEHQ",
+        "complementary_HEpwFg",
+        "payment_security_pHKYjc",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 35,
+        "spacer_desktop": 90,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "custom_swiper_carousel_D9LxTB": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_Q9UghN": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=OLglIsSY_bU&pp=ygUMSE9OSVRVUkUgUzEy",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_UnLJVJ": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=y83Q5c9RHy0&pp=ygUMSE9OSVRVUkUgUzEy",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_Q9UghN",
+        "slide_UnLJVJ"
+      ],
+      "custom_css": [],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<h2>Honiture S12 Cordless Vacuum Reviews:<\/h2>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 56,
+        "slide_aspect_ratio_mobile": 56,
+        "slides_per_view": 2,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 30,
+        "space_between_tablet": 30,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 3,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "bullets",
+        "pagination_color": "#000000"
+      }
+    },
+    "image_with_text_overlay_wdUAbh": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1_ee5237b1-e761-4617-8f1f-862dff898b94.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/1_ee5237b1-e761-4617-8f1f-862dff898b94.png",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-750",
+        "mobile_height": "mobile-height-350",
+        "full_width": false,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_zEfcWT": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1_ee5237b1-e761-4617-8f1f-862dff898b94.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "left",
+        "position_x": 48,
+        "title_size": 1,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 67,
+        "d_position_y": 69,
+        "d_content_width": 69,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_pRn9h8": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_zUXaBm": {
+          "type": "subheading",
+          "settings": {
+            "text": "Add a tagline"
+          }
+        },
+        "heading_t7yPMU": {
+          "type": "heading",
+          "settings": {
+            "text": "Image with text",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_TidLdz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_zUXaBm",
+        "heading_t7yPMU",
+        "text_TidLdz"
+      ],
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_iQP8ky": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_CmQBzA": {
+          "type": "subheading",
+          "settings": {
+            "text": "Add a tagline"
+          }
+        },
+        "heading_hHBbDe": {
+          "type": "heading",
+          "settings": {
+            "text": "Image with text",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_cDDR4Q": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CmQBzA",
+        "heading_hHBbDe",
+        "text_cDDR4Q"
+      ],
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_swiper_carousel_kAhfDn": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_YKDVCU": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/2_2d6ade67-7734-4592-a6a0-a274564bc0f4.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/2_2d6ade67-7734-4592-a6a0-a274564bc0f4.jpg",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "55 Minutes of Uninterrupted Cleaning Power",
+            "card_text": "Keep your home spotless with our vacuum cleaner, offering an impressive 55 minutes of continuous runtime on a single charge.",
+            "channel": ""
+          }
+        },
+        "slide_LDHpfT": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/4_b7d10fcd-a0bc-42e5-90ed-f7bcd53fa2fb.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/4_b7d10fcd-a0bc-42e5-90ed-f7bcd53fa2fb.jpg",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Illuminate Dust, Clean with Confidence",
+            "card_text": "Discover hidden dirt and dust with our vacuum cleaner’s innovative dust-detecting LED lights. Perfect for dark corners, under furniture, and low-light areas, this feature guarantees a thorough and satisfying clean every time. Let the dust-detecting lights guide you to a pristine home.",
+            "channel": ""
+          }
+        },
+        "slide_hYpMRb": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/5_3237a117-5e71-450a-bd50-007863ed9d44.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/5_3237a117-5e71-450a-bd50-007863ed9d44.jpg",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "One-Touch Dustbin Release for Effortless Cleaning",
+            "card_text": "Simplify your cleaning routine with our vacuum cleaner’s one-touch dustbin release. With just a single press, the dustbin opens instantly, allowing you to empty it quickly and hygienically without touching any dirt.",
+            "channel": ""
+          }
+        },
+        "slide_4Wrjak": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/6_bc6671aa-9c57-4059-9141-f1920de66991.png",
+            "mobile_image": "shopify:\/\/shop_images\/6_bc6671aa-9c57-4059-9141-f1920de66991.png",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Quick Charge & Wall Mount",
+            "card_text": "Stay ready for any cleaning task with our vacuum cleaner’s Quick Charge feature and sleek wall mount. Perfect for busy homes, this combination keeps your vacuum within reach and fully charged, so you're always prepared to tackle dirt and dust whenever needed.",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_YKDVCU",
+        "slide_LDHpfT",
+        "slide_hYpMRb",
+        "slide_4Wrjak"
+      ],
+      "disabled": true,
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<p>S12 Features<\/p>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 260,
+        "slide_card_height_mobile": 165,
+        "slide_aspect_ratio": 143,
+        "slide_aspect_ratio_mobile": 135,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 15,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 3,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "bullets",
+        "pagination_color": "#000000"
+      }
+    },
+    "image_with_text_yJFdmK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HkejbH": {
+          "type": "heading",
+          "settings": {
+            "text": "Versatile Cleaning for Every Corner",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Ft9iBE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Designed to tackle any cleaning challenge, whether it’s your living room carpet, kitchen floor, or even your car interior. With adjustable settings and a range of attachments, this vacuum ensures every surface in your home or office stays spotless. Say goodbye to dirt and dust in any setting, and enjoy a cleaner, fresher environment with ease.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HkejbH",
+        "text_Ft9iBE"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/5_13b74a03-b414-42ee-8471-c3179b9a2ec7.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_VTgKeN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ApyADN": {
+          "type": "heading",
+          "settings": {
+            "text": "Engineered to Emit Clean Air",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_cEL9ez": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Removes 99.8 ％ of bacteria dust mites, pollen, etc.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ApyADN",
+        "text_cEL9ez"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_aFhRLB": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/4_d58092f5-4675-41ac-8b92-1d23b24b4cc9.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_TKBwV3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QEyeJi": {
+          "type": "heading",
+          "settings": {
+            "text": "Upgraded Turbo Brush",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_zVTAxm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Gives you powerful deep cleaning on all floor types.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QEyeJi",
+        "text_zVTAxm"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_rr9yiP": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/3_91e3c0f9-c6e2-418b-8804-10d411b974f9.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/1_a60aab9b-2923-439e-a007-90b98e49f01b.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_br8hTg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cVkbRX": {
+          "type": "heading",
+          "settings": {
+            "text": "Clean with Precision, Guided by LED.",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_hRczWX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience the future of cleaning with our advanced vacuum cleaner featuring a sleek LED screen. This intuitive display provides real-time updates on battery life, suction power, and cleaning modes, ensuring you have full control over your cleaning experience.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cVkbRX",
+        "text_hRczWX"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_GGM6DH": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/2_fd081362-c46e-48c8-82c4-ab901881750f.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/6_ab21a8d1-4cc8-45b6-ac7e-99e94bb26e6f.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_xFUhEM": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_bHaP6R": {
+          "type": "heading",
+          "settings": {
+            "text": "55 Minutes of Uninterrupted Cleaning Power",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_NHCktA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Keep your home spotless with our vacuum cleaner, offering an impressive 55 minutes of continuous runtime on a single charge. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bHaP6R",
+        "text_NHCktA"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/2_2d6ade67-7734-4592-a6a0-a274564bc0f4.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_tPqMti": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_CMPKib": {
+          "type": "heading",
+          "settings": {
+            "text": "Illuminate Dust, Clean with Confidence",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_MRjbP9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover hidden dirt and dust with our vacuum cleaner’s innovative dust-detecting LED lights. Perfect for dark corners, under furniture, and low-light areas, this feature guarantees a thorough and satisfying clean every time. Let the dust-detecting lights guide you to a pristine home.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CMPKib",
+        "text_MRjbP9"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/4_b7d10fcd-a0bc-42e5-90ed-f7bcd53fa2fb.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_LhKJxg": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_FckRk4": {
+          "type": "subheading",
+          "settings": {
+            "text": "Add a tagline"
+          }
+        },
+        "heading_Dze7RJ": {
+          "type": "heading",
+          "settings": {
+            "text": "Image with text",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_E3dify": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FckRk4",
+        "heading_Dze7RJ",
+        "text_E3dify"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/3_0917ae7a-4c54-499b-b95d-ad05bed76319.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_YELUNt": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HWVMGy": {
+          "type": "heading",
+          "settings": {
+            "text": "One-Touch Dustbin Release for Effortless Cleaning",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_CFFneN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Simplify your cleaning routine with our vacuum cleaner’s one-touch dustbin release. With just a single press, the dustbin opens instantly, allowing you to empty it quickly and hygienically without touching any dirt. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HWVMGy",
+        "text_CFFneN"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/5_3237a117-5e71-450a-bd50-007863ed9d44.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_ae4dxc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_Re7rzX": {
+          "type": "heading",
+          "settings": {
+            "text": "Quick Charge & Wall Mount",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_3YJKWn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Stay ready for any cleaning task with our vacuum cleaner’s Quick Charge feature and sleek wall mount. Perfect for busy homes, this combination keeps your vacuum within reach and fully charged, so you're always prepared to tackle dirt and dust whenever needed.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Re7rzX",
+        "text_3YJKWn"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/6_bc6671aa-9c57-4059-9141-f1920de66991.png",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1739436996921bec5e": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_8PMKH7": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_8PMKH7"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-product",
+    "16623877721f33fb14",
+    "custom_swiper_carousel_D9LxTB",
+    "image_with_text_overlay_wdUAbh",
+    "single_image_zEfcWT",
+    "image_with_text_pRn9h8",
+    "image_with_text_iQP8ky",
+    "custom_swiper_carousel_kAhfDn",
+    "image_with_text_yJFdmK",
+    "rich_text_VTgKeN",
+    "single_image_aFhRLB",
+    "rich_text_TKBwV3",
+    "single_image_rr9yiP",
+    "rich_text_br8hTg",
+    "single_image_GGM6DH",
+    "image_with_text_xFUhEM",
+    "image_with_text_tPqMti",
+    "image_with_text_LhKJxg",
+    "image_with_text_YELUNt",
+    "image_with_text_ae4dxc",
+    "1739436996921bec5e",
+    "product-recommendations",
+    "breadcrumbs"
+  ]
+}

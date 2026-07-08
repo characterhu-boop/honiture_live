@@ -1,0 +1,998 @@
+{% comment %} vd - tab section {% endcomment %}
+
+<style>
+  #vd-tab-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+  .vd-tab-section{
+      overflow: hidden;
+    }
+  #vd-tab-{{ section.id }} .vd-tab-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+ 
+  /* Coupon Styles */
+  #vd-tab-{{ section.id }} .vd-coupons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto 60px;
+    flex-wrap: wrap;
+    max-width: 800px;
+  }
+  
+  #vd-tab-{{ section.id }} .vd-coupon-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    max-width: 48%;
+  }
+
+  #vd-tab-{{ section.id }} .vd-coupon-item:hover {
+    transform: scale(1.02);
+  }
+
+  #vd-tab-{{ section.id }} .vd-coupon-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+      #vd-tab-{{ section.id }} .vd-coupon-item img {
+          width: 60%;
+          margin: 0 auto;
+      }
+      #vd-tab-{{ section.id }} .vd-coupon-item-1 img {
+          transform: rotate(15deg);
+      }
+      #vd-tab-{{ section.id }} .vd-coupon-item-2 img {
+ transform: rotate(-15deg);
+      }
+    #vd-tab-{{ section.id }} .vd-coupon-item {
+      max-width: 100%;
+    }
+  }
+
+  /* Tabs Navigation */
+  #vd-tab-{{ section.id }} .vd-tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  #vd-tab-{{ section.id }} .vd-tab-btn {
+    padding: 12px 40px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    text-align: center;
+    flex: 1;
+  }
+
+  #vd-tab-{{ section.id }} .vd-tab-btn.active {
+    background-color: #ff8ba7;
+    color: #fff;
+    border-color: #ff8ba7;
+    box-shadow: 0 4px 10px rgba(255, 139, 167, 0.3);
+  }
+
+  /* Tabs Content */
+  #vd-tab-{{ section.id }} .vd-tab-panel {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  #vd-tab-{{ section.id }} .vd-tab-panel.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 10px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Product Card */
+  #vd-tab-{{ section.id }} .vd-tab-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  #vd-tab-{{ section.id }} .vd-tab-card:hover {
+    transform: translateY(-5px);
+  }
+  .vd-tab-card .card-badge-text{
+      transform: translate(0, -5px);
+  }
+  #vd-tab-{{ section.id }} .card-badge {
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    background-color: #00c9b7;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 0 0 4px 4px;
+    z-index: 2;
+  }
+  
+  #vd-tab-{{ section.id }} .card-badge::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 6px solid #00c9b7;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #vd-tab-{{ section.id }} .card-badge.has-bg {
+    background-color: transparent;
+    padding: 0;
+    width: 80px; /* Adjust as needed */
+    height: 60px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0;
+  }
+
+  #vd-tab-{{ section.id }} .card-badge.has-bg::after {
+    display: none;
+  }
+
+  #vd-tab-{{ section.id }} .card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #vd-tab-{{ section.id }} .card-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  #vd-tab-{{ section.id }} .custom-banner {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  #vd-tab-{{ section.id }} .custom-banner img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  #vd-tab-{{ section.id }} .gift-banner {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(0deg, #E4E8FF 0%, #FFE8F0 100%);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+  }
+
+  #vd-tab-{{ section.id }} .gift-ribbon {
+    position: absolute;
+    top: 3px;
+    left: -14px;
+    background: linear-gradient(90deg, #FFC5D8 0%, #FF6E91 49%,#FFC5D8 100%);
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    transform: rotate(-45deg) translate(-8px, -6px);
+    width: 72px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  #vd-tab-{{ section.id }} .gift-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #vd-tab-{{ section.id }} .gift-image-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 60px;
+    flex-shrink: 0;
+  }
+
+  #vd-tab-{{ section.id }} .gift-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  #vd-tab-{{ section.id }} .gift-info {
+    flex: 1;
+    padding-left: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #vd-tab-{{ section.id }} .gift-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  #vd-tab-{{ section.id }} .gift-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  #vd-tab-{{ section.id }} .gift-price {
+    font-size: 16px;
+    font-weight: 800;
+    color: #000;
+  }
+
+  #vd-tab-{{ section.id }} .gift-compare-price {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  #vd-tab-{{ section.id }} .gift-plus {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+  #vd-tab-{{ section.id }} .card-title {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  #vd-tab-{{ section.id }} .card-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  #vd-tab-{{ section.id }} .price-container {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  #vd-tab-{{ section.id }} .current-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #000;
+    display: block;
+  }
+
+  #vd-tab-{{ section.id }} .original-price {
+    font-size: 13px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  #vd-tab-{{ section.id }} .buy-btn {
+    background-color: #ff8ba7;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+    white-space: nowrap;
+  }
+
+  #vd-tab-{{ section.id }} .buy-btn:hover {
+    background-color: #ff6b8b;
+  }
+  
+  #vd-tab-{{ section.id }} .extra-card {
+    display: none;
+  }
+  #vd-tab-{{ section.id }} .vd-tab-panel.show-all .extra-card {
+    display: flex;
+  }
+  .vd-show-more-wrapper {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .vd-show-more-btn {
+    background: none;
+    border: 1px solid #000; 
+    padding: 8px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .vd-show-more-btn:hover {
+    background: #ff8ba7;
+    color: #fff;
+    border: 1px solid #ff8ba7; 
+  }
+  .vd-show-more-btn .arrow {
+    display: none;
+  }
+  .vd-tab-panel:not(.show-all) .arrow--down {
+    display: block;
+  }
+  .vd-tab-panel.show-all .arrow--up {
+    display: block;
+  }
+
+  @media (max-width: 990px) {
+    #vd-tab-{{ section.id }} .vd-tab-panel.active {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+      #vd-tab-{{ section.id }} .vd-tab-card {
+        padding: 10px 5px;
+      }
+       #vd-tab-{{ section.id }} .gift-image-container {
+         margin-left: 0;
+             width: 40px;
+          height: 40px;
+       }
+      #vd-tab-{{ section.id }} .gift-info {
+        padding-left: 5px;
+      }
+       #vd-tab-{{ section.id }} .gift-plus{
+          display: none;
+      }
+    #vd-tab-{{ section.id }} .vd-tab-panel.active {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    #vd-tab-{{ section.id }} .card-image-wrapper {
+      height: 180px;
+      margin-bottom: 0;
+    }
+    #vd-tab-{{ section.id }} .vd-tabs-nav {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+        gap: 10px;
+    }
+    #vd-tab-{{ section.id }} .vd-tabs-nav::-webkit-scrollbar {
+        display: none;
+    }
+    #vd-tab-{{ section.id }} .vd-tab-btn {
+      padding: 10px 20px;
+      min-width: auto;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+      #vd-tab-{{ section.id }} .gift-price,#vd-tab-{{ section.id }} .gift-title {
+        font-size: 14px;
+      }
+
+
+      #vd-tab-{{ section.id }} .vd-tab-container {
+        padding: 0;
+      }
+
+        #vd-tab-{{ section.id }} .card-price-row {
+          align-items: center;
+          justify-content: center;
+        }
+          #vd-tab-{{ section.id }} .card-badge.has-bg {
+            width: 60px;
+            height: 50px;
+          }
+          #vd-tab-{{ section.id }} .card-badge{
+            top: -10px;
+            left: 10px;
+          }
+            .vd-tab-card .card-badge-text{
+          transform: translate(0, -2px);
+      }
+  }
+</style>
+
+<div id="vd-tab-{{ section.id }}">
+  <div class="row">
+    <div class="small-12 columns">
+      {% render 'xmas-section-header' %}
+      
+      {% if section.settings.coupon_image_1 != blank or section.settings.coupon_image_2 != blank %}
+        <div class="vd-coupons-container">
+          {% if section.settings.coupon_image_1 != blank %}
+            <div class="vd-coupon-item vd-coupon-item-1" onclick="vdCopyCoupon('{{ section.settings.coupon_code_1 }}')">
+              <img src="{{ section.settings.coupon_image_1 | image_url: width: 600 }}" loading="lazy" alt="Coupon 1">
+            </div>
+          {% endif %}
+          {% if section.settings.coupon_image_2 != blank %} 
+            <div class="vd-coupon-item vd-coupon-item-2" onclick="vdCopyCoupon('{{ section.settings.coupon_code_2 }}')">
+              <img src="{{ section.settings.coupon_image_2 | image_url: width: 600 }}" loading="lazy" alt="Coupon 2">
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      
+      <div class="vd-tab-container">
+        <!-- Tabs Navigation -->
+        <div class="vd-tabs-nav">
+          {% if section.settings.tab_1_title != blank %}
+            <button class="vd-tab-btn active" data-tab="1">{{ section.settings.tab_1_title }}</button>
+          {% endif %}
+          {% if section.settings.tab_2_title != blank %}
+            <button class="vd-tab-btn" data-tab="2">{{ section.settings.tab_2_title }}</button>
+          {% endif %}
+          {% if section.settings.tab_3_title != blank %}
+            <button class="vd-tab-btn" data-tab="3">{{ section.settings.tab_3_title }}</button>
+          {% endif %}
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="vd-tabs-content">
+          {% for i in (1..3) %}
+            {% capture tab_title_key %}tab_{{ i }}_title{% endcapture %}
+            {% if section.settings[tab_title_key] != blank %}
+              <div class="vd-tab-panel {% if i == 1 %}active{% endif %}" id="tab-panel-{{ i }}-{{ section.id }}">
+                {% assign visible_count = 0 %}
+                {% for block in section.blocks %}
+                  {% assign tab_group = block.settings.tab_group | plus: 0 %}
+                  {% if tab_group == i %}
+                    {% assign visible_count = visible_count | plus: 1 %} 
+                    {% assign product = block.settings.product %}
+                    {% assign title = block.settings.title | default: product.title %}
+                    {% assign image = block.settings.image | default: product.featured_image %}
+                    {% assign price = block.settings.custom_price | default: product.price | money %}
+                    {% assign compare_price = block.settings.custom_compare_price %}
+                    {% if compare_price == blank and product.compare_at_price > product.price %}
+                        {% assign compare_price = product.compare_at_price | money %}
+                    {% endif %}
+                    
+                    {% assign gift_image = block.settings.gift_image | default: product.featured_image %}
+                    {% assign gift_compare_price = block.settings.gift_compare_price %}
+                    {% if gift_compare_price == blank and product.compare_at_price > product.price %}
+                      {% assign gift_compare_price = product.compare_at_price | money %}
+                    {% endif %}
+                    
+                    <div class="vd-tab-card {% if visible_count > 6 %}extra-card{% endif %}" {{ block.shopify_attributes }}>
+                      {% assign card_badge_text = block.settings.badge_text %}
+                      {% if card_badge_text == blank and product.compare_at_price > product.price %}
+                        {% assign discount_percentage = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+                        {% assign card_badge_text = discount_percentage | append: '%' %}
+                      {% endif %}
+
+                      {% if card_badge_text != blank %}
+                        <div class="card-badge {% if section.settings.badge_bg != blank %}has-bg{% endif %}" 
+                             style="{% if section.settings.badge_bg != blank %}background-image: url({{ section.settings.badge_bg | image_url: width: 200 }});{% endif %}">
+                          <span class="card-badge-text">{{ card_badge_text }} <br> OFF </span>
+                        </div>
+                      {% endif %}
+                      
+                      <div class="card-image-wrapper">
+                        {% if image != blank %}
+                          <a href="{{ product.url }}" target="_blank" style="width: 100%;height:100%">
+                            <img class="card-image" src="{{ image | image_url: width: 600 }}" loading="lazy" alt="{{ title | escape }}">
+                          </a>
+                        {% else %}
+                          {{ 'product-1' | placeholder_svg_tag }}
+                        {% endif %}
+                      </div>
+
+                      {% if block.settings.gift_title != blank %}
+                        <div class="gift-banner">
+                          <div class="gift-ribbon">FREE</div>
+                          <div class="gift-content">
+                            <div class="gift-image-container">
+                              {% if gift_image != blank %}
+                                <img src="{{ gift_image | image_url: width: 120 }}" loading="lazy" alt="{{ block.settings.gift_title | escape }}">
+                              {% elsif block.settings.custom_banner != blank %}
+                                <img src="{{ block.settings.custom_banner | image_url: width: 120 }}" loading="lazy" alt="Gift">
+                              {% else %}
+                                {{ 'product-1' | placeholder_svg_tag }}
+                              {% endif %}
+                            </div>
+                            <div class="gift-info">
+                              <div class="gift-title">{{ block.settings.gift_title }}</div>
+                              <div class="gift-price-row">
+                                <span class="gift-price">{{ block.settings.gift_price }}</span>
+                                {% if gift_compare_price != blank %}
+                                  <span class="gift-compare-price">{{ gift_compare_price }}</span>
+                                {% endif %}
+                              </div>
+                            </div>
+                            <div class="gift-plus">+1</div>
+                          </div>
+                        </div>
+                      {% elsif block.settings.custom_banner != blank %}
+                        <div class="custom-banner">
+                          <img src="{{ block.settings.custom_banner | image_url: width: 400 }}" loading="lazy" alt="Banner">
+                        </div>
+                      {% endif %}
+
+                      <h3 class="card-title">{{ title }}</h3>
+
+                      <div class="card-price-row">
+                        <div class="price-container">
+                          <span class="current-price">{{ price }}</span>
+                          {% if compare_price != blank %}
+                            <span class="original-price">{{ compare_price }}</span>
+                          {% endif %}
+                        </div>
+                        {% comment %} {% if block.settings.gift_title != blank %}
+                          <form method="post" action="/cart/add" target="_blank" style="display: flex; align-items: center;">
+                            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                            <input type="hidden" name="quantity" value="2">
+                            <button type="submit" class="buy-btn">
+                              {{ block.settings.btn_text | default: 'Shop Now' }}
+                            </button>
+                          </form>
+                        {% else %}
+                          <a href="{{ block.settings.btn_link | default: product.url }}" class="buy-btn">
+                            {{ block.settings.btn_text | default: 'Shop Now' }}
+                          </a>
+                        {% endif %} {% endcomment %}
+                        
+                          <form method="post" action="/cart/add" target="_blank" style="display: flex; align-items: center;">
+                            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                            {% if block.settings.gift_title != blank %}
+                               <input type="hidden" name="quantity" value="2">
+                            {% else %}
+                                <input type="hidden" name="quantity" value="1">
+                            {% endif %}
+                            <button type="submit" class="buy-btn">
+                              {{ block.settings.btn_text | default: 'Shop Now' }}
+                            </button>
+                          </form>
+ 
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+                {% if visible_count > 6 %}
+                  <div class="vd-show-more-wrapper">
+                    <button class="vd-show-more-btn" onclick="toggleShowMore(this)">
+                      <span class="btn-text">Show More</span>
+                      <!-- 向下箭头（折叠态） -->
+                      <svg class="arrow arrow--down" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" fill="currentColor"/>
+                      </svg>
+                      <!-- 向上箭头（展开态） -->
+                      <svg class="arrow arrow--up" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
+                      </svg>
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% render 'section-decorations', section: section %}
+<script>
+  function vdCopyCoupon(code) {
+    if (!code) return;
+    
+    // Create toast if it doesn't exist
+    function showToast(message) {
+      var toast = document.getElementById('vd-coupon-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'vd-coupon-toast';
+        toast.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 15px 30px; border-radius: 8px; z-index: 9999; font-size: 16px; opacity: 0; transition: opacity 0.3s; pointer-events: none;';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      
+      // Trigger reflow
+      void toast.offsetWidth;
+      toast.style.opacity = '1';
+      
+      setTimeout(function() {
+        toast.style.opacity = '0';
+      }, 2000);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(function() {
+        showToast('Coupon code copied!');
+      }).catch(function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    } else {
+      var textArea = document.createElement("textarea");
+      textArea.value = code;
+      textArea.style.position = "fixed";  // Avoid scrolling to bottom
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        var successful = document.execCommand('copy');
+        if (successful) showToast('Coupon code copied!');
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+      document.body.removeChild(textArea);
+    }
+  }
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var section = document.getElementById('vd-tab-{{ section.id }}');
+    if (!section) return;
+
+    var btns = section.querySelectorAll('.vd-tab-btn');
+    var panels = section.querySelectorAll('.vd-tab-panel');
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        // Remove active class from all
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        panels.forEach(function(p) { p.classList.remove('active'); });
+
+        // Add active class to clicked
+        btn.classList.add('active');
+        var tabIndex = btn.getAttribute('data-tab');
+        var targetPanel = section.querySelector('#tab-panel-' + tabIndex + '-{{ section.id }}');
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+      });
+    });
+  });
+  function toggleShowMore(btn) {
+    var panel = btn.closest('.vd-tab-panel');
+    panel.classList.toggle('show-all');
+    var textSpan = btn.querySelector('.btn-text');
+    if (panel.classList.contains('show-all')) {
+      textSpan.textContent = 'Show Less';
+    } else {
+      textSpan.textContent = 'Show More';
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "VD Tab Section",
+  "class": "vd-tab-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Accessories"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_title_icons",
+        "label": "Show Title Icons",
+        "default": true
+    },
+    {
+        "type": "image_picker",
+        "id": "title_icon",
+        "label": "Title Icon"
+    },
+    {
+        "type": "range",
+        "id": "title_icon_size",
+        "min": 20,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Title Icon Size",
+        "default": 40
+    },
+    {
+        "type": "checkbox",
+        "id": "title_icon_mirror_right",
+        "label": "Mirror Right Icon",
+        "default": true
+    },
+    {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub Heading"
+    },
+    {
+        "type": "url",
+        "id": "view_more_link",
+        "label": "View More Link"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "View More Label",
+      "default": "View More"
+    },
+    {
+      "type": "header",
+      "content": "Coupon Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "coupon_image_1",
+      "label": "Coupon Image 1"
+    },
+    {
+      "type": "text",
+      "id": "coupon_code_1",
+      "label": "Coupon Code 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "coupon_image_2",
+      "label": "Coupon Image 2"
+    },
+    {
+      "type": "text",
+      "id": "coupon_code_2",
+      "label": "Coupon Code 2"
+    },
+    {
+      "type": "header",
+      "content": "Tabs Settings"
+    },
+    {
+      "type": "text",
+      "id": "tab_1_title",
+      "label": "Tab 1 Title",
+      "default": "HEPA filter"
+    },
+    {
+      "type": "text",
+      "id": "tab_2_title",
+      "label": "Tab 2 Title",
+      "default": "Brush"
+    },
+    {
+      "type": "text",
+      "id": "tab_3_title",
+      "label": "Tab 3 Title",
+      "default": "Battery"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f0f2f8"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_bg",
+      "label": "Badge Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "tab_group",
+          "label": "Tab Group",
+          "options": [
+            { "value": "1", "label": "Tab 1" },
+            { "value": "2", "label": "Tab 2" },
+            { "value": "3", "label": "Tab 3" }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "10% OFF"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Product Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_banner",
+          "label": "Custom Banner Image (Middle)"
+        },
+        {
+          "type": "header",
+          "content": "Gift Banner Settings"
+        },
+        {
+          "type": "product",
+          "id": "gift_product",
+          "label": "Gift Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "gift_image",
+          "label": "Gift Image"
+        },
+        {
+          "type": "text",
+          "id": "gift_title",
+          "label": "Gift Title (e.g. 3pcs/pack)"
+        },
+        {
+          "type": "text",
+          "id": "gift_price",
+          "label": "Gift Price (e.g. $0)"
+        },
+        {
+          "type": "text",
+          "id": "gift_compare_price",
+          "label": "Gift Compare Price"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title"
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Custom Price"
+        },
+        {
+          "type": "text",
+          "id": "custom_compare_price",
+          "label": "Custom Compare Price"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
+      ]
+    },
+        {
+        "type": "decoration",
+        "name": "装饰图片",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "图片" },
+          { "type": "range", "id": "top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "number", "id": "z_index", "label": "层级", "default": 1 },
+          { "type": "checkbox", "id": "hide_on_mobile", "label": "在移动端隐藏", "default": false },
+          { "type": "range", "id": "rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+          { "type": "header", "content": "移动端设置" },
+          { "type": "range", "id": "mobile_top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "mobile_left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "mobile_width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "range", "id": "mobile_rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+        ]
+      } 
+  ],
+  "presets": [
+    {
+      "name": "VD Tab Section",
+      "blocks": [
+        { "type": "product_card", "settings": { "tab_group": "1" } },
+        { "type": "product_card", "settings": { "tab_group": "1" } },
+        { "type": "product_card", "settings": { "tab_group": "1" } },
+        { "type": "product_card", "settings": { "tab_group": "2" } },
+        { "type": "product_card", "settings": { "tab_group": "2" } },
+        { "type": "product_card", "settings": { "tab_group": "2" } },
+        { "type": "product_card", "settings": { "tab_group": "3" } },
+        { "type": "product_card", "settings": { "tab_group": "3" } },
+        { "type": "product_card", "settings": { "tab_group": "3" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

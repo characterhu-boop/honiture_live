@@ -1,0 +1,388 @@
+{% comment %}
+  Xmas Accessories Section
+  - Title via snippet `xmas-section-header`
+  - One banner card with background image, richtext, and button
+  - Four product cards; each supports custom title and add-to-cart
+{% endcomment %}
+
+<section id="xmas-acce-{{ section.id }}" class="xmas-acce">
+  {% render 'xmas-section-header', section: section %}
+  <div class="acce__container">
+    {% if section.settings.snow_image %}
+      <div class="spin-section-snow">
+        {{ section.settings.snow_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: 'Snow strip' }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.banner_bg != blank or section.settings.banner_bg_mobile != blank %}
+      <div class="acce-banner">
+        <div class="acce-banner__content">
+          {% if section.settings.banner_richtext != blank %}
+            <div class="acce-banner__text">{{ section.settings.banner_richtext }}</div>
+          {% endif %}
+          {% if section.settings.banner_btn_label != blank %}
+            <a class="acce-banner__btn" href="{{ section.settings.banner_btn_link | default: '#' }}">{{ section.settings.banner_btn_label }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% assign acce_blocks = section.blocks | where: 'type', 'acce_product' %}
+    {% assign acce_total = acce_blocks.size %}
+    <div class="acce__grid{% if acce_total > 4 %} is-collapsed{% endif %}">
+      {% for block in section.blocks %}
+        {% if block.type == 'acce_product' %}
+          {% assign prod = block.settings.product %}
+          {% assign has_prod = prod.id %}
+          {% if has_prod %}
+            {% assign variant_id = block.settings.variant_id | default: prod.selected_or_first_available_variant.id %}
+            {% assign variant = prod.variants | where: 'id', variant_id | first %}
+            {% if variant == blank %}{% assign variant = prod.selected_or_first_available_variant %}{% endif %}
+            {% assign price = variant.price %}
+            {% assign compare = variant.compare_at_price %}
+            {% assign img = block.settings.image | default: prod.featured_image %}
+            {% assign title = block.settings.title | default: prod.title %}
+
+            <div class="acce-card" {{ block.shopify_attributes }}>
+              <div class="acce-card__media">
+                {% if img %}
+                <a href="{{ prod.url }}" target="_blank" class="acce-card__link">
+                  <img src="{{ img | image_url: width: 600 }}" alt="{{ title | escape }}" loading="lazy" />
+                </a>{% endif %}
+              </div>
+              <div class="acce-card__content">
+                <div class="acce-card__title">{{ title }}</div>
+                <div class="acce-card__price">
+                  {{ price | money }}
+                  {% if compare %}<span class="acce-card__compare">{{ compare | money }}</span>{% endif %}
+                </div>
+                <div class="acce-card__actions">
+                  <button type="button" class="acce-card__btn--buy" data-vid="{{ variant.id }}" data-qty="{{ block.settings.quantity | default: 1 }}">Buy now</button>
+                  <button type="button" class="acce-card__btn--add" data-vid="{{ variant.id }}" data-qty="{{ block.settings.quantity | default: 1 }}">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if acce_total > 4 %}
+      <div class="acce__toggle">
+        <button type="button" class="acce-toggle__btn" aria-expanded="false">
+          <span class="acce-toggle__label">Show more</span>
+          <!-- 向下箭头（折叠态） -->
+          <svg class="arrow arrow--down" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" fill="currentColor"/>
+          </svg>
+          <!-- 向上箭头（展开态） -->
+          <svg class="arrow arrow--up" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="acce__toast" role="status" aria-live="polite"></div>
+</section>
+
+<style>
+  .xmas-acce { padding: 24px 0; 
+  /* background: #ae3028; */
+}
+  .acce__container { 
+    max-width: 1168px; margin: 0 auto; 
+      background: #06503F;
+      padding: 100px 60px 60px;
+      border-radius: 30px 30px 10px 10px;
+      position: relative;
+  }
+  .xmas-acce .spin-section-snow{
+    position: absolute;
+    top: -20px;
+    left: 0;
+  }
+  /* Banner */
+  .acce-banner { position: relative; background-size: cover; 
+  background-position: center; border-radius: 12px; min-height: 160px; display: 
+  flex; align-items: center; padding: 42px; margin-bottom: 18px; 
+      height: 280px;
+}
+  /* 响应式背景图：PC/Mobile 优先使用对应设置，未设置则相互回退 */
+  #xmas-acce-{{ section.id }} .acce-banner {
+    background-image: url({{ section.settings.banner_bg | default: section.settings.banner_bg_mobile | image_url: width: 1600 }});
+  }
+  .acce-banner__content { max-width: 700px; color: #fff; }
+  .acce-banner__text { margin-bottom: 10px; color: #000;}
+  .acce-banner__text strong{
+    color: #DA2B2B;
+  }
+  .acce-banner__text p{
+      margin-bottom: 0;
+  }
+
+  .acce-card__btn--buy,.acce-card__btn--add,.acce-banner__btn { 
+    margin-top: 6px;
+    background: #06503F;
+    border-radius: 99px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+.acce-card__btn--add{
+  background: unset;
+  border: 1px solid #000;
+  color: #000;
+}
+  /* Grid */
+  .acce__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  /* 默认折叠：仅显示前4张，超出隐藏 */
+  .acce__grid.is-collapsed .acce-card:nth-child(n+5) { display: none; }
+
+  /* 展开/收起按钮样式 */
+  .acce__toggle { display: flex; justify-content: center; margin-top: 14px; }
+  .acce-toggle__btn { cursor: pointer; border: 1px solid #fff; background: transparent; color: #fff; border-radius: 999px; padding: 8px 16px; font-size: 14px; }
+  .acce-toggle__btn:hover { background: rgba(255,255,255,0.12); }
+  .acce-toggle__btn { display: inline-flex; align-items: center; gap: 8px; }
+  .acce-toggle__btn .arrow { width: 16px; height: 16px; color: #fff; }
+  /* 默认显示向下箭头；展开后显示向上箭头 */
+  .acce__toggle .arrow--up { display: none; }
+  .acce__toggle.is-expanded .arrow--up { display: inline; }
+  .acce__toggle.is-expanded .arrow--down { display: none; }
+  .acce-card { background: #fff; border-radius: 10px; 
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08); overflow: hidden; 
+  display: flex; flex-direction: column; 
+  justify-content: space-between;
+}
+  .acce-card__media {  padding: 10px; }
+  .acce-card__media img { width: 100%; height: auto; display: block; }
+  .acce-card__content { padding: 12px;text-align: center; }
+  .acce-card__title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .acce-card__price { font-size: 16px; font-weight: 700; color: #DA2B2B; }
+  .acce-card__compare { color: #999; text-decoration: line-through; font-weight: 500; margin-left: 6px; font-size: 13px; }
+  .acce-card__actions { margin-top: 10px; display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer; border-radius: 6px; padding: 10px 14px; font-size: 14px; }
+  .btn--primary { background: #e53935; color: #fff; }
+  .btn--secondary { background: #0a8f3c; color: #fff; }
+
+  .acce__toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: 24px; background: rgba(0,0,0,0.85); color: #fff; padding: 10px 12px; border-radius: 8px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .acce__toast.is-visible { opacity: 1; }
+
+  @media (max-width: 1024px) {
+    .acce__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .acce-banner__content{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    #xmas-acce-{{ section.id }} .acce-banner {
+      background-image: url({{ section.settings.banner_bg_mobile | default: section.settings.banner_bg | image_url: width: 1000 }});
+        height: 230px;
+        padding: 16px;
+        align-items: start;
+        font-size: 12px;
+    }
+    .acce-banner__btn{
+      padding: 6px 20px;
+    font-size: 12px;
+    }
+    .acce-card__media{
+      padding: 0;
+    }
+    .acce-card__actions{
+      gap: 0;
+      margin-top:0;
+    }
+    .acce__grid { grid-template-columns: 1fr 1fr; }
+    .acce__container{
+      margin: 0 16px;
+      padding: 30px 20px 20px;
+      border-radius: 10px;
+    }
+    .xmas-acce .spin-section-snow{
+      top: -10px;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    function showToast(message) {
+      var toast = document.querySelector('#xmas-acce-{{ section.id }} .acce__toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      setTimeout(function() { toast.classList.remove('is-visible'); }, 2200);
+    }
+
+    function addItems(items) {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: items })
+      }).then(function(res) { if (!res.ok) throw new Error('Add failed'); return res.json(); });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var root = document.getElementById('xmas-acce-{{ section.id }}');
+      if (!root) return;
+      root.querySelectorAll('.acce-card__btn--add').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var vid = btn.getAttribute('data-vid');
+          var qty = parseInt(btn.getAttribute('data-qty') || '1', 10);
+          if (!vid) return;
+          addItems([{ id: Number(vid), quantity: qty }]).then(function(){ 
+            window.open('/cart', '_blank');
+          }).catch(function(){ });
+        });
+      });
+
+      root.querySelectorAll('.acce-card__btn--buy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var vid = btn.getAttribute('data-vid');
+          var qty = parseInt(btn.getAttribute('data-qty') || '1', 10);
+          if (!vid) return;
+          addItems([{ id: Number(vid), quantity: qty }]).then(function(){  window.open('/cart', '_blank');}).catch(function(){  });
+        });
+      });
+
+      // 展开/收起更多配件
+      var grid = root.querySelector('.acce__grid');
+      var toggleBtn = root.querySelector('.acce-toggle__btn');
+      var toggleLabel = toggleBtn ? toggleBtn.querySelector('.acce-toggle__label') : null;
+      var toggleWrap = root.querySelector('.acce__toggle');
+      var preExpandViewportOffset = null; // 记录展开前按钮相对视口的位置
+      if (grid && toggleBtn && toggleWrap) {
+        toggleBtn.addEventListener('click', function() {
+          var isCollapsed = grid.classList.contains('is-collapsed');
+          if (isCollapsed) {
+            // 展开前记录按钮相对视口的偏移量（不依赖页面滚动绝对值）
+            var rect = toggleWrap.getBoundingClientRect();
+            preExpandViewportOffset = rect.top;
+            grid.classList.remove('is-collapsed');
+            if (toggleLabel) { toggleLabel.textContent = 'Show less'; }
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            toggleWrap.classList.add('is-expanded');
+          } else {
+            grid.classList.add('is-collapsed');
+            if (toggleLabel) { toggleLabel.textContent = 'Show more'; }
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleWrap.classList.remove('is-expanded');
+            // 收起后平滑滚动，使按钮回到点击时的相同视口位置
+            if (preExpandViewportOffset !== null) {
+              window.requestAnimationFrame(function() {
+                var newRectTop = toggleWrap.getBoundingClientRect().top;
+                var currentScroll = window.scrollY;
+                var targetScroll = currentScroll + newRectTop - preExpandViewportOffset;
+                window.scrollTo({ top: Math.max(targetScroll, 0), behavior: 'smooth' });
+              });
+            }
+          }
+        });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Xmas 配件模块",
+  "tag": "section",
+  "class": "section xmas-acce",
+  "settings": [
+{
+      "type": "header",
+      "content": "Section Header 设置"
+    },
+        {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "限时优惠 立省20%"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    },
+    { "type": "image_picker", "id": "snow_image", "label": "顶部长条雪图" },
+    {"type": "image_picker", "id": "banner_bg", "label": "横幅背景图(PC)"},
+    {"type": "image_picker", "id": "banner_bg_mobile", "label": "横幅背景图(移动端)"},
+    {"type": "richtext", "id": "banner_richtext", "label": "横幅富文本文案"},
+    {"type": "text", "id": "banner_btn_label", "label": "横幅按钮文案", "default": "Shop now"},
+    {"type": "url", "id": "banner_btn_link", "label": "横幅按钮链接"}
+  ],
+  "blocks": [
+    {
+      "type": "acce_product",
+      "name": "配件产品卡片",
+      "settings": [
+        {"type": "product", "id": "product", "label": "产品"},
+        {"type": "text", "id": "variant_id", "label": "变体ID(可选)"},
+        {"type": "text", "id": "title", "label": "自定义标题(可选)"},
+        {"type": "image_picker", "id": "image", "label": "自定义图(可选)"},
+        {"type": "text", "id": "button_label", "label": "按钮文案", "default": "Buy now"},
+        {"type": "range", "id": "quantity", "label": "购买数量", "min": 1, "max": 10, "step": 1, "default": 1}
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Xmas 配件模块(横幅+四卡)",
+      "blocks": [
+        {"type": "acce_product"},
+        {"type": "acce_product"},
+        {"type": "acce_product"},
+        {"type": "acce_product"}
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}

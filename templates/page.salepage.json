@@ -1,0 +1,286 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_simple_banner_VxQdhh": {
+      "type": "custom-simple-banner",
+      "custom_css": [
+        "@media (max-width: 768px) {.banner__title {color: #000; } .banner__content {display: none; }}"
+      ],
+      "name": "Simple Banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-best-budget-cordless-vacuum-banner.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-best-budget-cordless-vacuum.jpg",
+        "show_on_desktop": true,
+        "text_align": 15,
+        "title": "Robot & Cordless Vacuum Cleaner Deals",
+        "title_tag": "h2",
+        "title_text_color": "#000000",
+        "subtitle": "",
+        "text_color": "#000000",
+        "title_size": 36,
+        "subtitle_size": 18,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "custom_simple_collection_FbRqxD": {
+      "type": "custom-simple-collection",
+      "name": "Simple Collection",
+      "settings": {
+        "btn_text": "Shop now",
+        "collection": "sale-page-collection",
+        "products_limit": 8,
+        "products_per_row": 4,
+        "grid_gap": 20,
+        "card_background": "#ffffff",
+        "card_border_radius": 8,
+        "mobile_section_padding": 10
+      }
+    },
+    "featured_collection_jXxnzy": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [],
+      "name": "Featured collection",
+      "settings": {
+        "heading": " |Accessory Deals! |",
+        "marker_style": "style1",
+        "description": "<p><br\/>Hot accessory bundles now at special prices — refresh your vacuum cleaner today.<br\/><br\/><\/p>",
+        "collection": "replacement-package",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "useFlex": false,
+        "show_progress_bar": true,
+        "marker_color": "#00d0cd",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_and_text_with_tag_XBHMyk": {
+      "type": "image-and-text-with-tag",
+      "name": "Image and text with tag",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture_p7_pro_cordless_vacuum_cleaner_promotion_sale_2.png",
+        "mobile_image": "shopify:\/\/shop_images\/honiture_p7_pro_cordless_vacuum_cleaner_promotion_sale_1.jpg",
+        "image_position": "right",
+        "mobile_reverse": true,
+        "heading": "【NEW】Honiture P7 Pro Cordless Vacuum",
+        "text": "<ul><li>50KPA for Whole House Deep-Clean<\/li><li>Up to 80 Minutes of Run Time<\/li><li>7-layer HEPA Allergen Filter<\/li><li>One-Touch Dustbin Release<\/li><li>Tangle-Free Design for Pet Hair<\/li><li>Works on Multiple Surfaces<\/li><\/ul>",
+        "text2": "",
+        "button_label": "Shop now",
+        "button_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+        "discount_text": "55% OFF",
+        "section_width": 1200,
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_padding_left": 50,
+        "text_flex": 0.8,
+        "mobile_section_padding": 30,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "image_and_text_with_tag_KmLL9f": {
+      "type": "image-and-text-with-tag",
+      "name": "Image and text with tag",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-cordless-handheld-vacuum.png",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-x7-cordless-handheld-vacuums.png",
+        "image_position": "left",
+        "mobile_reverse": false,
+        "heading": "【HOT】Honiture X7 Cordless Vacuum",
+        "text": "<ul><li>Powerful 45KPA for a Deep Clean<\/li><li>Up to 60 Minutes of Run Time<\/li><li>HEPA Filtration System<\/li><li>Lightweight Self-standing<\/li><li>Works on Multiple Surfaces<\/li><li> 3-in-1 Versatile Stick Vacuum<\/li><\/ul>",
+        "text2": "",
+        "button_label": "Shop now",
+        "button_link": "shopify:\/\/products\/x7",
+        "discount_text": "49% OFF",
+        "section_width": 1200,
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_padding_left": 50,
+        "text_flex": 0.8,
+        "mobile_section_padding": 30,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "image_and_text_with_tag_kEip4e": {
+      "type": "image-and-text-with-tag",
+      "custom_css": [
+        ".image-wrapper-right .discount-badge {right: 10px;}"
+      ],
+      "name": "Image and text with tag",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-Y10-cordless-vacuum-Y10-sale-page.png",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-Y10-cordless-vacuum-sale-page.jpg",
+        "image_position": "right",
+        "mobile_reverse": true,
+        "heading": "【NEW】Honiture Y10 Cordless Vacuum",
+        "text": "<ul><li>38KPA for Daily Clean<\/li><li>Up to 45 Minutes of Run Time<\/li><li>180° Rotatable Brush with Green Light<\/li><li>One Touch Dustbin Release<\/li><li>Works on Multiple Surfaces<\/li><li> 3-in-1 Versatile Stick Vacuum<\/li><\/ul>",
+        "text2": "",
+        "button_label": "Shop now",
+        "button_link": "shopify:\/\/products\/y10-cordless-stick-vacuum",
+        "discount_text": "57% OFF",
+        "section_width": 1200,
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_padding_left": 50,
+        "text_flex": 0.8,
+        "mobile_section_padding": 30,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "image_and_text_with_tag_AbpG8k": {
+      "type": "image-and-text-with-tag",
+      "disabled": true,
+      "name": "Image and text with tag",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-s12-cordless-vacuum-deal-sale.png",
+        "mobile_image": "shopify:\/\/shop_images\/Honiture-s12-blue-cordless-stick-vacuum-deal.png",
+        "image_position": "right",
+        "mobile_reverse": true,
+        "heading": "Honiture S12 Cordless Vacuum",
+        "text": "<ul><li>33KPA for Daily Clean<\/li><li>Up to 55 Minutes of Run Time<\/li><li>270° Rotatable Brush with LED Light<\/li><li>One Touch Dustbin Release<\/li><li>Works on Multiple Surfaces<\/li><li> 3-in-1 Versatile Stick Vacuum<\/li><\/ul>",
+        "text2": "",
+        "button_label": "Shop now",
+        "button_link": "shopify:\/\/products\/s12",
+        "discount_text": "45% OFF",
+        "section_width": 1200,
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_padding_left": 50,
+        "text_flex": 0.8,
+        "mobile_section_padding": 30,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "image_and_text_with_tag_tKKFYB": {
+      "type": "image-and-text-with-tag",
+      "name": "Image and text with tag",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-best-robotic-vacuum.png",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-best-robotic-vacuum-black.png",
+        "image_position": "left",
+        "mobile_reverse": false,
+        "heading": "【HOT】Honiture G20 Pro Robot Vacuum",
+        "text": "<ul><li>4,500PA Powerful Suction<\/li><li>Up to 3 Hours of Run Time<\/li><li>Enhanced Navigation and Obstacle<\/li><li>3 in 1 Vacuum & Mop & Sweep <\/li><li>Application, Alexa and Remote<\/li><li>Voice & APP Control<\/li><\/ul>",
+        "text2": "",
+        "button_label": "Shop now",
+        "button_link": "shopify:\/\/products\/honiture-robot-vacuum-cleaner-g20pro",
+        "discount_text": "48% OFF",
+        "section_width": 1200,
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_padding_left": 50,
+        "text_flex": 0.8,
+        "mobile_section_padding": 30,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "image_and_text_with_tag_8CwfPp": {
+      "type": "image-and-text-with-tag",
+      "name": "Image and text with tag",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-T10-robot-vacuum-promotion_1.png",
+        "mobile_image": "shopify:\/\/shop_images\/Honiture-T10-robot-vacuum-promotion_2.webp",
+        "image_position": "right",
+        "mobile_reverse": true,
+        "heading": "【NEW】Honiture T10 Robot Vacuum",
+        "text": "<ul><li>6,000Pa Hurricane Suction<\/li><li>Smart LiDAR Navigation<\/li><li>3 in 1 Vacuum & Mop & Sweep <\/li><li>Carpet Cleaning & Self-Charging<\/li><li>Convenient APP & Voice Control<\/li><\/ul>",
+        "text2": "",
+        "button_label": "Shop now",
+        "button_link": "shopify:\/\/products\/honiture-t10-robot-vacuum",
+        "discount_text": "42% OFF",
+        "section_width": 1200,
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_padding_left": 50,
+        "text_flex": 0.8,
+        "mobile_section_padding": 30,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "image_and_text_with_tag_7KyQDb": {
+      "type": "image-and-text-with-tag",
+      "disabled": true,
+      "name": "Image and text with tag",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/best-robotic-vacuum.png",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-best-robotic-vacuum-mop.png",
+        "image_position": "right",
+        "mobile_reverse": true,
+        "heading": "Honiture V8 Pro Robot Vacuum",
+        "text": "<ul><li>5,000Pa Hurricane Suction<\/li><li>5.0 LiDAR Navigation<\/li><li>3 in 1 Vacuum & Mop & Sweep <\/li><li>Convenient APP Control<\/li><li>Smart Carpet Cleaning<\/li><li>Self-Charging<\/li><\/ul>",
+        "text2": "",
+        "button_label": "Shop now",
+        "button_link": "shopify:\/\/products\/v8-pro",
+        "discount_text": "44% OFF",
+        "section_width": 1200,
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_padding_left": 50,
+        "text_flex": 0.8,
+        "mobile_section_padding": 30,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "custom_simple_banner_XbyyLk": {
+      "type": "custom-simple-banner",
+      "name": "Simple Banner",
+      "settings": {
+        "mobile_image": "shopify:\/\/shop_images\/honiture_smart_home_better_life.jpg",
+        "show_on_desktop": false,
+        "text_align": 0,
+        "title": "",
+        "title_tag": "h2",
+        "title_text_color": "#19586e",
+        "subtitle": "",
+        "text_color": "#19586e",
+        "title_size": 12,
+        "subtitle_size": 12,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_simple_banner_VxQdhh",
+    "custom_simple_collection_FbRqxD",
+    "featured_collection_jXxnzy",
+    "image_and_text_with_tag_XBHMyk",
+    "image_and_text_with_tag_KmLL9f",
+    "image_and_text_with_tag_kEip4e",
+    "image_and_text_with_tag_AbpG8k",
+    "image_and_text_with_tag_tKKFYB",
+    "image_and_text_with_tag_8CwfPp",
+    "image_and_text_with_tag_7KyQDb",
+    "custom_simple_banner_XbyyLk"
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "label_eJLbiy": {
+          "type": "label",
+          "settings": {}
+        },
+        "info_box_tjBijj": {
+          "type": "info_box",
+          "settings": {
+            "icon": "clipboard",
+            "text": "Original Parts",
+            "link": "",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#00d0cd"
+          }
+        },
+        "info_box_9DbV7p": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "text": "Delivery to Your Door",
+            "link": "",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#00d0cd"
+          }
+        },
+        "info_box_HNRKWc": {
+          "type": "info_box",
+          "settings": {
+            "icon": "box",
+            "text": "Quick Dispatch",
+            "link": "",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#00d0cd"
+          }
+        },
+        "info_box_xPzMUC": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "text": "Reliable Support",
+            "link": "",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#00d0cd"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "klarna_on_site_messaging_app_block_AbjD4Q": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_RXyWzA": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "separator_HPtzYr": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "coupon_gift_PwUtnb": {
+          "type": "coupon_gift",
+          "settings": {
+            "title_left": "ASSY5",
+            "subtitle_left": "Save 5% on $50",
+            "title_right": "ASSY12",
+            "subtitle_right": "Save 12% on $100",
+            "bottom_text": "🌟Refresh Your Vacuum- Copy Code and Apply at Checkout！",
+            "text_color": "#1a1c1d",
+            "bg_start": "#32d1cf",
+            "bg_end": "#86f5fa"
+          }
+        },
+        "image_WtHENz": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_740.jpg",
+            "position": "text-left",
+            "image_link": "https:\/\/honiture.com\/pages\/easter-sale#shopify-section-template--21230417969199__acc_tab_VyKPwb"
+          }
+        },
+        "separator_ffazEp": {
+          "type": "separator",
+          "settings": {}
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "variant_picker_WK7yT6": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_pdBYGz": {
+          "type": "quantity",
+          "settings": {
+            "justify_content": "flex-end"
+          }
+        },
+        "buy_buttons_N9zYJ4": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_7fM3jw": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "collapsible_tab_rkcfCn": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fast Shipping & Delivery",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Orders will be shipped within 24 business hours. All accessories are estimated to be delivered within 7–15 days. Explore more <a href=\"https:\/\/honiture.com\/policies\/shipping-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/shipping-policy\">here.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_gmEnc6": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "60 Days Price Match Policy",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Buy with confidence —Found a lower price within 60 days? We'll refund the difference! Learn More at <a href=\"https:\/\/honiture.com\/pages\/price-match-guarantee\" target=\"_blank\" title=\"Price Match Guarantee\">Price Match Guarantee<\/a><a href=\"https:\/\/honiture.com\/policies\/refund-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/refund-policy\">.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "payment_security_GwXBYF": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "label_eJLbiy",
+        "info_box_tjBijj",
+        "info_box_9DbV7p",
+        "info_box_HNRKWc",
+        "info_box_xPzMUC",
+        "title",
+        "klarna_on_site_messaging_app_block_AbjD4Q",
+        "judge_me_reviews_preview_badge_RXyWzA",
+        "separator_HPtzYr",
+        "coupon_gift_PwUtnb",
+        "image_WtHENz",
+        "separator_ffazEp",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "variant_picker_WK7yT6",
+        "quantity_pdBYGz",
+        "buy_buttons_N9zYJ4",
+        "complementary_7fM3jw",
+        "collapsible_tab_rkcfCn",
+        "collapsible_tab_gmEnc6",
+        "payment_security_GwXBYF",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--product-form,.product-recommendations--loaded {margin-bottom: 30px;}",
+        ".custom-more-payment-options {margin-bottom: 25px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 35,
+        "spacer_desktop": 90,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "1739436632add979db": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_6JNMeW": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_6JNMeW"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "16623877721f33fb14",
+    "1739436632add979db",
+    "product-recommendations"
+  ]
+}

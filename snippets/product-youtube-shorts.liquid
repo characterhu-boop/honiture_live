@@ -1,0 +1,329 @@
+{%- liquid
+  assign video_count = 0
+  for i in (1..6)
+    assign url_key = 'youtube_url_' | append: i
+    assign video_key = 'video_' | append: i
+    if block.settings[url_key] != blank or block.settings[video_key] != blank
+      assign video_count = video_count | plus: 1
+    endif
+  endfor
+-%}
+
+{%- if video_count > 0 -%}
+  <div id="product-youtube-shorts-{{ block.id }}" class="product-youtube-shorts" {{ block.shopify_attributes }}>
+    <div class="product-youtube-shorts__track">
+      {%- for i in (1..6) -%}
+        {%- liquid
+          assign url_key = 'youtube_url_' | append: i
+          assign video_key = 'video_' | append: i
+          assign poster_key = 'poster_' | append: i
+          assign youtube_url = block.settings[url_key] | strip
+          assign uploaded_video = block.settings[video_key]
+          assign poster = block.settings[poster_key]
+          assign youtube_id = ''
+
+          if youtube_url contains '/shorts/'
+            assign youtube_id = youtube_url | split: '/shorts/' | last | split: '?' | first | split: '&' | first | split: '/' | first
+          elsif youtube_url contains 'youtu.be/'
+            assign youtube_id = youtube_url | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first | split: '/' | first
+          elsif youtube_url contains 'v='
+            assign youtube_id = youtube_url | split: 'v=' | last | split: '&' | first | split: '#' | first
+          endif
+        -%}
+        {%- if youtube_url != blank or uploaded_video != blank -%}
+          {%- capture native_video_html -%}
+            {%- if uploaded_video != blank -%}
+              {{ uploaded_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'product-youtube-shorts__native-video' }}
+            {%- endif -%}
+          {%- endcapture -%}
+          <div
+            class="product-youtube-shorts__card"
+            role="button"
+            tabindex="0"
+            data-youtube-url="{{ youtube_url | escape }}"
+            {% if uploaded_video != blank %}data-video-html="{{ native_video_html | strip | escape }}"{% endif %}
+            aria-label="Play video {{ i }}"
+          >
+            {%- if poster != blank -%}
+              <img class="product-youtube-shorts__poster" src="{{ poster | image_url: width: 520 }}" alt="" loading="lazy" draggable="false">
+            {%- elsif uploaded_video != blank and uploaded_video.preview_image != blank -%}
+              <img class="product-youtube-shorts__poster" src="{{ uploaded_video.preview_image | image_url: width: 520 }}" alt="" loading="lazy" draggable="false">
+            {%- elsif youtube_id != blank -%}
+              <img class="product-youtube-shorts__poster" src="https://i.ytimg.com/vi/{{ youtube_id }}/maxresdefault.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ youtube_id }}/hqdefault.jpg';">
+            {%- else -%}
+              <span class="product-youtube-shorts__placeholder">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </span>
+            {%- endif -%}
+            <span class="product-youtube-shorts__play" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="24" fill="white" fill-opacity="0.92"/>
+                <path d="M19 15.5L33.5 24L19 32.5V15.5Z" fill="#333333"/>
+              </svg>
+            </span>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <style>
+    #product-youtube-shorts-{{ block.id }} {
+      --vp-s: 1px;
+      margin-top: calc({{ block.settings.margin_top | default: 16 }} * var(--vp-s));
+      margin-bottom: calc({{ block.settings.margin_bottom | default: 16 }} * var(--vp-s));
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__track {
+      display: flex;
+      gap: calc(12 * var(--vp-s));
+      overflow-x: auto;
+      padding-bottom: calc(8 * var(--vp-s));
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      touch-action: pan-x;
+      user-select: none;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__track.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__card {
+      position: relative;
+      flex: 0 0 calc((100% - calc(18 * var(--vp-s))) / 2.5);
+      aspect-ratio: 9 / 16;
+      display: block;
+      padding: 0;
+      border: 0;
+      border-radius: calc(12 * var(--vp-s));
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 calc(4 * var(--vp-s)) calc(12 * var(--vp-s)) rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      scroll-snap-align: start;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__poster,
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__placeholder {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__placeholder {
+      background: #d8d8d8;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(42 * var(--vp-s));
+      height: calc(42 * var(--vp-s));
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s ease;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__play svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__card:hover .product-youtube-shorts__play {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 112%;
+      height: 112%;
+      border: 0;
+      display: block;
+      transform: translate(-50%, -50%);
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__frame-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__native-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: #000;
+    }
+
+    @media screen and (min-width: 850px) and (max-width: 1500px) {
+      #product-youtube-shorts-{{ block.id }} {
+        --vp-s: calc(100vw / 1500);
+      }
+    }
+
+    @media screen and (max-width: 849px) {
+      #product-youtube-shorts-{{ block.id }} {
+        --vp-s: calc(100vw / 375);
+      }
+
+      #product-youtube-shorts-{{ block.id }} {
+        margin-top: calc({{ block.settings.margin_top_mobile | default: block.settings.margin_top | default: 12 }} * var(--vp-s));
+        margin-bottom: calc({{ block.settings.margin_bottom_mobile | default: block.settings.margin_bottom | default: 12 }} * var(--vp-s));
+      }
+
+      #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__track {
+        gap: calc(10 * var(--vp-s));
+      }
+
+      #product-youtube-shorts-{{ block.id }} .product-youtube-shorts__card {
+        flex-basis: calc((100% - calc(12 * var(--vp-s))) / 2.2);
+        border-radius: calc(10 * var(--vp-s));
+      }
+    }
+  </style>
+
+  <script>
+    (function() {
+      var root = document.getElementById('product-youtube-shorts-{{ block.id }}');
+      if (!root || root.dataset.initialized === 'true') return;
+      root.dataset.initialized = 'true';
+      var track = root.querySelector('.product-youtube-shorts__track');
+      var isDragging = false;
+      var dragStartX = 0;
+      var dragStartScroll = 0;
+      var pressedCard = null;
+      var suppressClick = false;
+
+      function getYoutubeId(url) {
+        if (!url) return '';
+        var shorts = url.match(/\/shorts\/([A-Za-z0-9_-]+)/);
+        if (shorts) return shorts[1];
+        var watch = url.match(/[?&]v=([^&#]+)/);
+        if (watch) return watch[1];
+        var shortLink = url.match(/youtu\.be\/([A-Za-z0-9_-]+)/);
+        return shortLink ? shortLink[1] : '';
+      }
+
+      function resetPlayingCards(exceptCard) {
+        root.querySelectorAll('.product-youtube-shorts__card.is-playing').forEach(function(playingCard) {
+          if (playingCard === exceptCard) return;
+          playingCard.classList.remove('is-playing');
+          if (playingCard.dataset.posterHtml) {
+            playingCard.innerHTML = playingCard.dataset.posterHtml;
+          }
+        });
+      }
+
+      function playCard(card) {
+        if (card.classList.contains('is-playing')) return;
+        var nativeVideoHtml = card.getAttribute('data-video-html');
+        var id = getYoutubeId(card.getAttribute('data-youtube-url'));
+        if (!nativeVideoHtml && !id) return;
+        resetPlayingCards(card);
+        if (nativeVideoHtml) {
+          card.classList.add('is-playing');
+          card.innerHTML = nativeVideoHtml;
+          var video = card.querySelector('video');
+          if (video) {
+            video.muted = true;
+            video.play().catch(function() {});
+          }
+          return;
+        }
+        var src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1&showinfo=0&autohide=1&loop=1&playlist=' + id;
+        card.classList.add('is-playing');
+        card.innerHTML = '<span class="product-youtube-shorts__frame-wrap"><iframe class="product-youtube-shorts__frame" src="' + src + '" title="YouTube Shorts" allow="autoplay; encrypted-media; picture-in-picture"></iframe></span>';
+      }
+
+      root.querySelectorAll('.product-youtube-shorts__card').forEach(function(card) {
+        card.dataset.posterHtml = card.innerHTML;
+        card.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            playCard(card);
+          }
+        });
+      });
+
+      root.addEventListener('click', function(event) {
+        var card = event.target.closest('.product-youtube-shorts__card');
+        if (!card || !root.contains(card)) return;
+        if (suppressClick) {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
+        playCard(card);
+      });
+
+      if (track) {
+        track.addEventListener('dragstart', function(event) {
+          event.preventDefault();
+        });
+
+        track.addEventListener('pointerdown', function(event) {
+          if (event.pointerType && event.pointerType !== 'mouse') return;
+          if (event.button !== undefined && event.button !== 0) return;
+          isDragging = true;
+          suppressClick = false;
+          pressedCard = event.target.closest('.product-youtube-shorts__card');
+          dragStartX = event.clientX;
+          dragStartScroll = track.scrollLeft;
+          track.classList.add('is-dragging');
+          event.preventDefault();
+          try {
+            track.setPointerCapture(event.pointerId);
+          } catch (error) {}
+        });
+
+        track.addEventListener('pointermove', function(event) {
+          if (!isDragging) return;
+          var dragDistance = event.clientX - dragStartX;
+          if (Math.abs(dragDistance) > 8) {
+            suppressClick = true;
+            track.scrollLeft = dragStartScroll - dragDistance;
+            event.preventDefault();
+          }
+        });
+
+        function endDrag(event) {
+          if (!isDragging) return;
+          var shouldPlay = !suppressClick && pressedCard && root.contains(pressedCard);
+          isDragging = false;
+          track.classList.remove('is-dragging');
+          try {
+            track.releasePointerCapture(event.pointerId);
+          } catch (error) {}
+          if (shouldPlay) {
+            playCard(pressedCard);
+          }
+          pressedCard = null;
+          window.setTimeout(function() {
+            suppressClick = false;
+          }, 0);
+        }
+
+        track.addEventListener('pointerup', endDrag);
+        track.addEventListener('pointercancel', endDrag);
+        track.addEventListener('pointerleave', endDrag);
+      }
+    })();
+  </script>
+{%- endif -%}

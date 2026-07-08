@@ -1,0 +1,1011 @@
+{%- liquid
+  assign header_blocks = section.blocks | where: 'type', 'header'
+  assign countdown_blocks = section.blocks | where: 'type', 'count-down'
+  assign product_blocks = section.blocks | where: 'type', 'product'
+-%}
+
+{%- style -%}
+  .md-limited-sale--{{ section.id }} {
+    --mls-bg: {{ section.settings.section_bg | default: '#f6efe7' }};
+    --mls-text: {{ section.settings.text_color | default: '#2b2420' }};
+    --mls-muted: rgb(43 36 32 / 0.65);
+    --mls-max-width: {{ section.settings.content_max_width | default: 1200 }}px;
+    --mls-card-bg: {{ section.settings.card_bg | default: '#ffffff' }};
+    --mls-border: rgb(43 36 32 / 0.10);
+    --mls-radius: {{ section.settings.card_radius | default: 16 }}px;
+    --mls-gap: {{ section.settings.grid_gap | default: 18 }}px;
+    --mls-primary: {{ section.settings.primary_color | default: '#00bfb8' }};
+    --mls-primary-text: #ffffff;
+    background: var(--mls-bg);
+    color: var(--mls-text);
+    padding: {{ section.settings.padding_top | default: 40 }}px 0 {{ section.settings.padding_bottom | default: 60 }}px;
+  }
+ 
+  .md-limited-sale--{{ section.id }} .mls__container {
+    max-width: var(--mls-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .md-limited-sale--{{ section.id }} .xmax_section__title,
+  .md-limited-sale--{{ section.id }} .xmas-sub-heading,
+  .md-limited-sale--{{ section.id }} .xmas-viewmore {
+    color: var(--mls-text);
+  }
+  .md-limited-sale--{{ section.id }} .xmas-viewmore {
+    border-color: rgb(43 36 32 / 0.35);
+  }
+
+  .md-limited-sale--{{ section.id }} .mls__countdown {
+    display: flex;
+    justify-content: center;
+    margin-top: -18px;
+    margin-bottom: 18px;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--mls-gap);
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-card {
+    background: var(--mls-card-bg);
+    border: 1px solid var(--mls-border);
+    border-radius: var(--mls-radius);
+    overflow: hidden;
+    position: relative;
+    padding: 18px 24px 24px;
+    display: grid;
+    gap: 10px;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-badge {
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    width: 118px;
+    height: 98px;
+    background: var(--mls-badge-bg, rgb(255 159 178));
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-badge__text {
+    font-size: 18px;
+    padding: 0 25px;
+    font-weight: 900;
+    line-height: 1;
+    color: #663535;
+    text-align: center;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-media {
+    width: 100%;
+    /* background: rgb(0 0 0 / 0.02); */
+    border-radius: 14px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    padding: 12px;
+    min-height: 180px;
+        max-width: 320px;
+        margin: 0 auto;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-desc {
+    font-size: 14px;
+    color: var(--mls-muted);
+    line-height: 1.5;
+    min-height: 36px;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-progress {
+    display: grid;
+    gap: 8px;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-progress__text {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--mls-progress-text, var(--mls-primary));
+    line-height: 1;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-progress__bar {
+    height: 6px;
+    border-radius: 999px;
+    background: rgb(43 36 32 / 0.12);
+    overflow: hidden;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-progress__fill {
+    height: 100%;
+    width: 0%;
+    background: var(--mls-progress-fill, var(--mls-primary));
+    border-radius: 999px;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-coupon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-radius: 12px;
+    background: rgb(255 159 178 / 0.20);
+    border: 1px dashed rgb(255 159 178 / 0.6);
+    padding: 10px 12px;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-coupon__code {
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--mls-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-coupon__btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-coupon__btn img {
+    display: block;
+    width: auto;
+    height: 28px;
+  }
+  
+  .md-limited-sale--{{ section.id }} .mls-coupon__img {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+  }
+  
+  .md-limited-sale--{{ section.id }} .mls-coupon__img img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 2px;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-prices {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-price__sale {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-price__compare {
+    font-size: 16px;
+    color: rgb(43 36 32 / 0.55);
+    text-decoration: line-through;
+    line-height: 1;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-actions {
+    display: grid;
+    gap: 10px;
+    width: 200px;
+    flex: 0 0 auto;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    user-select: none;
+    width: 100%;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-btn[disabled] {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-btn--outline {
+    background: #ffffff;
+    color: var(--mls-primary);
+    border-color: rgb(0 191 184 / 0.55);
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-btn--fill {
+    background: var(--mls-primary);
+    color: var(--mls-primary-text);
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.82);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    z-index: 999;
+  }
+
+  .md-limited-sale--{{ section.id }} .mls-toast.is-visible {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .md-limited-sale--{{ section.id }} .mls-bottom {
+      align-items: center;
+    }
+    .md-limited-sale--{{ section.id }} .mls-price__sale {
+      font-size: 22px;
+    }
+      .md-limited-sale--{{ section.id }} .mls-title {
+    font-size: 16px;
+  }
+  .md-limited-sale--{{ section.id }} .mls-desc {font-size: 12px;}
+      .md-limited-sale--{{ section.id }} .mls-badge__text {
+    font-size: 16px;
+    padding: 0 20px
+  }
+    .md-limited-sale--{{ section.id }} {
+      padding: {{ section.settings.padding_top_m | default: section.settings.padding_top | default: 32 }}px 0 {{ section.settings.padding_bottom_m | default: section.settings.padding_bottom | default: 44 }}px;
+    }
+
+    .md-limited-sale--{{ section.id }} .mls__container {
+      padding: 0 16px;
+    }
+
+    .md-limited-sale--{{ section.id }} .mls__grid {
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - var(--mls-gap)) / 1.15);
+      grid-template-columns: none;
+      grid-template-rows: 1fr;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 16px;
+      scroll-padding-right: 16px;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      align-items: stretch;
+    }
+    
+    .md-limited-sale--{{ section.id }} .mls-card {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      min-width: 0;
+    }
+
+    .md-limited-sale--{{ section.id }} .mls-card {
+      padding: 16px 14px 14px;
+    }
+
+    .md-limited-sale--{{ section.id }} .mls-media {
+      min-height: 160px;
+      padding: 0;
+    }
+
+    .md-limited-sale--{{ section.id }} .mls-actions {
+      width: 140px;
+    }
+
+    .md-limited-sale--{{ section.id }} .mls-badge {
+      width: 84px;
+      height: 66px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="md-limited-sale md-limited-sale--{{ section.id }}">
+  <div class="mls__container">
+    {%- for block in header_blocks -%}
+      <div {{ block.shopify_attributes }}>
+        {% render 'xmas-section-header', section: block %}
+      </div>
+    {%- endfor -%}
+
+    {%- for block in countdown_blocks -%}
+      <div class="mls__countdown" {{ block.shopify_attributes }}>
+        {% render 'count-down', block: block, cusId: section.id %}
+      </div>
+    {%- endfor -%}
+
+    <div class="mls__grid">
+      {%- for block in product_blocks -%}
+        {%- liquid
+          assign product = block.settings.product
+          assign variant = product.selected_or_first_available_variant
+          assign custom_image = block.settings.custom_image
+          assign custom_image_m = block.settings.custom_image_mobile
+          if custom_image == blank and product != blank
+            assign custom_image = product.featured_image
+          endif
+
+          assign title = block.settings.custom_title
+          if title == blank and product != blank
+            assign title = product.title
+          endif
+
+          assign desc = block.settings.custom_description
+          if desc == blank and product != blank
+            assign desc = product.description | strip_html | truncate: 110
+          endif
+
+          assign progress_percent = block.settings.progress_percent | default: 0
+          if progress_percent < 0
+            assign progress_percent = 0
+          endif
+          if progress_percent > 100
+            assign progress_percent = 100
+          endif
+
+          assign progress_start_time = block.settings.progress_start_time | strip
+          assign progress_end_time = block.settings.progress_end_time | strip
+          if progress_start_time != blank and progress_start_time != '-' and progress_end_time != blank and progress_end_time != '-'
+            assign progress_percent = 2
+          endif
+          assign progress_curve = block.settings.progress_curve | default: 'ease-in-out'
+
+          assign sale_price_text = block.settings.custom_sale_price
+          assign compare_price_text = block.settings.custom_compare_price
+          assign extra_discount_percent = block.settings.extra_discount_percent | default: 0
+          assign sale_price_money = blank
+          assign compare_price_money = blank
+          if product != blank and variant != blank
+            assign current_sale_price = variant.price
+            if extra_discount_percent > 0
+              assign discount_multiplier = 100 | minus: extra_discount_percent
+              assign current_sale_price = current_sale_price | times: discount_multiplier | divided_by: 100
+            endif
+            assign sale_price_money = current_sale_price | money
+            if variant.compare_at_price > current_sale_price
+              assign compare_price_money = variant.compare_at_price | money
+            endif
+          endif
+        -%}
+
+        <div class="mls-card" {{ block.shopify_attributes }}
+          data-mls-progress-start="{{ progress_start_time | escape }}"
+          data-mls-progress-end="{{ progress_end_time | escape }}"
+          data-mls-progress-manual="{{ progress_percent }}"
+          data-mls-progress-max="98"
+          data-mls-progress-curve="{{ progress_curve | escape }}"
+          style="
+            {%- if block.settings.badge_bg_image != blank -%}
+              --mls-badge-bg: url('{{ block.settings.badge_bg_image | image_url: width: 400 }}');
+            {%- endif -%}
+            {%- if block.settings.badge_text_color != blank -%}
+              --mls-badge-text: {{ block.settings.badge_text_color }};
+            {%- endif -%}
+            {%- if block.settings.progress_bar_color != blank -%}
+              --mls-progress-fill: {{ block.settings.progress_bar_color }};
+            {%- endif -%}
+            {%- if block.settings.progress_text_color != blank -%}
+              --mls-progress-text: {{ block.settings.progress_text_color }};
+            {%- elsif block.settings.progress_bar_color != blank -%}
+              --mls-progress-text: {{ block.settings.progress_bar_color }};
+            {%- endif -%}
+          ">
+          {%- if block.settings.badge_text != blank or block.settings.badge_bg_image != blank -%}
+            <div class="mls-badge" aria-hidden="true">
+              {%- if block.settings.badge_text != blank -%}
+                <div class="mls-badge__text">{{ block.settings.badge_text }}</div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <div class="mls-media">
+            {%- if product != blank -%}
+              <a href="{{ product.url }}" target="_blank" rel="noopener">
+                {%- if custom_image_m != blank or custom_image != blank -%}
+                  <picture>
+                    {%- if custom_image_m != blank -%}
+                      <source media="(max-width: 768px)" srcset="{{ custom_image_m | image_url: width: 900 }}">
+                    {%- endif -%}
+                    <img src="{{ custom_image | image_url: width: 900 }}" alt="{{ custom_image.alt | default: title | escape }}" loading="lazy">
+                  </picture>
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag }}
+                {%- endif -%}
+              </a>
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {%- endif -%}
+          </div>
+
+          {%- if title != blank -%}
+            <h3 class="mls-title">
+              {%- if product != blank -%}
+                <a href="{{ product.url }}" target="_blank" rel="noopener">{{ title | escape }}</a>
+              {%- else -%}
+                {{ title | escape }}
+              {%- endif -%}
+            </h3>
+          {%- endif -%}
+
+          {%- if desc != blank -%}
+            <div class="mls-desc">{{ desc | escape }}</div>
+          {%- endif -%}
+
+          {%- if block.settings.progress_text != blank or block.settings.show_progress_bar -%}
+            <div class="mls-progress">
+              {%- if block.settings.progress_text != blank -%}
+                <div class="mls-progress__text" data-mls-progress-text>{{ block.settings.progress_text }}</div>
+              {%- endif -%}
+              {%- if block.settings.show_progress_bar -%}
+                <div class="mls-progress__bar" role="progressbar" aria-valuenow="{{ progress_percent }}" aria-valuemin="0" aria-valuemax="100" data-mls-progress-bar>
+                  <div class="mls-progress__fill" style="width: {{ progress_percent }}%;" data-mls-progress-fill></div>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.coupon_code != blank and block.settings.coupon_button_image != blank -%}
+            <button type="button" class="mls-coupon__img" data-mls-copy data-code="{{ block.settings.coupon_code | escape }}">
+              {{ block.settings.coupon_button_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.coupon_button_image.alt | default: 'Copy' }}
+            </button>
+          {%- endif -%}
+
+          <div class="mls-bottom">
+            <div class="mls-prices">
+              <div class="mls-price__sale">
+                {%- if sale_price_text != blank -%}
+                  {{ sale_price_text | escape }}
+                {%- elsif sale_price_money != blank -%}
+                  {{ sale_price_money }}
+                {%- endif -%}
+              </div>
+              {%- assign compare_to_show = compare_price_text | default: compare_price_money -%}
+              {%- if compare_to_show != blank -%}
+                <div class="mls-price__compare">
+                  {%- if compare_price_text != blank -%}
+                    {{ compare_price_text | escape }}
+                  {%- else -%}
+                    {{ compare_price_money }}
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+
+            <div class="mls-actions">
+              <button type="button" class="mls-btn mls-btn--outline" data-mls-add data-vid="{{ variant.id }}">
+                {{ block.settings.add_to_cart_label | default: 'Add to Cart' | escape }}
+              </button>
+              {%- if product != blank -%}
+                <a class="mls-btn mls-btn--fill" href="{{ block.settings.shop_now_link | default: product.url }}" target="_blank" rel="noopener">
+                  {{ block.settings.shop_now_label | default: 'Shop Now' | escape }}
+                </a>
+              {%- else -%}
+                <span class="mls-btn mls-btn--fill" aria-disabled="true">{{ block.settings.shop_now_label | default: 'Shop Now' | escape }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="mls-toast" role="status" aria-live="polite"></div>
+</section>
+
+<script>
+  (function() {
+    var root = document.querySelector('.md-limited-sale--{{ section.id }}');
+    if (!root) return;
+
+    function showToast(message) {
+      var toast = root.querySelector('.mls-toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      window.clearTimeout(toast.__mlsTimer);
+      toast.__mlsTimer = window.setTimeout(function() { toast.classList.remove('is-visible'); }, 2000);
+    }
+
+    function copyText(text) {
+      if (!text) return Promise.reject();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+      return new Promise(function(resolve, reject) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          var ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          ok ? resolve() : reject();
+        } catch (e) {
+          document.body.removeChild(ta);
+          reject(e);
+        }
+      });
+    }
+
+    function addToCart(variantId) {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: [{ id: Number(variantId), quantity: 1 }] })
+      }).then(function(res) {
+        if (!res.ok) throw new Error('add_failed');
+        return res.json();
+      });
+    }
+
+    function parseTime(value) {
+      if (!value) return null;
+      var str = String(value).trim();
+      if (str === '-') return null;
+      if (!str) return null;
+      var m = /^(\d{4})-(\d{1,2})-(\d{1,2})[ T](\d{1,2}):(\d{2})(?::(\d{2}))?$/.exec(str);
+      if (m) {
+        var y = Number(m[1]);
+        var mo = Number(m[2]);
+        var da = Number(m[3]);
+        var ho = Number(m[4]);
+        var mi = Number(m[5]);
+        var se = Number(m[6] || 0);
+        if (mo >= 1 && mo <= 12 && da >= 1 && da <= 31 && ho >= 0 && ho <= 23 && mi >= 0 && mi <= 59 && se >= 0 && se <= 59) {
+          return new Date(y, mo - 1, da, ho, mi, se, 0).getTime();
+        }
+      }
+      var normalized = str.replace(' ', 'T');
+      var d = new Date(normalized);
+      if (isNaN(d.getTime())) return null;
+      return d.getTime();
+    }
+
+    function hashStringToUint32(str) {
+      var h = 2166136261;
+      for (var i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+
+    function mulberry32(a) {
+      return function() {
+        var t = a += 0x6D2B79F5;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function cubicBezierEasing(x, x1, y1, x2, y2) {
+      if (x <= 0) return 0;
+      if (x >= 1) return 1;
+
+      var cx = 3 * x1;
+      var bx = 3 * (x2 - x1) - cx;
+      var ax = 1 - cx - bx;
+
+      var cy = 3 * y1;
+      var by = 3 * (y2 - y1) - cy;
+      var ay = 1 - cy - by;
+
+      function sampleCurveX(t) {
+        return ((ax * t + bx) * t + cx) * t;
+      }
+      function sampleCurveY(t) {
+        return ((ay * t + by) * t + cy) * t;
+      }
+      function sampleCurveDerivativeX(t) {
+        return (3 * ax * t + 2 * bx) * t + cx;
+      }
+
+      var t2 = x;
+      for (var i = 0; i < 8; i++) {
+        var x2n = sampleCurveX(t2) - x;
+        var d2 = sampleCurveDerivativeX(t2);
+        if (Math.abs(x2n) < 1e-6) return sampleCurveY(t2);
+        if (Math.abs(d2) < 1e-6) break;
+        t2 = t2 - x2n / d2;
+      }
+
+      var t0 = 0;
+      var t1 = 1;
+      t2 = x;
+      while (t0 < t1) {
+        var x2b = sampleCurveX(t2);
+        if (Math.abs(x2b - x) < 1e-6) return sampleCurveY(t2);
+        if (x > x2b) t0 = t2;
+        else t1 = t2;
+        t2 = (t1 - t0) * 0.5 + t0;
+      }
+
+      return sampleCurveY(t2);
+    }
+
+    function getBezierByName(name) {
+      switch (String(name || '').trim()) {
+        case 'linear':
+          return [0, 0, 1, 1];
+        case 'ease-in':
+          return [0.42, 0, 1, 1];
+        case 'ease-out':
+          return [0, 0, 0.58, 1];
+        case 'ease-in-out':
+          return [0.42, 0, 0.58, 1];
+        case 'fast-start':
+          return [0.05, 0.9, 0.2, 1];
+        case 'slow-start':
+          return [0.6, 0, 0.9, 0.3];
+        default:
+          return [0.42, 0, 0.58, 1];
+      }
+    }
+
+    function computeAutoPercent(startMs, endMs, nowMs, maxPercent, curveName) {
+      if (!startMs || !endMs) return null;
+      if (endMs <= startMs) return maxPercent;
+      var ratio = (nowMs - startMs) / (endMs - startMs);
+      if (ratio < 0) ratio = 0;
+      if (ratio > 1) ratio = 1;
+
+      var bez = getBezierByName(curveName);
+      var eased = cubicBezierEasing(ratio, bez[0], bez[1], bez[2], bez[3]);
+      var pct = Math.round(eased * maxPercent);
+      if (pct > maxPercent) pct = maxPercent;
+      if (pct < 0) pct = 0;
+      return pct;
+    }
+
+    function updateProgressForCard(card) {
+      var bar = card.querySelector('[data-mls-progress-bar]');
+      var fill = card.querySelector('[data-mls-progress-fill]');
+      if (!bar || !fill) return;
+
+      var maxPercent = Number(card.getAttribute('data-mls-progress-max')) || 98;
+      if (maxPercent > 98) maxPercent = 98;
+      if (maxPercent < 0) maxPercent = 0;
+
+      var startMs = parseTime(card.getAttribute('data-mls-progress-start'));
+      var endMs = parseTime(card.getAttribute('data-mls-progress-end'));
+      var manual = Number(card.getAttribute('data-mls-progress-manual')) || 0;
+      var nowMs = Date.now();
+
+      var autoPct = computeAutoPercent(startMs, endMs, nowMs, maxPercent, card.getAttribute('data-mls-progress-curve') || '');
+      var pct = autoPct === null ? manual : autoPct;
+
+      fill.style.width = pct + '%';
+      bar.setAttribute('aria-valuenow', String(pct));
+
+      var textEl = card.querySelector('[data-mls-progress-text]');
+      if (textEl) {
+        if (!card.__mlsProgressTextTemplate) {
+          var tpl = (textEl.textContent || '').trim();
+          card.__mlsProgressTextTemplate = tpl;
+        }
+        var template = card.__mlsProgressTextTemplate || '';
+        template = String(template || '').trim();
+        template = template.split('{{percent}}').join('').trim();
+        template = template.replace(/^\d+\s*%\s*/, '').trim();
+        var output = template ? (pct + '% ' + template) : (pct + '%');
+        textEl.textContent = output;
+      }
+    }
+
+    function updateAllProgress() {
+      var cards = root.querySelectorAll('.mls-card[data-mls-progress-max]');
+      for (var i = 0; i < cards.length; i++) {
+        updateProgressForCard(cards[i]);
+      }
+    }
+
+    updateAllProgress();
+
+    root.addEventListener('click', function(e) {
+      var copyBtn = e.target.closest('[data-mls-copy]');
+      if (copyBtn && root.contains(copyBtn)) {
+        var code = copyBtn.getAttribute('data-code') || '';
+        copyText(code).then(function() {
+          showToast('copied');
+        }).catch(function() {
+          showToast('Copy failed');
+        });
+        return;
+      }
+
+      var addBtn = e.target.closest('[data-mls-add]');
+      if (addBtn && root.contains(addBtn)) {
+        var vid = addBtn.getAttribute('data-vid');
+        if (!vid) return;
+        window.open('/cart/add?id=' + encodeURIComponent(vid) + '&quantity=1&return_to=/cart', '_blank', 'noopener,noreferrer');
+      }
+    });
+  })();
+</script>
+
+{% render 'section-decorations', section: section %}
+
+{% schema %}
+{
+  "name": "MD Limited Sale",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Padding top", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Padding bottom", "default": 60 },
+    { "type": "range", "id": "padding_top_m", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Padding top (mobile)", "default": 32 },
+    { "type": "range", "id": "padding_bottom_m", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Padding bottom (mobile)", "default": 44 },
+    { "type": "range", "id": "content_max_width", "min": 960, "max": 1600, "step": 20, "unit": "px", "label": "Content max width", "default": 1200 },
+    { "type": "color_background", "id": "section_bg", "label": "Section background", "default": "#f6efe7" },
+    { "type": "color_background", "id": "card_bg", "label": "Card background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b2420" },
+    { "type": "color", "id": "primary_color", "label": "Primary color", "default": "#00bfb8" },
+    { "type": "range", "id": "card_radius", "min": 10, "max": 30, "step": 1, "unit": "px", "label": "Card radius", "default": 16 },
+    { "type": "range", "id": "grid_gap", "min": 10, "max": 40, "step": 1, "unit": "px", "label": "Grid gap", "default": 18 }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Header",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Section Title", "default": "Limited Sale" },
+        { "type": "color", "id": "title_color", "label": "Title Color", "default": "#2b2420" },
+        { "type": "range", "id": "title_size", "label": "Title Size (PC)", "min": 16, "max": 80, "step": 2, "unit": "px", "default": 36 },
+        { "type": "range", "id": "title_size_mobile", "label": "Title Size (Mobile)", "min": 12, "max": 60, "step": 2, "unit": "px", "default": 24 },
+        { "type": "textarea", "id": "sub_heading", "label": "Sub heading" },
+        { "type": "checkbox", "id": "show_sub_heading", "label": "Show Sub Heading", "default": true },
+        { "type": "color", "id": "sub_heading_color", "label": "Sub Heading Color", "default": "#2b2420" },
+        { "type": "range", "id": "sub_heading_size", "label": "Sub Heading Size (PC)", "min": 12, "max": 40, "step": 1, "unit": "px", "default": 18 },
+        { "type": "range", "id": "sub_heading_size_mobile", "label": "Sub Heading Size (Mobile)", "min": 10, "max": 30, "step": 1, "unit": "px", "default": 14 },
+        { "type": "text", "id": "view_more_label", "label": "View more label", "default": "View More" },
+        { "type": "url", "id": "view_more_link", "label": "View more link" },
+        { "type": "color", "id": "view_more_color", "label": "View More Text Color", "default": "#2b2420" },
+        { "type": "color", "id": "view_more_border_color", "label": "View More Border Color", "default": "#2b2420" },
+        { "type": "checkbox", "id": "show_title_icons", "label": "Show title icons", "default": true },
+        { "type": "image_picker", "id": "title_icon", "label": "Title icon (left & right)" },
+        { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror right icon", "default": true },
+        { "type": "range", "id": "title_icon_size", "label": "Title icon size (desktop)", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 40 },
+        { "type": "range", "id": "title_icon_size_mobile", "label": "Title icon size (mobile)", "min": 16, "max": 64, "step": 2, "unit": "px", "default": 32 },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        { "type": "range", "id": "margin_bottom", "label": "Margin Bottom", "min": 0, "max": 100, "step": 5, "unit": "px", "default": 50 }
+      ]
+    },
+    {
+      "type": "count-down",
+      "name": "Countdown",
+      "limit": 1,
+      "settings": [
+        { "type": "header", "content": "Count down Settings" },
+        { "type": "text", "id": "end_date", "label": "结束日期和时间", "info": "格式: YYYY-MM-DD HH:MM:SS (例如: 2026-12-31 23:59:59)", "default": "2026-12-31 23:59:59" },
+        { "type": "text", "id": "heading", "label": "标题" },
+        { "type": "text", "id": "message", "label": "结束消息" },
+        { "type": "checkbox", "id": "hide_on_complete", "label": "结束后隐藏组件", "default": false },
+        { "type": "header", "content": "显示选项" },
+        { "type": "checkbox", "id": "show_days", "label": "显示天数", "default": true },
+        { "type": "checkbox", "id": "show_hours", "label": "显示小时", "default": true },
+        { "type": "checkbox", "id": "show_minutes", "label": "显示分钟", "default": true },
+        { "type": "checkbox", "id": "show_seconds", "label": "显示秒数", "default": true },
+        { "type": "header", "content": "样式选项" },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "样式",
+          "options": [
+            { "value": "minimal", "label": "简约" },
+            { "value": "rounded", "label": "圆角" },
+            { "value": "boxed", "label": "盒状" },
+            { "value": "modern", "label": "现代" }
+          ],
+          "default": "modern"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "文本对齐",
+          "options": [
+            { "value": "left", "label": "左对齐" },
+            { "value": "center", "label": "居中" },
+            { "value": "right", "label": "右对齐" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "numbers_size",
+          "label": "数字大小",
+          "options": [
+            { "value": "small", "label": "小" },
+            { "value": "medium", "label": "中" },
+            { "value": "large", "label": "大" },
+            { "value": "x-large", "label": "超大" }
+          ],
+          "default": "large"
+        },
+        {
+          "type": "select",
+          "id": "labels_size",
+          "label": "标签大小",
+          "options": [
+            { "value": "small", "label": "小" },
+            { "value": "medium", "label": "中" },
+            { "value": "large", "label": "大" }
+          ],
+          "default": "small"
+        },
+        { "type": "header", "content": "颜色设置" },
+        { "type": "color", "id": "background_color", "label": "背景颜色", "default": "#f6efe7" },
+        { "type": "color", "id": "heading_color", "label": "标题颜色", "default": "#2b2420" },
+        { "type": "color", "id": "numbers_color", "label": "数字颜色", "default": "#ffffff" },
+        { "type": "color", "id": "numbers_background", "label": "数字背景颜色", "default": "#ff9fb2" },
+        { "type": "color_background", "id": "numbers_background_gradient", "label": "数字背景渐变色" },
+        { "type": "color", "id": "labels_color", "label": "标签颜色", "default": "#2b2420" },
+        { "type": "color", "id": "message_color", "label": "结束消息颜色", "default": "#ff3d00" },
+        { "type": "header", "content": "间距设置" },
+        { "type": "range", "id": "padding_top", "label": "上内边距", "min": 0, "max": 100, "step": 5, "default": 0 },
+        { "type": "range", "id": "padding_bottom", "label": "下内边距", "min": 0, "max": 100, "step": 5, "default": 0 }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product card",
+      "limit": 2,
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "header", "content": "Product content (优先使用自定义)" },
+        { "type": "image_picker", "id": "custom_image", "label": "Product image (custom)" },
+        { "type": "image_picker", "id": "custom_image_mobile", "label": "Product image (custom, mobile)" },
+        { "type": "text", "id": "custom_title", "label": "Product title (custom)" },
+        { "type": "textarea", "id": "custom_description", "label": "Product description (custom)" },
+
+        { "type": "header", "content": "Discount badge (左上角)" },
+        { "type": "text", "id": "badge_text", "label": "Badge text", "default": "20% OFF" },
+        { "type": "image_picker", "id": "badge_bg_image", "label": "Badge background image" },
+        { "type": "color", "id": "badge_text_color", "label": "Badge text color" },
+
+        { "type": "header", "content": "Progress bar" },
+        { "type": "checkbox", "id": "show_progress_bar", "label": "Show progress bar", "default": true },
+        { "type": "range", "id": "progress_percent", "label": "Manual percent (fallback)", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 0 },
+        { "type": "text", "id": "progress_text", "label": "Text", "default": "99% Sold" },
+        { "type": "text", "id": "progress_start_time", "label": "Auto progress start time", "info": "格式: YYYY-MM-DD HH:MM[:SS] (例如: 2026-12-01 00:00:00)。留空/填 - 则使用上面的 Percent", "default": "-" },
+        { "type": "text", "id": "progress_end_time", "label": "Auto progress end time", "info": "格式: YYYY-MM-DD HH:MM[:SS] (例如: 2026-12-31 23:59:59)。进度上限 98%。留空/填 - 则使用上面的 Percent", "default": "-" },
+        {
+          "type": "select",
+          "id": "progress_curve",
+          "label": "Auto progress bezier curve",
+          "options": [
+            { "value": "ease-in-out", "label": "中间快(默认)" },
+            { "value": "ease-in", "label": "开头慢(后面快)" },
+            { "value": "ease-out", "label": "开头快(后面慢)" },
+            { "value": "fast-start", "label": "开头很快" },
+            { "value": "slow-start", "label": "开头很慢" },
+            { "value": "linear", "label": "匀速" }
+          ],
+          "default": "ease-in-out"
+        },
+        { "type": "color", "id": "progress_text_color", "label": "Text color" },
+        { "type": "color_background", "id": "progress_bar_color", "label": "Bar color" },
+
+        { "type": "header", "content": "Coupon copy" },
+        { "type": "text", "id": "coupon_code", "label": "Coupon code", "default": "CODE123" },
+        { "type": "image_picker", "id": "coupon_button_image", "label": "Coupon copy image" },
+
+        { "type": "header", "content": "Prices (可选自定义文本)" },
+        { "type": "text", "id": "custom_sale_price", "label": "Sale price text (custom)" },
+        { "type": "text", "id": "custom_compare_price", "label": "Compare at price text (custom)" },
+        { "type": "range", "id": "extra_discount_percent", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Extra discount percentage", "default": 0 },
+
+        { "type": "header", "content": "Buttons" },
+        { "type": "text", "id": "add_to_cart_label", "label": "Add to cart label", "default": "Add to Cart" },
+        { "type": "text", "id": "shop_now_label", "label": "Shop now label", "default": "Shop Now" },
+        { "type": "url", "id": "shop_now_link", "label": "Shop now link" }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Image (mobile)" },
+        { "type": "range", "id": "top", "label": "Top (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "left", "label": "Left (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "width", "label": "Width (px)", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "z_index", "label": "Z-index", "default": 1 },
+        { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+        { "type": "checkbox", "id": "hide_on_pc", "label": "Hide on desktop", "default": false },
+        { "type": "range", "id": "rotation", "label": "Rotation (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "range", "id": "mobile_top", "label": "Top mobile (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "mobile_left", "label": "Left mobile (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "mobile_width", "label": "Width mobile (px)", "min": 0, "max": 600, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "mobile_z_index", "label": "Z-index mobile", "default": 1 },
+        { "type": "range", "id": "mobile_rotation", "label": "Rotation mobile (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "number", "id": "top_offset", "label": "Top offset (px)", "default": 0 },
+        { "type": "number", "id": "left_offset", "label": "Left offset (px)", "default": 0 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MD Limited Sale",
+      "blocks": [
+        { "type": "header" },
+        { "type": "count-down" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ]
+}
+{% endschema %}

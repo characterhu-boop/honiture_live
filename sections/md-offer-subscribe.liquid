@@ -1,0 +1,938 @@
+{%- liquid
+  assign header_blocks = section.blocks | where: 'type', 'header'
+  assign offer_main_blocks = section.blocks | where: 'type', 'offer_main'
+  assign offer_side_blocks = section.blocks | where: 'type', 'offer_side'
+  assign coupon_blocks = section.blocks | where: 'type', 'coupon'
+-%}
+
+{%- style -%}
+  .md-offer-subscribe--{{ section.id }} {
+    --mos-bg: {{ section.settings.section_bg | default: '#f6efe7' }};
+    --mos-card-bg: {{ section.settings.card_bg | default: '#ffffff' }};
+    --mos-text: {{ section.settings.text_color | default: '#2b2420' }};
+    --mos-muted: {{ section.settings.text_color | default: '#2b2420' | color_to_rgb | replace: 'rgb(', 'rgba(' | replace: ')', ', 0.65)' }};
+    --mos-max-width: {{ section.settings.content_max_width | default: 1200 }}px;
+    --mos-radius: {{ section.settings.card_radius | default: 14 }}px;
+    --mos-gap: {{ section.settings.grid_gap | default: 16 }}px;
+    --mos-border: {{ section.settings.border_color | default: '#2b2420' | color_to_rgb | replace: 'rgb(', 'rgba(' | replace: ')', ', 0.1)' }};
+    --mos-btn: {{ section.settings.button_bg | default: '#00bfb8' }};
+    --mos-btn-text: {{ section.settings.button_text_color | default: '#ffffff' }};
+    --mos-offer-media-h: {{ section.settings.offer_media_height | default: 260 }}px;
+    --mos-title-size: {{ section.settings.card_title_size | default: 16 }}px;
+    --mos-sub-title-size: {{ section.settings.card_sub_title_size | default: 12 }}px;
+    /* --mos-coupon-media-h: 160px; */
+    background: var(--mos-bg);
+    color: var(--mos-text);
+    padding: {{ section.settings.padding_top | default: 40 }}px 0 {{ section.settings.padding_bottom | default: 60 }}px;
+  }
+ 
+  .md-offer-subscribe--{{ section.id }} .mos-discount__msg {
+    font-size: 11px;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__msg.is-visible {
+    display: block;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__msg.is-error {
+    color: #ff4d4f;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__msg.is-success {
+    color: #52c41a;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos__container {
+    max-width: var(--mos-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos__part {
+    display: grid;
+    gap: var(--mos-gap);
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos__part + .mos__part {
+    margin-top: 18px;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos__offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--mos-gap);
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card {
+    background: var(--card-bg, var(--mos-card-bg));
+    border-radius: var(--mos-radius);
+    border: 1px solid var(--mos-border);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--card-text, inherit);
+    display: grid;
+    align-content: space-between;
+    position: relative;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card__content {
+    padding: 16px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--main {
+    padding: 0;
+    text-align: center;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--main .mos-card__content {
+    padding-top: 20px;
+    align-items: center;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card__title {
+    font-size: var(--mos-title-size);
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0;
+    color: inherit;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card__sub-title {
+    font-size: var(--mos-sub-title-size);
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    background: var(--mos-btn);
+    color: var(--mos-btn-text);
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 4px;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card__media {
+    display: grid;
+    place-items: end;
+    width: 100%;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--main .mos-card__media {
+    height: var(--mos-offer-media-h);
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card__media img {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-side {
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: var(--mos-gap);
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--side {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--side .mos-card__content {
+    padding: 0;
+    flex: 1;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--side .mos-card__icon {
+    width: 72px;
+    height: 80px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--side .mos-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--coupon {
+    padding: 0;
+    background: var(--card-bg, transparent);
+    border: 0;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--coupon .mos-card__media {
+    border-radius: var(--mos-radius);
+    overflow: hidden;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card__caption {
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-card--coupon .mos-card__content {
+     padding: 12px 14px 14px;
+     align-items: center;
+     text-align: center;
+   }
+
+   .md-offer-subscribe--{{ section.id }} .mos__subscribe-wrap {
+    background: var(--mos-card-bg);
+    border-radius: var(--mos-radius);
+    border: 1px solid var(--mos-border);
+    padding: 16px;
+  }
+    .md-offer-subscribe--{{ section.id }} .mos__subscribe-wrap  img{
+      width: 200px
+    }
+
+  .md-offer-subscribe--{{ section.id }} .mos__subscribe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--mos-gap);
+    align-items: center;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount {
+    display: grid;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    gap: 12px;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__title {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border: 1px solid {{ section.settings.button_bg | default: '#00bfb8' | color_to_rgb | replace: 'rgb(', 'rgba(' | replace: ')', ', 0.45)' }};
+    border-radius: 999px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__input {
+    border: 0;
+    outline: 0;
+    padding: 10px 14px;
+    font-size: 12px;
+    line-height: 1.2;
+    background: transparent;
+    color: var(--mos-text);
+    width: 100%;
+    margin: 0;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__btn {
+    border: 0;
+    outline: 0;
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    background: var(--mos-btn);
+    color: var(--mos-btn-text);
+    cursor: pointer;
+    white-space: nowrap;
+    min-width: 120px;
+  }
+
+  .md-offer-subscribe--{{ section.id }} .mos-discount__desc {
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--mos-muted);
+  }
+
+  @media (max-width: 768px) {
+         .md-offer-subscribe--{{ section.id }} .xmax_section__header {
+        margin-bottom:0!important;
+    } 
+    .md-offer-subscribe--{{ section.id }} .mos-discount__title {
+      text-align: center;
+    }
+    .md-offer-subscribe--{{ section.id }} {
+      padding: {{ section.settings.padding_top | default: 40 | times: 0.75 | round: 0 }}px 0 {{ section.settings.padding_bottom | default: 60 | times: 0.75 | round: 0 }}px;
+      --mos-gap: 10px;
+      --mos-radius: 12px;
+      --mos-offer-media-h: 105px;
+      --mos-title-size: {{ section.settings.card_title_size_mobile | default: 12 }}px;
+      --mos-sub-title-size: {{ section.settings.card_sub_title_size_mobile | default: 11 }}px;
+      /* --mos-coupon-media-h: 120px; */
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos__container {
+      padding: 0 16px;
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos__offers-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos-side {
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: none;
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos-card--main {
+      padding: 12px 12px 0;
+      gap: 10px;
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos-card--side {
+      padding: 12px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos-card--side .mos-card__icon {
+      width: 34px;
+      height: 34px;
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos__subscribe-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos__subscribe-wrap {
+      padding: 12px;
+    }
+
+    .md-offer-subscribe--{{ section.id }} .mos-discount {
+      grid-column: 1 / -1;
+      padding: 0;
+    }
+    
+    .md-offer-subscribe--{{ section.id }} .mos-discount__row {
+      height: 40px;
+    }
+    
+    .md-offer-subscribe--{{ section.id }} .mos-discount__input,
+    .md-offer-subscribe--{{ section.id }} .mos-discount__btn {
+      height: 40px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+{%- endstyle -%}
+
+<section class="md-offer-subscribe md-offer-subscribe--{{ section.id }}" 
+  data-activity="{{ section.settings.activity_id }}" 
+  data-istest="{{ section.settings.is_test }}"
+  data-success-text="{{ section.settings.discount_success_label | default: 'Subscribed Successfully' }}"
+  data-success-msg="{{ section.settings.discount_success_message | default: 'Thank you for subscribing!' }}"
+>
+  <div class="mos__container">
+    {%- for block in header_blocks -%}
+      {%- render 'xmas-section-header', section: block -%}
+    {%- endfor -%}
+
+    <div class="mos__part mos__part--offers">
+      <div class="mos__offers-grid">
+        {%- for block in offer_main_blocks -%}
+          {%- liquid
+            assign wrapper_tag = 'div'
+            if block.settings.link != blank
+              assign wrapper_tag = 'a'
+            endif
+          -%}
+          <{{ wrapper_tag }}
+            class="mos-card mos-card--main"
+            {{ block.shopify_attributes }}
+            {%- if wrapper_tag == 'a' -%}
+              href="{{ block.settings.link }}"
+              target="_blank"
+              rel="noopener"
+            {%- endif -%}
+            style="--card-bg: {{ block.settings.bg_color }}; --card-text: {{ block.settings.text_color }};"
+          >
+            <div class="mos-card__content">
+              {%- if block.settings.title != blank -%}
+                <h3 class="mos-card__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.sub_title != blank -%}
+                <p class="mos-card__sub-title">{{ block.settings.sub_title }}</p>
+              {%- endif -%}
+              {%- if block.settings.button_label != blank and wrapper_tag != 'a' -%}
+                <a href="{{ block.settings.link }}" class="mos-card__btn" target="_blank" rel="noopener">{{ block.settings.button_label }}</a>
+              {%- elsif block.settings.button_label != blank -%}
+                <span class="mos-card__btn">{{ block.settings.button_label }}</span>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.image != blank -%}
+              <span class="mos-card__media">
+                <picture>
+                  {%- if block.settings.mobile_image != blank -%}
+                    <source media="(max-width: 768px)" srcset="{{ block.settings.mobile_image | image_url: width: 600 }}">
+                  {%- endif -%}
+                  <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+                </picture>
+              </span>
+            {%- endif -%}
+          </{{ wrapper_tag }}>
+        {%- endfor -%}
+
+        {%- if offer_side_blocks.size > 0 -%}
+          <div class="mos-side">
+            {%- for block in offer_side_blocks -%}
+              {%- liquid
+                assign wrapper_tag = 'div'
+                if block.settings.link != blank
+                  assign wrapper_tag = 'a'
+                endif
+              -%}
+              <{{ wrapper_tag }}
+                 class="mos-card mos-card--side"
+                 {{ block.shopify_attributes }}
+                 {%- if wrapper_tag == 'a' -%}
+                   href="{{ block.settings.link }}"
+                   target="_blank"
+                   rel="noopener"
+                 {%- endif -%}
+                 style="--card-bg: {{ block.settings.bg_color }}; --card-text: {{ block.settings.text_color }};"
+               >
+                 {%- if block.settings.icon != blank -%}
+                   <span class="mos-card__icon">
+                     <picture>
+                       {%- if block.settings.mobile_icon != blank -%}
+                         <source media="(max-width: 768px)" srcset="{{ block.settings.mobile_icon | image_url: width: 100 }}">
+                       {%- endif -%}
+                       <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+                     </picture>
+                   </span>
+                 {%- endif -%}
+                 <div class="mos-card__content">
+                   {%- if block.settings.title != blank -%}
+                     <h3 class="mos-card__title">{{ block.settings.title }}</h3>
+                   {%- endif -%}
+                   {%- if block.settings.sub_title != blank -%}
+                     <p class="mos-card__sub-title">{{ block.settings.sub_title }}</p>
+                   {%- endif -%}
+                   {%- if block.settings.button_label != blank and wrapper_tag != 'a' -%}
+                     <a href="{{ block.settings.link }}" class="mos-card__btn" target="_blank" rel="noopener">{{ block.settings.button_label }}</a>
+                   {%- elsif block.settings.button_label != blank -%}
+                     <span class="mos-card__btn">{{ block.settings.button_label }}</span>
+                   {%- endif -%}
+                 </div>
+               </{{ wrapper_tag }}>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="mos__part mos__part--subscribe">
+      <div class="mos__subscribe-wrap">
+        <div class="mos__subscribe-grid">
+          {%- for block in coupon_blocks -%}
+            {%- liquid
+              assign wrapper_tag = 'div'
+              if block.settings.link != blank
+                assign wrapper_tag = 'a'
+              endif
+            -%}
+            <{{ wrapper_tag }}
+            class="mos-card mos-card--coupon"
+            {{ block.shopify_attributes }}
+            {%- if wrapper_tag == 'a' -%}
+              href="{{ block.settings.link }}"
+              target="_blank"
+              rel="noopener"
+            {%- endif -%}
+            style="--card-bg: {{ block.settings.bg_color }}; --card-text: {{ block.settings.text_color }};"
+          >
+            {%- if block.settings.image != blank -%}
+              <span class="mos-card__media">
+                <picture>
+                  {%- if block.settings.mobile_image != blank -%}
+                    <source media="(max-width: 768px)" srcset="{{ block.settings.mobile_image | image_url: width: 600 }}">
+                  {%- endif -%}
+                  <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.caption | escape }}" loading="lazy">
+                </picture>
+              </span>
+            {%- endif -%}
+            <div class="mos-card__content">
+              {%- if block.settings.caption != blank -%}
+                <p class="mos-card__caption">{{ block.settings.caption }}</p>
+              {%- endif -%}
+              {%- if block.settings.button_label != blank and wrapper_tag != 'a' -%}
+                <a href="{{ block.settings.link }}" class="mos-card__btn" target="_blank" rel="noopener">{{ block.settings.button_label }}</a>
+              {%- elsif block.settings.button_label != blank -%}
+                <span class="mos-card__btn">{{ block.settings.button_label }}</span>
+              {%- endif -%}
+            </div>
+          </{{ wrapper_tag }}>
+          {%- endfor -%}
+
+          <div class="mos-discount">
+            {%- if section.settings.discount_title != blank -%}
+              <h3 class="mos-discount__title">{{ section.settings.discount_title }}</h3>
+            {%- endif -%}
+
+            <div class="mos-discount__row">
+              <input
+                id="mos-email-{{ section.id }}"
+                class="mos-discount__input"
+                type="email"
+                placeholder="{{ section.settings.discount_placeholder | default: 'Email Address' }}"
+                autocomplete="email"
+              >
+              <button id="mos-btn-{{ section.id }}" class="mos-discount__btn" type="button">
+                {{ section.settings.discount_button_label | default: 'Claim Now' }}
+              </button>
+            </div>
+
+            <div id="mos-msg-{{ section.id }}" class="mos-discount__msg"></div>
+
+            {%- if section.settings.discount_desc != blank -%}
+              <div class="mos-discount__desc">{{ section.settings.discount_desc }}</div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% render 'section-decorations', section: section %}
+
+<script>
+  (function() {
+    const sectionId = '{{ section.id }}';
+    //const base_url_test = "http://localhost:8083";
+    const base_url_test = "https://shopify-api-test-01.external.sub.puture-in.com";
+    const base_url = "https://shopify-api.puture-in.com";
+
+    const sectionEl = document.querySelector(`.md-offer-subscribe--${sectionId}`);
+    const emailInput = document.getElementById(`mos-email-${sectionId}`);
+    const submitBtn = document.getElementById(`mos-btn-${sectionId}`);
+    const msgEl = document.getElementById(`mos-msg-${sectionId}`);
+
+    if (!sectionEl || !emailInput || !submitBtn) return;
+
+    const activityId = sectionEl.dataset.activity;
+    const isTest = sectionEl.dataset.istest;
+    const successText = sectionEl.dataset.successText;
+    const successMsg = sectionEl.dataset.successMsg;
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function setMsg(text, type = 'error') {
+      if (!msgEl) return;
+      msgEl.textContent = text;
+      msgEl.className = `mos-discount__msg is-visible is-${type}`;
+    }
+
+    async function handleSubscribe() {
+      const email = emailInput.value.trim();
+      if (!email) {
+        setMsg('Please enter your email');
+        return;
+      }
+      if (!validateEmail(email)) {
+        setMsg('Please enter a valid email');
+        return;
+      }
+
+      if (!activityId) {
+        console.error('Activity ID is missing');
+        return;
+      }
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = '...';
+
+      try {
+        const response = await fetch(`${isTest === 'true' ? base_url_test : base_url}/draw-records/draw`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            activityId: Number(activityId),
+            userEmail: email,
+            drawType: 'subscribe'
+          })
+        });
+
+        const result = await response.json();
+        if (result && result.code === 200) {
+          submitBtn.textContent = successText || 'success';
+          submitBtn.classList.add('is-success');
+          emailInput.disabled = true;
+          if (successMsg) {
+            setMsg(successMsg, 'success');
+          }
+        } else {
+          throw new Error(result.msg || 'Subscription failed, please try again later');
+        }
+      } catch (error) {
+        setMsg(error.message);
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    }
+
+    submitBtn.addEventListener('click', handleSubscribe);
+    
+    // Also support Enter key
+    emailInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        handleSubscribe();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MD Offer Subscribe",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 960,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Content max width",
+      "default": 1200
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#f6efe7"
+    },
+    {
+      "type": "color_background",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2b2420"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#00bfb8"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#2b2420"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "offer_media_height",
+      "label": "Offer media height (desktop)",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 260
+    },
+    {
+      "type": "header",
+      "content": "Card font sizes"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Card title size (desktop)",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_title_size_mobile",
+      "label": "Card title size (mobile)",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_sub_title_size",
+      "label": "Card sub title size (desktop)",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_sub_title_size_mobile",
+      "label": "Card sub title size (mobile)",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "header",
+      "content": "Subscription API"
+    },
+    {
+      "type": "text",
+      "id": "activity_id",
+      "label": "Activity ID",
+      "info": "The ID from flip-card activity"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_test",
+      "label": "Is Test Environment",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Discount panel"
+    },
+    {
+      "type": "text",
+      "id": "discount_title",
+      "label": "Title",
+      "default": "Valentine Discount"
+    },
+    {
+      "type": "text",
+      "id": "discount_placeholder",
+      "label": "Input placeholder",
+      "default": "Email Address"
+    },
+    {
+      "type": "text",
+      "id": "discount_button_label",
+      "label": "Button label",
+      "default": "Claim Now"
+    },
+    {
+      "type": "text",
+      "id": "discount_success_label",
+      "label": "Success label",
+      "default": "Subscribed Successfully"
+    },
+    {
+      "type": "textarea",
+      "id": "discount_success_message",
+      "label": "Success message",
+      "default": "Thank you for subscribing! You'll receive our latest updates soon."
+    },
+    {
+      "type": "textarea",
+      "id": "discount_desc",
+      "label": "Description",
+      "default": "After placing your order, enter your order number to claim. The reward will be credited to your account as a gift card within 2 business days, with no restrictions on use."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Header",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Section Title", "default": "Exclusive Offers Only Available in Honiture Official Store" },
+        { "type": "color", "id": "title_color", "label": "Title color", "default": "#ffffff" },
+        { "type": "range", "id": "title_size", "label": "Title size (desktop)", "min": 16, "max": 100, "step": 2, "unit": "px", "default": 36 },
+        { "type": "range", "id": "title_size_mobile", "label": "Title size (mobile)", "min": 12, "max": 60, "step": 2, "unit": "px", "default": 24 },
+        { "type": "text", "id": "sub_heading", "label": "Sub heading" },
+        { "type": "checkbox", "id": "show_sub_heading", "label": "Show sub heading", "default": true },
+        { "type": "color", "id": "sub_heading_color", "label": "Sub heading color", "default": "#ffffff" },
+        { "type": "text", "id": "view_more_label", "label": "View more label", "default": "View More" },
+        { "type": "url", "id": "view_more_link", "label": "View more link" },
+        { "type": "color", "id": "view_more_color", "label": "View more text color", "default": "#ffffff" },
+        { "type": "color", "id": "view_more_border_color", "label": "View more border color", "default": "#ffffff" },
+        { "type": "checkbox", "id": "show_title_icons", "label": "Show title icons", "default": false },
+        { "type": "image_picker", "id": "title_icon", "label": "Title icon (left & right)" },
+        { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror right icon", "default": true },
+        { "type": "range", "id": "title_icon_size", "label": "Title icon size (desktop)", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 40 },
+        { "type": "range", "id": "title_icon_size_mobile", "label": "Title icon size (mobile)", "min": 16, "max": 64, "step": 2, "unit": "px", "default": 32 },
+        { "type": "range", "id": "margin_bottom", "label": "Margin bottom", "min": 0, "max": 100, "step": 5, "unit": "px", "default": 50 }
+      ]
+    },
+    {
+      "type": "offer_main",
+      "name": "Offer card (main)",
+      "limit": 2,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Perfect Gifts for Mom" },
+        { "type": "text", "id": "sub_title", "label": "Sub title" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Image (mobile)" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Now" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+        { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b2420" }
+      ]
+    },
+    {
+      "type": "offer_side",
+      "name": "Offer card (side)",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Limited-Time Offers" },
+        { "type": "text", "id": "sub_title", "label": "Sub title" },
+        { "type": "image_picker", "id": "icon", "label": "Icon image" },
+        { "type": "image_picker", "id": "mobile_icon", "label": "Icon image (mobile)" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Now" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+        { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b2420" }
+      ]
+    },
+    {
+      "type": "coupon",
+      "name": "Coupon",
+      "limit": 2,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Coupon image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Coupon image (mobile)" },
+        { "type": "text", "id": "caption", "label": "Caption", "default": "Spend $200 — Get $15 back" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Claim Now" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+        { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b2420" }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Image (mobile)" },
+        { "type": "range", "id": "top", "label": "Top (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "left", "label": "Left (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "width", "label": "Width (px)", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "z_index", "label": "Z-index", "default": 1 },
+        { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+        { "type": "checkbox", "id": "hide_on_pc", "label": "Hide on desktop", "default": false },
+        { "type": "range", "id": "rotation", "label": "Rotation (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "range", "id": "mobile_top", "label": "Top mobile (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "mobile_left", "label": "Left mobile (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "mobile_width", "label": "Width mobile (px)", "min": 0, "max": 600, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "mobile_z_index", "label": "Z-index mobile", "default": 1 },
+        { "type": "range", "id": "mobile_rotation", "label": "Rotation mobile (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "number", "id": "top_offset", "label": "Top offset (px)", "default": 0 },
+        { "type": "number", "id": "left_offset", "label": "Left offset (px)", "default": 0 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MD Offer Subscribe",
+      "blocks": [
+        { "type": "header" },
+        { "type": "offer_main" },
+        { "type": "offer_main" },
+        { "type": "offer_side" },
+        { "type": "offer_side" },
+        { "type": "offer_side" },
+        { "type": "coupon" },
+        { "type": "coupon" }
+      ]
+    }
+  ]
+}
+{% endschema %}

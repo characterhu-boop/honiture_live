@@ -1,0 +1,728 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_simple_banner_VxQdhh": {
+      "type": "custom-simple-banner",
+      "disabled": true,
+      "name": "Simple Banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Group_114.webp",
+        "mobile_image": "shopify:\/\/shop_images\/cordless-robot-vaccums-xmas-promotion.webp",
+        "show_on_desktop": true,
+        "text_align": 15,
+        "title": "Merry Christmas!",
+        "title_tag": "h2",
+        "title_text_color": "#ffffff",
+        "subtitle": "Make this christmas sparkle with smart cleaning deals",
+        "text_color": "#ffffff",
+        "title_size": 40,
+        "subtitle_size": 18,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "slideshow_tDn6WT": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_7HNPxC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/vaccums-christmas-sale.webp",
+            "mobile_image": "shopify:\/\/shop_images\/robotic-cordless-vaccum-xmas-sale.webp",
+            "slide_link": "",
+            "video_background": false,
+            "show_content": false,
+            "badge_text": "",
+            "subheading": "Add a tagline",
+            "heading": "Slide Heading",
+            "heading_size": "h1",
+            "content": "Add descriptive text for your slide here.",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_7HNPxC"
+      ],
+      "custom_css": [
+        ".slideshow__slide-bg {background-color: #ae3028;}"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "sticky_nav_cprXhd": {
+      "type": "sticky-nav",
+      "blocks": {
+        "nav_item_3RDYcz": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Offers & Deals",
+            "target_id": "shopify-section-template--20143936831535__xmas_coupon_4MKxd9"
+          }
+        },
+        "nav_item_k9gDRk": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Mystery Box",
+            "target_id": "shopify-section-template--20143936831535__spin_win_nfNqJp"
+          }
+        },
+        "nav_item_4EzMnE": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Flash Sale",
+            "target_id": "shopify-section-template--20143936831535__xmas_one_DDrXhY"
+          }
+        },
+        "nav_item_bFCEzm": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Hot Sale Vacuums",
+            "target_id": "shopify-section-template--20143936831535__xmas_buy1get1_VAQwyL"
+          }
+        },
+        "nav_item_8G9nKz": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Combo Deals",
+            "target_id": "xmas-combo-template--20143936831535__xmas_combo_tmFmC3"
+          }
+        },
+        "nav_item_HypjR6": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Accessories Deals",
+            "target_id": "shopify-section-template--20143936831535__xmas_acce_AaH9af"
+          }
+        }
+      },
+      "block_order": [
+        "nav_item_3RDYcz",
+        "nav_item_k9gDRk",
+        "nav_item_4EzMnE",
+        "nav_item_bFCEzm",
+        "nav_item_8G9nKz",
+        "nav_item_HypjR6"
+      ],
+      "name": "Sticky Navigation",
+      "settings": {
+        "top_position": 0,
+        "top_position_mobile": 0,
+        "background": "#ae3028",
+        "text_color": "#ffffff",
+        "active_background": "#f5f5f5",
+        "active_text_color": "#edcf94"
+      }
+    },
+    "xmas_coupon_4MKxd9": {
+      "type": "xmas-coupon",
+      "blocks": {
+        "section_header_extra_aaVCLC": {
+          "type": "section-header-extra",
+          "settings": {
+            "title": "Value Boost Gift Card",
+            "sub_heading": "Spread Christmas Joy: Buy Gift Cards and Enjoy Holiday Discounts!",
+            "view_more_label": "",
+            "view_more_link": "",
+            "show_title_icons": true,
+            "title_icon": "shopify:\/\/shop_images\/Rectangle_3.png",
+            "title_icon_size": 60,
+            "title_icon_mirror_right": true
+          }
+        },
+        "coupon_aEdChg": {
+          "type": "coupon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_553.png",
+            "card_bg": "shopify:\/\/shop_images\/Group_550.png",
+            "title": "$50 Honiture Gift Card",
+            "daily_text": "Only 20 available per day",
+            "sale_price": "$45",
+            "original_price": "$50",
+            "buy_link": "shopify:\/\/products\/honiture-e-gift-card",
+            "buy_label": "Buy now"
+          }
+        },
+        "coupon_La7dkz": {
+          "type": "coupon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_551.png",
+            "card_bg": "shopify:\/\/shop_images\/Group_550.png",
+            "title": "$100 Honiture Gift Card",
+            "daily_text": "Only 20 available per day",
+            "sale_price": "$90",
+            "original_price": "$100",
+            "buy_link": "shopify:\/\/products\/honiture-e-gift-card",
+            "buy_label": "Buy now"
+          }
+        },
+        "coupon_zptnyy": {
+          "type": "coupon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_552.png",
+            "card_bg": "shopify:\/\/shop_images\/Group_550.png",
+            "title": "$200 Honiture Gift Card",
+            "daily_text": "Only 20 available per day",
+            "sale_price": "$180",
+            "original_price": "$200",
+            "buy_link": "shopify:\/\/products\/honiture-e-gift-card",
+            "buy_label": "Buy now"
+          }
+        }
+      },
+      "block_order": [
+        "section_header_extra_aaVCLC",
+        "coupon_aEdChg",
+        "coupon_La7dkz",
+        "coupon_zptnyy"
+      ],
+      "custom_css": [
+        ".xmax_section__title {text-align: center; max-width: 490px;}"
+      ],
+      "name": "Xmas Coupon Cards",
+      "settings": {
+        "title": "Exclusive Accessories Deals",
+        "sub_heading": "Get Coupons First – Save more when you shop. Subscriber Benefits!",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Group.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "cards_per_row": 3,
+        "bg_color": "#b5362f",
+        "p2_snow_image": "shopify:\/\/shop_images\/Rectangle_2.png",
+        "p2_snow_alt": "",
+        "p2_left_image": "shopify:\/\/shop_images\/Group_713.jpg",
+        "p2_left_code": "XMASASSY5",
+        "p2_left_alt": "",
+        "p2_right_image": "shopify:\/\/shop_images\/Group_714.png",
+        "p2_right_code": "XMASASSY15",
+        "p2_right_alt": "",
+        "p2_cta_title": "Not a subscriber yet?",
+        "p2_cta_desc": "Sign up now to unlock exclusive perks and enter the lucky draw!",
+        "p2_cta_btn_label": "Subscribe now",
+        "p2_cta_target": "#subscribeBox"
+      }
+    },
+    "spin_win_nfNqJp": {
+      "type": "spin-win",
+      "custom_css": [
+        ".xmax_section__title-row {position: relative;}",
+        ".xmax_section__title-row::after {position: absolute; right: -200px; bottom: -100px; width: 200px; height: 200px; background: url(\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Rectangle_4_1.png?v=1764928140\"); background-size: contain;}"
+      ],
+      "name": "Spin & Win",
+      "settings": {
+        "title": "Unwrap Your Christmas Gift from Honiture!",
+        "sub_heading": "New User Perk! Subscribe now to receive a surprise discount!",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Rectangle_3.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "snow_image": "shopify:\/\/shop_images\/Rectangle_2.png",
+        "subscribe_image": "shopify:\/\/shop_images\/Rectangle_3_83bdddf2-4198-4e90-8997-77571c2bd754.png",
+        "card_cover": "shopify:\/\/shop_images\/Rectangle_1.png",
+        "modal_bg": "shopify:\/\/shop_images\/modal_bg.webp",
+        "activity_id": "10",
+        "is_test": false,
+        "subscribe_title": "Subscribe for a chance to win a gift pack!",
+        "eligibility_text": "<p>How lt Works:<br\/>*Subscribe with your email for a chance to win a gift pack!<br\/>*Apply your coupon within 45 days. Gift card winners get an email later.<br\/>*When you win a gift, it will be delivered to your address.<\/p>",
+        "fontColor": "#000000"
+      }
+    },
+    "xmas_one_DDrXhY": {
+      "type": "xmas-one",
+      "blocks": {
+        "count_down_YPChg8": {
+          "type": "count-down",
+          "settings": {
+            "end_date": "2025-12-26 16:00:01",
+            "heading": "",
+            "message": "",
+            "hide_on_complete": false,
+            "show_days": true,
+            "show_hours": true,
+            "show_minutes": true,
+            "show_seconds": true,
+            "style": "modern",
+            "text_alignment": "left",
+            "numbers_size": "small",
+            "labels_size": "small",
+            "background_color": "rgba(0,0,0,0)",
+            "heading_color": "#333333",
+            "numbers_color": "#ffffff",
+            "numbers_background": "#da2b2b",
+            "labels_color": "#666666",
+            "message_color": "#ff3d00",
+            "padding_top": 10,
+            "padding_bottom": 10,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "count_down_YPChg8"
+      ],
+      "name": "Xmas One Card",
+      "settings": {
+        "title": "Christmas Flash Sale",
+        "sub_heading": "Selected products up to 53% OFF. Limited quantities available.",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Group.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "product": "x7",
+        "custom_product_image": "shopify:\/\/shop_images\/Honiture_X7_cordless_vaccum_03.webp",
+        "custom_product_image_m": "shopify:\/\/shop_images\/Honiture_X7_cordless_vaccum_03.webp",
+        "product_title": "Free Gift HEPA Filter x 3",
+        "custom_sale_price": "",
+        "custom_compare_price": "",
+        "product_desc": "<p>Best-Selling X7 Vacuum, 45kPa powerful vacuum for all your cleaning needs. <\/p><p><em><strong>*Extra 8% discount code automatically applied at checkout.<\/strong><\/em><\/p>",
+        "show_discount_badge": true,
+        "badge_text": "53",
+        "badge_background_image": "shopify:\/\/shop_images\/Vector.png",
+        "shop_now": "Shop now",
+        "learn_more": "Add to cart"
+      }
+    },
+    "xmas_buy1get1_VAQwyL": {
+      "type": "xmas-buy1get1",
+      "blocks": {
+        "bogo_card_tcAfWU": {
+          "type": "bogo_card",
+          "settings": {
+            "main_product": "p7-pro-cordless-vacuum",
+            "acc_product": "roller-brush-for-honiture-p7-pro",
+            "main_variant_id": "",
+            "acc_variant_id": "",
+            "acc_image": "shopify:\/\/shop_images\/lQLPJw5MkGqYWRvNCArNBmuwf6Hz17qMRXMJDMCK9O4eAg_1643_2058.png",
+            "acc_image2": "shopify:\/\/shop_images\/Group_267.png",
+            "title": "Honiture  P7 Pro Cordless Vacuum",
+            "sub_title": "<p>Gift Pack Worth <strong>$41.98<\/strong><\/p>",
+            "desc": "Anti-Allergic-7 layer HEPA filtration system for large space.",
+            "badge_label": "Save 49%",
+            "badge_bg": "shopify:\/\/shop_images\/Vector.png",
+            "quantity": 1
+          }
+        },
+        "bogo_card_qU3pjN": {
+          "type": "bogo_card",
+          "settings": {
+            "main_product": "y10-cordless-stick-vacuum",
+            "acc_product": "honiture-x7-roller-brush",
+            "main_variant_id": "",
+            "acc_variant_id": "",
+            "acc_image": "shopify:\/\/shop_images\/Y10_gift_brush.jpg",
+            "acc_image2": "shopify:\/\/shop_images\/Y10_gifts_pack.jpg",
+            "title": "Honiture Y10 Cordless Vacuum",
+            "sub_title": "<p>Gift Pack Worth <strong>$46.98<\/strong><\/p>",
+            "desc": "Featuring a green dust indicator light for every corner.",
+            "badge_label": "Save 66%",
+            "badge_bg": "shopify:\/\/shop_images\/Vector.png",
+            "quantity": 1
+          }
+        },
+        "bogo_card_rDBeLe": {
+          "type": "bogo_card",
+          "settings": {
+            "main_product": "honiture-t10-robot-vacuum",
+            "acc_product": "mop-cloth-for-honiture-t10",
+            "main_variant_id": "",
+            "acc_variant_id": "",
+            "acc_image": "shopify:\/\/shop_images\/lQLPJwKTO0rWGRvNB4XNBXWwg0gN-y_bHd0JDMCK9O4eAA_1397_1925.png",
+            "title": "Honiture T10 3-in-1 Robot Vacuum",
+            "sub_title": "<p>Gift Worth <strong>$22.99<\/strong><br\/>Plus:<br\/>Extar 8% Off<br\/>(Code: XMASDELA8)<\/p>",
+            "desc": "Ultra-Slim 3.3\"  Vacuum & Mop smart robot vacuum.",
+            "badge_label": "Save 50%",
+            "badge_bg": "shopify:\/\/shop_images\/Vector.png",
+            "quantity": 1
+          }
+        },
+        "bogo_card_eizkCf": {
+          "type": "bogo_card",
+          "settings": {
+            "main_product": "honiture-robot-vacuum-cleaner-g20pro",
+            "acc_product": "honiture-g20-pro-mop-cloth",
+            "main_variant_id": "",
+            "acc_variant_id": "",
+            "acc_image": "shopify:\/\/shop_images\/lQLPJxlqX5soZpvNB4XNBXWwCFqBFoRGsscJDMJDSm6YAg_1397_1925.png",
+            "title": "Honiture G20 Pro Robot Vacuum",
+            "sub_title": "<p>Brush Gift Worth <strong>$22.99<\/strong><br\/>Plus:<br\/>Extar 8% Off<br\/>(Code: XMASDELA8)<\/p>",
+            "desc": "4500PA powerful suction App and voice Control.",
+            "badge_label": "Save 51%",
+            "badge_bg": "shopify:\/\/shop_images\/Vector.png",
+            "quantity": 1
+          }
+        },
+        "deal_product_HB433j": {
+          "type": "deal_product",
+          "settings": {
+            "product": "s12",
+            "variant_id": "",
+            "title": "S12 Cordless Vacuum",
+            "desc": "33kPa Suction | 55 Mins Run Time | 400W",
+            "badge_text": "47% OFF",
+            "badge_bg": "shopify:\/\/shop_images\/Vector_1.png",
+            "quantity": 1
+          }
+        },
+        "deal_product_genMk4": {
+          "type": "deal_product",
+          "settings": {
+            "product": "y10-cordless-stick-vacuum",
+            "variant_id": "",
+            "title": "Y10 Cordless Vacuum",
+            "desc": "38KPa Suction | 400W | Anti-Tangle",
+            "badge_text": "66% OFF",
+            "badge_bg": "shopify:\/\/shop_images\/Vector_1.png",
+            "quantity": 1
+          }
+        },
+        "deal_product_KFLVrd": {
+          "type": "deal_product",
+          "settings": {
+            "product": "honiture-robot-vacuum-cleaner-g20",
+            "variant_id": "",
+            "title": "G20 Robot Vacuum",
+            "desc": "4000PA Suction | App & Voice Control",
+            "badge_text": "49% OFF",
+            "badge_bg": "shopify:\/\/shop_images\/Vector_1.png",
+            "quantity": 1
+          }
+        },
+        "deal_product_ceF4nw": {
+          "type": "deal_product",
+          "settings": {
+            "product": "v8-pro",
+            "variant_id": "",
+            "title": "V8 Pro Robot Vacuum",
+            "desc": "5000Pa Suction | 5.0 LiDAR Smart Cleaning",
+            "badge_text": "44% OFF",
+            "badge_bg": "shopify:\/\/shop_images\/Vector_1.png",
+            "quantity": 1
+          }
+        }
+      },
+      "block_order": [
+        "bogo_card_tcAfWU",
+        "bogo_card_qU3pjN",
+        "bogo_card_rDBeLe",
+        "bogo_card_eizkCf",
+        "deal_product_HB433j",
+        "deal_product_genMk4",
+        "deal_product_KFLVrd",
+        "deal_product_ceF4nw"
+      ],
+      "name": "Xmas 买一送一 + 折扣产品",
+      "settings": {
+        "title": "Buy One Get Two Free",
+        "sub_heading": "Christmas Special – Get Free Gifts with Hot-Selling Vacuums! Limited stock available!",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Rectangle_3.png",
+        "title_icon_size": 50,
+        "title_icon_mirror_right": true,
+        "snow_image": "shopify:\/\/shop_images\/Rectangle_2.png",
+        "bogo_card_bg": "shopify:\/\/shop_images\/Group_1.png",
+        "bogo_button_label": "Shop now",
+        "deal_buy_button_label": "Buy now",
+        "deal_add_button_label": "Add to cart",
+        "discount_code": ""
+      }
+    },
+    "xmas_combo_tmFmC3": {
+      "type": "xmas-combo",
+      "blocks": {
+        "combo_card_PK6zn9": {
+          "type": "combo_card",
+          "settings": {
+            "product_1": "x7",
+            "title_1": "X7 Cordless Vacuum",
+            "variant_1_id": "",
+            "quantity_1": 1,
+            "product_2": "honiture-robot-vacuum-cleaner-g20pro",
+            "title_2": "G20 Pro Robot Vacuum",
+            "variant_2_id": "",
+            "quantity_2": 1,
+            "product_3": "honiture-g20-pro-accessories-pack",
+            "title_3": "G20 Pro Refill Kit",
+            "variant_3_id": "",
+            "quantity_3": 1,
+            "custom_sum_price_1": "Save $100",
+            "custom_sum_price_2": "$349.99",
+            "custom_sum_price_3": "$448.97",
+            "button_label": "Buy now",
+            "button_link": "shopify:\/\/products\/honiture-x7-cordless-vacuum-and-g20-pro-robot-vacuum"
+          }
+        },
+        "combo_card_iKMjXi": {
+          "type": "combo_card",
+          "settings": {
+            "product_1": "x7",
+            "title_1": "",
+            "variant_1_id": "",
+            "quantity_1": 1,
+            "product_2": "honiture-x7-replacement-battery",
+            "title_2": "",
+            "variant_2_id": "",
+            "quantity_2": 1,
+            "product_3": "",
+            "title_3": "",
+            "variant_3_id": "",
+            "quantity_3": 1,
+            "custom_sum_price_1": "Save $25",
+            "custom_sum_price_2": "$209.98",
+            "custom_sum_price_3": "$234.98",
+            "button_label": "Buy now",
+            "button_link": ""
+          }
+        },
+        "combo_card_HCVLbr": {
+          "type": "combo_card",
+          "settings": {
+            "product_1": "p7-pro-cordless-vacuum",
+            "title_1": "",
+            "variant_1_id": "",
+            "quantity_1": 1,
+            "product_2": "battery-replacement-for-honiture-p7-pro",
+            "title_2": "",
+            "variant_2_id": "",
+            "quantity_2": 1,
+            "product_3": "",
+            "title_3": "",
+            "variant_3_id": "",
+            "quantity_3": 1,
+            "custom_sum_price_1": "Save $25",
+            "custom_sum_price_2": "$229.48",
+            "custom_sum_price_3": "$253.99",
+            "button_label": "Buy now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "combo_card_PK6zn9",
+        "combo_card_iKMjXi",
+        "combo_card_HCVLbr"
+      ],
+      "name": "Xmas 组合(三卡)",
+      "settings": {
+        "title": "Top Picks Cleaning Combo",
+        "sub_heading": "Save more with our exclusive Christmas combo deals! Carefully curated for smart, efficient cleaning.",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Group.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "snow_image": "shopify:\/\/shop_images\/Rectangle_2.png",
+        "card-widget": "shopify:\/\/shop_images\/Group_548_1.png"
+      }
+    },
+    "xmas_acce_AaH9af": {
+      "type": "xmas-acce",
+      "blocks": {
+        "acce_product_JwNrtM": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-x7-hepa-filters",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        },
+        "acce_product_geAbNA": {
+          "type": "acce_product",
+          "settings": {
+            "product": "hepa-filters-for-honiture-p7-pro",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        },
+        "acce_product_kXiEmR": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-s12-roller-brush",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        },
+        "acce_product_jwkgXj": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-x7-floor-brush",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        },
+        "acce_product_eq8pyU": {
+          "type": "acce_product",
+          "settings": {
+            "product": "replacement-bundle-for-honiture-s12",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        },
+        "acce_product_Rfy8zf": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-s12-hepa-filters",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        },
+        "acce_product_erEmVW": {
+          "type": "acce_product",
+          "settings": {
+            "product": "honiture-s12-floor-brush",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        },
+        "acce_product_zBXfDV": {
+          "type": "acce_product",
+          "settings": {
+            "product": "replacement-battery-for-honiture-s12",
+            "variant_id": "",
+            "title": "",
+            "button_label": "Buy now",
+            "quantity": 1
+          }
+        }
+      },
+      "block_order": [
+        "acce_product_JwNrtM",
+        "acce_product_geAbNA",
+        "acce_product_kXiEmR",
+        "acce_product_jwkgXj",
+        "acce_product_eq8pyU",
+        "acce_product_Rfy8zf",
+        "acce_product_erEmVW",
+        "acce_product_zBXfDV"
+      ],
+      "custom_css": [
+        ".xmax_section__title-row {position: relative;}",
+        ".xmax_section__title-row::after {position: absolute; left: -400px; bottom: -100px; width: 200px; height: 200px; background: url(\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Rectangle_4_1.png?v=1764928140\"); background-size: contain;}"
+      ],
+      "name": "Xmas 配件模块(横幅+四卡)",
+      "settings": {
+        "title": "Accessories Buy More Save More",
+        "sub_heading": "Spread the Christmas Cheer with Extra Savings!",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Rectangle_3.png",
+        "title_icon_size": 50,
+        "title_icon_mirror_right": true,
+        "snow_image": "shopify:\/\/shop_images\/Rectangle_2.png",
+        "banner_bg": "shopify:\/\/shop_images\/Clip_path_group.webp",
+        "banner_bg_mobile": "shopify:\/\/shop_images\/Mask_group_7.webp",
+        "banner_richtext": "<p>For All Accessories:<br\/>Buy 2 save <strong>$5<\/strong><\/p><p>Buy 3<strong> <\/strong>save <strong>$15<\/strong><br\/><\/p>",
+        "banner_btn_label": "Shop Other Models",
+        "banner_btn_link": "shopify:\/\/collections\/accessories"
+      }
+    },
+    "xmax_reward_R8gN8f": {
+      "type": "xmax-reward",
+      "custom_css": [
+        ".xmax-reward {padding-bottom: 500px;}",
+        "@media (max-width: 768px){.xmax-reward {padding-bottom: 150px;}}"
+      ],
+      "name": "Xmas Reward",
+      "settings": {
+        "title": "Customer Testimonials",
+        "sub_heading": "",
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Rectangle_3.png",
+        "title_icon_size": 60,
+        "title_icon_mirror_right": true,
+        "content_bg": "shopify:\/\/shop_images\/Group_549_1.webp",
+        "content_bg_mobile": "shopify:\/\/shop_images\/Group_180.webp",
+        "wrap_bg": "shopify:\/\/shop_images\/honiture-bg.webp",
+        "review_1_user": "Irena P.",
+        "review_1_text": "I am very satisfied! This is my first vacuum cleaner robot, and I am very satisfied! It made first a map of my house and it is quite adequate.",
+        "review_2_user": "Ricky A.",
+        "review_2_text": "It's a great value. Works better than my Dyson.",
+        "review_3_user": "Barbara C.",
+        "review_3_text": "It works really well. It's not too heavy and the battery lasts a lot longer than our other hoover. I am very pleased with the Honiture."
+      }
+    },
+    "custom_liquid_hcFn6m": {
+      "type": "custom-liquid",
+      "name": "背景样式",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<style>\n#wrapper #main-content{\n  \n  background-color: #ae3028;\nbackground-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/xmas-snow.webp?v=1764816963);\n}\n\n\n<\/style>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_simple_banner_VxQdhh",
+    "slideshow_tDn6WT",
+    "sticky_nav_cprXhd",
+    "xmas_coupon_4MKxd9",
+    "spin_win_nfNqJp",
+    "xmas_one_DDrXhY",
+    "xmas_buy1get1_VAQwyL",
+    "xmas_combo_tmFmC3",
+    "xmas_acce_AaH9af",
+    "xmax_reward_R8gN8f",
+    "custom_liquid_hcFn6m"
+  ]
+}

@@ -1,0 +1,167 @@
+{%- liquid
+  assign product = product_card_product
+-%}
+
+<div class="cus-product-card cus-product-card-wrapper">
+  {% render 'product-card-badge', product_card_product: product %}
+  <a href="{{ product.url }}" class="product-card__link">
+    <div class="cus-product-card__image">
+      {%- if product.featured_image -%}
+        {{
+          product.featured_image
+          | image_url: width: 500
+          | image_tag: loading: 'lazy', widths: '165, 360, 535, 750, 1070, 1500', class: 'motion-reduce'
+        }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+    <div class="product-card__content">
+      <h3 class="product-card__title">{{ product.title | escape }}</h3>
+
+      {%- if product.description != blank -%}
+        <div class="product-card__description">
+          {{ product.description | strip_html | truncate: 100 }}
+        </div>
+      {%- endif -%}
+      {% comment %}
+        <div class="star-rating-container">
+          <div class="star-rating"  style="--star-rating: {{ product.metafields.reviews.rating.value.rating |  default: 0 }};"><span class="body-font">{{ product.metafields.reviews.rating_count | round: 2 }} reviews</span></div>
+        </div>
+      {% endcomment %}
+      <div class="product-card__price">
+        <span class="product-card__sale-price">
+          {{ product.price | money }}
+        </span>
+        {%- if product.compare_at_price > product.price -%}
+          <span class="product-card__original-price">
+            {{ product.compare_at_price | money }}
+          </span>
+        {%- endif -%}
+      </div>
+      <div class="product-card__button">Shop now</div>
+    </div>
+  </a>
+</div>
+
+<style>
+
+   .cus-product-card-wrapper {
+      height: 189px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* border: 1px solid #e1e1e1; */
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+      position: relative;
+    }
+    .cus-product-card-wrapper .product-card__link{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cus-product-card-wrapper .product-card--badges{
+      flex-direction: row;
+      top: 0!important;
+      left: 0!important;
+    }
+    .cus-product-card-wrapper .product-card--badges .onsale{
+      display: none;
+    }
+    .cus-product-card-wrapper .product-card--badges .badge{
+      border-radius: 0 0 10px 0;
+    }
+    .cus-product-card-wrapper .cus-product-bundge{
+      position: absolute;
+      top:0;
+      left:0;
+    }
+
+    .cus-product-card-wrapper .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .cus-product-card-wrapper .cus-product-card__image{
+      width: 30%;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .cus-product-card-wrapper .cus-product-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .cus-product-card-wrapper .product-card:hover .cus-product-card__image img {
+      transform: scale(1.05);
+    }
+
+    .cus-product-card-wrapper .product-card__content {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .cus-product-card-wrapper .product-card__title {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      line-height: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 95%;
+    }
+
+    .cus-product-card-wrapper .product-card__description {
+      font-size: 14px;
+      color: rgba(26, 26, 26, 0.7);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 95%;
+    }
+    .cus-product-card-wrapper .jdgm-prev-badge__text{
+      display: none;
+    }
+    .cus-product-card-wrapper .product-card__price {
+    }
+
+    .cus-product-card-wrapper .product-card__original-price {
+      text-decoration: line-through;
+      font-size: 14px;
+      color: rgba(26, 26, 26, 0.5);
+      margin-right: 8px;
+    }
+
+    .cus-product-card-wrapper .product-card__sale-price {
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+    }
+  .cus-product-card-wrapper .product-card__button{
+      background-color: #00D0CD;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      padding: 2px 30px 2px 20px;
+      color: #fff;
+      border-radius: 50px;
+      width: max-content;
+      position: relative;
+    }
+    .cus-product-card-wrapper .product-card__button::after{
+      content: '>';
+      position: absolute;
+      top: 3px;
+      right: 14px;
+    }
+</style>

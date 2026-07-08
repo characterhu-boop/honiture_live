@@ -1,0 +1,387 @@
+{% comment %}
+  倒计时组件 - 分离数字版本 (Block 版本)
+  使用方式:
+  - 作为 section 的 block 使用
+  - 所有配置从 block.settings 中获取
+
+             {% for block in section.blocks %}
+              {% if block.type == 'count-down' %}
+                {% render 'count-down', block: block, class: 'mobile-only', cusId: 0 %}
+              {% endif %}
+             {% endfor %}
+
+
+{% endcomment %}
+
+{%- assign end_date = block.settings.end_date -%}
+{%- assign heading = block.settings.heading -%}
+{%- assign message = block.settings.message -%}
+{%- assign hide_on_complete = block.settings.hide_on_complete -%}
+{%- assign show_days = block.settings.show_days -%}
+{%- assign show_hours = block.settings.show_hours -%}
+{%- assign show_minutes = block.settings.show_minutes -%}
+{%- assign show_seconds = block.settings.show_seconds -%}
+{%- assign style = block.settings.style -%}
+{%- assign text_alignment = block.settings.text_alignment -%}
+{%- assign numbers_size = block.settings.numbers_size -%}
+{%- assign labels_size = block.settings.labels_size -%}
+{%- assign numbers_background = block.settings.numbers_background -%}
+{%- assign numbers_background_gradient = block.settings.numbers_background_gradient -%}
+{%- assign background_color = block.settings.background_color -%}
+{%- assign heading_color = block.settings.heading_color -%}
+{%- assign numbers_color = block.settings.numbers_color -%}
+{%- assign labels_color = block.settings.labels_color -%}
+{%- assign message_color = block.settings.message_color -%}
+{%- assign padding_top = block.settings.padding_top -%}
+{%- assign padding_bottom = block.settings.padding_bottom -%}
+{%- assign margin_top = block.settings.margin_top -%}
+{%- assign margin_bottom = block.settings.margin_bottom -%}
+
+{%- if end_date != blank -%}
+  {%- assign now = 'now' | date: '%s' | plus: 0 -%}
+  {%- assign end = end_date | date: '%s' | plus: 0 -%}
+  {%- assign diff = end | minus: now -%}
+ 
+  <div class="countdown-timer-{{ block.id }} countdown-timer countdown-timer--separated countdown-timer--{{ style | default: 'minimal' }} text-{{ text_alignment | default: 'center' }}{% if diff <= 0 and hide_on_complete %} countdown-timer--completed{% endif %} {{ class }}" 
+       data-end-date="{{ end_date | date: '%Y-%m-%d %H:%M:%S' }}"
+       data-hide-on-complete="{{ hide_on_complete }}"
+       data-message="{{ message | default: 'Sale has ended!' }}"
+       data-block-id="{{ block.id }}-{{ cusId }}"
+       style="{% if background_color != blank %}background-color: {{ background_color }}; {% endif %}{% if padding_top != blank %}padding-top: {{ padding_top }}px; {% endif %}{% if padding_bottom != blank %}padding-bottom: {{ padding_bottom }}px; {% endif %}{% if margin_top != blank %}margin-top: {{ margin_top }}px; {% endif %}{% if margin_bottom != blank %}margin-bottom: {{ margin_bottom }}px; {% endif %}">
+
+    {%- if heading != blank -%}
+      <h3 class="countdown-timer__heading" style="{% if heading_color != blank %}color: {{ heading_color }}; {% endif %}">{{ heading }}</h3>
+    {%- endif -%}
+
+    <div class="countdown-timer__display">
+      {%- if show_days != false -%}
+        <div class="countdown-timer__unit" style="{% if numbers_color != blank %}color: {{ numbers_color }}; {% endif %}">
+          <div class="countdown-timer__digits">
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-days-tens>0</span>
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-days-ones>0</span>
+          </div>
+          <span class="countdown-timer__label labels-{{ labels_size | default: 'small' }}" style="{% if labels_color != blank %}color: {{ labels_color }}; {% endif %}">DAYS</span>
+        </div>
+        <span class="countdown-timer__separator">:</span>
+      {%- endif -%}
+
+      {%- if show_hours != false -%}
+        <div class="countdown-timer__unit" style="{% if numbers_color != blank %}color: {{ numbers_color }}; {% endif %}">
+          <div class="countdown-timer__digits">
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-hours-tens>0</span>
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-hours-ones>0</span>
+          </div>
+          <span class="countdown-timer__label labels-{{ labels_size | default: 'small' }}" style="{% if labels_color != blank %}color: {{ labels_color }}; {% endif %}">HRS</span>
+        </div>
+        <span class="countdown-timer__separator">:</span>
+      {%- endif -%}
+
+      {%- if show_minutes != false -%}
+        <div class="countdown-timer__unit" style="{% if numbers_color != blank %}color: {{ numbers_color }}; {% endif %}">
+          <div class="countdown-timer__digits">
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-minutes-tens>0</span>
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-minutes-ones>0</span>
+          </div>
+          <span class="countdown-timer__label labels-{{ labels_size | default: 'small' }}" style="{% if labels_color != blank %}color: {{ labels_color }}; {% endif %}">MIN</span>
+        </div>
+        {%- if show_seconds != false -%}
+           <span class="countdown-timer__separator">:</span>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if show_seconds != false -%}
+        <div class="countdown-timer__unit" style="{% if numbers_color != blank %}color: {{ numbers_color }}; {% endif %}">
+          <div class="countdown-timer__digits">
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-seconds-tens>0</span>
+            <span class="countdown-timer__digit numbers-{{ numbers_size | default: 'medium' }}" data-seconds-ones>0</span>
+          </div>
+          <span class="countdown-timer__label labels-{{ labels_size | default: 'small' }}" style="{% if labels_color != blank %}color: {{ labels_color }}; {% endif %}">SEC</span>
+        </div>
+      {%- endif -%}
+    </div>
+    {% if message != blank %}
+      <div class="countdown-timer__message" style="display: none; {% if message_color != blank %}color: {{ message_color }}; {% endif %}">
+        {{ message  }}
+      </div>
+    {% endif %}
+  </div>
+
+  <style>
+    .countdown-timer-{{ block.id }} {
+  margin: 20px 0;
+  font-family: inherit;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__heading {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__digits {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 5px;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__digit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  line-height: 1;
+  min-width: 40px;
+  height: 50px;
+  {% if numbers_background_gradient != blank %}
+    background: {{ numbers_background_gradient }};
+  {% elsif numbers_background != blank %}
+    background: {{ numbers_background }};
+  {% else %}
+    background: #ff3d00;
+  {% endif %}
+  {% if numbers_color == blank %}color: white;{% endif %}
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__separator {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 5px 5px;
+  color: #333;
+  align-self: baseline;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  {% if labels_color == blank %}color: #666;{% endif %}
+  letter-spacing: 0.5px;
+}
+
+/* 数字大小 */
+.countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-small { 
+  font-size: 1.2rem; 
+  min-width: 30px;
+  height: 40px;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-medium { 
+  font-size: 1.8rem; 
+  min-width: 40px;
+  height: 50px;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-large { 
+  font-size: 2.2rem; 
+  min-width: 50px;
+  height: 60px;
+}
+
+.countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-x-large { 
+  font-size: 2.8rem; 
+  min-width: 60px;
+  height: 70px;
+}
+
+/* 标签大小 */
+.countdown-timer-{{ block.id }} .countdown-timer__label.labels-small { font-size: 0.6rem; }
+.countdown-timer-{{ block.id }} .countdown-timer__label.labels-medium { font-size: 0.7rem; }
+.countdown-timer-{{ block.id }} .countdown-timer__label.labels-large { font-size: 0.8rem; }
+
+/* 样式变体 */
+.countdown-timer-{{ block.id }}.countdown-timer--minimal .countdown-timer__digit {
+  background: #f2f2f2;
+  {% if numbers_color == blank %}color: #333;{% endif %}
+  box-shadow: none;
+}
+
+.countdown-timer-{{ block.id }}.countdown-timer--rounded .countdown-timer__digit {
+  border-radius: 10px;
+}
+
+.countdown-timer-{{ block.id }}.countdown-timer--boxed .countdown-timer__digit {
+  background: #333;
+  {% if numbers_color == blank %}color: white;{% endif %}
+}
+
+.countdown-timer-{{ block.id }}.countdown-timer--modern .countdown-timer__digit {
+  {% if numbers_background_gradient != blank %}
+    background: {{ numbers_background_gradient }};
+  {% else %}
+    background: {{ numbers_background }};
+  {% endif %}
+  {% if numbers_color == blank %}color: white;{% endif %}
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 文本对齐 */
+.countdown-timer-{{ block.id }}.text-left .countdown-timer__display {
+  justify-content: flex-start;
+}
+
+.countdown-timer-{{ block.id }}.text-right .countdown-timer__display {
+  justify-content: flex-end;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .countdown-timer-{{ block.id }} .countdown-timer__display {
+    gap: 3px;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-x-large { 
+    font-size: 2.2rem; 
+    min-width: 45px;
+    height: 55px;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-large { 
+    font-size: 1.8rem; 
+    min-width: 40px;
+    height: 50px;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__separator {
+    font-size: 1.2rem;
+    margin: 3px 3px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .countdown-timer-{{ block.id }} .countdown-timer__display {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-x-large { 
+    font-size: 1.8rem; 
+    min-width: 35px;
+    height: 45px;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-large { 
+    font-size: 1.5rem; 
+    min-width: 30px;
+    height: 40px;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-medium { 
+    font-size: 1.3rem; 
+    min-width: 25px;
+    height: 35px;
+  }
+  .countdown-timer-{{ block.id }} .countdown-timer__digit.numbers-small { 
+    font-size: 1.2rem; 
+    min-width: 20px;
+    height: 30px;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__separator {
+    font-size: 1rem;
+  }
+  
+  .countdown-timer-{{ block.id }} .countdown-timer__label {
+    font-size: 0.6rem;
+  }
+}
+  </style>
+
+  <script>
+    (function() {
+      function initializeCountdown(timerElement) {
+        const endDate = timerElement.getAttribute('data-end-date');
+        const hideOnComplete = timerElement.getAttribute('data-hide-on-complete') === 'true';
+        const message = timerElement.getAttribute('data-message');
+        const messageElement = timerElement.querySelector('.countdown-timer__message');
+        const displayElement = timerElement.querySelector('.countdown-timer__display');
+        
+        // 获取所有数字元素
+        const daysTensElement = timerElement.querySelector('[data-days-tens]');
+        const daysOnesElement = timerElement.querySelector('[data-days-ones]');
+        const hoursTensElement = timerElement.querySelector('[data-hours-tens]');
+        const hoursOnesElement = timerElement.querySelector('[data-hours-ones]');
+        const minutesTensElement = timerElement.querySelector('[data-minutes-tens]');
+        const minutesOnesElement = timerElement.querySelector('[data-minutes-ones]');
+        const secondsTensElement = timerElement.querySelector('[data-seconds-tens]');
+        const secondsOnesElement = timerElement.querySelector('[data-seconds-ones]');
+        
+        const endTime = new Date(endDate).getTime();
+        
+        function updateCountdown() {
+          const now = new Date().getTime();
+          const distance = endTime - now;
+          
+          if (distance <= 0) {
+            if (hideOnComplete) {
+              timerElement.style.display = 'none';
+            } else {
+              displayElement.style.display = 'none';
+              messageElement.style.display = 'block';
+            }
+            clearInterval(countdownInterval);
+            return;
+          }
+          
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          // 更新天数
+          if (daysTensElement && daysOnesElement) {
+            const daysStr = days.toString().padStart(2, '0');
+            daysTensElement.textContent = daysStr[0];
+            daysOnesElement.textContent = daysStr[1];
+          }
+          
+          // 更新小时
+          if (hoursTensElement && hoursOnesElement) {
+            const hoursStr = hours.toString().padStart(2, '0');
+            hoursTensElement.textContent = hoursStr[0];
+            hoursOnesElement.textContent = hoursStr[1];
+          }
+          
+          // 更新分钟
+          if (minutesTensElement && minutesOnesElement) {
+            const minutesStr = minutes.toString().padStart(2, '0');
+            minutesTensElement.textContent = minutesStr[0];
+            minutesOnesElement.textContent = minutesStr[1];
+          }
+          
+          // 更新秒数
+          if (secondsTensElement && secondsOnesElement) {
+            const secondsStr = seconds.toString().padStart(2, '0');
+            secondsTensElement.textContent = secondsStr[0];
+            secondsOnesElement.textContent = secondsStr[1];
+          }
+        }
+        
+        // 立即更新一次然后设置间隔
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+      }
+      
+      // 使用 setTimeout 确保 DOM 已加载
+      setTimeout(function() {
+        const timerElement = document.querySelector('.countdown-timer[data-block-id="{{ block.id }}-{{ cusId }}"]');
+        if (timerElement) {
+          initializeCountdown(timerElement);
+        }
+      }, 0);
+    })();
+  </script>
+{%- endif -%}  

@@ -1,0 +1,261 @@
+{% schema %}
+{
+  "name": "Custom Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Meet The Projector T2"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Title Font Size",
+      "min": 14,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Image Height",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "header",
+      "content": "Font Settings"
+    },
+    {
+      "type": "range",
+      "id": "module_title_font_size",
+      "label": "Module Title Font Size (PC)",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "module_text_font_size",
+      "label": "Module Text Font Size (PC)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "module",
+      "name": "Module",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "module_image",
+          "label": "Module Image"
+        },
+        {
+          "type": "text",
+          "id": "module_title",
+          "label": "Module Title",
+          "default": "Module Title"
+        },
+        {
+          "type": "text",
+          "id": "module_text",
+          "label": "Module Text",
+          "default": "Module Text"
+        },
+        {
+          "type": "range",
+          "id": "top_position",
+          "label": "Top Position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "left_position",
+          "label": "Left Position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 20
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .custom-banner {
+    text-align: center;
+    padding: 36px 40px;
+    max-width:1600px;
+    margin:0 auto;
+    background:#fff;
+  }
+
+  .custom-banner .title {
+    margin: 36px 0;
+    font-size: {{ section.settings.title_font_size }}px;
+    color: #000;
+  }
+
+  .custom-banner .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(238, 159, 73);
+    color: white;
+    text-decoration: none;
+    margin: 36px 0;
+  }
+
+  .custom-banner .image-container {
+    position: relative;
+    width: 100%;
+    height: {{ section.settings.image_height }}px;
+    overflow: hidden;
+  }
+
+  .custom-banner .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .custom-banner .modules {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .custom-banner .module {
+    position: absolute;
+    width: 200px;
+    text-align: {{ section.settings.text_align }};
+  }
+
+  .custom-banner .module img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .custom-banner .module h3 {
+    font-size: {{ section.settings.module_title_font_size }}px;
+    font-weight: bold;
+    color: #000;
+    margin: 10px 0;
+  }
+
+  .custom-banner .module p {
+    font-size: {{ section.settings.module_text_font_size }}px;
+    color: #ccc;
+    margin: 0;
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    .custom-banner .image-container {
+      height: auto !important;
+    }
+
+    .custom-banner .modules {
+      position: static;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 16px;
+    }
+
+    .custom-banner .module {
+      position: static !important;
+      width: 100% !important;
+      margin: 0 !important;
+      text-align: {{ section.settings.text_align }};
+    }
+
+    .custom-banner .module h3 {
+      font-size: {{ section.settings.module_title_font_size | times: 0.8 }}px;
+    }
+
+    .custom-banner .module p {
+      font-size: {{ section.settings.module_text_font_size | times: 0.8 }}px;
+    }
+
+    .custom-banner .title {
+      font-size: {{ section.settings.title_font_size | times: 0.8 }}px !important;
+    }
+  }
+</style>
+
+<div class="custom-banner">
+  <h1 class="title">{{ section.settings.title }}</h1>
+  <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+  <div class="image-container">
+    {% if section.settings.background_image %}
+      <img src="{{ section.settings.background_image | img_url: 'master' }}" alt="Background Image">
+    {% endif %}
+    <div class="modules">
+      {% for block in section.blocks %}
+        <div class="module" style="top: {{ block.settings.top_position }}%; left: {{ block.settings.left_position }}%;">
+          {% if block.settings.module_image %}
+            <img src="{{ block.settings.module_image | img_url: '80x80' }}" alt="Module Image">
+          {% endif %}
+          <h3>{{ block.settings.module_title }}</h3>
+          <p>{{ block.settings.module_text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

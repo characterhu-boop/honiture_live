@@ -1,0 +1,797 @@
+{
+  "sections": {
+    "rich_text_EWCQdF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Mr9dqC": {
+          "type": "heading",
+          "settings": {
+            "text": "User Manuals",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h1",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_c4A9mW": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Mr9dqC",
+        "text_c4A9mW"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_liquid_mtWgmB": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Custom Tabs with Buttons<\/title>\n    <style>\n        body {\n            font-family: poppins;\n        }\n        .tab {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            margin-top: 20px;\n        }\n        .tab button {\n            background-color: white;\n            color: black;\n            border: none;\n            padding: 10px 20px;\n            margin: 0 5px;\n            border-radius: 20px;\n            cursor: pointer;\n            transition: color 0.3s;\n        }\n        .tab button:hover {\n            color: blue;\n        }\n        .tab button:focus {\n            color: blue;\n        }\n    <\/style>\n<\/head>\n<body>\n\n    <div class=\"tab\">\n        <button onclick=\"shopify-section-template--17255254786095__media_grid_KRzaEe'\">Robot Vacuum Cleaners<\/button>\n        <button onclick=\"shopify-section-template--17255254786095__media_grid_UMggib'\">Cordless Vacuum Cleaners<\/button>\n        <button onclick=\"window.location.href='https:\/\/link3.com'\">Button 3<\/button>\n    <\/div>\n\n<\/body>\n<\/html>"
+      }
+    },
+    "rich_text_8K7bpL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ahCcPc": {
+          "type": "heading",
+          "settings": {
+            "text": "Wet Dry Vacuum Cleaners",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ahCcPc"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_nQUPgC": {
+      "type": "media-grid",
+      "blocks": {
+        "media_ggxr4a": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-manual.png",
+            "slide_link": "shopify:\/\/products\/m7-wet-dry-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture M7",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_M7_Wet_Dry_Vacuum_Manual.pdf?v=1782896540",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_ggxr4a"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_AA6g9K": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qzw3Tc": {
+          "type": "heading",
+          "settings": {
+            "text": "Robot Vacuum Cleaners",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qzw3Tc"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_KRzaEe": {
+      "type": "media-grid",
+      "blocks": {
+        "media_tYDyLx": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-t10-robot-vacuum-user-manual.png",
+            "slide_link": "shopify:\/\/products\/honiture-t10-robot-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture T10",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_T10_Robot_Vacuum-User_Manual.pdf?v=1782901716",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_GKFdCc": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/13_-removebg-preview.png",
+            "slide_link": "shopify:\/\/products\/v8-pro",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture V8 Pro",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_V8_Pro_User_Manual.pdf?v=1782896629",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_Xyabjz": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/16_-removebg-preview.png",
+            "slide_link": "shopify:\/\/products\/honiture-robot-vacuum-cleaner-g20pro",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture G20 Pro",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_G20_Pro_User_Manual.pdf?v=1782896624",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_hpJhR3": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/14_-removebg-preview.png",
+            "slide_link": "shopify:\/\/products\/honiture-robot-vacuum-cleaner-g20",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture G20",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_G20_Manual.pdf?v=1782896626",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_VW3tJN": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_-removebg-preview.png",
+            "slide_link": "shopify:\/\/collections\/honiture-q6-pro-robot-vacuum-accessories",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture Q6 Pro",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/drive.google.com\/file\/d\/1z13oycLvEbOkfaSEYaKfds8Z60SwOnMK\/view?usp=drive_link",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_ceLqB4": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_-removebg-preview_1.png",
+            "slide_link": "shopify:\/\/collections\/honiture-q6-se-robot-vacuum-accessories",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture Q6 SE",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/drive.google.com\/file\/d\/1lnHHUE1gIudOLcrf0qOPctZvebIUkCId\/view?usp=drive_link",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_KLAp4C": {
+          "type": "media",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10_-removebg.png",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture Q6 Lite",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/drive.google.com\/file\/d\/1706NRt0WEi70PpvDXS_d89js9Y58AgMy\/view?usp=drive_link",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_tYDyLx",
+        "media_GKFdCc",
+        "media_Xyabjz",
+        "media_hpJhR3",
+        "media_VW3tJN",
+        "media_ceLqB4",
+        "media_KLAp4C"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "large",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_ijykpM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wtJ96t": {
+          "type": "heading",
+          "settings": {
+            "text": "Cordless Vacuum Cleaners",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wtJ96t"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_UMggib": {
+      "type": "media-grid",
+      "blocks": {
+        "media_AMxqmn": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/17_-removebg-preview.png",
+            "slide_link": "shopify:\/\/products\/x7",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture X7",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_X7_Cordless_Vacuum_Cleaner_Manual--compressed.pdf?v=1783049144",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_U6hAnp": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture_P7_Pro_Cordless_Vacuum_User_Manual.png",
+            "slide_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture P7 Pro",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_P7_Pro_Cordless_Vacuum_Cleaner_Manual.pdf?v=1782896809",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_jX7rWT": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-y10-cordless-vacuum-user-manual-02.png",
+            "slide_link": "shopify:\/\/products\/y10-cordless-stick-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture Y10",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_Clean_Y10_Vacuum_User_Manuals.pdf?v=1782889755",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_cCpgYe": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/19_-removebg-preview.png",
+            "slide_link": "shopify:\/\/products\/s13pro",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture S13 Pro",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_S13_Pro_Manual_pdfgear.com.pdf?v=1782896595",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_QnCdJX": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/20_-removebg-preview.png",
+            "slide_link": "shopify:\/\/products\/s12",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture S12",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_S12_User_Manual.pdf?v=1783048987",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_6xYBNA": {
+          "type": "media",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/21_-removebg-preview.png",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "User Manual",
+            "heading": "Honiture H9",
+            "heading_size": "h4",
+            "button_text": "Download",
+            "button_link": "",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_AMxqmn",
+        "media_U6hAnp",
+        "media_jX7rWT",
+        "media_cCpgYe",
+        "media_QnCdJX",
+        "media_6xYBNA"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_337G3L": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_CTiaDm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture_V8_Pro__2.jpg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_MtJ4eC": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WdN9hH": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_taQ9qr": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_CTiaDm",
+        "column_MtJ4eC",
+        "column_WdN9hH",
+        "column_taQ9qr"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Multicolumn",
+        "marker_style": "style1",
+        "description": "<p>Add a short description for this section<\/p>",
+        "columns_desktop": 2,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "left",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "rich_text_EWCQdF",
+    "main",
+    "custom_liquid_mtWgmB",
+    "rich_text_8K7bpL",
+    "media_grid_nQUPgC",
+    "rich_text_AA6g9K",
+    "media_grid_KRzaEe",
+    "rich_text_ijykpM",
+    "media_grid_UMggib",
+    "multicolumn_337G3L"
+  ]
+}

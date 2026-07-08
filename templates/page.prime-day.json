@@ -1,0 +1,1232 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_overlay_zbpRQN": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_WDGPfn": {
+          "type": "heading",
+          "settings": {
+            "text": "Beat the Rush. Save Big Before Prime Day.",
+            "heading_size": "h2",
+            "desktop_font_size": 35,
+            "mobile_font_size": 22,
+            "heading_tag": "h2"
+          }
+        },
+        "text_apXPUk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unlock Exclusive Early Prime Day Savings Today.<\/p>",
+            "description_size": "medium"
+          }
+        },
+        "newsletter_myf6ie": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Be the First to Grab the Best Offers",
+            "placeholder": "Email Address",
+            "button_text": "SUBSCRIBE",
+            "agreement_text": "<p>I agree to the HONITURE's Privacy Policy and Terms of Service.<\/p>",
+            "btn_bg_color": "#00d0cd",
+            "btn_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WDGPfn",
+        "text_apXPUk",
+        "newsletter_myf6ie"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {.image-with-text-overlay--content-inner {height: 100%; padding-top: 50px; } .image-with-text-overlay--newsletter {display: block; position: absolute; } .image-with-text-overlay--heading {font-size: 30px; }}"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-vacuums-best-prime-day-deals.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-prime-big-deal-day.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-left",
+        "text_alignment": "left",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "sticky_nav_WEec8f": {
+      "type": "sticky-nav",
+      "blocks": {
+        "nav_item_CDVEfd": {
+          "type": "nav_item",
+          "settings": {
+            "title": "New Arrival Vacuum",
+            "target_id": "shopify-section-template--21939366854703__fd_new_arrivel_HjJAKG"
+          }
+        },
+        "nav_item_3yqymx": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Best Seller Vacuums",
+            "target_id": "shopify-section-template--21939366854703__fd_clean_essentials_94QePT"
+          }
+        },
+        "nav_item_Lm7Gtp": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Flash Sale",
+            "target_id": "shopify-section-template--21939366854703__fd_best_seller_pro_WqrH7n"
+          }
+        },
+        "nav_item_PWVxMj": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Bundle Saving",
+            "target_id": "shopify-section-template--21939366854703__sp_grab_both_8hRyB9"
+          }
+        },
+        "nav_item_RYpi8d": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Accessory Deal",
+            "target_id": "shopify-section-template--21939366854703__common_acc_tab_XAbzB8"
+          }
+        }
+      },
+      "block_order": [
+        "nav_item_CDVEfd",
+        "nav_item_3yqymx",
+        "nav_item_Lm7Gtp",
+        "nav_item_PWVxMj",
+        "nav_item_RYpi8d"
+      ],
+      "custom_css": [],
+      "name": "Sticky Navigation",
+      "settings": {
+        "enable_sticky": true,
+        "top_position": 55,
+        "top_position_mobile": 40,
+        "background": "#ffffff",
+        "text_color": "#333333",
+        "active_background": "#fba441",
+        "active_text_color": "#ffffff",
+        "hide_on_mobile": false
+      }
+    },
+    "md_offer_subscribe_QxmjPw": {
+      "type": "md-offer-subscribe",
+      "blocks": {
+        "decoration_jAQqCW": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_1_1.png",
+            "top": 10,
+            "left": 10,
+            "width": 100,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "hide_on_pc": false,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_z_index": 1,
+            "mobile_rotation": 0,
+            "top_offset": 0,
+            "left_offset": 0
+          }
+        },
+        "header_ABBMUC": {
+          "type": "header",
+          "settings": {
+            "title": "Exclusive Offers Only Available in Official",
+            "title_color": "#6c5a48",
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "sub_heading": "",
+            "show_sub_heading": true,
+            "sub_heading_color": "#ffffff",
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#ffffff",
+            "view_more_border_color": "#ffffff",
+            "show_title_icons": false,
+            "title_icon_mirror_right": true,
+            "title_icon_size": 40,
+            "title_icon_size_mobile": 32,
+            "margin_bottom": 50
+          }
+        },
+        "offer_main_GJ6JHx": {
+          "type": "offer_main",
+          "settings": {
+            "title": "Perfect Gifts for Mom",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/33_1_1.webp",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_main_H4Npje": {
+          "type": "offer_main",
+          "settings": {
+            "title": "More Value in Bundle",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/Group_231.webp",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_side_cKEgVb": {
+          "type": "offer_side",
+          "settings": {
+            "title": "Early Bird Savings",
+            "sub_title": "",
+            "icon": "shopify:\/\/shop_images\/honiture_sale_icon_5.png",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_side_mNQt9C": {
+          "type": "offer_side",
+          "settings": {
+            "title": "Limited-Time Offers",
+            "sub_title": "",
+            "icon": "shopify:\/\/shop_images\/honiture_sale_icon_6.png",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_side_tVDziA": {
+          "type": "offer_side",
+          "settings": {
+            "title": "Extra Rewards Await",
+            "sub_title": "",
+            "icon": "shopify:\/\/shop_images\/honiture_sale_icon_8.png",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "coupon_UxMwLx": {
+          "type": "coupon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_212.webp",
+            "caption": "Spend $200 — Get $15 back",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "coupon_tBReYH": {
+          "type": "coupon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_210.png",
+            "caption": "Spend $300 → Get $25 back",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        }
+      },
+      "block_order": [
+        "decoration_jAQqCW",
+        "header_ABBMUC",
+        "offer_main_GJ6JHx",
+        "offer_main_H4Npje",
+        "offer_side_cKEgVb",
+        "offer_side_mNQt9C",
+        "offer_side_tVDziA",
+        "coupon_UxMwLx",
+        "coupon_tBReYH"
+      ],
+      "disabled": true,
+      "name": "MD Offer Subscribe",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "content_max_width": 1200,
+        "section_bg": "",
+        "card_bg": "",
+        "text_color": "#2b2420",
+        "button_bg": "#00bfb8",
+        "button_text_color": "#ffffff",
+        "border_color": "#2b2420",
+        "card_radius": 14,
+        "grid_gap": 16,
+        "offer_media_height": 260,
+        "card_title_size": 16,
+        "card_title_size_mobile": 12,
+        "card_sub_title_size": 12,
+        "card_sub_title_size_mobile": 11,
+        "activity_id": "16",
+        "is_test": false,
+        "discount_title": "Spend & Get Rewards",
+        "discount_placeholder": "Email Address",
+        "discount_button_label": "Claim Now",
+        "discount_success_label": "Submitted successfully",
+        "discount_success_message": "Thanks for your order! Gift card will be sent by email after review.",
+        "discount_desc": "After placing your order, enter your order number to claim. The reward will be credited to your account as a gift card within 2 business days, with no restrictions on use."
+      }
+    },
+    "fd_coupon_KyQijL": {
+      "type": "fd-coupon",
+      "blocks": {
+        "header_immUd4": {
+          "type": "header",
+          "settings": {
+            "title": "Why Shop Before Prime Day?",
+            "sub_heading": "",
+            "show_sub_heading": true,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "show_title_icons": true,
+            "title_icon": "shopify:\/\/shop_images\/image_238.png",
+            "title_icon_size": 76,
+            "title_icon_size_mobile": 52,
+            "title_icon_mirror_right": false,
+            "title_color": "#232323",
+            "title_size": 35,
+            "title_size_mobile": 20,
+            "sub_heading_color": "#232323",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 14,
+            "text_align": "center",
+            "margin_bottom": 20,
+            "view_more_color": "#232323",
+            "view_more_border_color": "#232323"
+          }
+        },
+        "promo_3Jc7nk": {
+          "type": "promo",
+          "settings": {
+            "product": "",
+            "title": "Claim Limited Gifts",
+            "description": "BOGO Free Accessory Kit on Selected Models.",
+            "image": "shopify:\/\/shop_images\/Group_1739332491.png",
+            "mobile_image": "shopify:\/\/shop_images\/Group_1739332491.png",
+            "link": ""
+          }
+        },
+        "promo_Tfymbt": {
+          "type": "promo",
+          "settings": {
+            "product": "",
+            "title": "Get Prime Day Pricing Early",
+            "description": "Enjoy savings of up to 77% without waiting for Prime Day.",
+            "image": "shopify:\/\/shop_images\/Group_261.webp",
+            "link": ""
+          }
+        },
+        "feature_ezqDNy": {
+          "type": "feature",
+          "settings": {
+            "title": "Installment Payments",
+            "icon": "money",
+            "image": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_11.png"
+          }
+        },
+        "feature_GnUbpx": {
+          "type": "feature",
+          "settings": {
+            "title": "Extra Rewards Await",
+            "icon": "percent",
+            "image": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_1.png"
+          }
+        },
+        "feature_GWphVD": {
+          "type": "feature",
+          "settings": {
+            "title": "Limited-Time Offers",
+            "icon": "gift",
+            "image": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_12.png"
+          }
+        }
+      },
+      "block_order": [
+        "header_immUd4",
+        "promo_3Jc7nk",
+        "promo_Tfymbt",
+        "feature_ezqDNy",
+        "feature_GnUbpx",
+        "feature_GWphVD"
+      ],
+      "name": "FD Coupon",
+      "settings": {
+        "content_width": 1080,
+        "padding_top": 40,
+        "padding_bottom": 64,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 32,
+        "card_radius": 8,
+        "background_color": "#fef6f0",
+        "card_background": "#ffffff",
+        "text_color": "#232323",
+        "accent_color": "#32aee1",
+        "line_color": "#315383",
+        "coupon_heading": "Perfect Gifts",
+        "features_label": "Coupon benefits"
+      }
+    },
+    "fd_new_arrivel_HjJAKG": {
+      "type": "fd-new-arrivel",
+      "blocks": {
+        "decoration_jnCp8G": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_7.png",
+            "top": 26,
+            "left": -5,
+            "top_offset": -40,
+            "left_offset": 0,
+            "width": 160,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "hide_on_pc": false,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_z_index": 1,
+            "mobile_rotation": 0
+          }
+        },
+        "header_wCjzzP": {
+          "type": "header",
+          "settings": {
+            "title": "Meet the 2026 Flagship Floor Washer",
+            "sub_heading": "Zero tangles. Zero hassle. The Next-generation wet dry vacuum!",
+            "show_sub_heading": true,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#ffffff",
+            "view_more_border_color": "#ffffff",
+            "show_title_icons": true,
+            "title_icon": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_9.png",
+            "title_icon_size": 50,
+            "title_icon_size_mobile": 32,
+            "title_icon_mirror_right": false,
+            "text_align": "center",
+            "margin_bottom": 50,
+            "title_color": "#ffffff",
+            "title_size": 35,
+            "title_size_mobile": 20,
+            "sub_heading_color": "#ffffff",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 14
+          }
+        },
+        "feature_NnJLBD": {
+          "type": "feature",
+          "settings": {
+            "icon": "spark",
+            "pc_title": "Effortless Cleaning",
+            "pc_text": "Self-Propelled & Smart Modes",
+            "mobile_title": "Effortless Cleaning",
+            "mobile_text": ""
+          }
+        },
+        "feature_qNNk9h": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "pc_title": "No More Odors",
+            "pc_text": "Self-Cleaning & Full-System Drying",
+            "mobile_title": "No More Odors",
+            "mobile_text": ""
+          }
+        },
+        "feature_ww3BUx": {
+          "type": "feature",
+          "settings": {
+            "icon": "wave",
+            "pc_title": "No More Tangles",
+            "pc_text": "Anti-Tangle Comb Scraper",
+            "mobile_title": "No More Tangles",
+            "mobile_text": ""
+          }
+        },
+        "feature_rB8NCA": {
+          "type": "feature",
+          "settings": {
+            "icon": "clean",
+            "pc_title": "Powerful Wet & Dry Cleaning",
+            "pc_text": "One-Pass Pickup for Everyday Messes",
+            "mobile_title": "Powerful Wet & Dry Cleaning",
+            "mobile_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "decoration_jnCp8G",
+        "header_wCjzzP",
+        "feature_NnJLBD",
+        "feature_qNNk9h",
+        "feature_ww3BUx",
+        "feature_rB8NCA"
+      ],
+      "name": "FD New Arrivel",
+      "settings": {
+        "product": "m7-wet-dry-vacuum",
+        "variant_id": "",
+        "background_image": "shopify:\/\/shop_images\/honiture-wet-dry-vacuum-cleaner-m7-2026-new-arrival_1.webp",
+        "mobile_background_image": "shopify:\/\/shop_images\/Mask_group_32.webp",
+        "background_color": "#fef6f0",
+        "title": "Honiture M7 Wet & Dry Vacuum Cleaner",
+        "card_link": "",
+        "discount_badge": "shopify:\/\/shop_images\/Group_321_1.png",
+        "discount_badge_alt": "",
+        "discount_badge_text": "",
+        "coupon_image": "shopify:\/\/shop_images\/Group_1739332517_1.png",
+        "coupon_code": "",
+        "coupon_fallback_text": "Early Bird 10% OFF: M7EBD10",
+        "coupon_claim_text": "Claim",
+        "copy_aria_label": "Copy discount code",
+        "copied_text": "copied",
+        "price_text": "",
+        "extra_discount_percent": 0,
+        "compare_price_text": "",
+        "add_to_cart_label": "",
+        "shop_now_label": "Learn More",
+        "cart_url": "",
+        "checkout_url": "shopify:\/\/products\/m7-wet-dry-vacuum",
+        "content_width": 1160,
+        "desktop_height": 520,
+        "card_radius": 6,
+        "card_shadow": "0 6px 24px rgba(0,0,0,.18)",
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "discount_badge_width": 144,
+        "title_size": 27,
+        "feature_icon_size": 34,
+        "feature_title_size": 14,
+        "feature_text_size": 12,
+        "coupon_width": 324,
+        "divider_width": 410,
+        "price_size": 30,
+        "compare_size": 14,
+        "button_width": 188,
+        "button_height": 48,
+        "button_text_size": 15,
+        "mobile_height": 630,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20,
+        "mobile_side_padding": 16,
+        "mobile_background_position": "center top",
+        "mobile_content_align": "flex-end",
+        "mobile_text_align": "right",
+        "mobile_discount_badge_width": 122,
+        "mobile_title_width": 276,
+        "mobile_title_size": 21,
+        "mobile_feature_top_gap": 210,
+        "mobile_feature_icon_size": 34,
+        "mobile_feature_title_size": 13,
+        "mobile_feature_text_size": 9,
+        "mobile_button_width": 142,
+        "mobile_button_height": 38,
+        "mobile_button_text_size": 11,
+        "mobile_price_size": 26,
+        "mobile_compare_size": 14,
+        "text_color": "#ffffff",
+        "accent_color": "#05cdd1",
+        "shop_button_text_color": "#ffffff",
+        "line_color": "#555555"
+      }
+    },
+    "fd_clean_essentials_94QePT": {
+      "type": "fd-clean-essentials",
+      "blocks": {
+        "decoration_eVeNNk": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_7.png",
+            "top": 10,
+            "left": 85,
+            "top_offset": 200,
+            "left_offset": 0,
+            "width": 140,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "hide_on_pc": false,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_z_index": 1,
+            "mobile_rotation": 0
+          }
+        },
+        "header_apNPKx": {
+          "type": "header",
+          "settings": {
+            "title": "Top Picks for Prime Day Savings",
+            "sub_heading": "Discover the best-value vacuums for every home this prime day.",
+            "show_sub_heading": true,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "text_align": "center",
+            "title_color": "#2b2f33",
+            "title_size": 35,
+            "title_size_mobile": 20,
+            "sub_heading_color": "#666666",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 13,
+            "margin_bottom": 34,
+            "show_title_icons": true,
+            "title_icon": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_10.png",
+            "title_icon_size": 50,
+            "title_icon_size_mobile": 22,
+            "title_icon_mirror_right": true,
+            "view_more_color": "#2b2f33",
+            "view_more_border_color": "#2b2f33"
+          }
+        },
+        "card_zydFTR": {
+          "type": "card",
+          "settings": {
+            "tab_key": "tab_1",
+            "product": "x7",
+            "image": "shopify:\/\/shop_images\/honiture-vacuum-x7-cordless.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-father-s-day-best-sell-vacuum-cleaner_1.jpg",
+            "badge_text": "",
+            "badge_background_image": "shopify:\/\/shop_images\/Group_274_1b0fa537-04d2-4a9b-b746-525a01ff89b8.png",
+            "title": "Honiture X7 Cordless Vacuum",
+            "description": "✨Powerful Suction\n✨Multiple Surfaces\n✨Lightweight to handle\n\nExtra 10% Off & Free Gifts!",
+            "coupon_image": "shopify:\/\/shop_images\/Group_1739332514.jpg",
+            "coupon_code": "FATHER10",
+            "price": "",
+            "extra_discount_percent": 0,
+            "show_add_to_cart": false,
+            "show_shop_now": true,
+            "add_to_cart_label": "",
+            "shop_now_label": "Learn More",
+            "shop_now_link": "shopify:\/\/products\/x7"
+          }
+        },
+        "card_iGjJNa": {
+          "type": "card",
+          "settings": {
+            "tab_key": "tab_1",
+            "product": "p7-pro-cordless-vacuum",
+            "image": "shopify:\/\/shop_images\/honitrue-p7-pro-cordless-vacuum.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-father-s-day-best-sell-vacuum-cleaner_2.jpg",
+            "badge_text": "",
+            "badge_background_image": "shopify:\/\/shop_images\/Group_274_1b0fa537-04d2-4a9b-b746-525a01ff89b8.png",
+            "title": "Honiture P7 Pro Cordless Vacuum",
+            "description": "✨Strong performance\n✨Longer runtime\n✨Dual-Fragrance Design\n\nExtra 10% Off & Free Gifts!",
+            "coupon_image": "shopify:\/\/shop_images\/Group_1739332514.jpg",
+            "coupon_code": "",
+            "price": "",
+            "extra_discount_percent": 0,
+            "show_add_to_cart": false,
+            "show_shop_now": true,
+            "add_to_cart_label": "",
+            "shop_now_label": "Learn More",
+            "shop_now_link": "shopify:\/\/products\/p7-pro-cordless-vacuum"
+          }
+        },
+        "card_NUwwXG": {
+          "type": "card",
+          "settings": {
+            "tab_key": "tab_2",
+            "product": "honiture-t10-robot-vacuum",
+            "image": "shopify:\/\/shop_images\/honiture-t10-robotic-vacum-cleaner.jpg",
+            "badge_text": "57%",
+            "badge_background_image": "shopify:\/\/shop_images\/Group_274_1b0fa537-04d2-4a9b-b746-525a01ff89b8.png",
+            "title": "",
+            "description": "✨3-in-1 Cleaning\n✨Radar Monitoring\n✨Slim Design, Big Reach",
+            "coupon_image": "shopify:\/\/shop_images\/Group_1739332510.png",
+            "coupon_code": "",
+            "price": "",
+            "extra_discount_percent": 15,
+            "show_add_to_cart": true,
+            "show_shop_now": true,
+            "add_to_cart_label": "",
+            "shop_now_label": "",
+            "shop_now_link": ""
+          }
+        },
+        "card_UwLYVp": {
+          "type": "card",
+          "settings": {
+            "tab_key": "tab_2",
+            "product": "honiture-robot-vacuum-cleaner-g20pro",
+            "image": "shopify:\/\/shop_images\/honiture-g20-pro-robotic-vacuum.jpg",
+            "badge_text": "58%",
+            "badge_background_image": "shopify:\/\/shop_images\/Group_274_1b0fa537-04d2-4a9b-b746-525a01ff89b8.png",
+            "title": "",
+            "description": "✨3-in-1 Cleaning\n✨App & Voice Control\n✨Powerful Suction",
+            "coupon_image": "shopify:\/\/shop_images\/Group_1739332511.jpg",
+            "coupon_code": "",
+            "price": "",
+            "extra_discount_percent": 10,
+            "show_add_to_cart": true,
+            "show_shop_now": true,
+            "add_to_cart_label": "",
+            "shop_now_label": "",
+            "shop_now_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "decoration_eVeNNk",
+        "header_apNPKx",
+        "card_zydFTR",
+        "card_iGjJNa",
+        "card_NUwwXG",
+        "card_UwLYVp"
+      ],
+      "name": "FD Clean Essentials",
+      "settings": {
+        "tab_1_label": "Cordless Vacuums",
+        "tab_2_label": "Robot Vacuums",
+        "padding_top": 54,
+        "padding_bottom": 54,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 34,
+        "content_max_width": 1160,
+        "image_column_width": 55,
+        "section_bg": "#FEF6F0",
+        "card_bg": "#ffffff",
+        "text_color": "#2b2f33",
+        "muted_color": "#666666",
+        "primary_color": "#174b7f",
+        "accent_color": "#00c7c7",
+        "badge_color": "#00a7d9",
+        "add_to_cart_label": "Add to Cart",
+        "shop_now_label": "Shop Now"
+      }
+    },
+    "fd_best_seller_pro_WqrH7n": {
+      "type": "fd-best-seller-pro",
+      "blocks": {
+        "count_down_zbFTV3": {
+          "type": "count-down",
+          "settings": {
+            "end_date": "2026-06-22 15:00:00",
+            "heading": "",
+            "message": "",
+            "hide_on_complete": false,
+            "show_days": true,
+            "show_hours": true,
+            "show_minutes": true,
+            "show_seconds": true,
+            "style": "modern",
+            "text_alignment": "center",
+            "numbers_size": "large",
+            "labels_size": "small",
+            "background_color": "rgba(0,0,0,0)",
+            "heading_color": "#2b2420",
+            "numbers_color": "#ffffff",
+            "numbers_background": "#11b6d7",
+            "numbers_background_gradient": "",
+            "labels_color": "#2b2420",
+            "message_color": "#ff3d00",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "large_card_E7JHLX": {
+          "type": "large_card",
+          "settings": {
+            "product": "pet-version-cordless-vacuum-x7",
+            "image": "shopify:\/\/shop_images\/honiture-vacuum-x7-pet-version.webp",
+            "layout_direction": "left",
+            "discount_bg": "shopify:\/\/shop_images\/Group_1739332507_1.png",
+            "discount_text": "",
+            "badge_text_nowrap": false,
+            "badge_top": -20,
+            "badge_left": 14,
+            "badge_top_mobile": 10,
+            "badge_left_mobile": 10,
+            "badge_text_rotate": -14,
+            "title": "",
+            "description": "<p>✅ Powerful Pet Hair Removal, Clean Smarter Every Day<br\/>✅ Tangle-Free Cleaning, Less Maintenance Needed<br\/>✅ Groom & Vacuum in One Step, Less Fur Around the Home<br\/>✅ HEPA Filtration System, Breathe Cleaner Air<\/p>",
+            "description_image": "shopify:\/\/shop_images\/Group_1739332512_1.png",
+            "description_image_align": "left",
+            "description_image_width": 500,
+            "description_image_width_mobile": 300,
+            "show_progress_bar": true,
+            "progress_start_time": "2026-6-17 00:00:00",
+            "progress_end_time": "2026-6-22 23:59:59",
+            "progress_bezier": "0.42,0,1,1",
+            "progress_label": "Sold",
+            "progress_min_percent": 8,
+            "progress_fallback_percent": 98,
+            "coupon_code": "",
+            "price": "",
+            "extra_discount": 10,
+            "show_add_button": false,
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "count_down_zbFTV3",
+        "large_card_E7JHLX"
+      ],
+      "name": "FD Best Seller Pro",
+      "settings": {
+        "title": "Early Prime Day Flash Deals",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_2.png",
+        "title_icon_size": 50,
+        "title_icon_size_mobile": 30,
+        "title_icon_mirror_right": true,
+        "sub_heading": "Celebrate a fresher, cleaner home.",
+        "view_more_link": "",
+        "view_more_label": "View More",
+        "title_color": "#191919",
+        "sub_heading_color": "#5c6470",
+        "show_header_divider": false,
+        "header_divider_color": "#ffffff",
+        "line_position_top": 90,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 38,
+        "bg_color": "#fef6f0",
+        "primary_color": "#10b7d7",
+        "description_image_width": 220,
+        "description_image_width_mobile": 180
+      }
+    },
+    "sp_grab_both_8hRyB9": {
+      "type": "sp-grab-both",
+      "blocks": {
+        "decoration_x7UJra": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_238.png",
+            "top": 30,
+            "left": -5,
+            "width": 140,
+            "z_index": 1,
+            "hide_on_mobile": true,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_rotation": 0
+          }
+        },
+        "bundle_block_qfVwtV": {
+          "type": "bundle_block",
+          "settings": {
+            "t1_label": "P7 Pro Bundle",
+            "t1_product": "p7-pro-cordless-vacuum",
+            "t1_title": "P7 Pro Deep Clean Bundle",
+            "t1_desc": "<ul><li>Perfect for a deeper clean<\/li><li>Extended Runtime<\/li><li>50kPa Powerful Suction<br\/><br\/><\/li><\/ul>",
+            "t1_acc1": "battery-replacement-for-honiture-p7-pro",
+            "t1_acc1_id": "",
+            "t1_acc1_title": "",
+            "t1_acc2": "roller-brush-for-honiture-p7-pro",
+            "t1_acc2_id": "",
+            "t1_acc2_title": "",
+            "t1_discount": 0,
+            "t1_price_total": "25999",
+            "t1_price_compare": "50997",
+            "t1_save_text": "You save $249.98",
+            "t1_btn_text": "Buy Now",
+            "t1_btn_link": "shopify:\/\/products\/honiture-p7-pro-cordless-vacuum-cleaning-bundle",
+            "t2_label": "X7 Bundle",
+            "t2_product": "x7",
+            "t2_title": "X7 Deep Clean Bundle",
+            "t2_desc": "<ul><li>Perfect for a deeper clean<\/li><li>Extended Runtime<\/li><li>Multi-Surface Cleaning<\/li><\/ul>",
+            "t2_acc1": "honiture-x7-replacement-battery",
+            "t2_acc1_id": "",
+            "t2_acc1_title": "",
+            "t2_acc2": "honiture-x7-roller-brush",
+            "t2_acc2_id": "",
+            "t2_acc2_title": "",
+            "t2_discount": 0,
+            "t2_price_total": "23999",
+            "t2_price_compare": "47997",
+            "t2_save_text": "You save $239.98",
+            "t2_btn_text": "Buy Now",
+            "t2_btn_link": "shopify:\/\/products\/honiture-x7-cordless-vacuum-cleaning-bundle",
+            "t3_label": "",
+            "t3_product": "",
+            "t3_title": "",
+            "t3_desc": "",
+            "t3_acc1": "",
+            "t3_acc1_id": "",
+            "t3_acc1_title": "",
+            "t3_acc2": "",
+            "t3_acc2_id": "",
+            "t3_acc2_title": "",
+            "t3_discount": 0,
+            "t3_price_total": "",
+            "t3_price_compare": "",
+            "t3_save_text": "",
+            "t3_btn_text": "Buy Now",
+            "t3_btn_link": "",
+            "t4_label": "",
+            "t4_product": "",
+            "t4_title": "",
+            "t4_desc": "",
+            "t4_acc1": "",
+            "t4_acc1_id": "",
+            "t4_acc1_title": "",
+            "t4_acc2": "",
+            "t4_acc2_id": "",
+            "t4_acc2_title": "",
+            "t4_discount": 0,
+            "t4_price_total": "",
+            "t4_price_compare": "",
+            "t4_save_text": "",
+            "t4_btn_text": "Buy Now",
+            "t4_btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "decoration_x7UJra",
+        "bundle_block_qfVwtV"
+      ],
+      "name": "SP Grab Both",
+      "settings": {
+        "title": "Grab Both & Save More",
+        "sub_heading": "Choose the right bundle for your cleaning needs and save big",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_1.png",
+        "title_icon_size": 40,
+        "title_icon_size_mobile": 30,
+        "title_icon_mirror_right": true,
+        "bg_color": "#fef6f0",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "tab_active_background": "#153F6E",
+        "tab_active_text_color": "#ffffff",
+        "acc_item_background": "linear-gradient(268deg, rgba(75, 199, 213, 1), rgba(36, 94, 159, 1) 97%)",
+        "plus_background": "#153F6E",
+        "save_text_color": "#153f6e"
+      }
+    },
+    "fd_best_seller_pro_8MwEbF": {
+      "type": "fd-best-seller-pro",
+      "blocks": {
+        "decoration_UR9PmD": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_7.png",
+            "top": 40,
+            "left": -5,
+            "top_offset": 0,
+            "left_offset": 0,
+            "width": 160,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "hide_on_pc": false,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_z_index": 1,
+            "mobile_rotation": 0
+          }
+        },
+        "count_down_wmY4gt": {
+          "type": "count-down",
+          "disabled": true,
+          "settings": {
+            "end_date": "2026-12-31 23:59:59",
+            "heading": "",
+            "message": "",
+            "hide_on_complete": false,
+            "show_days": true,
+            "show_hours": true,
+            "show_minutes": true,
+            "show_seconds": true,
+            "style": "modern",
+            "text_alignment": "center",
+            "numbers_size": "large",
+            "labels_size": "small",
+            "background_color": "rgba(0,0,0,0)",
+            "heading_color": "#2b2420",
+            "numbers_color": "#ffffff",
+            "numbers_background": "#11b6d7",
+            "numbers_background_gradient": "",
+            "labels_color": "#2b2420",
+            "message_color": "#ff3d00",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "large_card_hN73Li": {
+          "type": "large_card",
+          "settings": {
+            "product": "honiture-ultimate-whole-home-cleaning-bundle",
+            "image": "shopify:\/\/shop_images\/honiture-vacuums-father-s-day-sale.webp",
+            "layout_direction": "right",
+            "discount_bg": "shopify:\/\/shop_images\/Group_274_1b0fa537-04d2-4a9b-b746-525a01ff89b8.png",
+            "discount_text": "40%",
+            "badge_text_nowrap": false,
+            "badge_top": -8,
+            "badge_left": 24,
+            "badge_top_mobile": -2,
+            "badge_left_mobile": 10,
+            "badge_text_rotate": -14,
+            "title": "",
+            "description": "<p>⭐Honiture M7 Wet Dry Vacuum + P7 Pro Vacuum + T10 Robot Vacuum Total Cleaning Set.<\/p><p>⭐Everything you need for a spotless home in one bundle.<\/p>",
+            "description_image": "shopify:\/\/shop_images\/honiture-father-s-day-sale_2.jpg",
+            "description_image_align": "left",
+            "description_image_width": 500,
+            "description_image_width_mobile": 290,
+            "show_progress_bar": false,
+            "progress_start_time": "2026-12-01 00:00:00",
+            "progress_end_time": "2026-12-31 23:59:59",
+            "progress_bezier": "0,0,1,1",
+            "progress_label": "Sold",
+            "progress_min_percent": 2,
+            "progress_fallback_percent": 75,
+            "coupon_code": "",
+            "price": "",
+            "extra_discount": 0,
+            "show_add_button": true,
+            "btn_link": ""
+          }
+        },
+        "large_card_EQnYdp": {
+          "type": "large_card",
+          "settings": {
+            "product": "honiture-ultimate-pet-home-cleaning-bundle",
+            "image": "shopify:\/\/shop_images\/honiture-x7-pet-vacuum.webp",
+            "layout_direction": "left",
+            "discount_bg": "shopify:\/\/shop_images\/Group_274_1b0fa537-04d2-4a9b-b746-525a01ff89b8.png",
+            "discount_text": "44%",
+            "badge_text_nowrap": false,
+            "badge_top": -10,
+            "badge_left": 14,
+            "badge_top_mobile": -2,
+            "badge_left_mobile": 10,
+            "badge_text_rotate": -14,
+            "title": "",
+            "description": "<p>⭐Honiture M7 Wet Dry Vacuum + X7 PET Vacuum + G20 PRO Robot Vacuum Total Cleaning Set.<\/p><p>⭐Perfect for Pet Homes. Keeps home fresh and clean. <\/p>",
+            "description_image": "shopify:\/\/shop_images\/honiture-father-s-day-sale_3.jpg",
+            "description_image_align": "left",
+            "description_image_width": 500,
+            "description_image_width_mobile": 300,
+            "show_progress_bar": false,
+            "progress_start_time": "2026-12-01 00:00:00",
+            "progress_end_time": "2026-12-31 23:59:59",
+            "progress_bezier": "0,0,1,1",
+            "progress_label": "Sold",
+            "progress_min_percent": 2,
+            "progress_fallback_percent": 75,
+            "coupon_code": "",
+            "price": "",
+            "extra_discount": 0,
+            "show_add_button": true,
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "decoration_UR9PmD",
+        "count_down_wmY4gt",
+        "large_card_hN73Li",
+        "large_card_EQnYdp"
+      ],
+      "name": "FD Best Seller Pro",
+      "settings": {
+        "title": "Whole-House Cleaning Bundle",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_6.png",
+        "title_icon_size": 50,
+        "title_icon_size_mobile": 30,
+        "title_icon_mirror_right": true,
+        "sub_heading": "Save more on smart cleaning solutions before peak shopping season.",
+        "view_more_link": "",
+        "view_more_label": "View More",
+        "title_color": "#272727",
+        "sub_heading_color": "#272727",
+        "show_header_divider": false,
+        "header_divider_color": "#ffffff",
+        "line_position_top": 90,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 38,
+        "bg_color": "#fef6f0",
+        "primary_color": "#10b7d7",
+        "description_image_width": 220,
+        "description_image_width_mobile": 180
+      }
+    },
+    "common_acc_tab_XAbzB8": {
+      "type": "common-acc-tab",
+      "blocks": {
+        "top_banner_wry7A7": {
+          "type": "top_banner",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/HF_1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/Mask_group_11.jpg",
+            "title": "Tiered Discounts",
+            "title_color": "#ffffff",
+            "desktop_ratio_width": 1170,
+            "desktop_ratio_height": 350,
+            "mobile_ratio_width": 348,
+            "mobile_ratio_height": 405,
+            "left_qty": "$50",
+            "left_save": "Save 5%",
+            "right_qty": "$100",
+            "right_save": "Save 12%"
+          }
+        }
+      },
+      "block_order": [
+        "top_banner_wry7A7"
+      ],
+      "name": "Common Acc Tab",
+      "settings": {
+        "title": "Save More on Accessories",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/HONITURE-FATHER-S-DAY-ICON_11.png",
+        "title_color": "#ffffff",
+        "title_icon_size": 40,
+        "title_icon_mirror_right": false,
+        "sub_heading": "Early Prime Day Accessory Deals: Buy More, Save More!",
+        "sub_heading_color": "#ffffff",
+        "view_more_link": "shopify:\/\/collections\/accessories",
+        "view_more_label": "View More",
+        "view_more_color": "#ffffff",
+        "view_more_bg": "#153F6E",
+        "hide_tab_nav": false,
+        "tab_nav_bg": "",
+        "tab_nav_border_color": "rgba(0,0,0,0)",
+        "tab_nav_text_color": "#666666",
+        "tab_nav_active_bg": "#153F6E",
+        "tab_nav_active_text_color": "#FFFFFF",
+        "tab_1_title": "Bundle Set",
+        "tab_2_title": "HEPA Filters",
+        "tab_3_title": "Brush",
+        "tab_4_title": "Battery",
+        "tab_1_collection": "accessories-bundle",
+        "tab_2_collection": "hepa-filters",
+        "tab_3_collection": "fathers-day-brush",
+        "tab_4_collection": "fathers-day-brush-副本",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "bg_color": "#fef6f0",
+        "gift_banner_bg": "linear-gradient(0deg, rgba(228, 232, 255, 1), rgba(255, 232, 240, 1) 100%)",
+        "gift_ribbon_bg": "linear-gradient(90deg, rgba(255, 197, 216, 1), rgba(255, 110, 145, 1) 49%, rgba(255, 197, 216, 1) 100%)",
+        "badge_bg": "shopify:\/\/shop_images\/Vector_3.png",
+        "badge_suffix": "OFF",
+        "add_to_cart_label": "Add to Cart",
+        "shop_now_label": "Shop Now",
+        "add_to_cart_bg": "#ffffff",
+        "add_to_cart_text_color": "#00d0cd",
+        "add_to_cart_border_color": "#00d0cd",
+        "shop_now_bg": "#00c9b7",
+        "shop_now_text_color": "#ffffff"
+      }
+    },
+    "ny_video_gallery_7mTxFy": {
+      "type": "ny-video-gallery",
+      "blocks": {
+        "video_card_haMTBV": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/ssstik.io_@giacomo__p_1753179944487.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_Dfhpxw": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/ssstik.io_@honiture_1747299023490.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_TXnTKe": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/X7 If you’re a busy mom who’s always cleaning like me… this vacuum is a GAME CHANGER 😍🙌The suctio.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_qNqDdP": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Honiture P7 Pro Cordless Vacuum.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_card_haMTBV",
+        "video_card_Dfhpxw",
+        "video_card_TXnTKe",
+        "video_card_qNqDdP"
+      ],
+      "custom_css": [],
+      "name": "NY Video Gallery",
+      "settings": {
+        "title": "Don'T Just Take Our Word For It",
+        "sub_heading": "Trusted by customers worldwide.",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "bg_color": "#fef6f0",
+        "bg_gradient": "#FEF6F0",
+        "text_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "custom_liquid_UbN34d": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<style>\n#wrapper #main-content {\nbackground: #e8f4ff;\n}\n.xmax_section__title,.xmas-sub-heading{\ncolor:#6C5A48!important;\n}\n.template-page-mother-s-day .text-with-icons{\nbackground: #f6efe7;\n}\n@media (max-width: 768px) {\n.image-with-text-overlay{\naspect-ratio: 120 \/ 75;\npadding:0;\n}\n.image-with-text-overlay--heading{\n    text-align: center;\n    font-size: 16px;\n    margin-bottom: 0;\n}\n.description-size--medium{\ntext-align: center;\n    font-size: 10px;\n    margin-bottom: 0;\n}\n.image-with-text-overlay--content-inner{\nposition: absolute;\n    top: 0;\n}\n.image-with-text-overlay--content{padding:0;}\n}\n\n\n<\/style>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_zbpRQN",
+    "sticky_nav_WEec8f",
+    "md_offer_subscribe_QxmjPw",
+    "fd_coupon_KyQijL",
+    "fd_new_arrivel_HjJAKG",
+    "fd_clean_essentials_94QePT",
+    "fd_best_seller_pro_WqrH7n",
+    "sp_grab_both_8hRyB9",
+    "fd_best_seller_pro_8MwEbF",
+    "common_acc_tab_XAbzB8",
+    "ny_video_gallery_7mTxFy",
+    "custom_liquid_UbN34d"
+  ]
+}

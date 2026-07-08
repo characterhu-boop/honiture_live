@@ -1,0 +1,1020 @@
+{%- liquid
+  assign header_blocks = section.blocks | where: 'type', 'header'
+  assign collection_obj = section.settings.collection
+  assign per_row = section.settings.per_row | default: 3
+  assign rows_shown = 2
+  assign collapsed_limit = per_row | times: rows_shown
+  assign max_products = section.settings.max_products | default: 24
+-%}
+
+{%- style -%}
+  .md-buy-two--{{ section.id }} {
+    --mbt-bg: {{ section.settings.section_bg | default: '#f6efe7' }};
+    --mbt-text: {{ section.settings.text_color | default: '#2b2420' }};
+    --mbt-muted: rgb(43 36 32 / 0.65);
+    --mbt-max-width: {{ section.settings.content_max_width | default: 1200 }}px;
+    --mbt-card-bg: {{ section.settings.card_bg | default: '#ffffff' }};
+    --mbt-border: rgb(43 36 32 / 0.10);
+    --mbt-radius: 16px;
+    --mbt-gap: 18px;
+    --mbt-primary: #00bfb8;
+    --mbt-primary-text: #ffffff;
+    --mbt-outline: rgb(0 191 184 / 0.55);
+    --mbt-accent: #FFD7A9;
+    background: var(--mbt-bg);
+    color: var(--mbt-text);
+    padding: {{ section.settings.padding_top | default: 40 }}px 0 {{ section.settings.padding_bottom | default: 60 }}px;
+  } 
+
+  .md-buy-two--{{ section.id }} .mbt__container {
+    max-width: var(--mbt-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt__stack {
+    display: grid;
+    gap: var(--mbt-gap);
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-select {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: var(--mbt-gap);
+    align-items: stretch;
+    --mbt-select-gap: var(--mbt-gap);
+  }
+  
+  .md-buy-two--{{ section.id }} .mbt-operator {
+    position: absolute;
+    top: 50%; 
+    right: calc(var(--mbt-select-gap) * -0.5);
+    transform: translate(50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--mbt-accent);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+  .md-buy-two--{{ section.id }} .mbt-operator svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-card {
+    background: var(--mbt-card-bg);
+    border: 1px solid var(--mbt-border);
+    border-radius: var(--mbt-radius);
+    /* overflow: hidden; */
+    position: relative;
+    min-height: 160px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-card--slot {
+    display: grid;
+    place-items: center;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  
+  .md-buy-two--{{ section.id }} .mbt-slot__bg {
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 180px auto;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .md-buy-two--{{ section.id }} .mbt-card--slot [data-mbt-slot-empty],
+  .md-buy-two--{{ section.id }} .mbt-card--slot [data-mbt-slot-filled] {
+    position: relative;
+    z-index: 1;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__hint-1 {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__hint-2 {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--mbt-muted);
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__selected {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 86px 1fr;
+    gap: 12px;
+    align-items: center;
+    text-align: left;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__img {
+    width: 86px;
+    height: 86px;
+    border-radius: 14px;
+    background: rgb(0 0 0 / 0.03);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__title {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__price {
+    margin-top: 6px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #FF7272;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-card--total {
+    padding: 14px 16px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 30px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__info {
+    display: grid;
+    gap: 4px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__label {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__price {
+    display: grid;
+    justify-items: end;
+    gap: 6px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__sale {
+    font-size: 28px;
+    font-weight: 900;
+    color: #0b0b0b;
+    line-height: 1;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__compare {
+    font-size: 18px;
+        text-decoration: line-through;
+    color: rgb(43 36 32 / 0.55);
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__save {
+    font-size: 16px;
+    color: #FF7272;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-total__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    height: max-content;
+    align-self: end;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: transparent;
+    color: inherit;
+    width: 100%;
+    user-select: none;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-btn[disabled] {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-btn--outline {
+    border-color: #FFD8B1;
+    color: #E44D4D;
+    background: #ffffff;
+  }
+  .md-buy-two--{{ section.id }} .mbt-btn--fill-sn {
+    background: linear-gradient(90deg, #FFCFCF 0%, #FFD9AE 100%), linear-gradient(90deg, #FAE9C8 0%, #EFD2A0 100%), linear-gradient(0deg, #BE7F4C, #BE7F4C), #845E3C;
+    color: #E44D4D;
+  }
+  .md-buy-two--{{ section.id }} .mbt-btn--fill {
+    background: var(--mbt-primary);
+    color: var(--mbt-primary-text);
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-grid {
+    display: grid;
+    grid-template-columns: repeat({{ per_row }}, minmax(0, 1fr));
+    gap: var(--mbt-gap);
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-item {
+    background: var(--mbt-card-bg);
+    border: 1px solid var(--mbt-border);
+    border-radius: var(--mbt-radius);
+    overflow: hidden;
+    position: relative;
+    padding: 14px 14px 16px;
+    display: grid;
+    gap: 10px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-check {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-check input {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid #d1d5db;
+    background: #d1d5db;
+    display: block;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-check input:checked {
+    background: #00D0CD;
+    border-color: #00D0CD;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-check input:checked::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 9px;
+    border: 2px solid #ffffff;
+    border-top: 0;
+    border-left: 0;
+    transform: rotate(45deg);
+       margin-top: 3px;
+    margin-left: 7px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-media {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    overflow: hidden;
+    padding: 12px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    background: #00D0CD;
+    border: 1px solid #00D0CD;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-slot__remove::before {
+    content: '×';
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 900;
+    color: #ffffff;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-title {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 2.5em;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-title a {
+    color: inherit;
+    text-decoration: none;
+  } 
+ 
+  .md-buy-two--{{ section.id }} .mbt-price {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-item__btn {
+    margin-top: 6px;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-toggle {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-toggle button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid rgb(43 36 32 / 0.20);
+    background: transparent;
+    color: var(--mbt-text);
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .md-buy-two--{{ section.id }} .mbt-toggle__icon {
+    width: 10px;
+    height: 6px;
+    transition: transform 0.3s ease;
+  }
+
+  .md-buy-two--{{ section.id }} [data-mbt-list][data-collapsed="false"] + .mbt-toggle .mbt-toggle__icon {
+    transform: rotate(180deg);
+  }
+
+  .md-buy-two--{{ section.id }} [data-mbt-collapsible="true"][data-collapsed="true"] .mbt-item:nth-child(n+{{ collapsed_limit | plus: 1 }}) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .md-buy-two--{{ section.id }} {
+      padding: {{ section.settings.padding_top | default: 40 | times: 0.75 | round: 0 }}px 0 {{ section.settings.padding_bottom | default: 60 | times: 0.75 | round: 0 }}px;
+      --mbt-gap: 14px;
+      --mbt-radius: 14px;
+    }
+
+    .md-buy-two--{{ section.id }} .mbt__container {
+      padding: 0 16px;
+    }
+
+    .md-buy-two--{{ section.id }} .mbt-select {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      --mbt-select-gap: 12px;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-operator--equal {
+      display: none;
+    }
+
+    .md-buy-two--{{ section.id }} .mbt-card--total {
+      grid-column: 1 / -1;
+    }
+
+    .md-buy-two--{{ section.id }} .mbt-grid {
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - var(--mbt-gap)) / 1.1);
+      grid-template-columns: none;
+      grid-template-rows: repeat(2, 160px);
+      grid-auto-rows: 160px;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      align-content: start;
+    }
+
+    .md-buy-two--{{ section.id }} .mbt-media {
+      height: 100%;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-slot__bg {
+      background-size: 140px auto;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-slot__selected {
+      grid-template-columns: 60px 1fr;
+      grid-template-areas:
+        "img price"
+        "title title";
+      align-items: center;
+    }
+    .md-buy-two--{{ section.id }} .mbt-slot__hint-1,.md-buy-two--{{ section.id }} .mbt-slot__hint-1 .mbt-slot__hint-2{
+      font-size: 12px;
+    }
+    .md-buy-two--{{ section.id }} .mbt-slot__selected > div {
+      display: contents;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-slot__img {
+      grid-area: img;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-slot__title {
+      grid-area: title;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-slot__price {
+        grid-area: price;
+        margin-top: 0;
+        justify-self: end;
+        text-align: right;
+        font-size: 14px;
+        white-space: nowrap;
+        transform: translate(-18px, 0);
+        color: #FF7272;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-item {
+      scroll-snap-align: start;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      grid-template-rows: auto auto 1fr;
+      column-gap: 12px;
+      row-gap: 6px;
+      align-items: end;
+      padding: 12px;
+      height: 160px;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-item .mbt-media {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      width: 96px;
+      height: 100%;
+      padding: 0;
+      border-radius: 12px;
+      align-self: stretch;
+      justify-self: start;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-title {
+      grid-column: 2;
+      min-height: 0;
+      font-size: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-price {
+      grid-column: 2;
+      font-size: 16px;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-item__btn {
+      grid-column: 2;
+      margin-top: 6px;
+    }
+    
+    .md-buy-two--{{ section.id }} [data-mbt-collapsible="true"][data-collapsed="true"] .mbt-item:nth-child(n+{{ collapsed_limit | plus: 1 }}) {
+      display: grid;
+    }
+    
+    .md-buy-two--{{ section.id }} .mbt-toggle {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<section class="md-buy-two md-buy-two--{{ section.id }}">
+  <div class="mbt__container">
+    {%- for block in header_blocks -%}
+      {%- render 'xmas-section-header', section: block -%}
+    {%- endfor -%}
+
+    <div class="mbt__stack" data-mbt-root>
+      <div class="mbt-select">
+        <div class="mbt-card mbt-card--slot" data-mbt-slot="0">
+          {%- if section.settings.slot_1_bg_image != blank -%}
+            <div class="mbt-slot__bg" style="background-image: url({{ section.settings.slot_1_bg_image | image_url: width: 600 }});"></div>
+          {%- endif -%}
+          <div data-mbt-slot-empty>
+            <div class="mbt-slot__hint-1">{{ section.settings.slot_1_title | default: 'Find Your Perfect Pair' }}</div>
+            <div class="mbt-slot__hint-2">{{ section.settings.slot_1_desc | default: 'Choose an Item' }}</div>
+          </div>
+          <div data-mbt-slot-filled style="display:none;">
+            <div class="mbt-slot__selected">
+              <a class="mbt-slot__img" data-mbt-slot-link target="_blank" rel="noopener">
+                <img data-mbt-slot-img alt="" loading="lazy">
+              </a>
+              <div>
+                <div class="mbt-slot__title" data-mbt-slot-title></div>
+                <div class="mbt-slot__price" data-mbt-slot-price></div>
+              </div>
+            </div>
+          </div>
+          <button class="mbt-slot__remove" type="button" data-mbt-remove="0" aria-label="Remove" style="display:none;"></button>
+          <span class="mbt-operator mbt-operator--plus" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 5h2v14h-2z" fill="currentColor"/>
+              <path d="M5 11h14v2H5z" fill="currentColor"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="mbt-card mbt-card--slot" data-mbt-slot="1">
+          {%- if section.settings.slot_2_bg_image != blank -%}
+            <div class="mbt-slot__bg" style="background-image: url({{ section.settings.slot_2_bg_image | image_url: width: 600 }});"></div>
+          {%- endif -%}
+          <div data-mbt-slot-empty>
+            <div class="mbt-slot__hint-1">{{ section.settings.slot_2_title | default: 'Add One More for the Special Price' }}</div>
+            <div class="mbt-slot__hint-2">{{ section.settings.slot_2_desc | default: 'Complete Your Pair' }}</div>
+          </div>
+          <div data-mbt-slot-filled style="display:none;">
+            <div class="mbt-slot__selected">
+              <a class="mbt-slot__img" data-mbt-slot-link target="_blank" rel="noopener">
+                <img data-mbt-slot-img alt="" loading="lazy">
+              </a>
+              <div>
+                <div class="mbt-slot__title" data-mbt-slot-title></div>
+                <div class="mbt-slot__price" data-mbt-slot-price></div>
+              </div>
+            </div>
+          </div>
+          <button class="mbt-slot__remove" type="button" data-mbt-remove="1" aria-label="Remove" style="display:none;"></button>
+          <span class="mbt-operator mbt-operator--equal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 10h14v2H5z" fill="currentColor"/>
+              <path d="M5 14h14v2H5z" fill="currentColor"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="mbt-card mbt-card--total">
+          <div class="mbt-total__top">
+            <div class="mbt-total__info">
+              <div class="mbt-total__label">{{ section.settings.total_label | default: 'Total' }}</div>
+              <div class="mbt-total__save" data-mbt-total-save style="display:none;">{{ section.settings.save_label | default: 'Save' }} $0.00</div>
+            </div>
+            <div class="mbt-total__price">
+              <div class="mbt-total__sale" data-mbt-total-sale>$0.00</div>
+              <div class="mbt-total__compare" data-mbt-total-compare style="display:none;">$0.00</div>
+            </div>
+          </div>
+          <div class="mbt-total__actions">
+            <button class="mbt-btn mbt-btn--outline" type="button" data-mbt-add disabled>{{ section.settings.add_to_cart_label | default: 'Add to Cart' }}</button>
+            <button class="mbt-btn mbt-btn--fill-sn" type="button" data-mbt-shop disabled>{{ section.settings.shop_now_label | default: 'Shop Now' }}</button>
+          </div>
+        </div>
+      </div>
+
+      {%- if collection_obj != blank -%}
+        {%- liquid
+          assign products = collection_obj.products | limit: max_products
+          assign total_products_count = products.size
+          assign is_collapsible = false
+          if total_products_count > collapsed_limit
+            assign is_collapsible = true
+          endif
+        -%} 
+        <div class="mbt-grid" data-mbt-list data-mbt-collapsible="{% if is_collapsible %}true{% else %}false{% endif %}" data-collapsed="true">
+          {%- for p in products -%}
+            {%- liquid
+              assign v = p.selected_or_first_available_variant
+              assign img = p.featured_media
+              assign price_cents = v.price | default: 0
+              assign compare_cents = v.compare_at_price
+              if compare_cents == blank or compare_cents == 0
+                assign compare_cents = v.price
+              endif
+              assign img_url = ''
+              if img != blank
+                assign img_url = img | image_url: width: 520
+              endif
+            -%}
+            <div class="mbt-item"
+              data-mbt-item
+              data-variant-id="{{ v.id }}"
+              data-title="{{ p.title | escape }}"
+              data-url="{{ p.url }}"
+              data-img="{{ img_url }}"
+              data-price="{{ price_cents }}"
+              data-compare="{{ compare_cents }}"
+            >
+              <label class="mbt-check">
+                <input type="checkbox" data-mbt-check>
+              </label>
+
+              <a class="mbt-media" href="{{ p.url }}" target="_blank" rel="noopener">
+                {%- if img != blank -%}
+                  <img src="{{ img | image_url: width: 520 }}" alt="{{ p.title | escape }}" loading="lazy">
+                {%- endif -%}
+              </a>
+
+              <div class="mbt-title">
+                <a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a>
+              </div>
+
+              <div class="mbt-price">
+                {{ price_cents | money }}
+              </div>
+
+              <button class="mbt-btn mbt-btn--fill mbt-item__btn" type="button" data-mbt-pick>{{ section.settings.pick_label | default: 'Add to Bundle Offer' }}</button>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if is_collapsible -%}
+          <div class="mbt-toggle">
+            <button type="button" data-mbt-toggle>
+              <span data-mbt-toggle-text>{{ section.settings.show_more_label | default: 'show more' }}</span>
+              <svg class="mbt-toggle__icon" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const root = document.querySelector('.md-buy-two--{{ section.id }} [data-mbt-root]');
+    if (!root) return;
+
+    const moneyFormat = {{ shop.money_format | json }};
+    const formatMoney = (cents) => {
+      const safe = Number.isFinite(cents) ? cents : 0;
+      try {
+        if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
+          return window.Shopify.formatMoney(safe, moneyFormat);
+        }
+      } catch (e) {
+      }
+      const formatWithDelimiters = (amount, precision, thousands, decimal) => {
+        const number = Number(amount);
+        if (!Number.isFinite(number)) return '0';
+        const prec = Number.isFinite(precision) ? Math.max(0, precision) : 2;
+        const fixed = (number / 100).toFixed(prec);
+        const parts = fixed.split('.');
+        const dollars = parts[0];
+        const centsPart = parts[1] || '';
+        const rgx = /(\d)(?=(\d{3})+(?!\d))/g;
+        const withThousands = dollars.replace(rgx, '$1' + (thousands || ','));
+        if (prec === 0) return withThousands;
+        return withThousands + (decimal || '.') + centsPart;
+      };
+
+      const match = String(moneyFormat || '').match(/\{\{\s*(\w+)\s*\}\}/);
+      const placeholder = match ? match[1] : 'amount';
+      const map = {
+        amount: { precision: 2, thousands: ',', decimal: '.' },
+        amount_no_decimals: { precision: 0, thousands: ',', decimal: '.' },
+        amount_with_comma_separator: { precision: 2, thousands: '.', decimal: ',' },
+        amount_no_decimals_with_comma_separator: { precision: 0, thousands: '.', decimal: ',' },
+        amount_with_apostrophe_separator: { precision: 2, thousands: "'", decimal: '.' },
+        amount_with_space_separator: { precision: 2, thousands: ' ', decimal: ',' },
+        amount_no_decimals_with_space_separator: { precision: 0, thousands: ' ', decimal: ',' },
+        amount_with_period_and_space_separator: { precision: 2, thousands: ' ', decimal: '.' },
+        amount_no_decimals_with_period_and_space_separator: { precision: 0, thousands: ' ', decimal: '.' },
+        amount_with_comma_and_space_separator: { precision: 2, thousands: ' ', decimal: ',' },
+        amount_no_decimals_with_comma_and_space_separator: { precision: 0, thousands: ' ', decimal: ',' }
+      };
+
+      const fmt = map[placeholder] || map.amount;
+      const value = formatWithDelimiters(safe, fmt.precision, fmt.thousands, fmt.decimal);
+      return String(moneyFormat || '').replace(match ? match[0] : '{{amount}}', value);
+    };
+ 
+    const slots = Array.from(root.querySelectorAll('[data-mbt-slot]')).map((el) => {
+      const empty = el.querySelector('[data-mbt-slot-empty]');
+      const filled = el.querySelector('[data-mbt-slot-filled]');
+      const link = el.querySelector('[data-mbt-slot-link]');
+      const img = el.querySelector('[data-mbt-slot-img]');
+      const title = el.querySelector('[data-mbt-slot-title]');
+      const price = el.querySelector('[data-mbt-slot-price]');
+      const remove = el.querySelector('[data-mbt-remove]');
+      return { el, empty, filled, link, img, title, price, remove };
+    });
+
+    const totalSaleEl = root.querySelector('[data-mbt-total-sale]');
+    const totalCompareEl = root.querySelector('[data-mbt-total-compare]');
+    const totalSaveEl = root.querySelector('[data-mbt-total-save]');
+    const addBtn = root.querySelector('[data-mbt-add]');
+    const shopBtn = root.querySelector('[data-mbt-shop]');
+
+    const list = root.querySelector('[data-mbt-list]');
+    const items = list ? Array.from(list.querySelectorAll('[data-mbt-item]')) : [];
+    const toggleBtn = root.querySelector('[data-mbt-toggle]');
+    const toggleText = root.querySelector('[data-mbt-toggle-text]');
+
+    const state = {
+      selected: []
+    };
+
+    const setSlot = (slotIndex, item) => {
+      const slot = slots[slotIndex];
+      if (!slot) return;
+      if (!item) {
+        slot.filled.style.display = 'none';
+        slot.empty.style.display = '';
+        if (slot.remove) slot.remove.style.display = 'none';
+        return;
+      }
+      slot.empty.style.display = 'none';
+      slot.filled.style.display = '';
+      if (slot.remove) slot.remove.style.display = '';
+      slot.link.href = item.url;
+      slot.img.src = item.img || '';
+      slot.title.textContent = item.title || '';
+      slot.price.textContent = formatMoney(item.price);
+    };
+
+    const extraDiscountPercent = Number('{{ section.settings.extra_discount_percent | default: 0 }}');
+
+    const computeTotals = () => {
+      let sale = state.selected.reduce((sum, it) => sum + (it.price || 0), 0);
+      const compare = state.selected.reduce((sum, it) => sum + (it.compare || 0), 0);
+      
+      if (state.selected.length === 2 && extraDiscountPercent > 0) {
+        sale = Math.round(sale * (1 - extraDiscountPercent / 100));
+      }
+      
+      return { sale, compare, save: Math.max(0, compare - sale) };
+    };
+
+    const syncUI = () => {
+      setSlot(0, state.selected[0] || null);
+      setSlot(1, state.selected[1] || null);
+
+      const { sale, compare, save } = computeTotals();
+      totalSaleEl.textContent = formatMoney(sale);
+
+      if (compare > sale) {
+        totalCompareEl.style.display = '';
+        totalCompareEl.textContent = formatMoney(compare);
+        totalSaveEl.style.display = '';
+        totalSaveEl.textContent = '{{ section.settings.save_label | default: 'Save' }} ' + formatMoney(save);
+      } else {
+        totalCompareEl.style.display = 'none';
+        totalSaveEl.style.display = 'none';
+      }
+
+      const ready = state.selected.length === 2;
+      addBtn.disabled = !ready;
+      shopBtn.disabled = !ready;
+
+      items.forEach((el) => {
+        const vid = Number(el.getAttribute('data-variant-id'));
+        const checked = state.selected.some((s) => s.variantId === vid);
+        const checkbox = el.querySelector('[data-mbt-check]');
+        if (checkbox) checkbox.checked = checked;
+      });
+    };
+
+    const parseItem = (el) => {
+      return {
+        variantId: Number(el.getAttribute('data-variant-id')),
+        title: el.getAttribute('data-title') || '',
+        url: el.getAttribute('data-url') || '',
+        img: el.getAttribute('data-img') || '',
+        price: Number(el.getAttribute('data-price')) || 0,
+        compare: Number(el.getAttribute('data-compare')) || 0
+      };
+    };
+
+    const toggleSelect = (item) => {
+      const idx = state.selected.findIndex((s) => s.variantId === item.variantId);
+      if (idx >= 0) {
+        state.selected.splice(idx, 1);
+        return;
+      }
+      if (state.selected.length >= 2) {
+        state.selected.shift();
+      }
+      state.selected.push(item);
+    };
+
+    root.addEventListener('click', async (e) => {
+      const removeBtn = e.target.closest('[data-mbt-remove]');
+      if (removeBtn) {
+        const idx = Number(removeBtn.getAttribute('data-mbt-remove'));
+        if (Number.isFinite(idx) && idx >= 0) {
+          state.selected.splice(idx, 1);
+          syncUI();
+        }
+        return;
+      }
+
+      const pickBtn = e.target.closest('[data-mbt-pick]');
+      const check = e.target.closest('[data-mbt-check]');
+
+      if (pickBtn || check) {
+        const itemEl = e.target.closest('[data-mbt-item]');
+        if (!itemEl) return;
+        const item = parseItem(itemEl);
+        toggleSelect(item);
+        syncUI();
+        return;
+      }
+
+      const toggle = e.target.closest('[data-mbt-toggle]');
+      if (toggle && list) {
+        const collapsed = list.getAttribute('data-collapsed') === 'true';
+        list.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+        if (toggleText) {
+          toggleText.textContent = collapsed
+            ? '{{ section.settings.show_less_label | default: 'show less' }}'
+            : '{{ section.settings.show_more_label | default: 'show more' }}';
+        }
+        return;
+      }
+
+      const add = e.target.closest('[data-mbt-add]');
+      const shop = e.target.closest('[data-mbt-shop]');
+      if (!add && !shop) return;
+      if (state.selected.length !== 2) return;
+
+      const btn = add || shop;
+      btn.disabled = true;
+      try {
+        const itemsPayload = state.selected.map((it) => ({ id: it.variantId, quantity: 1 }));
+        const res = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ items: itemsPayload })
+        });
+        if (!res.ok) throw new Error('add_failed');
+        window.location.href = add ? '/cart' : '/checkout';
+      } catch (err) {
+        window.alert('Add to cart failed. Please try again.');
+        btn.disabled = false;
+      }
+    });
+
+    syncUI();
+  })();
+</script>
+
+{% render 'section-decorations', section: section %}
+
+{% schema %}
+{
+  "name": "MD Buy Two",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Padding top", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Padding bottom", "default": 60 },
+    { "type": "range", "id": "content_max_width", "min": 960, "max": 1600, "step": 20, "unit": "px", "label": "Content max width", "default": 1200 },
+    { "type": "color_background", "id": "section_bg", "label": "Section background", "default": "#f6efe7" },
+    { "type": "color_background", "id": "card_bg", "label": "Card background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b2420" },
+
+    { "type": "header", "content": "Selection area" },
+    { "type": "text", "id": "slot_1_title", "label": "Slot 1 title", "default": "Find Your Perfect Pair" },
+    { "type": "text", "id": "slot_1_desc", "label": "Slot 1 description", "default": "Choose an Item" },
+    { "type": "image_picker", "id": "slot_1_bg_image", "label": "Slot 1 background image" },
+    { "type": "text", "id": "slot_2_title", "label": "Slot 2 title", "default": "Add One More for the Special Price" },
+    { "type": "text", "id": "slot_2_desc", "label": "Slot 2 description", "default": "Complete Your Pair" },
+    { "type": "image_picker", "id": "slot_2_bg_image", "label": "Slot 2 background image" },
+    { "type": "text", "id": "total_label", "label": "Total label", "default": "Total" },
+    { "type": "text", "id": "save_label", "label": "Save label", "default": "Save" },
+    { "type": "text", "id": "add_to_cart_label", "label": "Add to cart label", "default": "Add to Cart" },
+    { "type": "text", "id": "shop_now_label", "label": "Shop now label", "default": "Shop Now" },
+
+    { "type": "header", "content": "Product list" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "per_row", "min": 2, "max": 5, "step": 0.2, "label": "Products per row (desktop)", "default": 3 },
+    { "type": "range", "id": "per_row_mobile", "min": 1, "max": 3, "step": 0.2, "label": "Products per row (mobile)", "default": 2 },
+    { "type": "range", "id": "max_products", "min": 6, "max": 60, "step": 1, "label": "Max products", "default": 24 },
+    { "type": "text", "id": "pick_label", "label": "Pick button label", "default": "Add to Bundle Offer" },
+    { "type": "text", "id": "show_more_label", "label": "Show more label", "default": "show more" }, 
+    { "type": "text", "id": "show_less_label", "label": "Show less label", "default": "show less" },
+    { "type": "range", "id": "extra_discount_percent", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Extra discount percentage (for 2 products)", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Header",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Section Title", "default": "Buy 2 for a Special Rate" },
+        { "type": "color", "id": "title_color", "label": "Title Color", "default": "#2b2420" },
+        { "type": "range", "id": "title_size", "label": "Title Size (PC)", "min": 16, "max": 80, "step": 2, "unit": "px", "default": 36 },
+        { "type": "range", "id": "title_size_mobile", "label": "Title Size (Mobile)", "min": 12, "max": 60, "step": 2, "unit": "px", "default": 24 },
+        { "type": "textarea", "id": "sub_heading", "label": "Sub heading", "default": "Pair up and save. This offer is only valid for items in this section." },
+        { "type": "checkbox", "id": "show_sub_heading", "label": "Show Sub Heading", "default": true },
+        { "type": "color", "id": "sub_heading_color", "label": "Sub Heading Color", "default": "#2b2420" },
+        { "type": "range", "id": "sub_heading_size", "label": "Sub Heading Size (PC)", "min": 12, "max": 40, "step": 1, "unit": "px", "default": 18 },
+        { "type": "range", "id": "sub_heading_size_mobile", "label": "Sub Heading Size (Mobile)", "min": 10, "max": 30, "step": 1, "unit": "px", "default": 14 },
+        { "type": "text", "id": "view_more_label", "label": "View more label", "default": "View More" },
+        { "type": "url", "id": "view_more_link", "label": "View more link" },
+        { "type": "color", "id": "view_more_color", "label": "View More Text Color", "default": "#2b2420" },
+        { "type": "color", "id": "view_more_border_color", "label": "View More Border Color", "default": "#2b2420" },
+        { "type": "checkbox", "id": "show_title_icons", "label": "Show title icons", "default": true },
+        { "type": "image_picker", "id": "title_icon", "label": "Title icon (left & right)" },
+        { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror right icon", "default": true },
+        { "type": "range", "id": "title_icon_size", "label": "Title icon size (desktop)", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 40 },
+        { "type": "range", "id": "title_icon_size_mobile", "label": "Title icon size (mobile)", "min": 16, "max": 64, "step": 2, "unit": "px", "default": 32 },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        { "type": "range", "id": "margin_bottom", "label": "Margin Bottom", "min": 0, "max": 100, "step": 5, "unit": "px", "default": 50 }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Image (mobile)" },
+        { "type": "range", "id": "top", "label": "Top (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "left", "label": "Left (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "width", "label": "Width (px)", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "z_index", "label": "Z-index", "default": 1 },
+        { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+        { "type": "checkbox", "id": "hide_on_pc", "label": "Hide on desktop", "default": false },
+        { "type": "range", "id": "rotation", "label": "Rotation (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "range", "id": "mobile_top", "label": "Top mobile (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "mobile_left", "label": "Left mobile (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "mobile_width", "label": "Width mobile (px)", "min": 0, "max": 600, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "mobile_z_index", "label": "Z-index mobile", "default": 1 },
+        { "type": "range", "id": "mobile_rotation", "label": "Rotation mobile (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "number", "id": "top_offset", "label": "Top offset (px)", "default": 0 },
+        { "type": "number", "id": "left_offset", "label": "Left offset (px)", "default": 0 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MD Buy Two",
+      "blocks": [
+        { "type": "header" }
+      ]
+    }
+  ]
+} 
+{% endschema %} 
+ 

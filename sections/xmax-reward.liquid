@@ -1,0 +1,211 @@
+<section id="section-{{ section.id }}" class="xmax-reward-section">
+  <style>
+    .xmax-reward-section{ 
+      /* background-color: #ae3028;  */
+      color: #fff; }
+    .xmax-reward {
+        padding: 48px 0;
+        background-size: contain;
+        background-position: bottom;
+        background-repeat: no-repeat;
+       }
+    .xmax-reward .reward-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+    /* 评论轮播 */
+    .reviews { 
+      margin-top: 8px; 
+    padding: 20px;
+    background: #00000066;
+    border-radius: 10px;
+    }
+    .reviews-slider { position: relative; overflow: hidden; border-radius: 15px; min-height: 380px; display: flex; align-items: center; background-size: cover; background-position: center; }
+    /* 右半边轻遮罩，提升文本可读性 */
+    .reviews-slider::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0) 35%, rgba(0,0,0,0.35) 65%); pointer-events: none; }
+    .reviews-track { display: flex; transition: transform .4s ease; }
+    .review-item { flex: 0 0 100%; padding: 36px; display: flex; align-items: center; justify-content: flex-start; }
+    .review-box { width: 100%; max-width: 560px; text-align: center; color: #fff; }
+    .review-text { font-size: 20px; line-height: 1.8; margin-bottom: 14px; }
+    .review-user { font-size: 24px; opacity: 0.95; }
+
+    .reviews-dots { 
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: 20px;
+      display: flex;
+      gap: 8px;
+      padding: 0;
+     }
+    .reviews-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all .25s ease; }
+    .reviews-dot.is-active { width: 24px; height: 8px; border-radius: 8px; background: #fff; }
+    .reviews-slider__inner { position: relative; width: 50%; margin-left: auto; overflow: hidden;}
+
+    /* 动态背景图：桌面与移动端 */
+    #section-{{ section.id }} .reviews-slider {
+      {% if section.settings.content_bg != blank %}
+        background-image: url('{{ section.settings.content_bg | image_url: width: 1600 }}');
+      {% endif %}
+    }
+
+    #section-{{ section.id }} .xmax-reward {
+      {% if section.settings.wrap_bg != blank %}
+        background-image: url('{{ section.settings.wrap_bg | image_url: width: 2000 }}');
+      {% endif %}
+    }
+
+    @media (max-width: 768px){
+      .xmax-reward { padding: 32px 0; }
+      .reviews-slider { min-height: 435px; 
+        align-items: end;
+        padding: 20px;
+      }
+      .review-item { padding: 12px; margin-bottom: 12px;}
+      .review-box { width: 100%; max-width: none; }
+      .review-text { font-size: 17px; line-height: 1.4; }
+      #section-{{ section.id }} .reviews-slider {
+        {% if section.settings.content_bg_mobile != blank %}
+          background-image: url('{{ section.settings.content_bg_mobile | image_url: width: 1000 }}');
+        {% endif %}
+      }
+      #section-{{ section.id }} .xmax-reward {
+        {% if section.settings.wrap_bg_mobile != blank %}
+          background-image: url('{{ section.settings.wrap_bg_mobile | image_url: width: 1000 }}');
+        {% endif %}
+      }
+      .reviews-dots { right: 12px; bottom: 12px; width: max-content;}
+      .reviews-slider__inner { width: 100%; }
+    }
+  </style>
+
+  <div class="xmax-reward">
+    <div class="reward-inner">
+        {% render 'xmas-section-header', section: section %}
+
+      <div class="reviews">
+        <div class="reviews-slider" aria-label="User reviews">
+          <div class="reviews-slider__inner">
+            <div class="reviews-track" id="reviews-track-{{ section.id }}">
+            {% if section.settings.review_1_text != blank %}
+              <div class="review-item">
+                <div class="review-box">
+                  <div class="review-text">{{ section.settings.review_1_text }}</div>
+                  {% if section.settings.review_1_user != blank %}
+                    <div class="review-user">— {{ section.settings.review_1_user }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+            {% if section.settings.review_2_text != blank %}
+              <div class="review-item">
+                <div class="review-box">
+                  <div class="review-text">{{ section.settings.review_2_text }}</div>
+                  {% if section.settings.review_2_user != blank %}
+                    <div class="review-user">— {{ section.settings.review_2_user }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+            {% if section.settings.review_3_text != blank %}
+              <div class="review-item">
+                <div class="review-box">
+                  <div class="review-text">{{ section.settings.review_3_text }}</div>
+                  {% if section.settings.review_3_user != blank %}
+                    <div class="review-user">— {{ section.settings.review_3_user }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+            </div>
+            <div class="reviews-dots" id="reviews-dots-{{ section.id }}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% render 'section-decorations', section: section %}
+
+{% schema %}
+{
+  "name": "Xmas Reward",
+  "settings": [
+    { "type": "header", "content": "Section Header" },
+    { "type": "text", "id": "title", "label": "title", "default": "User Reviews" },
+    { "type": "text", "id": "sub_heading", "label": "副标题", "default": "What our customers say" },
+    { "type": "text", "id": "view_more_label", "label": "右侧按钮文本", "default": "View More" },
+    { "type": "url", "id": "view_more_link", "label": "右侧按钮链接", "default": "/collections/all" },
+    { "type": "checkbox", "id": "show_title_icons", "label": "主标题左右显示图标", "default": true },
+    { "type": "image_picker", "id": "title_icon", "label": "主标题图标图片（左右同图，右侧镜像）" },
+    { "type": "range", "id": "title_icon_size", "label": "主标题图标尺寸", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 40 },
+    { "type": "checkbox", "id": "title_icon_mirror_right", "label": "右侧图标镜像显示", "default": true },
+
+    { "type": "header", "content": "背景图设置" },
+    { "type": "image_picker", "id": "content_bg", "label": "内容区域背景图（桌面端）" },
+    { "type": "image_picker", "id": "content_bg_mobile", "label": "内容区域背景图（移动端）" },
+    { "type": "image_picker", "id": "wrap_bg", "label": "外层容器背景图（桌面端）" },
+    { "type": "image_picker", "id": "wrap_bg_mobile", "label": "外层容器背景图（移动端）" },
+
+    { "type": "header", "content": "评论内容" },
+    { "type": "text", "id": "review_1_user", "label": "评论1用户名", "default": "Alice" },
+    { "type": "textarea", "id": "review_1_text", "label": "评论1内容", "default": "Great value and quick delivery. Highly recommended!" },
+    { "type": "text", "id": "review_2_user", "label": "评论2用户名", "default": "Bob" },
+    { "type": "textarea", "id": "review_2_text", "label": "评论2内容", "default": "Customer service was fantastic. Product works perfectly." },
+    { "type": "text", "id": "review_3_user", "label": "评论3用户名", "default": "Cindy" },
+    { "type": "textarea", "id": "review_3_text", "label": "评论3内容", "default": "Five stars! Will buy again for friends and family." }
+  ],
+  "blocks": [
+            {
+        "type": "decoration",
+        "name": "装饰图片",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "图片" },
+          { "type": "range", "id": "top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "left", "label": "左侧位置", "min": -100, "max": 200, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "number", "id": "z_index", "label": "层级", "default": 1 },
+          { "type": "checkbox", "id": "hide_on_mobile", "label": "在移动端隐藏", "default": false },
+          { "type": "range", "id": "rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+        ]
+      } 
+  ],
+  "presets": [ { "name": "Xmas Reward" } ]
+}
+{% endschema %}
+
+<script>
+  (function(){
+    var rootId = 'section-{{ section.id }}';
+    var track = document.querySelector('#reviews-track-{{ section.id }}');
+    if (!track) return;
+    var slides = Array.prototype.slice.call(track.children);
+    var index = 0;
+    var dotsWrap = document.getElementById('reviews-dots-{{ section.id }}');
+
+    function renderDots(){
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      slides.forEach(function(_, i){
+        var d = document.createElement('span');
+        d.className = 'reviews-dot' + (i === index ? ' is-active' : '');
+        d.addEventListener('click', function(){ goTo(i); });
+        dotsWrap.appendChild(d);
+      });
+    }
+    function goTo(i){
+      if (slides.length === 0) return;
+      index = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(' + (-index*100) + '%)';
+      renderDots();
+    }
+    function nextSlide(){ goTo(index + 1); }
+
+    renderDots();
+    var timer = setInterval(nextSlide, 5000);
+    var slider = document.getElementById(rootId);
+    var container = slider && slider.querySelector('.reviews-slider');
+    if (container){
+      container.addEventListener('mouseenter', function(){ clearInterval(timer); });
+      container.addEventListener('mouseleave', function(){ timer = setInterval(nextSlide, 5000); });
+    }
+  })();
+</script> 

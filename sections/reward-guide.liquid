@@ -1,0 +1,685 @@
+{% liquid
+  assign step_blocks = section.blocks | where: 'type', 'step'
+  assign faq_blocks = section.blocks | where: 'type', 'faq'
+%}
+
+<section
+  id="reward-guide-{{ section.id }}"
+  class="reward-guide section-reward-guide"
+  style="
+    --rg-bg: {{ section.settings.bg_color }};
+    --rg-content-bg: {{ section.settings.content_bg }};
+    --rg-content-width: {{ section.settings.content_width }};
+    --rg-content-width-mobile: {{ section.settings.content_width_mobile }};
+    --rg-side-gap-mobile: {{ section.settings.side_gap_mobile }};
+    --rg-banner-bg: {{ section.settings.banner_bg_color }};
+    --rg-banner-height: {{ section.settings.banner_height }};
+    --rg-banner-height-mobile: {{ section.settings.banner_height_mobile }};
+    --rg-section-pt: {{ section.settings.padding_top }};
+    --rg-section-pb: {{ section.settings.padding_bottom }};
+    --rg-section-pt-mobile: {{ section.settings.padding_top_mobile }};
+    --rg-section-pb-mobile: {{ section.settings.padding_bottom_mobile }};
+  "
+>
+  <div class="reward-guide__inner">
+    <div class="reward-guide__header">
+      {% render 'xmas-section-header' %}
+    </div>
+
+    <div class="reward-guide__content">
+      {% if section.settings.banner_pc != blank or section.settings.banner_mobile != blank %}
+        <div class="reward-guide__banner">
+          {% if section.settings.banner_pc != blank %}
+            {{
+              section.settings.banner_pc
+              | image_url: width: 1800
+              | image_tag: loading: 'lazy', class: 'reward-guide__banner-img reward-guide__banner-img--pc', alt: section.settings.title
+            }}
+          {% endif %}
+          {% if section.settings.banner_mobile != blank %}
+            {{
+              section.settings.banner_mobile
+              | image_url: width: 900
+              | image_tag: loading: 'lazy', class: 'reward-guide__banner-img reward-guide__banner-img--mobile', alt: section.settings.title
+            }}
+          {% elsif section.settings.banner_pc != blank %}
+            {{
+              section.settings.banner_pc
+              | image_url: width: 900
+              | image_tag: loading: 'lazy', class: 'reward-guide__banner-img reward-guide__banner-img--mobile', alt: section.settings.title
+            }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.banner_subtitle != blank %}
+        <div class="reward-guide__banner-subtitle">
+          {{ section.settings.banner_subtitle | escape | newline_to_br }}
+        </div>
+      {% endif %}
+
+      {% if step_blocks.size > 0 %}
+        <div class="reward-guide__steps">
+          {% for block in step_blocks limit: 3 %}
+            <div class="reward-guide__step" {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}
+                <div class="reward-guide__step-image">
+                  {{
+                    block.settings.image
+                    | image_url: width: 260
+                    | image_tag: loading: 'lazy', alt: block.settings.title
+                  }}
+                </div>
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <h3 class="reward-guide__step-title">{{ block.settings.title | escape }}</h3>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="reward-guide__step-text">{{ block.settings.text | escape | newline_to_br }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.faq_title != blank or section.settings.faq_desc_pc != blank or section.settings.faq_desc_mobile != blank or faq_blocks.size > 0 %}
+        <div class="reward-guide__faq">
+          {% if section.settings.faq_title != blank %}
+            <h3 class="reward-guide__faq-title">{{ section.settings.faq_title | escape }}</h3>
+          {% endif %}
+
+          {% if section.settings.faq_desc_pc != blank %}
+            <div class="reward-guide__faq-desc reward-guide__faq-desc--pc">
+              {{ section.settings.faq_desc_pc | escape | newline_to_br }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.faq_desc_mobile != blank %}
+            <div class="reward-guide__faq-desc reward-guide__faq-desc--mobile">
+              {{ section.settings.faq_desc_mobile | escape | newline_to_br }}
+            </div>
+          {% endif %}
+
+          {% if faq_blocks.size > 0 %}
+            <div class="reward-guide__faq-list">
+              {% for block in faq_blocks %}
+                <div class="reward-guide__faq-card" {{ block.shopify_attributes }}>
+                  <div class="reward-guide__faq-static">
+                    <div class="reward-guide__faq-question">{{ block.settings.question | escape }}</div>
+                    {% if block.settings.answer != blank %}
+                      <div class="reward-guide__faq-answer">{{ block.settings.answer | escape | newline_to_br }}</div>
+                    {% endif %}
+                  </div>
+                  <details class="reward-guide__faq-item">
+                    <summary class="reward-guide__faq-question">
+                      <span>{{ block.settings.question | escape }}</span>
+                      <span class="reward-guide__faq-icon" aria-hidden="true"></span>
+                    </summary>
+                    {% if block.settings.answer != blank %}
+                      <div class="reward-guide__faq-answer">{{ block.settings.answer | escape | newline_to_br }}</div>
+                    {% endif %}
+                  </details>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-reward-guide {
+    --vp-s: 1px;
+  }
+
+  @media screen and (min-width: 850px) and (max-width: 1500px) {
+    .section-reward-guide {
+      --vp-s: calc(100vw / 1500);
+    }
+  }
+
+  @media screen and (max-width: 849px) {
+    .section-reward-guide {
+      --vp-s: calc(100vw / 375);
+    }
+  }
+
+  #reward-guide-{{ section.id }} {
+    padding: calc(var(--rg-section-pt) * var(--vp-s)) 0 calc(var(--rg-section-pb) * var(--vp-s));
+    background: var(--rg-bg);
+    overflow: hidden;
+  }
+
+  #reward-guide-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__inner {
+    width: calc(var(--rg-content-width) * var(--vp-s));
+    max-width: calc(100% - calc(40 * var(--vp-s)));
+    margin: 0 auto;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__header {
+    margin-bottom: calc(42 * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .xmax_section__header {
+    margin-top: 0;
+    margin-bottom: 0;
+    gap: calc(8 * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .xmax_section__title-row {
+    gap: calc(16 * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .xmax_section__title {
+    color: {{ section.settings.title_color }};
+    font-size: calc({{ section.settings.title_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.title_line_height }} * var(--vp-s));
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  #reward-guide-{{ section.id }} .xmax_section__title-icon {
+    width: calc({{ section.settings.title_icon_size }} * var(--vp-s));
+    height: calc({{ section.settings.title_icon_size }} * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .xmas-sub-heading {
+    color: {{ section.settings.sub_heading_color }};
+    font-size: calc({{ section.settings.sub_heading_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.sub_heading_line_height }} * var(--vp-s));
+    margin: 0;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__content {
+    overflow: hidden;
+    border-radius: calc(12 * var(--vp-s));
+    background: var(--rg-content-bg);
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__banner {
+    width: 100%;
+    height: calc(var(--rg-banner-height) * var(--vp-s));
+    background: var(--rg-banner-bg);
+    overflow: hidden;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__banner-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__banner-img--mobile {
+    display: none;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__banner-subtitle {
+    padding: calc(24 * var(--vp-s)) calc(24 * var(--vp-s)) calc(20 * var(--vp-s));
+    color: {{ section.settings.banner_subtitle_color }};
+    font-size: calc({{ section.settings.banner_subtitle_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.banner_subtitle_line_height }} * var(--vp-s));
+    font-weight: 800;
+    text-align: {{ section.settings.banner_subtitle_align }};
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: calc(18 * var(--vp-s));
+    margin: 0 calc(24 * var(--vp-s)) calc(10 * var(--vp-s));
+    padding: calc(18 * var(--vp-s)) calc(32 * var(--vp-s));
+    border: calc(1 * var(--vp-s)) solid {{ section.settings.steps_border_color }};
+    border-radius: calc(12 * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__step {
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    gap: calc(8 * var(--vp-s));
+    text-align: center;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__step-image {
+    height: calc(34 * var(--vp-s));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__step-image img {
+    display: block;
+    max-width: calc(90 * var(--vp-s));
+    max-height: calc(34 * var(--vp-s));
+    object-fit: contain;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__step-title {
+    margin: 0;
+    color: {{ section.settings.step_title_color }};
+    font-size: calc({{ section.settings.step_title_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.step_title_line_height }} * var(--vp-s));
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__step-title::first-letter {
+    color: {{ section.settings.step_title_mark_color }};
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__step-text {
+    color: {{ section.settings.step_text_color }};
+    font-size: calc({{ section.settings.step_text_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.step_text_line_height }} * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq {
+    padding: calc(2 * var(--vp-s)) calc(42 * var(--vp-s)) calc(20 * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-title {
+    margin: 0 0 calc(16 * var(--vp-s));
+    color: {{ section.settings.faq_title_color }};
+    font-size: calc({{ section.settings.faq_title_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.faq_title_line_height }} * var(--vp-s));
+    font-weight: 900;
+    text-align: {{ section.settings.faq_title_align }};
+    letter-spacing: 0;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-desc {
+    margin-bottom: calc(16 * var(--vp-s));
+    color: {{ section.settings.faq_desc_color }};
+    font-size: calc({{ section.settings.faq_desc_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.faq_desc_line_height }} * var(--vp-s));
+    text-align: {{ section.settings.faq_desc_align }};
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-desc--mobile {
+    display: none;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: calc(18 * var(--vp-s));
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-card {
+    display: block;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-item {
+    display: none;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-item summary {
+    list-style: none;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-question {
+    color: {{ section.settings.faq_question_color }};
+    font-size: calc({{ section.settings.faq_question_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.faq_question_line_height }} * var(--vp-s));
+    font-weight: 900;
+    cursor: default;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-icon {
+    display: none;
+  }
+
+  #reward-guide-{{ section.id }} .reward-guide__faq-answer {
+    margin-top: calc(6 * var(--vp-s));
+    color: {{ section.settings.faq_answer_color }};
+    font-size: calc({{ section.settings.faq_answer_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.faq_answer_line_height }} * var(--vp-s));
+  }
+
+  @media screen and (max-width: 849px) {
+    #reward-guide-{{ section.id }} {
+      padding: calc(var(--rg-section-pt-mobile) * var(--vp-s)) 0 calc(var(--rg-section-pb-mobile) * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__inner {
+      width: auto;
+      max-width: calc(100% - calc(var(--rg-side-gap-mobile) * 2 * var(--vp-s)));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__header {
+      margin-bottom: calc(18 * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .xmax_section__title {
+      font-size: calc({{ section.settings.title_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.title_line_height_mobile }} * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .xmax_section__title-icon {
+      width: calc({{ section.settings.title_icon_size_mobile }} * var(--vp-s));
+      height: calc({{ section.settings.title_icon_size_mobile }} * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .xmas-sub-heading {
+      font-size: calc({{ section.settings.sub_heading_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.sub_heading_line_height_mobile }} * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__content {
+      border-radius: calc(6 * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__banner {
+      height: calc(var(--rg-banner-height-mobile) * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__banner-img--pc {
+      display: none;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__banner-img--mobile {
+      display: block;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__banner-subtitle {
+      padding: calc(16 * var(--vp-s)) calc(16 * var(--vp-s)) calc(12 * var(--vp-s));
+      font-size: calc({{ section.settings.banner_subtitle_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.banner_subtitle_line_height_mobile }} * var(--vp-s));
+      text-align: {{ section.settings.banner_subtitle_align_mobile }};
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__steps {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: 0 calc(12 * var(--vp-s)) calc(18 * var(--vp-s));
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__step {
+      grid-template-columns: calc(34 * var(--vp-s)) minmax(0, 1fr);
+      justify-items: start;
+      gap: calc(4 * var(--vp-s)) calc(12 * var(--vp-s));
+      padding: calc(11 * var(--vp-s)) 0;
+      border-bottom: calc(1 * var(--vp-s)) solid {{ section.settings.steps_border_color }};
+      text-align: left;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__step-image {
+      grid-row: span 2;
+      width: calc(34 * var(--vp-s));
+      height: calc(34 * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__step-image img {
+      max-width: calc(34 * var(--vp-s));
+      max-height: calc(34 * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__step-title {
+      font-size: calc({{ section.settings.step_title_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.step_title_line_height_mobile }} * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__step-text {
+      font-size: calc({{ section.settings.step_text_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.step_text_line_height_mobile }} * var(--vp-s));
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq {
+      margin-top: calc(-1 * var(--vp-s));
+      padding: 0 calc(12 * var(--vp-s)) calc(14 * var(--vp-s));
+      background: var(--rg-content-bg);
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-title {
+      margin-bottom: calc(8 * var(--vp-s));
+      font-size: calc({{ section.settings.faq_title_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.faq_title_line_height_mobile }} * var(--vp-s));
+      text-align: {{ section.settings.faq_title_align_mobile }};
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-desc {
+      margin-bottom: calc(10 * var(--vp-s));
+      font-size: calc({{ section.settings.faq_desc_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.faq_desc_line_height_mobile }} * var(--vp-s));
+      text-align: {{ section.settings.faq_desc_align_mobile }};
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-desc--pc {
+      display: none;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-desc--mobile {
+      display: block;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-list {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-static {
+      display: none;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-item {
+      display: block;
+      border-bottom: calc(1 * var(--vp-s)) solid {{ section.settings.faq_border_color }};
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-question {
+      min-height: calc(34 * var(--vp-s));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(12 * var(--vp-s));
+      font-size: calc({{ section.settings.faq_question_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.faq_question_line_height_mobile }} * var(--vp-s));
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-icon {
+      position: relative;
+      flex: 0 0 calc(18 * var(--vp-s));
+      width: calc(18 * var(--vp-s));
+      height: calc(18 * var(--vp-s));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: {{ section.settings.faq_question_color }};
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-icon::before {
+      content: "";
+      width: calc(6 * var(--vp-s));
+      height: calc(6 * var(--vp-s));
+      border-right: calc(1.4 * var(--vp-s)) solid currentColor;
+      border-bottom: calc(1.4 * var(--vp-s)) solid currentColor;
+      transform: rotate(-45deg);
+      transition: transform 0.2s ease;
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-item[open] .reward-guide__faq-icon::before {
+      transform: rotate(45deg);
+    }
+
+    #reward-guide-{{ section.id }} .reward-guide__faq-answer {
+      margin-top: 0;
+      padding: 0 calc(18 * var(--vp-s)) calc(10 * var(--vp-s)) 0;
+      font-size: calc({{ section.settings.faq_answer_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.faq_answer_line_height_mobile }} * var(--vp-s));
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Reward Guide",
+  "class": "section-reward-guide",
+  "settings": [
+    { "type": "header", "content": "Header Settings" },
+    { "type": "textarea", "id": "title", "label": "Section Title", "default": "Share Your Cleaning Experience & Get Rewarded" },
+    { "type": "checkbox", "id": "show_title_icons", "label": "Show Title Icons", "default": true },
+    { "type": "image_picker", "id": "title_icon", "label": "Title Icon" },
+    { "type": "range", "id": "title_icon_size", "min": 20, "max": 100, "step": 2, "unit": "px", "label": "Title Icon Size", "default": 40 },
+    { "type": "range", "id": "title_icon_size_mobile", "min": 10, "max": 80, "step": 2, "unit": "px", "label": "Mobile Icon Size", "default": 30 },
+    { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror Right Icon", "default": true },
+    { "type": "textarea", "id": "sub_heading", "label": "Description" },
+    { "type": "checkbox", "id": "show_sub_heading", "label": "Show Description", "default": true },
+    { "type": "url", "id": "view_more_link", "label": "View More Link" },
+    { "type": "text", "id": "view_more_label", "label": "View More Label", "default": "View More" },
+    { "type": "color", "id": "title_color", "label": "Title Color", "default": "#242424" },
+    { "type": "color", "id": "sub_heading_color", "label": "Description Color", "default": "#666666" },
+    { "type": "range", "id": "title_size", "min": 18, "max": 60, "step": 1, "unit": "px", "label": "Title Size", "default": 34 },
+    { "type": "range", "id": "title_size_mobile", "min": 16, "max": 40, "step": 1, "unit": "px", "label": "Mobile Title Size", "default": 24 },
+    { "type": "range", "id": "title_line_height", "min": 20, "max": 76, "step": 1, "unit": "px", "label": "Title Line Height", "default": 42 },
+    { "type": "range", "id": "title_line_height_mobile", "min": 18, "max": 52, "step": 1, "unit": "px", "label": "Mobile Title Line Height", "default": 30 },
+    { "type": "range", "id": "sub_heading_size", "min": 10, "max": 28, "step": 1, "unit": "px", "label": "Description Size", "default": 16 },
+    { "type": "range", "id": "sub_heading_size_mobile", "min": 10, "max": 22, "step": 1, "unit": "px", "label": "Mobile Description Size", "default": 13 },
+    { "type": "range", "id": "sub_heading_line_height", "min": 12, "max": 36, "step": 1, "unit": "px", "label": "Description Line Height", "default": 22 },
+    { "type": "range", "id": "sub_heading_line_height_mobile", "min": 12, "max": 30, "step": 1, "unit": "px", "label": "Mobile Description Line Height", "default": 18 },
+
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fff8ef" },
+    { "type": "color", "id": "content_bg", "label": "Content background", "default": "#ffffff" },
+    { "type": "range", "id": "content_width", "label": "PC content width", "min": 800, "max": 1500, "step": 10, "unit": "px", "default": 1240 },
+    { "type": "range", "id": "content_width_mobile", "label": "Mobile content width", "min": 240, "max": 375, "step": 5, "unit": "px", "default": 345 },
+    { "type": "range", "id": "side_gap_mobile", "label": "Mobile side gap", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_top", "label": "PC top margin", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 54 },
+    { "type": "range", "id": "padding_bottom", "label": "PC bottom margin", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top margin", "min": 0, "max": 100, "step": 2, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom margin", "min": 0, "max": 100, "step": 2, "unit": "px", "default": 40 },
+
+    { "type": "header", "content": "Banner" },
+    { "type": "image_picker", "id": "banner_pc", "label": "Banner PC" },
+    { "type": "image_picker", "id": "banner_mobile", "label": "Banner mobile" },
+    { "type": "color", "id": "banner_bg_color", "label": "Banner background", "default": "#FFFAF3" },
+    { "type": "range", "id": "banner_height", "label": "PC banner height", "min": 160, "max": 520, "step": 4, "unit": "px", "default": 208 },
+    { "type": "range", "id": "banner_height_mobile", "label": "Mobile banner height", "min": 120, "max": 360, "step": 4, "unit": "px", "default": 180 },
+    { "type": "textarea", "id": "banner_subtitle", "label": "Subtitle below banner", "default": "How to Participate" },
+    { "type": "color", "id": "banner_subtitle_color", "label": "Subtitle color", "default": "#111111" },
+    { "type": "range", "id": "banner_subtitle_size", "label": "PC subtitle size", "min": 14, "max": 40, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "banner_subtitle_size_mobile", "label": "Mobile subtitle size", "min": 12, "max": 28, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "banner_subtitle_line_height", "label": "PC subtitle line height", "min": 16, "max": 52, "step": 1, "unit": "px", "default": 34 },
+    { "type": "range", "id": "banner_subtitle_line_height_mobile", "label": "Mobile subtitle line height", "min": 14, "max": 36, "step": 1, "unit": "px", "default": 18 },
+    { "type": "select", "id": "banner_subtitle_align", "label": "PC subtitle align", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "center" },
+    { "type": "select", "id": "banner_subtitle_align_mobile", "label": "Mobile subtitle align", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left" },
+
+    { "type": "header", "content": "Steps" },
+    { "type": "color", "id": "steps_border_color", "label": "Steps border color", "default": "#dddddd" },
+    { "type": "color", "id": "step_title_color", "label": "Step title color", "default": "#161616" },
+    { "type": "color", "id": "step_title_mark_color", "label": "Step title mark color", "default": "#ff9e37" },
+    { "type": "color", "id": "step_text_color", "label": "Step description color", "default": "#6f6f6f" },
+    { "type": "range", "id": "step_title_size", "label": "PC step title size", "min": 10, "max": 28, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "step_title_size_mobile", "label": "Mobile step title size", "min": 9, "max": 22, "step": 1, "unit": "px", "default": 10 },
+    { "type": "range", "id": "step_title_line_height", "label": "PC step title line height", "min": 12, "max": 36, "step": 1, "unit": "px", "default": 20 },
+    { "type": "range", "id": "step_title_line_height_mobile", "label": "Mobile step title line height", "min": 11, "max": 28, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range", "id": "step_text_size", "label": "PC step description size", "min": 9, "max": 22, "step": 1, "unit": "px", "default": 11 },
+    { "type": "range", "id": "step_text_size_mobile", "label": "Mobile step description size", "min": 8, "max": 18, "step": 1, "unit": "px", "default": 8 },
+    { "type": "range", "id": "step_text_line_height", "label": "PC step description line height", "min": 11, "max": 30, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "step_text_line_height_mobile", "label": "Mobile step description line height", "min": 10, "max": 24, "step": 1, "unit": "px", "default": 12 },
+
+    { "type": "header", "content": "FAQ" },
+    { "type": "textarea", "id": "faq_title", "label": "FAQ title", "default": "&FAQ" },
+    { "type": "textarea", "id": "faq_desc_pc", "label": "FAQ description PC" },
+    { "type": "textarea", "id": "faq_desc_mobile", "label": "FAQ description mobile", "default": "Eligible for selected wet dry vacuums and vacuum cleaners only." },
+    { "type": "color", "id": "faq_title_color", "label": "FAQ title color", "default": "#111111" },
+    { "type": "color", "id": "faq_desc_color", "label": "FAQ description color", "default": "#333333" },
+    { "type": "color", "id": "faq_question_color", "label": "FAQ question color", "default": "#333333" },
+    { "type": "color", "id": "faq_answer_color", "label": "FAQ answer color", "default": "#777777" },
+    { "type": "color", "id": "faq_border_color", "label": "FAQ mobile border color", "default": "#e5e5e5" },
+    { "type": "range", "id": "faq_title_size", "label": "PC FAQ title size", "min": 12, "max": 36, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "faq_title_size_mobile", "label": "Mobile FAQ title size", "min": 12, "max": 28, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "faq_title_line_height", "label": "PC FAQ title line height", "min": 14, "max": 44, "step": 1, "unit": "px", "default": 20 },
+    { "type": "range", "id": "faq_title_line_height_mobile", "label": "Mobile FAQ title line height", "min": 14, "max": 34, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "faq_desc_size", "label": "PC FAQ description size", "min": 9, "max": 24, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "faq_desc_size_mobile", "label": "Mobile FAQ description size", "min": 8, "max": 20, "step": 1, "unit": "px", "default": 9 },
+    { "type": "range", "id": "faq_desc_line_height", "label": "PC FAQ description line height", "min": 11, "max": 32, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "faq_desc_line_height_mobile", "label": "Mobile FAQ description line height", "min": 10, "max": 28, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "faq_question_size", "label": "PC FAQ question size", "min": 9, "max": 24, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "faq_question_size_mobile", "label": "Mobile FAQ question size", "min": 8, "max": 20, "step": 1, "unit": "px", "default": 9 },
+    { "type": "range", "id": "faq_question_line_height", "label": "PC FAQ question line height", "min": 11, "max": 32, "step": 1, "unit": "px", "default": 17 },
+    { "type": "range", "id": "faq_question_line_height_mobile", "label": "Mobile FAQ question line height", "min": 10, "max": 28, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "faq_answer_size", "label": "PC FAQ answer size", "min": 8, "max": 22, "step": 1, "unit": "px", "default": 11 },
+    { "type": "range", "id": "faq_answer_size_mobile", "label": "Mobile FAQ answer size", "min": 8, "max": 18, "step": 1, "unit": "px", "default": 8 },
+    { "type": "range", "id": "faq_answer_line_height", "label": "PC FAQ answer line height", "min": 10, "max": 30, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "faq_answer_line_height_mobile", "label": "Mobile FAQ answer line height", "min": 10, "max": 24, "step": 1, "unit": "px", "default": 12 },
+    { "type": "select", "id": "faq_title_align", "label": "PC FAQ title align", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "center" },
+    { "type": "select", "id": "faq_title_align_mobile", "label": "Mobile FAQ title align", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left" },
+    { "type": "select", "id": "faq_desc_align", "label": "PC FAQ description align", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "center" },
+    { "type": "select", "id": "faq_desc_align_mobile", "label": "Mobile FAQ description align", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "left" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step item",
+      "limit": 3,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "1.Review" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Share the product with photos or videos." }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Which products are eligible?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Which products are eligible?" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reward Guide",
+      "blocks": [
+        { "type": "step", "settings": { "title": "1.Review", "text": "Share the product with photos or videos." } },
+        { "type": "step", "settings": { "title": "2.Social", "text": "Post on social media, website reviews, or send directly via email" } },
+        { "type": "step", "settings": { "title": "3.Email", "text": "Contact customer service to register your submission. Receive a free cleaning solution gift" } },
+        { "type": "faq", "settings": { "question": "Which products are eligible?", "answer": "Which products are eligible?" } },
+        { "type": "faq", "settings": { "question": "How do I claim my gift?", "answer": "Which products are eligible?" } },
+        { "type": "faq", "settings": { "question": "Can I share on Instagram?", "answer": "Can I share on Instagram?" } },
+        { "type": "faq", "settings": { "question": "How long does verification take?", "answer": "Can I share on Instagram?" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,501 @@
+{
+  "sections": {
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "",
+        "seo_text_max_height": 150,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": true
+      }
+    },
+    "image_with_text_overlay_zhty9L": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_F3VqAr": {
+          "type": "heading",
+          "settings": {
+            "text": "Cordless Vacuum Cleaners",
+            "heading_size": "h1",
+            "heading_tag": "h1"
+          }
+        },
+        "text_pUendf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the power of Honiture’s cordless stick vacuum. Designed for versatile, deep-cleaning performance, it removes dust and pet hair with ease. Choose the best cordless vacuum to simplify your routine and enjoy a cleaner, healthier living space.<\/p>",
+            "description_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_F3VqAr",
+        "text_pUendf"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture_cordless_vacuum_cleaner_online_sale.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-400",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-left",
+        "text_alignment": "left",
+        "text_color": "#056D73",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "rich_text_TaEbT8": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_mJMVPD": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading for this section"
+          }
+        },
+        "heading_En87tt": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Talk about your brand",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Qqbqr3": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Powerful and lightweight, Honiture vacuum cleaners cordless are equipped with best cordless suction to effortlessly handle debris, pet hair, and breadcrumbs, etc. Experience a deep clean on all floor types, keeping your home spotless and fresh.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        },
+        "button_7mAJJX": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "link_label": "Learn More",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_mJMVPD",
+        "heading_En87tt",
+        "text_Qqbqr3",
+        "button_7mAJJX"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "9e57bc14-72e8-48b3-81d3-9b209e520fd0": {
+      "type": "media-grid",
+      "blocks": {
+        "media_eTJXdB": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Homiture-x7-cordless-handheld-vacuum-cleaner.png",
+            "slide_link": "shopify:\/\/products\/x7",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 0.8,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#00d0cd",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "Powerful suction, long runtime perfect for large homes",
+            "heading": "X7",
+            "heading_size": "h3",
+            "button_text": "Shop now",
+            "button_link": "shopify:\/\/products\/x7",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#161414",
+            "color_link": "#1864ed",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_x7X3Ci": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-p7-pro-champagne_-gold-cordless-stick-vacuum-50KPA.jpg",
+            "slide_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 0.8,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#00d0cd",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "Powerful Suction, dual fragrance system, stylish Design",
+            "heading": "P7 Pro",
+            "heading_size": "h3",
+            "button_text": "Shop now",
+            "button_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#161414",
+            "color_link": "#1864ed",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-0": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-Y10-cordless-vacuum-page.jpg",
+            "slide_link": "shopify:\/\/products\/y10-cordless-stick-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 0.8,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "Five-layer filtration, flagship performance.",
+            "heading": "Y10",
+            "heading_size": "h3",
+            "button_text": "Shop now",
+            "button_link": "shopify:\/\/products\/y10-cordless-stick-vacuum",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#161414",
+            "color_link": "#1864ed",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_JEFkbq": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture-S12-Cordless-Vacuum-Cleaner-Blue.png",
+            "slide_link": "shopify:\/\/products\/s12",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 0.8,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "Affordable, ideal for everyday cleaning needs.",
+            "heading": "S12",
+            "heading_size": "h3",
+            "button_text": "Shop now",
+            "button_link": "shopify:\/\/products\/s12",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#161414",
+            "color_link": "#1864ed",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_eTJXdB",
+        "media_x7X3Ci",
+        "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-0",
+        "media_JEFkbq"
+      ],
+      "custom_css": [
+        ".text-button,.text-button path {color: #00d0cd; stroke: #00d0cd;}",
+        ".subheading {text-transform: none; padding-right: 40px;}"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 400,
+        "column_spacing": "medium",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_B8XG3g": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MTjHGQ": {
+          "type": "heading",
+          "settings": {
+            "text": "Choose Products to Compare",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_kgDkAT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Filter compare tool by category<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MTjHGQ",
+        "text_kgDkAT"
+      ],
+      "disabled": true,
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#19586E",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 10,
+        "columns_desktop": 3,
+        "show_product_card_add_to_cart_button": false,
+        "show_product_card_quick_view_button": true,
+        "product_card_quick_view_button_label": "Learn more",
+        "pagination_type": "paginated",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_counts": false,
+        "filter_color_swatches": true,
+        "filters_collapsed": true,
+        "enable_compare": false,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "rich_text_WVgEXd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Vce839": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Cordless Vacuum Cleaners",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_9zmxzM": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Cordless Vacuum Cleaners<\/h1><p>Honiture cordless vacuum cleaner series offers powerful suction with the convenience of wireless operation. Designed for effortless cleaning, these vacuums are lightweight, portable, and equipped with advanced features such as anti-tangle technology, LED highlights, and wider cleaning paths. Perfect for daily use, they deliver exceptional performance, whether for quick cleanups or deep cleaning, making home maintenance easier and more efficient.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Vce839",
+        "text_9zmxzM"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_blog_new_wPzLxn": {
+      "type": "featured-blog-new",
+      "disabled": true,
+      "name": "featured blog new",
+      "settings": {
+        "heading": "We’re Here",
+        "marker_style": "style1",
+        "description": "<p>We share tips and smart cleaning technology to take the hassle out of housework—so you can focus on living your best life.<\/p>",
+        "blog": "home-cleaning",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "article_list": [],
+        "mobile_swipe": true,
+        "image_ratio": "landscape",
+        "show_date": true,
+        "show_excerpt": true,
+        "show_read_more": true,
+        "show_view_all": false,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_TBcQ3p": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_3zc4JQ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "1. What is the suction power of a cordless vacuum cleaner? How many Pa is considered strong?",
+            "open": false,
+            "content": "<p>The suction power of a cordless vacuum cleaner generally ranges from <strong>18,000Pa to 30,000Pa<\/strong>，The suction force that can reach 20000pa is very strong. <a href=\"\/products\/p7-pro-cordless-vacuum\" target=\"_blank\" title=\"【New Arrival】Honiture P7 Pro Cordless Vacuum\">Honiture P7 Pro<\/a> Can reach 50000Pa clean pet hair.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_6QFNj4": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "2. What is the battery life? Is it sufficient for cleaning large apartments?",
+            "open": false,
+            "content": "<p>Cordless vacuum cleaners typically have a battery life of <strong>30–60 minutes<\/strong>.honiture's cordless vacuum cleaners can last more than 55 minutes in standard conditions.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_cATyNQ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "3. Is a vacuum cleaner noisy? Will using it affect my hearing?",
+            "open": false,
+            "content": "<p>The noise level of mainstream cordless vacuum cleaners on the market is generally between 70-85 decibels.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_Xtm4U6": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "4. How is the filtration system? Is it friendly for people with pets or allergies?",
+            "open": false,
+            "content": "<p>Honiture vacuum cleaners are equipped with a <strong>high-efficiency HEPA filtration system and a fully sealed<\/strong> design to prevent secondary pollution and provide a healthier living environment for your family. For example, <a href=\"https:\/\/honiture.com\/products\/p7-pro-cordless-vacuum\/\" target=\"_blank\" title=\"https:\/\/honiture.com\/products\/p7-pro-cordless-vacuum\/\">Honiture P7 Pro<\/a> uses 7layer hapa filtration system.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_j8xn8H": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "5. Is the vacuum cleaner heavy? Is it difficult to use?",
+            "open": false,
+            "content": "<p>No, vacuum cleaners weighing around 2.5-3 kg are a common weight on the market, and usually have more balanced performance and battery life.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_3zc4JQ",
+        "collapsible_tab_6QFNj4",
+        "collapsible_tab_cATyNQ",
+        "collapsible_tab_Xtm4U6",
+        "collapsible_tab_j8xn8H"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQ",
+        "marker_style": "style1",
+        "description": "<p>Regarding issues related to cordless vacuum cleaners, you can easily buy your favorite vacuum cleaner<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "template-header",
+    "image_with_text_overlay_zhty9L",
+    "breadcrumbs",
+    "rich_text_TaEbT8",
+    "9e57bc14-72e8-48b3-81d3-9b209e520fd0",
+    "rich_text_B8XG3g",
+    "product-grid",
+    "rich_text_WVgEXd",
+    "featured_blog_new_wPzLxn",
+    "collapsible_content_TBcQ3p"
+  ]
+}

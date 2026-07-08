@@ -1,0 +1,150 @@
+{
+  "sections": {
+    "image_with_text_overlay_MtEY4x": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_nGaaRB": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Robot Vaccum & Stick Vaccum",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nGaaRB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture_easter_sale_banner.webp",
+        "mobile_image": "shopify:\/\/shop_images\/2-tuya1_e0c30806-60c7-4785-bd37-7c26da5fe839.webp",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 150,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".product-card-title {font-size: 13px;}",
+        "@media screen and (min-width: 768px) {.product-card-title {font-size: 20px; }}",
+        ".product-card--add-to-cart-text {font-size: 13px;}",
+        ".price {font-size: 9px;}",
+        ".amount {font-size: 9px;}",
+        ".discounted {font-size: 17px;}",
+        "@media screen and (min-width: 768px) {.price {font-size: 15px; } .amount {font-size: 15px; } .discounted {font-size: 22px; }}",
+        ".badge {font-size: 9px; margin-left: -10px; margin-top: -10px; margin-bottom: 10px;}"
+      ],
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "pagination_type": "loadmore",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_counts": false,
+        "filter_color_swatches": false,
+        "filters_collapsed": false,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "featured_collection_AdMN6f": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "heading": "Cordless Vacuum Cleaners",
+        "marker_style": "style1",
+        "description": "<p>Our cordless vacuum cleaner series offers powerful suction with the convenience of wireless operation. Designed for effortless cleaning, these vacuums are lightweight, portable, and equipped with advanced features such as anti-tangle technology, LED highlights, and wider cleaning paths. Perfect for daily use, they deliver exceptional performance, whether for quick cleanups or deep cleaning, making home maintenance easier and more efficient.<\/p>",
+        "collection": "cordless-vacuum-cleaners",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collection_list_ez9Mtb": {
+      "type": "collection-list",
+      "disabled": true,
+      "settings": {
+        "heading": "Shop by Category",
+        "marker_style": "style1",
+        "description": "",
+        "heading_size": "small",
+        "collection_list": [
+          "robot-cleaner",
+          "cordless-vacuum-cleaners",
+          "air-purifiers",
+          "pets-cleaning"
+        ],
+        "image_ratio": "portrait",
+        "collection_layout": "grid",
+        "style": "style2",
+        "text_alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#ffffff",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 10,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_3TCNMR": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_MtEY4x",
+    "breadcrumbs",
+    "template-header",
+    "product-grid",
+    "featured_collection_AdMN6f",
+    "collection_list_ez9Mtb",
+    "spacer_3TCNMR"
+  ]
+}

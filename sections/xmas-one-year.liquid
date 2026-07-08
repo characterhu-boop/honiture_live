@@ -1,0 +1,1304 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    /* background-color: #ae3028; */
+  }
+  .pc-only {
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
+  .xmas-one-year-section-box{
+    width: 100%;
+}
+  .xmas-one-year-section {
+    max-width: 1380px;
+    padding: 16px;
+    margin: 0 auto;
+  }
+
+
+  .xmas-one-year-countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .xmas-one-year-product {
+    border-radius: 12px;
+    display: flex;
+    align-items: center; /* Align top */
+    margin: 0 auto;
+    gap: 40px;
+    position: relative;
+    width: 100%;
+    background:#fff;
+    border-radius: 20px;
+  }
+
+  /* Image Position Swap */
+  .xmas-one-year-product.image-right {
+    flex-direction: row-reverse;
+  }
+  
+  .xmas-one-year-product.image-right .xmas-one-year-product-content {
+    padding-right: 0;
+    padding-left: 60px;
+  }
+
+  @media (max-width: 768px) {
+    .xmas-one-year-product {
+      height: auto;
+      flex-direction: column !important; /* Always column on mobile */
+    }
+    .xmas-one-year-product.image-right .xmas-one-year-product-content {
+      padding-left: 0;
+    }
+  }
+
+  .xmas-one-year-product-image {
+    flex: 0 0 50%;
+    position: relative;
+    text-align: center;
+  }
+
+  /* Badge and Decoration Container within Image Area */
+
+  .xmas-one-year-product-image .xmas-decoration-image {
+    position: absolute;
+    z-index: 1; /* Behind badge but above image if needed, or overlay */
+    pointer-events: none;
+  }
+  
+  .xmas-one-year-product-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    position: relative;
+    z-index: 0;
+  }
+  .xmas-one-year-product-image a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure decorations inside link or relative to container? Container is relative */
+  }
+  .xmas-one-year-badge {
+    /* Removed absolute from here to rely on container context if needed, or keep generic */
+    position: absolute;
+    top: -4px;
+    left: 28px;
+    {% if section.settings.badge_background_image %}
+      /* This section setting might not be accessible if it's a block setting? */
+      /* Wait, badge_background_image is now a BLOCK setting. */
+      /* We should style this inline or via specific class if possible, or use style tag in loop */
+      background-color: transparent; 
+    {% else %}
+      background-color: #ff3d00;
+    {% endif %}
+    color: white;
+    width: 77px;
+    height: 75px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1;
+    /* box-shadow: 0 2px 8px rgba(0,0,0,0.2); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .xmas-one-year-badge-text{
+    line-height: 1;
+  }
+  .price-under-img{
+    margin-left: 80px;
+  }
+  .xmas-one-year-badge-text span{
+    font-size:24px;
+  }
+  .xmas-one-year-product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Align content to top */
+    padding: 20px 60px 20px 0;
+    position: relative; /* For decoration images */
+  }
+
+  /* New Elements Styling */
+  .xmas-product-top-logo {
+    margin-bottom: 16px;
+  }
+  
+  .xmas-product-custom-label {
+    display: inline-block;
+    padding: 4px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    align-self: flex-start; /* Or right aligned? */
+    /* Screenshot shows it right aligned or flexible. Let's assume left aligned above title for now unless otherwise specified or flex-end */
+  }
+  
+  /* If content is centered/right aligned based on design, adjust self-alignment */
+  /* The screenshot shows "P7 PRO #2" right above the title. */
+
+  .xmas-one-year-product-title {
+    font-size: 24px;
+    font-weight: 600;
+     color:#000;
+    line-height: 1.3;
+    margin-bottom: 15px;
+  }
+  
+  /* Right align content for specific look if needed, but default is left */
+  /* If image is right, content is left. If image is left, content is right. */
+  /* The screenshot shows content on the right, aligned to the right? No, standard product card. */
+  
+  
+.xmas-one-year-product .countdown-timer__display{
+      justify-content: flex-start;
+}
+  .xmas-one-year-product-desc {
+    color: #000;
+    font-size: 16px;
+    line-height: 1.6;
+    flex: 1;
+  }
+.xmas-one-year-product-desc p{
+  margin-bottom: 8px;
+}
+  .xmas-one-year-code-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #E0F7FA;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 8px 0 10px;
+    font-size: 18px;
+    width: fit-content;
+    position: relative;
+  }
+  .xmas-one-year-code-box .code-label { color: #006064; }
+  .xmas-one-year-code-box .btn-copy {
+    background: #4DD0E1;
+    border: none;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .xmas-one-year-code-box .copy-success-msg {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .xmas-one-year-code-box .copy-success-msg.show { opacity: 1; }
+  .xmas-one-year-product-price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .xmas-one-year-current-price {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .xmas-one-year-original-price {
+    font-size: 20px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  .xmas-one-year-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+  }
+  .xmas-one-year-buttons a:focus { 
+      color: #fff;
+  }
+  .xmas-one-year-btn {
+ padding: 8px 20px;
+    width: 150px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .xmas-one-year-btn-primary {
+    background-color: #E4E4E4;
+    color: #595959;
+    transition: all 0.3s ease;
+  }
+
+  .xmas-one-year-btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .xmas-one-year-btn-secondary {
+    background: #00ced1;
+    color: #fff;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+
+
+  .xmas-one-year-btn-secondary:hover {
+    color: #fff;
+    /* transform: translateY(-2px); */
+    box-shadow: 0 4px 12px rgba(255, 132, 0, 0.3);
+  }
+
+  .xmas-one-year-btn-secondary span {
+    position: relative;
+    z-index: 1;
+  }
+  .xmas-one-year-btn-secondary .smax-btn-cap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -24px);
+    width: 90px;
+  }
+
+  .xmax-one-year-wrap-bg{
+    padding: 20px;
+    }
+    
+  /* Decoration Images */
+  .xmas-decoration-image {
+    position: absolute;
+    z-index: 0; /* Behind text if overlapped, or check requirement */
+    pointer-events: none;
+  }
+  
+  /* 移动端样式 */
+  @media (max-width: 768px) {
+      .price-under-img{
+    margin-left: -70px!important;
+  }
+    .xmas-one-year-product-image .xmas-one-year-badge {
+        position: absolute;
+        top: -6% !important;
+        left: 0;
+        z-index: 2;
+    }
+    .xmas-decoration-image.mobile-decor {
+        transform: scale(0.6);
+        transform-origin: top right; /* Origin for scaling */
+        z-index: 2; /* Ensure on top */
+    }
+    .xmas-one-year-code-box{
+      font-size: 12px;
+    }
+    .xmas-decoration-image.decoration-1.mobile-decor {
+        top: 10% !important;
+        left: 65% !important;
+    }
+    .xmas-decoration-image.decoration-2.mobile-decor {
+        top: 32% !important;
+        left: 65% !important;
+    }
+    .xmas-one-year-product.image-right .xmas-decoration-image.decoration-1.mobile-decor {
+        left: 75% !important;
+    }
+    .xmas-one-year-product.image-right .xmas-decoration-image.decoration-2.mobile-decor {
+        left: 75% !important;
+    }
+    .xmas-product-tags-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+        flex-wrap: nowrap; /* 确保不换行 */
+    }
+    .xmas-product-top-logo {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+    .xmas-product-custom-label {
+        margin-bottom: 0;
+        white-space: nowrap; /* 防止文字换行 */
+        align-self: center; /* 修复对齐问题，覆盖默认的 flex-start */
+    }
+    .pc-only {
+        display: none !important;
+    }
+    .mobile-only {
+        display: block !important;
+    }
+
+  .xmas-one-year-section .countdown-timer{
+      /* position: absolute; */
+      /* right: -30px; */
+      /* bottom: -30px; */
+      transform: scale(0.8);
+      margin: 0 auto 10px;
+      justify-content: center;
+  }
+  .xmas-section-countdown-wrapper {
+      display: flex;
+      justify-content: center;
+  }
+      .xmax-one-year-wrap-bg{
+        padding: 10px
+      }
+    #shopify-section-{{ section.id }} {
+    }
+    .xmas-one-year-badge{
+        top: -4px;
+        left: 10px;
+        padding: 0;
+        text-align: center;
+        font-size: 10px;
+    }
+      .xmas-one-year-product-content {
+        padding-right: 0;
+        width: 100%;
+      }
+
+    .xmas-one-year-badge p{
+      font-size: 12px;
+    }
+    .xmas-one-year-section {
+      padding: 0px 15px;
+    }
+    .xmas-one-year-product-image img {
+        width: 100%;
+      object-fit: cover;
+      transform: scale(1.1);
+    }
+    .xmas-one-year-product-image a{
+      transform: unset;
+    }
+
+    .xmas-one-year-product {
+      flex-direction: column;
+      padding: 1px;
+      gap: 15px;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .xmas-one-year-product-image {
+      flex: none;
+      width: 100%;
+    }
+
+    .xmas-one-year-product-image.mobile-only {
+        order: -1;
+        margin-bottom: 15px;
+    }
+
+    .xmas-one-year-product-title {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 0;
+        margin: 10px 0;
+    }
+
+    .xmas-one-year-product-desc {
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+    .xmas-one-year-code-box{
+      margin: 6px auto 10px;
+    }
+  
+    .xmas-one-year-product-price {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .xmas-one-year-current-price {
+      font-size: 24px;
+    }
+
+    .xmas-one-year-original-price {
+      font-size: 16px;
+    }
+
+    .xmas-one-year-buttons {
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .xmas-one-year-btn {
+      width: 120px;
+        padding: 6px 12px;
+        font-size: 12px;
+      margin: 0 0 10px;
+    }
+    .xmas-one-year-badge-text span{
+      font-size:18px;
+    }
+
+  }
+
+
+{%- endstyle -%}
+<div class="xmas-one-year-section-box">
+    <div class="section xmas-one-year-section">
+
+    {% render 'xmas-section-header', section: section %}
+
+    {% comment %} 5. 标题下面增加一个倒计时 {% endcomment %}
+    {% for block in section.blocks %}
+        {% if block.type == 'count-down' %}
+        <div class="xmas-section-countdown-wrapper" style="margin-bottom: 20px;">
+            {% render 'count-down', block: block, cusId: 'header-countdown' %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    {% for block in section.blocks %}
+        {% if block.type == 'wrap_bg' %}
+        <div class="xmax-one-year-wrap-bg" {{ block.shopify_attributes }}>
+            <div class="xmas-one-year-product {% if block.settings.image_position == 'right' %}image-right{% endif %}">
+                
+            <div class="xmas-one-year-product-image pc-only">
+                {% if block.settings.show_discount_badge %}
+                <span class="xmas-one-year-badge" 
+                    style="top: {{ block.settings.badge_top }}%; left: {{ block.settings.badge_left }}%; {% if block.settings.badge_bg_image != blank %}background-image: url('{{ block.settings.badge_bg_image | img_url: 'master' }}'); background-color: transparent;{% endif %}">
+                    <span class="xmas-one-year-badge-text">
+                    <span>{{ block.settings.badge_text }}</span> {% unless block.settings.text_nowrap %}<br>{% endunless %}OFF
+                    </span>
+                </span>
+                {% endif %}
+
+                {% comment %} Decoration Images moved here {% endcomment %}
+                {% if block.settings.decoration_image_1 != blank %}
+                <img src="{{ block.settings.decoration_image_1 | img_url: 'master' }}" 
+                    class="xmas-decoration-image decoration-1"
+                    style="top: {{ block.settings.dec_1_top }}%; left: {{ block.settings.dec_1_left }}%; width: {{ block.settings.dec_1_width }}px;">
+                {% endif %}
+                {% if block.settings.decoration_image_2 != blank %}
+                <img src="{{ block.settings.decoration_image_2 | img_url: 'master' }}" 
+                    class="xmas-decoration-image decoration-2"
+                    style="top: {{ block.settings.dec_2_top }}%; left: {{ block.settings.dec_2_left }}%; width: {{ block.settings.dec_2_width }}px;">
+                {% endif %}
+
+                <a href="{{ block.settings.product.url }}" target="_blank">
+                {%- if block.settings.custom_product_image != nil -%}
+                    {{
+                    block.settings.custom_product_image
+                    | image_url: width: 800
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: '(max-width: 768px) 100vw, 45vw',
+                        alt: block.settings.product.title
+                    }}
+                {%- else -%}
+                    {{
+                    block.settings.product.featured_image
+                    | image_url: width: 800
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: '(max-width: 768px) 100vw, 45vw',
+                        alt: block.settings.product.title
+                    }}
+                {%- endif -%}
+                </a>
+            </div>
+            
+            <div class="xmas-one-year-product-content">
+                <div class="xmas-product-tags-wrapper">
+                {% comment %} Product Top Logo {% endcomment %}
+                {% if block.settings.product_top_logo != blank %}
+                    <div class="xmas-product-top-logo" style="width: {{ block.settings.product_top_logo_width }}px;">
+                    <img src="{{ block.settings.product_top_logo | img_url: 'master' }}" style="width: 100%; height: auto;">
+                    </div>
+                {% endif %}
+
+                {% comment %} Product Custom Label {% endcomment %}
+                {% if block.settings.product_custom_label != blank %}
+                    <div class="xmas-product-custom-label align-right" style="color: {{ block.settings.product_custom_label_color }}; border-color: {{ block.settings.product_custom_label_color }};">
+                    {{ block.settings.product_custom_label }}
+                    </div>
+                {% endif %}
+                </div>
+                
+                {% comment %} Mobile Image {% endcomment %}
+                <div class="xmas-one-year-product-image mobile-only">
+                {% if block.settings.show_discount_badge %}
+                    <span class="xmas-one-year-badge" 
+                    style="top: {{ block.settings.badge_top }}%; left: {{ block.settings.badge_left }}%; {% if block.settings.badge_bg_image != blank %}background-image: url('{{ block.settings.badge_bg_image | img_url: 'master' }}'); background-color: transparent;{% endif %}">
+                    <span class="xmas-one-year-badge-text">
+                        <span>{{ block.settings.badge_text }}</span> {% unless block.settings.text_nowrap %}<br>{% endunless %}OFF
+                    </span>
+                    </span>
+                {% endif %}
+                
+                {% comment %} Decoration Images for Mobile {% endcomment %}
+                {% if block.settings.decoration_image_1 != blank %}
+                <img src="{{ block.settings.decoration_image_1 | img_url: 'master' }}" 
+                    class="xmas-decoration-image decoration-1 mobile-decor"
+                    style="top: {{ block.settings.dec_1_top }}%; left: {{ block.settings.dec_1_left }}%; width: {{ block.settings.dec_1_width }}px;">
+                {% endif %}
+                {% if block.settings.decoration_image_2 != blank %}
+                <img src="{{ block.settings.decoration_image_2 | img_url: 'master' }}" 
+                    class="xmas-decoration-image decoration-2 mobile-decor"
+                    style="top: {{ block.settings.dec_2_top }}%; left: {{ block.settings.dec_2_left }}%; width: {{ block.settings.dec_2_width }}px;">
+                {% endif %}
+
+                {%- assign product_obj = block.settings.product -%}
+                {%- if product_obj != blank and product_obj.title != blank -%}
+                    {%- assign alt_text = product_obj.title -%}
+                {%- else -%}
+                    {%- assign alt_text = '' -%}
+                {%- endif -%}
+
+                {%- if product_obj != blank and product_obj.url != blank -%}
+                    <a href="{{ product_obj.url }}" target="_blank">
+                {%- endif -%}
+
+                {% comment %} 2. 每个增加移动端移动端自定义产品图 {% endcomment %}
+                {%- if block.settings.custom_product_image_m != nil and block.settings.custom_product_image_m != blank -%}
+                    {{
+                    block.settings.custom_product_image_m
+                    | image_url: width: 800
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: '(max-width: 768px) 100vw, 45vw',
+                        alt: alt_text
+                    }}
+                {%- elsif product_obj != blank and product_obj.xmas_image != blank -%}
+                    {{
+                    product_obj.xmas_image
+                    | image_url: width: 800
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: '(max-width: 768px) 100vw, 45vw',
+                        alt: alt_text
+                    }}
+                {%- elsif product_obj != blank and product_obj.featured_image != blank -%}
+                    {{
+                    product_obj.featured_image
+                    | image_url: width: 800
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: '(max-width: 768px) 100vw, 45vw',
+                        alt: alt_text
+                    }}
+                {%- else -%}
+                    <div class="image-placeholder" aria-hidden="true"></div>
+                {%- endif -%}
+
+                {%- if product_obj != blank and product_obj.url != blank -%}
+                    </a>
+                {%- endif -%}
+
+                </div>
+
+
+
+                <a href="{{ block.settings.product.url }}" target="_blank" class="xmas-one-year-product-title">
+                {{ block.settings.product_title | default: block.settings.product.title }}
+                </a>
+
+                <div class="xmas-one-year-product-desc">
+                {{ block.settings.product_desc | default: block.settings.product.description }}
+                </div>
+                
+                {% comment %} 图片 {% endcomment %}
+                {% if block.settings.custom_feature_image != blank %}
+                <div class="xmas-one-year-feature-image" style="margin-bottom: 15px;">
+                  <img src="{{ block.settings.custom_feature_image | image_url: width: 600 }}" alt="{{ block.settings.custom_feature_image.alt | escape }}" loading="lazy" style="max-width: 80%; height: auto; border-radius: 8px;">
+                </div>
+                 <div class="xmas-one-year-product-price">
+                    {%- liquid
+                        assign current_price = block.settings.product.price
+                        if block.settings.custom_sale_price != blank
+                            assign current_price = block.settings.custom_sale_price | times: 1
+                        endif
+
+                        if block.settings.extra_discount > 0
+                            assign discount_factor = 100 | minus: block.settings.extra_discount | divided_by: 100.0
+                            assign current_price = current_price | times: discount_factor
+                        endif
+                    -%}
+                    <span class="xmas-one-year-current-price price-under-img" style="margin-left: 80px;">{{ current_price | money }}</span>
+                </div> 
+                {% endif %}
+
+                {% if block.settings.discount_code != blank %}
+                <div class="xmas-one-year-code-box copy-code-container">
+                  <span class="code-label">{{ block.settings.discount_code_label |  default: "Code:"}} <strong>{{ block.settings.discount_code }}</strong></span>
+                  <button type="button" class="btn-copy" data-code="{{ block.settings.discount_code }}">Copy</button>
+                  <span class="copy-success-msg">Copied!</span>
+                </div>
+                {% endif %}
+
+                {% comment %} 优先展示自定义价格 {% endcomment %}
+                 {% unless  block.settings.custom_feature_image != blank %}
+                  
+                <div class="xmas-one-year-product-price">
+                    {%- liquid
+                        assign current_price = block.settings.product.price
+                        if block.settings.custom_sale_price != blank
+                            assign current_price = block.settings.custom_sale_price | times: 1
+                        endif
+
+                        if block.settings.extra_discount > 0
+                            assign discount_factor = 100 | minus: block.settings.extra_discount | divided_by: 100.0
+                            assign current_price = current_price | times: discount_factor
+                        endif
+                    -%}
+                    <span class="xmas-one-year-current-price">{{ current_price | money }}</span>
+
+                    {% if block.settings.custom_compare_price != blank %}
+                    <span class="xmas-one-year-original-price">{{ block.settings.custom_compare_price | money }}</span>
+                    {% else %}
+                            {% if block.settings.product.compare_at_price > block.settings.product.price %}
+                            <span class="xmas-one-year-original-price">{{ block.settings.product.compare_at_price | money }}</span>
+                            {% endif %}
+                    {% endif %}
+
+                </div> 
+                  {% endunless %}
+                    {% comment %} 复制折扣码 {% endcomment %}
+                {% comment %} <div class="xmas-one-year-buttons">
+                  <a href="{{ block.settings.product.url }}"
+                      class="xmas-one-year-btn xmas-one-year-btn-secondary" target="_blank">
+                      <span>{{ block.settings.shop_now | default: 'Shop now' }}</span>
+                      <img class="smax-btn-cap"  src="{{ 'xmax-icon6.png' | asset_url }}" alt="" loading="lazy">
+                  </a>
+                </div> {% endcomment %}
+                <div class="xmas-one-year-buttons">
+                  {%- liquid
+                    assign product_url = block.settings.product.url
+                    if block.settings.product.selected_or_first_available_variant
+                      assign product_url = '/cart/add?id=' | append: block.settings.product.selected_or_first_available_variant.id | append: '&quantity=1'
+                    endif
+                  -%}
+                  <a href="{{ product_url }}"
+                      class="xmas-one-year-btn xmas-one-year-btn-secondary" target="_blank">
+                      <span>{{ block.settings.shop_now | default: 'Shop now' }}</span>
+                      <img class="smax-btn-cap"  src="{{ 'xmax-icon6.png' | asset_url }}" alt="" loading="lazy">
+                  </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+
+
+
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var root = document.querySelector('.xmas-one-year-section');
+      if (!root) return;
+      root.querySelectorAll('.xmas-one-year-code-box .btn-copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var code = btn.getAttribute('data-code');
+          if (!code) return;
+          function copyText(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              return navigator.clipboard.writeText(text);
+            }
+            return new Promise(function(resolve, reject) {
+              try {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.top = '-1000px';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                var ok = document.execCommand('copy');
+                document.body.removeChild(ta);
+                if (ok) resolve(); else reject(new Error('execCommand failed'));
+              } catch (e) { reject(e); }
+            });
+          }
+          copyText(code).then(function() {
+            var msg = btn.parentElement.querySelector('.copy-success-msg');
+            if (msg) {
+              msg.classList.add('show');
+              setTimeout(function() { msg.classList.remove('show'); }, 2000);
+            }
+            var original = btn.textContent;
+            btn.textContent = 'Copied';
+            setTimeout(function(){ btn.textContent = original || 'Copy'; }, 2000);
+          });
+        });
+      });
+    });
+  })();
+</script>
+{% schema %}
+{
+  "name": "Xmas One Year (Custom)",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header 设置"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "限时优惠 立省20%"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sub_heading",
+      "label": "显示副标题",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_background_image",
+      "label": "标题背景图片"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "wrap_bg",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image Position"
+        },
+        {
+            "type": "select",
+            "id": "image_position",
+            "label": "图片位置",
+            "options": [
+                { "value": "left", "label": "左侧" },
+                { "value": "right", "label": "右侧" }
+            ],
+            "default": "left"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "选择产品"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_product_image",
+          "label": "自定义产品图 (桌面端)"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_product_image_m",
+          "label": "自定义产品图 (移动端)"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "自定义产品标题",
+          "info": "留空则使用产品默认标题"
+        },
+        {
+          "type": "header",
+          "content": "Price Settings"
+        },
+        {
+          "type": "text",
+          "id": "custom_sale_price",
+          "label": "Custom Sale Price",
+          "info": "Enter custom sale price (e.g., $99.99). Leave blank to use product's original price."
+        },
+        {
+          "type": "text",
+          "id": "custom_compare_price",
+          "label": "Custom Compare At Price",
+          "info": "Enter custom compare at price (e.g., $129.99). Leave blank to use product's original compare at price."
+        },
+        {
+          "type": "range",
+          "id": "extra_discount",
+          "label": "额外折扣 %",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "richtext",
+          "id": "product_desc",
+          "label": "自定义产品描述",
+          "info": "留空则使用产品默认描述"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_feature_image",
+          "label": "描述下方图片"
+        },
+        {
+          "type": "text",
+          "id": "discount_code_label",
+          "label": "折扣码标签",
+          "default": "Code:"
+        },
+        {
+          "type": "text",
+          "id": "discount_code",
+          "label": "自定义折扣码"
+        },
+        {
+          "type": "header",
+          "content": "折扣标签设置"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_discount_badge",
+          "label": "显示折扣标签",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "badge_bg_image",
+          "label": "折扣标签背景图"
+        },
+        {
+          "type": "range",
+          "id": "badge_top",
+          "label": "Badge Top %",
+          "min": -50,
+          "max": 100,
+          "step": 2,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "badge_left",
+          "label": "Badge Left %",
+          "min": -50,
+          "max": 100,
+          "step": 2,
+          "default": 0
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "自定义标签文字",
+          "default": "50"
+        },
+        {
+          "type": "checkbox",
+          "id": "text_nowrap",
+          "label": "文案换行",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Product Content Extra"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_top_logo",
+          "label": "Top Logo (Right Top)"
+        },
+        {
+          "type": "range",
+          "id": "product_top_logo_width",
+          "label": "Top Logo Width",
+          "min": 20,
+          "max": 200,
+          "step": 5,
+          "default": 60,
+          "unit": "px"
+        },
+        {
+          "type": "text",
+          "id": "product_custom_label",
+          "label": "Custom Label (Above Title)"
+        },
+        {
+          "type": "color",
+          "id": "product_custom_label_color",
+          "label": "Label Color",
+          "default": "#00CED1"
+        },
+        {
+          "type": "header",
+          "content": "按钮设置"
+        },
+        {
+          "type": "text",
+          "id": "shop_now",
+          "label": "Shop now text",
+          "default": "Shop now"
+        },
+        {
+          "type": "header",
+          "content": "Decoration Images (Content Area)"
+        },
+        {
+          "type": "image_picker",
+          "id": "decoration_image_1",
+          "label": "装饰图 1"
+        },
+        {
+          "type": "range",
+          "id": "dec_1_top",
+          "label": "装饰图 1 Top %",
+          "min": -50,
+          "max": 150,
+          "step": 2,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "dec_1_left",
+          "label": "装饰图 1 Left %",
+          "min": -50,
+          "max": 150,
+          "step": 2,
+          "default": 90
+        },
+        {
+          "type": "range",
+          "id": "dec_1_width",
+          "label": "装饰图 1 Width (px)",
+          "min": 20,
+          "max": 300,
+          "step": 5,
+          "default": 100
+        },
+        {
+          "type": "image_picker",
+          "id": "decoration_image_2",
+          "label": "装饰图 2"
+        },
+        {
+          "type": "range",
+          "id": "dec_2_top",
+          "label": "装饰图 2 Top %",
+          "min": -50,
+          "max": 150,
+          "step": 2,
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "dec_2_left",
+          "label": "装饰图 2 Left %",
+          "min": -50,
+          "max": 150,
+          "step": 2,
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "dec_2_width",
+          "label": "装饰图 2 Width (px)",
+          "min": 20,
+          "max": 300,
+          "step": 5,
+          "default": 100
+        }
+      ]
+    },
+    {
+      "type": "count-down",
+      "name": "Countdown",
+      "settings": [
+        {
+            "type": "header",
+            "content": "Count down Settings"
+          },
+          {
+          "type": "text",
+          "id": "end_date",
+          "label": "结束日期和时间",
+          "info": "格式: YYYY-MM-DD HH:MM:SS (例如: 2023-12-31 23:59:59)",
+          "default": "2023-12-31 23:59:59"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "标题"
+        },
+        {
+          "type": "text",
+          "id": "message",
+          "label": "结束消息"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_complete",
+          "label": "结束后隐藏组件",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "显示选项"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_days",
+          "label": "显示天数",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_hours",
+          "label": "显示小时",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_minutes",
+          "label": "显示分钟",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_seconds",
+          "label": "显示秒数",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "样式选项"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "样式",
+          "options": [
+            {
+              "value": "minimal",
+              "label": "简约"
+            },
+            {
+              "value": "rounded",
+              "label": "圆角"
+            },
+            {
+              "value": "boxed",
+              "label": "盒状"
+            },
+            {
+              "value": "modern",
+              "label": "现代"
+            }
+          ],
+          "default": "modern"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "文本对齐",
+          "options": [
+            {
+              "value": "left",
+              "label": "左对齐"
+            },
+            {
+              "value": "center",
+              "label": "居中"
+            },
+            {
+              "value": "right",
+              "label": "右对齐"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "numbers_size",
+          "label": "数字大小",
+          "options": [
+            {
+              "value": "small",
+              "label": "小"
+            },
+            {
+              "value": "medium",
+              "label": "中"
+            },
+            {
+              "value": "large",
+              "label": "大"
+            },
+            {
+              "value": "x-large",
+              "label": "超大"
+            }
+          ],
+          "default": "large"
+        },
+        {
+          "type": "select",
+          "id": "labels_size",
+          "label": "标签大小",
+          "options": [
+            {
+              "value": "small",
+              "label": "小"
+            },
+            {
+              "value": "medium",
+              "label": "中"
+            },
+            {
+              "value": "large",
+              "label": "大"
+            }
+          ],
+          "default": "small"
+        },
+        {
+          "type": "header",
+          "content": "颜色设置"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "背景颜色",
+          "default": "#f9f9f9"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "标题颜色",
+          "default": "#333333"
+        },
+        {
+          "type": "color",
+          "id": "numbers_color",
+          "label": "数字颜色",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "numbers_background",
+          "label": "数字背景颜色",
+          "default": "#ff3d00"
+        },
+        {
+          "type": "color",
+          "id": "labels_color",
+          "label": "标签颜色",
+          "default": "#666666"
+        },
+        {
+          "type": "color",
+          "id": "message_color",
+          "label": "结束消息颜色",
+          "default": "#ff3d00"
+        },
+        {
+          "type": "header",
+          "content": "间距设置"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "label": "上内边距",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "label": "下内边距",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 20
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Xmas One Year (Custom)",
+      "blocks": [
+        {
+          "type": "wrap_bg"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

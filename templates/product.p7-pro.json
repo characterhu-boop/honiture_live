@@ -1,0 +1,1199 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_6qnD4q": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_7q3Lbz": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_WEffcw": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/60.svg",
+            "text": "60-Day Price Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_Lqfy7H": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "24-Hour Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_VxAikC": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": "50KPA Strong Suction | Self-stand | Anti-tangle | Dual Fragrance System | Stylish Design"
+          }
+        },
+        "klarna_on_site_messaging_app_block_LHUka7": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "settings": {}
+        },
+        "qikify_bogo_freegift_free_gift_wize7N": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "coupon_code_jhc64q": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/Frame_1739332567_1.png",
+            "has_background": true,
+            "text": "<p><strong>Earth Day Flash Sale: Saave Extra 12% OFF Now!<\/strong><\/p>",
+            "coupon_text": "EARTH12",
+            "copy_text": "Apply Discount",
+            "coupon_box_color": "#f68403",
+            "coupon_box_color_link": "#00d0cd",
+            "coupon_bg_color": "#faf0e3"
+          }
+        },
+        "coupon_code_2_jkmd4H": {
+          "type": "coupon_code_2",
+          "disabled": true,
+          "settings": {
+            "left_label_text": "Save",
+            "left_value_text": "30%",
+            "right_richtext_top": "<p>Save 30% with our auto-applied code.<\/p>",
+            "copy_button_label": "Copy code",
+            "discount_code": "SAVE30",
+            "right_richtext_bottom": "<p>Celebrate Mother's Day. <a href=\"#\">Shop the deal<\/a><\/p>",
+            "right_bg_image": "shopify:\/\/shop_images\/image_1_2.png",
+            "coupon_background": "linear-gradient(90deg, rgba(255, 236, 210, 1), rgba(252, 182, 159, 1) 100%)",
+            "left_text_color": "#18181d",
+            "body_text_color": "#18181d",
+            "accent_color": "#e63e3e",
+            "desktop_width": 0,
+            "mobile_width": 0,
+            "desktop_height": 0,
+            "mobile_height": 0,
+            "right_bg_size_desktop": 320,
+            "right_bg_size_mobile": 220,
+            "right_bg_right_desktop": 0,
+            "right_bg_bottom_desktop": 0,
+            "right_bg_right_mobile": 0,
+            "right_bg_bottom_mobile": 0
+          }
+        },
+        "text_C8jNQg": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "🔥Limited-time Flash Sale.",
+            "text_style": "style_body"
+          }
+        },
+        "scrolling_text_wGMGmX": {
+          "type": "scrolling_text",
+          "disabled": true,
+          "settings": {
+            "content": "💐Celebrate Mother’s Day with Limited Gifts for P7 Pro Vacuum!",
+            "direction": "left",
+            "speed": "20s",
+            "background_color": "#00d0cd",
+            "text_color": "#ffffff"
+          }
+        },
+        "coupon_code_new_UifXid": {
+          "type": "coupon_code_new",
+          "disabled": true,
+          "settings": {
+            "has_background": false,
+            "text": "<p>⏰Limited-time Deal<\/p>",
+            "text_2": "<p>Apply & Save 8% Today!<\/p>",
+            "discount_text": "8% OFF",
+            "coupon_text": "P7PROSAVE8",
+            "copy_text": "Copy code",
+            "text_color": "#f68403",
+            "coupon_bg": "#fcf3e9",
+            "coupon_btn_text": "#e48924",
+            "coupon_btn_bg": "#fcf3e9"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li><strong>Strong Suction <\/strong>– 50KPA deep-cleaning power<\/li><li><strong>Fresh Scent<\/strong> – Dual fragrance for cleaner air<\/li><li><strong>Anti-Allergic<\/strong> – 7-layer HEPA allergen filter<\/li><li><strong>Tangle-Free V Brush<\/strong> – No pet hair stuck inside<\/li><li><strong>Stylish Design<\/strong> – Champagne gold, self-standing body<\/li><li><strong>Easy to Use<\/strong> – 80 mins runtime, ultra-lightweight<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "variant_picker_qpHTdC": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_feaebV": {
+          "type": "quantity",
+          "settings": {
+            "justify_content": "flex-end"
+          }
+        },
+        "buy_buttons_68QwXm": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_Q9cnW9": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "linked_products_RLnw6m": {
+          "type": "linked-products",
+          "settings": {
+            "title": "Related Products",
+            "show_images": true,
+            "product_1": "honiture-p7-pro-cordless-vacuum-t10-robot-vacuum",
+            "product_title_1": "",
+            "product_2": "honiture-p7-pro-cordless-vacuum-g20-pro-robot-vacuum",
+            "product_title_2": "",
+            "product_3": "honiture-p7-pro-cordless-vacuum-cleaning-bundle",
+            "product_title_3": "",
+            "product_4": "m7-wet-dry-vacuum",
+            "product_title_4": "",
+            "product_5": "",
+            "product_title_5": "",
+            "product_6": "",
+            "product_title_6": ""
+          }
+        },
+        "image_URHe9f": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_271.jpg",
+            "position": "text-left",
+            "image_link": "shopify:\/\/pages\/mothers-day-sale"
+          }
+        },
+        "collapsible_tab_9CJwUc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Specification",
+            "open": false,
+            "use_modal": true,
+            "link": "",
+            "content": "",
+            "page": "spec-for-p7-pro",
+            "custom_liquid": "<style>\n    \/* 美化表格并让它撑满弹窗 *\/\n    table[style*=\"border-collapse: collapse;\"],\n    table[data-mce-fragment=\"1\"] {\n        width: 100%!important;\n        table-layout: fixed;\n        border-collapse: collapse;\n        margin: 20px 0;\n        font-family: Arial, sans-serif;\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);\n        background-color: #fff;\n        overflow: hidden;\n    }\n\n    table[style*=\"border-collapse: collapse;\"],\n    table[data-mce-fragment=\"1\"] {\n        border-radius: 0;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] col,\n    table[data-mce-fragment=\"1\"] col {\n        width: auto !important;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] td,\n    table[data-mce-fragment=\"1\"] td {\n        padding: 14px 20px;\n        text-align: left;\n        border-bottom: 1px solid #e0e0e0;\n        word-break: break-word;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] tr:nth-child(even) td,\n    table[data-mce-fragment=\"1\"] tr:nth-child(even) td {\n        background-color: #f9f9f9;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] tr:hover td,\n    table[data-mce-fragment=\"1\"] tr:hover td {\n        background-color: #f3faff;\n        transition: background-color 0.2s ease;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] td.et2,\n    table[data-mce-fragment=\"1\"] td.et2 {\n        font-weight: normal;\n        color: #333;\n    }\n\n    \/* 响应式样式 - 移动端适配 *\/\n    @media (max-width: 768px) {\n        .modal-content {\n            overflow-y: scroll !important;\n            overflow-x: scroll !important;\n        }\n\n        .close {\n            position: absolute;\n            top: 89px;\n            right: 13px;\n        }\n    }\n<\/style>"
+          }
+        },
+        "collapsible_tab_WDKbxb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "User Manual",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p><strong>Need help getting started?<\/strong><br\/>Download the full user manual for step-by-step instructions, safety tips, maintenance guidance, and more.<br\/><br\/>📄 <strong>[<\/strong><a href=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_P7_Pro_Cordless_Vacuum_Cleaner_Manual.pdf?v=1782896809\" target=\"_blank\" title=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_P7_Pro_Cordless_Vacuum_Cleaner_Manual.pdf?v=1782896809\"><strong>Click here to view the manual<\/strong><\/a><strong>]<\/strong><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_ACwKhQ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fast Shipping & Delivery",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Orders will be shipped within 24 business hours and usually delivered within 2-3 days. Explore More <a href=\"https:\/\/honiture.com\/policies\/shipping-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/shipping-policy\">Here<\/a>.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_NpFgWw": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "60-Day Price Match Policy",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Buy with confidence — Found a lower price within 60 days? We'll refund the difference! Learn More at <a href=\"\/pages\/price-match-guarantee\" target=\"_blank\" title=\"Price Match Guarantee\">Price Match Guarantee<\/a><a href=\"https:\/\/honiture.com\/policies\/refund-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/refund-policy\">.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "payment_security_yaWh9B": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        }
+      },
+      "block_order": [
+        "info_box_6qnD4q",
+        "info_box_7q3Lbz",
+        "info_box_WEffcw",
+        "info_box_Lqfy7H",
+        "label_VxAikC",
+        "title",
+        "klarna_on_site_messaging_app_block_LHUka7",
+        "separator_dMbKEh",
+        "qikify_bogo_freegift_free_gift_wize7N",
+        "coupon_code_jhc64q",
+        "coupon_code_2_jkmd4H",
+        "text_C8jNQg",
+        "scrolling_text_wGMGmX",
+        "coupon_code_new_UifXid",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "variant_picker_qpHTdC",
+        "quantity_feaebV",
+        "buy_buttons_68QwXm",
+        "complementary_Q9cnW9",
+        "linked_products_RLnw6m",
+        "image_URHe9f",
+        "collapsible_tab_9CJwUc",
+        "collapsible_tab_WDKbxb",
+        "collapsible_tab_ACwKhQ",
+        "collapsible_tab_NpFgWw",
+        "payment_security_yaWh9B"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--product-form,.product-recommendations--loaded {margin-bottom: 30px;}",
+        ".custom-more-payment-options {margin-bottom: 25px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "1761279807935a35fa": {
+      "type": "apps",
+      "blocks": {
+        "selleasy_lb_upsell_widget_ba_LGTrLA": {
+          "type": "shopify:\/\/apps\/selleasy\/blocks\/lb-upsell-widget-ba\/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "selleasy_lb_upsell_widget_ba_LGTrLA"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "background_video_MegFpc": {
+      "type": "background-video",
+      "blocks": {
+        "button_GkJKzt": {
+          "type": "button",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "button_GkJKzt"
+      ],
+      "custom_css": [
+        "@media only screen and (min-width: 768px) {.desktop-height-650 {min-height: 648px; }}"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-200",
+        "full_width": false,
+        "video_controls": true,
+        "video": "https:\/\/www.youtube.com\/watch?v=uRPJxRJMFTw",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_swiper_carousel_hVP76M": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_aL7hfy": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Vacuum-Cleaner-V-Shape.png",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "V-Shaped Brush",
+            "card_text": "Prevents hair from clogging, reducing maintenance",
+            "channel": ""
+          }
+        },
+        "slide_g78F9t": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Cordless-Vacuum-with-LED.png",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "LED Headlights",
+            "card_text": "Reveals dust in dark corners for a deeper clean",
+            "channel": ""
+          }
+        },
+        "slide_KXMBUC": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Vacuum-Cleaner-Gold.png",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Multi-Brush Accessories",
+            "card_text": "Switch effortlessly for carpets, sofas, and more",
+            "channel": ""
+          }
+        },
+        "slide_QRxCKV": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Stick-Vacuum.png",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Portable Stand",
+            "card_text": "Charge and store neatly in one place",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_aL7hfy",
+        "slide_g78F9t",
+        "slide_KXMBUC",
+        "slide_QRxCKV"
+      ],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<h2>Easy Cleaning Solutions<\/h2>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 93,
+        "slide_aspect_ratio_mobile": 122,
+        "slides_per_view": 3.4,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_mobile": 1.2,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 3,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "progressbar",
+        "pagination_color": "#000000"
+      }
+    },
+    "single_image_EUQnQg": {
+      "type": "single-image",
+      "custom_css": [
+        ".wrap {display: flex; flex-direction: column; align-items: start; background: #ffffffc0; padding: 30px; width: max-content; border-radius: 10px; color: #19586e; line-height: 1;}",
+        ".title {font-size: 2.4vw; font-weight: 700; line-height: 1.2;}",
+        ".text {margin-bottom: 30px; font-size: 1.2vw; text-align: start;}",
+        ".text:last-of-type {margin-bottom: 0;}",
+        "@media screen and (max-width: 768px) {.wrap {padding: 15px; } .title {font-size: 26px; } .text {font-size: 16px; line-height: 1.2; }}"
+      ],
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Cordless-Vacuum-Cleaner-on-Sale.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-P7-Pro-Vacuum_Cleaner-for-Carpet.jpg",
+        "full_width": true,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "<div class=\"wrap\">\n        <span class=\"title\">80 Mins<\/span>\n        <span class=\"text\">Long Runtime<\/span>\n\n        <span class=\"title\">50KPa<\/span>\n        <span class=\"text\">Powerful Suction<\/span>\n\n        <span class=\"title\">7-Layer <\/span>\n        <span class=\"text\">HEPA Filtration  <\/span>\n\n        <span class=\"title\">Smart <\/span>\n        <span class=\"text\">LED Touchscreen<\/span>\n\n    <\/div>",
+        "d_position_x": 23,
+        "d_position_y": 67,
+        "d_content_width": 13,
+        "d_size": 24,
+        "d_position_x_mobile": 9,
+        "d_position_y_mobile": 49,
+        "d_content_width_mobile": 31,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_4_m9UttW": {
+      "type": "media-4",
+      "name": "Four Image Grid",
+      "settings": {
+        "full_width": false,
+        "image_1_desktop": "shopify:\/\/shop_images\/Honiture-P7-Pro-Vacuum-3-in-1_4c788485-078a-4f36-af77-2bd83953cd3b.png",
+        "image_2_desktop": "shopify:\/\/shop_images\/Honiture-P7-Pro-50-KPA-Suction.png",
+        "image_3_desktop": "shopify:\/\/shop_images\/Honiture-P7-Pro-Vacuum-Cleaner-4000mah.png",
+        "image_4_desktop": "shopify:\/\/shop_images\/Honiture-P7-Pro-Vacuum-Vleaner-7-HEPA.png"
+      }
+    },
+    "slideshow_new_product_DLkgEV": {
+      "type": "slideshow-new-product",
+      "blocks": {
+        "slide_8PUyUn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-vacuum-Champagne-Gold-with-aromatherapy-cordless-vacuum.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Stick-Vacuum-Cleaner.png",
+            "slide_link": "",
+            "video_background": false,
+            "heading": "<h3>Up to <strong>80<\/strong> Mins Runtime<br\/>One Charge Covers <strong>300<\/strong>㎡<\/h3>",
+            "content": "<span style=\"font-size: 15px;\">\nPowered by 6×4000mAh batteries, it runs up to 80 mins and fully charges in 4 hours—ideal for deep cleaning up to 300㎡ in one go.\n<\/span>",
+            "position_x": 25,
+            "position_y": 8,
+            "content_width": 38,
+            "text_alignment": "center",
+            "position_x_mobile": 6,
+            "position_y_mobile": 1,
+            "content_width_mobile": 93,
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        },
+        "slide_BGTyDe": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_89245838-4d1c-4217-9094-ccaf31de5f23.png",
+            "mobile_image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Cordless-Vacuum-Tech.png",
+            "slide_link": "",
+            "video_background": false,
+            "heading": "<h3>Max Power<br\/>Maximum Clean<\/h3>",
+            "content": "<div style=\"font-size: 15px;color: #fff;\"> With powerful 50Kpa suction and a high-performance motor, effortlessly clean pet hair, fine dust, carpets, and hard floors with precision and ease.<\/div>\n        <div class=\"cus-slide-3\" style=\"color:#fff\">\n            <div> Max <span>120<\/span>AW <span style=\"font-weight: 400;\">|<\/span><span> 50<\/span> Kpa <br>Suction Power<\/div>\n            <div>Rated <span>100,000<\/span> RPM <br>High-Speed Brushless Motor<\/div>\n        <\/div>",
+            "position_x": 27,
+            "position_y": 54,
+            "content_width": 38,
+            "text_alignment": "center",
+            "position_x_mobile": 4,
+            "position_y_mobile": 7,
+            "content_width_mobile": 90,
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_8PUyUn",
+        "slide_BGTyDe"
+      ],
+      "custom_css": [
+        ".slideshow-new-product__slide-content strong {color: #00d0cd;}",
+        ".slideshow-new-product__slide-content-2 h3 {color: #fff;}",
+        ".slideshow-new-product__slide-content {text-align: start;}",
+        ".cus-slide-3 {display: flex; gap: 20px; margin-top: 20px;}",
+        ".cus-slide-3 span {font-size: 30px; font-weight: 700;}",
+        "@media screen and (max-width: 768px) {.slideshow-new-product__slide-content {text-align: center; font-size: 12px; color: #575757; } .slideshow-new-product__slide-content h3 {font-size: 24px; } .cus-slide-3 {display: none; }}"
+      ],
+      "name": "Slideshow-new-product",
+      "settings": {
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "autoplay": true,
+        "autoplay_length": 6,
+        "transition": "slide",
+        "controls": "dots",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "slideshow_new_product_Ctk4Rt": {
+      "type": "slideshow-new-product",
+      "blocks": {
+        "slide_j9yFc6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_a5294fa4-0ac7-4ef4-98ce-30beb630d7a7.png",
+            "mobile_image": "shopify:\/\/shop_images\/2_01866ed4-842f-4aaa-bb9f-24cdea6626fc.png",
+            "slide_link": "",
+            "video_background": false,
+            "heading": "<h3><strong>Choose Cordless HEPA Vacuum Purify the Air, Protect Your Loved Ones<\/strong><\/h3>",
+            "content": "<span style=\"font-size: 15px;\">\nThe 7 layer HEPA filtration captures 99.99% of dust, pet hair, and allergens as small as O.3 m.\nThe innovative dual-sided fragrance module delivers a dual freshening experience.\n<\/span>",
+            "position_x": 4,
+            "position_y": 11,
+            "content_width": 81,
+            "text_alignment": "center",
+            "position_x_mobile": 2,
+            "position_y_mobile": 1,
+            "content_width_mobile": 97,
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        },
+        "slide_NPpjHt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Cordless-Cacuum-Cleaner-with-3-Modes.png",
+            "mobile_image": "shopify:\/\/shop_images\/3_32d8bd46-e457-426f-b1cd-901429016b85.png",
+            "slide_link": "",
+            "video_background": false,
+            "heading": "<h3>All-in-One <\/h3><h3>Smart Touch Screen<\/h3>",
+            "content": "<div class=\"cus-slide-2\">\n        <div class=\"wrap\">\n                      <svg style=\"margin-right: 10px;\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\">\n                <circle cx=\"20\" cy=\"20\" r=\"20\" fill=\"#00D0CD\"><\/circle>\n                <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M22.9784 21.7538C22.9784 21.7538 24.6408 16.8531 19.9545 14.0999C15.2682 11.3451 10.4609 14.634 10.4609 14.634C10.4609 14.634 14.5166 5.52296 23.9784 8.65562C32.0468 11.3275 26.3701 22.0264 22.9784 21.7538Z\" fill=\"white\"><\/path>\n                <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M17.3235 21.9013C17.3235 21.9013 20.9155 25.6848 25.5517 22.7521C30.1894 19.8178 29.4987 13.9556 29.4987 13.9556C29.4987 13.9556 35.7268 21.861 28.5268 28.9172C22.387 34.9324 15.5002 24.8275 17.3235 21.9013Z\" fill=\"white\"><\/path>\n                <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M19.9222 16.4092C19.9222 16.4092 14.8616 17.5851 15.006 23.0717C15.1521 28.5567 20.5128 30.9359 20.5128 30.9359C20.5128 30.9359 10.589 32.2947 8.22484 22.507C6.21055 14.1632 18.3509 13.353 19.9222 16.4092Z\" fill=\"white\"><\/path>\n            <\/svg>\n\n\n            <span class=\"text\">\n                <span class=\"title\">Suction Control: <br><\/span>\n                3 Adjustable Suction Levels\n            <\/span>\n        <\/div>\n        <div class=\"wrap\">\n            <svg style=\"margin-right: 10px;\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\">\n                <circle cx=\"20\" cy=\"20\" r=\"20\" fill=\"#00D0CD\"><\/circle>\n                <path d=\"M30.0309 7C28.9409 7 28.0619 7.87435 28.0619 8.92358V8.95855H26.1631C23.737 8.95855 21.7679 10.9171 21.7679 13.3303V27.6697C21.7679 29.0337 20.6779 30.1179 19.3066 30.1179C17.9353 30.1179 16.8453 29.0337 16.8453 27.6697V19.0661C16.8453 16.6529 14.8762 14.6943 12.4501 14.6943H10.903C10.903 13.6101 10.0239 12.7707 8.9339 12.7707C7.84388 12.7707 7 13.6101 7 14.6943V18.6114C7 19.6956 7.87904 20.5699 8.9339 20.5699C9.98875 20.5699 10.903 19.6956 10.903 18.6114V18.5764H12.4501C12.6962 18.5764 12.9423 18.7863 12.9423 19.0661V27.6697C12.9423 31.1671 15.7904 34 19.3066 34C22.8228 34 25.6709 31.1671 25.6709 27.6697V13.3303C25.6709 13.0855 25.8819 12.8407 26.1631 12.8407H28.097V12.8756C28.097 13.9598 28.9761 14.8342 30.0661 14.8342C31.1561 14.8342 32 13.9598 32 12.8756V8.92358C31.9648 7.87435 31.121 7 30.0309 7Z\" fill=\"white\"><\/path>\n            <\/svg>\n\n\n            <span class=\"text\">\n                <span class=\"title\">Blockage Indicator: <br><\/span>\n                Full Cup \/ Telescopic Tube Blocked\n            <\/span>\n        <\/div>\n        <div class=\"wrap\" style=\" margin-bottom: 0;\">\n            <svg style=\"margin-right: 10px;\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\">\n                <circle cx=\"20\" cy=\"20\" r=\"20\" fill=\"#00D0CD\"><\/circle>\n                <mask id=\"mask0_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask0_2110_46)\">\n                    <path d=\"M35.2837 23.0699C35.7343 22.4635 35.9993 21.7517 35.9993 20.9607C35.9993 19.0097 34.3827 17.4014 32.4215 17.4014H32.1035L35.2837 23.0699Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask1_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask1_2110_46)\">\n                    <path d=\"M24.7363 17.375L28.7116 24.52H31.1233L27.1745 17.375H24.7363Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask2_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask2_2110_46)\">\n                    <path d=\"M21.0527 17.375L25.028 24.52H27.4397L23.4644 17.375H21.0527Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask3_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask3_2110_46)\">\n                    <path d=\"M28.4199 17.375L32.3952 24.52C33.1637 24.52 33.8528 24.2827 34.4358 23.8609L30.8581 17.375H28.4199Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask4_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask4_2110_46)\">\n                    <path d=\"M17.3691 17.375L21.3444 24.52H23.7561L19.7808 17.375H17.3691Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask5_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask5_2110_46)\">\n                    <path d=\"M6.26502 19.5894C6.10601 20.0112 6 20.4594 6 20.934C6 22.7005 7.29859 24.1506 8.9947 24.4406L6.26502 19.5894Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask6_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask6_2110_46)\">\n                    <path d=\"M13.6855 17.375L17.6608 24.52H20.0725L16.0972 17.375H13.6855Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask7_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask7_2110_46)\">\n                    <path d=\"M10.2658 24.52H12.6775L8.78175 17.4805C8.0662 17.6387 7.43016 18.0078 6.95312 18.5351L10.2658 24.52Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask8_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask8_2110_46)\">\n                    <path d=\"M10.002 17.375L13.9507 24.52H16.3889L12.4136 17.375H10.002Z\" fill=\"white\"><\/path>\n                <\/g>\n                <mask id=\"mask9_2110_46\" style=\"mask-type:luminance\" maskunits=\"userSpaceOnUse\" x=\"6\" y=\"14\" width=\"30\" height=\"14\">\n                    <path d=\"M36 14H6V28H36V14Z\" fill=\"white\"><\/path>\n                <\/mask>\n                <g mask=\"url(#mask9_2110_46)\">\n                    <path d=\"M11.9628 28.0002C11.7243 28.0002 11.4858 27.8947 11.3533 27.6838C11.1413 27.341 11.2208 26.8928 11.5653 26.6555L29.9575 14.132C30.302 13.8947 30.7526 13.9738 30.9911 14.3166C31.2296 14.6593 31.1501 15.1075 30.8056 15.3448L12.3868 27.8683C12.2543 27.9474 12.1218 28.0002 11.9628 28.0002Z\" fill=\"white\"><\/path>\n                <\/g>\n            <\/svg>\n\n            <span class=\"text\">\n               <span class=\"title\"> Error Alerts: <br><\/span>\n                Instant Error Notification\n            <\/span>\n        <\/div>\n    <\/div>\n<style>\n        .cus-slide-2 {\n            display: flex;\n            flex-direction: column;\n            margin-top: 100px;\n            margin-left: 50px\n        }\n\n        .text {\n            text-align: start;\n            font-size: 15px;\n        }\n\n        .wrap {\n            display: flex;\n            align-items: center;\n            margin-bottom: 20px;\n        }\n\n        @media screen and (max-width: 768px) {\n            .cus-slide-2 {\n                width: 115px;\n                margin-top: 10%;\n                margin-left: 10px\n            }\n\n            .text {\n                text-align: center;\n                font-size: 12px;\n            }\n\n            .wrap {\n                flex-direction: column;\n            }\n\n            .cus-slide-2 .title {\n                display: none;\n            }\n        }\n    <\/style>",
+            "position_x": 4,
+            "position_y": 11,
+            "content_width": 81,
+            "text_alignment": "center",
+            "position_x_mobile": 4,
+            "position_y_mobile": 1,
+            "content_width_mobile": 100,
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 20,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_j9yFc6",
+        "slide_NPpjHt"
+      ],
+      "custom_css": [
+        ".slideshow-new-product__slide-content {color: #fff;}",
+        ".slideshow-new-product__slide-content h3 {color: #fff; margin-bottom: 10px;}",
+        ".slideshow-new-product__slide-content strong {color: #fff;}",
+        "@media screen and (max-width: 768px) {.slideshow-new-product__slide-content {text-align: center; } .slideshow-new-product__slide-content {font-size: 15px; } .slideshow-new-product__slide-content h3 {font-size: 24px; }}"
+      ],
+      "name": "Slideshow-new-product",
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "slide",
+        "controls": "dots",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_swiper_carousel_4CADgV": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_mirebm": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=WEjhXwPXuk4",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": ""
+          }
+        },
+        "slide_LV7fL6": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=NxuSgOdWdes",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        },
+        "slide_FjTGri": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/GIrpmvhIq1Q",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        },
+        "slide_FQ9qrK": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/J9cePaye8KY?si=ySsgjpA6B-u9nRq8",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        },
+        "slide_jNBh9q": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/4KG-Angv3ok?si=I7SQDL3eHkFHf81L",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "avatar": "shopify:\/\/shop_images\/LOGO-03-01-01-01.svg",
+            "channel": "Honiture Official"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mirebm",
+        "slide_LV7fL6",
+        "slide_FjTGri",
+        "slide_FQ9qrK",
+        "slide_jNBh9q"
+      ],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<h2>Unboxing & Reviews<\/h2>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 56,
+        "slide_aspect_ratio_mobile": 56,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": false,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "progressbar",
+        "pagination_color": "#000000"
+      }
+    },
+    "single_image_6MNeTh": {
+      "type": "single-image",
+      "custom_css": [
+        "h2 {font-size: 24px; color: #19586e;}"
+      ],
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-P7-Pro-Packing-List.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-P7-Pro-cordless-Vacuum-Packing-list.jpg",
+        "full_width": false,
+        "title": "<h2>What's In The Box？<\/h2>",
+        "title_alignment": "center",
+        "position_x": 1,
+        "title_size": 24,
+        "position_x_mobile": 1,
+        "title_size_mobile": 16,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "blocks_VBeLqe": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f2aa60b_Fgxbta": {
+          "type": "ai_gen_block_f2aa60b",
+          "settings": {
+            "section_title": "Compare & Pick the Best Fit",
+            "title_font_size": 28,
+            "title_alignment": "left",
+            "title_spacing": 20,
+            "title_color": "#19586e",
+            "product_1": "p7-pro-cordless-vacuum",
+            "product_2": "x7",
+            "product_3": "y10-cordless-stick-vacuum",
+            "product_4": "",
+            "product_5": "",
+            "show_row_labels": true,
+            "corner_cell_text": "Model",
+            "row_1_label": "Suction",
+            "row_2_label": "Runtime",
+            "row_3_label": "Cleaning Performance",
+            "row_4_label": "Pet Hair",
+            "row_5_label": "Best For",
+            "row_6_label": "Why Choose This",
+            "row_7_label": "Retail Price",
+            "row_8_label": "",
+            "row_9_label": "",
+            "row_10_label": "",
+            "row_1_col_1": "⭐50KPa",
+            "row_1_col_2": "45KPa",
+            "row_1_col_3": "38KPa",
+            "row_1_col_4": "",
+            "row_1_col_5": "",
+            "row_2_col_1": "⭐80 Mins",
+            "row_2_col_2": "60 Mins",
+            "row_2_col_3": "45 Mins",
+            "row_2_col_4": "",
+            "row_2_col_5": "",
+            "row_3_col_1": "Hard floors + Carpets + Edges & Corners",
+            "row_3_col_2": "Hard floors + Carpets + Edges & Corners",
+            "row_3_col_3": "Hard floors + Edges & Corners",
+            "row_3_col_4": "",
+            "row_3_col_5": "",
+            "row_4_col_1": "⭐⭐⭐⭐⭐",
+            "row_4_col_2": "⭐⭐⭐⭐⭐",
+            "row_4_col_3": "⭐⭐⭐",
+            "row_4_col_4": "",
+            "row_4_col_5": "",
+            "row_5_col_1": "Large Homes, Pet Owners, Deep Cleaning Needs",
+            "row_5_col_2": "Pet Owners, Deep Cleaning Needs",
+            "row_5_col_3": "Quick cleanups, Apartments, Car cleaning",
+            "row_5_col_4": "",
+            "row_5_col_5": "",
+            "row_6_col_1": "Powerful for Deep Cleaning",
+            "row_6_col_2": "Lightweight & Powerful & Portable",
+            "row_6_col_3": "Compact for Daily Cleaning & Affordable",
+            "row_6_col_4": "",
+            "row_6_col_5": "",
+            "row_7_col_1": "US$199.99",
+            "row_7_col_2": "US$179.99",
+            "row_7_col_3": "US$149.99",
+            "row_7_col_4": "",
+            "row_7_col_5": "",
+            "row_8_col_1": "",
+            "row_8_col_2": "",
+            "row_8_col_3": "",
+            "row_8_col_4": "",
+            "row_8_col_5": "",
+            "row_9_col_1": "",
+            "row_9_col_2": "",
+            "row_9_col_3": "",
+            "row_9_col_4": "",
+            "row_9_col_5": "",
+            "row_10_col_1": "",
+            "row_10_col_2": "",
+            "row_10_col_3": "",
+            "row_10_col_4": "",
+            "row_10_col_5": "",
+            "desktop_width_percent": 100,
+            "image_size": 120,
+            "cell_padding": 16,
+            "text_alignment": "center",
+            "border_radius": 8,
+            "border_width": 1,
+            "image_border_radius": 8,
+            "header_font_size": 16,
+            "product_title_size": 14,
+            "cell_font_size": 14,
+            "table_bg_color": "#ffffff",
+            "header_bg_color": "#f5f5f5",
+            "header_text_color": "#1a1c1d",
+            "cell_bg_color": "#ffffff",
+            "cell_alt_bg_color": "#fafafa",
+            "cell_text_color": "#000000",
+            "border_color": "#e0e0e0",
+            "row_label_bg_color": "#f5f5f5",
+            "row_label_text_color": "#1a1c1d"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f2aa60b_Fgxbta"
+      ],
+      "name": "产品选购指南",
+      "settings": {}
+    },
+    "collapsible_content_dLTL4D": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_EcVtW7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is the maximum suction power of the Honiture P7 Pro and how long does it last?",
+            "open": false,
+            "content": "<p>Honiture P7 Pro provides super strong suction power up to 50KPa, which can deeply clean pet hair and stubborn dirt. It has a maximum running time of up to 80 minutes.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_MjAg6A": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is the honiture P7pro a cordless rechargeable vacuum? How long does it take to fully charge?",
+            "open": false,
+            "content": "<p>Yes, the P7 Pro is a rechargeable cordless vacuum cleaner.It takes about 4 hours to fully charge the battery from a full discharge. <\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_FxC6M3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How does the Honiture P7 Pro handle tangles of pet hair, and is its filtration system hypoallergenic?",
+            "open": false,
+            "content": "<p>The P7 Pro features a tangle-resistant V-shaped roller brush that effectively prevents hair from getting stuck, significantly reducing maintenance. Its 7-layer <a href=\"https:\/\/honiture.com\/collections\/honiture-p7-pro-cordless-vacuum-accessories\/products\/hepa-filters-for-honiture-p7-pro\" target=\"_blank\" title=\"https:\/\/honiture.com\/collections\/honiture-p7-pro-cordless-vacuum-accessories\/products\/hepa-filters-for-honiture-p7-pro\">HEPA<\/a> filtration system captures 99.99% of dust and allergens as small as 0.3μm, providing a powerful anti-allergy effect.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_686qXF": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What practical functions does the Honiture P7 Pro's smart LED touch screen have?",
+            "open": false,
+            "content": "<p>The P7 Pro is equipped with a smart LED touchscreen that allows users to easily switch between three suction power levels, check the remaining battery status at any time, and receive instant error alerts.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_NPChRh": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is the Honiture P7 Pro easy to store and charge, and does it need to be mounted against a wall?",
+            "open": false,
+            "content": "<p>The P7 Pro features a self-stand design and a lightweight body, making it easy to park or store at any time without having to lean against a wall.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_8tHQ9D": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to replace accessories on Honiture P7 Pro？",
+            "open": false,
+            "content": "<p>Click the link below to learn how to replace parts.<\/p><ul><li><a href=\"https:\/\/www.youtube.com\/watch?v=G16TJmyI3JU\" target=\"_blank\" title=\"https:\/\/www.youtube.com\/watch?v=G16TJmyI3JU\">Scented Disc<\/a><\/li><li><a href=\"https:\/\/www.youtube.com\/watch?v=wIfmkB-FPSA\" target=\"_blank\" title=\"https:\/\/www.youtube.com\/watch?v=wIfmkB-FPSA\">Dustbin<\/a><\/li><li><a href=\"https:\/\/www.youtube.com\/watch?v=vUX6gC8Csxw\" target=\"_blank\" title=\"https:\/\/www.youtube.com\/watch?v=vUX6gC8Csxw\">Brush<\/a><\/li><li><a href=\"https:\/\/www.youtube.com\/watch?v=isP7JFnQWUA\" target=\"_blank\" title=\"https:\/\/www.youtube.com\/watch?v=isP7JFnQWUA\">Battery<\/a><\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_EcVtW7",
+        "collapsible_tab_MjAg6A",
+        "collapsible_tab_FxC6M3",
+        "collapsible_tab_686qXF",
+        "collapsible_tab_NPChRh",
+        "collapsible_tab_8tHQ9D"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQs",
+        "marker_style": "style1",
+        "description": "<p>Meet the Honiture P7 Pro<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "174192665807f31313": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ybmJRG": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ybmJRG"
+      ],
+      "custom_css": [
+        "h2 {color: #19586e;}"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 450,
+        "max_height_mobile": 500,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_collection_carousel_Xm7dLe": {
+      "type": "custom-collection-carousel",
+      "name": "Collection carousel",
+      "settings": {
+        "title": "<p>Featured Vacuums<\/p>",
+        "heading_size": "h1",
+        "collection": "best-selling-vacuum-cleaners",
+        "show_description": true,
+        "text_color": "#1a1a1a",
+        "sale_price_color": "#000000",
+        "nav_button_bg": "#ffffff",
+        "nav_button_color": "#1a1a1a",
+        "nav_button_bg_hover": "#f5f5f5",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "url_text_MJTLM9": {
+      "type": "url-text",
+      "disabled": true,
+      "name": "URL Text",
+      "settings": {
+        "text_content": "Need help deciding?",
+        "link_url": "",
+        "text_align": "center",
+        "font_size": 24,
+        "text_color": "#19586e",
+        "padding_top": 50,
+        "padding_bottom": 0
+      }
+    },
+    "custom_simple_banner_kUmy3B": {
+      "type": "custom-simple-banner",
+      "custom_css": [
+        "@media (max-width: 768px) {.banner__content {display: none; }}"
+      ],
+      "name": "Simple Banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture_smart_home_better_life.jpg",
+        "show_on_desktop": false,
+        "text_align": 15,
+        "title": "",
+        "title_tag": "h2",
+        "title_text_color": "#19586e",
+        "subtitle": "",
+        "text_color": "#19586e",
+        "title_size": 36,
+        "subtitle_size": 18,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_liquid_8z86w7": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "自定义样式的文件-勿删",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<style>\n\/\/ selleasy 卡片高度调小\n.lb-long-card{\n        gap: 8px !important;\n}\n.lb-card-image-cont{\n    width: 80%;\n}\n\n<\/style>"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "1761279807935a35fa",
+    "background_video_MegFpc",
+    "custom_swiper_carousel_hVP76M",
+    "single_image_EUQnQg",
+    "media_4_m9UttW",
+    "slideshow_new_product_DLkgEV",
+    "slideshow_new_product_Ctk4Rt",
+    "custom_swiper_carousel_4CADgV",
+    "single_image_6MNeTh",
+    "blocks_VBeLqe",
+    "collapsible_content_dLTL4D",
+    "174192665807f31313",
+    "custom_collection_carousel_Xm7dLe",
+    "url_text_MJTLM9",
+    "custom_simple_banner_kUmy3B",
+    "product-recommendations",
+    "custom_liquid_8z86w7"
+  ]
+}

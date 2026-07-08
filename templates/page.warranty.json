@@ -1,0 +1,160 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_overlay_hp696H": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_BHL738": {
+          "type": "heading",
+          "settings": {
+            "text": "Welcome to a Smarter Clean – Activate Your Honiture Warranty",
+            "heading_size": "h1",
+            "heading_tag": "h1"
+          }
+        },
+        "text_CeqibR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thanks for Choosing Honiture. You're Just One Step Away from Full Protection.<\/p>",
+            "description_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BHL738",
+        "text_CeqibR"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/0c1903b40dae2166c748ad1e729cc3a8.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-auto",
+        "full_width": true,
+        "content_width": "large",
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "text_color": "#FFFFFF",
+        "overlay_color": "#000000",
+        "overlay_opacity": 21,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_FcPbWP": {
+      "type": "rich-text",
+      "blocks": {
+        "text_6VcYX9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Please register your product below to enjoy <strong>1 year <\/strong>of warranty protection. Explore our Warranty Policy <a href=\"\/pages\/warranty-policy\" target=\"_blank\" title=\"Warranty Policy\">Here<\/a>.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "text_6VcYX9"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "transparent",
+        "color_heading": "#1a1c1d",
+        "color_text": "#000000",
+        "color_links": "#00d0cd",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1747298830d88486d2": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_iyNnJQ": {
+          "type": "shopify:\/\/apps\/forms\/blocks\/inline\/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "465513",
+            "text_color": "#202020",
+            "button_background_color": "#00d0cd",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "left",
+            "form_alignment": "center",
+            "padding_top": 32,
+            "padding_bottom": 64,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_iyNnJQ"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_gVbi4n": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mGiAQf": {
+          "type": "heading",
+          "settings": {
+            "text": "Activate Your Warranty for a Cleaner, Smarter Home",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h1",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Dcw7rw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thank you for choosing Honiture!<br\/>Please register your product below to enjoy <strong>1 year <\/strong>of warranty protection. Explore our Warranty Policy <a href=\"\/pages\/warranty-policy\" target=\"_blank\" title=\"Warranty Policy\">Here<\/a>.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mGiAQf",
+        "text_Dcw7rw"
+      ],
+      "disabled": true,
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": true,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#1a1c1d",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_hp696H",
+    "rich_text_FcPbWP",
+    "1747298830d88486d2",
+    "rich_text_gVbi4n"
+  ]
+}

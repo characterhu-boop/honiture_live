@@ -1,0 +1,189 @@
+{%- liquid
+  assign section_width = section.settings.section_width
+  assign disable_top_spacing = section.settings.disable_top_spacing
+  assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+  assign max_height_desktop = section.settings.max_height_desktop 
+  assign max_height_mobile = section.settings.max_height_mobile
+  assign show_toggle_button = section.settings.show_toggle_button
+  assign button_text = section.settings.button_text
+-%}
+
+<style>
+  .app-wrapper--collapsible {
+    position: relative;
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+  
+  .app-wrapper--collapsed {
+    max-height: {{ max_height_desktop }}px;
+  }
+  
+  .app-wrapper__toggle {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 100px 0 0;
+    background: linear-gradient(to bottom, #ffffff00 0%, #fff 60%, #fff);
+    z-index: 1;
+  }
+  
+  .app-wrapper--collapsed .app-wrapper__toggle {
+    display: block;
+  }
+  
+  .app-wrapper__toggle-button {
+    background: #fff;
+    border: 2px solid #00D0CD;
+    padding: 8px 34px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #00D0CD;
+    width: 180px;
+  }
+  .app-wrapper__toggle-button_text{
+    position: relative;
+  }
+  .app-wrapper__toggle-button_text::after {
+    content: ">";
+    position: absolute;
+    top: 4px;
+    right: 20px;
+    transform: rotate(90deg);
+  }
+  @media screen and (max-width: 768px) {
+    .app-wrapper--collapsed {
+      max-height: {{ max_height_mobile }}px;
+    }
+  }
+</style>
+
+<div class="app-wrapper section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}{% if show_toggle_button %} app-wrapper--collapsible app-wrapper--collapsed{% endif %}" id="AppWrapper-{{ section.id }}">
+  <div class="row {{ section_width }}">
+    <div class="small-12 columns">
+      {%- for block in section.blocks -%}
+        {% render block %}
+      {%- endfor -%}
+    </div>
+  </div>
+  {% if show_toggle_button %}
+  <div class="app-wrapper__toggle">
+    <button class="app-wrapper__toggle-button" onclick="toggleAppWrapper('{{ section.id }}')"> <span class="app-wrapper__toggle-button_text">{{ button_text }}</span></button>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+  function toggleAppWrapper(sectionId) {
+    const wrapper = document.getElementById(`AppWrapper-${sectionId}`);
+    const button = wrapper.querySelector('.app-wrapper__toggle-button');
+    
+    if (wrapper.classList.contains('app-wrapper--collapsed')) {
+      wrapper.classList.remove('app-wrapper--collapsed');
+      button.textContent = '收起内容';
+    } else {
+      wrapper.classList.add('app-wrapper--collapsed');
+      button.textContent = '展开更多';
+    }
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "App wrapper",
+    "class": "section-app-wrapper",
+    "settings": [
+      {
+        "type": "select",
+        "id": "section_width",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          },
+          {
+            "value": "full-width-row",
+            "label": "Full width"
+          },
+          {
+            "value": "full-width-row-full",
+            "label": "Full width, no spacing"
+          }
+        ],
+        "default": "grid",
+        "label": "Section width"
+      },
+      {
+        "type": "header",
+        "content": "展开/收起设置"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_toggle_button",
+        "default": false,
+        "label": "启用展开/收起功能"
+      },
+      {
+        "type": "range",
+        "id": "max_height_desktop",
+        "min": 100,
+        "max": 1000,
+        "step": 50,
+        "unit": "px",
+        "label": "PC端最大高度(如:800px)",
+        "default": 600
+      },
+      {
+        "type": "range",
+        "id": "max_height_mobile",
+        "min": 100,
+        "max": 1000,
+        "step": 50,
+        "unit": "px",
+        "label": "移动端最大高度(如:300px)",
+        "default": 100
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "default": "See More",
+        "label": "Button Text"
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "checkbox",
+        "id": "disable_top_spacing",
+        "default": false,
+        "label": "Remove top spacing"
+      },
+      {
+        "type": "checkbox",
+        "id": "disable_bottom_spacing",
+        "default": false,
+        "label": "Remove bottom spacing"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "@app"
+      }
+    ],
+    "presets": [
+      {
+        "name": "App wrapper"
+      }
+    ],
+    "disabled_on": {
+      "groups": [
+        "header", "custom.overlay", "footer"
+      ]
+    }
+  }
+{% endschema %}

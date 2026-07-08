@@ -1,0 +1,108 @@
+{%- liquid
+  assign content_collection_image = mega_menu_block.settings.content_collection_image
+  assign content_product_image = mega_menu_block.settings.content_product_image
+-%}
+<style>
+.mega-menu-sidebar--content{
+  margin-bottom: 50px;
+}
+.mega-menu-sidebar--content-inner {
+  position: relative;
+  min-height: 200px;
+}
+
+.view-more-item {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.view-more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 12px;
+  color: #17cecc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.view-more-button:hover {
+  color: #17cecbab;
+}
+
+.view-more-button svg {
+  width: 8px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+.view-more-button h6 {
+  color: inherit;
+}
+.view-more-button h6 span path{
+  stroke: #17cecc;
+}
+.view-more-button:hover svg {
+  transform: translateX(4px);
+}
+</style>
+<div class="sub-menu mega-menu-container" tabindex="-1">
+  <div class="mega-menu-columns mega-menu-container--inner-has-sidebar">
+    <mega-menu-sidebar class="mega-menu-sidebar">
+      <div class="mega-menu-sidebar--sidebar">
+        {%- if link.links.size > 0 -%}
+          <ul>
+          {%- for l in link.links -%}
+            <li role="none">
+              <a href="{{ l.url }}" class="mega-menu-sidebar--button{% if forloop.first %} active{% endif %}" data-target="#{{ mega_menu_block.id}}-{{ forloop.index }}">
+                <span>{{ l.title }}</span>
+                {%- if l.links.size > 0 -%}{%- render 'svg-icons' with 'thb-dropdown-right' -%}{%- endif -%}
+              </a>
+            </li>
+          {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+      <div class="mega-menu-sidebar--content">
+        {%- if link.links.size > 0 -%}
+          {%- for l in link.links -%}
+            <ul id="#{{ mega_menu_block.id}}-{{ forloop.index }}" class="mega-menu-sidebar--content-inner{% if forloop.first %} active{% endif %}">
+              {%- for sub_link in l.links -%}
+              <li>
+                {%- if sub_link.type == 'collection_link' -%}
+                  {%- if content_collection_image -%}
+                  <a href="{{ sub_link.url }}" class="mega-menu-sidebar--content-container">
+                    <div class="mega-menu-sidebar--content-image">
+                    {%- render 'responsive-image', image: sub_link.object.featured_image, sizes: '237x237', priority: 'low' -%}
+                    </div>
+                    <span class="text-button">{{- sub_link.title -}}</span>
+                  </a>
+                  {%- else -%}
+                  <a href="{{ sub_link.url }}" class="thb-full-menu--link">{{- sub_link.title -}}</a>
+                  {%- endif -%}
+                {%- elsif sub_link.type == 'product_link' -%}
+                  {%- render 'product-card-simple', title_desc: sub_link.title, product_card_product: sub_link.object, show_product_image: mega_menu_block.settings.content_product_image -%}
+                {%- else -%}
+                  <a href="{{ sub_link.url }}" class="thb-full-menu--link">{{- sub_link.title -}}</a>
+                {%- endif -%}
+              </li>
+              {%- endfor -%}
+              {%- if l.links.size > 0 -%}
+              <li class="view-more-item">
+                <a href="{{ l.url }}" class="view-more-button  mega-menu-promotion--content">
+                  <h6>View More {{ l.title }}<span>{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span></h6>
+                </a>
+              </li>
+              {%- endif -%}
+            </ul> 
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </mega-menu-sidebar>
+    <script src="{{ 'mega-menu-sidebar.js' | asset_url }}" defer="defer"></script>
+  </div>
+</div>

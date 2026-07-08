@@ -1,0 +1,1295 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_6qnD4q": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_7q3Lbz": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_WEffcw": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/60.svg",
+            "text": "60-Day Price Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_Lqfy7H": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "24-Hour Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_VxAikC": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": "3-in-1 Vacuum Mop Wash | Auto Clean and Dry System | 20000 Pa Powerful Suction | Dual-Layer Comb Design"
+          }
+        },
+        "klarna_on_site_messaging_app_block_LHUka7": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "qikify_bogo_freegift_free_gift_wize7N": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "text_C8jNQg": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "🔥Limited-time Flash Sale.",
+            "text_style": "style_body"
+          }
+        },
+        "coupon_code_TEQPHj": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "heart",
+            "has_background": true,
+            "text": "<p><strong>Early Bird Special: Get 10% OFF the All-New M7 Wet-Dry Vacuum.<\/strong><\/p>",
+            "coupon_text": "M7EBD10",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd",
+            "coupon_bg_color": "#fdf1ea"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li><strong>Auto Clean & Dry System<\/strong> - Effortless cleaning, no dirty mops.  <\/li><li><strong>20000Pa Powerful Suction<\/strong> - Vacuum, mop & wash in one. <\/li><li><strong>Zero Hair Tangling <\/strong>- Built-in comb teeth technology. <\/li><li><strong>Edge-to-Edge Cleaning<\/strong> - No corner left behind. <\/li><li><strong>Large Tank, Long Runtime<\/strong> - Clean more with fewer refills.<\/li><li><strong>99.9% Bacteria Removal<\/strong>- Deep clean with electrolyzed water. <\/li><li><strong>Smart Interaction System<\/strong> - Easy modes & voice guidance. <\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "variant_picker_qpHTdC": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_feaebV": {
+          "type": "quantity",
+          "settings": {
+            "justify_content": "flex-end"
+          }
+        },
+        "buy_buttons_68QwXm": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_Q9cnW9": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "linked_products_XnfQCy": {
+          "type": "linked-products",
+          "settings": {
+            "title": "Related Products",
+            "show_images": true,
+            "product_1": "honiture-m7-wet-dry-vacuum-cleaning-bundle",
+            "product_title_1": "",
+            "product_2": "honiture-ultimate-whole-home-cleaning-bundle",
+            "product_title_2": "",
+            "product_3": "honiture-ultimate-pet-home-cleaning-bundle",
+            "product_title_3": "",
+            "product_4": "honiture-p7-pro-cordless-vacuum-t10-robot-vacuum",
+            "product_title_4": "",
+            "product_5": "",
+            "product_title_5": "",
+            "product_6": "",
+            "product_title_6": ""
+          }
+        },
+        "collapsible_tab_NqVwcK": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is a Wet Dry Vacuum?",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>A wet-dry vacuum is an all-in-one smart floor cleaner that combines <strong>vacuuming, mopping, washing, active scraping, and self-cleaning<\/strong>. <\/p><p><strong>Key Highlights:<\/strong><\/p><ul><li><strong>Wet & Dry Versatility:<\/strong> Unlike traditional vacuums that can only handle dry debris, its biggest highlight is the ability to tackle mixed wet and dry messes simultaneously—such as spilled soy sauce, instant noodles, or broken eggs.<\/li><li><strong>No Manual Mop Washing:<\/strong> Built with an internal water circulation system, it eliminates the need for manual mop washing. With just one touch, the self-cleaning technology completely frees your hands.<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_9CJwUc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Specification",
+            "open": false,
+            "use_modal": true,
+            "link": "",
+            "content": "",
+            "page": "spec-for-m7",
+            "custom_liquid": "<style>\n    \/* 美化表格并让它撑满弹窗 *\/\n    table[style*=\"border-collapse: collapse;\"],\n    table[data-mce-fragment=\"1\"] {\n        width: 100%!important;\n        table-layout: fixed;\n        border-collapse: collapse;\n        margin: 20px 0;\n        font-family: Arial, sans-serif;\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);\n        background-color: #fff;\n        overflow: hidden;\n    }\n\n    table[style*=\"border-collapse: collapse;\"],\n    table[data-mce-fragment=\"1\"] {\n        border-radius: 0;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] col,\n    table[data-mce-fragment=\"1\"] col {\n        width: auto !important;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] td,\n    table[data-mce-fragment=\"1\"] td {\n        padding: 14px 20px;\n        text-align: left;\n        border-bottom: 1px solid #e0e0e0;\n        word-break: break-word;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] tr:nth-child(even) td,\n    table[data-mce-fragment=\"1\"] tr:nth-child(even) td {\n        background-color: #f9f9f9;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] tr:hover td,\n    table[data-mce-fragment=\"1\"] tr:hover td {\n        background-color: #f3faff;\n        transition: background-color 0.2s ease;\n    }\n\n    table[style*=\"border-collapse: collapse;\"] td.et2,\n    table[data-mce-fragment=\"1\"] td.et2 {\n        font-weight: normal;\n        color: #333;\n    }\n\n    \/* 响应式样式 - 移动端适配 *\/\n    @media (max-width: 768px) {\n        .modal-content {\n            overflow-y: scroll !important;\n            overflow-x: scroll !important;\n        }\n\n        .close {\n            position: absolute;\n            top: 89px;\n            right: 13px;\n        }\n    }\n<\/style>"
+          }
+        },
+        "collapsible_tab_WDKbxb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "M7 Vacuum User Manual",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p><strong>Need help getting started?<\/strong><br\/>Download the full user manual for step-by-step instructions, safety tips, maintenance guidance, and more.<br\/><br\/>📄 <strong>[<\/strong><a href=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_M7_Wet_Dry_Vacuum_Manual.pdf?v=1782896540\" target=\"_blank\" title=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0635\/2142\/3407\/files\/Honiture_M7_Wet_Dry_Vacuum_Manual.pdf?v=1782896540\"><strong>Click here to view the manual<\/strong><\/a><strong>]<\/strong><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_ACwKhQ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fast Shipping & Delivery",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Orders will be shipped within 24 business hours and usually delivered within 2-3 days. Explore More <a href=\"https:\/\/honiture.com\/policies\/shipping-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/shipping-policy\">Here<\/a>.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_NpFgWw": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "60-Day Price Match Policy",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Buy with confidence — Found a lower price within 60 days? We'll refund the difference! Learn More at <a href=\"\/pages\/price-match-guarantee\" target=\"_blank\" title=\"Price Match Guarantee\">Price Match Guarantee<\/a><a href=\"https:\/\/honiture.com\/policies\/refund-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/refund-policy\">.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "payment_security_yaWh9B": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        }
+      },
+      "block_order": [
+        "info_box_6qnD4q",
+        "info_box_7q3Lbz",
+        "info_box_WEffcw",
+        "info_box_Lqfy7H",
+        "label_VxAikC",
+        "title",
+        "klarna_on_site_messaging_app_block_LHUka7",
+        "qikify_bogo_freegift_free_gift_wize7N",
+        "text_C8jNQg",
+        "coupon_code_TEQPHj",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "variant_picker_qpHTdC",
+        "quantity_feaebV",
+        "buy_buttons_68QwXm",
+        "complementary_Q9cnW9",
+        "linked_products_XnfQCy",
+        "collapsible_tab_NqVwcK",
+        "collapsible_tab_9CJwUc",
+        "collapsible_tab_WDKbxb",
+        "collapsible_tab_ACwKhQ",
+        "collapsible_tab_NpFgWw",
+        "payment_security_yaWh9B"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--product-form,.product-recommendations--loaded {margin-bottom: 30px;}",
+        ".custom-more-payment-options {margin-bottom: 25px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "image_with_text_overlay_custom_AVMkV4": {
+      "type": "image-with-text-overlay-custom",
+      "blocks": {
+        "heading_HjtwYT": {
+          "type": "heading",
+          "settings": {
+            "text": "<p><strong>All-in-One <\/strong><\/p><p>Self-Cleaning Floor Washer<\/p>",
+            "heading_size": "h2",
+            "desktop_font_size": 38,
+            "mobile_font_size": 20,
+            "heading_tag": "h2"
+          }
+        },
+        "icon_text_Pm3fG7": {
+          "type": "icon_text",
+          "settings": {
+            "desktop_offset_x": -60,
+            "icon_1": "shopify:\/\/shop_images\/icon-M7_2.png",
+            "title_1": "Self-\nCleaning",
+            "text_1": "& Drying",
+            "icon_2": "shopify:\/\/shop_images\/icon-M7_1.png",
+            "title_2": "Tangle-\nFree",
+            "text_2": "Cleaning",
+            "icon_3": "shopify:\/\/shop_images\/icon-M7_4.png",
+            "title_3": "Smart \nDetection",
+            "text_3": "Adjusts to Every Mess",
+            "icon_4": "shopify:\/\/shop_images\/icon-M7_3.png",
+            "title_4": "3-in-1 \nCleaning",
+            "text_4": "Vacuum, Mop & Wash"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HjtwYT",
+        "icon_text_Pm3fG7"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 768px) {.image-with-text-overlay--content-inner h3 {max-width: 280px; }}"
+      ],
+      "name": "Image with text custom",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-m7-wet-dry-washer-cleaner.webp",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vac-cleaner.jpg",
+        "mobile_image_fit": "cover",
+        "image_parallax": true,
+        "desktop_height": "desktop-height-750",
+        "desktop_custom_height": 800,
+        "mobile_height": "mobile-height-full",
+        "mobile_custom_height": 580,
+        "full_width": true,
+        "content_width": "large",
+        "desktop_content_width": 1200,
+        "content_position": "top-center",
+        "text_alignment": "left",
+        "mobile_text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "m7_feature_grid_XcnJYf": {
+      "type": "m7-feature-grid",
+      "blocks": {
+        "card_6tL8ey": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-cleaner-Self-cleaning-system.png",
+            "title": "Full-Air Drying",
+            "title_color": "#ffffff",
+            "subtitle": "No odor. No bacteria.",
+            "subtitle_color": "#ffffff",
+            "show_gradient": false,
+            "mobile_title": "Full-Air Drying",
+            "mobile_title_color": "#ffffff",
+            "mobile_subtitle": "No odor. No bacteria.",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": true
+          }
+        },
+        "card_7KpgYU": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-self-cleaning-system.png",
+            "title": "Self-Cleaning System",
+            "title_color": "#ffffff",
+            "subtitle": "with Fresh Water",
+            "subtitle_color": "#ffffff",
+            "show_gradient": false,
+            "mobile_title": "Self-Cleaning System",
+            "mobile_title_color": "#ffffff",
+            "mobile_subtitle": "with Fresh Water",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": true
+          }
+        },
+        "card_mhAAFc": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-20000pa-suction-power.png",
+            "title": "20000 Pa",
+            "title_color": "#000000",
+            "subtitle": "Powerful Suction",
+            "subtitle_color": "#000000",
+            "show_gradient": false,
+            "mobile_title": "20000 kPa",
+            "mobile_title_color": "#000000",
+            "mobile_subtitle": "Powerful Suction",
+            "mobile_subtitle_color": "#000000",
+            "mobile_show_gradient": false
+          }
+        },
+        "card_WaLLpD": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-anti-hair-tangle-design.png",
+            "title": "0 Tangle 0 Hassle",
+            "title_color": "#ffffff",
+            "subtitle": "Built-in Comb Teeth Design",
+            "subtitle_color": "#ffffff",
+            "show_gradient": false,
+            "mobile_title": "0 Tangle 0 Hassle",
+            "mobile_title_color": "#ffffff",
+            "mobile_subtitle": "Built-in Comb Teeth Design",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": true
+          }
+        },
+        "card_b4GcxA": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mask_group_30.webp",
+            "title": "Up to 50min",
+            "title_color": "#000000",
+            "subtitle": "Runtime",
+            "subtitle_color": "#000000",
+            "show_gradient": false,
+            "mobile_title": "Up to 50min",
+            "mobile_title_color": "#ffffff",
+            "mobile_subtitle": "Runtime",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": true
+          }
+        },
+        "card_hXzUjC": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-stain-cleaning.png",
+            "title": "Fresh-Water Mopping",
+            "title_color": "#ffffff",
+            "subtitle": "No re-mopping with dirty water",
+            "subtitle_color": "#ffffff",
+            "show_gradient": false,
+            "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-cleaner-powerful-suction.jpg",
+            "mobile_title": "Fresh-Water Mopping",
+            "mobile_title_color": "#ffffff",
+            "mobile_subtitle": "Fresh water every cycle",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": true
+          }
+        },
+        "card_iVPhRW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-kitchen-stain-cleaning.jpg",
+            "title": "Edge-to-edge Cleaning",
+            "title_color": "#ffffff",
+            "subtitle": "No spot missed",
+            "subtitle_color": "#ffffff",
+            "show_gradient": false,
+            "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-washer-edge-clean.jpg",
+            "mobile_title": "Edge-to-edge Cleaning",
+            "mobile_title_color": "#ffffff",
+            "mobile_subtitle": "No spot missed",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": true
+          }
+        },
+        "card_N8hXqE": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-motor-driven-forwar-traction.png",
+            "title": "Smooth to Glide",
+            "title_color": "#000000",
+            "subtitle": "Self-Propelled",
+            "subtitle_color": "#000000",
+            "show_gradient": false,
+            "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-cleaner-smart-sense.jpg",
+            "mobile_title": "Smooth to glide",
+            "mobile_title_color": "#000000",
+            "mobile_subtitle": "",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": false
+          }
+        },
+        "card_C3JBhE": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-led-display.png",
+            "title": "3 Smart",
+            "title_color": "#ffffff",
+            "subtitle": "Cleaning Modes",
+            "subtitle_color": "#ffffff",
+            "show_gradient": false,
+            "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-washer-3-cleaning-mode.jpg",
+            "mobile_title": "3 Smart",
+            "mobile_title_color": "#ffffff",
+            "mobile_subtitle": "Cleaning Modes",
+            "mobile_subtitle_color": "#ffffff",
+            "mobile_show_gradient": true
+          }
+        }
+      },
+      "block_order": [
+        "card_6tL8ey",
+        "card_7KpgYU",
+        "card_mhAAFc",
+        "card_WaLLpD",
+        "card_b4GcxA",
+        "card_hXzUjC",
+        "card_iVPhRW",
+        "card_N8hXqE",
+        "card_C3JBhE"
+      ],
+      "name": "M7 Feature Grid",
+      "settings": {
+        "heading": "",
+        "heading_color": "#ffffff",
+        "heading_size": 34,
+        "heading_align": "center",
+        "background": "rgba(0,0,0)",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30,
+        "text_top": 13,
+        "text_left": 14,
+        "title_size": 16,
+        "title_line_height": 22,
+        "subtitle_size": 13,
+        "subtitle_line_height": 17,
+        "mobile_heading_size": 20,
+        "mobile_text_top": 10,
+        "mobile_text_left": 10,
+        "mobile_text_bottom": 10,
+        "mobile_title_size": 12,
+        "mobile_title_line_height": 18,
+        "mobile_subtitle_size": 11,
+        "mobile_subtitle_line_height": 15
+      }
+    },
+    "m7_cleaning_system_Ch4Pex": {
+      "type": "m7-cleaning-system",
+      "name": "M7 Cleaning System",
+      "settings": {
+        "video_pc": "shopify:\/\/files\/videos\/Honiture M7 Self-Cleaning and Drying Wet and Dry Vacuum (2mb).mp4",
+        "desktop_image_position": "center center",
+        "video_mobile": "shopify:\/\/files\/videos\/Honiture M7 Self-Cleaning and Drying Wet and Dry Vacuum (3).mp4",
+        "mobile_image_position": "center center",
+        "background": "",
+        "title": "Flash Dry Self-Cleaning System",
+        "description": "<p>Full-path air drying—from brush to pipes. Cleaned and dried after every use. No odor. No bacteria.<\/p>",
+        "point_1": "Self-Cleaning",
+        "point_2": "Centrifugal Spin Dry",
+        "point_3": "Full-Air Drying",
+        "max_width": 1200,
+        "desktop_height": 800,
+        "content_width": 360,
+        "content_top": 200,
+        "content_left": 0,
+        "mobile_height": 630,
+        "mobile_content_top": 55,
+        "text_color": "rgba(0,0,0,0)",
+        "title_color": "#ffffff",
+        "description_color": "#ffffff",
+        "title_size": 38,
+        "description_size": 16,
+        "mobile_title_size": 20,
+        "mobile_description_size": 12,
+        "point_active_color": "#ffffff",
+        "point_idle_color": "#756b5c",
+        "point_margin_top": 70,
+        "point_gap": 32,
+        "point_size": 18,
+        "mobile_point_margin_top": 45,
+        "mobile_point_gap": 34,
+        "mobile_point_size": 12
+      }
+    },
+    "m7_split_feature_HrBNFz": {
+      "type": "m7-split-feature",
+      "name": "M7 Split Feature",
+      "settings": {
+        "desktop_image": "shopify:\/\/shop_images\/honiture-M7-wet-dry-vacuum-anti-tangle.webp",
+        "feature_video": "shopify:\/\/files\/videos\/Honiture M7 Self-Cleaning Wet and Dry Vacuum  hair cutting.mp4",
+        "feature_video_mobile": "shopify:\/\/files\/videos\/Honiture M7 Self-Cleaning Wet and Dry Vacuum  hair cutting.mp4",
+        "title": "Tangle-Free Cleaning",
+        "subtitle": "<p>Anti-tangle comb scraper prevents hair wrapping<\/p>",
+        "feature_title": "3D dual-action scraper & comb design",
+        "copy": "<p>Comb first, then scrape-zero tangles, no water left behind.<\/p>",
+        "max_width": 1320,
+        "side_width": 320,
+        "column_gap": 34,
+        "header_gap": 46,
+        "padding_top": 72,
+        "padding_bottom": 92,
+        "image_radius": 10,
+        "card_radius": 8,
+        "mobile_min_height": 600,
+        "mobile_bg_position": "center center",
+        "mobile_card_width": 38,
+        "mobile_content_top": 260,
+        "mobile_content_bottom": 32,
+        "mobile_card_radius": 6,
+        "mobile_top_overlay": 30,
+        "mobile_bottom_overlay": 50,
+        "title_size": 36,
+        "subtitle_size": 16,
+        "feature_title_size": 22,
+        "copy_size": 15,
+        "mobile_title_size": 20,
+        "mobile_subtitle_size": 12,
+        "mobile_feature_title_size": 14,
+        "mobile_copy_size": 10,
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "subtext_color": "#d7d7d7"
+      }
+    },
+    "ny_image_nav_feature_NVLnVL": {
+      "type": "ny-image-nav-feature",
+      "blocks": {
+        "feature_64DJhA": {
+          "type": "feature",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Rectangle_13.webp",
+            "card_title": "Even Water Distribution",
+            "card_text": "Spreads and rinses with continuous fresh water for consistent cleaning."
+          }
+        },
+        "feature_FNEPXR": {
+          "type": "feature",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/honiture-m7-roller-brush.jpg",
+            "card_title": "High-Speed Brush Roll",
+            "card_text": "Spins at 500 RPM to lift and remove stubborn stains."
+          }
+        },
+        "feature_CtyMqR": {
+          "type": "feature",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/honiture-m7-cleaning-system.jpg",
+            "card_title": "Advanced Scraper System",
+            "card_text": "Scrapes, separates, and wrings—no residue, no tangles."
+          }
+        },
+        "feature_Q8LUA7": {
+          "type": "feature",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/honiture-m7-stain-cleaning.png",
+            "card_title": "20KPa Powerful Suction",
+            "card_text": "Instantly removes dirty water and debris for spotless, dry floors."
+          }
+        }
+      },
+      "block_order": [
+        "feature_64DJhA",
+        "feature_FNEPXR",
+        "feature_CtyMqR",
+        "feature_Q8LUA7"
+      ],
+      "name": "NY Image Nav Feature",
+      "settings": {
+        "max_width": 1280,
+        "hero_height": 880,
+        "hero_min_height": 560,
+        "mobile_hero_height": 500,
+        "hero_image_position": "center center",
+        "mobile_hero_image_position": "center center",
+        "hero_image_pc": "shopify:\/\/shop_images\/honiture-m7-wet-dry-cleaner-20000pa-suction-power.webp",
+        "hero_image_mobile": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-20000pa-suction.jpg",
+        "hero_title": "Fresh Water Cleaning System",
+        "hero_text": "<p>Always clean water for mopping & washing. <\/p><p>Powerful suction for instant pickup. No dirt left behind, no water residue.<\/p>",
+        "content_top": 12,
+        "mobile_content_top": 12,
+        "title_size": 38,
+        "text_size": 16,
+        "mobile_title_size": 16,
+        "mobile_text_size": 10,
+        "nav_padding_top": 28,
+        "nav_padding_bottom": 48,
+        "mobile_nav_overlap": 150,
+        "mobile_nav_padding_bottom": 28,
+        "card_gap": 16,
+        "mobile_card_gap": 12,
+        "mobile_slides_per_view": 1.5,
+        "card_radius": 33,
+        "mobile_card_radius": 8,
+        "card_title_size": 30,
+        "card_text_size": 16,
+        "mobile_card_title_size": 14,
+        "mobile_card_text_size": 10,
+        "background_color": "#000000",
+        "nav_background_color": "#000000",
+        "hero_title_color": "#000000",
+        "hero_text_color": "#000000"
+      }
+    },
+    "m7_cleaning_power_ww8Gx8": {
+      "type": "m7-cleaning-power",
+      "blocks": {
+        "stat_edycQ7": {
+          "type": "stat",
+          "settings": {
+            "title": "250 m²",
+            "text": "≈ 2,690.98 sq ft"
+          }
+        },
+        "stat_nbYm3F": {
+          "type": "stat",
+          "settings": {
+            "title": "720ml",
+            "text": "Dirty Water Tank"
+          }
+        },
+        "stat_YjERrm": {
+          "type": "stat",
+          "settings": {
+            "title": "800ml",
+            "text": "Clean Water Tank"
+          }
+        }
+      },
+      "block_order": [
+        "stat_edycQ7",
+        "stat_nbYm3F",
+        "stat_YjERrm"
+      ],
+      "name": "M7 Cleaning Power",
+      "settings": {
+        "heading": "Long-Lasting Cleaning Power",
+        "subheading": "<p>Whole-house cleaning on a single charge.<\/p>",
+        "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-cleaner-50-mins-runtimes.jpg",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "padding_top": 78,
+        "padding_bottom": 80,
+        "stats_width": 380,
+        "stat_gap": 36,
+        "stats_margin_top": 32,
+        "image_margin_top": 70,
+        "image_radius": 20,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30,
+        "mobile_stat_gap": 14,
+        "mobile_stats_margin_top": 24,
+        "mobile_image_margin_top": 50,
+        "mobile_image_radius": 10,
+        "heading_color": "#ffffff",
+        "heading_size": 38,
+        "mobile_heading_size": 20,
+        "subheading_color": "#ffffff",
+        "subheading_size": 16,
+        "mobile_subheading_size": 12,
+        "subheading_margin_top": 16,
+        "mobile_subheading_margin_top": 10,
+        "stat_title_color": "#ffffff",
+        "stat_text_color": "#ffffff",
+        "icon_color": "#d8a44d",
+        "icon_size": 56,
+        "mobile_icon_size": 40,
+        "icon_margin_bottom": 7,
+        "mobile_icon_margin_bottom": 5,
+        "stat_title_size": 20,
+        "mobile_stat_title_size": 16,
+        "stat_text_size": 13,
+        "mobile_stat_text_size": 12,
+        "stat_text_margin_top": 3
+      }
+    },
+    "image_with_text_overlay_custom_tDhtWR": {
+      "type": "image-with-text-overlay-custom",
+      "blocks": {
+        "heading_Y3nWtb": {
+          "type": "heading",
+          "settings": {
+            "text": "<p><strong>Glides with Power.  Cleans with ease.<\/strong><\/p>",
+            "heading_size": "h2",
+            "desktop_font_size": 38,
+            "mobile_font_size": 20,
+            "heading_tag": "adaptive"
+          }
+        },
+        "text_Qb6K6x": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Motor-driven forward traction for less effort and a deeper clean.<\/p>",
+            "description_size": "medium",
+            "desktop_font_size": 16,
+            "mobile_font_size": 12
+          }
+        }
+      },
+      "block_order": [
+        "heading_Y3nWtb",
+        "text_Qb6K6x"
+      ],
+      "name": "Image with text custom",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-cleaner.webp",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-wet-dry-vacuum-m7-motor-driven-forward-traction.jpg",
+        "mobile_image_fit": "cover",
+        "image_parallax": true,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "desktop_content_width": 1200,
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "mobile_text_alignment": "center",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "m7_cleaning_power_4byFwe": {
+      "type": "m7-cleaning-power",
+      "blocks": {
+        "stat_gfqPnY": {
+          "type": "stat",
+          "disabled": true,
+          "settings": {
+            "title": "250 m²",
+            "text": "≈ 2,690.98 sq ft"
+          }
+        },
+        "stat_y8gULq": {
+          "type": "stat",
+          "disabled": true,
+          "settings": {
+            "title": "720ml",
+            "text": "Dirty Water Tank"
+          }
+        },
+        "stat_39kmCk": {
+          "type": "stat",
+          "disabled": true,
+          "settings": {
+            "title": "800ml",
+            "text": "Clean Water Tank"
+          }
+        }
+      },
+      "block_order": [
+        "stat_gfqPnY",
+        "stat_y8gULq",
+        "stat_39kmCk"
+      ],
+      "name": "M7 Cleaning Power",
+      "settings": {
+        "heading": "Edge-to-edge Cleaning",
+        "subheading": "<p>No spot missed. Walls, edges, tight gaps? Covered.<\/p>",
+        "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-cleaner-edge-cleaning.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-washer-edge-cleaning.webp",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "padding_top": 78,
+        "padding_bottom": 80,
+        "stats_width": 380,
+        "stat_gap": 36,
+        "stats_margin_top": 32,
+        "image_margin_top": 70,
+        "image_radius": 16,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30,
+        "mobile_stat_gap": 14,
+        "mobile_stats_margin_top": 24,
+        "mobile_image_margin_top": 50,
+        "mobile_image_radius": 10,
+        "heading_color": "#ffffff",
+        "heading_size": 38,
+        "mobile_heading_size": 20,
+        "subheading_color": "#ffffff",
+        "subheading_size": 16,
+        "mobile_subheading_size": 12,
+        "subheading_margin_top": 16,
+        "mobile_subheading_margin_top": 10,
+        "stat_title_color": "#ffffff",
+        "stat_text_color": "#ffffff",
+        "icon_color": "#d8a44d",
+        "icon_size": 24,
+        "mobile_icon_size": 20,
+        "icon_margin_bottom": 7,
+        "mobile_icon_margin_bottom": 5,
+        "stat_title_size": 14,
+        "mobile_stat_title_size": 11,
+        "stat_text_size": 9,
+        "mobile_stat_text_size": 8,
+        "stat_text_margin_top": 3
+      }
+    },
+    "image_with_text_overlay_custom_L8QPBM": {
+      "type": "image-with-text-overlay-custom",
+      "blocks": {
+        "heading_t8cwCh": {
+          "type": "heading",
+          "settings": {
+            "text": "<p> Intuitive Cleaning Experience<\/p>",
+            "heading_size": "h2",
+            "desktop_font_size": 38,
+            "mobile_font_size": 20,
+            "heading_tag": "adaptive"
+          }
+        },
+        "text_EFxizc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Digital display with voice prompts for easy operation. Equipped with smart sensing for safe and reliable use.<\/p>",
+            "description_size": "medium",
+            "desktop_font_size": 16,
+            "mobile_font_size": 12
+          }
+        }
+      },
+      "block_order": [
+        "heading_t8cwCh",
+        "text_EFxizc"
+      ],
+      "name": "Image with text custom",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vac-led-display.webp",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-led-display-voice-control.webp",
+        "mobile_image_fit": "cover",
+        "image_parallax": true,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-450",
+        "full_width": true,
+        "content_width": "medium",
+        "desktop_content_width": 850,
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "mobile_text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_custom_XiPGPc": {
+      "type": "image-with-text-overlay-custom",
+      "name": "Image with text custom",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-wet-dry-cleaner-m7.webp",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-m7-cordless-wet-dry-vacuum.webp",
+        "mobile_image_fit": "cover",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-450",
+        "full_width": false,
+        "content_width": "small",
+        "desktop_content_width": 1200,
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "mobile_text_alignment": "center",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_overlay_custom_P7Qdmc": {
+      "type": "image-with-text-overlay-custom",
+      "blocks": {
+        "heading_Uaaqia": {
+          "type": "heading",
+          "settings": {
+            "text": "<p>Suitable for a variety of hard floor surfaces<\/p>",
+            "heading_size": "h2",
+            "desktop_font_size": 38,
+            "mobile_font_size": 16,
+            "heading_tag": "adaptive"
+          }
+        },
+        "text_W8EUib": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Works across hardwood, tile, marb and other sealed hard floors<\/p>",
+            "description_size": "medium",
+            "desktop_font_size": 16,
+            "mobile_font_size": 12
+          }
+        }
+      },
+      "block_order": [
+        "heading_Uaaqia",
+        "text_W8EUib"
+      ],
+      "name": "Image with text custom",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-treatment-for-various-stains.webp",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-cordless-wet-and-dry-vacuum.jpg",
+        "mobile_image_fit": "cover",
+        "image_parallax": true,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "desktop_content_width": 1200,
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "mobile_text_alignment": "center",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "m7_tab_feature_Ay4cTQ": {
+      "type": "m7-tab-feature",
+      "blocks": {
+        "tab_XRnDaN": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Dual Tank",
+            "heading": "The dual-tank system separates clean and dirty water to ensure fresher cleaning every time.",
+            "image_desktop": "shopify:\/\/shop_images\/honiture-wet-and-dry-vac-m7.jpg"
+          }
+        },
+        "tab_UChHdg": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Low-Noise",
+            "heading": "Quiet operation for a relaxing clean, runs at ≤68 dBA.",
+            "image_desktop": "shopify:\/\/shop_images\/honiture-m7-wet-dry-clean-ground-stains-with-low-noise..jpg"
+          }
+        },
+        "tab_cW7knK": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Hygienic Cleaning",
+            "heading": "99.99% bacteria removal with real-time electrolyzed water, cleaning without waiting.",
+            "image_desktop": "shopify:\/\/shop_images\/honiture-m7-99.99-electrolyte-water-sterilization.jpg"
+          }
+        },
+        "tab_pCrXLY": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "2-year Warranty",
+            "heading": "2-year warranty for peace of mind.",
+            "image_desktop": "shopify:\/\/shop_images\/honiture-m7-2-year-warranty.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "tab_XRnDaN",
+        "tab_UChHdg",
+        "tab_cW7knK",
+        "tab_pCrXLY"
+      ],
+      "name": "M7 Tab Feature",
+      "settings": {
+        "tab_size": 20,
+        "heading_size": 22,
+        "image_width": 1200,
+        "mobile_tab_size": 14,
+        "mobile_heading_size": 16
+      }
+    },
+    "image_with_text_overlay_custom_6zRdpe": {
+      "type": "image-with-text-overlay-custom",
+      "blocks": {
+        "packing_list_x6mdfd": {
+          "type": "packing_list",
+          "settings": {
+            "title": "Product Packing List",
+            "marker_bg": "#b99a83",
+            "marker_text": "#ffffff",
+            "item_1": "Main body x1",
+            "item_2": "Handle x1",
+            "item_3": "Charging Base x1",
+            "item_4": "Brush roller x1\n(on the main body)",
+            "item_5": "Filter x2\n(one on the main body, one extra)",
+            "item_6": "Cleaning tool x1",
+            "item_7": "Storage holder x1",
+            "item_8": "Cleaning solution x1",
+            "item_9": "Adapter x1",
+            "item_10": "User manual x1"
+          }
+        }
+      },
+      "block_order": [
+        "packing_list_x6mdfd"
+      ],
+      "name": "Image with text custom",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-m7-main-unit-and-components.webp",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-and-dry-vacuum-package-list.jpg",
+        "mobile_image_fit": "contain",
+        "image_parallax": true,
+        "desktop_height": "desktop-height-full",
+        "desktop_custom_height": 900,
+        "mobile_height": "mobile-height-500",
+        "mobile_custom_height": 0,
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "top-left",
+        "text_alignment": "center",
+        "mobile_text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_VX3C68": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_FTzgwd": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What types of dirt can the Honiture M7 wet dry vacuum handle?",
+            "open": false,
+            "content": "<p>The M7 is specifically designed for \"wet and dry\" use. It simultaneously vacuums up dust and hair (dry debris) while mopping away spills such as milk, coffee, and sauces (wet messes). For heavy grease stains in the kitchen or dried-on mud marks, its high-speed roller brush delivers deep-scrubbing performance.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_anYAaA": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Does the Honiture M7 wet-dry vacuum feature specific optimizations for pet hair?",
+            "open": false,
+            "content": "<p>The M7 features an optimized suction inlet structure and roller brush comb teeth, effectively preventing long hair and pet fur from tangling around the roller brush.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_FWTFEA": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Which floor types can the Honiture M7 Wet & Dry clean?",
+            "open": false,
+            "content": "<p>As an all-in-one wet dry vacuum, the Honiture M7 is engineered to tackle messes on a variety of indoor sealed hard surfaces.<\/p><ul><li>Hardwood & Plank: Keeps your wood floors streak-free.<\/li><li>Ceramic & Porcelain Tile: Easily removes stubborn stains and grime.<\/li><li>Laminate & Vinyl (LVP): Safe for moisture-sensitive flooring when used as directed.<\/li><li>Marble & Stone: Provides a gentle yet powerful clean for premium surfaces.<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_rcTNkG": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How long can the Honiture M7 wet dry vacuum run on a single charge?",
+            "open": false,
+            "content": "<p>The M7 is equipped with a high-capacity lithium-ion battery, offering a single-charge runtime of up to 50 minutes—sufficient to clean a residence of approximately 200 square meters in a single session.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_BGN6zP": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is the capacity of the Honiture M7's clean water tank and dirty water tank?",
+            "open": false,
+            "content": "<p>M7 floor washer offers a 720 ml dirty water tank and an 800 ml clean water tank. The large-capacity dual-tank design ensures that frequent refilling or emptying is not required during the cleaning process.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_7wDyeG": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Does Honiture M7 come with a warranty?",
+            "open": false,
+            "content": "<p>Honiture provides a 2-year warranty and lifetime technical support for the M7 wet & dry vacuum. If you have any questions, feel free to contact our customer service team at any time.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_AGU9Vz": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Does the Honiture M7 wet dry vac filtration system need to be replaced?",
+            "open": false,
+            "content": "<p>The M7 wet&dry vacuum utilizes a high-efficiency HEPA filter capable of capturing 99.9% of fine dust. We recommend replacing the filter every 3 to 6 months to maintain optimal performance.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_FTzgwd",
+        "collapsible_tab_anYAaA",
+        "collapsible_tab_FWTFEA",
+        "collapsible_tab_rcTNkG",
+        "collapsible_tab_BGN6zP",
+        "collapsible_tab_7wDyeG",
+        "collapsible_tab_AGU9Vz"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQs",
+        "marker_style": "style1",
+        "description": "<p>Meet the Honiture M7<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "17796975185a467158": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_XQpnfg": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_XQpnfg"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_collection_carousel_cU9inJ": {
+      "type": "custom-collection-carousel",
+      "name": "Collection carousel",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "collection": "best-vacuum-cleaners",
+        "show_description": true,
+        "text_color": "#1a1a1a",
+        "sale_price_color": "#fff",
+        "nav_button_bg": "#ffffff",
+        "nav_button_color": "#1a1a1a",
+        "nav_button_bg_hover": "#f5f5f5",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "image_with_text_overlay_custom_AVMkV4",
+    "m7_feature_grid_XcnJYf",
+    "m7_cleaning_system_Ch4Pex",
+    "m7_split_feature_HrBNFz",
+    "ny_image_nav_feature_NVLnVL",
+    "m7_cleaning_power_ww8Gx8",
+    "image_with_text_overlay_custom_tDhtWR",
+    "m7_cleaning_power_4byFwe",
+    "image_with_text_overlay_custom_L8QPBM",
+    "image_with_text_overlay_custom_XiPGPc",
+    "image_with_text_overlay_custom_P7Qdmc",
+    "m7_tab_feature_Ay4cTQ",
+    "image_with_text_overlay_custom_6zRdpe",
+    "product-recommendations",
+    "collapsible_content_VX3C68",
+    "17796975185a467158",
+    "custom_collection_carousel_cU9inJ"
+  ]
+}

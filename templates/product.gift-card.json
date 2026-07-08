@@ -1,0 +1,226 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_JhVKU6": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "text": "Fast, Free Shipping",
+            "link": "shopify:\/\/policies\/shipping-policy",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#2b1559"
+          }
+        },
+        "info_box_VnRqBN": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "text": "30-Day Money-Back Guarantee",
+            "link": "shopify:\/\/policies\/refund-policy",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#2b1559"
+          }
+        },
+        "label_UAMMDQ": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": false,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "klarna_on_site_messaging_app_block_6LhEBe": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "hextom_timer_bar_ctb_custom_placement_aDERke": {
+          "type": "shopify:\/\/apps\/hextom-timer-bar\/blocks\/ctb-custom-placement\/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+          "settings": {}
+        },
+        "collapsible_tab_4EQRpM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "content": "<ul><li><strong>Convenient and Fast:<\/strong> After placing an order, gift cards can be sent to relatives and friends immediately by email.<\/li><\/ul><p><\/p><ul><li><strong>Easy to Use:<\/strong> Just use the gift card code at checkout when buying any item on the Honiture website.<\/li><\/ul><p><\/p><ul><li><strong>Note: <\/strong>The gift card amount is US$20, which will be converted according to the exchange rate of different countries.<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "coupon_code_qDicG3": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p>💐 Mother's Day Sale - Get Extra 12% OFF and Free HEPA Filter ( Only X7 )<\/p>",
+            "coupon_text": "MOTHERGIFT",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "coupon_code_TYjGg7": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p><strong>🔥Get 10% OFF – Limited Time!<\/strong><\/p>",
+            "coupon_text": "X7OFF10",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "custom_liquid_YaJFa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-X701 {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"#shopify-section-template--17330655592495__product_details_YbyQTX\" }}\"\nclass=\"custom-button-X701\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "variant_picker_g9CVBy": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_YjFAgN": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_YXR4gN": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-X702 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/drive.google.com\/file\/d\/1G_uqOn1cLzvXgq45CM0aXV63kg0vzuI5\/view?usp=drive_link\" }}\" class=\"custom-button-X702\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "complementary_HKMCQV": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "payment_security_mgFBxV": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Pay with Ease",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-1.png",
+            "security_image_width": 230
+          }
+        },
+        "separator_ffazEp": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_JhVKU6",
+        "info_box_VnRqBN",
+        "label_UAMMDQ",
+        "title",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "klarna_on_site_messaging_app_block_6LhEBe",
+        "hextom_timer_bar_ctb_custom_placement_aDERke",
+        "collapsible_tab_4EQRpM",
+        "coupon_code_qDicG3",
+        "coupon_code_TYjGg7",
+        "custom_liquid_YaJFa3",
+        "variant_picker_g9CVBy",
+        "quantity_YjFAgN",
+        "buy_buttons_YXR4gN",
+        "custom_liquid_tCypYt",
+        "complementary_HKMCQV",
+        "payment_security_mgFBxV",
+        "separator_ffazEp",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        "@media screen and (min-width: 768px) {.thb-product-detail .product-title {font-size: 35px; }}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": true,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "product-recommendations"
+  ]
+}

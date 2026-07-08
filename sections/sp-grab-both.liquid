@@ -1,0 +1,839 @@
+{% comment %} SP Grab Both Section {% endcomment %}
+
+<style>
+  .sp-grab-section.sp-grab-section-{{ section.id }} .xmas-sub-heading{
+      padding:  0 30px;
+  }
+  .sp-grab-section.sp-grab-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
+  }
+  .sp-grab-section-{{ section.id }} .sp-grab-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+   
+  .sp-grab-section-{{ section.id }} .sp-grab-block {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    overflow: hidden;
+    border: 1px solid #eee;
+  }
+
+  /* Tabs Nav */
+  .sp-grab-section-{{ section.id }} .sp-grab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 20px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-tab-btn {
+    padding: 12px 40px;
+    border-radius: 50px;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    min-width: 240px;
+    text-align: center;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-tab-btn.active {
+    background: {{ section.settings.tab_active_background }};
+    color: {{ section.settings.tab_active_text_color }};
+    box-shadow: 0 4px 10px rgba(88, 207, 193, 0.3);
+  }
+
+  /* Content Layout */
+  .sp-grab-section-{{ section.id }} .sp-grab-content {
+    display: none;
+    padding: 40px;
+    animation: fadeIn 0.5s;
+  }
+  .sp-grab-section-{{ section.id }} .sp-grab-content.active {
+    display: flex;
+    gap: 40px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Left Side: Main Product */
+  .sp-grab-section-{{ section.id }} .sp-grab-left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding-right: 40px;
+    border-right: 1px solid #eee;
+    gap: 30px;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-main-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 0;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-main-info {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sp-grab-section-{{ section.id }} .sp-grab-main-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    line-height: 1.2;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-desc {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-desc ul {
+    padding-left: 20px;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-desc li {
+    margin-bottom: 8px;
+  }
+
+  .sp-grab-section-{{ section.id }} .sp-grab-main-price {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1a1a;
+    align-self: flex-start;
+  }
+  .sp-grab-section-{{ section.id }} .sp-grab-main-compare {
+    font-size: 20px;
+    color: #999;
+    text-decoration: line-through;
+    align-self: flex-start;
+    margin-top: 5px;
+  }
+
+  /* Right Side: Accessories & Total */
+  .sp-grab-section-{{ section.id }} .sp-grab-right {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  /* Plus Icon connecting items */
+  .sp-grab-section-{{ section.id }} .sp-grab-plus {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: {{ section.settings.plus_background }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-item {
+    display: flex;
+    align-items: center;
+    background: {{ section.settings.acc_item_background }};
+    border-radius: 12px;
+    padding: 15px 20px;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    flex-shrink: 0;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.3;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-price-box {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-acc-compare {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  /* Footer Area */
+  .sp-grab-section-{{ section.id }} .sp-grab-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px dashed #ddd;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-total-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-total-price {
+    font-size: 40px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-compare {
+    font-size: 20px;
+    color: #999;
+    text-decoration: line-through;
+    align-self: flex-start;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-save {
+    font-size: 20px;
+    font-weight: 700;
+    color: {{ section.settings.save_text_color }};
+  }
+  
+  .sp-grab-section-{{ section.id }} .sp-grab-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px;
+    background: #00D0CD;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    min-width: 180px;
+  }
+  .sp-grab-section-{{ section.id }} .sp-grab-btn:hover {
+    background: #00b8b5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 208, 205, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .sp-grab-section-{{ section.id }} .sp-grab-content.active { flex-direction: column; gap: 30px; padding: 25px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-left { flex-direction: row; text-align: left; border-right: none; border-bottom: 1px solid #eee; padding-right: 0; padding-bottom: 20px; gap: 15px; align-items: center; }
+    .sp-grab-section-{{ section.id }} .sp-grab-left .sp-grab-main-link { width: 40%; margin-bottom: 0; }
+     .sp-grab-section-{{ section.id }} .sp-grab-main-img { width: 100%; margin-bottom: 0; }
+    .sp-grab-section-{{ section.id }} .sp-grab-main-info { width: 60%; align-items: flex-start; justify-content: flex-start; }
+    .sp-grab-section-{{ section.id }} .sp-grab-main-title { font-size: 16px; margin-bottom: 6px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-desc { text-align: left; font-size: 13px; margin-bottom: 8px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-main-price { font-size: 20px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-main-compare { font-size: 14px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-nav { flex-direction: row; flex-wrap: wrap; gap: 10px; padding: 20px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-tab-btn { flex: 0 0 calc(50% - 5px); width: calc(50% - 5px); min-width: 0; padding: 8px 5px; font-size: 13px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-footer { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 15px; padding-top: 15px; flex-wrap: nowrap; }
+    .sp-grab-section-{{ section.id }} .sp-grab-total-box { flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; width: 100%; margin-bottom: 0; }
+    .sp-grab-section-{{ section.id }} .sp-grab-total-price { font-size: 24px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-compare { font-size: 14px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-action { width: auto; align-items: flex-start; flex-direction: column; gap: 4px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-save { font-size: 12px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-btn { min-width: 120px; padding: 8px 16px; font-size: 14px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-acc-title { font-size: 12px; }
+    .sp-grab-section-{{ section.id }} .sp-grab-acc-item { padding: 10px; }
+      .sp-grab-section-{{ section.id }} .sp-grab-acc-list {
+        gap: 10px;
+      }
+  }
+</style>
+
+<div class="sp-grab-section sp-grab-section-{{ section.id }}">
+  {% render 'xmas-section-header' %}
+  
+  <div class="sp-grab-container">
+    {% for block in section.blocks %}
+      {% if block.type == 'bundle_block' %}
+        {% liquid
+          assign t1_label = block.settings.t1_label | strip
+          assign t2_label = block.settings.t2_label | strip
+          assign t3_label = block.settings.t3_label | strip
+          assign t4_label = block.settings.t4_label | strip
+          assign active_tab = ''
+
+          if t1_label != blank
+            assign active_tab = '1'
+          elsif t2_label != blank
+            assign active_tab = '2'
+          elsif t3_label != blank
+            assign active_tab = '3'
+          elsif t4_label != blank
+            assign active_tab = '4'
+          endif
+
+          assign t1_active = false
+          assign t2_active = false
+          assign t3_active = false
+          assign t4_active = false
+
+          if active_tab == '1'
+            assign t1_active = true
+          elsif active_tab == '2'
+            assign t2_active = true
+          elsif active_tab == '3'
+            assign t3_active = true
+          elsif active_tab == '4'
+            assign t4_active = true
+          endif
+        %}
+
+        {% if active_tab != blank %}
+          <div class="sp-grab-block" {{ block.shopify_attributes }}>
+            <!-- Navigation -->
+            <div class="sp-grab-nav">
+              {% if t1_label != blank %}
+                <button class="sp-grab-tab-btn {% if active_tab == '1' %}active{% endif %}" onclick="spGrabSwitchTab(this, '{{ block.id }}-1')">
+                  {{ t1_label }}
+                </button>
+              {% endif %}
+              {% if t2_label != blank %}
+                <button class="sp-grab-tab-btn {% if active_tab == '2' %}active{% endif %}" onclick="spGrabSwitchTab(this, '{{ block.id }}-2')">
+                  {{ t2_label }}
+                </button>
+              {% endif %}
+              {% if t3_label != blank %}
+                <button class="sp-grab-tab-btn {% if active_tab == '3' %}active{% endif %}" onclick="spGrabSwitchTab(this, '{{ block.id }}-3')">
+                  {{ t3_label }}
+                </button>
+              {% endif %}
+              {% if t4_label != blank %}
+                <button class="sp-grab-tab-btn {% if active_tab == '4' %}active{% endif %}" onclick="spGrabSwitchTab(this, '{{ block.id }}-4')">
+                  {{ t4_label }}
+                </button>
+              {% endif %}
+            </div>
+
+            {% if t1_label != blank %}
+              <!-- Tab 1 Content -->
+              {% render 'sp-grab-content', 
+                 id: block.id, 
+                 tab_idx: '1', 
+                 active: t1_active,
+                 button_label: block.settings.t1_btn_text,
+                 button_link: block.settings.t1_btn_link,
+                 product: block.settings.t1_product,
+                 custom_title: block.settings.t1_title,
+                 custom_desc: block.settings.t1_desc,
+                 custom_img: block.settings.t1_img,
+                 acc1: block.settings.t1_acc1,
+                 acc1_id: block.settings.t1_acc1_id,
+                 acc1_title: block.settings.t1_acc1_title,
+                 acc1_img: block.settings.t1_acc1_img,
+                 acc2: block.settings.t1_acc2,
+                 acc2_id: block.settings.t1_acc2_id,
+                 acc2_title: block.settings.t1_acc2_title,
+                 acc2_img: block.settings.t1_acc2_img,
+                 discount_percent: block.settings.t1_discount,
+                 price_total: block.settings.t1_price_total,
+                 price_compare: block.settings.t1_price_compare,
+                 save_text: block.settings.t1_save_text
+              %}
+            {% endif %}
+
+            {% if t2_label != blank %}
+              <!-- Tab 2 Content -->
+              {% render 'sp-grab-content', 
+                 id: block.id, 
+                 tab_idx: '2', 
+                 active: t2_active,
+                 button_label: block.settings.t2_btn_text,
+                 button_link: block.settings.t2_btn_link,
+                 product: block.settings.t2_product,
+                 custom_title: block.settings.t2_title,
+                 custom_desc: block.settings.t2_desc,
+                 custom_img: block.settings.t2_img,
+                 acc1: block.settings.t2_acc1,
+                 acc1_id: block.settings.t2_acc1_id,
+                 acc1_title: block.settings.t2_acc1_title,
+                 acc1_img: block.settings.t2_acc1_img,
+                 acc2: block.settings.t2_acc2,
+                 acc2_id: block.settings.t2_acc2_id,
+                 acc2_title: block.settings.t2_acc2_title,
+                 acc2_img: block.settings.t2_acc2_img,
+                 discount_percent: block.settings.t2_discount,
+                 price_total: block.settings.t2_price_total,
+                 price_compare: block.settings.t2_price_compare,
+                 save_text: block.settings.t2_save_text
+              %}
+            {% endif %}
+
+            {% if t3_label != blank %}
+              <!-- Tab 3 Content -->
+              {% render 'sp-grab-content', 
+                 id: block.id, 
+                 tab_idx: '3', 
+                 active: t3_active,
+                 button_label: block.settings.t3_btn_text,
+                 button_link: block.settings.t3_btn_link,
+                 product: block.settings.t3_product,
+                 custom_title: block.settings.t3_title,
+                 custom_desc: block.settings.t3_desc,
+                 custom_img: block.settings.t3_img,
+                 acc1: block.settings.t3_acc1,
+                 acc1_id: block.settings.t3_acc1_id,
+                 acc1_title: block.settings.t3_acc1_title,
+                 acc1_img: block.settings.t3_acc1_img,
+                 acc2: block.settings.t3_acc2,
+                 acc2_id: block.settings.t3_acc2_id,
+                 acc2_title: block.settings.t3_acc2_title,
+                 acc2_img: block.settings.t3_acc2_img,
+                 discount_percent: block.settings.t3_discount,
+                 price_total: block.settings.t3_price_total,
+                 price_compare: block.settings.t3_price_compare,
+                 save_text: block.settings.t3_save_text
+              %}
+            {% endif %}
+
+            {% if t4_label != blank %}
+              <!-- Tab 4 Content -->
+              {% render 'sp-grab-content', 
+                 id: block.id, 
+                 tab_idx: '4', 
+                 active: t4_active,
+                 button_label: block.settings.t4_btn_text,
+                 button_link: block.settings.t4_btn_link,
+                 product: block.settings.t4_product,
+                 custom_title: block.settings.t4_title,
+                 custom_desc: block.settings.t4_desc,
+                 custom_img: block.settings.t4_img,
+                 acc1: block.settings.t4_acc1,
+                 acc1_id: block.settings.t4_acc1_id,
+                 acc1_title: block.settings.t4_acc1_title,
+                 acc1_img: block.settings.t4_acc1_img,
+                 acc2: block.settings.t4_acc2,
+                 acc2_id: block.settings.t4_acc2_id,
+                 acc2_title: block.settings.t4_acc2_title,
+                 acc2_img: block.settings.t4_acc2_img,
+                 discount_percent: block.settings.t4_discount,
+                 price_total: block.settings.t4_price_total,
+                 price_compare: block.settings.t4_price_compare,
+                 save_text: block.settings.t4_save_text
+              %}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% render 'section-decorations', section: section %}
+<script>
+  function spGrabSwitchTab(btn, targetId) {
+    // 1. Toggle Button Active State
+    const nav = btn.parentElement;
+    nav.querySelectorAll('.sp-grab-tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 2. Toggle Content Visibility
+    const block = nav.parentElement;
+    block.querySelectorAll('.sp-grab-content').forEach(c => c.classList.remove('active'));
+    block.querySelector(`#sp-grab-${targetId}`).classList.add('active');
+  }
+
+  function spGrabAddBundle(btn) {
+    const link = btn.dataset.link;
+    if (link && link !== '') {
+      window.open(link, '_blank');
+      return;
+    }
+    const wrapper = btn.closest('.sp-grab-content');
+    const items = [];
+    
+    // Main Product
+    const mainId = wrapper.dataset.mainId;
+    if(mainId) items.push({ id: mainId, quantity: 1 });
+    
+    // Accessories
+    const acc1Id = wrapper.dataset.acc1Id;
+    if(acc1Id) items.push({ id: acc1Id, quantity: 1 });
+    
+    const acc2Id = wrapper.dataset.acc2Id;
+    if(acc2Id) items.push({ id: acc2Id, quantity: 1 });
+    
+    if(items.length === 0) return;
+
+    // Build a form to add multiple items then redirect to checkout in a new tab
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/cart/add';
+    form.target = '_blank';
+
+    items.forEach((item, idx) => {
+      const idInput = document.createElement('input');
+      idInput.type = 'hidden';
+      idInput.name = `items[${idx}][id]`;
+      idInput.value = item.id;
+      form.appendChild(idInput);
+
+      const qtyInput = document.createElement('input');
+      qtyInput.type = 'hidden';
+      qtyInput.name = `items[${idx}][quantity]`;
+      qtyInput.value = item.quantity;
+      form.appendChild(qtyInput);
+    });
+
+    const returnInput = document.createElement('input');
+    returnInput.type = 'hidden';
+    returnInput.name = 'return_to';
+    returnInput.value = '/checkout';
+    form.appendChild(returnInput);
+
+    document.body.appendChild(form);
+    form.submit();
+    form.remove();
+  }
+</script>
+
+{% schema %}
+{
+  "name": "SP Grab Both",
+  "class": "section sp-grab-both",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Grab Both & Save More"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Subtitle"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sub_heading",
+      "label": "Show Subtitle",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "Right Button Text",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "Right Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "Show Title Icons",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "Title Icon (Left/Right)"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "Title Icon Size",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size_mobile",
+      "label": "Mobile Icon Size",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "Mirror Right Icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 50
+    },
+    {
+      "type": "color_background",
+      "id": "tab_active_background",
+      "label": "Active Tab Background",
+      "default": "linear-gradient(90deg, #D8F588 0%, #58CFC1 100%)"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_text_color",
+      "label": "Active Tab Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color_background",
+      "id": "acc_item_background",
+      "label": "Accessory Item Background",
+      "default": "linear-gradient(90deg, #EEFED6 0%, #78DAB3 100%)"
+    },
+    {
+      "type": "color_background",
+      "id": "plus_background",
+      "label": "Plus Icon Background",
+      "default": "#a3d653"
+    },
+    {
+      "type": "color",
+      "id": "save_text_color",
+      "label": "Save Text Color",
+      "default": "#00Cdc7"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bundle_block",
+      "name": "Bundle Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tab 1 (Left)"
+        },
+        { "type": "text", "id": "t1_label", "label": "Tab Label", "default": "Standard Bundle" },
+        { "type": "product", "id": "t1_product", "label": "Main Product" },
+        { "type": "text", "id": "t1_title", "label": "Custom Title" },
+        { "type": "richtext", "id": "t1_desc", "label": "Description" },
+        { "type": "image_picker", "id": "t1_img", "label": "Custom Image" },
+        { "type": "product", "id": "t1_acc1", "label": "Accessory 1" },
+        { "type": "text", "id": "t1_acc1_id", "label": "Accessory 1 Variant ID (Optional)" },
+        { "type": "text", "id": "t1_acc1_title", "label": "Accessory 1 Title (Custom)" },
+        { "type": "image_picker", "id": "t1_acc1_img", "label": "Accessory 1 Image (Custom)" },
+        { "type": "product", "id": "t1_acc2", "label": "Accessory 2" },
+        { "type": "text", "id": "t1_acc2_id", "label": "Accessory 2 Variant ID (Optional)" },
+        { "type": "text", "id": "t1_acc2_title", "label": "Accessory 2 Title (Custom)" },
+        { "type": "image_picker", "id": "t1_acc2_img", "label": "Accessory 2 Image (Custom)" },
+        { "type": "range", "id": "t1_discount", "min": 0, "max": 100, "label": "Discount % (Visual Only)", "default": 0 },
+        { "type": "text", "id": "t1_price_total", "label": "Custom Total Price" },
+        { "type": "text", "id": "t1_price_compare", "label": "Custom Compare Price" },
+        { "type": "text", "id": "t1_save_text", "label": "Custom Save Text (e.g. You save $33)" },
+        { "type": "text", "id": "t1_btn_text", "label": "Button Text", "default": "Buy Now" },
+        { "type": "url", "id": "t1_btn_link", "label": "Button Link (optional)" },
+
+        {
+          "type": "header",
+          "content": "Tab 2 (Right)"
+        },
+        { "type": "text", "id": "t2_label", "label": "Tab Label", "default": "Deep Cleaning Bundle" },
+        { "type": "product", "id": "t2_product", "label": "Main Product" },
+        { "type": "text", "id": "t2_title", "label": "Custom Title" },
+        { "type": "richtext", "id": "t2_desc", "label": "Description" },
+        { "type": "image_picker", "id": "t2_img", "label": "Custom Image" },
+        { "type": "product", "id": "t2_acc1", "label": "Accessory 1" },
+        { "type": "text", "id": "t2_acc1_id", "label": "Accessory 1 Variant ID (Optional)" },
+        { "type": "text", "id": "t2_acc1_title", "label": "Accessory 1 Title (Custom)" },
+        { "type": "image_picker", "id": "t2_acc1_img", "label": "Accessory 1 Image (Custom)" },
+        { "type": "product", "id": "t2_acc2", "label": "Accessory 2" },
+        { "type": "text", "id": "t2_acc2_id", "label": "Accessory 2 Variant ID (Optional)" },
+        { "type": "text", "id": "t2_acc2_title", "label": "Accessory 2 Title (Custom)" },
+        { "type": "image_picker", "id": "t2_acc2_img", "label": "Accessory 2 Image (Custom)" },
+        { "type": "range", "id": "t2_discount", "min": 0, "max": 100, "label": "Discount % (Visual Only)", "default": 0 },
+        { "type": "text", "id": "t2_price_total", "label": "Custom Total Price" },
+        { "type": "text", "id": "t2_price_compare", "label": "Custom Compare Price" },
+        { "type": "text", "id": "t2_save_text", "label": "Custom Save Text (e.g. You save $33)" }
+        ,
+        { "type": "text", "id": "t2_btn_text", "label": "Button Text", "default": "Buy Now" },
+        { "type": "url", "id": "t2_btn_link", "label": "Button Link (optional)" }
+        ,
+
+        {
+          "type": "header",
+          "content": "Tab 3"
+        },
+        { "type": "text", "id": "t3_label", "label": "Tab Label", "default": "Bundle 3" },
+        { "type": "product", "id": "t3_product", "label": "Main Product" },
+        { "type": "text", "id": "t3_title", "label": "Custom Title" },
+        { "type": "richtext", "id": "t3_desc", "label": "Description" },
+        { "type": "image_picker", "id": "t3_img", "label": "Custom Image" },
+        { "type": "product", "id": "t3_acc1", "label": "Accessory 1" },
+        { "type": "text", "id": "t3_acc1_id", "label": "Accessory 1 Variant ID (Optional)" },
+        { "type": "text", "id": "t3_acc1_title", "label": "Accessory 1 Title (Custom)" },
+        { "type": "image_picker", "id": "t3_acc1_img", "label": "Accessory 1 Image (Custom)" },
+        { "type": "product", "id": "t3_acc2", "label": "Accessory 2" },
+        { "type": "text", "id": "t3_acc2_id", "label": "Accessory 2 Variant ID (Optional)" },
+        { "type": "text", "id": "t3_acc2_title", "label": "Accessory 2 Title (Custom)" },
+        { "type": "image_picker", "id": "t3_acc2_img", "label": "Accessory 2 Image (Custom)" },
+        { "type": "range", "id": "t3_discount", "min": 0, "max": 100, "label": "Discount % (Visual Only)", "default": 0 },
+        { "type": "text", "id": "t3_price_total", "label": "Custom Total Price" },
+        { "type": "text", "id": "t3_price_compare", "label": "Custom Compare Price" },
+        { "type": "text", "id": "t3_save_text", "label": "Custom Save Text (e.g. You save $33)" },
+        { "type": "text", "id": "t3_btn_text", "label": "Button Text", "default": "Buy Now" },
+        { "type": "url", "id": "t3_btn_link", "label": "Button Link (optional)" },
+
+        {
+          "type": "header",
+          "content": "Tab 4"
+        },
+        { "type": "text", "id": "t4_label", "label": "Tab Label", "default": "Bundle 4" },
+        { "type": "product", "id": "t4_product", "label": "Main Product" },
+        { "type": "text", "id": "t4_title", "label": "Custom Title" },
+        { "type": "richtext", "id": "t4_desc", "label": "Description" },
+        { "type": "image_picker", "id": "t4_img", "label": "Custom Image" },
+        { "type": "product", "id": "t4_acc1", "label": "Accessory 1" },
+        { "type": "text", "id": "t4_acc1_id", "label": "Accessory 1 Variant ID (Optional)" },
+        { "type": "text", "id": "t4_acc1_title", "label": "Accessory 1 Title (Custom)" },
+        { "type": "image_picker", "id": "t4_acc1_img", "label": "Accessory 1 Image (Custom)" },
+        { "type": "product", "id": "t4_acc2", "label": "Accessory 2" },
+        { "type": "text", "id": "t4_acc2_id", "label": "Accessory 2 Variant ID (Optional)" },
+        { "type": "text", "id": "t4_acc2_title", "label": "Accessory 2 Title (Custom)" },
+        { "type": "image_picker", "id": "t4_acc2_img", "label": "Accessory 2 Image (Custom)" },
+        { "type": "range", "id": "t4_discount", "min": 0, "max": 100, "label": "Discount % (Visual Only)", "default": 0 },
+        { "type": "text", "id": "t4_price_total", "label": "Custom Total Price" },
+        { "type": "text", "id": "t4_price_compare", "label": "Custom Compare Price" },
+        { "type": "text", "id": "t4_save_text", "label": "Custom Save Text (e.g. You save $33)" },
+        { "type": "text", "id": "t4_btn_text", "label": "Button Text", "default": "Buy Now" },
+        { "type": "url", "id": "t4_btn_link", "label": "Button Link (optional)" }
+      ]
+    },
+        {
+        "type": "decoration",
+        "name": "装饰图片",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "图片" },
+          { "type": "range", "id": "top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "number", "id": "z_index", "label": "层级", "default": 1 },
+          { "type": "checkbox", "id": "hide_on_mobile", "label": "在移动端隐藏", "default": false },
+          { "type": "range", "id": "rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+          { "type": "header", "content": "移动端设置" },
+          { "type": "range", "id": "mobile_top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "mobile_left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "mobile_width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "range", "id": "mobile_rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+        ]
+      } 
+  ],
+  "presets": [
+    { 
+      "name": "SP Grab Both",
+      "blocks": [
+        {
+          "type": "bundle_block"
+        },
+        
+      ]
+    },
+  ]
+}
+{% endschema %}

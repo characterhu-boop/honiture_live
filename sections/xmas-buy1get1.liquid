@@ -1,0 +1,556 @@
+{% comment %}
+  Xmas Buy1Get1 + Discount Products Section
+  - Part 1: Buy One Get One (4 cards) – left image, right text; clicking purchase adds both selected product and accessory to cart together.
+  - Part 2: Discounted Products (4 cards) – top image, bottom text; top-left discount badge; add to cart single product.
+  - Each card supports custom title/description/image, falling back to product data when not provided.
+{% endcomment %}
+
+<section id="xmas-buy1get1-{{ section.id }}" class="xmas-buy1get1">
+  <div class="xb1g1__container">
+  {% render 'xmas-section-header', section: section %}
+
+    <div class="xb1g1__grid xb1g1__grid--p1">
+    {% if section.settings.snow_image %}
+      <div class="spin-section-snow">
+        {{ section.settings.snow_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: 'Snow strip' }}
+      </div>
+    {% endif %}
+      {% for block in section.blocks %}
+        {% if block.type == 'bogo_card' %}
+          {% assign main_product = block.settings.main_product %}
+          {% assign acc_product = block.settings.acc_product %}
+          {% assign main_title = block.settings.title | default: main_product.title %}
+          {% assign main_desc = block.settings.desc | default: main_product.description | strip_html | truncate: 120 %}
+          {% assign main_img = block.settings.main_image | default: main_product.featured_image %}
+          {% assign main_vid = block.settings.main_variant_id | default: main_product.selected_or_first_available_variant.id %}
+          {% assign acc_vid = block.settings.acc_variant_id | default: acc_product.selected_or_first_available_variant.id %}
+
+          <div class="bogo-card-wrap{% if section.settings.bogo_card_bg != blank %} has-bg{% endif %}">
+            <div class="bogo-card" {{ block.shopify_attributes }}>
+              {% if block.settings.badge_label != blank or block.settings.badge_bg != blank %}
+              <div class="bogo-card__badge"{% if block.settings.badge_bg != blank %} style="background-image:url({{ block.settings.badge_bg | image_url: width: 300 }});"{% endif %}>{{ block.settings.badge_label }}</div>
+              {% endif %}
+              <div class="bogo-card__media">
+                {% if main_img != blank %}
+                  <a href="{{ main_product.url }}" target="_blank" class="bogo-card__link">
+                    <img src="{{ main_img | image_url: width: 600 }}" alt="{{ main_title | escape }}" loading="lazy" />
+                  </a>
+                {% endif %}
+                {% assign acc_thumb = block.settings.acc_image | default: acc_product.featured_image %}
+                {% assign acc_thumb2 = block.settings.acc_image2 %}
+                {% if acc_thumb or acc_thumb2 %}
+                  <div class="bogo-card__acc-thumb">
+                    {% if acc_thumb %}
+                        <a href="{{ acc_product.url }}" target="_blank" class="bogo-card__acc-link">
+                          <img src="{{ acc_thumb | image_url: width: 160 }}" alt="{{ acc_product.title | escape }}" loading="lazy" />
+                        </a>
+                    {% endif %}
+                    {% if acc_thumb2 %}
+                      <a href="{{ main_product.url }}" target="_blank" class="bogo-card__acc-link">
+                        <img src="{{ acc_thumb2 | image_url: width: 160 }}" alt="" loading="lazy" />
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="bogo-card__content">
+              <h3 class="bogo-card__title">{{ main_title }}</h3>
+              {% if main_desc %}<p class="bogo-card__desc">{{ main_desc }}</p>{% endif %}
+
+              <div class="bogo-card__pair">
+                  <span style="color:#DA2B2B ;">Free:</span> {{ block.settings.sub_title |  default: acc_product.title }}
+              </div>
+              {% comment %} 价格显示 {% endcomment %}
+              {% assign main_variant_obj = main_product.variants | where: 'id', main_vid | first %}
+              {% if main_variant_obj == blank %}
+                {% assign main_variant_obj = main_product.selected_or_first_available_variant %}
+              {% endif %}
+              {% if main_variant_obj %}
+                <div class="bogo-card__price">
+                  <span class="bogo-card__price-current">{{ main_variant_obj.price | money }}</span>
+                  {% if main_variant_obj.compare_at_price and main_variant_obj.compare_at_price > main_variant_obj.price %}
+                    <span class="bogo-card__price-compare">{{ main_variant_obj.compare_at_price | money }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+               
+              <div class="bogo-card__actions">
+                {% comment %} <button type="button"
+                        class="btn  bogo-card__btn"
+                        data-main-vid="{{ main_vid }}"
+                        data-acc-vid="{{ acc_vid }}"
+                        data-qty="{{ block.settings.quantity | default: 1 }}">
+                  {{ section.settings.bogo_button_label | default: 'Buy Together' }}
+                </button> {% endcomment %}
+                <a href="{{ main_product.url }}"
+                   target="_blank"
+                   class="btn bogo-card__btn"
+                   data-main-vid="{{ main_vid }}"
+                   data-acc-vid="{{ acc_vid }}"
+                   data-qty="{{ block.settings.quantity | default: 1 }}">
+                  {{ section.settings.bogo_button_label | default: 'Buy Together' }}
+                </a>
+              </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+{% comment %} 
+    {% if section.settings.heading_p2 != '' or section.settings.subheading_p2 != '' %}
+      <div class="xb1g1__header xb1g1__header--p2">
+        {% if section.settings.heading_p2 != '' %}<h2 class="xb1g1__title">{{ section.settings.heading_p2 }}</h2>{% endif %}
+        {% if section.settings.subheading_p2 != '' %}<p class="xb1g1__subtitle">{{ section.settings.subheading_p2 }}</p>{% endif %}
+      </div>
+    {% endif %} {% endcomment %}
+
+    <div class="xb1g1__grid xb1g1__grid--p2">
+      {% for block in section.blocks %}
+        {% if block.type == 'deal_product' %}
+          {% assign deal_product = block.settings.product %}
+          {% assign deal_title = block.settings.title | default: deal_product.title %}
+          {% assign deal_desc = block.settings.desc | default: deal_product.description | strip_html | truncate: 100 %}
+          {% assign deal_img = block.settings.image | default: deal_product.featured_image %}
+          {% assign deal_vid = block.settings.variant_id | default: deal_product.selected_or_first_available_variant.id %}
+          {% assign badge_text = block.settings.badge_text | default: '50% OFF' %}
+
+          <div class="deal-card" {{ block.shopify_attributes }}>
+            <div class="deal-card__badge"{% if block.settings.badge_bg != blank %} style="background-image:url({{ block.settings.badge_bg | image_url: width: 200 }});"{% endif %}>{{ badge_text }}</div>
+            
+              <div class="deal-card__media">
+              {% if deal_img != blank %}
+                <a href="{{ deal_product.url }}" target="_blank" class="deal-card__link">
+                  <img src="{{ deal_img | image_url: width: 600 }}" alt="{{ deal_title | escape }}" loading="lazy" />
+                </a>
+              {% endif %}
+             </div>
+
+            <div class="deal-card__content">
+              {% if section.settings.discount_code != blank %}
+                {% render 'xmas-copy-code', section: section %}
+              {% endif %}
+
+              <h3 class="deal-card__title">{{ deal_title }}</h3>
+              {% if deal_desc %}<p class="deal-card__desc">{{ deal_desc }}</p>{% endif %}
+              {% assign deal_variant_obj = deal_product.variants | where: 'id', deal_vid | first %}
+              {% if deal_variant_obj == blank %}
+                {% assign deal_variant_obj = deal_product.selected_or_first_available_variant %}
+              {% endif %}
+              {% if deal_variant_obj %}
+                <div class="deal-card__price">
+                  <span class="deal-card__price-current">{{ deal_variant_obj.price | money }}</span>
+                  {% if deal_variant_obj.compare_at_price and deal_variant_obj.compare_at_price > deal_variant_obj.price %}
+                    <span class="deal-card__price-compare">{{ deal_variant_obj.compare_at_price | money }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="deal-card__actions">
+                <button type="button"
+                        class="btn  deal-card__btn--buy"
+                        data-vid="{{ deal_vid }}"
+                        data-qty="{{ block.settings.quantity | default: 1 }}">
+                  {{ section.settings.deal_buy_button_label | default: '立即购买' }}
+                </button>
+                <button type="button"
+                        class="btn deal-card__btn--add"
+                        data-vid="{{ deal_vid }}"
+                        data-qty="{{ block.settings.quantity | default: 1 }}">
+                  {{ section.settings.deal_add_button_label | default: '加入购物车' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="xb1g1__toast" role="status" aria-live="polite"></div>
+</section>
+
+<style>
+
+.xmas-buy1get1 .xmas-one-card-discount-code{
+font-size: 12px;
+    border: 1px solid;
+    border-radius: 5px;
+    width: max-content;
+    margin: 0 auto 10px;
+    padding: 2px 10px;
+}
+  .xb1g1__grid--p1 .spin-section-snow{
+    position: absolute;
+    top: -20px;
+    left: 0;
+  }
+  .xmas-buy1get1 { padding: 24px 0 0; 
+  /* background: #ae3028;  */
+}
+  .xb1g1__container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  .xb1g1__header { text-align: center; margin: 12px 0 16px; }
+  .xb1g1__title { font-size: 28px; line-height: 1.2; margin: 0; }
+  .xb1g1__subtitle { font-size: 14px; color: #666; margin: 6px 0 0; }
+
+  .xb1g1__grid { display: grid; gap: 16px; }
+  .xb1g1__grid--p1 { 
+    grid-template-columns: repeat(2, 1fr); 
+    background: #06503F;
+    padding: 100px 60px 60px;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+}
+  .xb1g1__grid--p2 { 
+    grid-template-columns: repeat(4, 1fr);
+    background: #06503F;
+    padding: 0 60px 60px;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 50px;
+ }
+
+  /* BOGO cards: left image, right text */
+  .bogo-card-wrap { position: relative; }
+  .bogo-card-wrap.has-bg { padding: 8px; }
+  .bogo-card-wrap.has-bg::before { content: ''; position: absolute; inset: 0; border-radius: 14px; background-repeat: no-repeat; background-size: cover; background-position: center; z-index: 0; }
+  #xmas-buy1get1-{{ section.id }} .bogo-card-wrap.has-bg::before { {% if section.settings.bogo_card_bg != blank %}background-image: url('{{ section.settings.bogo_card_bg | image_url: width: 800 }}');{% endif %} }
+  .bogo-card {width: 100%;height: 100%; position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; background: #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); overflow: hidden; z-index: 1; }
+  .bogo-card__media, .bogo-card__content { position: relative; z-index: 1; }
+  .bogo-card__media {  
+    padding: 12px; 
+        height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bogo-card__media img { width: 100%; height: auto; display: block; }
+  .bogo-card__acc-thumb { 
+    position: absolute; left: 10px; top: 10px; width: 72px; height: auto; 
+  overflow: hidden; background: #fff; 
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+ }
+  .bogo-card__acc-thumb img { width: 100%; height: 100%; object-fit: contain;border-radius: 10px; }
+  .bogo-card__content { padding: 30px 16px; }
+  .bogo-card__title { font-size: 18px; margin: 0 0 8px;
+    line-height: 1.4;
+    margin-top: 20px;
+}
+  .bogo-card__desc { font-size: 13px; color: #000; margin: 0 0 12px; }
+  .bogo-card__pair {  font-size: 14px;margin-bottom: 12px;  }
+  .bogo-card__pair p strong{
+    font-weight: 400;
+    color: #DA2B2B;
+    text-decoration: line-through;
+  }
+  .bogo-card__price { font-size: 18px; font-weight: 700; margin: 0 0 12px; }
+  .bogo-card__price-compare { color: #999; text-decoration: line-through; font-weight: 500; margin-left: 8px; font-size: 14px; }
+  .bogo-card__label { font-weight: 600; font-size: 12px; color: #333; }
+  .bogo-card__value { font-size: 12px; color: #666; }
+  .bogo-card__actions { display: flex; gap: 8px; }
+
+  .bogo-card__badge { position: absolute; top: 10px; right: 10px; z-index: 2; color: #fff; font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 999px; background: rgba(0,0,0,0.5); background-size: cover; background-position: center; }
+
+  /* Deal cards: top image, bottom text */
+  .deal-card { position: relative; background: #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); overflow: hidden; display: flex; flex-direction: column; }
+  .deal-card__badge { 
+position: absolute;
+    top: 10px;
+    left: 15px;
+    color: #fff;
+    font-size: 12px;
+    width: 74px;
+    height: 61px;
+    padding: 16px 14px;
+    z-index: 1;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+  }
+  .deal-card__media { padding: 10px;}
+  .deal-card__media img { width: 100%; height: auto; display: block; }
+  .deal-card__content { padding: 12px 12px 14px; text-align: center; }
+  .deal-card__title { font-size: 16px; margin: 0 0 6px; line-height: 1.2; }
+  .deal-card__desc { font-size: 13px; color: #555; margin: 0 0 10px; }
+  .deal-card__price { font-size: 16px; font-weight: 700; margin: 0 0 10px; }
+  .deal-card__price-compare { color: #999; text-decoration: line-through; font-weight: 500; margin-left: 8px; font-size: 13px; }
+  .deal-card__actions { display: flex; gap: 8px; justify-content: center;}
+
+  .bogo-card__actions .btn { display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer; border-radius: 6px; padding: 10px 14px; font-size: 14px; }
+  /* .btn--primary { background: #e53935; color: #fff; } */
+  .deal-card__btn--buy { background: #06503F; color: #fff; 
+  border-radius: 999px!important;
+}
+  .deal-card__btn--add{
+    border: 1px solid #06503F!important;
+    border-radius: 999px!important;
+  }
+    .bogo-card__btn{
+        background: #06503F;
+        color: #fff;
+        border-radius: 999px!important;
+    } 
+  .xb1g1__toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: 24px; background: rgba(0,0,0,0.85); color: #fff; padding: 10px 12px; border-radius: 8px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .xb1g1__toast.is-visible { opacity: 1; }
+
+  @media (max-width: 1024px) {
+    .xb1g1__grid--p2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .deal-card__actions{
+      flex-direction: column;
+    }
+    .deal-card__title{
+      font-size: 12px;
+    }
+    .deal-card__desc{
+      font-size: 8px;
+    }
+    .deal-card__content{
+      padding: 8px;
+    }
+    .deal-card__badge{
+          top: 4px;
+    left: 4px;
+    font-size: 8px;
+    width: 49px;
+    height: 40px;
+    }
+    .bogo-card__actions .btn{
+          padding: 8px 20px;
+    font-size: 12px;
+    }
+    .bogo-card__content{
+      padding: 16px;
+    }
+    .bogo-card__desc{
+      font-size: 12px;
+      margin: 0 0 5px;
+    }
+    .bogo-card__price,.bogo-card__pair{
+      margin-bottom: 5px;
+    }
+    .xb1g1__grid--p1 { 
+      grid-template-columns: 1fr;
+      padding: 30px 20px;
+      border-radius: 10px 10px 0 0;
+     }
+    .xb1g1__grid--p2 {
+       grid-template-columns: repeat(2, 1fr);
+          padding: 0 20px 30px;
+    border-radius: 0 0 10px 10px;
+      }
+      .bogo-card { grid-template-columns: 1fr; }
+      .bogo-card__acc-thumb { width: 70px; height: auto; }
+        .xb1g1__grid--p1 .spin-section-snow{
+      top: -10px;
+    }
+      .bogo-card__media > img { 
+           width: 80%;
+           margin: 30px auto 0;
+      }
+      .bogo-card__badge{
+        font-size: 10px;
+      }
+  }
+</style>
+
+<script>
+  (function() {
+    function showToast(message) {
+      var toast = document.querySelector('#xmas-buy1get1-{{ section.id }} .xb1g1__toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      setTimeout(function() { toast.classList.remove('is-visible'); }, 2200);
+    }
+
+    function addItems(items) {
+      var payload = { items: items };
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res) {
+        if (!res.ok) throw new Error('Add to cart failed');
+        return res.json();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var root = document.getElementById('xmas-buy1get1-{{ section.id }}');
+      if (!root) return;
+
+      // BOGO buttons: add two items
+      // root.querySelectorAll('.bogo-card__btn').forEach(function(btn) {
+      //   btn.addEventListener('click', function() {
+      //     var mainVid = btn.getAttribute('data-main-vid');
+      //     var accVid = btn.getAttribute('data-acc-vid');
+      //     var qty = parseInt(btn.getAttribute('data-qty') || '1', 10);
+      //     var items = [];
+      //     if (mainVid) items.push({ id: Number(mainVid), quantity: qty });
+      //     if (accVid) items.push({ id: Number(accVid), quantity: 1 });
+      //     if (!items.length) return;
+      //     addItems(items).then(function() {
+      //       window.open('/cart', '_blank');
+      //     }).catch(function() { showToast(''); });
+      //   });
+      // });
+
+      // Deal buttons: add single item or buy-now
+      root.querySelectorAll('.deal-card__btn--add').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var vid = btn.getAttribute('data-vid');
+          var qty = parseInt(btn.getAttribute('data-qty') || '1', 10);
+          if (!vid) return;
+          addItems([{ id: Number(vid), quantity: qty }]).then(function() {
+            window.open('/cart', '_blank');
+          }).catch(function() { showToast('add to cart failed'); });
+        });
+      });
+      root.querySelectorAll('.deal-card__btn--buy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var vid = btn.getAttribute('data-vid');
+          var qty = parseInt(btn.getAttribute('data-qty') || '1', 10);
+          if (!vid) return;
+          addItems([{ id: Number(vid), quantity: qty }]).then(function() {
+            window.location.href = '/checkout';
+          }).catch(function() { showToast(''); });
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Xmas 买一送一 + 折扣产品",
+  "tag": "section",
+  "class": "section xmas-buy1get1",
+  "settings": [
+   {
+      "type": "header",
+      "content": "Section Header 设置"
+    },
+        {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "限时优惠 立省20%"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    },
+    { "type": "image_picker", "id": "snow_image", "label": "顶部长条雪图" },
+    { "type": "image_picker", "id": "bogo_card_bg", "label": "买一送一卡片边框背景图" },
+   
+    {"type": "text", "id": "bogo_button_label", "label": "买一送一按钮文案", "default": "Buy Together"},
+    {"type": "text", "id": "deal_buy_button_label", "label": "折扣卡片立即购买文案", "default": "立即购买"},
+    {"type": "text", "id": "deal_add_button_label", "label": "折扣卡片加入购物车文案", "default": "加入购物车"},
+        {
+      "type": "header",
+      "content": "折扣码设置"
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "折扣码（用于复制）"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bogo_card",
+      "name": "买一送一卡片",
+      "settings": [
+        {"type": "product", "id": "main_product", "label": "主产品"},
+        {"type": "product", "id": "acc_product", "label": "配件产品"},
+        {"type": "text", "id": "main_variant_id", "label": "主产品变体ID(可选)", "info": "留空则使用第一个可售变体"},
+        {"type": "text", "id": "acc_variant_id", "label": "配件变体ID(可选)", "info": "留空则使用第一个可售变体"},
+        {"type": "image_picker", "id": "main_image", "label": "自定义产品图(可选)"},
+        {"type": "image_picker", "id": "acc_image", "label": "配件缩略图(优先显示)"},
+        {"type": "image_picker", "id": "acc_image2", "label": "配件缩略图2"},
+        {"type": "text", "id": "title", "label": "自定义标题(可选)"},
+        {"type": "richtext", "id": "sub_title", "label": "赠品自定义标题(可选)"}, 
+        {"type": "textarea", "id": "desc", "label": "自定义描述(可选)"},
+        {"type": "text", "id": "badge_label", "label": "卡片右上角标签文案(可选)"},
+        {"type": "image_picker", "id": "badge_bg", "label": "卡片右上角标签背景图(可选)"},
+        {"type": "range", "id": "quantity", "label": "购买数量(主产品)", "min": 1, "max": 10, "step": 1, "default": 1}
+      ]
+    },
+    {
+      "type": "deal_product",
+      "name": "折扣产品卡片",
+      "settings": [
+        {"type": "product", "id": "product", "label": "产品"},
+        {"type": "text", "id": "variant_id", "label": "变体ID(可选)", "info": "留空则使用第一个可售变体"},
+        {"type": "image_picker", "id": "image", "label": "自定义产品图(可选)"},
+        {"type": "text", "id": "title", "label": "自定义标题(可选)"},
+        {"type": "textarea", "id": "desc", "label": "自定义描述(可选)"},
+        {"type": "text", "id": "badge_text", "label": "折扣徽章文案", "default": "50% OFF"},
+        {"type": "image_picker", "id": "badge_bg", "label": "折扣徽章背景图(可选)"},
+        {"type": "range", "id": "quantity", "label": "购买数量", "min": 1, "max": 10, "step": 1, "default": 1}
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "Xmas 买一送一 + 折扣产品",
+      "blocks": [
+        {"type": "bogo_card"},
+        {"type": "bogo_card"},
+        {"type": "bogo_card"},
+        {"type": "bogo_card"},
+        {"type": "deal_product"},
+        {"type": "deal_product"},
+        {"type": "deal_product"},
+        {"type": "deal_product"}
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}

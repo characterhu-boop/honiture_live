@@ -1,0 +1,508 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_overlay_kwRCJb": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/oct-evnt-pc-2.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/5_f907f9ee-8994-4787-9d93-8107d7aac374.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "video_PHzWpx": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_hosted": "shopify:\/\/files\/videos\/EN_1.mp4",
+        "video_autoplay": true,
+        "show_progress": true,
+        "disable_download": false,
+        "playback_rate": 1,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_RJDwim": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3tBPdm": {
+          "type": "heading",
+          "settings": {
+            "text": "Why to Be a Honiture Partner?",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h1",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3tBPdm"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "text_with_icons_6MVkmA": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_fciPUB": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/1_bb5a4379-b7e9-4415-9d08-8e5aee8919ff.png",
+            "heading": "Diversified Marketing Supports",
+            "text": "<p>Marketing Materials<br\/>Marketing Training<br\/>Local team support<\/p>"
+          }
+        },
+        "icon_TtRJp8": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/2_f5957391-09c7-4272-9a10-ac871836e701.png",
+            "heading": "Strong Global Marketing Exposure",
+            "text": "<p>We collaborate with mainstream digital marketing and PR agencies for a comprehensive brand strategy.<\/p>"
+          }
+        },
+        "icon_G8MnK8": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/3_3d73edf5-72b8-4e10-895f-6503c7dc9c84.png",
+            "heading": "Dedicated Product Strategy",
+            "text": "<p>Various Products<br\/>Different Series Positioning<br\/>Technology Innovation<br\/><\/p>"
+          }
+        },
+        "icon_xH8K4V": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/4_d8abc499-b689-42fc-be6f-bd14c609cb6e.png",
+            "heading": "Customized Solutions",
+            "text": "<p>Our acceptance and success in some EU markets demonstrate our value to distributors and retail partners.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_fciPUB",
+        "icon_TtRJp8",
+        "icon_G8MnK8",
+        "icon_xH8K4V"
+      ],
+      "custom_css": [
+        ".text-with-icons__inner {grid-template-columns: repeat(4, 1fr);}"
+      ],
+      "settings": {
+        "title": "",
+        "sub_heading": "",
+        "show_sub_heading": true,
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "large",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "mobile_columns": 2,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "text_with_icons_fbV9Cf": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_cfRiBR": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/5_388b6ab2-a61b-46fd-a0f1-19f4573344f6.png",
+            "heading": "International Branch Offices",
+            "text": "<p>Branch offices in Europe, North America, and Asia-Pacific ensure top local service and support for sales, marketing, after-sales, and tech support.<\/p>"
+          }
+        },
+        "icon_PPww7P": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/6_097cb41a-faa8-4182-a444-56082b56cd57.png",
+            "heading": "Warehousing System",
+            "text": "<p>Our global warehouse system  ensures timely delivery, efficient distribution, and streamlined RMA processing.<\/p>"
+          }
+        },
+        "icon_bKE6fm": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/icons8-_-50_01940831-839e-434f-93e0-43d08df1587d.png",
+            "heading": "MDF",
+            "text": "<p>We offer MDF support to distributors to achieve win-win business outcomes.<br\/><\/p>"
+          }
+        },
+        "icon_tqJeAj": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/icons8-_-50.png",
+            "heading": "Excellent After-sale Service",
+            "text": "<p>Offering comprehensive after-sales service to ensure seamless support and satisfaction for our distributors.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_cfRiBR",
+        "icon_PPww7P",
+        "icon_bKE6fm",
+        "icon_tqJeAj"
+      ],
+      "custom_css": [
+        ".text-with-icons__inner {grid-template-columns: repeat(4, 1fr);}"
+      ],
+      "settings": {
+        "title": "",
+        "sub_heading": "",
+        "show_sub_heading": true,
+        "view_more_label": "",
+        "view_more_link": "shopify:\/\/collections\/all",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "large",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "mobile_columns": 2,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_L9wtDH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YVUKJN": {
+          "type": "heading",
+          "settings": {
+            "text": "The |Benefits| of Partnering with Honiture",
+            "marker_style": "style2",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YVUKJN"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "toggle_boxes_MqQNWX": {
+      "type": "toggle-boxes",
+      "blocks": {
+        "box_AizeLf": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/9_98e208b5-b6f6-4738-a72d-1643b4134560.png",
+            "image_link": "",
+            "open": false,
+            "heading": "Dedicated Product Strategy",
+            "text": "<p>Various products and brands: Puture Group offers a range of products and brands to meet diverse market needs.<br\/>Different series positioning: Designed to cater to the demands of different consumers.<br\/>High margin: Supports business growth and rapid establishment of a retail channel network.<br\/><\/p>"
+          }
+        },
+        "box_y88Fze": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10_f7914b3f-8f54-46ed-8345-6d94140c142e.png",
+            "image_link": "",
+            "open": false,
+            "heading": "Strong Global Exposure",
+            "text": "<p>Collaboration: Partnering with a leading digital marketing and PR agency to develop a comprehensive brand strategy.<br\/>Marketing campaigns: Activities include product launch events, social media advertising, monthly flyers, members' day promotions, influencer partnerships, giveaways, cashback offers, raffles, and local exhibition<br\/><\/p>"
+          }
+        },
+        "box_FVUiXi": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12.png",
+            "image_link": "",
+            "open": false,
+            "heading": "Diversified Marketing Supports",
+            "text": "<p>Media Kits<br\/>Brand VI Guidelines<br\/>Promotion Materials<br\/>Product Knowledge Training<br\/>Tech Support<br\/>Local Team Support: Promoter and Sales<br\/>Channel Protection<br\/>After-Sales Service<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "box_AizeLf",
+        "box_y88Fze",
+        "box_FVUiXi"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 3,
+        "column_spacing": "medium",
+        "image_ratio": "adapt",
+        "mobile_swipe": true,
+        "text_alignment": "center",
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_Lw48Kc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_83FKAJ": {
+          "type": "heading",
+          "settings": {
+            "text": "Contact Your Exclusive Representative Now",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_83FKAJ"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_zD4kqk": {
+      "type": "media-grid",
+      "blocks": {
+        "media_T9a6xe": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "Add a tagline",
+            "heading": "Heading",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_L8KPfa": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Add a tagline",
+            "heading": "Heading",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_TTxMGm": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Add a tagline",
+            "heading": "Heading",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_T9a6xe",
+        "media_L8KPfa",
+        "media_TTxMGm"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "mobile_swipe": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "17249993144c4371ab": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_QzYJUD": {
+          "type": "shopify:\/\/apps\/powerful-form-builder\/blocks\/app-block\/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"NTQ0NTU=\"><\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_QzYJUD"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_QPKNA4": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_kwRCJb",
+    "video_PHzWpx",
+    "rich_text_RJDwim",
+    "text_with_icons_6MVkmA",
+    "text_with_icons_fbV9Cf",
+    "rich_text_L9wtDH",
+    "toggle_boxes_MqQNWX",
+    "rich_text_Lw48Kc",
+    "media_grid_zD4kqk",
+    "17249993144c4371ab",
+    "spacer_QPKNA4"
+  ]
+}

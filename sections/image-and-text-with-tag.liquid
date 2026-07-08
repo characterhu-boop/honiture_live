@@ -1,0 +1,465 @@
+{%- liquid
+  assign image_position = section.settings.image_position
+  assign mobile_reverse = section.settings.mobile_reverse
+  assign desktop_image = section.settings.image
+  assign mobile_image = section.settings.mobile_image | default: desktop_image
+-%}
+
+<style>
+  .image-text-section-{{ section.id }} {
+    padding: {{ section.settings.section_padding }}px 0;
+    position: relative;
+  }
+  .image-text-section-{{ section.id }}  .button-wrap{
+    width: 100%;
+    display: flex;
+  }
+  .image-text-section-{{ section.id }} .cus-sale-button {
+    {% comment %} background-color: #f7a768;  {% endcomment %}
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 6px 24px 6px 16px;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 100px;
+    position: relative;
+    transition: 0.25s;
+  }
+  .image-text-section-{{ section.id }} .cus-sale-button:hover{
+    background-color: var(--color-accent-hover);
+  }
+  .cus-sale-button::after{
+    content: '>';
+    position: absolute;
+    top: 52%;
+    transform: translate(-12px, -50%);
+    right: 0;
+    transition: 0.3s;
+  }
+
+  .image-text-section-{{ section.id }} .cus-sale-button:hover::after{
+    transform: translate(-10px, -50%);
+  }
+
+  .image-text-section-{{ section.id }} .image-text-container {
+    display: flex;
+    align-items: center;
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    gap: {{ section.settings.gap }}px;
+    /* background: #F0F2F2; */
+    background-color: {{ section.settings.background_color }};
+    border-radius: 10px
+  }
+
+  .image-text-section-{{ section.id }} .image-wrapper {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .image-text-section-{{ section.id }} .text-wrapper {
+    flex: {{ section.settings.text_flex }};
+    padding: 20px 45px 20px 20px;
+  }
+  .image-text-section-{{ section.id }}  .text-wrapper-left{
+    padding-left: {{ section.settings.text_padding_left }}px;
+    padding-right: 20px;
+  }
+  .image-text-section-{{ section.id }} .image-wrapper-right .reverse-img{
+    /* transform: scaleX(-1); */
+  }
+
+  .image-text-section-{{ section.id }} .cus_heading{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .image-text-section-{{ section.id }} .cus_text{
+    font-size: 16px;
+  }
+    .image-text-section-{{ section.id }} .cus_text2{
+    color: #d0021b;
+  }
+  .image-text-section-{{ section.id }} img {
+    width: 100%;
+    height: auto;
+    border-radius: {{ section.settings.image_border_radius }}px;
+  }
+
+  /* 优惠标签样式 */
+  .image-text-section-{{ section.id }} .discount-badge {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    width: 67px;
+    height: 64px;
+    padding: 10px 10px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background:  url('{{ 'discount-bg.svg' | asset_url }}');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .image-text-section-{{ section.id }} .image-wrapper-right .discount-badge{
+    left: unset;
+    right: 50px;
+  }
+
+  /* 移动端图片显示控制 */
+  .image-text-section-{{ section.id }} .desktop-image {
+    display: block;
+  }
+  .image-text-section-{{ section.id }} .mobile-image {
+    display: none;
+  }
+  .image-text-section-{{ section.id }} .divide-line{
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .image-text-section-{{ section.id }} .image-text-container {
+      flex-direction: column;
+      background-color: {{ section.settings.background_color_mobile }};
+      gap: {{ section.settings.gap_mobile }}px;
+    }
+
+    {% if mobile_reverse %}
+    .image-text-section-{{ section.id }} .image-text-container {
+      flex-direction: column-reverse;
+    }
+    {% endif %}
+
+    .image-text-section-{{ section.id }} .image-wrapper, .image-text-section-{{ section.id }} .text-wrapper {
+      width: 100%;
+    }
+    .image-text-section-{{ section.id }} .cus_heading{
+      font-size: 24px;
+    }
+    .image-text-section-{{ section.id }} {
+      padding: {{ section.settings.mobile_section_padding }}px 15px;
+    }
+    .image-text-section-{{ section.id }} .cus-sale-button {
+      margin: auto;
+    }
+    /* 移动端图片切换 */
+    .image-text-section-{{ section.id }} .desktop-image {
+      display: none;
+    }
+    .image-text-section-{{ section.id }} .mobile-image {
+      display: block;
+    }
+    .image-text-section-{{ section.id }} .discount-badge {
+      left: 15px;
+    }
+    .image-text-section-{{ section.id }} .image-wrapper-right .discount-badge{
+      left: 15px;
+    }
+    .image-text-section-{{ section.id }} .divide-wrap{
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0 15px;
+    }
+    .image-text-section-{{ section.id }} .divide-wrap .line{
+      border-bottom: 2px solid #F0F2F2;
+      width: 100%;
+    }
+    .image-text-section-{{ section.id }}  .text-wrapper-left{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .image-text-section-{{ section.id }}  .text-wrapper {
+        padding: 20px;
+    }
+  }
+</style>
+
+<div class="image-text-section-{{ section.id }}">
+  <div class="page-width">
+    <div class="image-text-container">
+      {% if image_position == 'left' %}
+        <div class="image-wrapper">
+          {% if section.settings.button_link != blank %}
+            <a href="{{ section.settings.button_link }}" style="display: block; width: 100%; height: 100%;">
+          {% endif %}
+          
+          {% if desktop_image != blank %}
+            <img
+              class="desktop-image"
+              src="{{ desktop_image | img_url: '800x' }}"
+              alt="{{ desktop_image.alt | escape }}"
+            >
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg desktop-image' }}
+          {% endif %}
+
+          {% if mobile_image != blank %}
+            <img class="mobile-image" src="{{ mobile_image | img_url: '800x' }}" alt="{{ mobile_image.alt | escape }}">
+          {% elsif desktop_image != blank %}
+            <img
+              class="mobile-image"
+              src="{{ desktop_image | img_url: '800x' }}"
+              alt="{{ desktop_image.alt | escape }}"
+            >
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg mobile-image' }}
+          {% endif %}
+
+          {% if section.settings.discount_text != blank %}
+            <div class="discount-badge">{{ section.settings.discount_text }}</div>
+          {% endif %}
+
+          {% if section.settings.button_link != blank %}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="text-wrapper {% if image_position == 'right' %}text-wrapper-left{% endif %}">
+        {% if section.settings.heading != blank %}
+          <h2 class="cus_heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="cus_text">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.text2 != blank %}
+          <div class="cus_text cus_text2">{{ section.settings.text2 }}</div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <div class="button-wrap">
+            <a href="{{ section.settings.button_link }}" class="cus-sale-button">
+              {{ section.settings.button_label | escape }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if image_position == 'right' %}
+        <div class="image-wrapper image-wrapper-right">
+          {% if section.settings.button_link != blank %}
+            <a href="{{ section.settings.button_link }}" style="display: block; width: 100%; height: 100%;">
+          {% endif %}
+
+          {% if desktop_image != blank %}
+            <img
+              class="desktop-image reverse-img"
+              src="{{ desktop_image | img_url: '800x' }}"
+              alt="{{ desktop_image.alt | escape }}"
+            >
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg desktop-image' }}
+          {% endif %}
+
+          {% if mobile_image != blank %}
+            <img
+              class="mobile-image reverse-img"
+              src="{{ mobile_image | img_url: '800x' }}"
+              alt="{{ mobile_image.alt | escape }}"
+            >
+          {% elsif desktop_image != blank %}
+            <img
+              class="mobile-image reverse-img"
+              src="{{ desktop_image | img_url: '800x' }}"
+              alt="{{ desktop_image.alt | escape }}"
+            >
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg mobile-image' }}
+          {% endif %}
+
+          {% if section.settings.discount_text != blank %}
+            <div class="discount-badge">{{ section.settings.discount_text }}</div>
+          {% endif %}
+
+          {% if section.settings.button_link != blank %}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="divide-wrap"><div class="line"></div></div>
+</div>
+{% schema %}
+{
+  "name": "Image and text with tag",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image (optional)",
+      "info": "If not set, desktop image will be used on mobile"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Image position (desktop)",
+      "info": "Image position on desktop screens"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_reverse",
+      "default": false,
+      "label": "Reverse on mobile",
+      "info": "Enable to show text above image on mobile"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Image with text",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text1"
+    },
+    {
+      "type": "richtext",
+      "id": "text2",
+      "label": "Text2"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "discount_text",
+      "label": "Discount text",
+      "default": "20% OFF",
+      "info": "Leave blank to hide discount badge"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "default": 1200,
+      "label": "Section max width (px)"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "label": "Gap between image and text (PC)"
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 0,
+      "label": "Gap between image and text (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 25,
+      "label": "Section padding (PC)"
+    },
+        {
+      "type": "range",
+      "id": "text_padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "label": "Padding left(PC文字在左边时生效)"
+    },
+        {
+      "type": "range",
+      "id": "text_flex",
+      "min": 0.3,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.8,
+      "label": "文字部分的比例(PC)"
+    },
+    {
+      "type": "range",
+      "id": "mobile_section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "label": "Section padding (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "label": "Image border radius"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color(PC)",
+      "default": "#F0F2F2"
+    },
+    {
+      "type": "color",
+      "id": "background_color_mobile",
+      "label": "Background color(mobile)",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image and text with tag"
+    }
+  ]
+}
+{% endschema %}

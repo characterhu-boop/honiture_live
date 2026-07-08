@@ -1,0 +1,25 @@
+
+
+<div class="widget-wrap section-{{ section.id }}" >
+    {% if section.settings.widget_img != blank %}
+        <img data-src="{{ section.settings.widget_img | image_url }}" class="lazyload" width="{{ image.src.width }}" height="{{ image.src.height }}" alt="{{ image.alt }}" />
+    {% endif %}
+</div>
+<style>
+   .section-{{ section.id }}.widget-wrap{
+        transform: translate(-{{ section.settings.widget_margin_bottom }}px,-{{ section.settings.widget_margin_left }}px);
+        width: {{ section.settings.widget_width }}px;
+        height: {{ section.settings.widget_height }}px;
+        z-index: 6;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    @media screen and (max-width: 768px) {
+    .section-{{ section.id }}.widget-wrap{
+        transform: translate(-{{ section.settings.widget_margin_bottom_mobile }}px,-{{ section.settings.widget_margin_left_mobile }}px);
+        width: {{ section.settings.widget_width_mobile }}px;
+        height: {{ section.settings.widget_height_mobile }}px;
+    }
+  }
+</style>

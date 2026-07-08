@@ -1,0 +1,664 @@
+
+<style>
+  .section-{{ section.id }}.flip-win .xmax_section__header{
+  margin-bottom: 100px;
+}
+
+  .section-{{ section.id }}.flip-win .xmax_section__title{
+    text-align: center; 
+    line-height: 1.4;
+    font-size: 36px;
+  }
+  .spin-section-snow{
+    position: absolute;
+    top: -20px;
+    left: 0;
+  }
+  .section-{{ section.id }} {
+    /* background: #f9f6ec; */
+    padding: 0 0 60px 0;
+    background-image: {% if section.settings.bg_image != blank %}url('{{ section.settings.bg_image | image_url: width: 1920 }}'){% endif %};
+    background-size: 1500px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+
+  .section-{{ section.id }} .section-header{
+    text-align: center;
+  }
+  
+  .section-{{ section.id }} .section-header .section-header-title{
+    width: max-content;
+    margin: 0 auto;
+    font-size: 56px;
+    position: relative;
+    text-shadow: 1px 0 0 rgba(255, 255, 255, 0.521), -1px 0 0 rgba(255, 255, 255, 0.432), 0 1px 0 rgba(255, 255, 255, 0.418), 0 -1px 0 rgba(255, 255, 255, 0.473), 0 0 30px #FF3333, 0 0 40px #FF3333, 0 0 50px #FF6666;
+  }
+  
+  .section-{{ section.id }} .section-header .section-header-title::before,
+  .section-{{ section.id }} .section-header .section-header-title::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-image: url({{ 'spin-icon.png' | asset_url }});
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 88px;
+    height: 88px;
+  }
+
+  .section-{{ section.id }}.flip-win .spin-eligibility_text{
+    color: #000;
+    margin-top: 30px;
+    transform: translate(24px, 30px);
+    max-width: 400px; 
+  }
+  .section-{{ section.id }} .content-wrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: 768px;
+    margin: 30px auto;
+    /* background: #06503F; */
+    border-radius: 30px 30px 10px 10px;
+    position: relative;
+    padding-bottom: 122px;
+  }  
+  .section-{{ section.id }} .content-right{
+    z-index: 1;
+    width: 100%;
+    color: {{ section.settings.fontColor }};
+  }
+  .section-{{ section.id }} .spin-desc{
+    font-size: 16px;
+    line-height: 1.8;
+    margin-top: 30px;
+    display: block;
+  }
+  .section-{{ section.id }} .mobile-only{
+    display: none;
+  }
+  .section-{{ section.id }} .pc-only{
+    display: block;
+  }
+  /* 表单样式*/ 
+  .section-{{ section.id }} .form-container {
+    text-align: left;
+  }
+  
+  .section-{{ section.id }} .form-container label{
+    font-size: 16px;
+  }
+  
+  .section-{{ section.id }} .form-container input[type="text"], 
+  .section-{{ section.id }} .form-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .section-{{ section.id }} .btn-wrap{
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .section-{{ section.id }} .form-container button {
+    background: linear-gradient(45deg, #7c5f34, #e8d8c1);
+    color: white;
+    padding: 8px 26px;
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+  }
+  
+  .section-{{ section.id }} .form-container button:hover {
+    background: linear-gradient(45deg,rgb(99, 76, 41),rgb(219, 187, 143));
+  }
+  
+  .section-{{ section.id }} #spin-tip{
+    color: #FF0000;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .section-{{ section.id }}.flip-win{
+    /* background: #ae3028; */
+        transform: scale(0.85);
+  } 
+  /* 移动端适配 */
+  @media screen and (max-width: 1024px) {
+    .section-{{ section.id }} {
+      padding-top: 60px;
+      padding-bottom: 15vw;
+    }
+
+    .section-{{ section.id }} .content-wrapper {
+      margin: 60px auto;
+    }
+    
+
+  @media screen and (max-width: 768px) {
+      .section-{{ section.id }}.flip-win{
+    /* background: #ae3028; */
+        transform: scale(1);
+  } 
+        .section-{{ section.id }} {
+      padding-top: 0;
+    }
+      .section-{{ section.id }}.flip-win .xmax_section__header{
+        margin-bottom: 50px;
+      }
+      .section-{{ section.id }}.flip-win .spin-eligibility_text{
+        color: #000;
+        margin-top: 10px;
+        transform: unset;
+        font-size: 10px;
+      }
+      .section-{{ section.id }}.flip-win .spin-eligibility_text p{
+        margin-bottom: 0;
+        line-height: 1.2;
+      }
+      .section-{{ section.id }} .content-wrapper{
+        padding-bottom: 10px;
+      }  
+
+      .section-{{ section.id }}.flip-win .xmax_section__title{
+        font-size: 24px;
+      }
+      .flip-win .subscribe-box input[type="email"],.flip-win .signup-container label{
+        height: 30px!important;
+      }
+      .section-{{ section.id }} {
+        background-image: none;
+      }
+    .section-{{ section.id }}  .content-wrapper{
+      padding-top: 0;
+      padding-bottom: 20px;
+      background-image: none;
+      position: relative;
+    }
+    .section-{{ section.id }}  .content-wrapper::before{
+      content: '';
+      position: absolute;
+      top: -10vw;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 100vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-image: {% if section.settings.bg_image_mobile != blank %}
+        url('{{ section.settings.bg_image_mobile | image_url: width: 1080 }}')
+      {% elsif section.settings.bg_image != blank %}
+        url('{{ section.settings.bg_image | image_url: width: 1080 }}')
+      {% endif %};
+      z-index: 0;
+      pointer-events: none;
+    }
+    .section-{{ section.id }}  .content-wrapper > *{
+      position: relative;
+      z-index: 1;
+    }
+    .section-{{ section.id }} #spin-tip{ 
+      font-size: 14px;
+    }
+      .section-{{ section.id }} .content-wrapper {
+           flex-direction: column;
+            margin: 0 auto;
+            border-radius: 10px;
+            max-width: 74vw;
+      }
+    }
+
+    .section-{{ section.id }} .btn-wrap{
+      margin: 10px 0;
+    }
+
+    
+    .section-{{ section.id }} .spin-desc {
+      font-size: 14px;
+      display: none;
+      margin-top: 0px;
+        color: #fff;
+        padding: 0 20px;
+        text-align: center;
+    }
+    .section-{{ section.id }} .mobile-only{
+      display: block;
+    }
+    .section-{{ section.id }} .pc-only{
+      display: none;
+    }
+    
+    .section-{{ section.id }} #spin-tip {
+      font-size: 16px;
+      height: 24px;
+    }
+    
+    .section-{{ section.id }} .form-container button {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+  }
+
+</style>
+
+<div class="section-{{ section.id }} flip-win">
+    {% render 'xmas-section-header', section: section %}
+    <div class="content-wrapper">
+    {% if section.settings.snow_image %}
+      <div class="spin-section-snow">
+        {{ section.settings.snow_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: 'Snow strip' }}
+      </div>
+    {% endif %}
+    {% render 'flip-card', section: section %}
+    <div class="spin-eligibility_text">
+      {{ section.settings.eligibility_text }}
+    </div>
+   </div>
+</div>
+
+    
+
+{% schema %}
+  {
+    "name": "Spin & Win",
+    "tag": "section",
+    "class": "section flip-win-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "转盘抽奖设置"
+      },
+     
+    {
+      "type": "header",
+      "content": "Section Header 设置"
+    },     
+     {
+          "type": "text",
+          "id": "title",
+          "label": "Section Title",
+          "default": "Spin & Win"
+      },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    },
+
+      {
+        "type": "header",
+        "content": "背景图片设置"
+      },
+      
+      { "type": "image_picker", "id": "snow_image", "label": "顶部长条雪图" },
+      { "type": "image_picker", "id": "subscribe_image", "label": "subscribe image" },
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "分区背景图（PC）"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_image_mobile",
+        "label": "分区背景图（移动端）"
+      },
+      {
+        "type": "image_picker",
+        "id": "card_cover",
+        "label": "卡片背景"
+      },
+      {
+        "type": "image_picker",
+        "id": "modal_bg",
+        "label": "中奖弹窗背景"
+      },
+      {
+        "type": "text",
+        "id": "activity_id",
+        "label": "活动ID",
+        "info": "去erp查看活动ID"
+      },
+      {
+        "type": "checkbox",
+        "id": "is_test",
+        "label": "是否为测试环境",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "文案设置"
+      },
+      {
+        "type": "text",
+        "id": "subscribe_title",
+        "label": "订阅标题",
+        "default": "subscribe_title"
+      },
+
+      {
+        "type": "richtext",
+        "id": "eligibility_text",
+        "label": "参与资格说明"
+      },
+      {
+        "type": "color",
+        "id": "fontColor",
+        "label": "字体颜色",
+        "default": "#000"
+      }
+    ],
+        "blocks": [
+                    {
+        "type": "decoration",
+        "name": "装饰图片",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "图片" },
+          { "type": "range", "id": "top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "number", "id": "z_index", "label": "层级", "default": 1 },
+          { "type": "checkbox", "id": "hide_on_mobile", "label": "在移动端隐藏", "default": false },
+          { "type": "range", "id": "rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+        ]
+      } ,
+      {
+        "type": "count-down",
+        "name": "countdown",
+        "settings": [
+          {
+              "type": "header",
+              "content": "Count down Settings"
+            },
+            {
+            "type": "text",
+            "id": "end_date",
+            "label": "结束日期和时间",
+            "info": "格式: YYYY-MM-DD HH:MM:SS (例如: 2023-12-31 23:59:59)",
+            "default": "2023-12-31 23:59:59"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "标题"
+          },
+          {
+            "type": "text",
+            "id": "message",
+            "label": "结束消息"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_on_complete",
+            "label": "结束后隐藏组件",
+            "default": false
+          },
+          {
+            "type": "header",
+            "content": "显示选项"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_days",
+            "label": "显示天数",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "show_hours",
+            "label": "显示小时",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "show_minutes",
+            "label": "显示分钟",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "show_seconds",
+            "label": "显示秒数",
+            "default": true
+          },
+          {
+            "type": "header",
+            "content": "样式选项"
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "样式",
+            "options": [
+              {
+                "value": "minimal",
+                "label": "简约"
+              },
+              {
+                "value": "rounded",
+                "label": "圆角"
+              },
+              {
+                "value": "boxed",
+                "label": "盒状"
+              },
+              {
+                "value": "modern",
+                "label": "现代"
+              }
+            ],
+            "default": "modern"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "文本对齐",
+            "options": [
+              {
+                "value": "left",
+                "label": "左对齐"
+              },
+              {
+                "value": "center",
+                "label": "居中"
+              },
+              {
+                "value": "right",
+                "label": "右对齐"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "numbers_size",
+            "label": "数字大小",
+            "options": [
+              {
+                "value": "small",
+                "label": "小"
+              },
+              {
+                "value": "medium",
+                "label": "中"
+              },
+              {
+                "value": "large",
+                "label": "大"
+              },
+              {
+                "value": "x-large",
+                "label": "超大"
+              }
+            ],
+            "default": "large"
+          },
+          {
+            "type": "select",
+            "id": "labels_size",
+            "label": "标签大小",
+            "options": [
+              {
+                "value": "small",
+                "label": "小"
+              },
+              {
+                "value": "medium",
+                "label": "中"
+              },
+              {
+                "value": "large",
+                "label": "大"
+              }
+            ],
+            "default": "small"
+          },
+          {
+            "type": "header",
+            "content": "颜色设置"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "背景颜色",
+            "default": "#f9f9f9"
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "标题颜色",
+            "default": "#333333"
+          },
+          {
+            "type": "color",
+            "id": "numbers_color",
+            "label": "数字颜色",
+            "default": "#ffffff"
+          },
+          {
+            "type": "color",
+            "id": "numbers_background",
+            "label": "数字背景颜色",
+            "default": "#ff3d00"
+          },
+          {
+            "type": "color",
+            "id": "labels_color",
+            "label": "标签颜色",
+            "default": "#666666"
+          },
+          {
+            "type": "color",
+            "id": "message_color",
+            "label": "结束消息颜色",
+            "default": "#ff3d00"
+          },
+          {
+            "type": "header",
+            "content": "间距设置"
+          },
+          {
+            "type": "range",
+            "id": "padding_top",
+            "label": "上内边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 30
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "下内边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 30
+          },
+          {
+            "type": "range",
+            "id": "margin_top",
+            "label": "上外边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "margin_bottom",
+            "label": "下外边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 30
+          }
+        ]
+      }
+    ],
+    "presets": [ 
+      {
+        "name": "Flip & Win"
+      }
+    ]
+  }
+{% endschema %}

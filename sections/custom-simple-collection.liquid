@@ -1,0 +1,265 @@
+{%- assign collection = collections[section.settings.collection] -%}
+
+<div class="simple-collection simple-collection-{{ section.id }}">
+  {% if collection != blank %}
+    <div class="collection-showcase__grid">
+      {% for product in collection.products limit: section.settings.products_limit %}
+        <div class="product-card">
+          {% if product.compare_at_price > product.price %}
+            <div class="discount-badge-wrap">
+              <span class="discount-badge">
+                {{ product.compare_at_price | minus: product.price | round | money_without_trailing_zeros }} OFF
+              </span>
+            </div>
+          {% endif %}
+          <div class="product-card__image-container">
+            <a href="{{ product.url }}" class="product-card__image-link">
+              <img
+                class="product-card__image lazyload"
+                src="{{ product.featured_image | img_url: '300x' }}"
+                data-src="{{ product.featured_image | img_url: '500x' }}"
+                alt="{{ product.featured_image.alt | escape }}"
+              >
+            </a>
+            {% comment %} 新增标签显示逻辑 {% endcomment %}
+            {% if product.tags contains 'Hot Sale' %}
+              <div class="product-card__image-tag"><span>Hot Sale</span></div>
+            {% elsif product.tags contains 'LIMITED OFFER' %}
+              <div class="product-card__image-tag"><span>LIMITED OFFER</span></div>
+            {% elsif product.tags contains 'BEST SALE' %}
+              <div class="product-card__image-tag"><span>BEST SALE</span></div>
+            {% elsif product.tags contains 'NEW' %}
+              <div class="product-card__image-tag"><span>NEW</span></div>
+            {% endif %}
+          </div>
+          <div class="product-card__info">
+            <div class="product-card__price-wrap">
+              {% if product.compare_at_price > product.price %}
+                <span class="product-card__price">{{ product.price | money }}</span>
+                <span class="product-card__compare-price">{{ product.compare_at_price | money }}</span>
+              {% else %}
+                <span class="product-card__price">{{ product.price | money }}</span>
+              {% endif %}
+            </div>
+            <div class="product-reviews">
+              <div class="jdgm-prev-badge" data-id="{{ product.id }}">
+                {{ product.metafields.judgeme.badge }}
+              </div>
+            </div>
+          </div>
+          <div class="product-card__button">
+            <a href="{{ product.url }}">
+              {{ section.settings.btn_text }}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .simple-collection-{{ section.id }}{
+    display: none;
+  }
+
+  .simple-collection-{{ section.id }} .collection-showcase__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.products_per_row }}, 1fr);
+    gap: {{ section.settings.grid_gap }}px;
+  }
+
+  .simple-collection-{{ section.id }} .product-card {
+    border: 1px solid #e1e1e1;
+    border-radius: {{ section.settings.card_border_radius }}px;
+    overflow: hidden;
+    background: {{ section.settings.card_background }};
+    box-shadow: 0 4px 6px #00000014;
+    margin-bottom: 0;
+  }
+  .simple-collection-{{ section.id }} .discount-badge-wrap{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #19586E;
+    line-height: 30px;
+    padding-top: 15px;
+  }
+  .simple-collection-{{ section.id }} .product-card__image-container{
+    position: relative;
+  }
+  .simple-collection-{{ section.id }} .product-card__image-tag{
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    top: 0px;
+    right: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: bold;
+    z-index: 1;
+    background:  url('{{ 'star-bg.png' | asset_url }}');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+  }
+  .simple-collection-{{ section.id }} .product-card__image-tag span{
+    margin: auto;
+    text-align: center;
+    transform: rotate(45deg);
+    line-height: 1;
+  }
+  .simple-collection-{{ section.id }} .product-card__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .simple-collection-{{ section.id }} .product-card__discount-badge {
+    color: #19586E;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .simple-collection-{{ section.id }} .product-card__info {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 5px;
+  }
+
+  .simple-collection-{{ section.id }} .product-card__price-wrap {
+    display: flex;
+    align-items: end;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .simple-collection-{{ section.id }} .product-card__price{
+    font-size: 1rem;
+    line-height: 12px;
+    font-weight: 500;
+  }
+  .simple-collection-{{ section.id }} .product-reviews{
+    font-size: 0.5rem;
+  }
+  .simple-collection-{{ section.id }} .jdgm-star{
+    padding-right: 2px!important;
+  }
+  .simple-collection-{{ section.id }} .jdgm-star.jdgm--on:before, .simple-collection-{{ section.id }} .jdgm-star.jdgm--off:before {
+      color: #F8B355;
+  }
+  .simple-collection-{{ section.id }} .jdgm-prev-badge__text{
+    display: none;
+  }
+
+  .simple-collection-{{ section.id }} .product-card__compare-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 8px;
+    line-height: 6px;
+  }
+
+  .simple-collection-{{ section.id }} .product-card__button{
+    width: 100%;
+    background-color: #00D0CD;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+  }
+  .simple-collection-{{ section.id }} .product-card__button a{
+    color: #fff;
+  }
+  @media (max-width: 768px) {
+    .simple-collection-{{ section.id }} .collection-showcase__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .simple-collection-{{ section.id }} {
+      display: block;
+      padding: {{ section.settings.mobile_section_padding }}px 15px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Simple Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "button label",
+      "default": "Shop now"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "min": 2,
+      "max": 24,
+      "step": 1,
+      "label": "Maximum products to show",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Products per row (desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Grid gap",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#fff"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Card border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "mobile_section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile padding",
+      "default": 10
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Simple Collection",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

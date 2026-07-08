@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "custom_simple_banner_VxQdhh": {
+      "type": "custom-simple-banner",
+      "name": "Simple Banner",
+      "settings": {
+        "show_on_desktop": true,
+        "text_align": 15,
+        "title": "Banner Title",
+        "title_text_color": "#19586E",
+        "subtitle": "Banner subtitle text goes here",
+        "text_color": "#19586E",
+        "title_size": 36,
+        "subtitle_size": 18,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_simple_banner_VxQdhh"
+  ]
+}

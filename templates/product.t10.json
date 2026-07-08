@@ -1,0 +1,1078 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_6qnD4q": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_FQCXxk": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box2.svg",
+            "text": "30-Day Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_hL7xLb": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_Lqfy7H": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_VxAikC": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "klarna_on_site_messaging_app_block_LHUka7": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_cLBxc3": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "settings": {}
+        },
+        "coupon_code_wBFykr": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "fire",
+            "image": "shopify:\/\/shop_images\/Honiture-coupon-icon.png",
+            "has_background": true,
+            "text": "<p><strong>Summer Sale- Extra 12% OFF! <\/strong><\/p>",
+            "coupon_text": "SUMMERGIFT",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "qikify_bogo_freegift_free_gift_jdV76h": {
+          "type": "shopify:\/\/apps\/qikify-bogo-freegift\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ol><li>LiDAR Mapping for Precise Coverage <\/li><li>3-in-1 Vacuum, Sweep, Mop<\/li><li>Ultra-Slim Design for Tight Spaces<\/li><li>Control via App & Voice Assistants<\/li><li>120-Minute Runtime & Auto-Recharge<\/li><\/ol>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default2 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/www.honiture.com\/\" }}\" class=\"custom-button-default2\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "variant_picker_qpHTdC": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_feaebV": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_68QwXm": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_KNjyhQ": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "product_list_limit": 10
+          }
+        },
+        "payment_security_yaWh9B": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-1.png",
+            "security_image_width": 220
+          }
+        }
+      },
+      "block_order": [
+        "info_box_6qnD4q",
+        "info_box_FQCXxk",
+        "info_box_hL7xLb",
+        "info_box_Lqfy7H",
+        "label_VxAikC",
+        "title",
+        "klarna_on_site_messaging_app_block_LHUka7",
+        "judge_me_reviews_preview_badge_cLBxc3",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "separator_dMbKEh",
+        "coupon_code_wBFykr",
+        "qikify_bogo_freegift_free_gift_jdV76h",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_tCypYt",
+        "variant_picker_qpHTdC",
+        "quantity_feaebV",
+        "buy_buttons_68QwXm",
+        "complementary_KNjyhQ",
+        "payment_security_yaWh9B"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 35,
+        "spacer_desktop": 90,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "image_with_text_overlay_XpL6Ye": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10-_1.0_9848181e-0778-4b24-bc21-692423929f16.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/T10-_1.0_d15ff63e-d8ac-485a-bffb-d5e7d975d90a.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "content_width": "large",
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "text_color": "#1a1c1d",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_ykgHmi": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10_929d7897-2f27-4f1c-ba2d-ca4adf2408ff.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/T10_9eca59b2-f654-4099-993f-7e763d283dda.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_YbKqJV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_aGWa6a": {
+          "type": "heading",
+          "settings": {
+            "text": "LiDAR Navigation",
+            "heading_size": "h1",
+            "heading_tag": "h2"
+          }
+        },
+        "text_ByzkFP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SoF LiDAR technology ensures <strong>precise navigation<\/strong> and <strong>efficient cleaning paths<\/strong>, optimizing coverage throughout your home for a smarter, more thorough clean.<\/p>",
+            "description_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aGWa6a",
+        "text_ByzkFP"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/2_06ee10b0-e38a-483e-8bd1-9e03787293fb.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/T10_6c10c7c3-e9de-476f-ab42-c211a70c7bb1.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "content_width": "large",
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "background_video_MegFpc": {
+      "type": "background-video",
+      "blocks": {
+        "button_GkJKzt": {
+          "type": "button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "button_GkJKzt"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "video_controls": true,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_hosted": "shopify:\/\/files\/videos\/T10扫地机honiture字幕(2)(2).mp4",
+        "fallback_image": "shopify:\/\/shop_images\/T10_b307c20d-d5a3-4d7b-8e54-82e0448c2698.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_Jdhcd6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dYAejC": {
+          "type": "heading",
+          "settings": {
+            "text": "Smart Obstacle Avoidance",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_L4cdRb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Equipped with advanced <strong>infrared sensors<\/strong>, the T10 <strong>detects and avoids obstacles<\/strong> in real time, preventing <strong>collisions, drops, and getting stuck<\/strong>, ensuring uninterrupted cleaning.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dYAejC",
+        "text_L4cdRb"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#00D0CD",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_d8hwA6": {
+      "type": "media-grid",
+      "blocks": {
+        "media_gkNhaj": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T10-_1.0_7c4cd41b-cb00-405c-a3f5-de9804161d8d.jpg",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_9KekKj": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T10-_3.0.jpg",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_QML946": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T10-_2.0.jpg",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_gkNhaj",
+        "media_9KekKj",
+        "media_QML946"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "large",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_XzrDw3": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_w83GeU": {
+          "type": "heading",
+          "settings": {
+            "text": "5000Pa Ultra-Strong Suction",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_8n4EaA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tackles <strong>pet hair, dust, and debris<\/strong> with ease, delivering powerful cleaning on <strong>hard floors, tiles, and carpets<\/strong>.<br\/><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_w83GeU",
+        "text_8n4EaA"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10-_5000pa.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_CYhrMt": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XQMdzC": {
+          "type": "heading",
+          "settings": {
+            "text": "Smart Carpet Boost",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_LicmAD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Automatically detects carpets and <strong>boosts suction power<\/strong> for a <strong>deeper, more thorough clean<\/strong>, effortlessly lifting dirt, dust, and pet hair embedded in fibers.<br\/><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XQMdzC",
+        "text_LicmAD"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10_8b432d23-bbb3-4cdf-80b6-a68c93d6fbf6.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_nxpV87": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cXXTa9": {
+          "type": "heading",
+          "settings": {
+            "text": "Ultra-Slim 3.3-Inch Design",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_hNqRtq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Slim enough to <strong>glide under sofas, beds, and tight spaces<\/strong>, reaching hidden dust and maximizing cleaning coverage.<br\/><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cXXTa9",
+        "text_hNqRtq"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10_f8c98f41-cbc7-426a-817a-198d9b913cae.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_WtLk6i": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WtnhRA": {
+          "type": "heading",
+          "settings": {
+            "text": "Smart No-Go Zones & Obstacle Avoidance",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_iHNPUB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Customize your cleaning by setting <strong>specific areas and no-go zones<\/strong>, allowing the T10 to navigate efficiently while avoiding obstacles and restricted areas.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WtnhRA",
+        "text_iHNPUB"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#00D0CD",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_aRPqP3": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10_d5433a9f-4a76-4bbe-985b-19b3eeeca8cb.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/T10_b2e25e8b-d826-4bd5-9d6b-de6837db258b.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_V36ezk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_99YbAi": {
+          "type": "heading",
+          "settings": {
+            "text": "Remote Control via App & Voice Assistants",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_PBKLHc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Easily manage cleaning anytime, anywhere through the <strong>smart app<\/strong> or enjoy <strong>hands-free control<\/strong> with <strong>Alexa & Google Assistant<\/strong> for seamless operation.<br\/><\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_99YbAi",
+        "text_PBKLHc"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#00D0CD",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_fd7NCA": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/160.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/T10_3427fc0c-84d6-4b5b-9f3d-d2f628d3d807.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_yeyPG4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6MAxVw": {
+          "type": "heading",
+          "settings": {
+            "text": "Multi-Level Precision Mapping",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_yiNC3P": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Expertly charts your home with <strong>up to 5 editable maps<\/strong>, recognizing different rooms for <strong>customized cleaning zones<\/strong> in multi-story homes.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6MAxVw",
+        "text_yiNC3P"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#00D0CD",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_f8Pqpq": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10-_2_4f44927a-5a53-40eb-9f1d-f90523a0ae72.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/T10_6e7b594e-8b11-448a-870d-9a36cc606d59.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_yqw8gA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bEDNML": {
+          "type": "heading",
+          "settings": {
+            "text": "🔋 120-Minute Runtime & Auto-Charging",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_yqii47": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Provides <strong>up to 120 minutes of cleaning<\/strong> on a single charge, <strong>auto-recharges when low<\/strong>, and resumes cleaning from where it left off.<br\/><\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bEDNML",
+        "text_yqii47"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#00D0CD",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_qMWRby": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/T10-_2.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/T10_f07a1551-c6c2-4408-8d33-bfcf3a37c9c5.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_pyzfP3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MJa4JQ": {
+          "type": "heading",
+          "settings": {
+            "text": "All-in-One Cleaning for Any Floor Type",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_QFjdAc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Designed for <strong>vacuuming, sweeping, and mopping<\/strong>, the T10 seamlessly adapts to <strong>hard floors, tiles, carpets, and more<\/strong> for a comprehensive clean.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MJa4JQ",
+        "text_QFjdAc"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "gallery_cL89rc": {
+      "type": "gallery",
+      "blocks": {
+        "image_6LVPKx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T10_7b3307ac-0257-4258-810d-ac6196eec850.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "",
+            "marker_style": "style1",
+            "text": "Mop only",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_NGe7FF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T10-_2_25c4a843-c7f3-4aa3-8530-4168be5ab399.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "",
+            "marker_style": "style1",
+            "text": "Vacuum Only",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_Y7X4ki": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T10-_3.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "",
+            "marker_style": "style1",
+            "text": "Vacuum & Mop",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "image_6LVPKx",
+        "image_NGe7FF",
+        "image_Y7X4ki"
+      ],
+      "settings": {
+        "columns_desktop": 3,
+        "full_width": false,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "column_spacing": "small",
+        "heading_size": "h3",
+        "description_size": "large",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product_details_7MmVqp": {
+      "type": "product-details",
+      "blocks": {
+        "tab_MnrVqL": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "tab_label": "",
+            "icon": "none",
+            "text": "",
+            "text_columns": "2",
+            "page": "spec-for-t10"
+          }
+        },
+        "custom_liquid_Eydhf9": {
+          "type": "custom_liquid",
+          "settings": {
+            "tab_label": "Tab label",
+            "icon": "none",
+            "custom_liquid": "<div class=\"product-specs\">\n  <style>\n    .product-specs {\n      margin: 1.5rem 0;\n      overflow-x: auto;\n      -webkit-overflow-scrolling: touch;\n    }\n    .spec-table {\n      width: 100%;\n      min-width: 500px;\n      border-collapse: collapse;\n    }\n    .spec-table td {\n      padding: 16px 20px;\n      border-bottom: 1px solid #f0f0f0;\n      vertical-align: top;\n      line-height: 1.4;\n    }\n    .spec-table td:first-child {\n      font-weight: 500;\n      color: #666;\n      width: 40%;\n    }\n    .spec-table td:last-child {\n      color: #333;\n      width: 60%;\n    }\n\n    \/* 电脑端优化 *\/\n    @media (min-width: 750px) {\n      .spec-table {\n        min-width: auto;\n        table-layout: fixed;\n      }\n      .spec-table td {\n        padding: 18px 24px;\n      }\n    }\n\n    \/* 移动端优化 *\/\n    @media (max-width: 749px) {\n      .spec-table td {\n        padding: 14px 16px;\n        font-size: 15px;\n      }\n      .spec-table td:first-child {\n        width: 45%;\n      }\n      .spec-table td:last-child {\n        width: 55%;\n      }\n    }\n  <\/style>\n\n  <table class=\"spec-table\">\n    <tbody>\n      <tr>\n        <td>Dimensions<\/td>\n        <td>330mm × 330mm × 83mm (1.083ft × 1.083ft × 0.272ft)<\/td>\n      <\/tr>\n      <tr>\n        <td>Universal Wheel<\/td>\n        <td>Detachable bracket<\/td>\n      <\/tr>\n      <tr>\n        <td>Middle Sweep Cover<\/td>\n        <td>Fixed cover<\/td>\n      <\/tr>\n      <tr>\n        <td>Middle Sweep Roller<\/td>\n        <td>Brush and rubber brush, detachable at both ends<\/td>\n      <\/tr>\n      <tr>\n        <td>Middle Sweep Length<\/td>\n        <td>160mm<\/td>\n      <\/tr>\n      <tr>\n        <td>Carpet Recognition<\/td>\n        <td>Roller carpet pressure boost<\/td>\n      <\/tr>\n      <tr>\n        <td>Suction Levels<\/td>\n        <td>Up to 5000Pa<\/td>\n      <\/tr>\n      <tr>\n        <td>Dust Cup Capacity<\/td>\n        <td>250ml<\/td>\n      <\/tr>\n      <tr>\n        <td>Water Tank Capacity<\/td>\n        <td>300ml<\/td>\n      <\/tr>\n      <tr>\n        <td>Control Buttons<\/td>\n        <td>Mechanical buttons ×2<\/td>\n      <\/tr>\n      <tr>\n        <td>Button Lights<\/td>\n        <td>Status: Supports constant light\/ slow flash\/fast flash\/breathing<\/td>\n      <\/tr>\n      <tr>\n        <td>WIFI<\/td>\n        <td>2.4G<\/td>\n      <\/tr>\n      <tr>\n        <td>Remote Control<\/td>\n        <td>APP remote control<\/td>\n      <\/tr>\n      <tr>\n        <td>Battery Capacity<\/td>\n        <td>2600mAh<\/td>\n      <\/tr>\n      <tr>\n        <td>Product Weight<\/td>\n        <td>3.1kg<\/td>\n      <\/tr>\n      <tr>\n        <td>Color<\/td>\n        <td>White<\/td>\n      <\/tr>\n    <\/tbody>\n  <\/table>\n<\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_MnrVqL",
+        "custom_liquid_Eydhf9"
+      ],
+      "settings": {
+        "heading": "T10 |Specification|",
+        "marker_style": "style1",
+        "description": "",
+        "text_size": "regular",
+        "tab_alignment": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_tabs": "#2c2d2e",
+        "color_text": "#2c2d2e",
+        "marker_color": "#00d0cd",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "174192665807f31313": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ybmJRG": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ybmJRG"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "16623877721f33fb14",
+    "image_with_text_overlay_XpL6Ye",
+    "image_with_text_overlay_ykgHmi",
+    "image_with_text_overlay_YbKqJV",
+    "background_video_MegFpc",
+    "rich_text_Jdhcd6",
+    "media_grid_d8hwA6",
+    "image_with_text_XzrDw3",
+    "image_with_text_CYhrMt",
+    "image_with_text_nxpV87",
+    "rich_text_WtLk6i",
+    "image_with_text_overlay_aRPqP3",
+    "rich_text_V36ezk",
+    "image_with_text_overlay_fd7NCA",
+    "rich_text_yeyPG4",
+    "image_with_text_overlay_f8Pqpq",
+    "rich_text_yqw8gA",
+    "image_with_text_overlay_qMWRby",
+    "rich_text_pyzfP3",
+    "gallery_cL89rc",
+    "product_details_7MmVqp",
+    "174192665807f31313",
+    "product-recommendations"
+  ]
+}

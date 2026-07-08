@@ -1,0 +1,897 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "slideshow_q3jVr8": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_jnfnEd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HEADER_6_8-tuya1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/1_2b9dd35a-8813-4f6c-814b-b4d5295e5a3f.png",
+            "slide_link": "",
+            "video_background": false,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "Honiture X7",
+            "heading": "Nederlands populairste\ndraadloze stofzuiger",
+            "heading_size": "h3",
+            "content": "Premium kwaliteit zonder een premium prijs:\nErvaar de vrijheid van snoerloos schoonmaken. Krachtig, licht en altijd klaar voor gebruik!",
+            "description_size": "small",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#dadce0",
+            "overlay_opacity": 16,
+            "overlay_gradient": "",
+            "button_1_text": "👇 Profiteer nu van 50% korting!",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_jnfnEd"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-image",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_wReVmh": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9W3w6C": {
+          "type": "heading",
+          "settings": {
+            "text": "De hoogtepunten in één oogopslag",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9W3w6C"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_ViackX": {
+      "type": "media-grid",
+      "blocks": {
+        "media_x8ie7N": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_51_2-tuya1.webp",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "top-right",
+            "text_alignment": "right",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_CEGPkg": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_122-tuya1.webp",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "top-right",
+            "text_alignment": "right",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#d4b8f7",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_xgne3T": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_f907f9ee-8994-4787-9d93-8107d7aac374.jpg",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_RghqEk": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_123-tuya1.webp",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "top-right",
+            "text_alignment": "right",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_dkeR99": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_119_1-tuya1.webp",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "top-right",
+            "text_alignment": "right",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_x8ie7N",
+        "media_CEGPkg",
+        "media_xgne3T",
+        "media_RghqEk",
+        "media_dkeR99"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 160,
+        "column_spacing": "medium",
+        "mobile_swipe": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_JhVKU6": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "text": "Fast, Free Shipping",
+            "link": "shopify:\/\/policies\/shipping-policy",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#2b1559"
+          }
+        },
+        "info_box_VnRqBN": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "text": "30-Day Money-Back Guarantee",
+            "link": "shopify:\/\/policies\/refund-policy",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#2b1559"
+          }
+        },
+        "label_UAMMDQ": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "klarna_on_site_messaging_app_block_6LhEBe": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "settings": {}
+        },
+        "qikify_bogo_freegift_free_gift_YEpahD": {
+          "type": "shopify:\/\/apps\/qikify-bogo-freegift\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "coupon_code_qDicG3": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p><strong>Limited Time - Extra 10% OFF!<\/strong><\/p>",
+            "coupon_text": "LABORDAY",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "coupon_code_TYjGg7": {
+          "type": "coupon_code",
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p><strong>🔥 Krijg 8% KORTING – Beperkte tijd!<\/strong><\/p>",
+            "coupon_text": "HALLOW8",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li>Ultrasterke zuigkracht met 45 kPa<\/li><li>Batterij met een lange gebruiksduur tot 60 minuten<\/li><li>Fluisterstil met slechts 22 dB<\/li><li>LED-vloerborstel voor perfect zicht<\/li><li>Lichtgewicht en draagbaar voor veelzijdig gebruik<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_YaJFa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-X701 {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"#shopify-section-template--17330655592495__product_details_YbyQTX\" }}\"\nclass=\"custom-button-X701\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "variant_picker_g9CVBy": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_YjFAgN": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_YXR4gN": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-X702 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/drive.google.com\/file\/d\/1G_uqOn1cLzvXgq45CM0aXV63kg0vzuI5\/view?usp=drive_link\" }}\" class=\"custom-button-X702\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "payment_security_mgFBxV": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        },
+        "separator_ffazEp": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_JhVKU6",
+        "info_box_VnRqBN",
+        "label_UAMMDQ",
+        "title",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "klarna_on_site_messaging_app_block_6LhEBe",
+        "separator_dMbKEh",
+        "qikify_bogo_freegift_free_gift_YEpahD",
+        "coupon_code_qDicG3",
+        "coupon_code_TYjGg7",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_YaJFa3",
+        "variant_picker_g9CVBy",
+        "quantity_YjFAgN",
+        "buy_buttons_YXR4gN",
+        "custom_liquid_tCypYt",
+        "payment_security_mgFBxV",
+        "separator_ffazEp"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--product-form,.product-recommendations--loaded {margin-bottom: 30px;}",
+        ".custom-more-payment-options {margin-bottom: 25px;}",
+        ".product--payment-security {background: #f0f2f2; border: none;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": true,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "spacer_XxVQfL": {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "rich_text_WceWwA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LYtQ3U": {
+          "type": "heading",
+          "settings": {
+            "text": "Waarom slimme huiseigenaren kiezen voor de steelstofzuiger X7",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LYtQ3U"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_FF3jta": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Frame_97_1-tuya1.webp",
+        "image_mobile": "shopify:\/\/shop_images\/Frame_61_7b9ff70a-a97f-41ce-b341-7a875e122b8e_1_-tuya1.webp",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_wFajfK": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Frame_96-tuya1.webp",
+        "image_mobile": "shopify:\/\/shop_images\/Frame_62_f5a55f13-d670-4fe5-84c4-ce8f9c8cbbfe-tuya1.webp",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_cnApGz": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Frame_121_4202672e-0a4b-4a33-aef2-673abbc9e6fe.webp",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_nMF6if": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JgcbPV": {
+          "type": "heading",
+          "settings": {
+            "text": "Alles wat je nodig hebt voor een schoon huis",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JgcbPV"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_eTLigr": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Frame_101.webp",
+        "image_mobile": "shopify:\/\/shop_images\/Frame_100.webp",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_qgNgxL": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_tiFh7w": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Hoe sterk is de zuigkracht van de stofzuiger?",
+            "open": false,
+            "content": "<p>De stofzuiger heeft een zuigkracht van 45 kPa om zelfs het meest hardnekkige vuil te verwijderen.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_BjfLkV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is de stofzuiger ook geschikt voor huisdierenhaar?",
+            "open": false,
+            "content": "<p>Ja, de Anti-Tangle-borstel is speciaal ontwikkeld voor huisdierenhaar.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_LC8Mcp": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Kan de stofzuiger op tapijt worden gebruikt?",
+            "open": false,
+            "content": "<p>Ja, de stofzuiger is geschikt voor zowel harde vloeren als tapijt.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_RXaF8J": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Hoe groot is het stofreservoir?",
+            "open": false,
+            "content": "<p>Het stofreservoir heeft een inhoud van 1,5 liter.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_QcVTd6": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Hoe luid is de stofzuiger?",
+            "open": false,
+            "content": "<p>De stofzuiger heeft een stille werking, ideaal voor dagelijks gebruik.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_aBwHfU": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Zijn er reserveonderdelen verkrijgbaar voor de stofzuiger?",
+            "open": false,
+            "content": "<p>Ja, reserveonderdelen zijn verkrijgbaar via de klantenservice.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_JDzafa": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Hoe lang duurt het om de batterij volledig op te laden?",
+            "open": false,
+            "content": "<p>Het duurt ongeveer 4-5 uur om de batterij volledig op te laden.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_tMUzWh": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Zit er garantie op de stofzuiger?",
+            "open": false,
+            "content": "<p>Ja, de steelstofzuiger X7 komt met 2 jaar garantie.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_tiFh7w",
+        "collapsible_tab_BjfLkV",
+        "collapsible_tab_LC8Mcp",
+        "collapsible_tab_RXaF8J",
+        "collapsible_tab_QcVTd6",
+        "collapsible_tab_aBwHfU",
+        "collapsible_tab_JDzafa",
+        "collapsible_tab_tMUzWh"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "Veelgestelde vragen",
+        "marker_style": "style1",
+        "description": "<p>Ontdek de steelstofzuiger X7<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product_details_YbyQTX": {
+      "type": "product-details",
+      "blocks": {
+        "tab_8pwPmD": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "tab_label": "Spec",
+            "icon": "none",
+            "text": "",
+            "text_columns": "2",
+            "page": "spec-for-x7"
+          }
+        },
+        "custom_liquid_jq4mA7": {
+          "type": "custom_liquid",
+          "settings": {
+            "tab_label": "Spec",
+            "icon": "none",
+            "custom_liquid": "<div class=\"product-specs\">\n  <style>\n    .product-specs {\n      margin: 1.5rem 0;\n      overflow-x: auto;\n    }\n    .spec-table {\n      width: 100%;\n      min-width: 500px;\n      border-collapse: collapse;\n    }\n    .spec-table td {\n      padding: 16px 20px;\n      border-bottom: 1px solid #f0f0f0;\n      vertical-align: top;\n    }\n    .spec-table td:first-child {\n      font-weight: 500;\n      color: #666;\n      width: 45%;\n    }\n    .spec-table td:last-child {\n      color: #333;\n      width: 55%;\n    }\n\n    \/* 电脑端优化 *\/\n    @media (min-width: 750px) {\n      .spec-table {\n        min-width: auto;\n        table-layout: fixed;\n      }\n      .spec-table td {\n        padding: 18px 24px; \/* 增大间距 *\/\n      }\n    }\n\n    \/* 移动端优化 *\/\n    @media (max-width: 749px) {\n      .product-specs {\n        -webkit-overflow-scrolling: touch;\n      }\n      .spec-table td {\n        padding: 14px 16px;\n        font-size: 15px;\n      }\n    }\n  <\/style>\n\n  <table class=\"spec-table\">\n    <tbody>\n      <tr>\n        <td>Suction<\/td>\n        <td>45KPA<\/td>\n      <\/tr>\n      <tr>\n        <td>Wattage<\/td>\n        <td>550W<\/td>\n      <\/tr>\n      <tr>\n        <td>Voltage<\/td>\n        <td>29.6V<\/td>\n      <\/tr>\n      <tr>\n        <td>Runtime<\/td>\n        <td>60 Mins<\/td>\n      <\/tr>\n      <tr>\n        <td>Charging Time<\/td>\n        <td>4 - 5 Hours<\/td>\n      <\/tr>\n      <tr>\n        <td>Capacity<\/td>\n        <td>1.5 Liters<\/td>\n      <\/tr>\n      <tr>\n        <td>Filter Type<\/td>\n        <td>HEPA Filter<\/td>\n      <\/tr>\n      <tr>\n        <td>Control Method<\/td>\n        <td>Touch<\/td>\n      <\/tr>\n      <tr>\n        <td>Surface Recommendation<\/td>\n        <td>Carpet<\/td>\n      <\/tr>\n      <tr>\n        <td>Battery Description<\/td>\n        <td>Rechargeable<\/td>\n      <\/tr>\n      <tr>\n        <td>Battery<\/td>\n        <td>8×2500 mAh<\/td>\n      <\/tr>\n      <tr>\n        <td>Battery Life<\/td>\n        <td>1 hour<\/td>\n      <\/tr>\n      <tr>\n        <td>Power Source<\/td>\n        <td>Battery Powered<\/td>\n      <\/tr>\n      <tr>\n        <td>Noise Level<\/td>\n        <td>≤ 68 dB<\/td>\n      <\/tr>\n      <tr>\n        <td>Amperage<\/td>\n        <td>4.58 Amps<\/td>\n      <\/tr>\n      <tr>\n        <td>Product Dimensions<\/td>\n        <td>44×33×19cm<\/td>\n      <\/tr>\n    <\/tbody>\n  <\/table>\n<\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_8pwPmD",
+        "custom_liquid_jq4mA7"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Product details",
+        "marker_style": "style1",
+        "description": "",
+        "text_size": "regular",
+        "tab_alignment": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_tabs": "#2c2d2e",
+        "color_text": "#2c2d2e",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1739437136ce3d8d18": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_t6tWit": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_t6tWit"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_liquid_8H6mq3": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<script>\ndocument.addEventListener('DOMContentLoaded', function() {\n\n    var htmlElement = document.documentElement;\n    htmlElement.lang = 'nl';\n    console.log({{ shopify.locale| json }},456)\n    console.log({{cart.currency.iso_code}},123)\n});\n<\/script>"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "slideshow_q3jVr8",
+    "rich_text_wReVmh",
+    "media_grid_ViackX",
+    "main-product",
+    "spacer_XxVQfL",
+    "rich_text_WceWwA",
+    "single_image_FF3jta",
+    "single_image_wFajfK",
+    "single_image_cnApGz",
+    "rich_text_nMF6if",
+    "single_image_eTLigr",
+    "collapsible_content_qgNgxL",
+    "product_details_YbyQTX",
+    "1739437136ce3d8d18",
+    "product-recommendations",
+    "custom_liquid_8H6mq3"
+  ]
+}

@@ -1,0 +1,817 @@
+{% comment %}
+  M7 cleaning power image/text section
+  Same content order on desktop and mobile: heading, subtitle, three icon stats, large image.
+{% endcomment %}
+
+<section id="m7-cleaning-power-{{ section.id }}" class="m7-cleaning-power" data-m7-cleaning-power>
+  <div class="m7-cleaning-power__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="m7-cleaning-power__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <div class="m7-cleaning-power__subheading">{{ section.settings.subheading }}</div>
+    {%- endif -%}
+ 
+    {%- if section.blocks.size > 0 -%}
+      <div class="m7-cleaning-power__stats">
+        {%- for block in section.blocks limit: 3 -%}
+          <div class="m7-cleaning-power__stat" data-stat-index="{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <div class="m7-cleaning-power__icon" aria-hidden="true">
+              {%- if block.settings.icon != blank -%}
+                <img
+                  src="{{ block.settings.icon | image_url: width: 80 }}"
+                  srcset="
+                    {{ block.settings.icon | image_url: width: 40 }} 40w,
+                    {{ block.settings.icon | image_url: width: 80 }} 80w
+                  "
+                  sizes="40px"
+                  alt=""
+                  loading="lazy"
+                >
+              {%- else -%}
+                <span class="m7-cleaning-power__icon-fallback"></span>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.title != blank -%}
+              <div class="m7-cleaning-power__stat-title">{{ block.settings.title }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <div class="m7-cleaning-power__stat-text">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="m7-cleaning-power__image-wrap{% if section.settings.mobile_image != blank %} has-mobile-image{% endif %}">
+      {%- if section.settings.image != blank -%}
+        <img
+          class="m7-cleaning-power__image m7-cleaning-power__image--desktop"
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          srcset="
+            {{ section.settings.image | image_url: width: 480 }} 480w,
+            {{ section.settings.image | image_url: width: 768 }} 768w,
+            {{ section.settings.image | image_url: width: 1000 }} 1000w,
+            {{ section.settings.image | image_url: width: 1200 }} 1200w
+          "
+          sizes="(min-width: 1240px) 1200px, calc(100vw - 40px)"
+          alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+          loading="lazy"
+        >
+        {%- if section.settings.mobile_image != blank -%}
+          <img
+            class="m7-cleaning-power__image m7-cleaning-power__image--mobile"
+            src="{{ section.settings.mobile_image | image_url: width: 900 }}"
+            srcset="
+              {{ section.settings.mobile_image | image_url: width: 480 }} 480w,
+              {{ section.settings.mobile_image | image_url: width: 720 }} 720w,
+              {{ section.settings.mobile_image | image_url: width: 900 }} 900w
+            "
+            sizes="100vw"
+            alt="{{ section.settings.mobile_image.alt | default: section.settings.heading | escape }}"
+            loading="lazy"
+          >
+        {%- endif -%}
+      {%- else -%}
+        <div class="m7-cleaning-power__placeholder">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  #m7-cleaning-power-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__heading {
+    margin: 0;
+    color: {{ section.settings.heading_color }};
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__heading,
+  #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__subheading,
+  #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__stat {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 720ms ease,
+      transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  #m7-cleaning-power-{{ section.id }}.is-visible .m7-cleaning-power__heading,
+  #m7-cleaning-power-{{ section.id }}.is-visible .m7-cleaning-power__subheading,
+  #m7-cleaning-power-{{ section.id }}.is-visible .m7-cleaning-power__stat {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__subheading {
+    transition-delay: 120ms;
+  }
+
+  #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__stat:nth-child(1) {
+    transition-delay: 240ms;
+  }
+
+  #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__stat:nth-child(2) {
+    transition-delay: 340ms;
+  }
+
+  #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__stat:nth-child(3) {
+    transition-delay: 440ms;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__subheading {
+    margin: {{ section.settings.subheading_margin_top }}px auto 0;
+    color: {{ section.settings.subheading_color }};
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.subheading_size }}px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__subheading p {
+    margin: 0;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: {{ section.settings.stat_gap }}px;
+    width: min({{ section.settings.stats_width }}px, 100%);
+    margin: {{ section.settings.stats_margin_top }}px auto 0;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__stat {
+    min-width: 0;
+    color: {{ section.settings.stat_text_color }};
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+    text-align: center;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    margin: 0 auto {{ section.settings.icon_margin_bottom }}px;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__icon-fallback {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: {{ section.settings.icon_color }};
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__icon-fallback::before,
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__icon-fallback::after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  #m7-cleaning-power-{{ section.id }} [data-stat-index="1"] .m7-cleaning-power__icon-fallback::before {
+    left: 13%;
+    top: 36%;
+    width: 74%;
+    height: 50%;
+    border: 2px solid currentColor;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+  }
+
+  #m7-cleaning-power-{{ section.id }} [data-stat-index="1"] .m7-cleaning-power__icon-fallback::after {
+    left: 21%;
+    top: 12%;
+    width: 58%;
+    height: 58%;
+    border-top: 2px solid currentColor;
+    border-left: 2px solid currentColor;
+    transform: rotate(45deg);
+    border-radius: 3px 0 0;
+  }
+
+  #m7-cleaning-power-{{ section.id }} [data-stat-index="2"] .m7-cleaning-power__icon-fallback::before {
+    left: 12%;
+    top: 26%;
+    width: 76%;
+    height: 60%;
+    border: 2px solid currentColor;
+    border-radius: 5px;
+  }
+
+  #m7-cleaning-power-{{ section.id }} [data-stat-index="2"] .m7-cleaning-power__icon-fallback::after {
+    left: 22%;
+    top: 52%;
+    width: 16%;
+    height: 16%;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 26px 0 0 currentColor, 13px -13px 0 -2px currentColor;
+  }
+
+  #m7-cleaning-power-{{ section.id }} [data-stat-index="3"] .m7-cleaning-power__icon-fallback::before {
+    left: 14%;
+    top: 28%;
+    width: 72%;
+    height: 58%;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+  }
+
+  #m7-cleaning-power-{{ section.id }} [data-stat-index="3"] .m7-cleaning-power__icon-fallback::after {
+    left: 24%;
+    top: 5%;
+    width: 10%;
+    height: 18%;
+    border: 2px solid currentColor;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 18px 0 0 -1px {{ section.settings.background }}, 18px 0 0 0 currentColor;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__stat-title {
+    color: {{ section.settings.stat_title_color }};
+    font-size: {{ section.settings.stat_title_size }}px;
+    line-height: 1.1;
+    font-weight: 800;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__stat-text {
+    margin-top: {{ section.settings.stat_text_margin_top }}px;
+    color: {{ section.settings.stat_text_color }};
+    font-size: {{ section.settings.stat_text_size }}px;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__image-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: {{ section.settings.image_margin_top }}px auto 0;
+    overflow: hidden;
+    border-radius: {{ section.settings.image_radius }}px;
+    background: #d9d9d9;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__image,
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__placeholder,
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__placeholder svg {
+    width: 100%;
+    display: block;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__image--mobile {
+    display: none;
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__placeholder {
+    aspect-ratio: 1200 / 567;
+    color: rgba(0, 0, 0, 0.28);
+  }
+
+  #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__image {
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    #m7-cleaning-power-{{ section.id }} {
+      padding: {{ section.settings.mobile_padding_top }}px 20px {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__subheading {
+      margin-top: {{ section.settings.mobile_subheading_margin_top }}px;
+      font-size: {{ section.settings.mobile_subheading_size }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__stats {
+      gap: {{ section.settings.mobile_stat_gap }}px;
+      margin-top: {{ section.settings.mobile_stats_margin_top }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__icon {
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+      margin-bottom: {{ section.settings.mobile_icon_margin_bottom }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__stat-title {
+      font-size: {{ section.settings.mobile_stat_title_size }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__stat-text {
+      font-size: {{ section.settings.mobile_stat_text_size }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__image-wrap {
+      margin-top: {{ section.settings.mobile_image_margin_top }}px;
+      border-radius: {{ section.settings.mobile_image_radius }}px;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .has-mobile-image .m7-cleaning-power__image--desktop {
+      display: none;
+    }
+
+    #m7-cleaning-power-{{ section.id }} .m7-cleaning-power__image--mobile {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__heading,
+    #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__subheading,
+    #m7-cleaning-power-{{ section.id }}.is-ready .m7-cleaning-power__stat {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  (function() {
+    var section = document.getElementById('m7-cleaning-power-{{ section.id }}');
+    if (!section) return;
+
+    section.classList.add('is-ready');
+
+    function showSection() {
+      section.classList.add('is-visible');
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      showSection();
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        showSection();
+        observer.disconnect();
+      });
+    }, {
+      threshold: 0.22,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    observer.observe(section);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "M7 Cleaning Power",
+  "tag": "section",
+  "class": "section-m7-cleaning-power",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Long-Lasting Cleaning Power"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Whole-house cleaning on a single charge.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Large image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile large image"
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 78
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "stats_width",
+      "label": "Stats width",
+      "min": 240,
+      "max": 720,
+      "step": 10,
+      "unit": "px",
+      "default": 380
+    },
+    {
+      "type": "range",
+      "id": "stat_gap",
+      "label": "Stats gap",
+      "min": 8,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "stats_margin_top",
+      "label": "Stats top spacing",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "image_margin_top",
+      "label": "Image top spacing",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile padding top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_stat_gap",
+      "label": "Mobile stats gap",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_stats_margin_top",
+      "label": "Mobile stats top spacing",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_margin_top",
+      "label": "Mobile image top spacing",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_radius",
+      "label": "Mobile image radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 18,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 18,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "mobile_subheading_size",
+      "label": "Mobile subheading size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "subheading_margin_top",
+      "label": "Subheading top spacing",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_subheading_margin_top",
+      "label": "Mobile subheading top spacing",
+      "min": 4,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "stat_title_color",
+      "label": "Stat title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "stat_text_color",
+      "label": "Stat text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Fallback icon color",
+      "default": "#d8a44d"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 14,
+      "max": 56,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "label": "Mobile icon size",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "icon_margin_bottom",
+      "label": "Icon bottom spacing",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 7
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_margin_bottom",
+      "label": "Mobile icon bottom spacing",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "stat_title_size",
+      "label": "Stat title size",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_stat_title_size",
+      "label": "Mobile stat title size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "stat_text_size",
+      "label": "Stat text size",
+      "min": 8,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+    {
+      "type": "range",
+      "id": "mobile_stat_text_size",
+      "label": "Mobile stat text size",
+      "min": 7,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "stat_text_margin_top",
+      "label": "Stat text top spacing",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Icon text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "250 m²"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Small text",
+          "default": "≈ 2,690.98 sq ft"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M7 Cleaning Power",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "title": "250 m²",
+            "text": "≈ 2,690.98 sq ft"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "title": "720ml",
+            "text": "Dirty Water Tank"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "title": "800ml",
+            "text": "Clean Water Tank"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

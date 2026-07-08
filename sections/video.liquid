@@ -1,0 +1,259 @@
+{{ 'video.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign section_heading = section.settings.heading
+  assign marker_style = section.settings.marker_style
+  assign section_description = section.settings.description
+  assign full_width = section.settings.full_width
+  assign video = section.settings.video
+  assign video_hosted = section.settings.video_hosted
+  assign video_autoplay = section.settings.video_autoplay
+  assign show_progress = section.settings.show_progress
+  assign disable_download = section.settings.disable_download
+  assign playback_rate = section.settings.playback_rate
+  assign aspect_ratio = section.settings.aspect_ratio
+
+  assign marker_color = section.settings.marker_color
+
+  assign disable_top_spacing = section.settings.disable_top_spacing
+  assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+-%}
+<div class="row {% if full_width %} full-width-row-full{% endif %}">
+  <div class="small-12 columns">
+    <div class="video-section section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
+      <div class="video-section--inner">
+        {% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style %}
+      </div>
+      <div class="video-section--container video-aspect--{{ aspect_ratio }}">
+        {%- if video_hosted != blank -%}
+          {%- liquid
+            assign sizes = '1280x'
+            if full_width
+              assign sizes = '1600x'
+            endif
+            assign video_attrs = 'loop '
+            if video_autoplay
+              assign video_attrs = video_attrs | append: 'autoplay muted playsinline '
+            endif
+            unless show_progress
+              assign video_attrs = video_attrs | append: 'noprogress '
+            endunless
+            if disable_download
+              assign video_attrs = video_attrs | append: 'controlslist="nodownload" '
+            endif
+
+            assign controlslist_value = ''
+            if disable_download
+              assign controlslist_value = 'nodownload'
+            endif
+          -%}
+          {%- comment -%}
+            Lazy-load Shopify-hosted video poster and sources: replace poster/src with data-* and set when visible.
+          {%- endcomment -%}
+          {%- capture hosted_video_tag -%}
+          {{ video_hosted | video_tag: 
+            class: 'video-hosted', 
+            image_size: sizes, 
+            autoplay: video_autoplay, 
+            loop: true, 
+            controls: true, 
+            muted: video_autoplay,
+            controlslist: controlslist_value, 
+            preload: "none"
+          }}
+          {%- endcapture -%}
+          {%- assign hosted_video_tag = hosted_video_tag | replace: ' poster="', ' data-poster="' -%}
+          {%- assign hosted_video_tag = hosted_video_tag | replace: ' src="', ' data-src="' -%}
+          {{ hosted_video_tag }}
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const video = document.querySelector('.video-hosted');
+              if (!video) return;
+
+              // Configure controls and playback rate early
+              {% unless show_progress %}
+              video.removeAttribute('controls');
+              {% endunless %}
+              {% if playback_rate != 1 %}
+              try { video.playbackRate = {{ playback_rate }}; } catch(e) {}
+              {% endif %}
+
+              const loadVideoIfNeeded = function(v) {
+                // Set poster lazily
+                if (v.dataset.poster && !v.dataset.posterSet) {
+                  v.poster = v.dataset.poster;
+                  v.dataset.posterSet = 'true';
+                }
+                // Set sources lazily
+                const sources = v.querySelectorAll('source[data-src]');
+                sources.forEach(function(s) {
+                  if (!s.dataset.loaded) {
+                    s.src = s.dataset.src;
+                    s.dataset.loaded = 'true';
+                  }
+                });
+                try { v.load(); } catch(e) {}
+                // Autoplay only after resources are set
+                {% if video_autoplay %}
+                v.play().catch(function(){ /* ignored: user gesture may be required */ });
+                {% endif %}
+              };
+
+              if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver(function(entries, obs) {
+                  entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) return;
+                    loadVideoIfNeeded(video);
+                    obs.unobserve(video);
+                  });
+                }, { rootMargin: '0px 0px 200px 0px' });
+                io.observe(video);
+              } else {
+                // Fallback: load immediately if IO unsupported
+                loadVideoIfNeeded(video);
+              }
+            });
+          </script>
+        {%- elsif video != blank -%}
+          {%- if video.type == 'youtube' -%}
+            <iframe loading="lazy" data-src="https://www.youtube.com/embed/{{ video.id }}?loop=1{%- if video_autoplay -%}&autoplay=1&mute=1{%- endif -%}&playlist={{ video.id }}&iv_load_policy=3&disablekb=1&controls=1&playsinline=1{% unless show_progress %}&controls=0{% endunless %}{% if disable_download %}&modestbranding=1{% endif %}" frameborder="0" class="lazyload" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.heading | escape }}" tabindex="-1"></iframe>
+          {%- else -%}
+            <iframe loading="lazy" data-src="https://player.vimeo.com/video/{{ video.id }}{%- if video_autoplay -%}?background=1{%- endif -%}{% unless show_progress %}&controls=0{% endunless %}{% if disable_download %}&dnt=1{% endif %}" frameborder="0" class="lazyload" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.heading | escape }}" tabindex="-1"></iframe>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video",
+  "class": "section-video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Video",
+      "info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
+    },
+    {
+      "type": "select",
+      "id": "marker_style",
+      "options": [
+        { "value": "style1", "label": "Basic" },
+        { "value": "style2", "label": "Double" },
+        { "value": "style3", "label": "Squiggle" },
+        { "value": "style4", "label": "Zigzag" }
+      ],
+      "default": "style1",
+      "label": "Marker"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Add a short description for this section</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
+      "type": "video_url",
+      "id": "video",
+      "label": "Video URL",
+      "accept": ["youtube", "vimeo"],
+      "placeholder": "Use a YouTube or Vimeo URL",
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+    },
+    {
+      "type": "video",
+      "id": "video_hosted",
+      "label": "Shopify-hosted video",
+      "info": "Overrides the Video URL setting."
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "default": true,
+      "label": "Autoplay",
+      "info": "Video will be muted"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress",
+      "default": true,
+      "label": "Show progress bar",
+      "info": "Display video progress controls"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_download",
+      "default": false,
+      "label": "Disable download",
+      "info": "Prevent video downloading"
+    },
+    {
+      "type": "range",
+      "id": "playback_rate",
+      "min": 0.5,
+      "max": 2,
+      "step": 0.1, // 修改为最多一位小数
+      "default": 1,
+      "label": "Playback speed",
+      "info": "Set video playback speed (1 = normal speed)"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "options": [
+        { "value": "16-9", "label": "16/9" },
+        { "value": "9-16", "label": "9/16" },
+        { "value": "4-3", "label": "4/3" },
+        { "value": "3-4", "label": "3/4" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "16-9",
+      "label": "Video aspect ratio"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "marker_color",
+      "label": "Marker",
+      "default": "#FD6262"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_top_spacing",
+      "default": false,
+      "label": "Remove top spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_bottom_spacing",
+      "default": false,
+      "label": "Remove bottom spacing"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["*"],
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

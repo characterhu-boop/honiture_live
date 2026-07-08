@@ -1,0 +1,24 @@
+<div class="slideshow-new-product__slide-content slideshow-new-product__slide-content-{{index}}">
+    {% if block.settings.heading != blank %}
+        {{ block.settings.heading }}
+    {% endif %}
+    {% if block.settings.content != blank %}
+        {{ block.settings.content }}
+    {% endif %}
+</div>
+<style>
+  .section-{{section.id}} .slideshow-new-product__slide-content-{{index}}{
+        position: absolute;
+        top: {{ block.settings.position_x }}%;
+        left: {{ block.settings.position_y }}%;
+        width: {{ block.settings.content_width }}%
+   } 
+   @media screen and (max-width: 768px) {
+    .section-{{section.id}} .slideshow-new-product__slide-content-{{index}}{
+        position: absolute;
+        top: {{ block.settings.position_x_mobile }}%;
+        left: {{ block.settings.position_y_mobile }}%;
+        width: {{ block.settings.content_width_mobile }}%
+   } 
+  }
+</style>

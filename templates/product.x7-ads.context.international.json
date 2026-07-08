@@ -1,0 +1,14 @@
+{
+  "parent": "product.x7-ads.json",
+  "context": {
+    "market": "international"
+  },
+  "sections": {
+    "custom_liquid_8H6mq3": {
+      "settings": {
+        "custom_liquid": "<script>\n    document.addEventListener('DOMContentLoaded', function () {\n        const customSelect = document.querySelector('.custom-select--currency');\n\n        if (customSelect) {\n            const buttonText = customSelect.querySelector('.custom-select--text').innerText.trim();\n            const pathList = location.pathname.split('\/')\n            const productName = pathList[pathList.length-1]\n            if (buttonText === 'Netherlands (EUR €)' && productName === 'nl-steelstofzuiger-x7') {\n                    console.log('change html lang to fr')\n                    const htmlElement = document.documentElement;\n                    htmlElement.lang = 'nl';\n            } else {\n                console.log('not match',buttonText);\n            }\n        } else {\n            console.log('.custom-select--currency not found');\n        }\n    });\n<\/script>"
+      },
+      "blocks": {}
+    }
+  }
+}

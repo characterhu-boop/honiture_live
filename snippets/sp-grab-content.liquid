@@ -1,0 +1,192 @@
+{% comment %}
+  Snippet: SP Grab Content
+  Renders the content for a single tab in the SP Grab Both section.
+{% endcomment %}
+ 
+{% liquid
+  assign main_product = all_products[product]
+  assign main_img = custom_img | default: main_product.featured_image
+  assign main_title = custom_title | default: main_product.title
+  assign main_desc = custom_desc | default: main_product.description
+  assign main_price = main_product.price
+  assign main_id = main_product.selected_or_first_available_variant.id
+
+  assign acc1_product = all_products[acc1]
+  assign acc1_price = 0
+  assign acc1_final_id = nil
+  assign acc1_final_title = acc1_title | default: acc1_product.title
+  assign acc1_final_img = acc1_img | default: acc1_product.featured_image
+  
+  if acc1_product != empty
+    assign acc1_price = acc1_product.price
+    assign acc1_final_id = acc1_product.selected_or_first_available_variant.id
+    if acc1_id != blank
+      assign acc1_final_id = acc1_id
+      assign acc1_id_num = acc1_id | plus: 0
+      # Try to find specific variant price if ID is provided
+      for variant in acc1_product.variants
+        if variant.id == acc1_id_num
+          assign acc1_price = variant.price
+          break
+        endif
+      endfor
+    endif
+  endif
+
+  assign acc2_product = all_products[acc2]
+  assign acc2_price = 0
+  assign acc2_final_id = nil
+  assign acc2_final_title = acc2_title | default: acc2_product.title
+  assign acc2_final_img = acc2_img | default: acc2_product.featured_image
+
+  if acc2_product != empty
+    assign acc2_price = acc2_product.price
+    assign acc2_final_id = acc2_product.selected_or_first_available_variant.id
+    if acc2_id != blank
+      assign acc2_final_id = acc2_id
+      assign acc2_id_num = acc2_id | plus: 0
+      for variant in acc2_product.variants
+        if variant.id == acc2_id_num
+          assign acc2_price = variant.price
+          break
+        endif
+      endfor
+    endif
+  endif
+
+  assign total_original = main_price | plus: acc1_price | plus: acc2_price
+  assign total_final = total_original
+  assign save_amount = 0
+
+  if discount_percent > 0
+    # Logic: Final Price = Main Price * (1 - Discount)
+    assign multiplier = 100.0 | minus: discount_percent | divided_by: 100.0
+    assign total_final = main_price | times: multiplier
+    
+    # Logic: Compare Price = Main Price + Acc1 Price + Acc2 Price
+    assign total_original = main_price | plus: acc1_price | plus: acc2_price
+    
+    # Logic: You Save = Compare Price - Final Price
+    assign save_amount = total_original | minus: total_final
+  else
+    # Default Logic if no discount set: Final = Main Price (implied free accessories deal based on "default is main product price")
+    # OR if strictly following "default is main product price":
+    assign total_final = main_price
+    assign total_original = main_price | plus: acc1_price | plus: acc2_price
+    assign save_amount = total_original | minus: total_final
+  endif
+  
+  assign final_total_price = price_total | default: total_final
+  assign final_compare_price = price_compare | default: total_original
+  assign final_save_text = save_text
+%}
+
+<div id="sp-grab-{{ id }}-{{ tab_idx }}" 
+     class="sp-grab-content {% if active %}active{% endif %}"
+     data-main-id="{{ main_id }}"
+     data-acc1-id="{{ acc1_final_id }}"
+     data-acc2-id="{{ acc2_final_id }}">
+   
+  <!-- Left: Main Product -->
+  <div class="sp-grab-left">
+    {% if main_img != blank %}
+      <a href="{{ main_product.url }}" target="_blank" class="sp-grab-main-link">
+        <img class="sp-grab-main-img" src="{{ main_img | image_url: width: 600 }}" loading="lazy" alt="{{ main_title | escape }}">
+      </a>
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'sp-grab-main-img' }}
+    {% endif %}
+    
+    <div class="sp-grab-main-info">
+      <a class="sp-grab-main-title" href="{{ main_product.url }}" target="_blank" rel="noopener">{{ main_title }}</a>
+      
+      <div class="sp-grab-desc">
+        {{ main_desc }}
+      </div>
+      
+      <div class="sp-grab-main-price">{{ main_price | money }}</div>
+      {% comment %} {% if main_product.compare_at_price > main_price %}
+        <div class="sp-grab-main-compare">{{ main_product.compare_at_price | money }}</div>
+      {% endif %} {% endcomment %}
+    </div>
+  </div>
+
+  <!-- Right: Accessories & Checkout -->
+  <div class="sp-grab-right">
+    {% if acc1_product != empty or acc2_product != empty %}
+      <div class="sp-grab-acc-list">
+        {% if acc1_product != empty %}
+          <div class="sp-grab-acc-item">
+            <div class="sp-grab-acc-left">
+              <img class="sp-grab-acc-img" src="{{ acc1_final_img | image_url: width: 120 }}" loading="lazy" alt="{{ acc1_final_title | escape }}">
+              <div class="sp-grab-acc-title">{{ acc1_final_title }}</div>
+            </div>
+            <div class="sp-grab-acc-price-box">
+              <div class="sp-grab-acc-compare">{{ acc1_price | money }}</div>
+              {% comment %} {% if acc1_product.compare_at_price > acc1_price %}
+                <div class="sp-grab-acc-compare">{{ acc1_product.compare_at_price | money }}</div>
+              {% endif %} {% endcomment %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if acc1_product != empty and acc2_product != empty %}
+          <div class="sp-grab-plus">+</div>
+        {% endif %}
+
+        {% if acc2_product != empty %}
+          <div class="sp-grab-acc-item">
+            <div class="sp-grab-acc-left">
+              <img class="sp-grab-acc-img" src="{{ acc2_final_img | image_url: width: 120 }}" loading="lazy" alt="{{ acc2_final_title | escape }}">
+              <div class="sp-grab-acc-title">{{ acc2_final_title }}</div>
+            </div>
+            <div class="sp-grab-acc-price-box">
+              <div class="sp-grab-acc-compare">{{ acc2_price | money }}</div>
+              {% comment %} {% if acc2_product.compare_at_price > acc2_price %}
+                <div class="sp-grab-acc-compare">{{ acc2_product.compare_at_price | money }}</div>
+              {% endif %} {% endcomment %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="sp-grab-footer">
+      <div class="sp-grab-total-box">
+        <div class="sp-grab-total-price">
+          {% if final_total_price contains '$' or final_total_price contains '£' or final_total_price contains '€' %}
+            {{ final_total_price }}
+          {% else %}
+            {{ final_total_price | money }}
+          {% endif %}
+          {% if final_compare_price != blank and final_compare_price != final_total_price %}
+              <div class="sp-grab-compare">
+                {% if final_compare_price contains '$' or final_compare_price contains '£' or final_compare_price contains '€' %}
+                  {{ final_compare_price }}
+                {% else %}
+                  {{ final_compare_price | money }}
+                {% endif %}
+              </div>
+          {% endif %}
+        </div>
+        
+        <div class="sp-grab-action">
+          {% if final_save_text != blank %}
+            <div class="sp-grab-save">{{ final_save_text }}</div>
+          {% elsif save_amount > 0 %}
+            <div class="sp-grab-save">You save {{ save_amount | money }}</div>
+          {% endif %}
+          <button
+            class="sp-grab-btn"
+            data-link="{{ button_link }}"
+            onclick="spGrabAddBundle(this)"
+          >
+            {{ button_label | default: 'Buy Now' }}
+          </button>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>

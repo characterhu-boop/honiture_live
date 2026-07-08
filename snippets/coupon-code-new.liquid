@@ -1,0 +1,234 @@
+{%- liquid
+      assign discount_text = block.settings.discount_text
+      assign coupon_text = block.settings.coupon_text
+      assign copy_text = block.settings.copy_text
+      assign has_background = block.settings.has_background
+
+      assign bg_color = block.settings.bg_color | default: block.settings.coupon_box_color
+      assign text_color = block.settings.text_color | default: '#ffffff'
+      assign accent_color = block.settings.accent_color | default: block.settings.coupon_box_color_link
+    -%}
+    <div id="Promo-{{ block.id }}-{{ section.id }}" class="promo-card{% if has_background %} promo-card--has-bg{% endif %}"
+         style="--promo-bg: {{ bg_color }}; --promo-text: {{ text_color }}; --promo-accent: {{ accent_color }};">
+      <div class="promo-card__left">
+        {%- if block.settings.text != blank -%}
+            <div class="promo-card__desc ">{{ block.settings.text }}</div>
+        {%- endif -%} 
+        {%- if discount_text -%}
+            <div class="promo-card__discount" aria-label="discount">{{ discount_text }}</div>
+        {%- endif -%}
+        {%- if block.settings.text_2 != blank -%}
+            <div class="promo-card__desc ">{{ block.settings.text_2 }}</div>
+        {%- endif -%}
+      </div>
+      {%- if coupon_text != blank -%}
+        <div class="promo-card__right">
+          <div class="promo-card__code" aria-label="coupon">{{ coupon_text }}</div>
+          {%- if copy_text -%}
+          <button type="button" class="promo-card__copy clipboard" data-clipboard-text="{{ coupon_text | default: 'COUPON' }}" data-success-text="{{ 'social.copied_to_clipboard' | t }}">
+            <span class="label-text">{{ copy_text }}</span>
+          </button>
+          <script>
+            (function(){
+              var root = document.getElementById('Promo-{{ block.id }}-{{ section.id }}');
+              if(!root) return;
+              var btn = root.querySelector('.promo-card__copy');
+              var codeEl = root.querySelector('.promo-card__code');
+              if(!btn) return;
+              function getText(){
+                var t = btn.getAttribute('data-clipboard-text');
+                if(!t || t === 'COUPON') {
+                  t = (codeEl && codeEl.textContent || '').trim();
+                }
+                return t || '';
+              }
+              var label = btn.querySelector('.label-text');
+              var originalLabel = (label && label.textContent || btn.textContent).trim();
+              var successLabel = btn.getAttribute('data-success-text') || 'Copied';
+              function showSuccess(){
+                if(label){ label.textContent = successLabel; } else { btn.textContent = successLabel; }
+                setTimeout(function(){ if(label){ label.textContent = originalLabel; } else { btn.textContent = originalLabel; } }, 3000);
+              }
+              function fallbackCopy(text){
+                var ta = document.createElement('textarea');
+                ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+                document.body.appendChild(ta); ta.select();
+                try { document.execCommand('copy'); } catch(e) {}
+                document.body.removeChild(ta); showBubble();
+              }
+              btn.addEventListener('click', function(e){
+                e.preventDefault();
+                var text = getText();
+                if(!text) return;
+                if(navigator.clipboard && navigator.clipboard.writeText){
+                  navigator.clipboard.writeText(text).then(showSuccess).catch(function(){ fallbackCopy(text); });
+                } else {
+                  fallbackCopy(text);
+                }
+              });
+            })();
+          </script>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <style>
+      #Promo-{{ block.id }}-{{ section.id }}.promo-card {
+          background: {{ block.settings.coupon_bg }};
+          color: {{ block.settings.text_color }};
+          border-radius: 18px;
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          position: relative;
+          margin-bottom: 15px;
+          height: 124px;
+      }
+      /* 左右中间虚线分隔 */
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__right { 
+          position: relative;
+          text-align: center;
+          border-left: 2px dashed;
+          width: 40%;
+          flex-shrink: 0;
+          height: 80%;
+          overflow: visible;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 10px;
+      }
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__right::before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 8px;
+        bottom: 8px;
+        border-left: 2px dashed color-mix(in oklab, var(--_accent) 45%, var(--_bg));
+        opacity: .9;
+      }
+      /* 票券左右缺口 */
+      #Promo-{{ block.id }}-{{ section.id }}.promo-card::before,
+      #Promo-{{ block.id }}-{{ section.id }}.promo-card::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px; height: 18px;
+        background: #fff; /* 页面背景色回退 */
+        border-radius: 50%;
+      }
+      #Promo-{{ block.id }}-{{ section.id }}.promo-card::before { left: -9px; }
+      #Promo-{{ block.id }}-{{ section.id }}.promo-card::after { right: -9px; }
+
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__left { 
+        text-align: left; flex: 1;
+        padding: 0 18px; 
+      }
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__discount {
+        font-size: 34px;
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: 0.02em;
+      }
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__desc { font-size: 14px; opacity: .92; }
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__desc p { margin: 0; }
+
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__code {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        border-radius: 12px;
+        background: color-mix(in oklab, var(--_accent) 18%, var(--_bg));
+        border: 2px solid color-mix(in oklab, var(--_accent) 60%, var(--_bg));
+        text-align: center;
+      }
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__copy {
+        background: {{ block.settings.coupon_btn_bg }};
+        color: {{ block.settings.coupon_btn_text }};
+        border: 1px solid {{ block.settings.coupon_btn_text }};
+        border-radius: 10px;
+            padding: 6px 10px;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 0 auto;
+        position: relative; /* 让气泡依据按钮定位 */
+        overflow: hidden;
+      }
+      /* 复制提示气泡定位到按钮内部居中 */
+      #Promo-{{ block.id }}-{{ section.id }} .promo-card__copy .clipboard--bubble {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--color-accent);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity .2s ease, transform .2s ease;
+        box-shadow: 0 2px 6px rgba(0,0,0,.15);
+      }
+      #Promo-{{ block.id }}-{{ section.id }} .label-text{
+        font-weight: 400;
+      }
+      /* 移动端适配：768px 及以下 */
+      @media (max-width: 768px) {
+        #Promo-{{ block.id }}-{{ section.id }}.promo-card {
+          height: 110px;
+          padding: 10px;
+          flex-direction: row; /* 保持左右布局 */
+          gap: 10px;
+          align-items: center;
+        }
+        #Promo-{{ block.id }}-{{ section.id }} .promo-card__left {
+          padding: 10px 12px;
+        }
+        #Promo-{{ block.id }}-{{ section.id }} .promo-card__discount {
+          font-size: 26px;
+          line-height: 1.15;
+        }
+        #Promo-{{ block.id }}-{{ section.id }} .promo-card__desc {
+          font-size: 10px;
+        }
+        #Promo-{{ block.id }}-{{ section.id }} .promo-card__right {
+          width: 40%;
+          height: 72%;
+          /* border-left: 1.5px dashed; 细化分隔线 */
+          border-top: 0;
+          padding-top: 0;
+          gap: 8px;
+        }
+        #Promo-{{ block.id }}-{{ section.id }} .promo-card__right::before {
+          left: -10px;
+          top: 6px;
+          bottom: 6px;
+          /* border-left: 1.5px dashed color-mix(in oklab, var(--_accent) 45%, var(--_bg)); */
+          opacity: .9;
+        }
+        #Promo-{{ block.id }}-{{ section.id }} .promo-card__code {
+          font-size: 16px;
+        }
+        #Promo-{{ block.id }}-{{ section.id }} .promo-card__copy {
+          width: auto;
+          font-size: 10px;
+          padding: 4px 6px;
+          max-width: 80%;
+        }
+        /* 移动端收窄两侧缺口 */
+        #Promo-{{ block.id }}-{{ section.id }}.promo-card::before {
+          left: -7px;
+          width: 14px;
+          height: 14px;
+        }
+        #Promo-{{ block.id }}-{{ section.id }}.promo-card::after {
+          right: -7px;
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+    </style>

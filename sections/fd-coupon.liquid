@@ -1,0 +1,981 @@
+{% liquid
+  assign section_width = section.settings.content_width
+%}
+
+{% render 'section-decorations', section: section %}
+
+<section
+  id="fd-coupon-{{ section.id }}"
+  class="fd-coupon"
+  style="
+    --fd-coupon-bg: {{ section.settings.background_color }};
+    --fd-coupon-card-bg: {{ section.settings.card_background }};
+    --fd-coupon-text: {{ section.settings.text_color }};
+    --fd-coupon-accent: {{ section.settings.accent_color }};
+    --fd-coupon-line: {{ section.settings.line_color }};
+    --fd-coupon-width: {{ section_width }}px;
+    --fd-coupon-padding-top: {{ section.settings.padding_top }}px;
+    --fd-coupon-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --fd-coupon-mobile-padding-top: {{ section.settings.mobile_padding_top }}px;
+    --fd-coupon-mobile-padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  "
+>
+  <div class="fd-coupon__inner">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'header' -%}
+          {% render 'xmas-section-header', section: block %}
+      {%- endcase -%}
+    {%- endfor -%}
+
+    <div class="fd-coupon__layout">
+      <div class="fd-coupon__promo-list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'promo' -%}
+            {% liquid
+              assign promo_product = block.settings.product
+              assign promo_title = block.settings.title | default: promo_product.title
+              assign promo_description = block.settings.description | default: promo_product.description
+              assign promo_image = block.settings.image | default: promo_product.featured_image
+              assign promo_mobile_image = block.settings.mobile_image | default: promo_image
+              assign promo_url = block.settings.link | default: promo_product.url
+            %}
+            <article
+              class="fd-coupon__promo"
+              {{ block.shopify_attributes }}
+              style="
+                {% if promo_image != blank %}
+                  --fd-promo-bg: url('{{ promo_image | image_url: width: 900 }}');
+                {% endif %}
+                {% if promo_mobile_image != blank %}
+                  --fd-promo-bg-mobile: url('{{ promo_mobile_image | image_url: width: 700 }}');
+                {% endif %}
+              "
+            >
+              {% if promo_url != blank %}
+                <a class="fd-coupon__promo-link" href="{{ promo_url }}" target="_blank" rel="noopener" aria-label="{{ promo_title | escape }}">
+              {% else %}
+                <div class="fd-coupon__promo-link">
+              {% endif %}
+                  <div class="fd-coupon__promo-content">
+                    {% if promo_title != blank %}
+                      <h3 class="fd-coupon__promo-title">{{ promo_title | escape }}</h3>
+                    {% endif %}
+                    {% if promo_description != blank %}
+                      <div class="fd-coupon__promo-desc">{{ promo_description | strip_html | escape }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="fd-coupon__promo-media">
+                    {% if promo_image != blank %}
+                      <picture>
+                        {% if promo_mobile_image != blank %}
+                          <source media="(max-width: 767px)" srcset="{{ promo_mobile_image | image_url: width: 700 }}">
+                        {% endif %}
+                        {{ promo_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: promo_title, class: 'fd-coupon__promo-image' }}
+                      </picture>
+                    {% else %}
+                      <div class="fd-coupon__promo-placeholder" aria-hidden="true"><span></span></div>
+                    {% endif %}
+                  </div>
+              {% if promo_url != blank %}
+                </a>
+              {% else %}
+                </div>
+              {% endif %}
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="fd-coupon__features" aria-label="{{ section.settings.features_label | escape }}">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature' -%}
+          <div class="fd-coupon__feature" {{ block.shopify_attributes }}>
+            <div class="fd-coupon__feature-icon">
+              {% if block.settings.image != blank %}
+                <picture>
+                  {% if block.settings.mobile_image != blank %}
+                    <source media="(max-width: 767px)" srcset="{{ block.settings.mobile_image | image_url: width: 140 }}">
+                  {% endif %}
+                  {{ block.settings.image | image_url: width: 140 | image_tag: loading: 'lazy', alt: block.settings.title, class: 'fd-coupon__feature-image' }}
+                </picture>
+              {% else %}
+                {% case block.settings.icon %}
+                  {% when 'percent' %}
+                    <svg viewBox="0 0 64 64" role="img" aria-label="{{ block.settings.title | escape }}"><path d="M22 22h.01M42 42h.01M20 44 44 20" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M17 9a25 25 0 1 0 30 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="m47 6 1 8-8 1" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {% when 'gift' %}
+                    <svg viewBox="0 0 64 64" role="img" aria-label="{{ block.settings.title | escape }}"><path d="M14 27h36v26H14zM10 19h44v10H10zM32 19v34M22 19c-6-4-4-12 2-12 5 0 8 6 8 12M42 19c6-4 4-12-2-12-5 0-8 6-8 12" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></svg>
+                  {% else %}
+                    <svg viewBox="0 0 64 64" role="img" aria-label="{{ block.settings.title | escape }}"><path d="M32 13v38M42 22c-2-5-17-7-19 1-3 12 21 5 18 18-2 8-17 7-21 1" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M13 31A20 20 0 0 1 47 17M51 33A20 20 0 0 1 17 47" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="m49 10-1 8-8-2M15 54l1-8 8 2" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {% endcase %}
+              {% endif %}
+            </div>
+            {% if block.settings.title != blank %}
+              <div class="fd-coupon__feature-title">{{ block.settings.title | escape }}</div>
+            {% endif %}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #fd-coupon-{{ section.id }} {
+    background: var(--fd-coupon-bg);
+    padding: var(--fd-coupon-mobile-padding-top) 16px var(--fd-coupon-mobile-padding-bottom);
+    color: var(--fd-coupon-text);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__inner {
+    width: 100%;
+    max-width: var(--fd-coupon-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__layout,
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-list,
+  #fd-coupon-{{ section.id }} .fd-coupon__features {
+    display: flex;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__layout {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo,
+  #fd-coupon-{{ section.id }} .fd-coupon__features {
+    background: var(--fd-coupon-card-bg);
+    border-radius: {{ section.settings.card_radius }}px;
+    box-shadow: 0 10px 30px rgba(37, 91, 129, 0.08);
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-title {
+    margin: 0;
+    color: var(--fd-coupon-text);
+    font-size: 18px;
+    line-height: 1.15;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-list {
+    flex-direction: row;
+    gap: 14px;
+    width: 100%;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-link {
+    min-height: 168px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-title {
+    padding: 16px 10px 0;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-desc {
+    margin-top: 10px;
+    color: rgba(39, 39, 39, 0.72);
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-media {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-media picture {
+    display: contents;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    display: block;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo:first-child .fd-coupon__promo-image {
+    object-position: right bottom;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__feature-icon picture {
+    display: contents;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__promo-placeholder {
+    width: min(76%, 210px);
+    aspect-ratio: 1.45;
+    margin: auto auto 12px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(72, 184, 224, 0.18), rgba(42, 69, 133, 0.28));
+    transform: skew(-10deg);
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__features {
+    margin-top: 16px;
+    padding: 14px 10px;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__feature {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 2px 8px;
+    text-align: center;
+    position: relative;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__feature + .fd-coupon__feature::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: rgba(35, 35, 35, 0.22);
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__feature-icon {
+    width: 42px;
+    height: 42px;
+    color: var(--fd-coupon-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__feature-icon svg,
+  #fd-coupon-{{ section.id }} .fd-coupon__feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  #fd-coupon-{{ section.id }} .fd-coupon__feature-title {
+    max-width: 11em;
+    color: var(--fd-coupon-text);
+    font-size: clamp(13px, 3.5vw, 16px);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  @media (max-width: 420px) {
+    #fd-coupon-{{ section.id }} {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-list {
+      gap: 10px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #fd-coupon-{{ section.id }} {
+      padding-top: var(--fd-coupon-padding-top);
+      padding-bottom: var(--fd-coupon-padding-bottom);
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__layout {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-title {
+      font-size: 17px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-list {
+      flex: 1 1 auto;
+      gap: 10px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-link {
+      min-height: 252px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-title {
+      padding: 0;
+      text-align: left;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-content {
+      flex: 0 0 42%;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-media {
+      flex: 0 0 58%;
+      height: 100%;
+      min-height: 252px;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo:first-child .fd-coupon__promo-media {
+      margin-right: -30px;
+      margin-bottom: 0px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__features {
+      margin-top: 14px;
+      padding: 12px 26px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__feature {
+      flex-direction: row;
+      justify-content: center;
+      gap: 14px;
+      padding: 0 24px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__feature-icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__feature-title {
+      font-size: 17px;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-title {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #fd-coupon-{{ section.id }} .fd-coupon__layout {
+      gap: 12px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-list {
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-link {
+      min-height: 168px;
+      background-size: contain;
+      background-position: center bottom;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-title {
+      font-size: 14px;
+      padding: 12px 8px 0;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-desc {
+      display: none;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo {
+      background-image: none;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-media {
+      display: flex;
+      flex: 1 1 auto;
+      min-height: 112px;
+      height: 112px;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo-link {
+      background-image: none;
+    }
+
+    #fd-coupon-{{ section.id }} .fd-coupon__promo:first-child .fd-coupon__promo-image {
+      object-position: center bottom;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "FD Coupon",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 900,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1080
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#EAF6FF"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Panel background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#232323"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Feature icon color",
+      "default": "#32AEE1"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Coupon bottom line",
+      "default": "#315383"
+    },
+    {
+      "type": "header",
+      "content": "Coupon panel"
+    },
+    {
+      "type": "text",
+      "id": "coupon_heading",
+      "label": "Coupon heading",
+      "default": "Perfect Gifts"
+    },
+    {
+      "type": "text",
+      "id": "features_label",
+      "label": "Features aria label",
+      "default": "Coupon benefits"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Section header",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Subheading"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_sub_heading",
+          "label": "Show subheading",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "view_more_label",
+          "label": "Button label",
+          "default": "View More"
+        },
+        {
+          "type": "url",
+          "id": "view_more_link",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title_icons",
+          "label": "Show title icons",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "title_icon",
+          "label": "Title icon"
+        },
+        {
+          "type": "range",
+          "id": "title_icon_size",
+          "label": "Icon size",
+          "min": 24,
+          "max": 96,
+          "step": 2,
+          "unit": "px",
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "title_icon_size_mobile",
+          "label": "Mobile icon size",
+          "min": 20,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "default": 30
+        },
+        {
+          "type": "checkbox",
+          "id": "title_icon_mirror_right",
+          "label": "Mirror right icon",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#232323"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Title size",
+          "min": 18,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "title_size_mobile",
+          "label": "Mobile title size",
+          "min": 16,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 24
+        },
+        {
+          "type": "color",
+          "id": "sub_heading_color",
+          "label": "Subheading color",
+          "default": "#232323"
+        },
+        {
+          "type": "range",
+          "id": "sub_heading_size",
+          "label": "Subheading size",
+          "min": 12,
+          "max": 28,
+          "step": 1,
+          "unit": "px",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "sub_heading_size_mobile",
+          "label": "Mobile subheading size",
+          "min": 10,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 14
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "label": "Margin bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "color",
+          "id": "view_more_color",
+          "label": "View more color",
+          "default": "#232323"
+        },
+        {
+          "type": "color",
+          "id": "view_more_border_color",
+          "label": "View more border",
+          "default": "#232323"
+        }
+      ]
+    },
+    {
+      "type": "promo",
+      "name": "Promo image card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom title",
+          "default": "Perfect Gifts"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Custom description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image mobile"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Custom link"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature item",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Installment payments"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Default icon",
+          "options": [
+            {
+              "value": "money",
+              "label": "Installment"
+            },
+            {
+              "value": "percent",
+              "label": "Percent"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            }
+          ],
+          "default": "money"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Custom icon mobile"
+        }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image mobile"
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Top position",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Left position",
+          "min": -100,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mobile_top",
+          "label": "Mobile top position",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "mobile_left",
+          "label": "Mobile left position",
+          "min": -100,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "label": "Width",
+          "min": 0,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "mobile_width",
+          "label": "Mobile width",
+          "min": 0,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "default": 100
+        },
+        {
+          "type": "number",
+          "id": "z_index",
+          "label": "Z index",
+          "default": 1
+        },
+        {
+          "type": "number",
+          "id": "mobile_z_index",
+          "label": "Mobile z index",
+          "default": 1
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_pc",
+          "label": "Hide on desktop",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "rotation",
+          "label": "Rotation",
+          "min": -180,
+          "max": 180,
+          "step": 5,
+          "unit": "deg",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mobile_rotation",
+          "label": "Mobile rotation",
+          "min": -180,
+          "max": 180,
+          "step": 5,
+          "unit": "deg",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FD Coupon",
+      "blocks": [
+        {
+          "type": "promo",
+          "settings": {
+            "title": "Perfect Gifts"
+          }
+        },
+        {
+          "type": "promo",
+          "settings": {
+            "title": "Buy More Save More"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Installment payments",
+            "icon": "money"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Extra Rewards Await",
+            "icon": "percent"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Limited-Time Offers",
+            "icon": "gift"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

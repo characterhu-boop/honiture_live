@@ -1,0 +1,990 @@
+{% comment %}
+  NY Stack Discounts Section
+  - Displays stacked discount coupons
+  - Uses xmas-section-header for title
+  - Cards have "Buy X Save $Y" format with copyable code
+  - Includes Accessories Grid (same as xmas-acce-year)
+{% endcomment %}
+
+<section id="ny-stack-discounts-{{ section.id }}" class="ny-stack-discounts">
+  {% render 'xmas-section-header', section: section %}
+  
+  <div class="ny-sd__container">
+    <div class="ny-sd__grid">
+      {% assign first_discount_card_rendered = false %}
+      {% for block in section.blocks %}
+        {% if block.type == 'discount_card' %}
+          {% assign is_first_discount_card = false %}
+          {% unless first_discount_card_rendered %}
+            {% assign is_first_discount_card = true %}
+            {% assign first_discount_card_rendered = true %}
+          {% endunless %}
+          <div class="ny-sd-card" {{ block.shopify_attributes }}
+               style="
+                 --card-bg: {{ block.settings.card_bg }}; 
+                 --card-text: {{ block.settings.text_color }};
+                 --card-btn-bg: {{ block.settings.btn_bg }};
+                 --card-btn-text: {{ block.settings.btn_text_color }};
+                 --notch-color: {{ section.settings.notch_color }};
+               ">
+            <div class="ny-sd-card__main">
+              <div class="ny-sd-card__info">
+                {% if block.settings.title_top != blank %}
+                  <div class="ny-sd-card__buy">{{ block.settings.title_top }}</div>
+                {% endif %}
+                {% if block.settings.title_bottom != blank %}
+                  <div class="ny-sd-card__save">{{ block.settings.title_bottom }}</div>
+                {% endif %}
+              </div>
+              {% assign amount_parts = block.settings.amount | split: '=' %}
+              <div class="ny-sd-card__amount{% if is_first_discount_card and amount_parts.size > 1 %} ny-sd-card__amount--split{% endif %}">
+                {% if is_first_discount_card and amount_parts.size > 1 %}
+                  <span class="ny-sd-card__amount-left">{{ amount_parts[0] | strip }}</span>
+                  <span class="ny-sd-card__amount-equals">=</span>
+                  <span class="ny-sd-card__amount-right">{{ amount_parts[1] | strip }}</span>
+                {% else %}
+                  {{ block.settings.amount }}
+                {% endif %}
+              </div>
+            </div>
+            
+            <div class="ny-sd-card__divider">
+               <div class="ny-sd-card__notch ny-sd-card__notch--left"></div>
+               <div class="ny-sd-card__line"></div>
+               <div class="ny-sd-card__notch ny-sd-card__notch--right"></div>
+            </div>
+
+            <div class="ny-sd-card__footer">
+              {% if block.settings.code != blank %}
+                <div class="ny-sd-card__code">
+                  <span class="code-text">{{ block.settings.code }}</span>
+                </div>
+              {% endif %}
+              {% liquid
+                assign button_target_heading = ''
+                assign button_label_downcase = block.settings.btn_label | downcase
+                if button_label_downcase contains 'earn'
+                  assign button_target_heading = 'Ways to earn points'
+                elsif button_label_downcase contains 'redeem'
+                  assign button_target_heading = 'Ways to redeem points'
+                endif
+              %}
+              <button
+                type="button"
+                class="ny-sd-card__btn"
+                {% if button_target_heading != blank %}data-scroll-heading="{{ button_target_heading }}"{% endif %}
+              >
+                {{ block.settings.btn_label }}
+              </button>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% liquid
+    assign acce_blocks = section.blocks | where: 'type', 'acce_product'
+    assign acce_total = acce_blocks.size
+    assign has_acce_content = false
+    if section.settings.snow_image != blank or section.settings.banner_bg != blank or section.settings.banner_bg_mobile != blank or acce_total > 0
+      assign has_acce_content = true
+    endif
+  %}
+
+  {% if has_acce_content %}
+  <!-- Accessories Section (From xmas-acce-year) -->
+  <div class="acce-year__container">
+      {% if section.settings.snow_image %}
+      <div class="spin-section-snow">
+          {{ section.settings.snow_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: 'Snow strip' }}
+      </div>
+      {% endif %}
+
+      {% if section.settings.banner_bg != blank or section.settings.banner_bg_mobile != blank %}
+      <div class="acce-year-banner">
+          <div class="acce-year-banner__content">
+          {% if section.settings.banner_richtext != blank %}
+              <div class="acce-year-banner__text">{{ section.settings.banner_richtext }}</div>
+          {% endif %}
+          {% if section.settings.banner_subtitle != blank %}
+              <div class="acce-year-banner__subtitle">{{ section.settings.banner_subtitle }}</div>
+          {% endif %}
+          </div>
+      </div>
+      {% endif %}
+
+      {% if acce_total > 0 %}
+      <div class="acce-year__grid{% if acce_total > 3 %} is-collapsed{% endif %}">
+      {% for block in section.blocks %}
+          {% if block.type == 'acce_product' %}
+          {% assign prod = block.settings.product %}
+          {% assign has_prod = prod.id %}
+          {% if has_prod %}
+              {% assign variant_id = block.settings.variant_id | default: prod.selected_or_first_available_variant.id %}
+              {% assign variant = prod.variants | where: 'id', variant_id | first %}
+              {% if variant == blank %}{% assign variant = prod.selected_or_first_available_variant %}{% endif %}
+              {% assign price = variant.price %}
+              {% assign compare = variant.compare_at_price %}
+              {% assign img = block.settings.image | default: prod.featured_image %}
+              {% assign title = block.settings.title | default: prod.title %}
+
+              <div class="acce-year-card" {{ block.shopify_attributes }}>
+              <div class="acce-year-card__media">
+                  {% if block.settings.show_discount_badge %}
+                  <div class="acce-year-card__badge">
+                      <span>{{ block.settings.discount_badge_text }}</span>
+                  </div>
+                  {% endif %}
+                  {% if img %}
+                  <a href="{{ prod.url }}" target="_blank" class="acce-year-card__link">
+                  <img src="{{ img | image_url: width: 600 }}" alt="{{ title | escape }}" loading="lazy" />
+                  </a>{% endif %}
+              </div>
+              <div class="acce-year-card__content">
+                  <div class="acce-year-card__title">{{ title }}</div>
+                  
+                  {% if block.settings.custom_description != blank %}
+                  <div class="acce-year-card__desc">
+                      {{ block.settings.custom_description }}
+                  </div>
+                  {% endif %}
+
+                  {% if block.settings.discount_code != blank %}
+                  <div class="acce-year-card__code-box">
+                      <span class="code-label">Code: <strong>{{ block.settings.discount_code }}</strong></span>
+                      <button type="button" class="btn-copy" data-code="{{ block.settings.discount_code }}">Copy</button>
+                      <span class="copy-success-msg">Copied!</span>
+                  </div>
+                  {% endif %}
+
+                  <div class="acce-year-card__price">
+                  {{ price | money }}
+                  {% if compare %}<span class="acce-year-card__compare">{{ compare | money }}</span>{% endif %}
+                  </div>
+                  
+                  <div class="acce-year-card__actions">
+                  <a href="{{ prod.url }}" class="acce-year-card__btn--shop" target="_blank">Shop now</a>
+                  </div>
+              </div>
+              </div>
+          {% endif %}
+          {% endif %}
+      {% endfor %}
+      </div>
+
+      {% if acce_total > 3 %}
+      <div class="acce-year__toggle">
+          <button type="button" class="acce-year-toggle__btn" aria-expanded="false">
+          <span class="acce-year-toggle__label">Show more</span>
+          <!-- 向下箭头（折叠态） -->
+          <svg class="arrow arrow--down" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" fill="currentColor"/>
+          </svg>
+          <!-- 向上箭头（展开态） -->
+          <svg class="arrow arrow--up" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
+          </svg>
+          </button>
+      </div>
+      {% endif %}
+      {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="acce-year__toast" role="status" aria-live="polite"></div>
+
+</section>
+
+<style>
+  #ny-stack-discounts-{{ section.id }} {
+    padding: 40px 0;
+    background: #fff1e2;
+  }
+  
+  .ny-sd__container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 16px;
+    margin-bottom: 40px; /* Space between discounts and accessories */
+  }
+  
+  .ny-sd__grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Bottom align */
+    gap: 0; /* No gap */
+    flex-wrap: nowrap;
+  }
+  
+  .ny-sd-card {
+    background: var(--card-bg, linear-gradient(90deg, #FDE6BA 0%, #F3D295 100%));
+    color: var(--card-text, #5D3A15);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  /* Desktop: First card smaller, font smaller */
+  @media (min-width: 769px) {
+    .ny-sd-card:first-child {
+      width: 500px;
+      max-width: none;
+      z-index: 1;
+      margin-right: -10px; /* Slight overlap to look connected but distinct */
+    }
+    .ny-sd-card:first-child .ny-sd-card__main {
+      padding: 20px 30px 15px; /* Reduced padding */
+    }
+    .ny-sd-card:first-child .ny-sd-card__buy,
+    .ny-sd-card:first-child .ny-sd-card__save {
+      font-size: 20px; /* Smaller text */
+    }
+    .ny-sd-card:first-child .ny-sd-card__amount {
+      font-size: 60px; /* Smaller amount */
+    }
+
+    .ny-sd-card:nth-child(2) {
+      width: 620px;
+      max-width: none;
+      z-index: 1;
+      margin-left: -10px;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.05); /* Shadow to separate slightly visually */
+    }
+    .ny-sd-card:nth-child(2) .ny-sd-card__main {
+      padding: 40px 40px 30px; /* Larger padding */
+    }
+    .ny-sd-card:nth-child(2) .ny-sd-card__buy,
+    .ny-sd-card:nth-child(2) .ny-sd-card__save {
+      font-size: 28px; /* Larger text */
+    }
+    .ny-sd-card:nth-child(2) .ny-sd-card__amount {
+      font-size: 90px; /* Larger amount */
+    }
+  }
+  
+  .ny-sd-card__main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 40px 20px;
+  }
+  
+  .ny-sd-card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 1.2;
+  }
+  
+  .ny-sd-card__buy, .ny-sd-card__save {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .ny-sd-card__amount {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+  }
+  
+  /* Divider with notches */
+  .ny-sd-card__divider {
+    position: relative;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .ny-sd-card__line {
+    flex: 1;
+    border-top: 2px dashed var(--card-text, #5D3A15);
+    opacity: 0.3;
+    margin: 0 16px;
+  }
+  
+  .ny-sd-card__notch {
+    width: 20px;
+    height: 20px;
+    background-color: #fff1e2;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .ny-sd-card__notch--left {
+    left: -10px;
+  }
+  
+  .ny-sd-card__notch--right {
+    right: -10px;
+  }
+  
+  .ny-sd-card__footer {
+    padding: 10px 80px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .ny-sd-card__code {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    min-width: 0;
+  }
+  .ny-sd-card__code strong, .ny-sd-card__code .code-text {
+    font-weight: 700;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .ny-sd-card__btn {
+    background: var(--card-btn-bg, #975A16);
+    color: var(--card-btn-text, #fff);
+    border: none;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    min-width: 100px;
+    flex: 0 0 auto;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  
+  /* Styles for Accessories (ported from xmas-acce-year) */
+  .acce-year__container { 
+    max-width: 1300px; 
+    margin: 0 auto; 
+    border-radius: 30px 30px 10px 10px;
+    position: relative;
+    padding: 0 16px;
+  }
+  .spin-section-snow{
+    position: absolute;
+    top: -20px;
+    left: 0;
+  }
+  /* Banner */
+  .acce-year-banner { 
+    position: relative; 
+    background-size: cover; 
+    background-position: center; 
+    border-radius: 12px; 
+    min-height: 160px; 
+    display: flex; 
+    align-items: center; 
+    padding: 42px; 
+    margin-bottom: 18px; 
+    height: 428px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  /* 响应式背景图：PC/Mobile 优先使用对应设置，未设置则相互回退 */
+  #ny-stack-discounts-{{ section.id }} .acce-year-banner {
+    background-image: url({{ section.settings.banner_bg | default: section.settings.banner_bg_mobile | image_url: width: 1600 }});
+  }
+  .acce-year-banner__content { max-width: 700px; color: #fff; }
+  .acce-year-banner__text { margin-bottom: 10px; color: #000;}
+  .acce-year-banner__text strong{
+    color: #DA2B2B;
+  }
+  .acce-year-banner__text p{
+      margin-bottom: 0;
+  }
+  .acce-year-banner__subtitle {
+    font-size: 16px;
+    color: #333; /* Adjust color as needed */
+    margin-top: 5px;
+  }
+
+  /* Grid */
+  .acce-year__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  /* 默认折叠：仅显示前3张，超出隐藏 */
+  .acce-year__grid.is-collapsed .acce-year-card:nth-child(n+4) { display: none; }
+
+  /* 展开/收起按钮样式 */
+  .acce-year__toggle { display: flex; justify-content: center; margin-top: 14px; }
+  .acce-year-toggle__btn { cursor: pointer; border: 1px solid #fff; background: transparent; color: #fff; border-radius: 999px; padding: 8px 16px; font-size: 14px; }
+  .acce-year-toggle__btn:hover { background: rgba(255,255,255,0.12); }
+  .acce-year-toggle__btn { display: inline-flex; align-items: center; gap: 8px; }
+  .acce-year-toggle__btn .arrow { width: 16px; height: 16px; color: #fff; }
+  /* 默认显示向下箭头；展开后显示向上箭头 */
+  .acce-year__toggle .arrow--up { display: none; }
+  .acce-year__toggle.is-expanded .arrow--up { display: inline; }
+  .acce-year__toggle.is-expanded .arrow--down { display: none; }
+  
+  .acce-year-card { background: #fff; border-radius: 10px; 
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08); overflow: hidden; 
+  display: flex; flex-direction: column; 
+  justify-content: space-between;
+  text-align: left; /* Image shows left align */
+  position: relative;
+  }
+  .acce-year-card__media {  padding: 10px; position: relative; text-align: center; }
+  .acce-year-card__media img { width: 100%; height: auto; display: block; margin: 0 auto; }
+  .acce-year-card__content { padding: 12px 16px 20px; text-align: left; }
+  .acce-year-card__title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #666; }
+  
+  .acce-year-card__desc {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: #000;
+  }
+
+  /* Badge */
+  .acce-year-card__badge {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    background-color: #E83A3A;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 8px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    width: 60px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  /* Code Box */
+  .acce-year-card__code-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #E0F7FA; /* Light cyan background */
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    width: fit-content;
+    position: relative;
+  }
+  .code-label {
+    color: #006064;
+  }
+  /* Updated to support both button types */
+  .btn-copy {
+    /* Base styles are similar, override for accessories */
+  }
+  .acce-year-card__code-box .btn-copy {
+    background: #4DD0E1;
+    border: none;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    min-width: auto; /* Override ny-sd card style */
+  }
+
+  .copy-success-msg {
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  
+  /* Discount Card Message Position */
+  .ny-sd-card__btn .copy-success-msg {
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Accessory Card Message Position */
+  .acce-year-card__code-box .copy-success-msg {
+    top: -25px;
+    right: 0;
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+
+  .copy-success-msg.show {
+    opacity: 1;
+  }
+
+  .acce-year-card__price { font-size: 20px; font-weight: 700; color: #000; margin-bottom: 10px; }
+  .acce-year-card__compare { color: #999; text-decoration: line-through; font-weight: 400; margin-left: 6px; font-size: 14px; }
+  
+  .acce-year-card__actions { margin-top: 0; }
+  .acce-year-card__btn--shop { 
+    display: inline-block;
+    background: #6BE3E6; /* Light blue/cyan button */
+    background: linear-gradient(90deg, #4DE0E6 0%, #76E8E6 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 6px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+
+  .acce-year__toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: 24px; background: rgba(0,0,0,0.85); color: #fff; padding: 10px 12px; border-radius: 8px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .acce-year__toast.is-visible { opacity: 1; }
+
+  @media (max-width: 1024px) {
+    .acce-year__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .ny-sd__grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px; /* Restore gap for mobile */
+    }
+    .ny-sd-card {
+      max-width: 100%;
+    }
+    .ny-sd-card__main {
+      padding: 10px;
+    }
+    .ny-sd-card__amount {
+      font-size: 60px;
+      white-space: nowrap;
+    }
+    .ny-sd-card__amount--split {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .ny-sd-card__amount--split .ny-sd-card__amount-right {
+      font-size: 0.82em;
+    }
+    .ny-sd-card__buy, .ny-sd-card__save {
+      font-size: 20px;
+    }
+    .ny-sd-card__footer{
+      padding: 10px 16px 14px;
+      gap: 8px;
+    }
+    .ny-sd-card__code {
+      font-size: 13px;
+      line-height: 16px;
+      flex: 1 1 auto;
+    }
+    .ny-sd-card__btn {
+      padding: 7px 14px;
+      min-width: 86px;
+      font-size: 13px;
+    }
+    /* Accessory Mobile Styles */
+    .acce-year-banner__content{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+    }
+    #ny-stack-discounts-{{ section.id }} .acce-year-banner {
+      background-image: url({{ section.settings.banner_bg_mobile | default: section.settings.banner_bg | image_url: width: 1000 }});
+        height: 230px;
+        padding: 16px;
+        align-items: start;
+        font-size: 12px;
+    }
+    .acce-year-card__media{
+      padding: 0;
+    }
+    .acce-year__grid { 
+        display: flex;
+        overflow-x: auto;
+        gap: 10px; 
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .acce-year-card {
+        flex: 0 0 72%;
+        width: 72%;
+        scroll-snap-align: start;
+    }
+    /* Mobile force show all items */
+    .acce-year__grid.is-collapsed .acce-year-card:nth-child(n+5) { 
+        display: flex; 
+    }
+    /* Hide toggle button on mobile */
+    .acce-year__toggle {
+        display: none;
+    }
+
+    .acce-year__container{
+      margin: 0 16px;
+      padding: 30px 10px 20px;
+      border-radius: 10px;
+    }
+    .spin-section-snow{
+      top: -10px;
+    }
+    .acce-year-card__content { padding: 10px; }
+    .acce-year-card__title { font-size: 12px; }
+    .acce-year-card__desc { font-size: 12px; }
+    .acce-year-card__price { font-size: 16px; }
+    .acce-year-card__compare { font-size: 12px; }
+    .acce-year-card__btn--shop { padding: 4px 16px; font-size: 12px; }
+  }
+
+</style>
+
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var root = document.getElementById('ny-stack-discounts-{{ section.id }}');
+      if (!root) return;
+      
+      // Copy Code Functionality (Unified)
+      root.querySelectorAll('.btn-copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var code = btn.getAttribute('data-code');
+          if (code) {
+            navigator.clipboard.writeText(code).then(function() {
+              // Find success message: check inside first, then sibling (parent search)
+              var msg = btn.querySelector('.copy-success-msg') || 
+                        (btn.parentElement ? btn.parentElement.querySelector('.copy-success-msg') : null);
+              
+              if (msg) {
+                msg.classList.add('show');
+                setTimeout(function() { msg.classList.remove('show'); }, 2000);
+              }
+              
+              // Optional: Change button text for accessories (if it has text content that isn't the msg)
+              // For discount card, text is inside button, msg is separate span.
+              // For accessory card, button text is "Copy".
+              if (btn.textContent.trim() === 'Copy') {
+                 btn.textContent = 'Copied';
+                 setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+              }
+            }).catch(function(err) {
+              console.error('Failed to copy: ', err);
+            });
+          }
+        });
+      });
+
+      // 展开/收起更多配件
+      function normalizeText(text) {
+        return (text || '').replace(/\s+/g, ' ').trim().toLowerCase();
+      }
+
+      function findHeadingSection(headingText) {
+        var targetText = normalizeText(headingText);
+        var candidates;
+        var i;
+
+        if (!targetText) return null;
+
+        candidates = document.querySelectorAll('h1, h2, h3, h4, [class*="title"], [class*="heading"]');
+        for (i = 0; i < candidates.length; i += 1) {
+          if (normalizeText(candidates[i].textContent) === targetText) {
+            return candidates[i].closest('.shopify-section, section, [id^="shopify-section-"]') || candidates[i];
+          }
+        }
+
+        candidates = document.querySelectorAll('.shopify-section, section, [id^="shopify-section-"]');
+        for (i = 0; i < candidates.length; i += 1) {
+          if (normalizeText(candidates[i].textContent).indexOf(targetText) !== -1) {
+            return candidates[i];
+          }
+        }
+
+        return null;
+      }
+
+      root.querySelectorAll('[data-scroll-heading]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var target = findHeadingSection(btn.getAttribute('data-scroll-heading'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      var grid = root.querySelector('.acce-year__grid');
+      var toggleBtn = root.querySelector('.acce-year-toggle__btn');
+      var toggleLabel = toggleBtn ? toggleBtn.querySelector('.acce-year-toggle__label') : null;
+      var toggleWrap = root.querySelector('.acce-year__toggle');
+      var preExpandViewportOffset = null; 
+      
+      if (grid && toggleBtn && toggleWrap) {
+        toggleBtn.addEventListener('click', function() {
+          var isCollapsed = grid.classList.contains('is-collapsed');
+          if (isCollapsed) {
+            var rect = toggleWrap.getBoundingClientRect();
+            preExpandViewportOffset = rect.top;
+            grid.classList.remove('is-collapsed');
+            if (toggleLabel) { toggleLabel.textContent = 'Show less'; }
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            toggleWrap.classList.add('is-expanded');
+          } else {
+            grid.classList.add('is-collapsed');
+            if (toggleLabel) { toggleLabel.textContent = 'Show more'; }
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleWrap.classList.remove('is-expanded');
+            if (preExpandViewportOffset !== null) {
+              window.requestAnimationFrame(function() {
+                var newRectTop = toggleWrap.getBoundingClientRect().top;
+                var currentScroll = window.scrollY;
+                var targetScroll = currentScroll + newRectTop - preExpandViewportOffset;
+                window.scrollTo({ top: Math.max(targetScroll, 0), behavior: 'smooth' });
+              });
+            }
+          }
+        });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "NY Stack Discounts",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Stack Discounts"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Subheading"
+    },
+    {
+      "type": "color",
+      "id": "sub_heading_color",
+      "label": "Sub heading color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sub_heading",
+      "label": "显示副标题",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "Button Label",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "Show Title Icons",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "Title Icon"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "Icon Size",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "Mirror Right Icon",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "notch_color",
+      "label": "Notch Color (Page Background)",
+      "default": "#0d123d",
+      "info": "Color of the notches to match the page background"
+    },
+    {
+      "type": "header",
+      "content": "Accessories Settings"
+    },
+    { "type": "image_picker", "id": "snow_image", "label": "顶部长条雪图" },
+    {"type": "image_picker", "id": "banner_bg", "label": "横幅背景图(PC)"},
+    {"type": "image_picker", "id": "banner_bg_mobile", "label": "横幅背景图(移动端)"},
+    {"type": "richtext", "id": "banner_richtext", "label": "横幅富文本文案"},
+    {"type": "text", "id": "banner_subtitle", "label": "横幅副标题文案"}
+  ],
+  "blocks": [
+    {
+      "type": "discount_card",
+      "name": "Discount Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_top",
+          "label": "Top Text (e.g. Buy 2)",
+          "default": "Buy 2"
+        },
+        {
+          "type": "text",
+          "id": "title_bottom",
+          "label": "Bottom Text (e.g. Save)",
+          "default": "Save"
+        },
+        {
+          "type": "text",
+          "id": "amount",
+          "label": "Amount (e.g. $5)",
+          "default": "$5"
+        },
+        {
+          "type": "text",
+          "id": "code",
+          "label": "Card description",
+          "default": "XMASASSY15"
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button Label",
+          "default": "Claim"
+        },
+        {
+          "type": "color_background",
+          "id": "card_bg",
+          "label": "Card Background",
+          "default": "linear-gradient(90deg, #FDE6BA 0%, #F3D295 100%)"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#5D3A15"
+        },
+        {
+          "type": "color",
+          "id": "btn_bg",
+          "label": "Button Background",
+          "default": "#975A16"
+        },
+        {
+          "type": "color",
+          "id": "btn_text_color",
+          "label": "Button Text Color",
+          "default": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "type": "acce_product",
+      "name": "配件产品卡片",
+      "settings": [
+        {"type": "product", "id": "product", "label": "产品"},
+        {"type": "text", "id": "variant_id", "label": "变体ID(可选)"},
+        {"type": "text", "id": "title", "label": "自定义标题(可选)"},
+        {"type": "image_picker", "id": "image", "label": "自定义图(可选)"},
+        {"type": "header", "content": "Custom Features"},
+        {
+          "type": "checkbox",
+          "id": "show_discount_badge",
+          "label": "显示折扣标签",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "discount_badge_text",
+          "label": "折扣标签文字",
+          "default": "-15%"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_description",
+          "label": "自定义描述"
+        },
+        {
+          "type": "text",
+          "id": "discount_code",
+          "label": "折扣码"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NY Stack Discounts",
+      "blocks": [
+        {
+          "type": "discount_card",
+          "settings": {
+            "title_top": "Buy 2",
+            "title_bottom": "Save",
+            "amount": "$5",
+            "card_bg": "linear-gradient(90deg, #FDE6BA 0%, #F3D295 100%)",
+            "text_color": "#5D3A15",
+            "btn_bg": "#975A16"
+          }
+        },
+        {
+          "type": "discount_card",
+          "settings": {
+            "title_top": "Buy 3",
+            "title_bottom": "Save",
+            "amount": "$15",
+            "card_bg": "linear-gradient(90deg, #D01010 0%, #A00000 100%)",
+            "text_color": "#FFFFFF",
+            "btn_bg": "#FFFFFF",
+            "btn_text_color": "#D01010"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

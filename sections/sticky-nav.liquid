@@ -1,0 +1,745 @@
+{%- comment -%}
+  sections/sticky-navigation.liquid
+  功能：粘性导航栏，可配置多个跳转锚点和内容展示
+{%- endcomment -%}
+<style>
+  #shopify-section-{{ section.id }} {
+    --sticky-nav-height: 0;
+    --vp-s: 1px;
+    {% if section.settings.enable_sticky %}
+      position: sticky;
+      top: var(--sticky-nav-height);
+    {% else %}
+      position: relative;
+    {% endif %}
+    z-index: 3;
+    background: {% if section.settings.background_gradient != blank %}{{ section.settings.background_gradient }}{% else %}{{ section.settings.background }}{% endif %};
+    transition: all 0.3s ease;
+  }
+
+  @media screen and (min-width: 850px) and (max-width: 1500px) {
+    #shopify-section-{{ section.id }} {
+      --vp-s: calc(100vw / 1500);
+    }
+  }
+
+  @media screen and (max-width: 849px) {
+    #shopify-section-{{ section.id }} {
+      --vp-s: calc(100vw / 375);
+    }
+  }
+   
+  .sticky-nav {
+    display: flex;
+    justify-content: center;
+    gap: calc(10 * var(--vp-s));
+    padding: calc(15 * var(--vp-s)) 0;
+    margin: 0 auto;
+    /* box-shadow: 0 calc(2 * var(--vp-s)) calc(10 * var(--vp-s)) rgba(0,0,0,0.1); */
+    font-size: calc(18 * var(--vp-s));
+    position: relative;
+  } 
+
+  {% if section.settings.decor_image %}
+  .sticky-nav::before,
+  .sticky-nav::after {
+    content: "";
+    position: absolute;
+    top: calc(5 * var(--vp-s));
+    width: calc(180 * var(--vp-s));
+    height: calc(50 * var(--vp-s));
+    background-image: url("{{ section.settings.decor_image | image_url: width: 160 }}");
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+  .sticky-nav::before {
+    left: calc(-5 * var(--vp-s));
+  }
+  .sticky-nav::after{
+    right: calc(-5 * var(--vp-s));
+    transform: scaleX(-1);
+  }
+  {% endif %}
+  
+  .sticky-nav__link {
+    color: {{ section.settings.text_color }};
+    text-decoration: none;
+    font-weight: 500;
+    padding: calc(5 * var(--vp-s)) calc(10 * var(--vp-s));
+    transition: all 0.2s ease;
+    position: relative;
+    /* border-bottom: calc(2 * var(--vp-s)) solid transparent; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: calc(8 * var(--vp-s));
+  } 
+  
+  .sticky-nav__icon {
+    width: calc(40 * var(--vp-s));
+    height: calc(40 * var(--vp-s));
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  .sticky-nav__link:hover,
+  .sticky-nav__link.active {
+    color: {{ section.settings.active_text_color }};
+    background: {% if section.settings.active_background_gradient != blank %}{{ section.settings.active_background_gradient }}{% else %}{{ section.settings.active_background }}{% endif %};
+    border-bottom: calc(1 * var(--vp-s)) solid #EDCF94;
+    border-radius: calc(99 * var(--vp-s));
+  }
+  
+  .sticky-nav__content {
+    margin: 0 auto;
+    background: {% if section.settings.background_gradient != blank %}{{ section.settings.background_gradient }}{% else %}{{ section.settings.background }}{% endif %};
+    display: none;
+    padding-top: calc(20 * var(--vp-s));
+    padding-bottom: calc(50 * var(--vp-s));
+    max-height: calc(100vh - var(--sticky-nav-height) - calc(55 * var(--vp-s)));
+    overflow: auto;
+  }
+  
+  .sticky-nav__content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+  .sticky-nav__content-wrapper{
+    background: #fff;
+    position: relative;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(calc(-10 * var(--vp-s))); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* 移动端关闭按钮样式 */
+  .sticky-nav__close-btn {
+    width: calc(200 * var(--vp-s));
+    padding: calc(12 * var(--vp-s));
+    border: calc(2 * var(--vp-s)) solid #ee6819;
+    color: #ee6819;
+    border-radius: calc(50 * var(--vp-s));
+    text-align: center;
+    font-weight: 700;
+  }
+  .sticky-nav__close-btn-wrapper{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff00;
+    cursor: pointer;
+    font-size: calc(16 * var(--vp-s));
+    font-weight: 500;
+    margin-top: calc(15 * var(--vp-s));
+    padding: calc(20 * var(--vp-s));
+  }
+  @media screen and (max-width: 849px) {
+    #shopify-section-{{ section.id }} {
+      position: sticky;
+    }
+    .sticky-nav {
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: calc(10 * var(--vp-s)) calc(15 * var(--vp-s));
+      -webkit-overflow-scrolling: touch;
+      gap: calc(10 * var(--vp-s));
+      flex-wrap: nowrap;
+    }
+    .sticky-nav::before,
+    .sticky-nav::after {
+      display: none;
+    }
+    
+    .sticky-nav__content {
+      padding: calc(15 * var(--vp-s));
+    }
+
+    .sticky-nav__close-btn {
+      width: 100%;
+    }
+   .sticky-nav__content {
+      margin: 0 auto;
+      background: {% if section.settings.background_gradient != blank %}{{ section.settings.background_gradient }}{% else %}{{ section.settings.background }}{% endif %};
+      display: none;
+      padding-top: calc(20 * var(--vp-s));
+      padding-bottom: calc(70 * var(--vp-s));
+      max-height: calc(100vh - var(--sticky-nav-height) - calc(40 * var(--vp-s)));
+    }
+      .sticky-nav__link:hover,
+      .sticky-nav__link.active {
+        color: {{ section.settings.active_text_color }};
+        border-bottom-color: {{ section.settings.active_text_color }};
+        border-bottom: none;
+      }
+
+      .sticky-nav__link{
+        color: {{ section.settings.text_color }};
+        font-size: calc(12 * var(--vp-s));
+        width: calc(50% - calc(10 * var(--vp-s)));
+        padding: calc(10 * var(--vp-s)) calc(12 * var(--vp-s));
+        background: transparent;
+        text-align: center;
+        border-radius: calc(6 * var(--vp-s));
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        border-bottom: none;
+        gap: calc(6 * var(--vp-s));
+        white-space: nowrap;
+      }
+      .sticky-nav__icon {
+        width: calc(16 * var(--vp-s));
+        height: calc(16 * var(--vp-s));
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+      #shopify-section-{{ section.id }} {
+        top: calc({{ section.settings.top_position }} * var(--vp-s));
+      }
+  }
+  
+  /* 禁止背景滚动的样式 */
+  .no-scroll {
+    overflow: hidden;
+    /* height: 100vh; */
+  }
+  
+  /* 移动端样式 */
+  @media screen and (max-width: 849px) {
+      #shopify-section-{{ section.id }} {
+        top: calc({{ section.settings.top_position_mobile }} * var(--vp-s));
+      }
+      {% if section.settings.hide_on_mobile %}
+        .sticky-nav-section{
+          display: none;
+        }
+      {% endif %}
+  }
+ .product-info__description p {
+   display: inline;
+  }
+ .product-info__description ul {
+   padding-left: calc(5 * var(--vp-s));
+  }
+
+</style>
+
+<nav id="sticky-nav-{{ section.id }}" class="sticky-nav">
+  {% for block in section.blocks %}
+    {% if block.type == 'nav_item' %}
+      <a href="#{{ block.settings.target_id }}" 
+         class="sticky-nav__link" 
+         data-target="{{ block.settings.target_id }}"
+         data-type="nav"
+         {{ block.shopify_attributes }}>
+        {% if block.settings.icon != blank %}
+          <img src="{{ block.settings.icon | image_url: width: 40, height: 40 }}" alt="" class="sticky-nav__icon" width="40" height="40">
+        {% endif %}
+        {{ block.settings.title }}
+      </a>
+    {% elsif block.type == 'content_item' %}
+      <span class="sticky-nav__link" 
+            data-content-id="content-{{ block.id }}"
+            data-type="content"
+            {{ block.shopify_attributes }}>
+        {% if block.settings.icon != blank %}
+          <img src="{{ block.settings.icon | image_url: width: 40, height: 40 }}" alt="" class="sticky-nav__icon" width="40" height="40">
+        {% endif %}
+        {{ block.settings.title }}
+      </span>
+    {% endif %}
+  {% endfor %}
+</nav>
+
+<!-- 内容展示区域 -->
+<div id="sticky-content-{{ section.id }}" class="sticky-nav__content-wrapper" >
+  {% for block in section.blocks %}
+    {% if block.type == 'content_item' %}
+      {% assign metafield_value = product.metafields.custom[block.settings.metafield_key] %}
+      {% if metafield_value or block.settings.custom_liquid != blank or product.description %}
+        <div id="content-{{ block.id }}" class="sticky-nav__content section section-blends section-full" style="text-align: {{ block.settings.text_align }}" {{ block.shopify_attributes }}>
+          {% comment %} 优先展示元字段 {% endcomment %}
+          {% if block.settings.show_description %}
+            {%- if product.description != blank -%}
+              <div class="product-info__description">
+                <div class="prose">
+                  {{- product.description -}}
+                </div>
+              </div>
+            {%- endif -%}
+          {% elsif block.settings.metafield_key != blank %}
+            {% assign metafield_value = product.metafields.custom[block.settings.metafield_key] %}
+            {% if metafield_value != blank %}
+              {{ metafield_value }}
+            {% elsif block.settings.custom_liquid != blank %}
+              {{ block.settings.custom_liquid }}
+            {% else %}
+              {% comment %} <p>暂无内容</p> {% endcomment %}
+            {% endif %}
+          {% elsif block.settings.custom_liquid != blank %}
+            {{ block.settings.custom_liquid }}
+          {% else %}
+            {% comment %} <p>暂无内容</p> {% endcomment %}
+          {% endif %}
+          
+          <!-- 移动端关闭按钮 -->
+           <div class="sticky-nav__close-btn-wrapper">
+             <button class="sticky-nav__close-btn" data-close-content="content-{{ block.id }}">Close</button>
+           </div>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('#sticky-nav-{{ section.id }}');
+  const links = nav.querySelectorAll('.sticky-nav__link');
+  const contentWrapper = document.querySelector('#sticky-content-{{ section.id }}');
+  const contentBlocks = contentWrapper.querySelectorAll('.sticky-nav__content');
+  
+  // 获取关闭按钮并添加事件监听
+  const closeButtons = document.querySelectorAll('[data-close-content]');
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const contentId = button.getAttribute('data-close-content');
+      closeContent(contentId);
+    });
+  });
+  
+  // 关闭内容的函数
+  function closeContent(contentId) {
+    const contentBlock = document.querySelector(`#${contentId}`);
+    if (contentBlock) {
+      contentBlock.classList.remove('active');
+      
+      // 移除active状态
+      links.forEach(link => {
+        if (link.getAttribute('data-content-id') === contentId) {
+          link.classList.remove('active');
+        }
+      });
+      
+      // 恢复背景滚动
+      document.body.classList.remove('no-scroll');
+    }
+  }
+  
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const linkType = link.getAttribute('data-type');
+      
+      if (linkType === 'nav') {
+        // 原有的导航功能
+        const targetId = link.getAttribute('href').substring(1); // 移除 # 符号
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+          const targetPosition = targetElement.offsetTop - headerHeight - 50;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // 更新active状态
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          
+          // 隐藏所有内容块
+          contentBlocks.forEach(block => block.classList.remove('active'));
+          
+          // 恢复背景滚动
+          document.body.classList.remove('no-scroll');
+          
+          // 更新URL（不刷新页面）
+          history.pushState(null, null, `#${targetId}`);
+        }
+      } else if (linkType === 'content') {
+        // 新的内容展示功能
+        const contentId = link.getAttribute('data-content-id');
+        const contentBlock = document.querySelector(`#${contentId}`);
+        
+        if (contentBlock) {
+          // 检查内容是否已经激活
+          const isActive = contentBlock.classList.contains('active');
+          
+          // 隐藏所有内容块
+          contentBlocks.forEach(block => block.classList.remove('active'));
+          
+          // 移除所有链接的active状态
+          links.forEach(l => l.classList.remove('active'));
+          
+          if (isActive) {
+            // 如果内容已经激活，则关闭它
+            document.body.classList.remove('no-scroll');
+          } else {
+            // 如果内容未激活，则显示它
+            contentBlock.classList.add('active');
+            link.classList.add('active');
+            
+              // 检查粘性导航是否在顶部位置，如果不在则滚动到顶部
+            const navRect = nav.getBoundingClientRect();
+            const navTopPosition = navRect.top - 55;
+            if (navTopPosition !== 0) {
+              const scrollDistance = navTopPosition;
+              window.scrollBy({
+                top: scrollDistance,
+                behavior: 'smooth'
+              });
+            }
+            // 禁止背景滚动
+            document.body.classList.add('no-scroll');
+          }
+        }
+      }
+    });
+  });
+  
+  // 滚动时高亮当前区域（仅针对nav_item）
+  let activeTargetId = null;
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0% -80% 0%', // 上边缘20%进入视口时触发，下边缘80%离开时触发
+    threshold: 0
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    // 找到第一个进入视口的元素
+    let visibleEntry = null;
+    
+    // 优先选择完全进入视口的元素
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        visibleEntry = entry;
+        break;
+      }
+    }
+    
+    // 如果没有完全进入视口的元素，选择第一个相交的元素
+    if (!visibleEntry) {
+      for (const entry of entries) {
+        if (entry.intersectionRatio > 0) {
+          if (!visibleEntry || entry.intersectionRatio > visibleEntry.intersectionRatio) {
+            visibleEntry = entry;
+          }
+        }
+      }
+    }
+    
+    if (visibleEntry) {
+      const id = visibleEntry.target.getAttribute('id');
+      
+      // 只有当目标发生变化时才更新高亮状态
+      if (id !== activeTargetId) {
+        activeTargetId = id;
+        const navLink = nav.querySelector(`[href="#${id}"]`);
+        
+        // 移除所有导航链接的active状态
+        links.forEach(link => {
+          if (link.getAttribute('data-type') === 'nav') {
+            link.classList.remove('active');
+          }
+        });
+        
+        // 为当前视口中的元素添加active状态
+        if (navLink) {
+          navLink.classList.add('active');
+        }
+        
+        // 隐藏内容块
+        contentBlocks.forEach(block => block.classList.remove('active'));
+        
+        // 恢复背景滚动
+        document.body.classList.remove('no-scroll');
+      }
+    }
+  }, observerOptions);
+  
+  // 观察所有目标区块（仅nav_item）
+  {% for block in section.blocks %}
+    {% if block.type == 'nav_item' %}
+      const target{{ forloop.index }} = document.getElementById('{{ block.settings.target_id }}');
+      if (target{{ forloop.index }}) {
+        observer.observe(target{{ forloop.index }});
+      }
+    {% endif %}
+  {% endfor %}
+
+  // 节流函数
+  function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    }
+  }
+
+  // 粘性导航位置调整逻辑
+  const stickySection = document.getElementById('shopify-section-{{ section.id }}');
+
+  {% if section.settings.enable_sticky %}
+  function handleStickyPos() {
+    const headerSection = document.querySelector('[id*="__header"].shopify-section');
+    const innerHeader = document.querySelector('header.header');
+    const promoBar = document.getElementById('epb_bar');
+    
+    if (headerSection) {
+      const isHidden = headerSection.classList.contains('shopify-section-header-hidden');
+      const isSticky = headerSection.classList.contains('shopify-section-header-sticky');
+      
+      if (isHidden || !isSticky) {
+        let offset = 0;
+        if (promoBar) {
+          const rect = promoBar.getBoundingClientRect();
+          const style = window.getComputedStyle(promoBar);
+          const visible = rect.height > 0 && rect.width > 0;
+          if (visible) {
+            if (style.position === 'fixed' || style.position === 'sticky' || rect.top <= 0) {
+              offset = rect.height;
+            }
+          }
+        }
+        stickySection.style.top = `${offset}px`;
+        stickySection.style.setProperty('--sticky-nav-height', `${offset}px`);
+      } else {
+        let headerHeight = 0;
+        if (innerHeader) {
+            headerHeight = innerHeader.getBoundingClientRect().height;
+        } else {
+            headerHeight = headerSection.getBoundingClientRect().height;
+        }
+        let offset = headerHeight;
+        if (promoBar) {
+          const rect = promoBar.getBoundingClientRect();
+          const style = window.getComputedStyle(promoBar);
+          const visible = rect.height > 0 && rect.width > 0;
+          if (visible) {
+            const promoOffset = (style.position === 'fixed' || style.position === 'sticky' || rect.top <= 0) ? rect.height : 0;
+            offset = Math.max(offset, promoOffset);
+          }
+        }
+        stickySection.style.top = `${offset}px`;
+        stickySection.style.setProperty('--sticky-nav-height', `${offset}px`);
+      }
+    }
+  }
+
+  // 添加滚动监听，使用 100ms 节流
+  window.addEventListener('scroll', throttle(handleStickyPos, 100));
+  
+  // 初始化执行一次
+  handleStickyPos();
+  
+  // 确保在页面完全加载后再次执行，防止某些脚本延迟加载导致状态不准确
+  window.addEventListener('load', handleStickyPos);
+  
+  // 延迟执行，处理可能的异步渲染或动画
+  setTimeout(handleStickyPos, 500);
+  {% endif %}
+});
+</script>
+
+{% schema %}
+{
+  "name": "Sticky Navigation",
+  "class": "sticky-nav-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable Sticky",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "top_position",
+      "label": "Top Position (pc)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "top_position_mobile",
+      "label": "Top Position (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background Gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "active_background",
+      "label": "Active Background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color_background",
+      "id": "active_background_gradient",
+      "label": "Active Background Gradient"
+    },
+    {
+      "type": "color",
+      "id": "active_text_color",
+      "label": "Active Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "decor_image",
+      "label": "左右装饰图"
+    }, 
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "Hide on mobile",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_item",
+      "name": "Navigation Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Text",
+          "default": "Section Title"
+        },
+        {
+          "type": "text",
+          "id": "target_id",
+          "label": "Target Section ID",
+          "info": "Add this ID to the target section's 'HTML ID' field",
+          "default": "section-id"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (optional)",
+          "info": "Add a small icon before the title"
+        }
+      ]
+    },
+    {
+      "type": "content_item",
+      "name": "Content Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Button Text",
+          "default": "Content Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (optional)",
+          "info": "Add a small icon before the title"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text Align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_description",
+          "label": "Show description",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield Key",
+          "info": "元字段的键名"
+        },
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid",
+          "info": "当元字段为空时显示此内容"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky Navigation",
+      "blocks": [
+        {
+          "type": "nav_item",
+          "settings": {
+            "title": "Description",
+            "target_id": "product-description"
+          }
+        },
+        {
+          "type": "nav_item",
+          "settings": {
+            "title": "Specs",
+            "target_id": "product-specs"
+          }
+        },
+        {
+          "type": "content_item",
+          "settings": {
+            "title": "详细信息",
+            "metafield_key": "product_details"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

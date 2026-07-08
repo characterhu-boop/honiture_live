@@ -1,0 +1,777 @@
+{%- liquid
+  assign article_show_sharing = section.settings.article_show_sharing
+  assign article_show_nav = section.settings.article_show_nav
+
+  assign article_card_shadow = settings.article_card_shadow
+  assign article_card_shadow_class = 'has-shadow--' | append: article_card_shadow
+-%}
+{{ 'article.css' | asset_url | stylesheet_tag }}
+{%- render 'article-navigation', article_show_nav: article_show_nav, article_show_sharing: article_show_sharing -%}
+<div class="blog-post-detail--wrapper section-spacing-bottom">
+  <div class="row">
+    <div class="small-12 columns">
+      <article class="blog-post-detail" id="main-article">
+        {% for block in section.blocks %}
+          {% if block.type == '@app' %}
+            <div class="page-content-width">
+              {% render block %}
+            </div>
+          {% endif %}
+          {% if block.type == 'title' %}
+            {%- liquid
+              assign has_image = false
+              if article.image
+                assign has_image = true
+              endif
+
+              assign article_card_border = settings.article_card_border
+            -%}
+            <div
+              class="post-title-wrapper post-title-wrapper--has-img-{{- has_image }} post-title-wrapper--border-{{ article_card_border }} {{ article_card_shadow_class }}"
+              id="post-title-wrapper"
+              {{ block.shopify_attributes }}
+            >
+              <div class="post-title">
+                {% if section.settings.article_show_date or section.settings.article_show_author %}
+                  <div class="post-meta-wrapper">
+                    {%- if section.settings.article_show_date -%}
+                      <aside class="post-meta">
+                        {{- article.published_at | time_tag: '%b %d, %Y' -}}
+                      </aside>
+                    {%- endif -%}
+                    {%- if section.settings.article_show_author -%}
+                      <aside class="post-author">{{- article.author -}}</aside>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                <h1 class="entry-title h2">{{ article.title }}</h1>
+                {%- liquid
+                  if article_show_sharing
+                    render 'social-share', share_label: true, share_title: article.title, share_permalink: article.url, share_image: article.image
+                  endif
+                -%}
+              </div>
+              {%- if article.image -%}
+                <div class="featured-image">
+                  {%- render 'responsive-image', image: article.image, sizes: '345x300,640x550,1280x1100' -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {% endif %}
+          {% if block.type == 'content' %}
+            <div class="summary-mobile">
+              <div class="summary" id="article-summary-mobile"></div>
+            </div>
+            <div class="post-content-wrapper">
+              <div class="post-content page-content-width rte content-left" {{ block.shopify_attributes }}>
+                {{ article.content }}
+              </div>
+              <div class="content-right">
+                <div class="summary" id="article-summary-pc"></div>
+
+                {%- if block.settings.show_signup -%}
+                  <div class="widget widget--signup">
+                    {% comment %}
+                      <div class="image-box">
+                      	<img src="{{ 'logo.png' | asset_img_url: '210x' }}">
+                      </div>
+                    {% endcomment %}
+                    <div class="signup-content">
+                      {% if block.settings.title != blank %}
+                        <div class="thb-widget-title">{{ block.settings.title }}</div>
+                      {% endif %}
+                      {% if block.settings.text != blank %}
+                        {{ block.settings.text }}
+                      {% endif %}
+                    </div>
+
+                    {% render 'email-signup-form' %}
+                  </div>
+                {%- endif -%}
+                
+                <div class="mini-collection">
+                  <div class="collection-title">
+                    {{ block.settings.collection_title }}
+                  </div>
+                  {%- for product in block.settings.grid_collection.products limit: 4 -%}
+                    <div class="mini-collection-item">
+                      {% render 'product-card-blog', product_card_product: product %}
+                    </div>
+                  {%- endfor -%}
+                </div>
+
+
+              </div>
+            </div>
+          {% endif %}
+          {% if block.type == 'tags' %}
+            {%- if article.tags.size > 0 -%}
+              <footer class="article-tags page-content-width" {{ block.shopify_attributes }}>
+                {% for tag in article.tags %}
+                  <a href="{{ blog.url | escape }}/tagged/{{ tag | handle }}" class="tag-link">{{ tag }}</a>
+                {% endfor %}
+              </footer>
+            {%- endif -%}
+          {% endif %}
+          {% if block.type == 'post_navigation' %}
+            {%- liquid
+              assign current_found = false
+              assign done = false
+
+              for a in blog.articles
+                if current_found and done == false
+                  assign next_article = a
+                  assign done = true
+                endif
+                unless done
+                  if a.id == article.id
+                    assign current_found = true
+                  endif
+                endunless
+              endfor
+            -%}
+            {%- if next_article -%}
+              <div class="page-content-width">
+                <div class="blog-post-detail--continue {{ article_card_shadow_class }} blog-post-detail--continue--border-{{ article_card_border }}">
+                  <div class="blog-post-detail--continue-content">
+                    <span class="blog-post-detail--continue-title">{{ 'blogs.article.continue_reading' | t }}</span>
+                    <h5>
+                      <a href="{{ next_article.url }}" title="{{ next_article.title | escape }}">
+                        {{- next_article.title -}}
+                      </a>
+                    </h5>
+                    {%- assign read_more = 'blogs.article.read_more' | t -%}
+                    {%- render 'text-button', url: next_article.url, title: read_more -%}
+                  </div>
+                  {%- if next_article.image -%}
+                    <div class="blog-post-detail--continue-image">
+                      <a href="{{ next_article.url }}" title="{{ next_article.title | escape }}">
+                        {%- render 'responsive-image', image: next_article.image, sizes: '380x360' -%}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {% endif %}
+        {% endfor %}
+        <div class="blog-post-detail--end"></div>
+      </article>
+    </div>
+  </div>
+  {% if blog.comments_enabled? %}
+    {{ 'comments.css' | asset_url | stylesheet_tag }}
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="comments-wrapper page-content-width">
+          {% if article.comments_count > 0 %}
+            <div class="comments-container page-content-width" id="comments">
+              <h5 class="comments-title">
+                {{ 'blogs.article.comments_html' | t: count: article.comments_count, title: article.title }}
+              </h5>
+              <ul class="commentlist">
+                {% paginate article.comments by 5 %}
+                  {% for comment in article.comments %}
+                    <li class="comment">
+                      <img
+                        data-src="https://www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}?s=200"
+                        class="avatar lazyload"
+                        alt="{{ comment.author | escape }}"
+                        width="100"
+                        height="100"
+                      >
+                      <div class="comment-body">
+                        <div class="comment-author">
+                          <cite class="fn">{{ comment.author }}</cite>
+                        </div>
+                        <div class="comment-text">
+                          {{ comment.content }}
+                        </div>
+                        <a href="{{ comment.url }}" class="comment-meta">
+                          {{- comment.created_at | date: '%B %d, %Y' -}}
+                        </a>
+                      </div>
+                    </li>
+                  {% endfor %}
+                  {% if paginate.pages > 1 %}
+                    {{ paginate | default_pagination }}
+                  {% endif %}
+                {% endpaginate %}
+              </ul>
+            </div>
+          {% endif %}
+          <div class="respond-container page-content-width">
+            <div class="comment-respond">
+              {% form 'new_comment', article %}
+                {%- liquid
+                  assign post_message = 'blogs.article.success'
+                  if blog.moderated? and comment.status == 'unapproved'
+                    assign post_message = 'blogs.article.success_moderated'
+                  endif
+                -%}
+                <div class="comment-reply-title--container">
+                  <h5 id="reply-title" class="comment-reply-title">{{ 'blogs.article.comment_form_title' | t }}</h5>
+                  <p class="comment-notes">{{ 'blogs.article.comment_form_note' | t }}.</p>
+                </div>
+                {% if form.errors %}
+                  <div class="form-notification error">
+                    {% render 'svg-icons' with 'thb-error' %}
+                    {{ form.errors | default_errors }}
+                  </div>
+                {%- elsif form.posted_successfully? -%}
+                  <div class="form-notification success">
+                    {% render 'svg-icons' with 'thb-success' %}
+                    {{ post_message | t }}
+                  </div>
+                {%- endif -%}
+                <div class="comment-form-fields">
+                  <div class="field">
+                    <textarea
+                      name="comment[body]"
+                      class="full {% if form.errors contains 'body' %}invalid{% endif %}"
+                      id="CommentBody"
+                      placeholder="{{ 'blogs.article.message' | t }}"
+                    >{{ form.body }}</textarea>
+                    <label>{{ 'blogs.article.message' | t }}</label>
+                  </div>
+                  <div class="field">
+                    <input
+                      type="text"
+                      class="full {% if form.errors contains 'author' %}invalid{% endif %}"
+                      name="comment[author]"
+                      id="CommentAuthor"
+                      value="{{ form.author }}"
+                      autocapitalize="words"
+                      placeholder="{{ 'blogs.article.name' | t }}"
+                    >
+                    <label>{{ 'blogs.article.name' | t }}</label>
+                  </div>
+                  <div class="field">
+                    <input
+                      type="email"
+                      class="full {% if form.errors contains 'email' %}invalid{% endif %}"
+                      name="comment[email]"
+                      id="CommentEmail"
+                      value="{{ form.email }}"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      placeholder="{{ 'blogs.article.email' | t }}"
+                    >
+                    <label>{{ 'blogs.article.email' | t }}</label>
+                  </div>
+                </div>
+                <input class="button" type="submit" value="{{ 'blogs.article.post' | t | escape }}">
+              {% endform %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  	{% comment %} 获取店铺所有的商品 {% endcomment %}
+	{% paginate collections.all.products by 300 %}  
+	{% assign allProducts = collections.all.products %}
+	<script>
+		window.allProducts = [
+		{% for product in allProducts %}
+			{{ product | json }}{% unless forloop.last %},{% endunless %}
+		{% endfor %}
+		];
+	</script>
+	{% endpaginate %}
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 获取文章内容区域和摘要容器
+  const articleContent = document.querySelector('.post-content');
+  const summaryContainer = document.getElementById('article-summary-pc');
+  const summaryContainerMobile = document.getElementById('article-summary-mobile');
+  
+  // 如果缺少必要元素则退出
+  if (!articleContent) return;
+  
+  // 获取所有 h2 和 h3 标题
+  const headings = Array.from(articleContent.querySelectorAll('h2, h3'));
+  
+  // 如果没有标题则隐藏摘要容器并退出
+  if (headings.length === 0) {
+    summaryContainer.style.display = 'none';
+    summaryContainerMobile.style.display = 'none';
+    return;
+  }
+  
+  // 创建摘要列表
+  const summaryList = document.createElement('ul');
+  summaryList.className = 'summary-list';
+  
+  // 为每个标题创建摘要项
+  headings.forEach((heading, index) => {
+    // 确保标题有ID
+    if (!heading.id) {
+      heading.id = 'heading-' + index;
+    }
+    
+    // 创建摘要项
+    const listItem = document.createElement('li');
+    listItem.className = `summary-item summary-${heading.tagName.toLowerCase()}`;
+    
+    // 创建链接
+    const link = document.createElement('a');
+    link.href = '#' + heading.id;
+    link.textContent = heading.textContent;
+    link.className = 'summary-link';
+    link.dataset.target = heading.id;
+    
+    // 平滑滚动效果
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        // 更新URL哈希而不触发滚动
+        history.replaceState(null, null, this.getAttribute('href'));
+        
+        // 高亮当前项
+        highlightCurrentSummaryItem(heading.id);
+      }
+    });
+    
+    listItem.appendChild(link);
+    summaryList.appendChild(listItem);
+  });
+  
+  // 添加摘要标题和列表
+  const summaryTitle = document.createElement('div');
+  summaryTitle.textContent = 'Table of Contents';
+  summaryContainer.appendChild(summaryTitle);
+  summaryContainer.appendChild(summaryList);
+  summaryContainerMobile.appendChild(summaryTitle.cloneNode(true));
+  summaryContainerMobile.appendChild(summaryList.cloneNode(true));
+  
+  // 确保摘要容器可见（可能在CSS中默认隐藏）
+  summaryContainer.style.display = 'block';
+  summaryContainerMobile.style.display = 'block';
+  
+  // 初始化IntersectionObserver来检测可见标题
+  setupIntersectionObserver(headings);
+  
+  // 检查初始位置
+  setTimeout(() => {
+    checkVisibleHeadings(headings);
+  }, 100);
+  
+  // 高亮当前摘要项
+  function highlightCurrentSummaryItem(headingId) {
+    const allLinks = document.querySelectorAll('.summary-link');
+    allLinks.forEach(link => {
+      link.classList.toggle('active', link.dataset.target === headingId);
+    });
+  }
+  
+  // 设置IntersectionObserver来检测可见标题
+  function setupIntersectionObserver(headings) {
+    const options = {
+      root: null,
+      rootMargin: '0px 0px -50% 0px',
+      threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          highlightCurrentSummaryItem(entry.target.id);
+        }
+      });
+    }, options);
+    
+    headings.forEach(heading => {
+      observer.observe(heading);
+    });
+  }
+  
+  // 回退方案：手动检查可见标题
+  function checkVisibleHeadings(headings) {
+    if (!('IntersectionObserver' in window)) {
+      window.addEventListener('scroll', throttle(() => {
+        let currentHighlight = null;
+        const scrollPosition = window.scrollY + 100;
+        
+        headings.forEach(heading => {
+          const element = document.getElementById(heading.id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top + window.scrollY;
+            
+            if (elementTop <= scrollPosition) {
+              currentHighlight = heading.id;
+            }
+          }
+        });
+        
+        if (currentHighlight) {
+          highlightCurrentSummaryItem(currentHighlight);
+        }
+      }, 100));
+    }
+  }
+  
+  // 节流函数
+  function throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function() {
+      const context = this;
+      const args = arguments;
+      if (!lastRan) {
+        func.apply(context, args);
+        lastRan = Date.now();
+      } else {
+        clearTimeout(lastFunc);
+        lastFunc = setTimeout(function() {
+          if ((Date.now() - lastRan) >= limit) {
+            func.apply(context, args);
+            lastRan = Date.now();
+          }
+        }, limit - (Date.now() - lastRan));
+      }
+    };
+  }
+});
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    try {
+      // 文章中配置了多个容器和产品id, 这段js用于展示这些产品并支持快速购买
+
+      // 获取所有产品占位元素
+	//   <div data-product-id="" class="custom-product"></div>
+      const productContainers = document.querySelectorAll('.custom-product[data-product-id]');
+      
+      // 为每个容器渲染对应的产品
+      productContainers.forEach(productContainer => {
+        const productId = productContainer.dataset.productId;
+
+        // 直接使用Shopify全局产品对象（无需API调用）
+        const product = window.allProducts.find(p => 
+          p.id == productId
+        );
+        if (product) {
+          renderProductCard(productContainer, product);
+        }
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  });
+
+  function renderProductCard(container, product) {
+    if (!product?.variants?.length) return;
+
+    const variant = product.variants[0]; // 默认取第一个变体
+    const articleInfo = {{ article | json }}
+    const productUrl = `/products/${product.handle || product.id}?utm_source=blog&utm_medium=${encodeURIComponent(articleInfo.title)}&utm_product=${variant.id}`;
+
+    container.innerHTML = `
+      <div class="art-product-card">
+        <div class="art-discount-badge" style="display:${product.compare_at_price > variant.price ? 'block' : 'none'}">$${((product.compare_at_price - variant.price) / 100).toFixed(2)} OFF</div>
+        <div class="art-product-image">
+          <img src="${product.featured_image}" alt="Projector Image">
+        </div>
+        <div class="product-details">
+          <div class="product-title">${product.title}</div>
+		  <div class="art-product-price">
+		  	  <span class="price">${formatPrice(variant.price)}</span>
+              <span class="original-price" style="display:${product.compare_at_price > variant.price ? 'block' : 'none'}">${formatPrice(variant.compare_at_price)}</span>
+		  </div>
+          <div class="price-buttons">
+            <a href="${productUrl}" class="button view-details-button learn-more">
+              Learn More
+            </a>
+            <button class="button buy-now-button buy-now" data-variant-id="${variant.id}">
+
+              <span style='margin-left:5px;'> Buy Now</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // 绑定 Buy Now 点击事件
+    const buyNowButton = container.querySelector('.buy-now-button');
+    if (buyNowButton) {
+      buyNowButton.addEventListener('click', handleBuyNow);
+    }
+  }
+
+  // 直接结账逻辑
+  async function handleBuyNow(e) {
+    const variantId = this.dataset.variantId;
+    const articleInfo = {{ article | json }}
+    try {
+      // 1. 加入购物车
+      await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity: 1 }),
+      });
+
+      // 2. 跳转结账页
+      window.location.href = `/checkout?utm_source=blog&utm_medium=${encodeURIComponent(articleInfo.title)}&utm_product=${variantId}`;
+      
+    } catch (error) {
+      console.error('结账失败:', error);
+    }
+  }
+  
+  // 价格格式化函数
+  function formatPrice(price) {
+    return `$${(price/100).toFixed(2)}`;
+  }
+</script>
+
+<style>
+    .art-product-card {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #f4f4f4;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      display: flex;
+    }
+    .art-product-card .art-discount-badge {
+      background-color: #c62a32;
+      font-size: 14px;
+      color: white;
+      padding: 5px 12px;
+      border-radius:  20px 0 20px 0;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+   .art-product-card .art-product-image {
+      margin-right: 20px;
+      width: 30%;
+      display: flex;
+    }
+    .art-product-card .product-details{
+     	flex: 1;
+	    display: flex;
+		flex-direction: column;
+		justify-content: center;
+    }
+   .art-product-card .art-product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      object-fit: contain;
+    }
+
+   .art-product-card .product-title {
+      font-size: 20px;
+      color: #000;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .art-product-card .product-description li,
+    .art-product-card .product-description p{
+      font-size: 14px;
+      color: #333;
+    }
+   .art-product-card .product-description {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 20px;
+      text-align: left;
+      padding: 0 5px;
+    }
+   .art-product-card .price-buttons {
+		display: flex;
+    }
+   .art-product-card .price-buttons button {
+      padding: 12px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+	  width: 100%;
+    }
+   .art-product-card .price-buttons .learn-more {
+      background-color: white;
+      color: #00d0cd;
+      border: 2px solid #00d0cd;
+      font-size: 18px;
+      padding: 12px 20px;
+	  width: 100%;
+    }
+   .art-product-card .price-buttons .buy-now {
+      background-color: #00d0cd;
+      color: white;
+    }
+   .art-product-card .price-buttons .original-price {
+      text-decoration: line-through;
+      color: #fff;
+      margin: 0 5px;
+      font-size: 12px;
+    }
+	.art-product-price{
+		display: flex;
+		margin-bottom: 10px;
+	}
+	.art-product-price .price{
+		font-size: 24px;
+    	color: #00d0cd;
+	}
+	.art-product-price .original-price{
+		display: block;
+		font-size: 22px;
+		text-decoration: line-through;
+		margin-left: 10px;
+		color: #78716f;
+	}
+  @media screen and (max-width: 767px) {
+    .art-product-card{
+      flex-direction: column;
+      padding: 0px;
+    }
+    .art-product-card .art-product-image{
+      width: 100%;
+    }
+    .art-product-card .art-product-image img{
+      border-radius: 20px 20px 0 0;
+    }
+    .art-product-card .product-details{
+      padding: 5px;
+    }
+     .art-product-card .price-buttons {
+      display: flex;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    .art-product-card .price-buttons .learn-more{
+      font-size: 12px;
+      padding: 6px 14px;
+    }
+    .art-product-card .price-buttons button{
+      margin-right: 0px;
+    }
+  }
+</style>
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+{% schema %}
+{
+"name": "Blog post",
+"class": "article-section",
+  "settings": [
+	{
+		"type": "header",
+		"content": "Settings"
+	},
+	{
+		"type": "checkbox",
+		"id": "article_show_date",
+		"label": "Show date",
+		"default": true
+	},
+	{
+		"type": "checkbox",
+		"id": "article_show_author",
+		"label": "Show author",
+		"default": true
+	},
+	{
+		"type": "checkbox",
+		"id": "article_show_nav",
+		"label": "Show sticky information",
+		"default": true
+	},
+	{
+		"type": "checkbox",
+		"id": "article_show_sharing",
+		"label": "Show sharing buttons",
+		"default": true
+	},
+	{
+		"type": "paragraph",
+		"content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+	},
+	{
+		"type": "paragraph",
+		"content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+	}
+  ],
+"blocks": [
+	{
+     "type": "@app"
+   },
+	{
+      "type": "title",
+      "name": "Title",
+     "limit": 1
+    },
+	{
+      "type": "post_navigation",
+      "name": "Next article",
+     "limit": 1
+    },
+	{
+      "type": "content",
+      "name": "Content",
+"settings": [
+	{
+		"id": "collection_title",
+		"type": "text",
+		"label": "Collection Title"
+	},
+	{
+		"type": "collection",
+		"id": "grid_collection",
+		"label": "Collection"
+	},
+	{
+		"type": "header",
+		"content": "Sign Up Settings"
+	},
+	{
+		"type": "checkbox",
+		"id": "show_signup",
+		"label": "Show Sign Up",
+		"default": true
+	},
+	{
+		"id": "title",
+		"type": "text",
+		"label": "Title"
+	},
+	{
+		"type": "richtext",
+		"id": "text",
+		"label": "Text",
+		"default": "<p>Add a text to attract more customers to <strong>sign up!</strong></p>"
+	}
+
+],
+     "limit": 1
+    },
+	{
+      "type": "tags",
+      "name": "Tags",
+     "limit": 1
+    }
+  ]
+}
+{% endschema %}

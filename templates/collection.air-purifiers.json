@@ -1,0 +1,202 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 150,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": true
+      }
+    },
+    "image_with_text_overlay_zhty9L": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_F3VqAr": {
+          "type": "heading",
+          "settings": {
+            "text": "Air Purifiers",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_F3VqAr"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/fad017e2ff29b86f18f6f79c9840cba3.png",
+        "mobile_image": "shopify:\/\/shop_images\/e8575164c9e97cf20c81dbe9f3c04050_d06b12e7-1cfe-4b2e-a39a-880482a9733e.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-right",
+        "text_alignment": "right",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "pagination_type": "paginated",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_counts": false,
+        "filter_color_swatches": false,
+        "filters_collapsed": false,
+        "enable_compare": true,
+        "facets_desktop": "drawer"
+      }
+    },
+    "9e57bc14-72e8-48b3-81d3-9b209e520fd0": {
+      "type": "media-grid",
+      "blocks": {
+        "media_yQi3A7": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "",
+            "heading": "Promotional Video",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-0": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "Media grid\nHeading",
+            "heading_size": "h3",
+            "button_text": "Learn more",
+            "button_link": "",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        },
+        "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-1": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "Media grid\nHeading",
+            "heading_size": "h3",
+            "button_text": "Learn more",
+            "button_link": "",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 15
+          }
+        }
+      },
+      "block_order": [
+        "media_yQi3A7",
+        "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-0",
+        "template--17918041260314__9e57bc14-72e8-48b3-81d3-9b209e520fd0-1678353048d7c75c7a-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "large",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "image_with_text_overlay_zhty9L",
+    "product-grid",
+    "9e57bc14-72e8-48b3-81d3-9b209e520fd0"
+  ]
+}

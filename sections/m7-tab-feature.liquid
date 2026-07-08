@@ -1,0 +1,679 @@
+{% comment %}
+  M7 tab feature section
+  Dark tabbed feature block with desktop/mobile image support.
+{% endcomment %}
+
+<section
+  id="m7-tab-feature-{{ section.id }}"
+  class="m7-tab-feature"
+  data-m7-tab-feature
+>
+  <div class="m7-tab-feature__tabs" role="tablist" aria-label="Product features">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign tab_label = block.settings.tab_label | default: block.settings.heading
+        assign is_active = false
+        if forloop.first
+          assign is_active = true
+        endif 
+      -%}  
+      <button
+        class="m7-tab-feature__tab{% if is_active %} is-active{% endif %}"
+        type="button"
+        role="tab"
+        id="m7-tab-feature-tab-{{ section.id }}-{{ block.id }}"
+        aria-controls="m7-tab-feature-panel-{{ section.id }}-{{ block.id }}"
+        aria-selected="{% if is_active %}true{% else %}false{% endif %}"
+        data-m7-tab-index="{{ forloop.index0 }}"
+        {{ block.shopify_attributes }}
+      >
+        <span>{{ tab_label }}</span>
+      </button>
+    {%- endfor -%}
+  </div>
+
+  <div class="m7-tab-feature__stage">
+    <div class="m7-tab-feature__inner">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign image_desktop = block.settings.image_desktop
+          assign image_mobile = block.settings.image_mobile | default: image_desktop
+          assign heading = block.settings.heading
+          assign image_alt = image_desktop.alt | default: heading
+          assign mobile_alt = image_mobile.alt | default: heading
+          assign is_active = false
+          if forloop.first
+            assign is_active = true
+          endif
+        -%}
+        <div
+          class="m7-tab-feature__panel{% if is_active %} is-active{% endif %}"
+          id="m7-tab-feature-panel-{{ section.id }}-{{ block.id }}"
+          role="tabpanel"
+          aria-labelledby="m7-tab-feature-tab-{{ section.id }}-{{ block.id }}"
+          {% unless is_active %}hidden{% endunless %}
+          data-m7-tab-panel
+        >
+          {%- if heading != blank -%}
+            <h2 class="m7-tab-feature__heading">{{ heading }}</h2>
+          {%- endif -%}
+
+          <div class="m7-tab-feature__media-shell">
+            <button class="m7-tab-feature__arrow m7-tab-feature__arrow--prev" type="button" aria-label="Previous tab" data-m7-tab-prev>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.7 6.3 9 12l5.7 5.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <div class="m7-tab-feature__media">
+              {%- if image_desktop != blank -%}
+                <picture>
+                  {%- if image_mobile != blank -%}
+                    <source
+                      media="(max-width: 768px)"
+                      srcset="
+                        {{ image_mobile | image_url: width: 480 }} 480w,
+                        {{ image_mobile | image_url: width: 720 }} 720w,
+                        {{ image_mobile | image_url: width: 960 }} 960w
+                      "
+                      sizes="calc(100vw - 80px)"
+                    >
+                  {%- endif -%}
+                  <img
+                    class="m7-tab-feature__image"
+                    src="{{ image_desktop | image_url: width: 1200 }}"
+                    srcset="
+                      {{ image_desktop | image_url: width: 600 }} 600w,
+                      {{ image_desktop | image_url: width: 900 }} 900w,
+                      {{ image_desktop | image_url: width: 1200 }} 1200w
+                    "
+                    sizes="(min-width: 769px) {{ section.settings.image_width }}px, calc(100vw - 80px)"
+                    alt="{{ image_alt | escape }}"
+                    loading="lazy"
+                  >
+                </picture>
+              {%- elsif image_mobile != blank -%}
+                <img
+                  class="m7-tab-feature__image"
+                  src="{{ image_mobile | image_url: width: 960 }}"
+                  srcset="
+                    {{ image_mobile | image_url: width: 480 }} 480w,
+                    {{ image_mobile | image_url: width: 720 }} 720w,
+                    {{ image_mobile | image_url: width: 960 }} 960w
+                  "
+                  sizes="calc(100vw - 80px)"
+                  alt="{{ mobile_alt | escape }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="m7-tab-feature__placeholder">
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {%- endif -%}
+            </div>
+
+            <button class="m7-tab-feature__arrow m7-tab-feature__arrow--next" type="button" aria-label="Next tab" data-m7-tab-next>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m9.3 6.3 5.7 5.7-5.7 5.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --m7-mobile-sticky-height: 100vh;
+    --m7-sticky-offset: 0px;
+    background: #000000;
+    height: auto;
+  }
+
+  #m7-tab-feature-{{ section.id }} {
+    position: relative;
+    top: auto;
+    background: #000000;
+    color: #ffffff;
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+  }
+
+  @media (min-width: 769px) {
+    #shopify-section-{{ section.id }} {
+      height: calc(100vh + {{ section.blocks.size | minus: 1 | times: 80 }}vh);
+    }
+
+    #m7-tab-feature-{{ section.id }} {
+      position: sticky;
+      top: var(--m7-sticky-offset);
+    }
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__tabs {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 150px;
+    padding: 0 max(20px, calc((100vw - {{ section.settings.image_width }}px) / 2));
+    background: #272727;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__tab {
+    position: relative;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+    opacity: 0.3;
+    font: inherit;
+    font-size: {{ section.settings.tab_size }}px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 180ms ease;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__tab span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 8px;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__tab span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    width: calc(100% - 16px);
+    height: 4px;
+    background: #d46d06;
+    opacity: 0.66;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__tab.is-active {
+    color: #ffffff;
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__tab.is-active span::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__stage {
+    position: relative;
+    padding: 45px 20px 34px;
+    background: #000000;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__inner {
+    width: {{ section.settings.image_width }}px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__panel {
+    text-align: center;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__panel[hidden] {
+    display: none;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__heading {
+    width: 100%;
+    margin: 0 auto 40px;
+    color: #ffffff;
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: pre-line;
+    min-height: calc({{ section.settings.heading_size }}px * 1.2 * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__media-shell {
+    position: relative;
+    width: {{ section.settings.image_width }}px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+ 
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__media {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #151515;
+    line-height: 0;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__image,
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__placeholder,
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__placeholder svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__image {
+    object-fit: cover;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__placeholder {
+    aspect-ratio: 2 / 1;
+    color: rgba(255, 255, 255, 0.24);
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 42px;
+    padding: 0;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__arrow:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+    opacity: 1;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__arrow svg {
+    width: 28px;
+    height: 52px;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__arrow--prev {
+    left: -88px;
+  }
+
+  #m7-tab-feature-{{ section.id }} .m7-tab-feature__arrow--next {
+    right: -88px;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      height: auto;
+    }
+
+    #m7-tab-feature-{{ section.id }} {
+      position: relative;
+      top: auto;
+      height: auto;
+      overflow: visible;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__tabs {
+      min-height: 41px;
+      padding: 0 44px;
+      overflow-x: auto;
+      justify-content: flex-start;
+      gap: 34px;
+      scrollbar-width: none;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__tab {
+      font-size: {{ section.settings.mobile_tab_size }}px;
+      white-space: nowrap;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__tab span::after {
+      bottom: 9px;
+      width: 28px;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__stage {
+      padding: 44px 38px 56px;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__heading {
+      width: 100%;
+      margin-bottom: 24px;
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      line-height: 1.08;
+      min-height: calc({{ section.settings.mobile_heading_size }}px * 1.08 * 2);
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__media-shell,
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__media {
+      width: 100%;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__media {
+      aspect-ratio: 2 / 1;
+      border-radius: 6px;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__placeholder {
+      aspect-ratio: 2 / 1;
+    }
+
+    #m7-tab-feature-{{ section.id }} .m7-tab-feature__arrow {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  (function() {
+    var section = document.getElementById('m7-tab-feature-{{ section.id }}');
+    if (!section) return;
+
+    var scrollSection = document.getElementById('shopify-section-{{ section.id }}');
+    var tabList = section.querySelector('.m7-tab-feature__tabs');
+    var stage = section.querySelector('.m7-tab-feature__stage');
+    var tabs = Array.prototype.slice.call(section.querySelectorAll('[data-m7-tab-index]'));
+    var panels = Array.prototype.slice.call(section.querySelectorAll('[data-m7-tab-panel]'));
+    var current = 0;
+    var ticking = false;
+    var touchStartX = null;
+    var touchStartY = null;
+
+    if (!tabs.length || !panels.length) return;
+
+    function updateStickyOffset() {
+      if (!scrollSection) return;
+
+      var promoBar = document.getElementById('epb_background');
+      var offset = 0;
+
+      if (promoBar) {
+        var rect = promoBar.getBoundingClientRect();
+        offset = Math.max(0, rect.height);
+      }
+
+      scrollSection.style.setProperty('--m7-sticky-offset', offset + 'px');
+    }
+
+    function scrollActiveTabIntoView() {
+      if (!tabList || !tabs[current] || !window.matchMedia('(max-width: 768px)').matches) return;
+
+      var activeTab = tabs[current];
+      var targetScrollLeft = activeTab.offsetLeft - ((tabList.clientWidth - activeTab.offsetWidth) / 2);
+      var maxScrollLeft = Math.max(tabList.scrollWidth - tabList.clientWidth, 0);
+
+      tabList.scrollTo({
+        left: Math.min(Math.max(targetScrollLeft, 0), maxScrollLeft),
+        behavior: 'smooth'
+      });
+    }
+
+    function setActive(index, options) {
+      var shouldScrollTab = options && options.scrollTab;
+      current = (index + tabs.length) % tabs.length;
+
+      tabs.forEach(function(tab, tabIndex) {
+        var active = tabIndex === current;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      panels.forEach(function(panel, panelIndex) {
+        var active = panelIndex === current;
+        panel.classList.toggle('is-active', active);
+        panel.hidden = !active;
+      });
+
+      if (shouldScrollTab) scrollActiveTabIntoView();
+    }
+
+    function updateFromScroll() {
+      if (!scrollSection || tabs.length < 2) return;
+      if (window.matchMedia('(max-width: 768px)').matches) return;
+
+      var rect = scrollSection.getBoundingClientRect();
+      var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      var scrollDistance = Math.max(rect.height - viewportHeight, 1);
+      var progress = Math.min(Math.max(-rect.top / scrollDistance, 0), 1);
+      var nextIndex = Math.min(tabs.length - 1, Math.floor(progress * tabs.length));
+
+      setActive(nextIndex);
+    }
+
+    function requestScrollUpdate() {
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(function() {
+        updateStickyOffset();
+        updateFromScroll();
+        ticking = false;
+      });
+    }
+
+    tabs.forEach(function(tab, index) {
+      tab.addEventListener('click', function() {
+        setActive(index, { scrollTab: true });
+      });
+    });
+
+    section.addEventListener('click', function(event) {
+      if (event.target.closest('[data-m7-tab-prev]')) {
+        event.preventDefault();
+        setActive(current - 1, { scrollTab: true });
+        return;
+      }
+
+      if (event.target.closest('[data-m7-tab-next]')) {
+        event.preventDefault();
+        setActive(current + 1, { scrollTab: true });
+      }
+    });
+
+    section.addEventListener('keydown', function(event) {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        setActive(current - 1, { scrollTab: true });
+        tabs[current].focus();
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        setActive(current + 1, { scrollTab: true });
+        tabs[current].focus();
+      }
+    });
+
+    if (stage) {
+      stage.addEventListener('touchstart', function(event) {
+        if (!window.matchMedia('(max-width: 768px)').matches) return;
+        if (!event.touches || event.touches.length !== 1) return;
+
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+      }, { passive: true });
+
+      stage.addEventListener('touchend', function(event) {
+        if (!window.matchMedia('(max-width: 768px)').matches) return;
+        if (touchStartX === null || touchStartY === null) return;
+        if (!event.changedTouches || !event.changedTouches.length) return;
+
+        var deltaX = event.changedTouches[0].clientX - touchStartX;
+        var deltaY = event.changedTouches[0].clientY - touchStartY;
+        var absX = Math.abs(deltaX);
+        var absY = Math.abs(deltaY);
+
+        touchStartX = null;
+        touchStartY = null;
+
+        if (absX < 40 || absX <= absY) return;
+
+        setActive(deltaX < 0 ? current + 1 : current - 1, { scrollTab: true });
+      }, { passive: true });
+
+      stage.addEventListener('touchcancel', function() {
+        touchStartX = null;
+        touchStartY = null;
+      }, { passive: true });
+    }
+
+    updateStickyOffset();
+    updateFromScroll();
+    window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+    window.addEventListener('resize', requestScrollUpdate);
+    window.addEventListener('load', requestScrollUpdate);
+
+    if (window.ResizeObserver) {
+      var promoBar = document.getElementById('epb_background');
+      if (promoBar) {
+        var stickyOffsetObserver = new ResizeObserver(requestScrollUpdate);
+        stickyOffsetObserver.observe(promoBar);
+      }
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "M7 Tab Feature",
+  "tag": "section",
+  "class": "section-m7-tab-feature",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "range",
+      "id": "tab_size",
+      "label": "Tab text size",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "image_width",
+      "label": "Image width (px)",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "mobile_tab_size",
+      "label": "Mobile tab text size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 16,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab label",
+          "default": "Noise"
+        },
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading",
+          "default": "relaxing clean-runsQuiet operation fora at <=65dBA."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Desktop image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M7 Tab Feature",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Noise",
+            "heading": "relaxing clean-runsQuiet operation fora at <=65dBA."
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "bactericidal",
+            "heading": "bactericidal cleaning for everyday wet messes."
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Dual tank",
+            "heading": "Dual tank design keeps clean and dirty water apart."
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "2-year warranty",
+            "heading": "2-year warranty support for long-term peace of mind."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,204 @@
+/* 原有基础样式保持不变 */
+.media-grid--item.has-link--true .media-grid--bg img,
+.media-grid--item.has-link--true .media-grid--bg video {
+  transition: all 1s cubic-bezier(0.104, 0.204, 0.492, 1); }
+
+.media-grid--item {
+  isolation: isolate;
+  border-radius: var(--block-border-radius, 16px); }
+
+.media-grid--item {
+  box-shadow: var(--block-shadows); }
+/* 隐藏按钮的初始状态 */
+.media-grid--item .text-button {
+  opacity: 0; /* 完全透明 */
+  visibility: hidden; /* 隐藏元素 */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 鼠标悬停时显示按钮 */
+.media-grid--item:hover .text-button, .media-grid--item .always-show-button {
+  opacity: 1; /* 完全可见 */
+  visibility: visible; /* 显示元素 */
+}
+.media-grid--inner {
+  padding: 0 15px;
+  max-width: var(--grid-width-row, 1380px);
+  margin-left: auto;
+  margin-right: auto; }
+  @media only screen and (min-width: 768px) {
+    .media-grid--inner {
+      padding: 0 50px; } }
+
+.media-grid--inner {
+  display: grid;
+  grid-auto-flow: dense;
+  width: 100%;
+  align-items: start;
+  grid: auto-flow dense var(--mobile-height)/repeat(2, minmax(0, 1fr)); }
+  @media only screen and (min-width: 768px) {
+    .media-grid--inner {
+      grid: auto-flow dense var(--desktop-height)/repeat(4, minmax(0, 1fr)); } }
+  @media only screen and (max-width: 767px) {
+    .media-grid--inner.swipe-on-mobile {
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(var(--mobile-swipe-width), 1fr);
+      overflow-x: auto;
+      grid-template-columns: repeat(auto-fill, minmax(var(--mobile-swipe-width), 1fr));
+      scroll-snap-type: x mandatory;
+      grid-template-rows: var(--mobile-height);
+      padding-bottom: 10px; }
+      .media-grid--inner.swipe-on-mobile .media-grid--item {
+        scroll-snap-align: center;
+        grid-area: auto; } 
+    .media-grid--item .text-button{
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+/* 修改后的媒体网格项样式 */
+
+.media-grid--item {
+  background: var(--color-bg-gradient, var(--color-bg, #fff));
+  color: var(--color-text, var(--color-body, #2c2d2e));
+  overflow: hidden;
+  padding: 25px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  grid-area: span var(--row-span)/span var(--column-span--mobile); }
+  @media only screen and (min-width: 768px) {
+    .media-grid--item {
+      padding: 35px;
+      grid-area: span var(--row-span)/span var(--column-span); } }
+  
+  /* 标题样式 - 添加自定义支持 */
+  .media-grid--item h4 {
+    color: var(--heading-color, var(--color-text, var(--color-body, #2c2d2e)));
+    font-size: var(--heading-font-size, inherit);
+    margin: 0 0 10px 0;
+    line-height: 1.3; }
+    .media-grid--item h4.media-grid--heading-no-margin {
+      margin-bottom: 0; }
+  
+  /* 子标题样式 - 添加自定义支持 */
+  .media-grid--item .subheading {
+    color: var(--subheading-color, var(--color-text, var(--color-body, #2c2d2e)));
+    font-size: var(--subheading-font-size, 0.9em);
+    opacity: var(--subheading-opacity, 0.8);
+    margin: 0 0 10px 0; }
+  
+  /* 链接样式 - 添加自定义支持 */
+  .media-grid--link {
+    position: absolute;
+    top: var(--link-position-top, 0);
+    left: var(--link-position-left, 0);
+    right: var(--link-position-right, auto);
+    bottom: var(--link-position-bottom, auto);
+    width: var(--link-width, 100%);
+    height: var(--link-height, 100%);
+    z-index: 21;
+    color: var(--link-color, inherit);
+    font-size: var(--link-font-size, inherit); }
+  
+  /* 内容位置样式保持不变 */
+  .media-grid--item.content-top-left {
+    justify-content: flex-start;
+    align-items: flex-start; }
+  .media-grid--item.content-top-center {
+    justify-content: center;
+    align-items: flex-start; }
+  .media-grid--item.content-top-right {
+    justify-content: flex-end;
+    align-items: flex-start; }
+  .media-grid--item.content-middle-left {
+    justify-content: flex-start;
+    align-items: center; }
+  .media-grid--item.content-middle-center {
+    justify-content: center;
+    align-items: center; }
+  .media-grid--item.content-middle-right {
+    justify-content: flex-end;
+    align-items: center; }
+  .media-grid--item.content-bottom-left {
+    justify-content: flex-start;
+    align-items: flex-end; }
+  .media-grid--item.content-bottom-center {
+    justify-content: center;
+    align-items: flex-end; }
+  .media-grid--item.content-bottom-right {
+    justify-content: flex-end;
+    align-items: flex-end; }
+  
+  .media-grid--item.has-link--true:hover .media-grid--bg img,
+  .media-grid--item.has-link--true:hover .media-grid--bg video {
+    transform: scale(1.07); }
+  .media-grid--item.has-link--true .text-button {
+    position: relative;
+    z-index: 22; }
+
+/* 背景样式保持不变 */
+.media-grid--bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--color-bg-gradient, var(--color-bg, #fff)); }
+  .media-grid--bg img,
+  .media-grid--bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; }
+  .media-grid--bg:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background: rgba(var(--overlay-color-rgb), var(--overlay-opacity)); }
+
+/* 内容区域样式 */
+.media-grid--content {
+  z-index: 2;
+  text-align: var(--text-alignment);
+}
+  .media-grid--content > *:last-child {
+    margin-bottom: 0; }
+  .media-grid--content.text-left {
+    text-align: left; }
+  .media-grid--content.text-center {
+    text-align: center; }
+  .media-grid--content.text-right {
+    text-align: right; }
+/* h4 自定义字体大小和颜色 */
+.media-grid--item h4 {
+  font-size: var(--heading-font-size, 1.5rem); /* 默认值为 1.5rem */
+  color: var(--heading-color, var(--color-text, #2c2d2e)); /* 默认值为 --color-text */
+}
+
+/* subheading 自定义字体大小和颜色 */
+.media-grid--item .subheading {
+  font-size: var(--subheading-font-size, 1rem); /* 默认值为 1rem */
+  color: var(--subheading-color, var(--color-text, #2c2d2e)); /* 默认值为 --color-text */
+}
+
+/* media-grid--link 自定义字体大小、颜色和位置 */
+.media-grid--link {
+  position: absolute;
+  top: var(--link-top, 0); /* 默认值为 0 */
+  left: var(--link-left, 0); /* 默认值为 0 */
+  width: var(--link-width, 100%); /* 默认值为 100% */
+  height: var(--link-height, 100%); /* 默认值为 100% */
+  z-index: 21;
+  font-size: var(--link-font-size, 1rem); /* 默认值为 1rem */
+  color: var(--link-color, inherit); /* 默认值为继承父级颜色 */
+}

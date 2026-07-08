@@ -1,0 +1,202 @@
+{%- liquid
+  assign header_source = section
+  if block != blank
+    assign header_source = block
+  endif
+  assign header_settings = header_source.settings
+  assign header_id = header_source.id
+-%}
+
+<div class="xmax_section__header sh-{{ header_id }}" style="--title-icon-size: {{ header_settings.title_icon_size | default: 40 }}px; --title-icon-size-mobile: {{ header_settings.title_icon_size_mobile | default: header_settings.title_icon_size | default: 40 }}px;">
+      {% if header_settings.title != blank %}
+        <div class="xmax_section__title-row">
+          {% if header_settings.show_title_icons and header_settings.title_icon != blank %}
+            <img class="xmax_section__title-icon xmax_section__title-icon--left" src="{{ header_settings.title_icon | image_url: width: 128 }}" alt="" loading="lazy">
+          {% endif %}
+          <h2 class="xmax_section__title">{{ header_settings.title }}</h2>
+          {% if header_settings.show_title_icons and header_settings.title_icon != blank %}
+            <img class="xmax_section__title-icon xmax_section__title-icon--right{% if header_settings.title_icon_mirror_right %} is-mirror{% endif %}" src="{{ header_settings.title_icon | image_url: width: 128 }}" alt="" loading="lazy">
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="xmas-view-more-container">
+        {% assign show_sub = true %}
+        {% if header_settings.show_sub_heading != nil and header_settings.show_sub_heading == false %}
+          {% assign show_sub = false %}
+        {% endif %}
+        {% if header_settings.sub_heading != blank and show_sub %}
+            <p class="xmas-sub-heading">{{ header_settings.sub_heading }}</p>
+        {% endif %}
+        {% if header_settings.view_more_link != blank %}
+          <a class="xmas-viewmore" target="_blank" rel="noopener" href="{{ header_settings.view_more_link }}">{{ header_settings.view_more_label | default: 'View More ' }}</a>
+          {% comment %} <a class="xmas-viewmore" href="{{ header_settings.view_more_link }}">{{ header_settings.view_more_label | default: 'View More ' }}<img style="width:16px;" src="{{ 'xmax-icon5.png' | asset_url }}" alt="" loading="lazy"></a> {% endcomment %}
+        {% endif %}
+      </div>
+    </div>
+
+<style>
+  .xmax_section__header { 
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    flex-direction: column;
+  }
+
+  .sh-{{ header_id }} .xmax_section__title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px; 
+  }
+  .sh-{{ header_id }} .xmax_section__title-row::after{
+    content: "";
+  }
+  .sh-{{ header_id }} .xmax_section__title {
+    color: {{ header_settings.title_color | default: '#fff' }};
+    font-size: {{ header_settings.title_size | default: 32 }}px;
+    font-weight: 800;
+    margin: 0;
+  } 
+  .sh-{{ header_id }} .xmax_section__title-icon {
+    width: var(--title-icon-size, 40px);
+    height: var(--title-icon-size, 40px);
+    object-fit: contain;
+  }
+  .sh-{{ header_id }} .xmax_section__title-icon--right.is-mirror {
+    transform: scaleX(-1);
+  }
+  .sh-{{ header_id }} .xmas-sub-heading{
+    color: {{ header_settings.sub_heading_color | default: '#fff' }};
+    font-size: {{ header_settings.sub_heading_size | default: 18 }}px;
+    margin-bottom: 0;
+  }
+  .xmax_section__header.sh-{{ header_id }} { 
+    margin-bottom: {{ header_settings.margin_bottom | default: 20 }}px;
+    text-align: {{ header_settings.text_align | default: 'center' }};
+  }
+  .sh-{{ header_id }} .xmax_section__title-row {
+    display: flex;
+    align-items: center;
+    justify-content: {{ header_settings.text_align | replace: 'left', 'flex-start' | replace: 'right', 'flex-end' | default: 'center' }};
+    gap: 16px;
+  }
+  .sh-{{ header_id }} .xmas-view-more-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: {{ header_settings.text_align | replace: 'left', 'flex-start' | replace: 'right', 'flex-end' | default: 'center' }};
+    gap: 20px;
+  }
+  .sh-{{ header_id }}  .xmas-viewmore { 
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid {{ header_settings.view_more_border_color | default: '#fff' }};
+    font-size: 14px;
+    color: {{ header_settings.view_more_color | default: '#fff' }};
+    background: {{ header_settings.view_more_bg | default: 'transparent' }};
+    border-radius: 99px;
+    padding: 4px 24px;
+    text-decoration: none;
+    margin: 15px 0;
+  }
+
+  /* 内容图片容器样式 */
+  @media (max-width: 768px) {
+    .sh-{{ header_id }} .xmax_section__title-icon {
+      width: var(--title-icon-size-mobile, 30px);
+      height: var(--title-icon-size-mobile, 30px);
+    }
+    .xmax_section__header{
+          margin-bottom: 30px;
+    }
+    .xmax_section__header.sh-{{ header_id }} { 
+      margin-bottom: 20px;
+      text-align: {{ header_settings.text_align | default: 'center' }};
+    }
+    .sh-{{ header_id }}  .bf-discount-section { padding: 30px 0; }
+    .sh-{{ header_id }}  .xmas-view-more-container { 
+      flex-direction: row;
+        gap: 5px;
+    }
+    .sh-{{ header_id }}  .xmax_section__title { font-size: {{ header_settings.title_size_mobile | default: 20 }}px; text-align: center;  line-height: 1.4;}
+    .sh-{{ header_id }}  .xmax_section__title-row { gap: 10px; }
+      .sh-{{ header_id }} .xmas-sub-heading{
+      color: {{ header_settings.sub_heading_color | default: '#fff' }};
+      font-size: {{ header_settings.sub_heading_size_mobile | default: 12 }}px;
+      text-align: {{ header_settings.text_align | default: 'center' }};
+    }
+    .sh-{{ header_id }} .xmas-viewmore{
+      padding: 2px 12px;
+      font-size: 10px;
+    }
+
+      .sh-{{ header_id }} .xmax_section__title-icon--right.is-mirror {
+        transform: scaleX(-1);
+      }
+  }
+</style>
+{% comment %} 
+
+    {
+      "type": "header",
+      "content": "Section Header 设置"
+    },     
+     {
+          "type": "text",
+          "id": "title",
+          "label": "Section Title",
+          "default": "Spin & Win"
+      },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    }
+
+{% endcomment %} 

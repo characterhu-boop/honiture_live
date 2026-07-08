@@ -1,0 +1,654 @@
+{% comment %}
+  M7 cleaning system section
+  Separate desktop/mobile background images with scroll-activated feature points.
+{% endcomment %}
+
+<section
+  id="m7-cleaning-system-{{ section.id }}"
+  class="m7-cleaning-system"
+  data-m7-cleaning-system
+>
+  <div class="m7-cleaning-system__media">
+    {%- liquid
+      assign mobile_video = section.settings.video_mobile
+      if mobile_video == blank
+        assign mobile_video = section.settings.video_pc
+      endif
+    -%}
+
+    {%- if section.settings.video_pc != blank -%}
+      {{
+        section.settings.video_pc
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          controls: false,
+          playsinline: true,
+          class: 'm7-cleaning-system__video m7-cleaning-system__video--desktop'
+      }}
+    {%- elsif section.settings.image_pc != blank -%}
+      <img 
+        class="m7-cleaning-system__image m7-cleaning-system__image--desktop"
+        src="{{ section.settings.image_pc | image_url: width: 1800 }}"
+        srcset="
+          {{ section.settings.image_pc | image_url: width: 900 }} 900w,
+          {{ section.settings.image_pc | image_url: width: 1400 }} 1400w,
+          {{ section.settings.image_pc | image_url: width: 1800 }} 1800w
+        "
+        sizes="100vw"
+        alt="{{ section.settings.image_pc.alt | default: section.settings.title | escape }}"
+        loading="lazy"
+      >
+    {%- endif -%}
+
+    {%- if mobile_video != blank -%}
+      {{
+        mobile_video
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          controls: false,
+          playsinline: true,
+          class: 'm7-cleaning-system__video m7-cleaning-system__video--mobile'
+      }}
+    {%- elsif section.settings.image_mobile != blank -%}
+      <img
+        class="m7-cleaning-system__image m7-cleaning-system__image--mobile"
+        src="{{ section.settings.image_mobile | image_url: width: 900 }}"
+        srcset="
+          {{ section.settings.image_mobile | image_url: width: 480 }} 480w,
+          {{ section.settings.image_mobile | image_url: width: 720 }} 720w,
+          {{ section.settings.image_mobile | image_url: width: 900 }} 900w
+        "
+        sizes="100vw"
+        alt="{{ section.settings.image_mobile.alt | default: section.settings.title | escape }}"
+        loading="lazy"
+      >
+    {%- elsif section.settings.image_pc != blank -%}
+      <img
+        class="m7-cleaning-system__image m7-cleaning-system__image--mobile"
+        src="{{ section.settings.image_pc | image_url: width: 900 }}"
+        srcset="
+          {{ section.settings.image_pc | image_url: width: 480 }} 480w,
+          {{ section.settings.image_pc | image_url: width: 720 }} 720w,
+          {{ section.settings.image_pc | image_url: width: 900 }} 900w
+        "
+        sizes="100vw"
+        alt="{{ section.settings.image_pc.alt | default: section.settings.title | escape }}"
+        loading="lazy"
+      >
+    {%- endif -%}
+  </div>
+
+  <div class="m7-cleaning-system__content">
+    {%- if section.settings.title != blank -%}
+      <h2 class="m7-cleaning-system__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <div class="m7-cleaning-system__description">{{ section.settings.description }}</div>
+    {%- endif -%}
+
+    <ol class="m7-cleaning-system__points" aria-label="{{ section.settings.title | escape }}">
+      {%- if section.settings.point_1 != blank -%}
+        <li class="m7-cleaning-system__point is-active" data-m7-cleaning-point>
+          <span class="m7-cleaning-system__dot"></span>
+          <span class="m7-cleaning-system__point-text">{{ section.settings.point_1 }}</span>
+        </li>
+      {%- endif -%}
+      {%- if section.settings.point_2 != blank -%}
+        <li class="m7-cleaning-system__point" data-m7-cleaning-point>
+          <span class="m7-cleaning-system__dot"></span>
+          <span class="m7-cleaning-system__point-text">{{ section.settings.point_2 }}</span>
+        </li>
+      {%- endif -%}
+      {%- if section.settings.point_3 != blank -%}
+        <li class="m7-cleaning-system__point" data-m7-cleaning-point>
+          <span class="m7-cleaning-system__dot"></span>
+          <span class="m7-cleaning-system__point-text">{{ section.settings.point_3 }}</span>
+        </li>
+      {%- endif -%}
+    </ol>
+  </div>
+</section>
+
+{%- style -%}
+  #m7-cleaning-system-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    min-height: {{ section.settings.desktop_height }}px;
+    background: {{ section.settings.background }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__image,
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: {{ section.settings.desktop_image_position }};
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__image--mobile,
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__video--mobile {
+    display: none;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__content {
+    position: relative;
+    z-index: 1;
+    width: min({{ section.settings.content_width }}px, calc(100% - 40px));
+    padding-top: {{ section.settings.content_top }}px;
+    margin-left: max(20px, calc((100vw - {{ section.settings.max_width }}px) / 2 + {{ section.settings.content_left }}px));
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__title {
+    margin: 0 0 12px;
+    color: {{ section.settings.title_color }};
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.title_size }}px;
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__description {
+    margin: 0;
+    color: {{ section.settings.description_color }};
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.description_size }}px;
+    line-height: 1.35;
+    font-weight: 400;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__description p {
+    margin: 0;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__points {
+    --point-idle: {{ section.settings.point_idle_color }};
+    --point-active: {{ section.settings.point_active_color }};
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.point_gap }}px;
+    margin: {{ section.settings.point_margin_top }}px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__point {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 18px;
+    color: var(--point-idle);
+    font-size: {{ section.settings.point_size }}px;
+    line-height: 1.25;
+    font-weight: 500;
+    transition: color 260ms ease, opacity 260ms ease;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__point:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 16px;
+    width: 1px;
+    height: calc({{ section.settings.point_gap }}px + 6px);
+    background: currentColor;
+    opacity: 0.55;
+    transition: background 260ms ease, opacity 260ms ease;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__dot {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 9px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    transition: background 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__point.is-active {
+    color: var(--point-active);
+    font-weight: 700;
+  }
+
+  #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__point.is-active .m7-cleaning-system__dot {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.14);
+  }
+
+  @media (max-width: 768px) {
+    #m7-cleaning-system-{{ section.id }} {
+      min-height: {{ section.settings.mobile_height }}px;
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__image--desktop,
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__video--desktop {
+      display: none;
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__image--mobile,
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__video--mobile {
+      display: block;
+      object-position: {{ section.settings.mobile_image_position }};
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__content {
+      width: calc(100% - 48px);
+      padding-top: {{ section.settings.mobile_content_top }}px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__title {
+      font-size: {{ section.settings.mobile_title_size }}px;
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__description {
+      max-width: 300px;
+      margin: 0 auto;
+      font-size: {{ section.settings.mobile_description_size }}px;
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__points {
+      width: fit-content;
+      margin-top: {{ section.settings.mobile_point_margin_top }}px;
+      text-align: left;
+      gap: {{ section.settings.mobile_point_gap }}px;
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__point {
+      font-size: {{ section.settings.mobile_point_size }}px;
+    }
+
+    #m7-cleaning-system-{{ section.id }} .m7-cleaning-system__point:not(:last-child)::after {
+      height: calc({{ section.settings.mobile_point_gap }}px + 6px);
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  (function() {
+    var section = document.getElementById('m7-cleaning-system-{{ section.id }}');
+    if (!section) return;
+
+    var points = Array.prototype.slice.call(section.querySelectorAll('[data-m7-cleaning-point]'));
+    if (!points.length) return;
+
+    function setActive(count) {
+      points.forEach(function(point, index) {
+        point.classList.toggle('is-active', index < count);
+      });
+    }
+
+    function update() {
+      var rect = section.getBoundingClientRect();
+      var viewport = window.innerHeight || document.documentElement.clientHeight;
+      var visibleProgress = (viewport - rect.top) / (viewport + rect.height);
+      var count = 1;
+
+      if (visibleProgress >= 0.34) count = 2;
+      if (visibleProgress >= 0.42) count = 3;
+
+      setActive(Math.min(count, points.length));
+    }
+
+    var ticking = false;
+    function requestUpdate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function() {
+        update();
+        ticking = false;
+      });
+    }
+
+    update();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.detail && event.detail.sectionId === '{{ section.id }}') {
+        update();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "M7 Cleaning System",
+  "tag": "section",
+  "class": "section-m7-cleaning-system",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "video",
+      "id": "video_pc",
+      "label": "Desktop video",
+      "info": "Desktop video has priority over desktop image."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_pc",
+      "label": "Desktop image"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_position",
+      "label": "Desktop image position",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "center top", "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobile video",
+      "info": "If empty, mobile uses desktop video first, then mobile image."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Mobile image position",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "center top", "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Fallback background",
+      "default": "linear-gradient(180deg, #000000 0%, #080604 52%, #d8c38a 100%)"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Fully Automatic CleaningSystem"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Full-path air drying--from brush to pipes. Cleaned and dried after every use. No odor. No bacteria</p>"
+    },
+    {
+      "type": "text",
+      "id": "point_1",
+      "label": "Point 1",
+      "default": "Self-Cleaning"
+    },
+    {
+      "type": "text",
+      "id": "point_2",
+      "label": "Point 2",
+      "default": "Centrifugal Spin Dry"
+    },
+    {
+      "type": "text",
+      "id": "point_3",
+      "label": "Point 3",
+      "default": "Full-Air Drying"
+    },
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Design max width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1180
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Desktop height",
+      "min": 420,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 620
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 240,
+      "max": 620,
+      "step": 10,
+      "unit": "px",
+      "default": 360
+    },
+    {
+      "type": "range",
+      "id": "content_top",
+      "label": "Content top",
+      "min": 40,
+      "max": 420,
+      "step": 10,
+      "unit": "px",
+      "default": 170
+    },
+    {
+      "type": "range",
+      "id": "content_left",
+      "label": "Content left",
+      "min": 0,
+      "max": 520,
+      "step": 10,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile height",
+      "min": 460,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "default": 630
+    },
+    {
+      "type": "range",
+      "id": "mobile_content_top",
+      "label": "Mobile content top",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 18,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 38
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Mobile title size",
+      "min": 16,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_description_size",
+      "label": "Mobile description size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Point style"
+    },
+    {
+      "type": "color",
+      "id": "point_active_color",
+      "label": "Active point color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "point_idle_color",
+      "label": "Inactive point color",
+      "default": "#756b5c"
+    },
+    {
+      "type": "range",
+      "id": "point_margin_top",
+      "label": "Points top spacing",
+      "min": 20,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "point_gap",
+      "label": "Point gap",
+      "min": 16,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "point_size",
+      "label": "Point text size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_point_margin_top",
+      "label": "Mobile points top spacing",
+      "min": 20,
+      "max": 180,
+      "step": 5,
+      "unit": "px",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "mobile_point_gap",
+      "label": "Mobile point gap",
+      "min": 18,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "mobile_point_size",
+      "label": "Mobile point text size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "M7 Cleaning System"
+    }
+  ]
+}
+{% endschema %}

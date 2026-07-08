@@ -1,0 +1,841 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_MVzYzg": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_qYLrM6": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_DfdhdR": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/60.svg",
+            "text": "60-Day Refund Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_YrywEQ": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "24-Hour Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_aHAExd": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "klarna_on_site_messaging_app_block_4ePWQd": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_3yTqhq": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "qikify_bogo_freegift_free_gift_WnVicH": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "coupon_code_8ER699": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p><strong>🔥2025 Black Friday: Get Limited-time 12% Off Now!<\/strong><\/p>",
+            "coupon_text": "BFDEAL12",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#e7820e",
+            "coupon_box_color_link": "#00d0cd",
+            "coupon_bg_color": "#fdf1ea"
+          }
+        },
+        "coupon_code_new_wCDCrL": {
+          "type": "coupon_code_new",
+          "disabled": true,
+          "settings": {
+            "has_background": false,
+            "text": "<p>⏰Limited-time Deal<\/p>",
+            "text_2": "<p>Save 10% today with this offer!<\/p>",
+            "discount_text": "10% OFF",
+            "coupon_text": "HONITURE10",
+            "copy_text": "Copy code",
+            "text_color": "#e48924",
+            "coupon_bg": "#fcf3e9",
+            "coupon_btn_text": "#e48924",
+            "coupon_btn_bg": "#fcf3e9"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ol><li>Up to 33KPA Suction<\/li><li>55 Mins Running Time<\/li><li>LED Touch Screen<\/li><li>1.2L Large Dust Cup<\/li><li>Upgraded Turbo Brush<\/li><li>Five-layer Filtration<\/li><\/ol>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_YaJFa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"shopify-section-template--17320672493615__product_details_mXPkEF\" }}\"\nclass=\"custom-button-default\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default2 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/drive.google.com\/file\/d\/1eBF1II0pop36Jiuh3-bDiCRsyy9so35k\/view?usp=sharing\/\" }}\" class=\"custom-button-default2\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "separator_ffazEp": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker_tKcde3": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_JVEVMg": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_cMPEHQ": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "qikify_bogo_freegift_bogo_offer_PCtBfG": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/bogo_offer\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "complementary_HEpwFg": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "collapsible_tab_CUxUUx": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fast Shipping & Delivery",
+            "open": false,
+            "use_modal": false,
+            "link": "",
+            "content": "<p>Orders ship within 24 business hours and usually arrive in 2-3 days. Explore More <a href=\"https:\/\/honiture.com\/policies\/shipping-policy\" target=\"_blank\" title=\"https:\/\/honiture.com\/policies\/shipping-policy\">Here<\/a>.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "payment_security_pHKYjc": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_MVzYzg",
+        "info_box_qYLrM6",
+        "info_box_DfdhdR",
+        "info_box_YrywEQ",
+        "label_aHAExd",
+        "title",
+        "klarna_on_site_messaging_app_block_4ePWQd",
+        "judge_me_reviews_preview_badge_3yTqhq",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "separator_dMbKEh",
+        "qikify_bogo_freegift_free_gift_WnVicH",
+        "coupon_code_8ER699",
+        "coupon_code_new_wCDCrL",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_YaJFa3",
+        "custom_liquid_tCypYt",
+        "separator_ffazEp",
+        "variant_picker_tKcde3",
+        "quantity_JVEVMg",
+        "buy_buttons_cMPEHQ",
+        "qikify_bogo_freegift_bogo_offer_PCtBfG",
+        "complementary_HEpwFg",
+        "collapsible_tab_CUxUUx",
+        "payment_security_pHKYjc",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 35,
+        "spacer_desktop": 90,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "1761625694158d57d2": {
+      "type": "apps",
+      "blocks": {
+        "selleasy_lb_upsell_widget_ba_hcFn7A": {
+          "type": "shopify:\/\/apps\/selleasy\/blocks\/lb-upsell-widget-ba\/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "selleasy_lb_upsell_widget_ba_hcFn7A"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_swiper_carousel_D9LxTB": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_Q9UghN": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=OLglIsSY_bU&pp=ygUMSE9OSVRVUkUgUzEy",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_UnLJVJ": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=y83Q5c9RHy0&pp=ygUMSE9OSVRVUkUgUzEy",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_Q9UghN",
+        "slide_UnLJVJ"
+      ],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<h2>Honiture S12 Cordless Vacuum Reviews:<\/h2>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 56,
+        "slide_aspect_ratio_mobile": 56,
+        "slides_per_view": 2,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 30,
+        "space_between_tablet": 30,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 4,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "progressbar",
+        "pagination_color": "#000000"
+      }
+    },
+    "image_with_text_overlay_wdUAbh": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1_ee5237b1-e761-4617-8f1f-862dff898b94.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/1_ee5237b1-e761-4617-8f1f-862dff898b94.png",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-750",
+        "mobile_height": "mobile-height-350",
+        "full_width": false,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_zEfcWT": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1_ee5237b1-e761-4617-8f1f-862dff898b94.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "left",
+        "position_x": 48,
+        "title_size": 1,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 67,
+        "d_position_y": 69,
+        "d_content_width": 69,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_swiper_carousel_kAhfDn": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_YKDVCU": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/2_2d6ade67-7734-4592-a6a0-a274564bc0f4.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/2_2d6ade67-7734-4592-a6a0-a274564bc0f4.jpg",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "55 Minutes of Cleaning Power",
+            "card_text": "Keep your home spotless with our vacuum cleaner, offering an impressive 55 minutes of continuous runtime on a single charge.",
+            "channel": ""
+          }
+        },
+        "slide_LDHpfT": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/4_b7d10fcd-a0bc-42e5-90ed-f7bcd53fa2fb.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/4_b7d10fcd-a0bc-42e5-90ed-f7bcd53fa2fb.jpg",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Clean with Confidence",
+            "card_text": "Discover hidden dirt and dust with our vacuum cleaner’s dust-detecting LED lights. Perfect for dark corners, under furniture, and low-light areas, this feature guarantees a thorough and satisfying clean every time.",
+            "channel": ""
+          }
+        },
+        "slide_hYpMRb": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/5_3237a117-5e71-450a-bd50-007863ed9d44.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/5_3237a117-5e71-450a-bd50-007863ed9d44.jpg",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "One-Touch Dustbin Release",
+            "card_text": "Simplify your cleaning routine with our vacuum cleaner’s one-touch dustbin release. With just a single press, the dustbin opens instantly, allowing you to empty it quickly and hygienically without touching any dirt.",
+            "channel": ""
+          }
+        },
+        "slide_4Wrjak": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/6_bc6671aa-9c57-4059-9141-f1920de66991.png",
+            "mobile_image": "shopify:\/\/shop_images\/6_bc6671aa-9c57-4059-9141-f1920de66991.png",
+            "video_url": "",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Quick Charge & Wall Mount",
+            "card_text": "Stay ready for any cleaning task with our vacuum cleaner’s Quick Charge feature and sleek wall mount. Perfect for busy homes, this combination keeps your vacuum within reach and fully charged, so you're always prepared to tackle dirt and dust whenever needed.",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_YKDVCU",
+        "slide_LDHpfT",
+        "slide_hYpMRb",
+        "slide_4Wrjak"
+      ],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<h2>S12 Key Features<\/h2>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 260,
+        "slide_card_height_mobile": 165,
+        "slide_aspect_ratio": 130,
+        "slide_aspect_ratio_mobile": 135,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 15,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": true,
+        "autoplay_speed": 4,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "progressbar",
+        "pagination_color": "#000000"
+      }
+    },
+    "rich_text_br8hTg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cVkbRX": {
+          "type": "heading",
+          "settings": {
+            "text": "LED-Guided Precision Cleaning",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_hRczWX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>S12 cordless vacuum featuring a sleek LED screen. This intuitive display provides real-time updates on battery life, suction power, and cleaning modes, ensuring you have full control over your cleaning experience.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cVkbRX",
+        "text_hRczWX"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_GGM6DH": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-S12-cordless-vacuum-with-adjustable-suction-power.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-S12-cordless-vacuum-cleaner-led-touch-screen.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_VTgKeN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ApyADN": {
+          "type": "heading",
+          "settings": {
+            "text": "Engineered to Emit Clean Air",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_cEL9ez": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Removes 99.8 ％ of bacteria dust mites, pollen, etc.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ApyADN",
+        "text_cEL9ez"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_aFhRLB": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/4_d58092f5-4675-41ac-8b92-1d23b24b4cc9.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/honiture-s12-multi-layer_filtering-vacuum-cleaner.webp",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_TKBwV3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QEyeJi": {
+          "type": "heading",
+          "settings": {
+            "text": "Upgraded Turbo Brush",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_zVTAxm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Delivers powerful, deep cleaning across all types of flooring. Rotatable floor brush supports 90° to 270° cleaning angles, leaving no dust behind – even in hard-to-reach corners.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QEyeJi",
+        "text_zVTAxm"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_rr9yiP": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/3_91e3c0f9-c6e2-418b-8804-10d411b974f9.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-S12-cordless-vacuum-cleaner-for-carpet.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_aRr8CL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_KwJRTC": {
+          "type": "heading",
+          "settings": {
+            "text": "Versatile Cleaning for Every Corner",
+            "marker_style": "style1",
+            "size": "h4",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_VFtRaN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Designed to tackle any cleaning challenge, whether it’s your living room carpet, kitchen floor, or even your car interior. With adjustable settings and a range of attachments, this vacuum ensures every surface in your home or office stays spotless. <\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_KwJRTC",
+        "text_VFtRaN"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#000000",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_HaegyD": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/5_13b74a03-b414-42ee-8471-c3179b9a2ec7.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-S12-Vacuum-Versatile-Cleaning-for-Every-Corner.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1739436996921bec5e": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_8PMKH7": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_8PMKH7"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Upgrade your cleaning routine with these products.<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "16623877721f33fb14",
+    "1761625694158d57d2",
+    "custom_swiper_carousel_D9LxTB",
+    "image_with_text_overlay_wdUAbh",
+    "single_image_zEfcWT",
+    "custom_swiper_carousel_kAhfDn",
+    "rich_text_br8hTg",
+    "single_image_GGM6DH",
+    "rich_text_VTgKeN",
+    "single_image_aFhRLB",
+    "rich_text_TKBwV3",
+    "single_image_rr9yiP",
+    "rich_text_aRr8CL",
+    "single_image_HaegyD",
+    "1739436996921bec5e",
+    "product-recommendations"
+  ]
+}

@@ -1,0 +1,831 @@
+{% comment %}
+  M7 feature grid
+  Desktop-only fixed 9-card layout based on the provided 1179 x 744 design.
+{% endcomment %}
+
+{%- liquid
+  assign section_title = section.settings.heading | strip
+-%}
+
+<section id="m7-feature-grid-{{ section.id }}" class="m7-feature-grid">
+  {%- if section_title != blank -%}
+    <h2 class="m7-feature-grid__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  <div class="m7-feature-grid__inner m7-feature-grid__inner--desktop">
+    {%- for block in section.blocks limit: 9 -%}
+      <div class="m7-feature-grid__card m7-feature-grid__card--{{ forloop.index }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img
+            class="m7-feature-grid__image"
+            src="{{ block.settings.image | image_url: width: 900 }}"
+            srcset="
+              {{ block.settings.image | image_url: width: 360 }} 360w,
+              {{ block.settings.image | image_url: width: 600 }} 600w,
+              {{ block.settings.image | image_url: width: 900 }} 900w
+            "
+            sizes="(min-width: 769px) 33vw, 0px"
+            alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="m7-feature-grid__placeholder">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.show_gradient -%}
+          <div class="m7-feature-grid__shade"></div>
+        {%- endif -%}
+
+        {%- if block.settings.title != blank or block.settings.subtitle != blank -%}
+          <div class="m7-feature-grid__content">
+            {%- if block.settings.title != blank -%}
+              <div class="m7-feature-grid__title" style="color: {{ block.settings.title_color }};">
+                {{ block.settings.title }}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.subtitle != blank -%}
+              <div class="m7-feature-grid__subtitle" style="color: {{ block.settings.subtitle_color }};">
+                {{ block.settings.subtitle }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <div class="m7-feature-grid__inner m7-feature-grid__inner--mobile">
+    {%- for block in section.blocks limit: 9 -%}
+      {%- liquid
+        assign mobile_title = block.settings.mobile_title
+        assign mobile_subtitle = block.settings.mobile_subtitle
+        assign mobile_title_color = block.settings.mobile_title_color
+        assign mobile_subtitle_color = block.settings.mobile_subtitle_color
+
+        if mobile_title == blank
+          assign mobile_title = block.settings.title
+          assign mobile_title_color = block.settings.title_color
+        endif
+
+        if mobile_subtitle == blank
+          assign mobile_subtitle = block.settings.subtitle
+          assign mobile_subtitle_color = block.settings.subtitle_color
+        endif
+      -%}
+      <div class="m7-feature-grid__card m7-feature-grid__card--mobile-{{ forloop.index }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.mobile_image != blank -%}
+          <img
+            class="m7-feature-grid__image"
+            src="{{ block.settings.mobile_image | image_url: width: 1200 }}"
+            srcset="
+              {{ block.settings.mobile_image | image_url: width: 480 }} 480w,
+              {{ block.settings.mobile_image | image_url: width: 800 }} 800w,
+              {{ block.settings.mobile_image | image_url: width: 1200 }} 1200w
+            "
+            sizes="100vw"
+            alt="{{ block.settings.mobile_image.alt | default: block.settings.mobile_title | escape }}"
+            loading="lazy"
+          >
+        {%- elsif block.settings.image != blank -%}
+          <img
+            class="m7-feature-grid__image"
+            src="{{ block.settings.image | image_url: width: 1200 }}"
+            srcset="
+              {{ block.settings.image | image_url: width: 480 }} 480w,
+              {{ block.settings.image | image_url: width: 800 }} 800w,
+              {{ block.settings.image | image_url: width: 1200 }} 1200w
+            "
+            sizes="100vw"
+            alt="{{ block.settings.image.alt | default: block.settings.mobile_title | escape }}"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="m7-feature-grid__placeholder">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.mobile_show_gradient -%}
+          <div class="m7-feature-grid__shade"></div>
+        {%- endif -%}
+
+        {%- if mobile_title != blank or mobile_subtitle != blank -%}
+          <div class="m7-feature-grid__content">
+            {%- if mobile_title != blank -%}
+              <div class="m7-feature-grid__title" style="color: {{ mobile_title_color }};">
+                {{ mobile_title }}
+              </div>
+            {%- endif -%}
+            {%- if mobile_subtitle != blank -%}
+              <div class="m7-feature-grid__subtitle" style="color: {{ mobile_subtitle_color }};">
+                {{ mobile_subtitle }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{%- style -%}
+  #m7-feature-grid-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background }};
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__heading {
+    max-width: 1179px;
+    margin: 0 auto 28px;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.2;
+    font-weight: 800;
+    text-align: {{ section.settings.heading_align }};
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__inner {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__inner--desktop {
+    max-width: 1179px;
+    aspect-ratio: 1179 / 744;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__inner--mobile {
+    display: none;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #d9d9d9;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--1 {
+    left: 0;
+    top: 0;
+    width: 23.324852%;
+    height: 66.263441%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--2 {
+    left: 24.173028%;
+    top: 0;
+    width: 25.190840%;
+    height: 24.865591%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--3 {
+    left: 50.212044%;
+    top: 0;
+    width: 24.342663%;
+    height: 24.865591%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--4 {
+    left: 75.402884%;
+    top: 0;
+    width: 24.342663%;
+    height: 30.376344%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--5 {
+    left: 24.173028%;
+    top: 26.209677%;
+    width: 50.466497%;
+    height: 39.919355%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--6 {
+    left: 75.402884%;
+    top: 31.720430%;
+    width: 24.342663%;
+    height: 34.408602%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--7 {
+    left: 0;
+    top: 67.607527%;
+    width: 36.980492%;
+    height: 32.258065%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--8 {
+    left: 37.828668%;
+    top: 67.607527%;
+    width: 36.810857%;
+    height: 32.258065%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--9 {
+    left: 75.402884%;
+    top: 67.607527%;
+    width: 24.342663%;
+    height: 32.258065%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__image,
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__placeholder,
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__placeholder svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__image {
+    object-fit: cover;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__placeholder {
+    color: rgba(0, 0, 0, 0.28);
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__shade {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 50%;
+    background: linear-gradient(180deg, #000 0%, rgba(1, 1, 1, 0) 78.85%);
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+    pointer-events: none;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--1 .m7-feature-grid__shade {
+    height: 23.935091%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--2 .m7-feature-grid__shade,
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--3 .m7-feature-grid__shade {
+    height: 63.783784%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--4 .m7-feature-grid__shade {
+    height: 52.212389%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--5 .m7-feature-grid__shade {
+    height: 39.730640%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--6 .m7-feature-grid__shade {
+    height: 46.093750%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--7 .m7-feature-grid__shade,
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--8 .m7-feature-grid__shade,
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--9 .m7-feature-grid__shade {
+    height: 49.166667%;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__content {
+    position: absolute;
+    z-index: 2;
+    top: {{ section.settings.text_top }}px;
+    left: {{ section.settings.text_left }}px;
+    right: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    pointer-events: none;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__title {
+    margin: 0;
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.title_size }}px;
+    line-height: {{ section.settings.title_line_height }}px;
+    font-weight: 700;
+  }
+
+  #m7-feature-grid-{{ section.id }} .m7-feature-grid__subtitle {
+    margin: 0;
+    font-family: "Isidora Sans", var(--font-body-family), Arial, sans-serif;
+    font-size: {{ section.settings.subtitle_size }}px;
+    line-height: {{ section.settings.subtitle_line_height }}px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    #m7-feature-grid-{{ section.id }} {
+      padding: {{ section.settings.mobile_padding_top }}px 12px {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__heading {
+      margin-bottom: 20px;
+      font-size: {{ section.settings.mobile_heading_size }}px;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__inner--desktop {
+      display: none;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__inner--mobile {
+      display: block;
+      max-width: 1127px;
+      aspect-ratio: 1127 / 2520;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__content {
+      top: {{ section.settings.mobile_text_top }}px;
+      left: {{ section.settings.mobile_text_left }}px;
+      right: 10px;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__title {
+      font-size: {{ section.settings.mobile_title_size }}px;
+      line-height: {{ section.settings.mobile_title_line_height }}px;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+      line-height: {{ section.settings.mobile_subtitle_line_height }}px;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-1 {
+      left: 0;
+      top: 0;
+      width: 43.655724%;
+      height: 34.722222%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-2 {
+      left: 45.075422%;
+      top: 0;
+      width: 54.924578%;
+      height: 17.142857%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-3 {
+      left: 45.075422%;
+      top: 17.777778%;
+      width: 54.924578%;
+      height: 16.944444%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-4 {
+      left: 0;
+      top: 35.357143%;
+      width: 100%;
+      height: 23.571429%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-5 {
+      left: 0;
+      top: 59.563492%;
+      width: 66.193434%;
+      height: 18.531746%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-6 {
+      left: 33.806566%;
+      top: 78.849206%;
+      width: 32.386867%;
+      height: 21.150794%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-7 {
+      left: 0;
+      top: 78.849206%;
+      width: 32.386867%;
+      height: 21.150794%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-8 {
+      left: 67.613132%;
+      top: 59.563492%;
+      width: 32.386867%;
+      height: 18.531746%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-9 {
+      left: 67.613132%;
+      top: 78.849206%;
+      width: 32.386867%;
+      height: 21.150794%;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-6 .m7-feature-grid__content,
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-7 .m7-feature-grid__content,
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__card--mobile-9 .m7-feature-grid__content {
+      top: auto;
+      bottom: {{ section.settings.mobile_text_bottom }}px;
+    }
+
+    #m7-feature-grid-{{ section.id }} .m7-feature-grid__inner--mobile .m7-feature-grid__shade {
+      height: 23%;
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M7 Feature Grid",
+  "tag": "section",
+  "class": "section-m7-feature-grid",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 18,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Section background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile padding top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "text_top",
+      "label": "Text top offset",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "text_left",
+      "label": "Text left offset",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title font size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "title_line_height",
+      "label": "Title line height",
+      "min": 12,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle font size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "subtitle_line_height",
+      "label": "Subtitle line height",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_top",
+      "label": "Mobile text top offset",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_left",
+      "label": "Mobile text left offset",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_bottom",
+      "label": "Mobile bottom text offset",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Mobile title font size",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_line_height",
+      "label": "Mobile title line height",
+      "min": 10,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Mobile subtitle font size",
+      "min": 9,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_line_height",
+      "label": "Mobile subtitle line height",
+      "min": 9,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Text line 1"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Text line 1 color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Text line 2"
+        },
+        {
+          "type": "color",
+          "id": "subtitle_color",
+          "label": "Text line 2 color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_gradient",
+          "label": "Show top gradient",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Mobile content"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image"
+        },
+        {
+          "type": "text",
+          "id": "mobile_title",
+          "label": "Mobile text line 1"
+        },
+        {
+          "type": "color",
+          "id": "mobile_title_color",
+          "label": "Mobile text line 1 color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "mobile_subtitle",
+          "label": "Mobile text line 2"
+        },
+        {
+          "type": "color",
+          "id": "mobile_subtitle_color",
+          "label": "Mobile text line 2 color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_show_gradient",
+          "label": "Show mobile top gradient",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M7 Feature Grid",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Self-Cleaning System",
+            "mobile_title": "Self-Cleaning System"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Full-Air Drying",
+            "subtitle": "No odor. No bacteria.",
+            "mobile_title": "Full-Air Drying",
+            "mobile_subtitle": "No odor. No bacteria."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "20000KPA Powerful Suction",
+            "title_color": "#000000",
+            "mobile_title": "20000KPA Powerful Suction",
+            "mobile_title_color": "#000000",
+            "show_gradient": false,
+            "mobile_show_gradient": false
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "0 Tangle 0 Hassle",
+            "subtitle": "Built-in Comb Teeth Design.",
+            "mobile_title": "0 Tangle 0 Hassle",
+            "mobile_subtitle": "Built-in Comb Teeth Design."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Edge-to-edge cleaning",
+            "subtitle": "No spot missed.",
+            "mobile_title": "Edge-to-edge cleaning",
+            "mobile_subtitle": "No spot missed."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Free-Water Mopping",
+            "subtitle": "No re-mopping with dirty water",
+            "mobile_title": "Free-Water Mopping",
+            "mobile_subtitle": "No re-mopping with dirty water"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Up to 50min Runtime",
+            "mobile_title": "Up to 50min Runtime"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Smooth to glide",
+            "title_color": "#000000",
+            "mobile_title": "Smooth to glide",
+            "mobile_title_color": "#000000",
+            "show_gradient": false,
+            "mobile_show_gradient": false
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "4 Smart Cleaning Modes",
+            "mobile_title": "4 Smart Cleaning Modes"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 150,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#2c2d2e",
+        "display_description": true
+      }
+    },
+    "1750405941fcb3c15a": {
+      "type": "apps",
+      "blocks": {
+        "qikify_bogo_freegift_order_goal_D9F9fN": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/order-goal\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "qikify_bogo_freegift_order_goal_D9F9fN"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "main-cart": {
+      "type": "main-cart",
+      "settings": {
+        "cart_notes_enable": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Describe your featured collection here<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "recently_viewed_products_Vw6yJX": {
+      "type": "recently-viewed-products",
+      "name": "Recently viewed products",
+      "settings": {
+        "heading": "Recently viewed products",
+        "description": "<p>Clean Smarter with the Perfect Pair<\/p>",
+        "mobile_swipe": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "1750405941fcb3c15a",
+    "main-cart",
+    "product-recommendations",
+    "recently_viewed_products_Vw6yJX"
+  ]
+}

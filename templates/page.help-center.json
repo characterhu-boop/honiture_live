@@ -1,0 +1,377 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_LQaEhb": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_zgyYnE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_2x_dc947d4a-4511-4b19-8b7a-fb614c78ea1d.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/cb1f89db9bcd1737a07051cd9c2a7142.png",
+            "slide_link": "",
+            "video_background": false,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Help Center",
+            "heading_size": "h2",
+            "content": "",
+            "description_size": "small",
+            "content_position": "middle-left",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "#ffffff",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_zgyYnE"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "autoplay": false,
+        "autoplay_length": 3,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_UCByG8": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_XhKaV3": {
+          "type": "heading",
+          "settings": {
+            "text": "Help Center",
+            "heading_size": "h2"
+          }
+        },
+        "text_DhTRVi": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "description_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XhKaV3",
+        "text_DhTRVi"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/2_2x_5051ac8f-da93-4734-9f44-945297bddb1b.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-left",
+        "text_alignment": "left",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_naHNhK": {
+      "type": "media-grid",
+      "blocks": {
+        "media_FzbzWJ": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6a0f48436f03bf48e8c7f28f9f150b4c.png",
+            "slide_link": "",
+            "use_video": false,
+            "column": 4,
+            "row": 1,
+            "subheading": "",
+            "heading": "Get the answer for your questions.",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/pages\/faqs",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(136deg, rgba(10, 128, 237, 1) 10%, rgba(255, 255, 255, 1) 84%)",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_AKbezT": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_15bdaa5f-a50d-4e30-8fd1-61887f2d1137.png",
+            "slide_link": "",
+            "use_video": false,
+            "column": 2,
+            "row": 2,
+            "subheading": "",
+            "heading": "Download Center",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/pages\/download-center",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(0deg, rgba(255, 211, 233, 1), rgba(192, 219, 250, 1) 100%)",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_LQrYK9": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_bdc5acce-3a97-47aa-8c09-03ea251c22d5.png",
+            "slide_link": "",
+            "use_video": false,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "Warranty Policy",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "button_link": "",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(84deg, rgba(201, 214, 255, 1), rgba(255, 249, 249, 1) 100%)",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_AcQ6KL": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_0609bfcf-5f22-4c4b-8df1-b28de1567ca5.png",
+            "slide_link": "",
+            "use_video": false,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "Contact Us",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/pages\/contact",
+            "content_position": "top-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(5deg, rgba(255, 205, 188, 1), rgba(255, 255, 255, 1) 100%)",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_UwzWdR": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify:\/\/files\/videos\/S13 EN.mp4",
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "How tos",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/pages\/how-to-videos",
+            "content_position": "top-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_FzbzWJ",
+        "media_AKbezT",
+        "media_LQrYK9",
+        "media_AcQ6KL",
+        "media_UwzWdR"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_HKwRRi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QzbgmN": {
+          "type": "heading",
+          "settings": {
+            "text": "Still Need Help?",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_PjxfKN": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        },
+        "button_Ud3XWW": {
+          "type": "button",
+          "settings": {
+            "link_label": "Contact Us",
+            "link": "shopify:\/\/pages\/contact"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QzbgmN",
+        "text_PjxfKN",
+        "button_Ud3XWW"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_tUc8kD": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_4tDPdq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/icon3.svg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "",
+            "text": "",
+            "link_label": "Customer service",
+            "link": "shopify:\/\/pages\/contact"
+          }
+        },
+        "column_VVTi6V": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/icon3_77276c0d-d980-4941-b47a-cb888fc9a6f2.svg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "",
+            "text": "",
+            "link_label": "Get Honysmart App",
+            "link": "shopify:\/\/pages\/app"
+          }
+        },
+        "column_8PHJjQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/icon3_4a50d9ec-d42a-441e-a3fd-9a85fa5fac33.svg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "",
+            "text": "",
+            "link_label": "User Manuals",
+            "link": "shopify:\/\/pages\/download-center"
+          }
+        },
+        "column_MxPMAd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/icon3_a8c9578c-fe1c-45ad-92b9-8a6f653ef27b.svg",
+            "image_full_width": false,
+            "image_link": "",
+            "title": "",
+            "text": "",
+            "link_label": "Warranty policy",
+            "link": "shopify:\/\/pages\/warranty-policy"
+          }
+        }
+      },
+      "block_order": [
+        "column_4tDPdq",
+        "column_VVTi6V",
+        "column_8PHJjQ",
+        "column_MxPMAd"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 4,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "center",
+        "heading_size": "h4",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_WB3Qdp": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 145,
+        "border_separator": true,
+        "border_separator_full": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_LQaEhb",
+    "image_with_text_overlay_UCByG8",
+    "media_grid_naHNhK",
+    "rich_text_HKwRRi",
+    "multicolumn_tUc8kD",
+    "spacer_WB3Qdp"
+  ]
+}

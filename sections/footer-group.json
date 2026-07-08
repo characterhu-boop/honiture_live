@@ -1,0 +1,354 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "spacer_RYNHFH": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "text_with_icons_G7xrBH": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_grR3cW": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/25f7c811e1a238f7a9d4ef81a863fca9.png",
+            "heading": "Hassle-Free Warranty",
+            "text": "<p>Comprehensive 1-year warranty on all Honiture items.<\/p>"
+          }
+        },
+        "icon_bNYyGA": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/30.png",
+            "heading": "30-Day Guarantee",
+            "text": "<p>Shop with Confidence – Hassle-Free 30-Day Returns!<\/p>"
+          }
+        },
+        "icon_aYckUT": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/18b770ae4cc2c20dcbcaf4e2b4517c14.png",
+            "heading": "Fast & Free Delivery",
+            "text": "<p>Enjoy free shipping on all items. Delivered in 2-3 business days.<\/p>"
+          }
+        },
+        "icon_h3DbHj": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/dda6493a33dc09289b1a69917bd82636.png",
+            "heading": "Customer Service",
+            "text": "<p>Always at your service. Reach out anytime from us.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_grR3cW",
+        "icon_bNYyGA",
+        "icon_aYckUT",
+        "icon_h3DbHj"
+      ],
+      "custom_css": [
+        ".text-with-icons__inner {grid-template-columns: repeat(4, 1fr);}"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "title": "",
+        "sub_heading": "",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "shopify:\/\/collections\/all",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "medium",
+        "heading_size": "medium",
+        "mobile_swipe": true,
+        "mobile_columns": 2,
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "email_signup_XRApHP": {
+      "type": "email-signup",
+      "blocks": {
+        "heading_y6aHBx": {
+          "type": "heading",
+          "settings": {
+            "text": "SIGN UP AND SAVE 10% OFF YOUR FIRST PURCHASE",
+            "heading_size": "h3"
+          }
+        },
+        "text_DijXEz": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Add a text to attract users to signup.",
+            "description_size": "medium"
+          }
+        },
+        "form_yPPf48": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_y6aHBx",
+        "text_DijXEz",
+        "form_yPPf48"
+      ],
+      "disabled": true,
+      "name": "Newsletter",
+      "settings": {
+        "full_width": false,
+        "color_bg": "#00d0cd",
+        "color_text": "#ffffff",
+        "color_heading": "#ffffff",
+        "color_border": "#ffffff",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "text_9pCYtf": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "column_size": "medium",
+            "text_alignment": "left",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/logo.png",
+            "text": "<p>📧Contact Center<\/p><p>Customer Support:<br\/><a href=\"mailto:help@honiture.com\" target=\"_blank\" title=\"mailto:help@honiture.com\">help@honiture.com<\/a><\/p><p>Media Cooperation:<br\/><a href=\"mailto:marketing@honiture.com\" title=\"mailto:marketing@honiture.com\">marketing@honiture.com<\/a><\/p>",
+            "text_size": "small",
+            "button_text": "",
+            "button_link": "",
+            "show_social_links": true
+          }
+        },
+        "2ab8345e-9f63-4c80-b028-f4edae3633b5": {
+          "type": "signup",
+          "settings": {
+            "column_size": "large",
+            "title": "Sign up and save 10% off your first purchase",
+            "text": "",
+            "service_time": "Monday - Friday: 9:00AM - 7:00PM",
+            "contact_email": "help@honiture.com"
+          }
+        },
+        "055d0c35-3f11-4f51-9e3d-eab55edb7a9b": {
+          "type": "menu",
+          "settings": {
+            "column_size": "small",
+            "title": "Products",
+            "menu": "products-new"
+          }
+        },
+        "d402e6d5-9d79-43ad-900a-cfaddc6cd9f8": {
+          "type": "menu",
+          "settings": {
+            "column_size": "small",
+            "title": "Support",
+            "menu": "footer"
+          }
+        },
+        "menu_FbrLya": {
+          "type": "menu",
+          "settings": {
+            "column_size": "small",
+            "title": "About Honiture",
+            "menu": "policies"
+          }
+        },
+        "menu_6xViYE": {
+          "type": "menu",
+          "settings": {
+            "column_size": "small",
+            "title": "Privacy",
+            "menu": "program"
+          }
+        },
+        "social_F4qcda": {
+          "type": "social",
+          "settings": {
+            "column_size": "small",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_9pCYtf",
+        "2ab8345e-9f63-4c80-b028-f4edae3633b5",
+        "055d0c35-3f11-4f51-9e3d-eab55edb7a9b",
+        "d402e6d5-9d79-43ad-900a-cfaddc6cd9f8",
+        "menu_FbrLya",
+        "menu_6xViYE",
+        "social_F4qcda"
+      ],
+      "custom_css": [
+        ".footer .thb-widget-title.collapsible {padding: 24px 0; font-size: 0.8rem;"
+      ],
+      "settings": {
+        "footer_reveal_animation": true,
+        "copyright_text": "All rights reserved.",
+        "show_language_switcher": true,
+        "show_currency_switcher": true,
+        "show_payment_icons": true,
+        "enable_follow_on_shop": false
+      }
+    },
+    "media_grid_8wxWHQ": {
+      "type": "media-grid",
+      "blocks": {
+        "media_N4mwQe": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/11_8_1_2.jpg",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "Watch Full Video",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(82deg, rgba(6, 61, 117, 1), rgba(229, 229, 190, 1) 100%)",
+            "color_text": "#ffffff",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        },
+        "media_mXkT3E": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/V8_Pro_ff058812-3fdb-40db-a9d3-2dddcd7e0c6d.jpg",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "Watch Full Video",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(294deg, rgba(99, 218, 192, 1) 4%, rgba(228, 150, 135, 1) 45%, rgba(228, 130, 130, 1) 94%)",
+            "color_text": "#ffffff",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        },
+        "media_giqrGp": {
+          "type": "media",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/G20_Pro.jpg",
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#2c2d2e",
+            "subheading_font_size": 1,
+            "subheading_color": "#2c2d2e",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 24
+          }
+        }
+      },
+      "block_order": [
+        "media_N4mwQe",
+        "media_mXkT3E",
+        "media_giqrGp"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": 200,
+        "mobile_height": 175,
+        "column_spacing": "large",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "spacer_RYNHFH",
+    "text_with_icons_G7xrBH",
+    "email_signup_XRApHP",
+    "footer",
+    "media_grid_8wxWHQ"
+  ]
+}

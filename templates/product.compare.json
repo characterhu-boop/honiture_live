@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main-product-compare": {
+      "type": "main-product-compare",
+      "blocks": {
+        "description_BAGarH": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "heading": "Description",
+            "truncate_description": true,
+            "truncate_description_count": 20
+          }
+        },
+        "sku_WLVVKD": {
+          "type": "sku",
+          "disabled": true,
+          "settings": {
+            "heading": "SKU"
+          }
+        },
+        "metafield_BFjF8i": {
+          "type": "metafield",
+          "settings": {
+            "heading": "Color",
+            "content": "custom.color"
+          }
+        },
+        "metafield_7wNPfc": {
+          "type": "metafield",
+          "settings": {
+            "heading": "Suction Power",
+            "content": "custom.SuctionPower"
+          }
+        },
+        "metafield_UhjhpM": {
+          "type": "metafield",
+          "settings": {
+            "heading": "Run Time",
+            "content": "custom.RunTime"
+          }
+        },
+        "metafield_jVkFmG": {
+          "type": "metafield",
+          "settings": {
+            "heading": "Battery Capacity",
+            "content": "custom.battery_capacity"
+          }
+        },
+        "metafield_VAt47p": {
+          "type": "metafield",
+          "settings": {
+            "heading": "Dust Box Capacity",
+            "content": "custom.dust_box_capacity"
+          }
+        },
+        "metafield_fUDKm3": {
+          "type": "metafield",
+          "settings": {
+            "heading": "Water Tank Capacity",
+            "content": "custom.water_tank_capacity"
+          }
+        },
+        "metafield_zcQfhe": {
+          "type": "metafield",
+          "settings": {
+            "heading": "Dimensions",
+            "content": "custom.dimensions"
+          }
+        }
+      },
+      "block_order": [
+        "description_BAGarH",
+        "sku_WLVVKD",
+        "metafield_BFjF8i",
+        "metafield_7wNPfc",
+        "metafield_UhjhpM",
+        "metafield_jVkFmG",
+        "metafield_VAt47p",
+        "metafield_fUDKm3",
+        "metafield_zcQfhe"
+      ],
+      "settings": {
+        "empty_field_label": "N\/A"
+      }
+    }
+  },
+  "order": [
+    "main-product-compare"
+  ]
+}

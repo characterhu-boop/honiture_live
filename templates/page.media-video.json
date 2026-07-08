@@ -1,0 +1,661 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "media_text_img_37nwry": {
+      "type": "media-text-img",
+      "name": "Image and text",
+      "settings": {
+        "full_width": true,
+        "image": "shopify:\/\/shop_images\/Honiture-home-cleaning-review.png",
+        "mobile_image": "shopify:\/\/shop_images\/Honiture-home-cleaning-review-2.jpg",
+        "image_position": "right",
+        "mobile_reverse": false,
+        "heading": "REVIEWS & VIDEOS",
+        "size": "h3",
+        "heading_tag": "h1",
+        "text": "<p><\/p><p>FEATURING REVIEWS AND <br\/>PRODUCT VIDEOS <br\/>OF HONITURE'S HOUSEHOLD<br\/>VACUUM CLEANER<\/p>",
+        "text2": "",
+        "button_label": "Button label",
+        "button_link": "",
+        "discount_text": "",
+        "gap": 30,
+        "gap_mobile": 0,
+        "section_padding": 25,
+        "text_margin_left": 240,
+        "text_flex": 0.8,
+        "mobile_section_padding": 0,
+        "image_border_radius": 0,
+        "background_color": "#f0f2f2",
+        "background_color_mobile": "#ffffff"
+      }
+    },
+    "media_carousel_scale_Ej6Uf4": {
+      "type": "media-carousel-scale",
+      "blocks": {
+        "slide_dqiDLh": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=kn6HCv0jSRE",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "G20 Pro Reviewed by: Scott Polderman",
+            "card_text": "\"This vacuum really cleaned up well. I used it in the kitchen and it just did a great job.\"",
+            "channel": ""
+          }
+        },
+        "slide_kazgFa": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=BIBqNyH7bZ4&pp=ygUISG9uaXR1cmU%3D",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "X7 Reviewed by: Homegrown Reviews",
+            "card_text": "\"This vacuum is completely standing up by itself. It's powerful cordless stick vacuum.\"",
+            "channel": ""
+          }
+        },
+        "slide_88DtWB": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=YnKJoZGOz5s",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "V8 Pro Reviewed by: PureReviews",
+            "card_text": "\"It's very flexible as far as mapping. It's a really cool nice compact robot.\"",
+            "channel": ""
+          }
+        },
+        "slide_qRTLUE": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/Rz9Wv3MG6d0?si=elv094bcJx8JrUXU",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "P7 Pro Reviewed by: Moschuss",
+            "card_text": "\"It really does give off a pleasant smell the whole time. Absolutely reasonable vacuum cleaner can be ordered straight away.\"",
+            "channel": ""
+          }
+        },
+        "slide_ccNUfC": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/WEjhXwPXuk4?si=7UKQWUfAK79nkrfe",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "P7 Pro Reviewed by: Chase Brogan",
+            "card_text": "\"Large Suction, Long Battery Life. I really like the smart LED touch screen.\"",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_dqiDLh",
+        "slide_kazgFa",
+        "slide_88DtWB",
+        "slide_qRTLUE",
+        "slide_ccNUfC"
+      ],
+      "custom_css": [
+        ".swiper-header .title h2 {color: #19586e; font-size: 24px; line-height: 1.4;}",
+        "@media screen and (max-width: 768px) {.swiper-slide-text-wrapper {padding: 15px 0; } .swiper-slide-text-title, .swiper-slide-text-content {text-align: left; }}"
+      ],
+      "name": "media-carousel-scale",
+      "settings": {
+        "title": "<h2>See What Influencers Are Saying<\/h2>",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 56,
+        "slide_aspect_ratio_mobile": 56,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 100,
+        "space_between_tablet": 20,
+        "space_between_mobile": 30,
+        "centered_slides": true,
+        "loop": true,
+        "alignment": "center",
+        "autoplay": false,
+        "autoplay_speed": 6,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "bullets",
+        "pagination_color": "#00d0cd"
+      }
+    },
+    "custom_swiper_carousel_ybVRDx": {
+      "type": "custom-swiper-carousel",
+      "blocks": {
+        "slide_zYkKtU": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/Ycym54kzDbA?si=uEh546d9y9tRJ9qS",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: TyJenLA",
+            "card_text": "Honiture P7 Pro Cordless Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_NEAqtJ": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/NxuSgOdWdes?si=v4rhdR-uTCcyINsL",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: HHReview",
+            "card_text": "Honiture P7 Pro Cordless Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_bjNic4": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/-sNTwynJze4",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Manar Jackson",
+            "card_text": "Honiture Y10 Cordless Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_Tw4apW": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/43tVZp8VrXg?si=AqfpgwWZCW0KGggX",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Epic Review Hub",
+            "card_text": "Honiture P7 Pro Cordless Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_XFixzU": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/OJRDncMqxrk?si=_A5I26MoMRzbcVpI",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Jessica Tull",
+            "card_text": "Honiture G20 Robot Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_TVDyBM": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/nKzXmrmzlH8?si=_7ohBbnK6OgpOZg6",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Real Deal Pearls",
+            "card_text": "Honiture V8 Pro Robot Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_VPzKtw": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=CG7oRet7jBU&pp=ygUISG9uaXR1cmU%3D",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Toolsdoctor",
+            "card_text": "Honiture G20 Robot Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_6yWqax": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/NDLqRnTX9s8?si=iDqqAwjGqWbU7oYx",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Brison",
+            "card_text": "Honiture S13 Pro Cordless Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_9zTxnG": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=Cyfx8XnRwmM",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: GoTechGeek",
+            "card_text": "Honiture G20 Robot Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_MPReeh": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=7k6QvJJy97U",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Tom's Home Finds",
+            "card_text": "Honiture X7 Stick Vacuum Review",
+            "channel": ""
+          }
+        },
+        "slide_6nxU9g": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/bi55CHWdpNc?si=fJxY1CwOxP3qBRUC",
+            "tiktok_url": "",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "Reviewed by: Mark's Tech Vlogs",
+            "card_text": "Honiture V8 Pro Robotic Vacuum Review",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_zYkKtU",
+        "slide_NEAqtJ",
+        "slide_bjNic4",
+        "slide_Tw4apW",
+        "slide_XFixzU",
+        "slide_TVDyBM",
+        "slide_VPzKtw",
+        "slide_6yWqax",
+        "slide_9zTxnG",
+        "slide_MPReeh",
+        "slide_6nxU9g"
+      ],
+      "custom_css": [
+        ".swiper-header .title h2 {color: #19586e; font-size: 24px; line-height: 1.4;}"
+      ],
+      "name": "Enhanced Swiper Carousel",
+      "settings": {
+        "title": "<h2><strong>More Reviews<\/strong><\/h2>",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 0,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 120,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 56,
+        "slide_aspect_ratio_mobile": 56,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 6,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "bullets",
+        "pagination_color": "#00d0cd"
+      }
+    },
+    "media_carousel_up_KKhLbd": {
+      "type": "media-carousel-up",
+      "blocks": {
+        "slide_F3L3kd": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/ssstik.io_@aaamgrr_1773656451244.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_eRXLzK": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/honiture-p7-pro-cordless-vacuum.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_EFQWAX": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/honiture-x7-vacuum-cleaner-reviews-02 (1).mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_6rAnm7": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/TikSave.io_7537955592313244941-hd (1).mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_dxqVkt": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/P7 pro review.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_n74wKB": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/ssstik.io_@giacomo__p_1753179944487.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_YxHDkt": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/HONITURE X7 Review.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_bim6Qb": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/Honiture P7 Pro Cordless Vacuum.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_4kr8JB": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/karijunesimpson_Review_x7_Cordless_Vacuum.png",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "https:\/\/www.tiktok.com\/@karijunesimpson\/video\/7486300454402608430?q=honiture&t=1747386512154",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_7XzKAw": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/garnicashop_Review_x7_Cordless_Vacuum.png",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "https:\/\/www.tiktok.com\/@garnicashop\/video\/7468774192633171246?q=honiture&t=1747386512154",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_ULLadY": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/briana_the_affiliate_Review_x7_Cordless_Vacuum.png",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "https:\/\/www.tiktok.com\/@briana_the_affiliate\/video\/7498841608281034030?q=honiture&t=1747386512154",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_ngjp3n": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/homegrownhowto_Review_x7_Cordless_Vacuum.png",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "https:\/\/www.tiktok.com\/@homegrownhowto\/video\/7482989744327036203?q=honiture&t=1747386512154",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_AQAkG8": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/mel_stith_Review_x7_Cordless_Vacuum.png",
+            "video_url": "",
+            "video_autoplay": true,
+            "link": "https:\/\/www.tiktok.com\/@mel_stith\/video\/7476605828611558698?q=honiture&t=1747386512154",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_F3L3kd",
+        "slide_eRXLzK",
+        "slide_EFQWAX",
+        "slide_6rAnm7",
+        "slide_dxqVkt",
+        "slide_n74wKB",
+        "slide_YxHDkt",
+        "slide_bim6Qb",
+        "slide_4kr8JB",
+        "slide_7XzKAw",
+        "slide_ULLadY",
+        "slide_ngjp3n",
+        "slide_AQAkG8"
+      ],
+      "custom_css": [
+        ".swiper-header .title h2 {color: #19586e; font-size: 24px; line-height: 1.4;}"
+      ],
+      "name": "media-carousel-up",
+      "settings": {
+        "title": "<h2><strong>Reviews of the Best-selling Vacuum<\/strong><\/h2>",
+        "full_width": false,
+        "padding_top": 100,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 100,
+        "slide_aspect_ratio": 200,
+        "slide_aspect_ratio_mobile": 156,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1.2,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 6,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "bullets",
+        "pagination_color": "#00d0cd"
+      }
+    },
+    "media_carousel_view_more_6nkaHB": {
+      "type": "media-carousel-view-more",
+      "blocks": {
+        "slide_bcig3E": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/uRPJxRJMFTw",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "P7 Pro Cordless Vacuum",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_cHYaeT": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/KimQvpp6LVo",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "G20 Pro Robot Vacuum",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_qtxqjE": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/fF7DnQkHk3I",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "X7 Cordless Vacuum",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_cnkRRx": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video_url": "https:\/\/youtu.be\/sGOQymwRi9A",
+            "video_autoplay": true,
+            "link": "",
+            "card_title": "V8 Pro Robot Vacuum",
+            "card_text": "",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_bcig3E",
+        "slide_cHYaeT",
+        "slide_qtxqjE",
+        "slide_cnkRRx"
+      ],
+      "custom_css": [
+        ".swiper-header .title h2 {color: #19586e; font-size: 24px; line-height: 1.4;}"
+      ],
+      "name": "media-carousel-view-more",
+      "settings": {
+        "title": "<h2>Learn More About Honiture Products<\/h2>",
+        "view_more": "See More on YouTube >>",
+        "view_more_link": "https:\/\/www.youtube.com\/@honiture",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 75,
+        "slide_aspect_ratio": 56,
+        "slide_aspect_ratio_mobile": 56,
+        "slides_per_view": 3,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 1,
+        "space_between": 55,
+        "space_between_tablet": 20,
+        "space_between_mobile": 10,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": true,
+        "autoplay_speed": 6,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "bullets",
+        "pagination_color": "#00d0cd"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "media_text_img_37nwry",
+    "media_carousel_scale_Ej6Uf4",
+    "custom_swiper_carousel_ybVRDx",
+    "media_carousel_up_KKhLbd",
+    "media_carousel_view_more_6nkaHB"
+  ]
+}

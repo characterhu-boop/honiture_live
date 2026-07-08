@@ -1,0 +1,916 @@
+{%- liquid
+  assign cards = section.blocks | where: 'type', 'card'
+-%}
+
+{%- style -%}
+  .fd-clean-essentials--{{ section.id }} {
+    --fd-bg: {{ section.settings.section_bg | default: '#eaf5ff' }};
+    --fd-card-bg: {{ section.settings.card_bg | default: '#ffffff' }};
+    --fd-text: {{ section.settings.text_color | default: '#2b2f33' }};
+    --fd-muted: {{ section.settings.muted_color | default: '#666666' }};
+    --fd-primary: {{ section.settings.primary_color | default: '#174b7f' }};
+    --fd-accent: {{ section.settings.accent_color | default: '#00c7c7' }};
+    --fd-badge: {{ section.settings.badge_color | default: '#00a7d9' }};
+    --fd-image-column: {{ section.settings.image_column_width | default: 48 }}%;
+    background: var(--fd-bg);
+    color: var(--fd-text);
+    padding: {{ section.settings.padding_top | default: 54 }}px 0 {{ section.settings.padding_bottom | default: 54 }}px;
+    overflow: hidden;
+  }
+  
+  .fd-clean-essentials--{{ section.id }} .fd-clean__container {
+    max-width: {{ section.settings.content_max_width | default: 1180 }}px;
+    margin: 0 auto;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean__tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: min(390px, 100%);
+    margin: 0 auto 28px;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean__tab {
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 9px 18px;
+    background: #ffffff;
+    color: #6a6a6a;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean__tab.is-active {
+    background: var(--fd-primary);
+    color: #ffffff;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean__panel {
+    display: none;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean__panel.is-active {
+    display: block;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean__track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--fd-image-column) minmax(0, 1fr);
+    min-height: 238px;
+    background: var(--fd-card-bg);
+    border-radius: 15px;
+    overflow: visible;
+    box-shadow: 0 9px 21px rgba(38, 91, 130, .12);
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px 0 0 15px;
+    background: #d7ebfb;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__media a,
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__media picture,
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__media-inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__media img {
+    object-fit: cover;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge {
+    position: absolute;
+    top: -7px;
+    left: 15px;
+    z-index: 1;
+    width: 83px;
+    height: 72px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    background: transparent;
+    text-align: center;
+    overflow: hidden;
+    color: #ffffff;
+    box-sizing: border-box;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge::before {
+    content: none;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge-text {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2px;
+    place-items: center;
+    line-height: 1;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge .fd-clean-card__badge-main {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge .fd-clean-card__badge-sub {
+    display: block;
+    margin-top: 0;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__content {
+    min-width: 0;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__title {
+    margin: 0 0 10px;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--fd-text);
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__desc {
+    min-height: 48px;
+    margin: 0 0 7px;
+    color: var(--fd-muted);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__coupon {
+    margin-bottom: 8px;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__coupon.is-empty {
+    display: none;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__coupon-link {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__coupon-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__bottom {
+    margin-top: auto;
+    padding-top: 9px;
+    border-top: 1px solid rgba(18, 52, 82, .28);
+    display: grid;
+    gap: 6px;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__price strong {
+    font-size: 21px;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--fd-text);
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__price s {
+    color: rgba(0, 0, 0, .4);
+    font-size: 12px;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__actions {
+    display: grid;
+    grid-template-columns: var(--fd-action-columns, 1fr 1fr);
+    gap: 5px;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__btn {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0 9px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid var(--fd-accent);
+    background: #ffffff;
+    color: var(--fd-accent);
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__btn--primary {
+    background: linear-gradient(0deg, #00D0CD, #00D0CD), #00D0CD;
+    color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 208, 205, .28);
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__btn--full {
+    width: 100%;
+  }
+
+  .fd-clean-essentials--{{ section.id }} .fd-clean-card__btn[disabled] {
+    opacity: .45;
+    cursor: not-allowed;
+  }
+
+  .fd-clean-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 9999;
+    padding: 10px 18px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, .82);
+    color: #ffffff;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+
+  .fd-clean-toast.is-show {
+    opacity: 1;
+  }
+
+  @media (max-width: 900px) {
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card {
+      grid-template-columns: 1fr;
+      border-radius: 8px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__media {
+      min-height: 210px;
+      border-radius: 8px 8px 0 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .fd-clean-essentials--{{ section.id }} {
+      padding: {{ section.settings.padding_top_mobile | default: 28 }}px 0 {{ section.settings.padding_bottom_mobile | default: 34 }}px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean__container {
+      padding: 0;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean__tabs {
+      width: calc(100% - 8px);
+      max-width: 236px;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean__tab {
+      min-height: 30px;
+      padding: 0 14px;
+      font-size: 13px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean__track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      align-items: stretch;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 16px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card {
+      flex: 0 0 82.5%;
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+      min-height: 0;
+      height: 100%;
+      scroll-snap-align: start;
+      border-radius: 8px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__media {
+      flex: 0 0 auto;
+      min-height: 0;
+      height: auto;
+      aspect-ratio: 562.42 / 535.3;
+      overflow: hidden;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__media-inner {
+      height: 100%;
+      aspect-ratio: inherit;
+      overflow: hidden;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__content {
+      flex: 1 1 auto;
+      min-height: 0;
+      padding: 16px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge {
+        top: -6px;
+        left: 11px;
+        width: 72px;
+        height: 62px;
+        padding: 8px 10px 18px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge-text {
+      gap: 1px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge .fd-clean-card__badge-main {
+      font-size: 18px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__badge .fd-clean-card__badge-sub {
+      font-size: 12px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__title {
+      margin-bottom: 7px;
+      font-size: 20px;
+      min-height: 48px;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__desc {
+      min-height: calc(15px * 1.45 * 3);
+      max-height: calc(15px * 1.45 * 3);
+      margin-bottom: 5px;
+      font-size: 15px;
+      line-height: 1.45;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__coupon {
+      margin-bottom: 5px;
+      min-height: 42px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__coupon-img {
+      object-fit: contain;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__coupon.is-empty {
+      display: block;
+      min-height: 42px;
+      visibility: hidden;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__bottom {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 5px;
+      gap: 5px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__price {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__price strong {
+      font-size: 21px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__price s {
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__actions {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .fd-clean-essentials--{{ section.id }} .fd-clean-card__btn {
+      min-height: 28px;
+      padding: 0 8px;
+      font-size: 10px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="fd-clean-essentials fd-clean-essentials--{{ section.id }}" data-fd-clean-essentials>
+  <div class="fd-clean__container">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'header' -%}
+          {% render 'xmas-section-header', block: block %}
+      {%- endcase -%}
+    {%- endfor -%}
+
+    <div class="fd-clean__tabs" role="tablist" aria-label="{{ section.settings.title | escape }}">
+      <button class="fd-clean__tab is-active" type="button" role="tab" aria-selected="true" data-fd-tab-button="tab_1">
+        {{ section.settings.tab_1_label | default: 'X7' }}
+      </button>
+      <button class="fd-clean__tab" type="button" role="tab" aria-selected="false" data-fd-tab-button="tab_2">
+        {{ section.settings.tab_2_label | default: 'V8 Pro' }}
+      </button>
+    </div>
+
+    {%- for tab_index in (1..2) -%}
+      {%- assign tab_key = 'tab_' | append: tab_index -%}
+      <div class="fd-clean__panel{% if forloop.first %} is-active{% endif %}" role="tabpanel" data-fd-tab-panel="{{ tab_key }}">
+        <div class="fd-clean__track">
+          {%- for block in cards -%}
+            {%- if block.settings.tab_key == tab_key -%}
+              {%- liquid
+                assign product = block.settings.product
+                assign variant = product.selected_or_first_available_variant
+                assign image = block.settings.image
+                if image == blank and product != blank
+                  assign image = product.featured_image
+                endif
+                assign mobile_image = block.settings.mobile_image
+                if mobile_image == blank
+                  assign mobile_image = image
+                endif
+                assign title = block.settings.title | strip
+                if title == blank and product != blank
+                  assign title = product.title
+                endif
+                assign description = block.settings.description | strip
+                if description == blank and product != blank
+                  assign description = product.description | strip_html | truncate: 92
+                endif
+                assign product_url = block.settings.shop_now_link
+                if product_url == blank and product != blank
+                  assign product_url = product.url
+                endif
+
+                assign price = block.settings.price | strip
+                assign current_price_cents = product.price
+                assign extra_discount = block.settings.extra_discount_percent | default: 0
+                if extra_discount > 0 and product != blank
+                  assign discount_multiplier = 100 | minus: extra_discount
+                  assign current_price_cents = product.price | times: discount_multiplier | divided_by: 100
+                endif
+                if price == blank and product != blank
+                  assign price = current_price_cents | money
+                endif
+
+                assign compare_price_cents = product.compare_at_price
+                if compare_price_cents == blank or compare_price_cents <= current_price_cents
+                  assign compare_price_cents = product.price
+                endif
+
+                assign badge_text = block.settings.badge_text | strip
+                if badge_text == blank and product.compare_at_price > product.price
+                  assign badge_percent = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round
+                  assign badge_text = badge_percent | append: '%'
+                endif
+
+                assign coupon_code = block.settings.coupon_code | strip
+                assign show_add_to_cart = block.settings.show_add_to_cart
+                assign show_shop_now = block.settings.show_shop_now
+                assign action_count = 0
+                if show_add_to_cart
+                  assign action_count = action_count | plus: 1
+                endif
+                if show_shop_now and product_url != blank
+                  assign action_count = action_count | plus: 1
+                endif
+                assign action_columns = '1fr 1fr'
+                if action_count <= 1
+                  assign action_columns = '1fr'
+                endif
+              -%}
+
+              <article class="fd-clean-card" style="--fd-action-columns: {{ action_columns }};" {{ block.shopify_attributes }}>
+                <div class="fd-clean-card__media">
+                  <div class="fd-clean-card__media-inner">
+                    {%- if product_url != blank -%}
+                      <a href="{{ product_url }}" target="_blank" rel="noopener" aria-label="{{ title | escape }}">
+                    {%- endif -%}
+                      {%- if image != blank -%}
+                        <picture>
+                          {%- if mobile_image != blank -%}
+                            <source media="(max-width: 768px)" srcset="{{ mobile_image | image_url: width: 720 }}">
+                          {%- endif -%}
+                          <img src="{{ image | image_url: width: 720 }}" alt="{{ title | escape }}" loading="lazy">
+                        </picture>
+                      {%- else -%}
+                        {{ 'product-1' | placeholder_svg_tag }}
+                      {%- endif -%}
+                    {%- if product_url != blank -%}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+
+                {%- if badge_text != blank and block.settings.badge_background_image != blank -%}
+                  <div class="fd-clean-card__badge">
+                    <img class="fd-clean-card__badge-img" src="{{ block.settings.badge_background_image | image_url: width: 180 }}" alt="" loading="lazy">
+                    <span class="fd-clean-card__badge-text">
+                      <span class="fd-clean-card__badge-main">{{ badge_text }}</span>
+                      <span class="fd-clean-card__badge-sub">OFF</span>
+                    </span>
+                  </div>
+                {%- endif -%}
+
+                <div class="fd-clean-card__content">
+                  {%- if title != blank -%}
+                    <h3 class="fd-clean-card__title">
+                      {%- if product_url != blank -%}
+                        <a href="{{ product_url }}" target="_blank" rel="noopener">{{ title }}</a>
+                      {%- else -%}
+                        {{ title }}
+                      {%- endif -%}
+                    </h3>
+                  {%- endif -%}
+
+                  {%- if description != blank -%}
+                    <p class="fd-clean-card__desc">{{ description | escape | newline_to_br }}</p>
+                  {%- endif -%}
+
+                  <div class="fd-clean-card__coupon{% if block.settings.coupon_image == blank %} is-empty{% endif %}">
+                    {%- if block.settings.coupon_image != blank -%}
+                      {%- if coupon_code != blank -%}
+                        <button class="fd-clean-card__coupon-link" type="button" data-fd-copy-code="{{ coupon_code | escape }}" aria-label="Copy coupon code">
+                          <img class="fd-clean-card__coupon-img" src="{{ block.settings.coupon_image | image_url: width: 900 }}" alt="" loading="lazy">
+                        </button>
+                      {%- else -%}
+                        <img class="fd-clean-card__coupon-img" src="{{ block.settings.coupon_image | image_url: width: 900 }}" alt="" loading="lazy">
+                      {%- endif -%}
+                    {%- endif -%}
+                  </div>
+
+                  <div class="fd-clean-card__bottom">
+                    {%- if price != blank -%}
+                      <div class="fd-clean-card__price">
+                        <strong>{{ price }}</strong>
+                        {%- if product != blank and compare_price_cents > current_price_cents -%}
+                          <s>{{ compare_price_cents | money }}</s>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+
+                    {%- if action_count > 0 -%}
+                      <div class="fd-clean-card__actions">
+                        {%- if show_add_to_cart -%}
+                          <button
+                            class="fd-clean-card__btn{% if action_count == 1 %} fd-clean-card__btn--full{% endif %}"
+                            type="button"
+                            data-fd-add-to-cart
+                            data-variant-id="{{ variant.id }}"
+                            {% if variant == blank or variant.available == false %}disabled{% endif %}
+                          >
+                            {{ block.settings.add_to_cart_label | default: section.settings.add_to_cart_label | default: 'Add to Cart' }}
+                          </button>
+                        {%- endif -%}
+
+                        {%- if show_shop_now and product_url != blank -%}
+                          <a class="fd-clean-card__btn fd-clean-card__btn--primary{% if action_count == 1 %} fd-clean-card__btn--full{% endif %}" href="{{ product_url }}" target="_blank" rel="noopener">
+                            {{ block.settings.shop_now_label | default: section.settings.shop_now_label | default: 'Shop Now' }}
+                          </a>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% render 'section-decorations', section: section %}
+
+<script>
+  (function() {
+    function ready(fn) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        fn();
+      }
+    }
+
+    function getToast() {
+      var toast = document.querySelector('.fd-clean-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'fd-clean-toast';
+        document.body.appendChild(toast);
+      }
+      return toast;
+    }
+
+    function showToast(message) {
+      var toast = getToast();
+      toast.textContent = message || 'Done';
+      toast.classList.add('is-show');
+      window.clearTimeout(toast._timer);
+      toast._timer = window.setTimeout(function() {
+        toast.classList.remove('is-show');
+      }, 1800);
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+      return new Promise(function(resolve, reject) {
+        try {
+          var input = document.createElement('textarea');
+          input.value = text;
+          input.style.position = 'fixed';
+          input.style.opacity = '0';
+          document.body.appendChild(input);
+          input.select();
+          var ok = document.execCommand('copy');
+          document.body.removeChild(input);
+          ok ? resolve() : reject();
+        } catch (error) {
+          reject(error);
+        }
+      });
+    }
+
+    function addToCart(variantId) {
+      if (!variantId) return;
+      var root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+      fetch(root + 'cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ id: Number(variantId), quantity: 1 })
+      }).then(function(response) {
+        if (!response.ok) throw new Error('Add to cart failed');
+        showToast('Added to cart');
+        document.dispatchEvent(new CustomEvent('cart:refresh'));
+      }).catch(function() {
+        window.location.href = root + 'cart/add?id=' + encodeURIComponent(variantId) + '&quantity=1';
+      });
+    }
+
+    function init(root) {
+      if (!root || root.dataset.fdCleanReady === 'true') return;
+      root.dataset.fdCleanReady = 'true';
+
+      var buttons = root.querySelectorAll('[data-fd-tab-button]');
+      var panels = root.querySelectorAll('[data-fd-tab-panel]');
+
+      function activate(tab) {
+        buttons.forEach(function(button) {
+          var active = button.getAttribute('data-fd-tab-button') === tab;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        panels.forEach(function(panel) {
+          var active = panel.getAttribute('data-fd-tab-panel') === tab;
+          panel.classList.toggle('is-active', active);
+          if (active) {
+            var track = panel.querySelector('.fd-clean__track');
+            if (track) track.scrollLeft = 0;
+          }
+        });
+      }
+
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          activate(button.getAttribute('data-fd-tab-button'));
+        });
+      });
+
+      root.querySelectorAll('[data-fd-copy-code]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          var code = button.getAttribute('data-fd-copy-code');
+          if (!code) return;
+          copyText(code).then(function() {
+            showToast('Copied');
+          });
+        });
+      });
+
+      root.querySelectorAll('[data-fd-add-to-cart]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          if (button.disabled) return;
+          addToCart(button.getAttribute('data-variant-id'));
+        });
+      });
+
+      if (buttons[0]) activate(buttons[0].getAttribute('data-fd-tab-button'));
+    }
+
+    ready(function() {
+      document.querySelectorAll('[data-fd-clean-essentials]').forEach(init);
+    });
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (!event.target) return;
+      event.target.querySelectorAll('[data-fd-clean-essentials]').forEach(init);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FD Clean Essentials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "tab_1_label", "label": "Tab 1 label", "default": "X7" },
+    { "type": "text", "id": "tab_2_label", "label": "Tab 2 label", "default": "V8 Pro" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding top", "default": 54 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding bottom", "default": 54 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Padding top mobile", "default": 28 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Padding bottom mobile", "default": 34 },
+    { "type": "range", "id": "content_max_width", "min": 960, "max": 1500, "step": 20, "unit": "px", "label": "Content max width", "default": 1180 },
+    { "type": "range", "id": "image_column_width", "min": 35, "max": 65, "step": 1, "unit": "%", "label": "Image column width", "default": 48 },
+    { "type": "color_background", "id": "section_bg", "label": "Section background", "default": "#eaf5ff" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b2f33" },
+    { "type": "color", "id": "muted_color", "label": "Muted text color", "default": "#666666" },
+    { "type": "color", "id": "primary_color", "label": "Primary color", "default": "#174b7f" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#00c7c7" },
+    { "type": "color", "id": "badge_color", "label": "Badge color", "default": "#00a7d9" },
+    { "type": "text", "id": "add_to_cart_label", "label": "Add to cart label", "default": "Add to Cart" },
+    { "type": "text", "id": "shop_now_label", "label": "Shop now label", "default": "Shop Now" }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Section header",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Section title", "default": "Best Seller Clean Essentials" },
+        { "type": "text", "id": "sub_heading", "label": "Sub heading", "default": "Upgrade Dad's cleaning essentials. No bending, one-pass cleaning Single Gift Picks-Perfect for thoughtful, simple gifting" },
+        { "type": "checkbox", "id": "show_sub_heading", "label": "Show sub heading", "default": true },
+        { "type": "text", "id": "view_more_label", "label": "View more label", "default": "View More" },
+        { "type": "url", "id": "view_more_link", "label": "View more link" },
+        { "type": "select", "id": "text_align", "label": "Text align", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" },
+          { "value": "right", "label": "Right" }
+        ], "default": "center" },
+        { "type": "color", "id": "title_color", "label": "Title color", "default": "#2b2f33" },
+        { "type": "range", "id": "title_size", "min": 18, "max": 56, "step": 1, "unit": "px", "label": "Title size", "default": 28 },
+        { "type": "range", "id": "title_size_mobile", "min": 12, "max": 32, "step": 1, "unit": "px", "label": "Title size mobile", "default": 16 },
+        { "type": "color", "id": "sub_heading_color", "label": "Sub heading color", "default": "#666666" },
+        { "type": "range", "id": "sub_heading_size", "min": 12, "max": 28, "step": 1, "unit": "px", "label": "Sub heading size", "default": 16 },
+        { "type": "range", "id": "sub_heading_size_mobile", "min": 8, "max": 18, "step": 1, "unit": "px", "label": "Sub heading size mobile", "default": 10 },
+        { "type": "range", "id": "margin_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Margin bottom", "default": 34 },
+        { "type": "checkbox", "id": "show_title_icons", "label": "Show title icons", "default": false },
+        { "type": "image_picker", "id": "title_icon", "label": "Title icon image" },
+        { "type": "range", "id": "title_icon_size", "min": 18, "max": 96, "step": 2, "unit": "px", "label": "Title icon size", "default": 30 },
+        { "type": "range", "id": "title_icon_size_mobile", "min": 14, "max": 60, "step": 2, "unit": "px", "label": "Title icon size mobile", "default": 22 },
+        { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror right icon", "default": true },
+        { "type": "color", "id": "view_more_color", "label": "View more color", "default": "#2b2f33" },
+        { "type": "color", "id": "view_more_border_color", "label": "View more border color", "default": "#2b2f33" }
+      ]
+    },
+    {
+      "type": "card",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "tab_key",
+          "label": "Show in tab",
+          "options": [
+            { "value": "tab_1", "label": "Tab 1" },
+            { "value": "tab_2", "label": "Tab 2" }
+          ],
+          "default": "tab_1"
+        },
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "image", "label": "Image override" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image override" },
+        { "type": "text", "id": "badge_text", "label": "Badge text", "default": "20%" },
+        { "type": "image_picker", "id": "badge_background_image", "label": "Badge background image" },
+        { "type": "text", "id": "title", "label": "Title override" },
+        { "type": "textarea", "id": "description", "label": "Description override" },
+        { "type": "image_picker", "id": "coupon_image", "label": "Coupon image" },
+        { "type": "text", "id": "coupon_code", "label": "Coupon code", "default": "MOMLOVE12" },
+        { "type": "text", "id": "price", "label": "Price override" },
+        { "type": "range", "id": "extra_discount_percent", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Extra discount percentage", "default": 0 },
+        { "type": "checkbox", "id": "show_add_to_cart", "label": "Show Add to Cart button", "default": true },
+        { "type": "checkbox", "id": "show_shop_now", "label": "Show Shop Now button", "default": true },
+        { "type": "text", "id": "add_to_cart_label", "label": "Add to cart label override" },
+        { "type": "text", "id": "shop_now_label", "label": "Shop now label override" },
+        { "type": "url", "id": "shop_now_link", "label": "Shop now link override" }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Desktop image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+        { "type": "range", "id": "top", "label": "Top", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "left", "label": "Left", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "top_offset", "label": "Top offset", "min": -500, "max": 500, "step": 10, "unit": "px", "default": 0 },
+        { "type": "range", "id": "left_offset", "label": "Left offset", "min": -500, "max": 500, "step": 10, "unit": "px", "default": 0 },
+        { "type": "range", "id": "width", "label": "Width", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "z_index", "label": "Z-index", "default": 1 },
+        { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+        { "type": "checkbox", "id": "hide_on_pc", "label": "Hide on desktop", "default": false },
+        { "type": "range", "id": "rotation", "label": "Rotation", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "range", "id": "mobile_top", "label": "Mobile top", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "mobile_left", "label": "Mobile left", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "mobile_width", "label": "Mobile width", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "mobile_z_index", "label": "Mobile z-index", "default": 1 },
+        { "type": "range", "id": "mobile_rotation", "label": "Mobile rotation", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FD Clean Essentials",
+      "blocks": [
+        { "type": "header" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,869 @@
+{{ 'media-grid-1.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_height = section.settings.desktop_height
+  assign mobile_height = section.settings.mobile_height
+  assign column_spacing = section.settings.column_spacing
+  assign mobile_swipe = section.settings.mobile_swipe
+  
+  assign disable_top_spacing = section.settings.disable_top_spacing
+  assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+  
+  assign show_view_all = section.settings.show_view_all
+  assign view_all_text = section.settings.view_all_text
+  assign view_all_link = section.settings.view_all_link 
+-%}
+
+<div class="media-grid-1 section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
+  <!-- View All Link -->
+  {% if show_view_all and view_all_link != blank %}
+    <div class="view-all-link desktop-only">
+      <a href="{{ view_all_link }}" class="view_all">{{ view_all_text }}
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L5 5L1 9" stroke="var(--color-accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  {% endif %}
+  
+  <!-- Unified Swiper Container for both Desktop and Mobile -->
+  <div class="media-grid-container">
+    <div class="swiper-container media-grid-swiper" style="--desktop-height:{{ desktop_height | append: 'px' }}; --mobile-height:{{ mobile_height | append: 'px' }}">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign image = block.settings.image
+            assign mobile_image = block.settings.mobile_image
+            assign slide_link = block.settings.slide_link
+            assign use_video = block.settings.use_video
+            assign video_hosted = block.settings.video_hosted
+  
+            assign heading_size = block.settings.heading_size
+            assign content_position = block.settings.content_position
+            assign text_alignment = block.settings.text_alignment
+  
+            assign color_bg = block.settings.color_bg
+            assign color_bg_gradient = block.settings.color_bg_gradient
+            assign color_text = block.settings.color_text
+            assign color_link = block.settings.color_link
+            assign overlay_color = block.settings.overlay_color
+            assign overlay_opacity = block.settings.overlay_opacity
+            assign subheading_color = block.settings.subheading_color
+  
+            assign column = block.settings.column
+            assign row = block.settings.row
+  
+            assign column_mobile = column
+            if column > 2
+              assign column_mobile = 2
+            endif
+          -%}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="media-grid--item-1 content-{{ content_position }} has-link--{% if slide_link != blank %}true{% endif %}" style="--column-span: {{ column }}; --row-span: {{ row }}; --column-span--mobile: {{ column_mobile }}; --color-bg: {{ color_bg }}; {%- if color_bg_gradient != blank -%}--color-bg-gradient: {{ color_bg_gradient }};{%- endif -%} --color-text: {{ color_text }}; --color-accent: {{ color_link }}; --subheading-color: {{ subheading_color | default: color_text }}; --overlay-color-rgb: {{ overlay_color.red }},{{ overlay_color.green }},{{ overlay_color.blue }}; --overlay-opacity: {{ overlay_opacity | divided_by: 100.0 }}">
+              <div class="media-grid--bg-1">
+                {%- if use_video -%}
+                  {%- if video_hosted != blank -%}
+                    {{ video_hosted | video_tag: autoplay: true, loop: true, controls: false, muted: true, image_size: '1280x' }}
+                  {%- endif -%}
+                {%- elsif mobile_image != blank -%}
+                  <picture>
+                    <source media="(max-width: 768px)" srcset="{{ mobile_image | img_url: '800x' }}">
+                    {%- liquid
+                      render 'responsive-image', image: image, sizes: '345x,610x,1280x'
+                    -%}
+                  </picture>
+                {%- elsif image != blank -%}
+                  {%- liquid
+                    render 'responsive-image', image: image, sizes: '345x,610x,1280x'
+                  -%}
+                {%- endif -%}
+              </div>
+              <div class="media-grid--content-1 text-{{ text_alignment }}">
+                {% comment %} tag {% endcomment %}
+                {% if block.settings.custom_tag != blank %}
+                  <span class="media-grid__tag" style="font-weight: 700; color: #00c0cd;">{{ block.settings.custom_tag }}</span>
+                {% endif %}
+
+                {% if block.settings.heading != blank %}
+                  <h4 class="{{ heading_size }}{% if block.settings.button_text == blank %} media-grid--heading-no-margin-1{% endif %}">{{ block.settings.heading | newline_to_br }}</h4>
+                {% endif %}
+                {% if block.settings.subheading != blank %}
+                  <p class="subheading" style="{% if subheading_color != blank %}color: {{ subheading_color }};{% endif %}">{{ block.settings.subheading }}</p>
+                {% endif %}
+                {% if block.settings.button_text != blank %}
+                  {% render 'text-button', url: block.settings.button_link, title: block.settings.button_text %}
+                {% endif %}
+ 
+                {% if slide_link != blank and slide_link != '' %}
+                <a href="{{ slide_link }}" class="media-grid--link-1" tabindex="-1" aria-label="{% if block.settings.heading != blank %}{{ block.settings.heading | escape }}{% endif %}"></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+      </div>
+      <!-- Navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+<style>
+  /* Base styles */
+  .media-grid--item-1.has-link--true .media-grid--bg-1 img,
+  .media-grid--item-1.has-link--true .media-grid--bg-1 video {
+    transition: all 1s cubic-bezier(0.104, 0.204, 0.492, 1); 
+  }
+  .shopify-section.section-media-grid{
+    margin-bottom: 120px;
+  }
+  .media-grid-1 .swiper-container{
+    overflow: hidden;
+  }
+
+
+  .media-grid--item-1 {
+    isolation: isolate;
+    border-radius: var(--block-border-radius, 16px);
+  }
+
+  /* View All link styles */
+  .view-all-link {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .view-all-link.desktop-only {
+    text-align: right;
+    padding: 0 60px 15px;
+    max-width: var(--grid-width-row, 1380px);
+    margin: 0 auto;
+  }
+  
+  .view-all-link.mobile-only {
+    text-align: left;
+    padding: 15px 0 0 20px;
+    display: inline-block;
+    color: #00c0cd;
+  }
+  .view_all{
+    color: #19586E;
+  }
+  .view_all path{
+    stroke: #19586E;
+  }
+   .view_all:hover{
+    color: #19586E;
+  }
+  .view-all-link.mobile-only .view_all{
+     color: #00c0cd;
+  }
+  .view-all-link.mobile-only .view_all path{
+     stroke: #00c0cd;
+  }
+  .view-all-link .text-button {
+    display: inline-block;
+    color: var(--color-link);
+    padding: 5px 16px;
+    background: #00c0cd;
+    color: #fff;
+    border-radius: 16px;
+    text-decoration: none;
+  }
+  
+  .view-all-link .text-button:hover {
+    opacity: 0.9;
+  }
+  
+  .view-all-link .text-button path {
+    stroke: #fff;
+  }
+
+  /* Main container wrapper */
+  .media-grid-1 {
+    max-width: var(--grid-width-row, 1380px);
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Desktop grid layout - 原始网格布局 */
+  .media-grid--inner-1 {
+    padding: 0 15px;
+    max-width: var(--grid-width-row, 1380px);
+    margin: 0 auto;
+    display: grid;
+    grid-auto-flow: dense;
+    width: 100%;
+    align-items: start;
+    grid: auto-flow dense var(--mobile-height)/repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .media-grid--inner-1 {
+      padding: 0 50px;
+      grid: auto-flow dense var(--desktop-height)/repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  /* Hide desktop layout on mobile */
+  
+  /* Show slider only on mobile */
+  @media (min-width: 768px) {
+    .show-mobile-only {
+      display: none !important;
+    }
+    .mobile-only {
+      display: none !important;
+    }
+  }
+  
+  /* Unified container for both desktop and mobile */
+  .media-grid-container {
+    max-width: var(--grid-width-row, 1380px);
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .media-grid-container {
+      padding: 0 50px;
+    }
+  }
+  
+  /* Slider container styles */
+  .media-grid-swiper {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: visible;
+  }
+
+  .swiper-slide {
+    padding: 0 5px;
+    height: auto;
+  }
+
+  /* Navigation buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    background: #f0f2f2;
+    border-radius: 50%;
+    color: #575757;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    position: absolute;
+    bottom: -76px;
+    top:inherit;
+  }
+  .media-grid-1 .swiper-button-next,
+  .media-grid-1 .swiper-button-prev {
+    width:58px;
+    height: 30px;
+    border-radius: 30px;
+   cursor: pointer;
+  }
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .swiper-button-prev {
+    left: inherit;
+    right: 120px;
+  }
+
+  .swiper-button-next {
+    right: 60px;
+  }
+
+    .media-grid-1 .swiper-button-prev {
+    left: inherit;
+    right: 132px;
+  }
+
+
+  /* Pagination */
+  .swiper-pagination {
+    position: relative;
+    margin-top: 15px;
+    bottom: 0;
+    display: none;
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #000;
+  }
+
+  /* Grid item styles */
+  .media-grid--item-1 {
+    background: var(--color-bg-gradient, var(--color-bg, #fff));
+    color: var(--color-text, var(--color-body, #2c2d2e));
+    overflow: hidden;
+    width: 100%;
+    height: 600px; /* 增加卡片高度到500px，确保更好的内容显示 */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Background area - 调整为60% */
+   .media-grid--bg-1 {
+     position: relative;
+     width: 100%;
+     height: 72%;  /* 从65%改为60%，给背景区域更多空间 */
+     z-index: 0;
+     background: var(--color-bg-gradient, var(--color-bg, #fff));
+   }
+
+   /* Content area - 调整为40% */
+   .media-grid--content-1 {
+     width: 100%;
+     height: 28%;  /* 从35%改为40%，增加内容区域高度 */
+     background: #f0f2f2;
+     padding: 15px 20px;  /* 增加内边距 */
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     z-index: 2;
+     overflow: hidden;
+   }
+
+   /* Heading styles */
+   .media-grid--content-1 h4 {
+     color: var(--color-text, var(--color-body, #2c2d2e));
+     margin: 0 0 5px;  /* 从2px改为5px，增加标题间距 */
+     line-height: 1.2;  /* 从1.3改为1.2，稍微减小行高 */
+     font-size: clamp(14px, 2vw, 18px);  /* 添加响应式字体大小 */
+     overflow: hidden;  /* 隐藏超出内容 */
+     text-overflow: ellipsis;  /* 文本超出显示省略号 */
+     display: -webkit-box;  /* 弹性盒子布局 */
+     -webkit-line-clamp: 2;  /* 限制显示2行 */
+     -webkit-box-orient: vertical;  /* 垂直方向 */
+   }
+
+   /* Subheading styles */
+   .media-grid--content-1 .subheading {
+     margin: 0 0 8px;  /* 从10px改为8px，稍微减小间距 */
+     color: var(--subheading-color, inherit);
+     font-size: clamp(12px, 1.5vw, 14px);  /* 添加响应式字体大小 */
+     opacity: 0.8;
+     line-height: 1.2;  /* 添加行高控制 */
+     overflow: hidden;  /* 隐藏超出内容 */
+     text-overflow: ellipsis;  /* 文本超出显示省略号 */
+     display: -webkit-box;  /* 弹性盒子布局 */
+     -webkit-line-clamp: 2;  /* 限制显示2行 */
+     -webkit-box-orient: vertical;  /* 垂直方向 */
+   }
+
+   /* Link area */
+   .media-grid--item-1.has-link--true .media-grid--link-1 {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 65%;  /* 从75%改为65%，与背景区域高度保持一致 */
+     z-index: 21;
+     cursor: pointer;
+   }
+
+  /* Hover effects */
+  .media-grid--item-1.has-link--true:hover .media-grid--bg-1 img,
+  .media-grid--item-1.has-link--true:hover .media-grid--bg-1 video {
+    transform: scale(1.07);
+  }
+
+  /* Button styles */
+  .media-grid--content-1 .text-button {
+    position: relative;
+    z-index: 22;
+    margin-top: 10px;
+    color: var(--color-link);
+    padding: 5px 16px;
+    background: #00c0cd;
+    color: #fff !important;
+    border-radius: 16px;
+  }
+  
+  .media-grid--content-1 .text-button path {
+    stroke: #fff;
+  }
+  
+  /* Loading state */
+  .media-grid-swiper {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .media-grid-swiper.swiper-initialized {
+    opacity: 1;
+  }
+.media-grid__tag{
+  font-size: 16px;
+}
+  @media (max-width: 767px) {
+  .media-grid__tag{
+    font-size: 12px;
+  }   
+ .hide-mobile {
+      display: none !important;
+    }
+    .show-mobile-only {
+      display: block !important;
+    }
+    .desktop-only {
+      display: none !important;
+    }
+    .content-middle-left .media-grid--content-1,
+    .content-middle-center .media-grid--content-1,
+    .content-middle-right .media-grid--content-1 {
+      position: absolute;
+      top: 10px;
+      background: transparent;
+    }
+    .media-grid--item-1{
+      height: 105vw;
+    }
+    .media-grid--bg-1 {
+      height: 100%!important;
+    }
+    .media-grid--content-1{ 
+       height: 100%!important; 
+    }
+
+    .subheading{
+      color: #333435 !important;
+    }
+  }
+</style>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+   // 统一的Swiper初始化函数
+   function initSwiper() {
+     const swiperContainer = document.querySelector('.media-grid-swiper');
+     if (!swiperContainer) return null;
+     
+     // 如果已经初始化，先销毁
+     if (swiperContainer.classList.contains('swiper-initialized')) {
+       if (swiperContainer.swiper) {
+         swiperContainer.swiper.destroy(true, true);
+       }
+       swiperContainer.classList.remove('swiper-initialized');
+     }
+     
+     // 配置参数
+     const isMobile = window.innerWidth < 768;
+     const slidesPerView = isMobile ? 1.2 : 3.2;  // 改为显示3张卡片
+     const spaceBetween = isMobile ? 10 : 20;
+     
+     const swiper = new Swiper('.media-grid-swiper', {
+       slidesPerView: slidesPerView,
+       spaceBetween: spaceBetween,
+       centeredSlides: false,
+       loop: true,
+       observer: true,
+       observeParents: true,
+       watchOverflow: true,
+       pagination: {
+         el: '.swiper-pagination',
+         clickable: true,
+         renderBullet: function(index, className) {
+           return '<span class="' + className + '"></span>';
+         }
+       },
+       navigation: {
+         nextEl: '.swiper-button-next',
+         prevEl: '.swiper-button-prev',
+       },
+       breakpoints: {
+         768: {
+           slidesPerView: 3.2,  // 改为显示3张卡片
+           spaceBetween: 20
+         },
+         1200: {
+           slidesPerView: 3.2,  // 改为显示3张卡片
+           spaceBetween: 20
+         }
+       },
+       on: {
+         init: function() {
+           swiperContainer.classList.add('swiper-initialized');
+           console.log('Swiper initialized with', slidesPerView, 'slides per view');
+         },
+         resize: function() {
+           this.update();
+         }
+       }
+     });
+     
+     // 保存swiper实例
+     swiperContainer.swiper = swiper;
+     return swiper;
+   }
+   
+   // 初始检查
+   let swiperInstance = initSwiper();
+   
+   // 窗口大小变化时重新初始化
+   let resizeTimer;
+   window.addEventListener('resize', function() {
+     clearTimeout(resizeTimer);
+     resizeTimer = setTimeout(function() {
+       swiperInstance = initSwiper();
+     }, 250);
+   });
+ });
+</script>
+
+{% schema %}
+{
+  "name": "Media grid with slider",
+  "class": "section-media-grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 200,
+      "max": 700,
+      "step": 5,
+      "default": 300,
+      "label": "Desktop row height",
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "column_spacing",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium",
+      "label": "Column spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_swipe",
+      "default": true,
+      "label": "Enable swipe on mobile"
+    },
+    {
+      "type": "header",
+      "content": "View All Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Show 'View All' link"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Link text",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Text",
+      "default": "#2c2d2e"
+    },
+    {
+      "type": "color",
+      "id": "color_link",
+      "label": "Link",
+      "default": "#3f72e5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_top_spacing",
+      "default": false,
+      "label": "Remove top spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_bottom_spacing",
+      "default": false,
+      "label": "Remove bottom spacing"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "media",
+      "name": "Media",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (Desktop)",
+          "info": "1250 x 1250 .jpg recommended."
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image (Mobile)",
+          "info": "Optional. If not set, desktop image will be used."
+        },
+        {
+          "id": "slide_link",
+          "type": "url",
+          "label": "Block link",
+          "info": "Adds a link to block"
+        },
+        {
+          "type": "header",
+          "content": "Video"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_video",
+          "default": false,
+          "label": "Use video instead of image"
+        },
+        {
+          "type": "video",
+          "id": "video_hosted",
+          "label": "Shopify-hosted video"
+        },
+        {
+          "type": "checkbox",
+          "id": "video_autoplay",
+          "default": true,
+          "label": "Autoplay",
+          "info": "Video will be muted"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "range",
+          "id": "column",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 1,
+          "label": "Column"
+        },
+        {
+          "type": "range",
+          "id": "row",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 1,
+          "label": "Row"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        }, 
+        {
+          "type": "text",
+          "id": "custom_tag",
+          "label": "Custom Tag"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Add a tagline"
+        },
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            }
+          ],
+          "default": "h3"
+        },
+        {
+          "id": "button_text",
+          "type": "text",
+          "label": "Button label",
+          "default": "Explore",
+          "info": "Leave the label blank to hide the button."
+        },
+        {
+          "id": "button_link",
+          "type": "url",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content position",
+          "options": [
+            { "value": "top-left", "label": "Top left" },
+            { "value": "top-center", "label": "Top center" },
+            { "value": "top-right", "label": "Top right" },
+            { "value": "middle-left", "label": "Middle left" },
+            { "value": "middle-center", "label": "Middle center" },
+            { "value": "middle-right", "label": "Middle right" },
+            { "value": "bottom-left", "label": "Bottom left" },
+            { "value": "bottom-center", "label": "Bottom center" },
+            { "value": "bottom-right", "label": "Bottom right" }
+          ],
+          "default": "middle-center"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center",
+          "label": "Content alignment"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "color_bg",
+          "label": "Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color_background",
+          "id": "color_bg_gradient",
+          "label": "Background gradient"
+        },
+        {
+          "type": "color",
+          "id": "color_text",
+          "label": "Text",
+          "default": "#2c2d2e"
+        },
+        {
+          "type": "color",
+          "id": "color_link",
+          "label": "Link",
+          "default": "#3F72E5"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "subheading_color",
+          "label": "Subheading color",
+          "default": "#666666"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Overlay opacity",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media grid with slider",
+      "blocks": [
+        {
+          "type": "media"
+        },
+        {
+          "type": "media"
+        },
+        {
+          "type": "media"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["*"],
+    "groups": [
+      "header", "footer"
+    ]
+  }
+}
+{% endschema %}

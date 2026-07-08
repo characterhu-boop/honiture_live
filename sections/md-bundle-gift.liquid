@@ -1,0 +1,904 @@
+{%- liquid
+  assign header_blocks = section.blocks | where: 'type', 'header'
+  assign hero_blocks = section.blocks | where: 'type', 'hero'
+  assign bundle_blocks = section.blocks | where: 'type', 'bundle'
+-%}
+
+{%- style -%}
+  .md-bundle-gift--{{ section.id }} {
+    --mbg-bg: {{ section.settings.section_bg | default: '#f6efe7' }};
+    --mbg-text: {{ section.settings.text_color | default: '#2b2420' }};
+    --mbg-muted: rgb(43 36 32 / 0.65);
+    --mbg-max-width: {{ section.settings.content_max_width | default: 1200 }}px;
+    --mbg-card-bg: {{ section.settings.card_bg | default: '#ffffff' }};
+    --mbg-border: rgb(43 36 32 / 0.10);
+    --mbg-radius: 16px;
+    --mbg-gap: 18px;
+    --mbg-btn: #00bfb8;
+    --mbg-btn-text: #ffffff;
+    --mbg-accent: #ff9fb2;
+    --mbg-prod-media-h: 160px;
+    --mbg-prod-pad-top: 18px;
+    background: var(--mbg-bg);
+    color: var(--mbg-text);
+    padding: {{ section.settings.padding_top | default: 40 }}px 0 {{ section.settings.padding_bottom | default: 60 }}px;
+  } 
+
+  .md-bundle-gift--{{ section.id }} .mbg__container {
+    max-width: var(--mbg-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg__stack {
+    display: grid;
+    gap: var(--mbg-gap);
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-hero {
+    background: var(--mbg-card-bg);
+    border: 1px solid var(--mbg-border);
+    border-radius: var(--mbg-radius);
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-hero__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height:370px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-hero__content {
+    position: relative;
+    z-index: 1;
+    margin: 18px;
+    padding: 18px 20px;
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+    max-width: 400px;
+    /* background: rgb(255 255 255 / 0.92);
+    border: 1px solid var(--mbg-border); */
+    border-radius: 14px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-hero__title {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-hero__desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--mbg-muted);
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--mbg-gap);
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-card {
+    background: var(--mbg-card-bg);
+    border: 1px solid var(--mbg-border);
+    border-radius: var(--mbg-radius);
+    overflow: visible;
+    position: relative;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-card.is-featured {
+    border:10px solid transparent;
+    background-image: linear-gradient(var(--mbg-card-bg), var(--mbg-card-bg)), linear-gradient(60deg, #FFCFCF 0%, #FFD9AE 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-card__bow {
+    position: absolute;
+    top: -33px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 80px;
+    height: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.1));
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-card__bow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-discount {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 2;
+    width: 80px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-discount-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top left;
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.1));
+  }
+  .md-bundle-gift--{{ section.id }} .is-featured .mbg-discount-bg {
+    top: -10px;
+  }
+  .md-bundle-gift--{{ section.id }} .mbg-discount:not(:has(.mbg-discount-bg))::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: {{ section.settings.discount_bg | default: '#ff6b6b' }};
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-discount-text {
+    position: relative;
+    z-index: 1;
+    color: #E44D4D; 
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+    margin-bottom: 18px;
+  }
+.md-bundle-gift--{{ section.id }} .is-featured .mbg-discount-text {
+  margin-bottom: 34px;
+}
+  .md-bundle-gift--{{ section.id }} .mbg-discount-text span {
+    display: block;
+    font-size: 24px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-products {
+    padding: var(--mbg-prod-pad-top) 18px 14px;
+    background: #fcfcfc;
+    position: relative;
+    text-align: center;
+    border-radius: 14px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product {
+    display: grid;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product__media {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product__media img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product__title {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product__titles {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product__title-custom {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--mbg-text);
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product__title-default {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-product__sub {
+    font-size: 13px;
+    color: var(--mbg-muted);
+    line-height: 1.2;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-gift {
+    margin: 0 18px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    /* border: 1px dashed #00bfb8; */
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-gift__img {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 4px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-gift__img img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-gift__info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-gift__title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-gift__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    margin-left: auto;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-gift__meta s {
+    font-size: 20px;
+    color: rgb(43 36 32 / 0.55);
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-free {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgb(0 191 184 / 0.10);
+    color: rgb(0 191 184);
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-bottom {
+    padding: 14px 18px 18px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-price strong {
+    font-size: 32px;
+    font-weight: 900;
+    color: #0b0b0b;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-price s {
+    font-size: 12px;
+    color: rgb(43 36 32 / 0.55);
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 12px 14px;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: transparent;
+    color: inherit;
+    width: 100%;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-btn--outline {
+    border-color: rgb(0 191 184 / 0.55);
+    color: rgb(0 191 184);
+    background: #ffffff;
+  }
+
+  .md-bundle-gift--{{ section.id }} .mbg-btn--fill {
+    background: var(--mbg-btn);
+    color: var(--mbg-btn-text);
+  }
+
+  @media (max-width: 768px) {
+      .md-bundle-gift--{{ section.id }} .mbg-gift__meta s {
+    font-size: 16px;
+  }
+      .md-bundle-gift--{{ section.id }} .mbg-hero__title {
+        display: none;
+      }
+        .md-bundle-gift--{{ section.id }} .mbg-hero__desc {
+    font-size: 15px;
+  }
+    .md-bundle-gift--{{ section.id }} {
+      padding: {{ section.settings.padding_top | default: 40 | times: 0.75 | round: 0 }}px 0 {{ section.settings.padding_bottom | default: 60 | times: 0.75 | round: 0 }}px;
+      --mbg-gap: 14px;
+      --mbg-radius: 14px;
+      --mbg-prod-media-h: 150px;
+      --mbg-prod-pad-top: 14px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg__container {
+      padding: 0 16px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-hero__inner {
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 0;
+      height: auto;
+       }
+
+    .md-bundle-gift--{{ section.id }} .mbg-hero__content {
+      margin: 0;
+      padding: 16px 16px 12px;
+      text-align: center;
+      justify-items: center;
+      max-width: none;
+      border: 0;
+      border-radius: 0;
+      background: var(--mbg-card-bg);
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-hero__media {
+      position: relative;
+      inset: auto;
+      height: 200px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-products {
+      padding: var(--mbg-prod-pad-top) 14px 12px;
+      text-align: center;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-product__media {
+      height: 200px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-product__title {
+      font-size: 14px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-product__titles {
+      gap: 8px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-product__title-custom,
+    .md-bundle-gift--{{ section.id }} .mbg-product__title-default {
+      font-size: 14px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-product__sub {
+      font-size: 12px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-gift {
+      margin: 0 14px;
+      gap: 10px;
+      padding: 8px 10px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-gift__img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-card__bow {
+    top: -30px;
+        width: 64px;
+        height: 64px;
+    }
+    .mbg-card.is-featured{
+      margin-top: 10px;
+    }
+    .md-bundle-gift--{{ section.id }} .mbg-discount {
+      top: 0;
+      left: 20px;
+      width: 70px;
+      height: 70px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-discount-text {
+      font-size: 14px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-gift__title {
+      font-size: 14px;
+    }
+
+    .md-bundle-gift--{{ section.id }} .mbg-bottom {
+      padding: 12px 14px 14px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="md-bundle-gift md-bundle-gift--{{ section.id }}">
+  <div class="mbg__container">
+    {%- for block in header_blocks -%}
+      {%- render 'xmas-section-header', section: block -%}
+    {%- endfor -%}
+
+    <div class="mbg__stack">
+      {%- for block in hero_blocks -%}
+        {%- liquid
+          assign hero_title = block.settings.title | strip
+          assign hero_desc = block.settings.desc | strip
+          assign hero_image = block.settings.image
+          assign hero_image_m = block.settings.image_mobile
+          if hero_image_m == blank
+            assign hero_image_m = hero_image
+          endif
+          assign hero_link = block.settings.link
+          assign hero_open_in_new_tab = block.settings.open_in_new_tab
+          assign hero_wrapper_tag = 'div'
+          if hero_link != blank
+            assign hero_wrapper_tag = 'a'
+          endif
+        -%}
+        <{{ hero_wrapper_tag }}
+          class="mbg-hero"
+          {{ block.shopify_attributes }}
+          {%- if hero_wrapper_tag == 'a' -%}
+            href="{{ hero_link }}"
+            {%- if hero_open_in_new_tab -%}
+              target="_blank"
+              rel="noopener"
+            {%- endif -%}
+          {%- endif -%}
+        >
+          <div class="mbg-hero__inner">
+            {%- if hero_image != blank -%}
+              <div class="mbg-hero__media">
+                <picture>
+                  {%- if hero_image_m != blank -%}
+                    <source media="(max-width: 768px)" srcset="{{ hero_image_m | image_url: width: 900 }}">
+                  {%- endif -%}
+                  <img src="{{ hero_image | image_url: width: 1600 }}" alt="" loading="lazy">
+                </picture>
+              </div>
+            {%- endif -%}
+            <div class="mbg-hero__content">
+              {%- if hero_title != blank -%}
+                <h3 class="mbg-hero__title">{{ hero_title }}</h3>
+              {%- endif -%}
+              {%- if hero_desc != blank -%}
+                <div class="mbg-hero__desc">{{ hero_desc }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+        </{{ hero_wrapper_tag }}>
+      {%- endfor -%}
+
+      <div class="mbg-grid" data-mbg-root>
+        {%- for block in bundle_blocks -%}
+          {%- liquid
+            assign p = block.settings.product
+            assign pv = p.selected_or_first_available_variant
+
+            assign p_title = block.settings.product_title | strip
+            if p_title == blank and p != blank
+              assign p_title = p.title
+            endif
+
+            assign custom_title_left = block.settings.custom_title_left | strip
+            assign custom_title_right = block.settings.custom_title_right | strip
+
+            assign p_sub = block.settings.product_sub | strip
+
+            assign p_img = block.settings.product_image
+            if p_img == blank and p != blank
+              assign p_img = p.featured_media
+            endif
+
+            assign discount_text = block.settings.discount_text | strip
+            if discount_text == blank
+              assign discount_text = section.settings.discount_text | default: '10% OFF'
+            endif
+
+            assign is_featured = block.settings.featured
+            assign bow_img = block.settings.bow_image
+
+            assign gift_product = block.settings.gift_product
+            assign gift_variant = gift_product.selected_or_first_available_variant
+            assign gift_title = block.settings.gift_title | strip
+            if gift_title == blank and gift_product != blank
+              assign gift_title = gift_product.title
+            endif
+            assign gift_img = block.settings.gift_image
+            if gift_img == blank and gift_product != blank
+              assign gift_img = gift_product.featured_media
+            endif
+
+            assign free_badge = block.settings.free_badge | default: 'FREE'
+
+            assign sale_price_text = block.settings.sale_price | strip
+            if sale_price_text == blank and pv != blank
+              assign sale_price_text = pv.price | money
+            endif
+
+            assign compare_price_text = block.settings.compare_price | strip
+            if compare_price_text == blank and pv != blank
+              assign pc = pv.compare_at_price
+              if pc == blank or pc == 0
+                assign pc = pv.price
+              endif
+              assign compare_price_text = pc | money
+            endif
+
+            assign add_label = block.settings.add_to_cart_label | default: section.settings.add_to_cart_label | default: 'Add to Cart'
+            assign shop_label = block.settings.shop_now_label | default: section.settings.shop_now_label | default: 'Shop Now'
+
+            assign shop_url = block.settings.shop_now_link
+            if shop_url == blank and p != blank
+              assign shop_url = p.url
+            endif
+
+            assign ids_csv = ''
+            if pv != blank
+              assign ids_csv = pv.id
+            endif
+            if gift_variant != blank and block.settings.include_gift_in_cart
+              if ids_csv != ''
+                assign ids_csv = ids_csv | append: ','
+              endif
+              assign ids_csv = ids_csv | append: gift_variant.id
+            endif
+          -%}
+
+          <div class="mbg-card{% if is_featured %} is-featured{% endif %}" {{ block.shopify_attributes }}>
+            {%- if is_featured and bow_img != blank -%}
+              <div class="mbg-card__bow">
+                <img src="{{ bow_img | image_url: width: 200 }}" alt="" loading="lazy">
+              </div>
+            {%- endif -%}
+
+            {%- if discount_text != blank -%}
+              <div class="mbg-discount">
+                {%- if block.settings.discount_bg != blank -%}
+                  <div class="mbg-discount-bg" style="background-image: url({{ block.settings.discount_bg | image_url: width: 240 }});"></div>
+                {%- endif -%}
+                <span class="mbg-discount-text">{% assign discount_parts = discount_text | split: ' ' %}{% for part in discount_parts %}<span>{{ part }}</span>{% endfor %}</span>
+              </div>
+            {%- endif -%}
+
+            <div class="mbg-products">
+              <div class="mbg-product">
+                {%- if p_img != blank -%}
+                  <a class="mbg-product__media" href="{{ p.url }}" target="_blank" rel="noopener">
+                    <img src="{{ p_img | image_url: width: 800 }}" alt="{{ p_title | escape }}" loading="lazy">
+                  </a>
+                {%- endif -%}
+                {%- if custom_title_left != blank or custom_title_right != blank -%}
+                  <div class="mbg-product__titles">
+                    {%- if custom_title_left != blank -%}
+                      <span class="mbg-product__title-custom">{{ custom_title_left }}</span>
+                    {%- endif -%}
+                    {%- if custom_title_right != blank -%}
+                      <span class="mbg-product__title-custom">{{ custom_title_right }}</span>
+                    {%- endif -%}
+                  </div>
+                {%- elsif p_title != blank -%}
+                  <div class="mbg-product__title-default">{{ p_title }}</div>
+                {%- endif -%}
+                {%- if p_sub != blank -%}
+                  <div class="mbg-product__sub">{{ p_sub }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+
+            {%- if gift_product != blank -%}
+              {%- liquid
+                assign gift_compare = gift_variant.compare_at_price
+                if gift_compare == blank or gift_compare == 0
+                  assign gift_compare = gift_variant.price
+                endif
+              -%}
+              <div class="mbg-gift">
+                <span class="mbg-gift__img">
+                  {%- if gift_img != blank -%}
+                    <img src="{{ gift_img | image_url: width: 160 }}" alt="{{ gift_title | escape }}" loading="lazy">
+                  {%- endif -%}
+                </span>
+                <span class="mbg-gift__info">
+                   <span class="mbg-gift__title">{{ gift_title }}</span>
+                   <span class="mbg-gift__meta">
+                    {%- if gift_compare != blank and gift_compare > 0 -%}
+                      <s>{{ gift_compare | money }}</s>
+                    {%- endif -%}
+                    <span class="mbg-free">{{ free_badge }}</span>
+                  </span>
+                </span>
+              </div>
+            {%- endif -%}
+
+            <div class="mbg-bottom">
+              <div class="mbg-price">
+                {%- if sale_price_text != blank -%}
+                  <strong>{{ sale_price_text }}</strong>
+                {%- endif -%}
+                {%- if compare_price_text != blank -%}
+                  <s>{{ compare_price_text }}</s>
+                {%- endif -%}
+              </div>
+
+              <div class="mbg-actions">
+                <button class="mbg-btn mbg-btn--outline" type="button" data-mbg-add data-ids="{{ ids_csv }}">{{ add_label }}</button>
+                {%- if shop_url != blank -%}
+                  <a class="mbg-btn mbg-btn--fill" href="{{ shop_url }}" target="_blank" rel="noopener">{{ shop_label }}</a>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const root = document.querySelector('.md-bundle-gift--{{ section.id }} [data-mbg-root]');
+    if (!root) return;
+
+    root.addEventListener('click', async (e) => {
+      const addBtn = e.target.closest('[data-mbg-add]');
+      if (!addBtn) return;
+
+      const idsCsv = addBtn.getAttribute('data-ids') || '';
+      const ids = idsCsv
+        .split(',')
+        .map((v) => v.trim())
+        .filter(Boolean)
+        .map((v) => Number(v))
+        .filter((v) => Number.isFinite(v) && v > 0);
+
+      if (ids.length === 0) return;
+
+      addBtn.disabled = true;
+      try {
+        const items = ids.map((id) => ({ id, quantity: 1 }));
+        const res = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ items })
+        });
+        if (!res.ok) throw new Error('add_failed');
+        window.location.href = '/cart';
+      } catch (err) {
+        window.alert('Add to cart failed. Please try again.');
+        addBtn.disabled = false;
+      }
+    });
+  })();
+</script>
+
+{% render 'section-decorations', section: section %}
+
+{% schema %}
+{
+  "name": "MD Bundle Gift",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Padding top", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Padding bottom", "default": 60 },
+    { "type": "range", "id": "content_max_width", "min": 960, "max": 1600, "step": 20, "unit": "px", "label": "Content max width", "default": 1200 },
+    { "type": "color_background", "id": "section_bg", "label": "Section background", "default": "#f6efe7" },
+    { "type": "color_background", "id": "card_bg", "label": "Card background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b2420" },
+    { "type": "header", "content": "Badge" },
+    { "type": "text", "id": "discount_text", "label": "Discount text (fallback)", "default": "10% OFF" },
+    { "type": "color", "id": "discount_bg", "label": "Discount background", "default": "#ff6b6b" },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "add_to_cart_label", "label": "Add to cart label", "default": "Add to Cart" },
+    { "type": "text", "id": "shop_now_label", "label": "Shop now label", "default": "Shop Now" }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Header",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Section Title", "default": "Bundle Gift Sets" },
+        { "type": "color", "id": "title_color", "label": "Title Color", "default": "#2b2420" },
+        { "type": "range", "id": "title_size", "label": "Title Size (PC)", "min": 16, "max": 80, "step": 2, "unit": "px", "default": 36 },
+        { "type": "range", "id": "title_size_mobile", "label": "Title Size (Mobile)", "min": 12, "max": 60, "step": 2, "unit": "px", "default": 24 },
+        { "type": "textarea", "id": "sub_heading", "label": "Sub heading", "default": "More value, all-in-one gift sets Complete care in one perfect bundle" },
+        { "type": "checkbox", "id": "show_sub_heading", "label": "Show Sub Heading", "default": true },
+        { "type": "color", "id": "sub_heading_color", "label": "Sub Heading Color", "default": "#2b2420" },
+        { "type": "range", "id": "sub_heading_size", "label": "Sub Heading Size (PC)", "min": 12, "max": 40, "step": 1, "unit": "px", "default": 18 },
+        { "type": "range", "id": "sub_heading_size_mobile", "label": "Sub Heading Size (Mobile)", "min": 10, "max": 30, "step": 1, "unit": "px", "default": 14 },
+        { "type": "text", "id": "view_more_label", "label": "View more label", "default": "View More" },
+        { "type": "url", "id": "view_more_link", "label": "View more link" },
+        { "type": "color", "id": "view_more_color", "label": "View More Text Color", "default": "#2b2420" },
+        { "type": "color", "id": "view_more_border_color", "label": "View More Border Color", "default": "#2b2420" },
+        { "type": "checkbox", "id": "show_title_icons", "label": "Show title icons", "default": true },
+        { "type": "image_picker", "id": "title_icon", "label": "Title icon (left & right)" },
+        { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror right icon", "default": true },
+        { "type": "range", "id": "title_icon_size", "label": "Title icon size (desktop)", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 40 },
+        { "type": "range", "id": "title_icon_size_mobile", "label": "Title icon size (mobile)", "min": 16, "max": 64, "step": 2, "unit": "px", "default": 32 },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        { "type": "range", "id": "margin_bottom", "label": "Margin Bottom", "min": 0, "max": 100, "step": 5, "unit": "px", "default": 50 }
+      ]
+    },
+    {
+      "type": "hero",
+      "name": "Hero",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Bundle Gift Sets" },
+        { "type": "textarea", "id": "desc", "label": "Description", "default": "More value, all-in-one gift sets Complete care in one perfect bundle" },
+        { "type": "image_picker", "id": "image", "label": "Image (desktop)" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Image (mobile)" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "checkbox", "id": "open_in_new_tab", "label": "Open in new tab", "default": false }
+      ]
+    },
+    {
+      "type": "bundle",
+      "name": "Single Product Card",
+      "settings": [
+        { "type": "checkbox", "id": "featured", "label": "Featured style", "default": false },
+        { "type": "image_picker", "id": "bow_image", "label": "Bow image (featured)" },
+        { "type": "text", "id": "discount_text", "label": "Discount text" },
+        { "type": "image_picker", "id": "discount_bg", "label": "Discount background image" },
+
+        { "type": "header", "content": "Product" },
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "product_image", "label": "Product image (override)" },
+        { "type": "text", "id": "product_title", "label": "Product title (override)" },
+        { "type": "richtext", "id": "custom_title_left", "label": "Custom title (left)" },
+        { "type": "richtext", "id": "custom_title_right", "label": "Custom title (right)" },
+        { "type": "text", "id": "product_sub", "label": "Product sub text" },
+
+        { "type": "header", "content": "Gift item" },
+        { "type": "product", "id": "gift_product", "label": "Gift product" },
+        { "type": "image_picker", "id": "gift_image", "label": "Gift image (override)" },
+        { "type": "text", "id": "gift_title", "label": "Gift title (override)" },
+        { "type": "text", "id": "free_badge", "label": "Free badge text", "default": "FREE" },
+        { "type": "checkbox", "id": "include_gift_in_cart", "label": "Include gift in add to cart", "default": true },
+
+        { "type": "header", "content": "Pricing & buttons" },
+        { "type": "text", "id": "sale_price", "label": "Sale price text (override)" },
+        { "type": "text", "id": "compare_price", "label": "Compare price text (override)" },
+        { "type": "text", "id": "add_to_cart_label", "label": "Add to cart label (override)" },
+        { "type": "text", "id": "shop_now_label", "label": "Shop now label (override)" },
+        { "type": "url", "id": "shop_now_link", "label": "Shop now link (override)" }
+      ]
+    },
+    {
+      "type": "decoration",
+      "name": "Decoration image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Image (mobile)" },
+        { "type": "range", "id": "top", "label": "Top (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "left", "label": "Left (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "width", "label": "Width (px)", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "z_index", "label": "Z-index", "default": 1 },
+        { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+        { "type": "checkbox", "id": "hide_on_pc", "label": "Hide on desktop", "default": false },
+        { "type": "range", "id": "rotation", "label": "Rotation (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "range", "id": "mobile_top", "label": "Top mobile (%)", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+        { "type": "range", "id": "mobile_left", "label": "Left mobile (%)", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+        { "type": "range", "id": "mobile_width", "label": "Width mobile (px)", "min": 0, "max": 600, "step": 10, "unit": "px", "default": 100 },
+        { "type": "number", "id": "mobile_z_index", "label": "Z-index mobile", "default": 1 },
+        { "type": "range", "id": "mobile_rotation", "label": "Rotation mobile (deg)", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 },
+        { "type": "number", "id": "top_offset", "label": "Top offset (px)", "default": 0 },
+        { "type": "number", "id": "left_offset", "label": "Left offset (px)", "default": 0 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MD Bundle Gift",
+      "blocks": [
+        { "type": "header" },
+        { "type": "hero" },
+        { "type": "bundle" },
+        { "type": "bundle" }
+      ]
+    }
+  ]
+}
+{% endschema %}

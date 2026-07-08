@@ -1,0 +1,7 @@
+{
+  "markets": {
+    "international": {
+      "parent": "@default"
+    }
+  }
+}

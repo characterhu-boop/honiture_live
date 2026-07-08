@@ -1,0 +1,1214 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_XkticC": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_DGkKaY": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_hHLeAw": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box2.svg",
+            "text": "30-Day Refund Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_ywBC4h": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_F7Edh6": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": "3,8KPa strong suction | Humanised Design | 2-in-1 Anti-tangle Brush Roller"
+          }
+        },
+        "text_Aapr3Q": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "3,800KPa strong suction | Humanised Design | 2-in-1 Anti-tangle Brush Roller",
+            "text_style": "style_vendor"
+          }
+        },
+        "klarna_on_site_messaging_app_block_KcBT8x": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_hmW3er": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "info_box_aRWQGP": {
+          "type": "info_box",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "Download Manuals",
+            "link": "https:\/\/www.yaber.com\/",
+            "info_box_bg": "#06a993",
+            "info_box_color": "#b4f4eb"
+          }
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "separator_fx4pNd": {
+          "type": "separator",
+          "settings": {}
+        },
+        "hextom_timer_bar_ctb_custom_placement_k3tyGg": {
+          "type": "shopify:\/\/apps\/hextom-timer-bar\/blocks\/ctb-custom-placement\/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+          "settings": {}
+        },
+        "qikify_bogo_freegift_free_gift_zKYtjQ": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/free_gift\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "coupon_code_j86pDU": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p>🎃 <strong>Halloween Sale: Save Extra 8% OFF Now!<\/strong><\/p>",
+            "coupon_text": "HALLOW8",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd",
+            "coupon_bg_color": "#3f72e5"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ul><li>Powerful & Durable<\/li><li>Up to 55 minutes of run time<\/li><li>LED Smart Panel<\/li><li>2-in-1 Anti-tangle Brush Roller<\/li><li>Humanised Design<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_bD8qcQ": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-S13P01 {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"#shopify-section-template--17368128651311__product_details_mXPkEF\" }}\"\nclass=\"custom-button-S13P01\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "custom_liquid_tmYAyR": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-S13P02 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/drive.google.com\/file\/d\/1eBF1II0pop36Jiuh3-bDiCRsyy9so35k\/view?usp=drive_link\" }}\" class=\"custom-button-S13P02\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "separator_tBHURc": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_L4J3Ar": {
+          "type": "quantity",
+          "settings": {
+            "justify_content": "flex-end"
+          }
+        },
+        "buy_buttons_ADzjNq": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "qikify_bogo_freegift_bogo_offer_4BHUFG": {
+          "type": "shopify:\/\/apps\/qikify-upsell\/blocks\/bogo_offer\/2e94b962-8172-4839-8ad9-7837eb8b017a",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "complementary_9cti8H": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "product_list_limit": 10
+          }
+        },
+        "payment_security_xCEdeR": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-2x.svg",
+            "security_image_width": 370
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_XkticC",
+        "info_box_DGkKaY",
+        "info_box_hHLeAw",
+        "info_box_ywBC4h",
+        "label_F7Edh6",
+        "title",
+        "text_Aapr3Q",
+        "klarna_on_site_messaging_app_block_KcBT8x",
+        "judge_me_reviews_preview_badge_hmW3er",
+        "info_box_aRWQGP",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "separator_fx4pNd",
+        "hextom_timer_bar_ctb_custom_placement_k3tyGg",
+        "qikify_bogo_freegift_free_gift_zKYtjQ",
+        "coupon_code_j86pDU",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_bD8qcQ",
+        "custom_liquid_tmYAyR",
+        "separator_tBHURc",
+        "variant_picker",
+        "quantity_L4J3Ar",
+        "buy_buttons_ADzjNq",
+        "qikify_bogo_freegift_bogo_offer_4BHUFG",
+        "complementary_9cti8H",
+        "payment_security_xCEdeR",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        ".product--payment-security > div {justify-content: start;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": true,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "c4204c3f-0267-4094-942b-cbef4c9c0a87": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 70,
+        "spacer_desktop": 120,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "rich_text_JfkF7P": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jNbUqV": {
+          "type": "heading",
+          "settings": {
+            "text": "Effortless Clean, Powerful Performance",
+            "marker_style": "style4",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_RpgA7Y": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience the future of home cleaning with our high-performance vacuum cleaner, featuring a powerful 38Kpa suction and 450W motor. Designed to effortlessly tackle dirt, dust, and debris, it makes keeping your home spotless a breeze. Say goodbye to the hassle of cleaning and hello to a pristine, fresh home with ease.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jNbUqV",
+        "text_RpgA7Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "video_Y9zGUJ": {
+      "type": "video",
+      "settings": {
+        "heading": "Effortless Clean, Powerful Performance",
+        "marker_style": "style1",
+        "description": "<p>Experience the future of floor cleaning with our S13 Pro cordless vacuum, featuring 3,800Pa strong suction and a 2-in-1 anti-tangle brush roller for pet hair and deep cleaning. Enjoy a pristine home with lightweight & maneuverable ease!<\/p>",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify:\/\/files\/videos\/S13 EN.mp4",
+        "video_autoplay": true,
+        "show_progress": true,
+        "disable_download": false,
+        "playback_rate": 1,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_bkLJJz": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_fwwF6J": {
+          "type": "heading",
+          "settings": {
+            "text": "Upgraded 38KPa Super Suction",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_GDXMqR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Boost floor cleaning with 38KPa strong suction, perfect for deep cleaning floors & rugs, pet hair, and all flooring types.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fwwF6J",
+        "text_GDXMqR"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-S13pro_PP1_ff17676a-0686-4c30-bc6c-40fb6792611b.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_gFrmGx": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_4qw4XV": {
+          "type": "heading",
+          "settings": {
+            "text": "|450w| powerful motor",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#35d2ce"
+          }
+        },
+        "text_Q7MHcT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The 450W motor provides robust suction, effortlessly capturing even the finest particles from carpets, hardwood floors, and upholstery.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4qw4XV",
+        "text_Q7MHcT"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-S13pro_PP2.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_fFiqhF": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_qTW8Xq": {
+          "type": "heading",
+          "settings": {
+            "text": "LED Intelligent Digtal Screen",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_xeUqJ6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Upgrade your home cleaning routine with our state-of-the-art vacuum cleaner, featuring an LED Intelligent Digital Screen. This innovative display provides real-time updates, allowing you to monitor suction levels, battery life, and cleaning modes at a glance.<\/p>"
+          }
+        },
+        "subheading_3aWxdr": {
+          "type": "subheading",
+          "settings": {
+            "text": "1. Battery lndicator"
+          }
+        },
+        "subheading_VHnwxr": {
+          "type": "subheading",
+          "settings": {
+            "text": "2. Suction Mode(ECO\/MlD\/MAX)"
+          }
+        },
+        "subheading_xbgYbr": {
+          "type": "subheading",
+          "settings": {
+            "text": "3. Suction Adjustment Button"
+          }
+        },
+        "subheading_e6QrWw": {
+          "type": "subheading",
+          "settings": {
+            "text": "4.Tube or Dust Cup Blocked AIert"
+          }
+        },
+        "subheading_Qi4cDy": {
+          "type": "subheading",
+          "settings": {
+            "text": "5. AbnormaI Charging Current Warning"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qTW8Xq",
+        "text_xeUqJ6",
+        "subheading_3aWxdr",
+        "subheading_VHnwxr",
+        "subheading_xbgYbr",
+        "subheading_e6QrWw",
+        "subheading_Qi4cDy"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-S13pro_A_2_1__1_-removebg-preview.png",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_hotspots_PziNHB": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_c7Tibe": {
+          "type": "hotspot",
+          "settings": {
+            "heading": "TangIe-free Brush RoIIer",
+            "description": "",
+            "x_position": 53,
+            "y_position": 57,
+            "x_position_mobile": 49,
+            "y_position_mobile": 50
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_c7Tibe"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-S13pro_A_6.jpg",
+        "heading": "Edge Clean Design – No Dust Escapes",
+        "marker_style": "style1",
+        "heading_size": "h3",
+        "description": "<p>Our Edge Clean technology is dirt’s worst enemy. With precision side brushes and optimized airflow, it help leave baseboards spotless.<\/p>",
+        "badge_text": "",
+        "image_position": "image_first",
+        "marker_color": "#fd6262",
+        "color_bg_badge": "#33a187",
+        "color_badge": "#ffffff",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_overlay_cWTnyJ": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_CELbri": {
+          "type": "heading",
+          "settings": {
+            "text": "Self-Propelled & Effortless",
+            "heading_size": "h2",
+            "heading_tag": "h3"
+          }
+        },
+        "text_LcQtJQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Labor-saving design make S13 Pro drive itself with self-propelled tech, turning floor cleaning into zero-effort work. Glides smoothly across all flooring types—perfect for pet hair and deep cleaning.<\/p>",
+            "description_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CELbri",
+        "text_LcQtJQ"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-S13pro_A_5.jpg",
+        "image_parallax": true,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-auto",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-left",
+        "text_alignment": "left",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 4,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_9wyrYb": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_n6jGGX": {
+          "type": "heading",
+          "settings": {
+            "text": "LED Headlights – No Dust Hides",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_38gjVV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Powerful LED headlights expose hidden debris on floors & rugs, even in dark corners. Like robot vacuums' smart detection, but with manual control.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_n6jGGX",
+        "text_38gjVV"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-S13pro_A_8_13c3a5bd-73e9-4d45-abf0-a5d3a2160182.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_baGmdW": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_qVEEgf": {
+          "type": "heading",
+          "settings": {
+            "text": "Upgraded 5-Layer HEPA Filtration",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_3FrfPW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Captures 99.99% of dust\/pollen & pet hair – perfect for deep cleaning. Outperforms standard vacuum filters with zero clogging.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qVEEgf",
+        "text_3FrfPW"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-S13pro_A_9_51be2b75-032e-4f44-920b-451e7eac58f7.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "gallery_hydCUi": {
+      "type": "gallery",
+      "blocks": {
+        "image_NxWKjM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture-S13pro_PP6.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "Capacity",
+            "title": "|1.5L| ONE-TOUCH DUST REMOVAL",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#f36965"
+          }
+        },
+        "image_APQdfF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture-S13pro_PP4.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "Up to",
+            "title": "|55| MINUTES RUNNING TIME",
+            "marker_style": "style3",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#06d0a0"
+          }
+        }
+      },
+      "block_order": [
+        "image_NxWKjM",
+        "image_APQdfF"
+      ],
+      "settings": {
+        "columns_desktop": 2,
+        "full_width": false,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "content_position": "top-center",
+        "text_alignment": "left",
+        "column_spacing": "large",
+        "heading_size": "h2",
+        "description_size": "medium",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_with_tabs_74cMQL": {
+      "type": "media-with-tabs",
+      "blocks": {
+        "badge_EwBgjf": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "text": "Badge heading",
+            "color_bg": "#35d2ce",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_V36VmD": {
+          "type": "heading",
+          "settings": {
+            "text": "Every aspect is covered",
+            "heading_size": "h3"
+          }
+        },
+        "text_zG6bmb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Combine different brushs to clean different places. Take care of every corner you care about<\/p>"
+          }
+        },
+        "tab_L9heMC": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iwEcAqNqcGcDAQTRAswF0QL0BrBZnKubJrpdNgasBLp0VYwBB9IdCpUHCAAJomltCgAL0gAF4ZE.jpg_720x720q90.jpg",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "Floor Brush",
+            "description": "",
+            "video_autoplay": true
+          }
+        },
+        "tab_3yraTp": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iwEeAqNqcGcDAQTRAswF0QL0BrAxy-QuR6OMQAasBLp0VYwDB9IdCpUHCAAJomltCgAL0gADy3Q.jpg_720x720q90.jpg",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "2 in 1 Brush",
+            "description": "",
+            "video_autoplay": true
+          }
+        },
+        "tab_Qnmnmh": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iwEdAqNqcGcDAQTRAswF0QL0BrAlLwbmfZztBgasBLp0VYwAB9IdCpUHCAAJomltCgAL0gAGA0w.jpg_720x720q90.jpg",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "Crevice Brush",
+            "description": "",
+            "video_autoplay": true
+          }
+        },
+        "tab_6Kdww8": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iwEcAqNqcGcDAQTRAswF0QL0BrD7ZJ8vR0N24gasBLp0VYwCB9IdCpUHCAAJomltCgAL0gADiQ8.jpg_720x720q90.jpg",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "Telescopic Tube",
+            "description": "",
+            "video_autoplay": true
+          }
+        }
+      },
+      "block_order": [
+        "badge_EwBgjf",
+        "heading_V36VmD",
+        "text_zG6bmb",
+        "tab_L9heMC",
+        "tab_3yraTp",
+        "tab_Qnmnmh",
+        "tab_6Kdww8"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-auto",
+        "mobile_height": "mobile-height-500",
+        "height": "adapt",
+        "desktop_layout": "image_first",
+        "color_bg": "#f4e7db",
+        "color_text": "#1a1c1d",
+        "color_link": "#ffffff",
+        "color_border": "#c9c2bf",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product_details_mXPkEF": {
+      "type": "product-details",
+      "blocks": {
+        "tab_TEykMh": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "tab_label": "SPECS",
+            "icon": "none",
+            "text": "",
+            "text_columns": "2",
+            "page": "spec-for-s13-pro"
+          }
+        },
+        "custom_liquid_6tE8NL": {
+          "type": "custom_liquid",
+          "settings": {
+            "tab_label": "Spec",
+            "icon": "none",
+            "custom_liquid": "<div class=\"product-specs\">\n  <style>\n    .product-specs {\n      margin: 1.5rem 0;\n      overflow-x: auto;\n      -webkit-overflow-scrolling: touch;\n    }\n    .spec-table {\n      width: 100%;\n      min-width: 500px;\n      border-collapse: collapse;\n    }\n    .spec-table td {\n      padding: 16px 20px;\n      border-bottom: 1px solid #f0f0f0;\n      vertical-align: top;\n      line-height: 1.4;\n    }\n    .spec-table td:first-child {\n      font-weight: 500;\n      color: #666;\n      width: 40%;\n    }\n    .spec-table td:last-child {\n      color: #333;\n      width: 60%;\n    }\n\n    @media (min-width: 750px) {\n      .spec-table { min-width: auto; table-layout: fixed; }\n      .spec-table td { padding: 18px 24px; }\n    }\n\n    @media (max-width: 749px) {\n      .spec-table td { padding: 14px 16px; font-size: 15px; }\n    }\n  <\/style>\n\n  <table class=\"spec-table\">\n    <tbody>\n      <tr><td>Suction Power<\/td><td>38Kpa<\/td><\/tr>\n      <tr><td>Wattage<\/td><td>450W<\/td><\/tr>\n      <tr><td>Runtime<\/td><td>55 minutes<\/td><\/tr>\n      <tr><td>Charging Time<\/td><td>4 Hours<\/td><\/tr>\n      <tr><td>Capacity<\/td><td>1.5 Liters<\/td><\/tr>\n      <tr><td>Battery<\/td><td>7×2500 mAh<\/td><\/tr>\n      <tr><td>Product Dimensions<\/td><td>13\"L × 8\"W × 17\"H<\/td><\/tr>\n      <tr><td>Product Weight<\/td><td>5.29 lbs<\/td><\/tr>\n      <tr><td>Filter Type<\/td><td>Cartridge<\/td><\/tr>\n      <tr><td>Filtration<\/td><td>HEPA Filtration<\/td><\/tr>\n      <tr><td>Special Feature<\/td><td>bagless<\/td><\/tr>\n      <tr><td>Form Factor<\/td><td>Stick<\/td><\/tr>\n      <tr><td>Color<\/td><td>Red<\/td><\/tr>\n      <tr><td>Battery Description<\/td><td>Lithium-Ion<\/td><\/tr>\n      <tr><td>Battery Life<\/td><td>55 minutes<\/td><\/tr>\n      <tr><td>Controller Type<\/td><td>Push Button<\/td><\/tr>\n      <tr><td>Control Method<\/td><td>Touch<\/td><\/tr>\n      <tr><td>Number of Power Levels<\/td><td>3<\/td><\/tr>\n      <tr><td>Number of Wheels<\/td><td>2<\/td><\/tr>\n      <tr><td>Indoor\/Outdoor Usage<\/td><td>Indoor<\/td><\/tr>\n      <tr><td>Manufacture Year<\/td><td>2024<\/td><\/tr>\n      <tr><td>Item Weight<\/td><td>5.5 pounds<\/td><\/tr>\n      <tr><td>Batteries<\/td><td>1 Lithium Ion batteries required. (included)<\/td><\/tr>\n    <\/tbody>\n  <\/table>\n<\/div>"
+          }
+        },
+        "tab_6AUpj6": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "What's included?",
+            "icon": "none",
+            "text": "",
+            "text_columns": "2",
+            "page": "accessories-for-s13-pro"
+          }
+        }
+      },
+      "block_order": [
+        "tab_TEykMh",
+        "custom_liquid_6tE8NL",
+        "tab_6AUpj6"
+      ],
+      "settings": {
+        "heading": "Product details",
+        "marker_style": "style1",
+        "description": "",
+        "text_size": "regular",
+        "tab_alignment": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_tabs": "#2c2d2e",
+        "color_text": "#2c2d2e",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "text_with_icons_i3LrHq": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_fej8De": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/445b3bc4647370bbecf46ab87679d27c.png",
+            "heading": "",
+            "text": "<p>Main Motor<\/p>"
+          }
+        },
+        "icon_G6t4Yr": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/693fe6cddcda54fd73d0aac0cbce6280.png",
+            "heading": "",
+            "text": "<p>Roller<\/p>"
+          }
+        },
+        "icon_EMViix": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/2c7bc44a63d517d42e8136753d562599.png",
+            "heading": "",
+            "text": "<p>Crevice Brush<\/p>"
+          }
+        },
+        "icon_d9Qqft": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/77914fb28140e71d61ab401e0f1d48cb.png",
+            "heading": "",
+            "text": "<p>2-in-1 Brush<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_fej8De",
+        "icon_G6t4Yr",
+        "icon_EMViix",
+        "icon_d9Qqft"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Accessories 50% Off",
+        "sub_heading": "Combination Offers 8%",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "shopify:\/\/collections\/all",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "xlarge",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "mobile_columns": 2,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_PNFpwU": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_88TwHt": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/98589762825f72e4eaa7b0b80118158c.png",
+            "heading": "",
+            "text": "<p>Floor Brush<\/p>"
+          }
+        },
+        "icon_dFLRM6": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/b37921b961e5adb84e66048a85bbee72.png",
+            "heading": "",
+            "text": "<p>Battery<\/p>"
+          }
+        },
+        "icon_7DcVza": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/f65d21d0744d9632c830a359999931e8.png",
+            "heading": "",
+            "text": "<p>Dust Cup<\/p>"
+          }
+        },
+        "icon_tJka3L": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/c9c7b125bac9050dabf5174ccd646923.png",
+            "heading": "",
+            "text": "<p>Stainless Steel Filter<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_88TwHt",
+        "icon_dFLRM6",
+        "icon_7DcVza",
+        "icon_tJka3L"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Accessories 50% Off",
+        "sub_heading": "Combination Offers 8%",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "shopify:\/\/collections\/all",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "xlarge",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "mobile_columns": 2,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_x3QywM": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_naDBqk": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/d9fabf7a331a03cef0838834906e7c78.png",
+            "heading": "",
+            "text": "<p>Charger<\/p>"
+          }
+        },
+        "icon_Ebqkhz": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/653fcb675bd04693d2205f0620ac5346.png",
+            "heading": "",
+            "text": "<p>HEPA & Sponge<\/p>"
+          }
+        },
+        "icon_bBEjLj": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/c388c9a826e8004772ec198e4a7e5fe9.png",
+            "heading": "",
+            "text": "<p>Wall Mount Bracket<\/p>"
+          }
+        },
+        "icon_DJVVEJ": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/70b0d401c33a3199da7c8f14cde2f4a2.png",
+            "heading": "",
+            "text": "<p>Telescopic Tube<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_naDBqk",
+        "icon_Ebqkhz",
+        "icon_bBEjLj",
+        "icon_DJVVEJ"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Accessories 50% Off",
+        "sub_heading": "Combination Offers 8%",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "shopify:\/\/collections\/all",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "xlarge",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "mobile_columns": 2,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_qx77Vn": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_6YMnCk": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/c17d8497fd413cc3ae0387d4e680e6b6.png",
+            "heading": "",
+            "text": "<p>Mini CIeaning Brush<\/p>"
+          }
+        },
+        "icon_8CqjkG": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/LOGO-01.svg",
+            "heading": "",
+            "text": "<p>Quick User Guide<\/p>"
+          }
+        },
+        "icon_AUmVw9": {
+          "type": "icon",
+          "settings": {
+            "icon": "none",
+            "heading": "",
+            "text": ""
+          }
+        },
+        "icon_cqCmkj": {
+          "type": "icon",
+          "settings": {
+            "icon": "none",
+            "heading": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_6YMnCk",
+        "icon_8CqjkG",
+        "icon_AUmVw9",
+        "icon_cqCmkj"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Accessories 50% Off",
+        "sub_heading": "Combination Offers 8%",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "shopify:\/\/collections\/all",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "xlarge",
+        "heading_size": "small",
+        "mobile_swipe": true,
+        "mobile_columns": 2,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_gKUhtN": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "173943706618792736": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_4BjTm3": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_4BjTm3"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "c4204c3f-0267-4094-942b-cbef4c9c0a87",
+    "rich_text_JfkF7P",
+    "video_Y9zGUJ",
+    "image_with_text_bkLJJz",
+    "image_with_text_gFrmGx",
+    "image_with_text_fFiqhF",
+    "image_hotspots_PziNHB",
+    "image_with_text_overlay_cWTnyJ",
+    "image_with_text_9wyrYb",
+    "image_with_text_baGmdW",
+    "gallery_hydCUi",
+    "media_with_tabs_74cMQL",
+    "product_details_mXPkEF",
+    "text_with_icons_i3LrHq",
+    "text_with_icons_PNFpwU",
+    "text_with_icons_x3QywM",
+    "text_with_icons_qx77Vn",
+    "spacer_gKUhtN",
+    "173943706618792736",
+    "product-recommendations"
+  ]
+}

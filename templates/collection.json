@@ -1,0 +1,524 @@
+{
+  "sections": {
+    "image_with_text_overlay_MtEY4x": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_t6Vd89": {
+          "type": "heading",
+          "settings": {
+            "text": "Smarter Home, Better Life",
+            "heading_size": "h1",
+            "heading_tag": "adaptive"
+          }
+        }
+      },
+      "block_order": [
+        "heading_t6Vd89"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/2_96862618-c2c3-4acc-ac48-31bff565f6f9.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/01_feeec930-2062-4f38-a6eb-c49d9f1d62d9.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "top-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_UwrcgN": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/0904.svg",
+        "full_width": true,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 150,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "promotion_kWW6hE": {
+          "type": "promotion",
+          "settings": {
+            "promotion_collection": "robot-cleaner",
+            "promotion_position": 1,
+            "promotion_width": "1",
+            "image": "shopify:\/\/shop_images\/T20-02.jpg",
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "promotion_kWW6hE"
+      ],
+      "disabled": true,
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "pagination_type": "loadmore",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_counts": false,
+        "filter_color_swatches": false,
+        "filters_collapsed": false,
+        "enable_compare": true,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "rich_text_BMHqYr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fGUmEa": {
+          "type": "heading",
+          "settings": {
+            "text": "Cordless Vacuum Cleaners",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_eFHFfV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Honiture cordless vacuum cleaner series offers powerful suction with the convenience of wireless operation. Designed for effortless cleaning, these vacuums are lightweight, portable, and equipped with advanced features such as anti-tangle technology, LED highlights, and wider cleaning paths. Perfect for daily use, they deliver exceptional performance, whether for quick cleanups or deep cleaning, making home maintenance easier and more efficient.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fGUmEa",
+        "text_eFHFfV"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "collection_tabs_GiD6Yn": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_nKY7h3": {
+          "type": "collection",
+          "settings": {
+            "collection": "cordless-vacuum-cleaners",
+            "enable_promotion": true,
+            "image": "shopify:\/\/shop_images\/X7_84da0668-fd32-426b-b5de-02f5e29c1811.jpg",
+            "title": "Honiture X7",
+            "text": "",
+            "link_label": "Learn More",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "shopify:\/\/products\/x7",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "collection_nKY7h3"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "product_limit": 6,
+        "columns_desktop": 4,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collection_tabs_LwWKpw": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_P8qaYJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "cordless-vacuum-cleaners",
+            "enable_promotion": true,
+            "image": "shopify:\/\/shop_images\/X7_84da0668-fd32-426b-b5de-02f5e29c1811.jpg",
+            "title": "Honiture X7",
+            "text": "",
+            "link_label": "Learn More",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "shopify:\/\/products\/x7",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "collection_P8qaYJ"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Cordless Vacuum Cleaners",
+        "marker_style": "style1",
+        "description": "<p>Our cordless vacuum cleaner series offers powerful suction with the convenience of wireless operation. Designed for effortless cleaning, these vacuums are lightweight, portable, and equipped with advanced features such as anti-tangle technology, LED highlights, and wider cleaning paths. Perfect for daily use, they deliver exceptional performance, whether for quick cleanups or deep cleaning, making home maintenance easier and more efficient.<\/p>",
+        "product_limit": 6,
+        "columns_desktop": 4,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_collection_AdMN6f": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "heading": "Cordless Vacuum Cleaners",
+        "marker_style": "style1",
+        "description": "<p>Our cordless vacuum cleaner series offers powerful suction with the convenience of wireless operation. Designed for effortless cleaning, these vacuums are lightweight, portable, and equipped with advanced features such as anti-tangle technology, LED highlights, and wider cleaning paths. Perfect for daily use, they deliver exceptional performance, whether for quick cleanups or deep cleaning, making home maintenance easier and more efficient.<\/p>",
+        "collection": "cordless-vacuum-cleaners",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "a923b0af-87bd-4fac-ac50-7c5ad000c0d0": {
+      "type": "rich-text",
+      "blocks": {
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-1": {
+          "type": "heading",
+          "settings": {
+            "text": "Robot Vacuum Cleaner",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Honiture robot vacuum cleaner series combines intelligent navigation with powerful suction to provide hands-free cleaning for your home. Equipped with smart sensors, multiple cleaning modes, and anti-tangle brushes, these robots effortlessly tackle dust, pet hair, and debris on all floor types. With scheduled cleaning and automatic recharging, they make maintaining a clean and tidy home easier than ever.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-1",
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-2"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "color_links": "#3f72e5",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_eAibtc": {
+      "type": "media-grid",
+      "blocks": {
+        "media_cdLcge": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "heading_font_size": 1.5,
+            "heading_color": "#ffffff",
+            "subheading_font_size": 1,
+            "subheading_color": "#ffffff",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": true,
+            "video_hosted": "shopify:\/\/files\/videos\/EN_1.mp4",
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "3-in-1 Vacuum & Mop",
+            "heading": "Honiture V8 Pro",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/products\/v8-pro",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        },
+        "media_PNBYmD": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture_robot_vacuum_cleaner_g20-pro.webp",
+            "slide_link": "shopify:\/\/products\/honiture-robot-vacuum-cleaner-g20pro",
+            "heading_font_size": 1.5,
+            "heading_color": "#ffffff",
+            "subheading_font_size": 1,
+            "subheading_color": "#ffffff",
+            "link_font_size": 1,
+            "link_color": "#ffffff",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "Robotic Vacuum",
+            "heading": "G20 Pro",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/products\/honiture-robot-vacuum-cleaner-g20pro",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 10
+          }
+        },
+        "media_wUCqLi": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T10-tuya1_4af2abee-2433-4742-a0d8-ebe929fe2fbe.webp",
+            "slide_link": "shopify:\/\/products\/honiture-t10-robot-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#ffffff",
+            "subheading_font_size": 1,
+            "subheading_color": "#ffffff",
+            "link_font_size": 1,
+            "link_color": "#3f72e5",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "Robotic Vacuum",
+            "heading": "T10",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/products\/honiture-t10-robot-vacuum",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 10
+          }
+        }
+      },
+      "block_order": [
+        "media_cdLcge",
+        "media_PNBYmD",
+        "media_wUCqLi"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "mobile_swipe": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "gallery_9UcwHN": {
+      "type": "gallery",
+      "blocks": {
+        "image_k3La6h": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_1.png",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "Pets Technology",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "Explore",
+            "link": "shopify:\/\/products\/pl01",
+            "use_text_button": false,
+            "block_link": "shopify:\/\/products\/pl01",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_cG7Rtp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/e8575164c9e97cf20c81dbe9f3c04050.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "Air purifiers",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "Explore",
+            "link": "shopify:\/\/products\/honiture-air-purifier-kj01",
+            "use_text_button": false,
+            "block_link": "shopify:\/\/products\/honiture-air-purifier-kj01",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "image_k3La6h",
+        "image_cG7Rtp"
+      ],
+      "disabled": true,
+      "settings": {
+        "columns_desktop": 2,
+        "full_width": false,
+        "mobile_swipe": false,
+        "image_ratio": "square",
+        "content_position": "bottom-left",
+        "text_alignment": "left",
+        "column_spacing": "large",
+        "heading_size": "h2",
+        "description_size": "medium",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collection_list_ez9Mtb": {
+      "type": "collection-list",
+      "settings": {
+        "heading": "Shop by Category",
+        "marker_style": "style1",
+        "description": "",
+        "heading_size": "small",
+        "collection_list": [
+          "robot-cleaner",
+          "cordless-vacuum-cleaners",
+          "accessories"
+        ],
+        "image_ratio": "portrait",
+        "collection_layout": "grid",
+        "style": "style2",
+        "text_alignment": "center",
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#ffffff",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 10,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_MtEY4x",
+    "single_image_UwrcgN",
+    "breadcrumbs",
+    "template-header",
+    "product-grid",
+    "rich_text_BMHqYr",
+    "collection_tabs_GiD6Yn",
+    "collection_tabs_LwWKpw",
+    "featured_collection_AdMN6f",
+    "a923b0af-87bd-4fac-ac50-7c5ad000c0d0",
+    "media_grid_eAibtc",
+    "gallery_9UcwHN",
+    "collection_list_ez9Mtb"
+  ]
+}

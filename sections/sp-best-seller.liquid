@@ -1,0 +1,754 @@
+{% comment %} vd - clean section {% endcomment %}
+
+<style>
+  .sp-best-section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
+  }
+  .card-image-link{
+    width: 100%;
+    height: 100%;
+  }
+  .sp-best-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  /* Large Card Styles */
+  .sp-best-grid-large {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+ 
+  .sp-best-card-large {
+    display: flex;
+    background: #fff;
+    border-radius: 12px;
+    /* overflow: hidden; */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  
+  .sp-best-card-large .card-image {
+    width: 64%;
+    position: relative;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px 0 0 12px;
+    /* overflow: hidden; */
+  }
+  
+  .sp-best-card-large .card-image img {
+    flex: 1;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    border-radius: 12px 0 0 12px;
+  }
+  
+  .sp-best-card-large:hover .card-image img {
+    /* transform: scale(1.05); */
+  }
+  
+ .sp-best-grid-large .discount-badge {
+    position: absolute;
+    top: -9px;
+    left: 20px;
+    width: 140px;
+    height: 115px;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 16px;
+  }
+
+  .sp-best-card-large .card-info {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .sp-best-card-large .card-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.3;
+  }
+
+  .sp-best-card-large .card-desc {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .sp-best-card-large .custom-info-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .sp-best-card-large .price-container {
+    font-size: 24px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .sp-best-card-large .compare-price {
+    font-size: 16px;
+    color: #999;
+    text-decoration: line-through;
+    font-weight: 400;
+    display: block;
+  }
+  .sp-best-card-large .price-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  /* Tag Capsule */
+  .sp-tag-capsule {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #D8F588 0%, #58CFC1 100%);
+    gap: 8px;
+    margin-bottom: 12px;
+    width: fit-content;
+  }
+  .sp-tag-capsule img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+    margin: 0 !important;
+    flex: none !important;
+    border-radius: 0 !important;
+  }
+  .sp-tag-capsule span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1;
+  }
+
+
+  /* Shared Button & Code Styles */
+  .vd-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #00D0CD;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto;
+    min-width: 160px;
+    margin: 0;
+  }
+
+
+  .vd-btn:hover,.vd-btn:focus {
+    background-color: #00d0cdb6;
+    color: #fff;
+  }
+  
+  .copy-code-container {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #666;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .copy-btn {
+    background: none;
+    border: none;
+    color: #000000;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    margin-left: 5px;
+  }
+  .gift-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px!important;
+    z-index: 5;
+    pointer-events: none;
+  }
+  @media (max-width: 768px) {
+      .gift-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 80px;
+        height: 80px!important;
+
+      }
+    .sp-best-card-large .card-title{
+      font-size: 18px;
+    }
+    .sp-best-card-large .card-desc{
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    .sp-best-card-large .card-image img{
+      height: 100%;
+      width: 100%;
+      border-radius: 12px 12px 0 0;
+    }
+    .sp-best-card-large .custom-info-image{
+      margin-bottom: 5px;
+      margin: 0 auto;
+    }
+    .vd-btn{
+          padding: 6px 30px;
+          width: unset;
+    }
+    .sp-best-card-small .card-image img{
+      width: auto;
+    }
+    .sp-best-grid-small{
+      margin: 0 -15px;
+      padding: 20px 0;
+    }
+    .sp-best-grid-small .copy-code-container, .xmas-one-card-discount-code{
+        width: 100%;
+    }
+    .sp-best-card-small .price-container {
+      justify-content: center;
+    }
+    .sp-best-card-small:first-child {
+      margin-left: 15px;
+    }
+    .sp-best-card-small:last-child {
+      margin-right: 15px;
+    }
+    .sp-best-card-large {
+      flex-direction: column;
+    }
+    .sp-best-card-large .card-image, .sp-best-card-large .card-info {
+      width: 100%;
+    }
+    .sp-best-card-large .card-image {
+        height: 250px;
+        border-radius: 12px 12px 0 0;
+    }
+    .sp-best-card-large .card-info {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .sp-best-grid-small {
+      display: flex;
+        overflow: scroll;
+    }
+    .sp-best-card-small {
+        flex-direction: column;
+    padding: 15px;
+    width: 70%;
+    flex-shrink: 0;
+    overflow: visible;
+    }
+    .sp-best-card-small .card-image, .sp-best-card-small .card-info {
+        width: 100%;
+    }
+    .sp-best-card-small .card-image {
+        height: 200px;
+    }
+    .sp-best-content{
+      padding: 0;
+    }
+    .sp-best-card-small .discount-badge {
+      position: absolute;
+      top: -22px;
+      left: 10px;
+      width: 80px;
+      height: 60px;
+    }
+    .sp-best-card-large .gift-badge {
+        right: 10px;
+        top: 10px;
+    }
+     .sp-best-grid-large .discount-badge {
+      top: -9px;
+      left: 10px;
+      width: 90px;
+      height: 90px;
+      padding-bottom: 10px;
+      font-size: 12px;
+      }
+
+      .sp-best-card-large .price-wrapper{
+        margin-top: 0;
+      }
+      .sp-best-card-large .copy-code-container{
+          margin-top: 15px;
+      }
+      .sp-tag-capsule{
+        margin: 0 auto 12px;
+      }
+  }
+  
+
+</style>
+
+<div class="sp-best-section">
+  <div class="row">
+    <div class="small-12 columns">
+      {% render 'xmas-section-header' %}
+      <div class="sp-best-content">
+        <!-- Large Cards -->
+        <div class="sp-best-grid-large">
+          {% for block in section.blocks %}
+            {% if block.type == 'large_card' %}
+              {% assign product = all_products[block.settings.product] %}
+              {% assign title = block.settings.title | default: product.title %}
+              {% assign description = block.settings.description | default: product.description %}
+              {% assign image = block.settings.image | default: product.featured_image %}
+              {% if block.settings.price != blank %}
+                {% assign price = block.settings.price %}
+              {% else %}
+                {% assign extra_discount = block.settings.extra_discount %}
+                {% assign multiplier = 100 | minus: extra_discount | divided_by: 100.0 %}
+                {% assign price = product.price | times: multiplier | money %}
+              {% endif %}
+              {% assign code = block.settings.code %}
+              
+
+              <div class="sp-best-card-large" {{ block.shopify_attributes }}>
+                <div class="card-image">
+                  {% assign discount_text = block.settings.discount_text %}
+                  {% if discount_text == blank and product.compare_at_price > product.price %}
+                    {% assign discount_value = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+                    {% assign discount_text = discount_value | append: '%' %}
+                  {% endif %}
+                  
+                  {% if block.settings.discount_bg != blank or discount_text != blank %}
+                    <div class="discount-badge" style="{% if block.settings.discount_bg != blank %}background-image: url({{ block.settings.discount_bg | image_url: width: 200 }});{% endif %}">
+                      {{ discount_text }} {% if block.settings.badge_text_nowrap %}<br>{% endif %} OFF
+                    </div>
+                  {% endif %}
+                  {% if block.settings.gift_image != blank %}
+                    <img class="gift-badge" src="{{ block.settings.gift_image | image_url: width: 200 }}" loading="lazy" alt="Gift">
+                  {% endif %}
+                  {% if image != blank %}
+                    <a href="{{ product.url }}" target="_blank" class="card-image-link">
+                      <img src="{{ image | image_url: width: 800 }}" loading="lazy" alt="{{ title | escape }}">
+                    </a>
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  {% endif %}
+                </div>
+                <div class="card-info">
+                  {% if block.settings.tag_text != blank %}
+                  <div class="sp-tag-capsule">
+                    {% if block.settings.tag_icon != blank %}
+                      {{ block.settings.tag_icon | image_url: width: 40 | image_tag: loading: 'lazy', alt: block.settings.tag_text }}
+                    {% endif %}
+                    <span>{{ block.settings.tag_text }}</span>
+                  </div>
+                  {% endif %}
+                  <h3 class="card-title"><a href="{{ product.url }}" target="_blank" rel="noopener">{{ title }}</a></h3>
+                  <div class="card-desc">{{ description }}</div>
+                  
+                  {% if block.settings.custom_icon != blank %}
+                    <img class="custom-info-image" src="{{ block.settings.custom_icon | image_url: width: 400 }}" loading="lazy" alt="">
+                  {% endif %}
+                  
+                  
+                  
+                  {% if code != blank %}
+                    <div class="copy-code-container">
+                      {{ block.settings.code_label | default: 'Code:' }} {{ code }}
+                      <button class="copy-btn"
+                        data-clipboard-text="{{ code }}"
+                        data-copied-text="Copied"
+                        data-reset-ms="3000"
+                        onclick="xmasCopyCode(this)">Claim</button>
+                    </div>
+                  {% endif %}
+ 
+                  <div class="price-wrapper">
+                    <div class="price-container">
+                      {{ price }}
+                      {% if product.compare_at_price > product.price %}
+                        <span class="compare-price">{{ product.compare_at_price | money }}</span>
+                      {% endif %}
+                    </div>
+                    {% if block.settings.btn_link != blank %}
+                      <a href="{{ block.settings.btn_link }}" target="_blank" rel="noopener" class="vd-btn">{{ block.settings.btn_text | default: 'Shop Now' }}</a>
+                    {% else %}
+                      <a href="javascript:void(0)" onclick="addCleanItemToCart({{ product.selected_or_first_available_variant.id }})" class="vd-btn">{{ block.settings.btn_text | default: 'Shop Now' }}</a>
+                    {% endif %}
+                  </div>
+                   
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% render 'section-decorations', section: section %}
+<script>
+  if (!window.addCleanItemToCart) {
+    window.addCleanItemToCart = function(id) {
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = window.Shopify.routes.root + 'cart/add';
+      form.target = '_blank';
+      
+      var idInput = document.createElement('input');
+      idInput.setAttribute('name', 'id');
+      idInput.setAttribute('value', id);
+      idInput.setAttribute('type', 'hidden');
+      
+      var qtyInput = document.createElement('input');
+      qtyInput.setAttribute('name', 'quantity');
+      qtyInput.setAttribute('value', '1');
+      qtyInput.setAttribute('type', 'hidden');
+      
+      form.appendChild(idInput);
+      form.appendChild(qtyInput);
+      
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    };
+  }
+
+  if (!window.xmasCopyCode) {
+    window.xmasCopyCode = function(btn) {
+      if (!btn) return;
+      var originalText = (btn.textContent || '').trim() || 'Copy';
+      var copiedText = btn.getAttribute('data-copied-text') || 'Copied';
+      var resetMs = parseInt(btn.getAttribute('data-reset-ms') || '3000', 10);
+      var code = btn.getAttribute('data-clipboard-text') || '';
+      if (!code) return;
+
+      function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+        return new Promise(function(resolve, reject) {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-1000px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            var ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            if (ok) resolve(); else reject(new Error('execCommand failed'));
+          } catch (e) { reject(e); }
+        });
+      }
+
+      copyText(code).then(function() {
+        btn.textContent = copiedText;
+        btn.disabled = true;
+        setTimeout(function() {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, isNaN(resetMs) ? 3000 : resetMs);
+      });
+    };
+  }
+</script>
+
+{% schema %}
+{
+  "name": "SP Best Seller",
+  "class": "section-sp-best",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Flash Sale"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_title_icons",
+        "label": "Show Title Icons",
+        "default": true
+    },
+    {
+        "type": "image_picker",
+        "id": "title_icon",
+        "label": "Title Icon"
+    },
+    {
+        "type": "range",
+        "id": "title_icon_size",
+        "min": 20,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Title Icon Size",
+        "default": 40
+    },
+    {
+        "type": "range",
+        "id": "title_icon_size_mobile",
+        "min": 10,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "label": "Mobile Icon Size",
+        "default": 30
+    },
+    {
+        "type": "checkbox",
+        "id": "title_icon_mirror_right",
+        "label": "Mirror Right Icon",
+        "default": true
+    },
+    {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub Heading"
+    },
+    {
+        "type": "url",
+        "id": "view_more_link",
+        "label": "View More Link"
+    },
+    {
+        "type": "text",
+        "id": "view_more_label",
+        "label": "View More Label",
+        "default": "View More"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_header_divider",
+        "label": "Show Header Divider",
+        "default": false
+    },
+    {
+        "type": "color",
+        "id": "header_divider_color",
+        "label": "Header Divider Color",
+        "default": "#ffffff"
+    },
+    {
+        "type": "number",
+        "id": "line_position_top",
+        "label": "Line Position Top (px)",
+        "default": 90
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f4f4f4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "large_card",
+      "name": "Large Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image (Left)"
+        },
+        {
+          "type": "image_picker",
+          "id": "gift_image",
+          "label": "Gift Image (Top Right)"
+        },
+        {
+          "type": "image_picker",
+          "id": "discount_bg",
+          "label": "Discount Badge Background"
+        },
+        {
+          "type": "text",
+          "id": "discount_text",
+          "label": "Discount Text",
+          "default": "8% OFF"
+        },
+        {
+          "type": "checkbox",
+          "id": "badge_text_nowrap",
+          "label": "Badge Text No Wrap",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "tag_icon",
+          "label": "Tag Icon (SVG)"
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Tag Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Custom Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom Info Image/Icon"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Custom Price Display"
+        },
+        {
+          "type": "range", 
+          "id": "extra_discount",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Extra Discount Percentage",
+          "default": 0,
+          "info": "Example: 12% means price will be multiplied by 0.88"
+        },
+        {
+          "type": "text",
+          "id": "code",
+          "label": "Discount Code"
+        },
+        {
+          "type": "text",
+          "id": "code_label",
+          "label": "Code Label",
+          "default": "Code:"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link",
+          "info": "配置了链接优先跳转链接，不配置链接就加购" 
+        }
+      ]
+    },
+
+        {
+        "type": "decoration",
+        "name": "装饰图片",
+        "settings": [
+          { "type": "image_picker", "id": "image", "label": "图片" },
+          { "type": "range", "id": "top", "label": "顶部位置", "min": -100, "max": 100, "step": 2, "unit": "%", "default": 10 },
+          { "type": "range", "id": "left", "label": "左侧位置", "min": -100, "max": 100, "step": 5, "unit": "%", "default": 0 },
+          { "type": "range", "id": "width", "label": "宽度（px）", "min": 0, "max": 800, "step": 10, "unit": "px", "default": 100 },
+          { "type": "number", "id": "z_index", "label": "层级", "default": 1 },
+          { "type": "checkbox", "id": "hide_on_mobile", "label": "在移动端隐藏", "default": false },
+          { "type": "range", "id": "rotation", "label": "旋转角度", "min": -180, "max": 180, "step": 5, "unit": "deg", "default": 0 }
+        ]
+      } 
+  ],
+  "presets": [
+    {
+      "name": "SP Best Seller",
+      "blocks": [
+        {
+          "type": "large_card"
+        },
+        {
+          "type": "large_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

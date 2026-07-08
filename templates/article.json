@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-article": {
+      "type": "main-article",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+            "collection_title": "Feature Products",
+            "grid_collection": "all-vacuums",
+            "show_signup": true,
+            "title": "",
+            "text": "<p>Subscribe for tips & offers.<\/p>"
+          }
+        },
+        "tags": {
+          "type": "tags",
+          "settings": {}
+        },
+        "post_navigation": {
+          "type": "post_navigation",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content",
+        "tags",
+        "post_navigation"
+      ],
+      "settings": {
+        "article_show_date": true,
+        "article_show_author": false,
+        "article_show_nav": true,
+        "article_show_sharing": true
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "featured_collection_Jmj7Vr": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Hot Sale Vacuums",
+        "marker_style": "style1",
+        "description": "",
+        "collection": "vacuum-cleaners",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "breadcrumbs",
+    "main-article",
+    "shogun-optimizer",
+    "featured_collection_Jmj7Vr"
+  ]
+}

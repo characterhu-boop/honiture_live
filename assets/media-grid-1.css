@@ -1,0 +1,180 @@
+/* 基础样式 */
+.media-grid--item-1.has-link--true .media-grid--bg-1 img,
+.media-grid--item-1.has-link--true .media-grid--bg-1 video {
+  transition: all 1s cubic-bezier(0.104, 0.204, 0.492, 1); 
+}
+
+.media-grid--item-1 {
+  isolation: isolate;
+  border-radius: var(--block-border-radius, 16px);
+  box-shadow: var(--block-shadows);
+}
+
+/* 网格容器 */
+.media-grid--inner-1 {
+  padding: 0 15px;
+  max-width: var(--grid-width-row, 1380px);
+  margin: 0 auto;
+  display: grid;
+  grid-auto-flow: dense;
+  width: 100%;
+  align-items: start;
+  grid: auto-flow dense var(--mobile-height)/repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .media-grid--inner-1 {
+    padding: 0 50px;
+    grid: auto-flow dense var(--desktop-height)/repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* 移动端轮播效果 */
+@media (max-width: 767px) {
+  .media-grid--inner-1.swipe-on-mobile {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(80%, 1fr);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    grid-template-rows: var(--desktop-height);
+    padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch; /* 平滑滚动 */
+  }
+  
+  .media-grid--inner-1.swipe-on-mobile .media-grid--item-1 {
+    scroll-snap-align: center;
+    grid-area: auto;
+  }
+  
+  /* 隐藏滚动条但保持可滚动 */
+  .media-grid--inner-1.swipe-on-mobile::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 网格项 */
+.media-grid--item-1 {
+  background: var(--color-bg-gradient, var(--color-bg, #fff));
+  color: var(--color-text, var(--color-body, #2c2d2e));
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  grid-area: span var(--row-span)/span var(--column-span--mobile);
+}
+
+@media (min-width: 768px) {
+  .media-grid--item-1 {
+    grid-area: span var(--row-span)/span var(--column-span);
+  }
+}
+
+/* 背景区域 */
+.media-grid--bg-1 {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  z-index: 0;
+  background: var(--color-bg-gradient, var(--color-bg, #fff));
+}
+
+.media-grid--bg-1 img,
+.media-grid--bg-1 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-grid--bg-1:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(var(--overlay-color-rgb), var(--overlay-opacity));
+}
+
+/* 内容区域 */
+.media-grid--content-1 {
+  width: 100%;
+  height: 30%;
+  background: #f0f2f2;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* 文本对齐方式 */
+.media-grid--content-1.text-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.media-grid--content-1.text-center {
+  align-items: center;
+  text-align: center;
+}
+
+.media-grid--content-1.text-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* 标题样式 */
+.media-grid--content-1 h4 {
+  color: var(--color-text, var(--color-body, #2c2d2e));
+  margin: 0 0 10px;
+  line-height: 1.3;
+  font-size: 24px;
+}
+
+/* 子标题自定义样式 */
+.media-grid--content-1 .subheading {
+  margin: 0 0 10px;
+  color: var(--subheading-color, inherit); /* 新增自定义颜色变量 */
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* 链接区域 */
+.media-grid--item-1.has-link--true .media-grid--link-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  z-index: 21;
+  cursor: pointer;
+}
+
+/* 悬停效果 */
+.media-grid--item-1.has-link--true:hover .media-grid--bg-1 img,
+.media-grid--item-1.has-link--true:hover .media-grid--bg-1 video {
+  transform: scale(1.07);
+}
+
+/* 按钮样式 */
+.media-grid--item-1.has-link--true .text-button {
+  position: relative;
+  z-index: 22;
+  margin-top: 10px;
+  color: var(--color-link);
+}
+
+/* 内容位置调整 */
+.content-top-left .media-grid--content-1,
+.content-top-center .media-grid--content-1,
+.content-top-right .media-grid--content-1 {
+  height: 30%;
+}
+
+
+.content-bottom-left .media-grid--content-1,
+.content-bottom-center .media-grid--content-1,
+.content-bottom-right .media-grid--content-1 {
+  height: 30%;
+  margin-top: auto;
+}

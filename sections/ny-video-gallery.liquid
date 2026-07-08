@@ -1,0 +1,752 @@
+{% comment %}
+  NY Video Gallery Section
+  - Displays a gallery of vertical videos
+  - Uses xmas-section-header for title
+  - Cards have video player (inline or modal) and text description
+{% endcomment %}
+
+<section id="ny-video-gallery-{{ section.id }}" class="ny-video-gallery">
+  {%- liquid
+    assign video_card_count = 0
+    for block in section.blocks
+      if block.type == 'video_card'
+        assign video_card_count = video_card_count | plus: 1
+      endif
+    endfor
+    assign is_centered = false
+    if video_card_count <= 4
+      assign is_centered = true
+    endif
+  -%}
+  <div class="xmax_section__header sh-{{ section.id }}" style="--title-icon-size: {{ section.settings.title_icon_size | default: 40 }}px; --title-icon-size-mobile: {{ section.settings.title_icon_size_mobile | default: section.settings.title_icon_size | default: 40 }}px;">
+      {% if section.settings.title != blank %}
+        <div class="xmax_section__title-row">
+          {% if section.settings.show_title_icons and section.settings.title_icon != blank %}
+            <img class="xmax_section__title-icon xmax_section__title-icon--left" src="{{ section.settings.title_icon | image_url: width: 128 }}" alt="" loading="lazy">
+          {% endif %}
+          <h2 class="xmax_section__title">{{ section.settings.title }}</h2>
+          {% if section.settings.show_title_icons and section.settings.title_icon != blank %}
+            <img class="xmax_section__title-icon xmax_section__title-icon--right{% if section.settings.title_icon_mirror_right %} is-mirror{% endif %}" src="{{ section.settings.title_icon | image_url: width: 128 }}" alt="" loading="lazy">
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="xmas-view-more-container">
+        {% assign show_sub = true %}
+        {% if section.settings.show_sub_heading != nil and section.settings.show_sub_heading == false %}
+          {% assign show_sub = false %}
+        {% endif %}
+        {% if section.settings.sub_heading != blank and show_sub %}
+            <p class="xmas-sub-heading">{{ section.settings.sub_heading }}</p>
+        {% endif %}
+        {% if section.settings.view_more_link != blank %}
+          <a class="xmas-viewmore" target="_blank" rel="noopener" href="{{ section.settings.view_more_link }}">{{ section.settings.view_more_label | default: 'View More ' }}</a>
+          {% comment %} <a class="xmas-viewmore" href="{{ section.settings.view_more_link }}">{{ section.settings.view_more_label | default: 'View More ' }}<img style="width:16px;" src="{{ 'xmax-icon5.png' | asset_url }}" alt="" loading="lazy"></a> {% endcomment %}
+        {% endif %}
+      </div>
+    </div>
+  <div class="ny-vg__container">
+
+    <div class="ny-vg__grid{% if is_centered %} ny-vg__grid--center{% endif %}">
+      {% for block in section.blocks %}
+        {% if block.type == 'video_card' %}
+          <div class="ny-vg-card" {{ block.shopify_attributes }}>
+            {%- assign youtube_url = block.settings.youtube_url | strip -%}
+            {%- assign youtube_id = '' -%}
+            {%- if youtube_url != blank -%}
+              {%- if youtube_url contains '/shorts/' -%}
+                {%- assign youtube_id = youtube_url | split: '/shorts/' | last | split: '?' | first | split: '&' | first | split: '/' | first -%}
+              {%- elsif youtube_url contains 'youtu.be/' -%}
+                {%- assign youtube_id = youtube_url | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first | split: '/' | first -%}
+              {%- elsif youtube_url contains 'v=' -%}
+                {%- assign youtube_id = youtube_url | split: 'v=' | last | split: '&' | first | split: '#' | first -%}
+              {%- endif -%}
+            {%- endif -%}
+            <div class="ny-vg-card__media"{% if youtube_url != blank %} data-youtube-url="{{ youtube_url | escape }}"{% endif %}>
+              {% if block.settings.youtube_url != blank %}
+                {% if block.settings.poster != blank %}
+                  <img class="ny-vg-video" src="{{ block.settings.poster | image_url: width: 600 }}" alt="">
+                {% else %}
+                  {% if youtube_id != blank %}
+                    <img class="ny-vg-video" src="https://i.ytimg.com/vi/{{ youtube_id }}/maxresdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ youtube_id }}/hqdefault.jpg';">
+                  {% else %}
+                    <div class="ny-vg-placeholder">
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {% endif %} 
+                {% endif %}
+                <div class="ny-vg-play-btn">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="12" fill="white" fill-opacity="0.9"/>
+                    <path d="M9.5 8L16.5 12L9.5 16V8Z" fill="#333"/>
+                  </svg>
+                </div>  
+              {% elsif block.settings.video != blank %}
+                {{ block.settings.video | video_tag: 
+                  image_size: '600x', 
+                  loop: true, 
+                  controls: false, 
+                  muted: true,
+                  class: 'ny-vg-video',
+                  poster: block.settings.poster
+                }}
+                <div class="ny-vg-play-btn">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="12" fill="white" fill-opacity="0.9"/>
+                    <path d="M9.5 8L16.5 12L9.5 16V8Z" fill="#333"/>
+                  </svg>
+                </div>
+              {% else %}
+                <div class="ny-vg-placeholder">
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% endif %}
+              
+              {% if block.settings.text != blank %}
+                <div class="ny-vg-card__content">
+                  <div class="ny-vg-card__text">{{ block.settings.text }}</div>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {%- unless is_centered -%}
+      <div class="ny-vg__controls">
+        <div class="ny-vg__nav ny-vg__nav--prev">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="ny-vg__nav ny-vg__nav--next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    {%- endunless -%}
+  </div>
+</section>
+
+{% comment %} {% render 'section-decorations', section: section %} {% endcomment %}
+
+<div id="ny-vg-modal-{{ section.id }}" class="ny-vg-modal">
+  <div class="ny-vg-modal__content">
+    <button class="ny-vg-modal__close">&times;</button>
+    <div class="ny-vg-modal__video-wrapper">
+      <!-- Video will be injected here -->
+    </div>
+  </div>
+</div>
+
+<style>
+  #ny-video-gallery-{{ section.id }} {
+    {%- if section.settings.bg_gradient != blank -%}
+      background: {{ section.settings.bg_gradient }};
+    {%- else -%}
+      background: {{ section.settings.bg_color }};
+    {%- endif -%}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  
+  .ny-vg__container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+  
+  .ny-vg__grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px; /* Space for scrollbar if any, though we hide it */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+    justify-content: flex-start; /* Ensure items start from left */
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 769px) {
+    .ny-vg__grid.ny-vg__grid--center {
+      justify-content: center;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+    }
+  }
+  
+  .ny-vg__grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Webkit */
+  }
+
+  .ny-vg__controls {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    /* padding-right: 20px; */
+  }
+
+  .ny-vg__nav {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .ny-vg__nav:hover {
+    background: #f0f0f0;
+    transform: scale(1.1);
+  }
+  
+  .ny-vg-card {
+    /* Show 4.4 cards: (100% - 80px) / 4.4 */
+    flex: 0 0 calc((100% - 80px) / 4.4);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    /* transition: transform 0.3s ease; */
+  }
+  
+  .ny-vg-card:hover {
+    /* transform: translateY(-5px); */
+  }
+  
+  .ny-vg-card__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .ny-vg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .ny-vg-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: transform 0.2s ease;
+  }
+  
+  .ny-vg-card__media:hover .ny-vg-play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .ny-vg-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ny-vg-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 60px 15px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    z-index: 3;
+    pointer-events: none; /* Let clicks pass through to video/card */
+  }
+  
+  .ny-vg-card__text {
+    color: #fff; /* Always white on video overlay */
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  /* Modal Styles */
+  .ny-vg-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .ny-vg-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .ny-vg-modal__content {
+    position: relative;
+    width: 90%;
+    max-width: 500px; /* Vertical video optimized width */
+    aspect-ratio: 9 / 16;
+    max-height: 90vh;
+  }
+  
+  .ny-vg-modal__video-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+  }
+  
+  .ny-vg-modal__video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .ny-vg-modal__close {
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .ny-vg__grid {
+      padding-left: 20px; /* Partial reveal */
+    }
+    .ny-vg-card {
+      flex: 0 0 70%; /* Show part of next card on mobile */
+    }
+    .ny-vg__controls {
+      display: none;
+    }
+      #ny-video-gallery-{{ section.id }} {
+      padding: 30px 0;
+    }
+  }
+</style>
+<style>
+  .xmax_section__header { 
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    flex-direction: column;
+  }
+
+  .sh-{{ section.id }} .xmax_section__title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .sh-{{ section.id }} .xmax_section__title-row::after{
+    content: "";
+  }
+  .ny-video-gallery .sh-{{ section.id }} .xmax_section__title {
+    color: {{ section.settings.title_color | default: section.settings.text_color | default: '#fff' }};
+    font-size: {{ section.settings.title_font_size | default: 36 }}px;
+    font-weight: 800;
+    margin: 0;
+  } 
+  .sh-{{ section.id }} .xmax_section__title-icon {
+    width: var(--title-icon-size, 40px);
+    height: var(--title-icon-size, 40px);
+    object-fit: contain;
+  }
+  .sh-{{ section.id }} .xmax_section__title-icon--right.is-mirror {
+    transform: scaleX(-1);
+  }
+  .ny-video-gallery .sh-{{ section.id }} .xmas-sub-heading{
+    color: {{ section.settings.sub_heading_color | default: section.settings.text_color | default: '#fff' }};
+    font-size: {{ section.settings.sub_heading_font_size | default: 18 }}px;
+    margin-bottom: 0;
+  }
+   .sh-{{ section.id }}  .xmas-view-more-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+  .ny-video-gallery .sh-{{ section.id }}  .xmas-viewmore { 
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #fff;
+    font-size: 14px;
+    color: {{ section.settings.text_color | default: '#fff' }};
+    border-radius: 99px;
+    padding: 4px 24px;
+    text-decoration: none;
+    margin: 15px 0;
+  }
+
+  /* 内容图片容器样式 */
+  @media (max-width: 768px) {
+    .sh-{{ section.id }} .xmax_section__title-icon {
+      width: var(--title-icon-size-mobile, 30px);
+      height: var(--title-icon-size-mobile, 30px);
+    }
+    .xmax_section__header{
+          margin-bottom: 30px;
+    }
+    .sh-{{ section.id }}  .bf-discount-section { padding: 30px 0; }
+    .sh-{{ section.id }}  .xmas-view-more-container { 
+      flex-direction: row;
+        gap: 5px;
+    }
+    .ny-video-gallery .sh-{{ section.id }}  .xmax_section__title {
+      font-size: {{ section.settings.title_font_size_mobile | default: section.settings.title_font_size | default: 24 }}px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .sh-{{ section.id }}  .xmax_section__title-row { gap: 10px; }
+    .ny-video-gallery .sh-{{ section.id }} .xmas-sub-heading{
+      color: {{ section.settings.sub_heading_color | default: section.settings.text_color | default: '#fff' }};
+      font-size: {{ section.settings.sub_heading_font_size_mobile | default: section.settings.sub_heading_font_size | default: 14 }}px;
+      text-align: center;
+    }
+    .sh-{{ section.id }} .xmas-viewmore{
+      padding: 2px 12px;
+      font-size: 10px;
+    } 
+
+      .sh-{{ section.id }} .xmax_section__title-icon--right.is-mirror {
+        transform: scaleX(-1);
+      }
+  }
+</style>
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var sectionId = '{{ section.id }}';
+      var container = document.getElementById('ny-video-gallery-' + sectionId);
+      var modal = document.getElementById('ny-vg-modal-' + sectionId);
+      if (!container || !modal) return;
+      
+      var grid = container.querySelector('.ny-vg__grid');
+      var prevBtn = container.querySelector('.ny-vg__nav--prev');
+      var nextBtn = container.querySelector('.ny-vg__nav--next');
+      
+      // Carousel Navigation
+      if (grid && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', function() {
+          var cardWidth = grid.querySelector('.ny-vg-card').offsetWidth;
+          var gap = 20; // CSS gap
+          grid.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+        });
+        
+        nextBtn.addEventListener('click', function() {
+          var cardWidth = grid.querySelector('.ny-vg-card').offsetWidth;
+          var gap = 20; // CSS gap
+          grid.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+        });
+      }
+      
+      var closeBtn = modal.querySelector('.ny-vg-modal__close');
+      var videoWrapper = modal.querySelector('.ny-vg-modal__video-wrapper');
+      
+      // Open Modal
+      container.querySelectorAll('.ny-vg-card__media').forEach(function(cardMedia) {
+        cardMedia.addEventListener('click', function() {
+          var ytUrl = cardMedia.getAttribute('data-youtube-url') || '';
+          var videoTag = cardMedia.querySelector('video');
+          var videoSrc = '';
+          var posterSrc = '';
+          
+          if (ytUrl) {
+            var id = (function(u){
+              try {
+                if (u.indexOf('/shorts/') > -1) {
+                  var m = u.match(/\/shorts\/([A-Za-z0-9_-]+)/);
+                  return m ? m[1] : '';
+                }
+                var m1 = u.match(/[?&]v=([^&]+)/);
+                if (m1) return m1[1];
+                var m2 = u.match(/youtu\.be\/([A-Za-z0-9_-]+)/);
+                if (m2) return m2[1];
+              } catch(e) {}
+              return '';
+            })(ytUrl);
+            if (id) {
+              var src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=' + id;
+              videoWrapper.innerHTML = '<iframe src="'+src+'" title="YouTube Shorts" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0;"></iframe>';
+              modal.classList.add('active');
+              return;
+            }
+          }
+          
+          if (videoTag) {
+            var source = videoTag.querySelector('source');
+            videoSrc = source ? source.src : videoTag.src;
+            posterSrc = videoTag.poster;
+            
+            if (videoSrc) {
+              videoWrapper.innerHTML = '<video controls autoplay playsinline style="width:100%;height:100%;object-fit:contain;" poster="'+posterSrc+'"><source src="'+videoSrc+'" type="video/mp4">Your browser does not support the video tag.</video>';
+              modal.classList.add('active');
+            }
+          }
+        });
+      });
+      
+      // Close Modal
+      function closeModal() {
+        modal.classList.remove('active');
+        setTimeout(function() {
+          videoWrapper.innerHTML = ''; // Stop video
+        }, 300);
+      }
+      
+      closeBtn.addEventListener('click', closeModal);
+      
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "NY Video Gallery",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "DON'T JUST TAKE OUR WORD FOR IT"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Heading Font Size",
+      "min": 12,
+      "max": 80,
+      "step": 1,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "label": "Heading Font Size Mobile",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Subheading"
+    },
+    {
+      "type": "color",
+      "id": "sub_heading_color",
+      "label": "Subheading Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "sub_heading_font_size",
+      "label": "Subheading Font Size",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "sub_heading_font_size_mobile",
+      "label": "Subheading Font Size Mobile",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sub_heading",
+      "label": "显示副标题",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "Button Label",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "Show Title Icons",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "Title Icon"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "Icon Size",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "Mirror Right Icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#0d123d"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_gradient",
+      "label": "Background Gradient",
+      "default": "linear-gradient(180deg, #0d123d 0%, #1a1f50 100%)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Card Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+        {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40 
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_card",
+      "name": "Video Card",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "text",
+          "id": "youtube_url",
+          "label": "YouTube 链接（支持 Shorts）",
+          "info": "例如 https://www.youtube.com/shorts/VIDEO_ID 或 https://youtu.be/VIDEO_ID 或 https://www.youtube.com/watch?v=VIDEO_ID"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Cover Image (Optional)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description Text",
+          "default": "What to Do When Vacuum Cleaner is Clogged: Common issues and Essential Maintenance Tips"
+        }
+      ]
+    }
+   
+  ],
+  "presets": [
+    {
+      "name": "NY Video Gallery",
+      "blocks": [
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        }
+      ]
+    }
+  ] 
+}
+{% endschema %}

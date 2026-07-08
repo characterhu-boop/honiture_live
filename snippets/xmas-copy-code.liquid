@@ -1,0 +1,90 @@
+{% comment %} 
+    {% render 'xmas-copy-code', section: section %}
+
+    {
+      "type": "header",
+      "content": "折扣码设置"
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "折扣码（用于复制）",
+      "default": "K2S40"
+    }, 
+    {
+      "type": "text",
+      "id": "code_label",
+      "label": "Code Label",
+      "default": "Code:"
+    },
+{% endcomment %}
+
+{%- assign _code_label = code_label | default: section.settings.code_label | default: 'Code:' -%}
+{%- assign _discount_code = discount_code | default: section.settings.discount_code | default: 'K2S40' -%}
+{%- assign _copied_text = copied_text | default: section.settings.copied_text | default: 'copied' -%} 
+{%- assign _copy_reset_ms = copy_reset_ms | default: section.settings.copy_reset_ms | default: 3000 -%}
+
+<style>
+  .xmas-one-card-copy-btn{
+    background-color: unset;
+    border: none;
+    color: #D52F2F;
+  }
+  .xmas-one-card-discount-code {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+     .xmas-one-card-discount-code {
+      text-align: center;
+    } 
+  }
+</style>
+<div class="xmas-one-card-discount-code">
+        {{ _code_label }} {{ _discount_code }}
+        <button class="xmas-one-card-copy-btn"
+          data-clipboard-text="{{ _discount_code }}"
+          data-copied-text="{{ _copied_text }}"
+          data-reset-ms="{{ _copy_reset_ms }}"
+          onclick="xmasCopyCode(this)">copy</button>
+       </div>
+       <script>
+  if (!window.xmasCopyCode) {
+    window.xmasCopyCode = function(btn) {
+      if (!btn) return;
+      var originalText = (btn.textContent || '').trim() || 'copy';
+      var copiedText = btn.getAttribute('data-copied-text') || 'copied';
+      var resetMs = parseInt(btn.getAttribute('data-reset-ms') || '3000', 10);
+      var code = btn.getAttribute('data-clipboard-text') || '';
+      if (!code) return;
+
+      function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+        return new Promise(function(resolve, reject) {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.top = '-1000px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            var ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            if (ok) resolve(); else reject(new Error('execCommand failed'));
+          } catch (e) { reject(e); }
+        });
+      }
+
+      copyText(code).then(function() {
+        btn.textContent = copiedText;
+        btn.disabled = true;
+        setTimeout(function() {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, isNaN(resetMs) ? 3000 : resetMs);
+      });
+    };
+  }
+  </script>

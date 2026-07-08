@@ -1,0 +1,469 @@
+{% comment %}
+  Xmas Combo (Bundle) Section
+  - Max width 1200px
+  - Title via snippet `xmas-section-header`
+  - One big container with three cards; each card supports 2-3 products
+  - Totals: sum of prices, sum of compare_at prices, discount = compare - price
+{% endcomment %}
+
+<section id="xmas-combo-{{ section.id }}" class="xmas-combo">
+  <div class="combo__container">
+
+    {% render 'xmas-section-header', section: section %}
+    <div class="combo__cards">
+    {% if section.settings.snow_image %}
+      <div class="spin-section-snow">
+        {{ section.settings.snow_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: 'Snow strip' }}
+      </div>
+    {% endif %}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'combo_card' %}
+
+          {% assign sum_price_1 = block.settings.custom_sum_price_1 %}
+          {% assign sum_price_2 = block.settings.custom_sum_price_2 %}
+          {% assign sum_price_3 = block.settings.custom_sum_price_3 %}
+
+
+          {% assign p1 = block.settings.product_1 %}
+          {% assign p2 = block.settings.product_2 %}
+          {% assign p3 = block.settings.product_3 %}
+          {% assign has_p1 = block.settings.product_1.id %}
+          {% assign has_p2 = block.settings.product_2.id %}
+          {% assign has_p3 = block.settings.product_3.id %}
+
+          {% assign sum_price = 0 %}
+          {% assign sum_compare = 0 %}
+
+          {% comment %} helper to fetch variant obj for a product by id, or fallback {% endcomment %}
+          {% assign v1_id = block.settings.variant_1_id %}
+          {% assign v2_id = block.settings.variant_2_id %}
+          {% assign v3_id = block.settings.variant_3_id %}
+
+          {% if has_p1 %}
+            {% assign v1 = p1.variants | where: 'id', v1_id | first %}
+            {% if v1 == blank %}{% assign v1 = p1.selected_or_first_available_variant %}{% endif %}
+            {% assign p1_price = v1.price %}
+            {% assign p1_compare = v1.compare_at_price | default: p1_price %}
+            {% assign sum_price = sum_price | plus: p1_price %}
+            {% assign sum_compare = sum_compare | plus: p1_compare %}
+          {% endif %}
+
+          {% if has_p2 %}
+            {% assign v2 = p2.variants | where: 'id', v2_id | first %}
+            {% if v2 == blank %}{% assign v2 = p2.selected_or_first_available_variant %}{% endif %}
+            {% assign p2_price = v2.price %}
+            {% assign p2_compare = v2.compare_at_price | default: p2_price %}
+            {% assign sum_price = sum_price | plus: p2_price %}
+            {% assign sum_compare = sum_compare | plus: p2_compare %}
+          {% endif %}
+
+          {% if has_p3 %}
+            {% assign v3 = p3.variants | where: 'id', v3_id | first %}
+            {% if v3 == blank %}{% assign v3 = p3.selected_or_first_available_variant %}{% endif %}
+            {% assign p3_price = v3.price %}
+            {% assign p3_compare = v3.compare_at_price | default: p3_price %}
+            {% assign sum_price = sum_price | plus: p3_price %}
+            {% assign sum_compare = sum_compare | plus: p3_compare %}
+          {% endif %}
+
+          {% assign discount = sum_compare | minus: sum_price %}
+
+          <div class="combo-card" {{ block.shopify_attributes }}>
+            <div class="combo-card__corner{% if section.settings['card-widget'] %} has-image{% endif %}"{% if section.settings['card-widget'] %} style="background-image:url({{ section.settings['card-widget'] | image_url: width: 160 }});"{% endif %}></div>
+            <div class="combo-card__items{% if has_p1 and has_p2 and has_p3 %} has-3{% elsif has_p1 and has_p2 %} has-2{% endif %}">
+              {% if has_p1 %}
+                <div class="combo-item combo-item-1">
+                  <div class="combo-item__media">
+                    {% assign img1 = block.settings.image_1 | default: p1.featured_image %}
+                    {% if img1 %}
+                    <a href="{{ p1.url }}" target="_blank" class="combo-item__link">
+                      <img src="{{ img1 | image_url: width: 400 }}" alt="{{ p1.title | escape }}" loading="lazy" />
+                    </a>{% endif %}
+                  </div>
+                  <div class="combo-item__meta">
+                    {% assign item_title1 = block.settings.title_1 | default: p1.title %}
+                    <div class="combo-item__title">{{ item_title1 }}</div>
+                    <div class="combo-item__price">{{ p1_price | money }}</div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if has_p2 %}
+                <div class="combo-plus">+</div>
+                <div class="combo-item">
+                  <div class="combo-item__media">
+                    {% assign img2 = block.settings.image_2 | default: p2.featured_image %}
+                    {% if img2 %}
+                    <a href="{{ p2.url }}" target="_blank" class="combo-item__link">
+                      <img src="{{ img2 | image_url: width: 400 }}" alt="{{ p2.title | escape }}" loading="lazy" />
+                    </a>{% endif %}
+                  </div>
+                  <div class="combo-item__meta">
+                    {% assign item_title2 = block.settings.title_2 | default: p2.title %}
+                    <div class="combo-item__title">{{ item_title2 }}</div>
+                    <div class="combo-item__price">{{ p2_price | money }}</div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if has_p3 %}
+                <div class="combo-plus">+</div>
+                <div class="combo-item">
+                  <div class="combo-item__media">
+                    {% assign img3 = block.settings.image_3 | default: p3.featured_image %}
+                    {% if img3 %}
+                    <a href="{{ p3.url }}" target="_blank" class="combo-item__link">
+                      <img src="{{ img3 | image_url: width: 400 }}" alt="{{ p3.title | escape }}" loading="lazy" />
+                    </a>{% endif %}
+                  </div>
+                  <div class="combo-item__meta">
+                    {% assign item_title3 = block.settings.title_3 | default: p3.title %}
+                    <div class="combo-item__title">{{ item_title3 }}</div>
+                    <div class="combo-item__price">{{ p3_price | money }}</div>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="combo-card__eq">=</div>
+
+            <div class="combo-card__summary">
+              {% comment %} <div class="combo-card__summary_price">
+                <div class="combo-save">SAVE {{ discount | money }}</div>
+                <div class="combo-price">{{ sum_price | money }} <span class="combo-compare">{{ sum_compare | money }}</span></div>
+              </div> {% endcomment %}
+              <div class="combo-card__summary_price">
+                <div class="combo-save">{{ sum_price_1 }}</div>
+                <div class="combo-price">{{ sum_price_2 }} <span class="combo-compare">{{ sum_price_3 }}</span></div>
+              </div>
+              {% if block.settings.button_link != blank %}
+                <a class="btn btn--buy combo-link-btn" target="_blank" href="{{ block.settings.button_link }}">
+                  {{ block.settings.button_label | default: 'Buy now' }}
+                </a>
+              {% else %}
+                <button type="button"
+                        class="btn btn--buy combo-buy-btn"
+                        data-vids="{% if v1 %}{{ v1.id }}{% endif %}{% if v2 %},{% endif %}{% if v2 %}{{ v2.id }}{% endif %}{% if v3 %},{% endif %}{% if v3 %}{{ v3.id }}{% endif %}"
+                        data-q1="{{ block.settings.quantity_1 | default: 1 }}"
+                        data-q2="{{ block.settings.quantity_2 | default: 1 }}"
+                        data-q3="{{ block.settings.quantity_3 | default: 1 }}">
+                  {{ block.settings.button_label | default: 'Buy now' }}
+                </button>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="combo__toast" role="status" aria-live="polite"></div>
+</section>
+
+<style>
+  .xmas-combo { 
+    /* padding: 20px 0;  */
+  /* background: #ae3028;  */
+}
+  .combo__container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  .combo__cards { 
+    display: grid; gap: 16px; 
+        background: #06503F;
+    padding: 100px 60px 60px;
+    border-radius: 30px 30px 10px 10px;
+    position: relative;
+  }
+.combo__cards .spin-section-snow{
+    position: absolute;
+    top: -20px;
+    left: 0;
+}
+  .combo-card { 
+    position: relative; display: grid; grid-template-columns: 1fr 40px 320px; 
+    align-items: center; background: #fff; border-radius: 12px; box-shadow: 0 1px 8px rgba(0,0,0,0.08); 
+    padding: 16px;  }
+  .combo-card__corner { position: absolute; right: 0; top: 0; width: 0; height: 0; border-top: 60px solid #e53935; border-left: 60px solid transparent; }
+  .combo-card__corner.has-image { 
+    right: -8px;
+    top: -9px;
+    width: 106px;
+    height: 91px;
+    border: none;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    border-radius: 6px;
+  }
+
+  .combo-card__items { display: flex; align-items: center; gap: 18px; flex-wrap: nowrap; justify-content: space-around;}
+  .combo-item { display: flex; flex-direction: column; align-items: center; text-align: center;  border-radius: 10px; padding: 12px 14px; width: 180px; }
+  .combo-item__media img { width: 110px; height: auto; display: block; margin: 0 auto 8px; }
+  .combo-item__title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .combo-item__price { font-size: 13px; color: #DA2B2B; text-decoration: line-through; }
+  .combo-plus { align-self: center; font-size: 24px; font-weight: 800; color: #e53935; margin: 0 6px; }
+
+  .combo-card__eq { font-size: 26px; font-weight: 800; color: #e53935; text-align: center; }
+
+  .combo-card__summary { 
+    display: flex; gap: 8px; justify-items: start; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .combo-card__summary_price{
+
+  }
+  .combo-save { color: #e53935; font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .combo-price { font-size: 22px; font-weight: 800; }
+  .combo-compare { color: #999; text-decoration: line-through; font-weight: 500; margin-left: 6px; font-size: 14px; }
+  .xmas-combo .btn { 
+    display: inline-flex; align-items: center; justify-content: center; 
+    border: none; cursor: pointer; border-radius: 6px; 
+    padding: 6px 40px; font-size: 14px; }
+  .xmas-combo .btn--buy { 
+   background: #06503F;
+    color: #fff;
+    border-radius: 999px !important;
+   }
+
+  .combo__toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: 24px; background: rgba(0,0,0,0.85); color: #fff; padding: 10px 12px; border-radius: 8px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .combo__toast.is-visible { opacity: 1; }
+
+  @media (max-width: 768px) {
+      .xmas-combo .btn{
+        padding: 6px 20px;
+    font-size: 12px;
+      }
+
+      .combo-buy-btn{
+          padding: 10px 20px;
+}
+    .combo__cards{
+          padding: 30px 20px 20px;
+    border-radius: 10px;
+    }
+    .combo__cards .spin-section-snow{
+        top: -10px;
+    }
+    .combo-card { grid-template-columns: 1fr; gap: 12px; }
+    .combo-card__eq { text-align: left; }
+    .combo-card__summary { justify-items: start;        
+     flex-direction: row;
+        justify-content: space-between; }
+    .combo-card__corner.has-image { 
+              width: 60px;
+        height: 50px;
+        right: -4px;
+        top: -4px;
+    }
+
+    /* 移动端产品区域两列布局：
+       - 三产品：左侧一个，右侧两个上下排列
+       - 两产品：左右各一个
+       - 总价与按钮在产品区域下方（保持原有结构） */
+    .combo-card__items { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      align-items: center; 
+      justify-items: center; 
+      gap: 0; 
+      position: relative; /* 为移动端 + 号伪元素提供定位 */
+    }
+.combo-card__items.has-3 .combo-item-1 .combo-item__media img{
+  width: 160px;
+}
+    .combo-card__items.has-3 .combo-item:nth-of-type(1) { grid-column: 1; grid-row: 1 / span 2; }
+    .combo-card__items.has-3 .combo-item:nth-of-type(2) { grid-column: 2; grid-row: 1; }
+    .combo-card__items.has-3 .combo-item:nth-of-type(3) { grid-column: 2; grid-row: 2; }
+
+    .combo-card__items.has-2 .combo-item:nth-of-type(1) { grid-column: 1; grid-row: 1; }
+    .combo-card__items.has-2 .combo-item:nth-of-type(2) { grid-column: 2; grid-row: 1; }
+
+    /* 移动端隐藏原有 '+' 元素，改用容器伪元素在居中位置显示 */
+    .combo-card__items .combo-plus { display: none; }
+    .combo-card__items.has-3::after,
+    .combo-card__items.has-2::after {
+      content: "+";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: 800;
+      color: #e53935;
+      pointer-events: none;
+    }
+
+    /* 产品卡在移动端宽度自适应 */
+    .combo-item { width: auto; padding: 0; }
+    .combo-item__media img { width: 100px; margin: 0;}
+
+    /* 移动端将 '=' 改为分割线 */
+    .combo-card__eq { position: relative; font-size: 0; }
+    .combo-card__eq::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #000;
+      border-radius: 1px;
+      margin: 4px 0;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    function showToast(message) {
+      var toast = document.querySelector('#xmas-combo-{{ section.id }} .combo__toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      setTimeout(function() { toast.classList.remove('is-visible'); }, 2200);
+    }
+
+    function addItems(items) {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: items })
+      }).then(function(res) { if (!res.ok) throw new Error('Add failed'); return res.json(); });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var root = document.getElementById('xmas-combo-{{ section.id }}');
+      if (!root) return;
+
+      root.querySelectorAll('.combo-buy-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var vids = (btn.getAttribute('data-vids') || '').split(',').filter(Boolean);
+          var q1 = parseInt(btn.getAttribute('data-q1') || '1', 10);
+          var q2 = parseInt(btn.getAttribute('data-q2') || '1', 10);
+          var q3 = parseInt(btn.getAttribute('data-q3') || '1', 10);
+          var items = [];
+          if (vids[0]) items.push({ id: Number(vids[0]), quantity: q1 });
+          if (vids[1]) items.push({ id: Number(vids[1]), quantity: q2 });
+          if (vids[2]) items.push({ id: Number(vids[2]), quantity: q3 });
+          if (!items.length) return;
+          addItems(items).then(function(){ 
+            window.open('/cart', '_blank');
+          }).catch(function(){  });
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Xmas 捆绑销售模块",
+  "tag": "section",
+  "class": "section xmas-combo",
+  "settings": [
+   {
+      "type": "header",
+      "content": "Section Header 设置"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "限时优惠 立省20%"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    },
+    { "type": "image_picker", "id": "snow_image", "label": "顶部长条雪图" },
+    { "type": "image_picker", "id": "card-widget", "label": "卡片装饰" }
+  ],
+  "blocks": [
+    {
+      "type": "combo_card",
+      "name": "组合卡片",
+      "limit": 3,
+      "settings": [
+        {"type": "product", "id": "product_1", "label": "产品1"},
+        {"type": "text", "id": "title_1", "label": "产品1自定义标题(可选)"},
+        {"type": "text", "id": "variant_1_id", "label": "产品1变体ID(可选)"},
+        {"type": "range", "id": "quantity_1", "label": "产品1数量", "min": 1, "max": 10, "step": 1, "default": 1},
+        {"type": "image_picker", "id": "image_1", "label": "产品1自定义图(可选)"},
+
+        {"type": "product", "id": "product_2", "label": "产品2"},
+        {"type": "text", "id": "title_2", "label": "产品2自定义标题(可选)"},
+        {"type": "text", "id": "variant_2_id", "label": "产品2变体ID(可选)"},
+        {"type": "range", "id": "quantity_2", "label": "产品2数量", "min": 1, "max": 10, "step": 1, "default": 1},
+        {"type": "image_picker", "id": "image_2", "label": "产品2自定义图(可选)"},
+
+        {"type": "product", "id": "product_3", "label": "产品3(可选)"},
+        {"type": "text", "id": "title_3", "label": "产品3自定义标题(可选)"},
+        {"type": "text", "id": "variant_3_id", "label": "产品3变体ID(可选)"},
+        {"type": "range", "id": "quantity_3", "label": "产品3数量", "min": 1, "max": 10, "step": 1, "default": 1},
+        {"type": "image_picker", "id": "image_3", "label": "产品3自定义图(可选)"},
+
+        {"type": "text", "id": "custom_sum_price_1", "label": "自定义价格1"},
+        {"type": "text", "id": "custom_sum_price_2", "label": "自定义价格2"},
+        {"type": "text", "id": "custom_sum_price_3", "label": "自定义价格3"},
+        {"type": "text", "id": "button_label", "label": "按钮文案", "default": "Buy now"},
+        {"type": "url", "id": "button_link", "label": "按钮跳转链接(可选)"}
+      ]
+    }
+    
+    
+  ],
+  "presets": [
+    {
+      "name": "Xmas 组合(三卡)",
+      "blocks": [
+        {"type": "combo_card"},
+        {"type": "combo_card"},
+        {"type": "combo_card"}
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}

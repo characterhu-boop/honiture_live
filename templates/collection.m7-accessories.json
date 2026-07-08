@@ -1,0 +1,378 @@
+{
+  "sections": {
+    "image_with_text_overlay_MtEY4x": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_t6Vd89": {
+          "type": "heading",
+          "settings": {
+            "text": "",
+            "heading_size": "h2",
+            "heading_tag": "h3"
+          }
+        }
+      },
+      "block_order": [
+        "heading_t6Vd89"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/shop-honiture-vacuum-cleaner-accessories.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/01_feeec930-2062-4f38-a6eb-c49d9f1d62d9.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "small",
+        "content_position": "middle-left",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 100,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": true
+      }
+    },
+    "rich_text_naBPhg": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_QAdfKx": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading for this section"
+          }
+        },
+        "heading_3yqVFK": {
+          "type": "heading",
+          "settings": {
+            "text": "Parts & Accessories",
+            "marker_style": "style1",
+            "size": "h2",
+            "heading_tag": "h1",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_bFmb3B": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Here you'll find the most comprehensive and highest quality selection of Honuture M7​. Including main boby,  brush roller cover, wiper blade, top cover, hepa filters, roller brush, cleaning brush, clean water tank, dirty clean tank etc. <\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        },
+        "button_Pg7DnM": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "link_label": "Learn More",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_QAdfKx",
+        "heading_3yqVFK",
+        "text_bFmb3B",
+        "button_Pg7DnM"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "collection_list_NUTDFA": {
+      "type": "collection-list",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "heading_size": "small",
+        "collection_list": [
+          "honiture-v8-pro-robot-vacuum-accessories",
+          "honiture-g20-pro-robot-vacuum-accessories",
+          "honiture-g20-robot-vacuum-accessories",
+          "honiture-q6-se-robot-vacuum-accessories",
+          "honiture-x7-vacuum-cleaner-accessories",
+          "honiture-s12-vacuum-cleaner-accessories",
+          "honiture-s13-pro-vacuum-cleaner-accessories",
+          "honiture-s13-vacuum-cleaner-accessories",
+          "honiture-s14-vacuum-cleaner-accessories",
+          "honiture-hero-9e-vacuum-cleaner-accessories"
+        ],
+        "image_ratio": "square",
+        "collection_layout": "carousel",
+        "style": "style1",
+        "text_alignment": "center",
+        "columns_desktop": 6,
+        "columns_mobile": "2",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#2c2d2e",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 10,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "collection_list_accessories_yWgj4V": {
+      "type": "collection-list-accessories",
+      "name": "Collection list accessories",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "heading_size": "small",
+        "collection_list": [
+          "honiture-v8-pro-robot-vacuum-accessories",
+          "honiture-g20-pro-robot-vacuum-accessories",
+          "honiture-g20-robot-vacuum-accessories",
+          "honiture-q6-se-robot-vacuum-accessories",
+          "t10-robot-vaccum-accessories",
+          "honiture-x7-vacuum-cleaner-accessories",
+          "honiture-p7-pro-cordless-vacuum-accessories",
+          "honiture-s12-vacuum-cleaner-accessories",
+          "y10-cordless-vaccum-accessories",
+          "honiture-s13-pro-vacuum-cleaner-accessories",
+          "honiture-s13-vacuum-cleaner-accessories",
+          "honiture-s14-vacuum-cleaner-accessories"
+        ],
+        "image_ratio": "portrait",
+        "collection_layout": "carousel",
+        "style": "style1",
+        "text_alignment": "center",
+        "columns_desktop": 8,
+        "columns_mobile": "5",
+        "show_progress_bar": false,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#2c2d2e",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 6,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "scrolling_text_GKFJg4": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_3mtaNE": {
+          "type": "text",
+          "settings": {
+            "text": "🌟Refresh Your Vacuum. Enjoy Tiered Discounts for All Accessories>>",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_3mtaNE"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "height": "height-auto",
+        "full_width": false,
+        "direction": "left",
+        "speed": "20s",
+        "rotation": 0,
+        "negative_rotation": false,
+        "font_family": "heading",
+        "text_size": 18,
+        "text_uppercase": false,
+        "image_size": "small",
+        "color_bg": "#ffffff",
+        "color_text": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "promotion_UKRT6h": {
+          "type": "promotion",
+          "disabled": true,
+          "settings": {
+            "promotion_collection": "",
+            "promotion_position": 1,
+            "promotion_width": "1",
+            "image": "shopify:\/\/shop_images\/HoniturerobotvacuumG20.jpg",
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "promotion_UKRT6h"
+      ],
+      "settings": {
+        "products_per_page": 20,
+        "columns_desktop": 3,
+        "show_product_card_add_to_cart_button": true,
+        "show_product_card_quick_view_button": false,
+        "product_card_quick_view_button_label": "Quick view",
+        "pagination_type": "paginated-simple",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_counts": false,
+        "filter_color_swatches": true,
+        "filters_collapsed": false,
+        "enable_compare": false,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "collapsible_content_bHL4tR": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_ni7Wei": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Q1: Are these accessories compatible with other Honiture models?",
+            "open": false,
+            "content": "<p>No. These accessories are exclusively designed for the Honiture M7 Wet Dry Vacuum.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_x3VdYw": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Q2: How often should I replace the M7 brush roller and HEPA filter?",
+            "open": false,
+            "content": "<p>To maintain peak suction power and effective water recovery, we recommend the following replacement schedule:<\/p><ul><li>HEPA Filter: Replace every 2-3 months (more frequently if you have pets or heavy oil stains).<\/li><li>Brush Roller: Replace every 3-6 months (or when you notice worn-out bristles, reduced water pickup, or persistent odors).<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_EJFhiJ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Q3: Can the M7 HEPA filter be washed, and how do I prevent odors?",
+            "open": false,
+            "content": "<p>Yes, it is washable, but it must be completely dry! You can rinse the HEPA filter with clean water, but you must let it air dry completely for at least 24 hours before re-installing it. Putting a damp filter back into the machine will drastically reduce suction and cause a musty, unpleasant odor.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_4U6Ynq": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Q4: Do I still need to clean the brush roller manually if it has a self-cleaning function?",
+            "open": false,
+            "content": "<p>Yes, periodic manual cleaning is recommended. While the M7's self-cleaning cycle removes 90% of daily dirt, We recommend using the included Cleaning Brush to clear wrapped hair weekly to extend the roller's lifespan.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_pxpzHj": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Q5: Can I use regular floor cleaners instead of the Honiture Cleaning Solution?",
+            "open": false,
+            "content": "<p>We strongly advise only using the official Honiture Cleaning Solution. Regular household detergents or floor cleaners produce excessive foam, which can trick the Dirty Water Tank sensors into false \"Full\" alerts, leak into the motor, or corrode the internal plumbing. The official solution is low-foaming and chemically safe for the M7's internal parts.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_eTgzXK": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Q6: What should I do if my M7 is leaking water or has decreased suction?",
+            "open": false,
+            "content": "<p>This is usually caused by clogged parts or a loose seal. Please check if:<\/p><ul><li>The Dirty Water Tank or Clean Water Tank is installed tightly and securely.<\/li><li>The HEPA filter is clogged with dust or wet.<\/li><li>The Wiper Blade or suction port behind the brush roller is blocked by debris.<br\/>Cleaning these components thoroughly or replacing aged filters\/wipers will usually restore original performance immediately.<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_tCbhyi": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Q7: How can I extend the lifespan of brushes and filters?",
+            "open": false,
+            "content": "<p>Regularly clean hair and dust, avoid vacuuming large hard objects, and keep filters dry to extend their usage time.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_ni7Wei",
+        "collapsible_tab_x3VdYw",
+        "collapsible_tab_EJFhiJ",
+        "collapsible_tab_4U6Ynq",
+        "collapsible_tab_pxpzHj",
+        "collapsible_tab_eTgzXK",
+        "collapsible_tab_tCbhyi"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQ",
+        "marker_style": "style1",
+        "description": "<p>Learn about wet\/dry vacuum parts replacement time and maintenance to make your wet\/dry vacuum last longer.<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_MtEY4x",
+    "breadcrumbs",
+    "template-header",
+    "rich_text_naBPhg",
+    "collection_list_NUTDFA",
+    "collection_list_accessories_yWgj4V",
+    "scrolling_text_GKFJg4",
+    "product-grid",
+    "collapsible_content_bHL4tR"
+  ]
+}

@@ -1,0 +1,339 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    max-width: {% if section.settings.max_width contains '%' %}{{ section.settings.max_width }}{% else %}{{ section.settings.max_width }}px{% endif %};
+    margin: 0 auto;
+  }
+  .ny-banner-container {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+  }
+  .ny-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .ny-banner-content {
+    position: absolute;
+    z-index: 1;
+    line-height: 1.5;
+    /* Desktop Default */
+    top: {{ section.settings.pc_top }}%;
+    left: {{ section.settings.pc_left }}%;
+    width: {{ section.settings.pc_width }}%;
+    transform: translate(-{{ section.settings.pc_left }}%, -{{ section.settings.pc_top }}%);
+    text-align: {{ section.settings.pc_align }};
+    color: {{ section.settings.text_color }};
+  }
+  .ny-banner-title {
+    font-size: {{ section.settings.pc_title_size }}px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: inherit;
+    line-height: 1.2;
+  }
+  .ny-banner-desc {
+    font-size: {{ section.settings.pc_desc_size }}px;
+    margin-bottom: 20px;
+    color: inherit;
+  }
+  .ny-banner-desc p {
+    margin: 0;
+  }
+  .ny-banner-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: {{ section.settings.btn_bg }};
+    color: {{ section.settings.btn_text_color }};
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+  }
+  .ny-banner-btn:hover {
+    opacity: 0.8;
+    color: {{ section.settings.btn_text_color }};
+  }
+
+  .ny-mb-only { display: none; }
+  .ny-pc-only { display: block; }
+
+  @media (max-width: 768px) {
+    .ny-pc-only { display: none; }
+    .ny-mb-only { display: block; }
+    .ny-banner-container-box{
+      padding: 0px 20px;
+    }
+    .ny-banner-container { 
+      line-height: normal;
+      background: #fff;
+      border-radius: 16px;
+    }
+    .ny-banner-content {
+      position: static;
+      width: 100%;
+      max-width: 100%;
+      transform: none;
+      text-align: {{ section.settings.mb_align }};
+      padding: 16px;
+    }
+    .ny-banner-title {
+        font-size: 18px;
+    }
+    .ny-banner-desc {
+        font-size: 14px;
+    }
+    .ny-banner-desc br{
+        display: none;
+    }
+  }
+{%- endstyle -%}
+<div class="ny-banner-container-box">
+  <div class="ny-banner-container">
+      {%- if section.settings.image_pc != blank -%}
+          <img src="{{ section.settings.image_pc | img_url: 'master' }}" class="ny-banner-img ny-pc-only" loading="lazy" alt="{{ section.settings.title | escape }}">
+      {%- endif -%}
+      
+      {%- if section.settings.image_mb != blank -%}
+          <img src="{{ section.settings.image_mb | img_url: 'master' }}" class="ny-banner-img ny-mb-only" loading="lazy" alt="{{ section.settings.title | escape }}">
+      {%- else -%}
+          {%- if section.settings.image_pc != blank -%}
+              <img src="{{ section.settings.image_pc | img_url: 'master' }}" class="ny-banner-img ny-mb-only" loading="lazy" alt="{{ section.settings.title | escape }}">
+          {%- endif -%}
+      {%- endif -%}
+
+      <div class="ny-banner-content">
+          {%- if section.settings.title != blank -%}
+              <h2 class="ny-banner-title">{{ section.settings.title }}</h2>
+          {%- endif -%}
+          
+          {%- if section.settings.desc != blank -%}
+              <div class="ny-banner-desc">{{ section.settings.desc }}</div>
+          {%- endif -%}
+          
+          {%- if section.settings.btn_text != blank -%}
+              <a href="{{ section.settings.btn_link }}" class="ny-banner-btn">{{ section.settings.btn_text }}</a>
+          {%- endif -%}
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NY Custom Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_pc",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mb",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1920,
+      "step": 10,
+      "unit": "px",
+      "label": "Section Max Width",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Custom Title"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "Description",
+      "default": "<p>Custom description goes here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "btn_bg",
+      "label": "Button Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "pc_title_size",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Title Size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "pc_desc_size",
+      "min": 12,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Desc Size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mb_title_size",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Title Size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mb_desc_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Desc Size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Desktop Positioning"
+    },
+    {
+      "type": "range",
+      "id": "pc_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Top Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "pc_left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Left Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "pc_width",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Content Width",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "pc_align",
+      "label": "Text Align",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Positioning"
+    },
+    {
+      "type": "range",
+      "id": "mb_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Top Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mb_left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Left Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mb_width",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Content Width",
+      "default": 90
+    },
+    {
+      "type": "select",
+      "id": "mb_align",
+      "label": "Text Align",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "NY Custom Banner"
+    }
+  ]
+}
+{% endschema %}

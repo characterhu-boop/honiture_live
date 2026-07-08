@@ -1,0 +1,275 @@
+<div class="banner-{{ section.id }} {% unless section.settings.show_on_desktop %} hide-on-desktop{% endunless %}">
+  {%- liquid
+    assign desktop_image = section.settings.image
+    assign mobile_image = section.settings.mobile_image | default: desktop_image
+  -%}
+
+  {% if desktop_image != blank %}
+    <img
+      class="banner__image banner__image--desktop lazyload"
+      src="{{ desktop_image | img_url: '300x' }}"
+      data-src="{{ desktop_image | img_url: '2000x' }}"
+      data-sizes="auto"
+      alt="{{ desktop_image.alt | escape }}"
+    >
+  {% endif %}
+
+  {% if mobile_image != blank %}
+    <img
+      class="banner__image banner__image--mobile lazyload"
+      src="{{ mobile_image | img_url: '300x' }}"
+      data-src="{{ mobile_image | img_url: '800x' }}"
+      data-sizes="auto"
+      alt="{{ mobile_image.alt | escape }}"
+    >
+  {% endif %}
+
+  <div class="banner__overlay"></div>
+
+  <div class="banner__content">
+    <{{ section.settings.title_tag }} class="banner__title">{{ section.settings.title }}</{{ section.settings.title_tag }}>
+    <p class="banner__subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+</div>
+
+<style>
+  /* 用于覆盖样式 */
+  #wrapper #main-content{
+    min-height: unset!important;
+  }
+  .banner-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .banner-{{ section.id }} .banner__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .banner-{{ section.id }} .banner__image--mobile {
+    display: none;
+  }
+
+  .banner-{{ section.id }} .banner__content {
+    position: absolute;
+    top: 0;
+    left: {{ section.settings.text_align }}%;
+    width: 350px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    color: {{ section.settings.text_color }};
+    z-index: 2;
+  }
+
+  .banner-{{ section.id }} .banner__title {
+    font-size: {{ section.settings.title_size }}px;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+    color: {{ section.settings.title_text_color }};
+  }
+
+  .banner-{{ section.id }} .banner__subtitle {
+    font-size: {{ section.settings.subtitle_size }}px;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* .banner-{{ section.id }} .banner__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 1;
+  } */
+    /* 在桌面端隐藏特定元素 */
+  @media (min-width: 769px) {
+    .hide-on-desktop {
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .banner-{{ section.id }} .banner__image--desktop {
+      display: none;
+    }
+
+    .banner-{{ section.id }} .banner__image--mobile {
+      display: block;
+    }
+
+    .banner-{{ section.id }} .banner__content {
+      position: relative;
+      width: 100%;
+      left: 0;
+      padding: 30px 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .banner-{{ section.id }} .banner__title {
+      font-size: {{ section.settings.title_size | times: 0.7 }}px;
+    }
+
+    .banner-{{ section.id }} .banner__subtitle {
+      font-size: {{ section.settings.subtitle_size | times: 0.8 }}px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Simple Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image (optional)",
+      "info": "If not set, desktop image will be used on mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_desktop",
+      "label": "Show on Desktop",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "range",
+      "id": "text_align",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Content position (left)",
+      "default": 15
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Banner Title"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "标签选择",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label":"H3"
+        },
+        {
+          "value": "h4",
+          "label":"H4"
+        },
+        {
+          "value": "h5",
+          "label":"H5"
+        },
+        {
+          "value": "h6",
+          "label":"H6"
+        },
+                {
+          "value": "p",
+          "label":"Paragraph"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "title_text_color",
+      "label": "Title text color",
+      "default": "#19586E"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Banner subtitle text goes here"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#19586E"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Title font size",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle font size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Content padding top (desktop)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Content padding bottom (desktop)",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple Banner",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

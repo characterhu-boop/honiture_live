@@ -1,0 +1,1174 @@
+{% liquid
+  assign tab_blocks = section.blocks | where: 'type', 'tab'
+%}
+
+<section
+  id="prime-bundles-{{ section.id }}"
+  class="prime-bundles section-prime-bundles"
+  data-money-format="{{ shop.money_format | escape }}"
+  data-cart-add-url="{{ routes.cart_add_url }}"
+  data-checkout-url="{{ routes.checkout_url }}"
+  style="
+    --pb-bg: {{ section.settings.bg_color }};
+    --pb-accent: {{ section.settings.accent_color }};
+    --pb-card-bg: {{ section.settings.card_bg }};
+    --pb-cart-bg: {{ section.settings.cart_button_bg }};
+    --pb-shop-bg: {{ section.settings.shop_button_bg }};
+    --pb-content-width: {{ section.settings.content_width }};
+    --pb-content-width-mobile: {{ section.settings.content_width_mobile }};
+    --pb-content-height: {{ section.settings.content_height }};
+    --pb-section-pt: {{ section.settings.padding_top }};
+    --pb-section-pb: {{ section.settings.padding_bottom }};
+    --pb-section-pt-mobile: {{ section.settings.padding_top_mobile }};
+    --pb-section-pb-mobile: {{ section.settings.padding_bottom_mobile }};
+  "
+>
+  <div class="prime-bundles__inner">
+    <div class="prime-bundles__header">
+      {% render 'xmas-section-header' %}
+    </div>
+
+    <div class="prime-bundles__tabs" role="tablist" aria-label="{{ section.settings.title | default: 'Prime bundles' | escape }}">
+      {% assign has_active_tab = false %}
+      {% for block in tab_blocks %}
+        {% if block.settings.tab_label != blank %}
+          <button
+            type="button"
+            class="prime-bundles__tab{% unless has_active_tab %} is-active{% endunless %}"
+            role="tab"
+            aria-selected="{% unless has_active_tab %}true{% else %}false{% endunless %}"
+            aria-controls="prime-bundles-panel-{{ section.id }}-{{ block.id }}"
+            id="prime-bundles-tab-{{ section.id }}-{{ block.id }}"
+            data-pb-tab="{{ block.id }}"
+            {{ block.shopify_attributes }}
+          >
+            <span>{{ block.settings.tab_label | escape }}</span>
+            {% if block.settings.tab_badge != blank %}
+              <em>{{ block.settings.tab_badge | escape }}</em>
+            {% endif %}
+          </button>
+          {% assign has_active_tab = true %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="prime-bundles__panels">
+      {% assign has_active_panel = false %}
+      {% for block in tab_blocks %}
+        {% if block.settings.tab_label != blank %}
+          {% assign media_bg = block.settings.media_bg_pc | default: block.settings.media_bg_mobile %}
+          {% assign slides_count = block.settings.slides_count | default: '2.2' | plus: 0.0 %}
+          {% assign slides_count_mobile = block.settings.slides_count_mobile | default: '2.1' | plus: 0.0 %}
+          {% assign slide_width = 100.0 | divided_by: slides_count %}
+          {% assign slide_width_mobile = 100.0 | divided_by: slides_count_mobile %}
+          {% assign product_collection = block.settings.product_collection %}
+          {% assign product_limit = block.settings.product_limit %}
+          {% assign product_count = product_collection.products_count | default: 0 %}
+          <div
+            class="prime-bundles__panel{% unless has_active_panel %} is-active{% endunless %}"
+            id="prime-bundles-panel-{{ section.id }}-{{ block.id }}"
+            role="tabpanel"
+            aria-labelledby="prime-bundles-tab-{{ section.id }}-{{ block.id }}"
+            data-pb-panel="{{ block.id }}"
+            data-compare-discount="{{ block.settings.compare_discount_percent | escape }}"
+            style="
+              --pb-slide-width: {{ slide_width }}%;
+              --pb-slide-width-mobile: {{ slide_width_mobile }}%;
+              --pb-media-bg-position: {{ block.settings.media_bg_position }};
+              --pb-media-bg-position-mobile: {{ block.settings.media_bg_position_mobile }};
+              --pb-media-bg-size: {{ block.settings.media_bg_size }};
+              --pb-media-bg-size-mobile: {{ block.settings.media_bg_size_mobile }};
+              --pb-badge-top: {{ block.settings.badge_top }};
+              --pb-badge-left: {{ block.settings.badge_left }};
+              --pb-badge-top-mobile: {{ block.settings.badge_top_mobile }};
+              --pb-badge-left-mobile: {{ block.settings.badge_left_mobile }};
+              --pb-badge-width: {{ block.settings.badge_width }};
+              --pb-badge-height: {{ block.settings.badge_height }};
+              --pb-badge-width-mobile: {{ block.settings.badge_width_mobile }};
+              --pb-badge-height-mobile: {{ block.settings.badge_height_mobile }};
+              --pb-badge-color: {{ block.settings.badge_text_color }};
+              {% if media_bg != blank %}
+                --pb-media-bg-image: url('{{ media_bg | image_url: width: 1200 }}');
+              {% endif %}
+              {% if block.settings.media_bg_mobile != blank %}
+                --pb-media-bg-image-mobile: url('{{ block.settings.media_bg_mobile | image_url: width: 900 }}');
+              {% elsif media_bg != blank %}
+                --pb-media-bg-image-mobile: url('{{ media_bg | image_url: width: 900 }}');
+              {% endif %}
+            "
+            {% if has_active_panel %}hidden{% endif %}
+          >
+            <div class="prime-bundles__content">
+              <div class="prime-bundles__media">
+                {% if block.settings.show_badge and block.settings.badge_text != blank %}
+                  <div class="prime-bundles__badge">
+                    {% if block.settings.badge_bg_image != blank %}
+                      {{ block.settings.badge_bg_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: block.settings.badge_text }}
+                    {% endif %}
+                    <span>{{ block.settings.badge_text | escape | newline_to_br }}</span>
+                  </div>
+                {% endif %}
+
+              </div>
+
+              <div class="prime-bundles__products">
+                {% if product_collection != blank and product_count > 0 %}
+                  <div class="prime-bundles__carousel-shell">
+                    <button type="button" class="prime-bundles__arrow prime-bundles__arrow--prev" data-pb-prev aria-label="Previous products">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 5 8.5 12l7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <div class="prime-bundles__viewport">
+                      <div class="prime-bundles__carousel" data-pb-carousel>
+                        {% for product_item in product_collection.products limit: product_limit %}
+                          {% assign variant = product_item.selected_or_first_available_variant %}
+                          {% assign product_image = product_item.featured_image %}
+                          {% assign compare_price = variant.compare_at_price %}
+                          {% assign item_id = 'pb-product-' | append: section.id | append: '-' | append: block.id | append: '-' | append: forloop.index %}
+                          <label class="prime-bundles__product" for="{{ item_id }}">
+                            <input
+                              id="{{ item_id }}"
+                              type="checkbox"
+                              class="prime-bundles__check"
+                              data-pb-product
+                              data-variant-id="{{ variant.id }}"
+                              data-price="{{ variant.price }}"
+                              data-compare-price="{{ compare_price | default: variant.price }}"
+                              {% unless variant.available %}disabled{% endunless %}
+                            >
+                            <span class="prime-bundles__checkmark" aria-hidden="true"></span>
+                            <span class="prime-bundles__product-media">
+                              {% if product_image != blank %}
+                                {{ product_image | image_url: width: 420 | image_tag: loading: 'lazy', alt: product_item.title }}
+                              {% endif %}
+                            </span>
+                            <span class="prime-bundles__product-title">{{ product_item.title | escape }}</span>
+                            <span class="prime-bundles__product-price">
+                              <strong>{{ variant.price | money }}</strong>
+                              {% if compare_price > variant.price %}
+                                <s>{{ compare_price | money }}</s>
+                              {% endif %}
+                            </span>
+                          </label>
+                        {% endfor %}
+                      </div>
+                    </div>
+
+                    <button type="button" class="prime-bundles__arrow prime-bundles__arrow--next" data-pb-next aria-label="Next products">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                  </div>
+
+                  <div class="prime-bundles__summary">
+                    <div class="prime-bundles__total-wrap">
+                      <span class="prime-bundles__total-label">{{ section.settings.total_label | escape }}</span>
+                      <div class="prime-bundles__price-row">
+                        <strong class="prime-bundles__total" data-pb-total>{{ 0 | money }}</strong>
+                        <s class="prime-bundles__compare-total" data-pb-compare-total>{{ 0 | money }}</s>
+                        <span
+                          class="prime-bundles__discount-label"
+                          data-pb-discount-label
+                          style="--pb-discount-label-bg: {{ section.settings.discount_label_bg }}; --pb-discount-label-color: {{ section.settings.discount_label_color }};"
+                          hidden
+                        ></span>
+                      </div>
+                    </div>
+                    <div class="prime-bundles__actions">
+                      <button type="button" class="prime-bundles__shop" data-pb-shop data-checkout-link="{{ section.settings.checkout_link | escape }}">
+                        {{ section.settings.shop_label | escape }}
+                      </button>
+                      <button type="button" class="prime-bundles__cart" data-pb-cart aria-label="{{ section.settings.cart_aria_label | escape }}">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.8 8.2h12.8l-1.3 7.1a2.1 2.1 0 0 1-2.1 1.7H9.1A2.1 2.1 0 0 1 7 15.2L5.8 5.5H3.5" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.2 10.8v3.4M11.5 12.5h3.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.7" cy="20" r="1.35" fill="currentColor"/><circle cx="16.8" cy="20" r="1.35" fill="currentColor"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% assign has_active_panel = true %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="prime-bundles__toast" role="status" aria-live="polite"></div>
+</section>
+
+<style>
+  .section-prime-bundles {
+    --vp-s: 1px;
+  }
+
+  @media screen and (min-width: 850px) and (max-width: 1500px) {
+    .section-prime-bundles {
+      --vp-s: calc(100vw / 1500);
+    }
+  }
+
+  @media screen and (max-width: 849px) {
+    .section-prime-bundles {
+      --vp-s: calc(100vw / 375);
+    }
+  }
+
+  #prime-bundles-{{ section.id }} {
+    padding: calc(var(--pb-section-pt) * var(--vp-s)) 0 calc(var(--pb-section-pb) * var(--vp-s));
+    background: var(--pb-bg);
+    overflow: hidden;
+  }
+
+  #prime-bundles-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__inner {
+    width: calc(var(--pb-content-width) * var(--vp-s));
+    max-width: calc(100% - calc(40 * var(--vp-s)));
+    margin: 0 auto;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__header {
+    margin-bottom: calc(30 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .xmax_section__header {
+    margin-top: 0;
+    margin-bottom: 0;
+    gap: calc(8 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .xmax_section__title-row {
+    gap: calc(16 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .xmax_section__title {
+    color: {{ section.settings.title_color }};
+    font-size: calc({{ section.settings.title_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.title_line_height }} * var(--vp-s));
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  #prime-bundles-{{ section.id }} .xmax_section__title-icon {
+    width: calc({{ section.settings.title_icon_size }} * var(--vp-s));
+    height: calc({{ section.settings.title_icon_size }} * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .xmas-sub-heading {
+    color: {{ section.settings.sub_heading_color }};
+    font-size: calc({{ section.settings.sub_heading_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.sub_heading_line_height }} * var(--vp-s));
+    margin: 0;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__tabs {
+    display: flex;
+    justify-content: center;
+    gap: calc(8 * var(--vp-s));
+    margin-bottom: calc(26 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__tab {
+    min-width: calc(194 * var(--vp-s));
+    min-height: calc(38 * var(--vp-s));
+    padding: calc(7 * var(--vp-s)) calc(34 * var(--vp-s));
+    border: 0;
+    border-radius: calc(999 * var(--vp-s));
+    background: #fff;
+    color: #2a2728;
+    font-size: calc(15 * var(--vp-s));
+    line-height: calc(20 * var(--vp-s));
+    font-weight: 800;
+    cursor: pointer;
+    letter-spacing: 0;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__tab.is-active {
+    background: var(--pb-accent);
+    color: #fff;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__tab em {
+    display: inline-flex;
+    align-items: center;
+    min-height: calc(22 * var(--vp-s));
+    margin-left: calc(5 * var(--vp-s));
+    padding: calc(2 * var(--vp-s)) calc(8 * var(--vp-s));
+    border-radius: calc(5 * var(--vp-s));
+    background: #22c979;
+    color: #fff;
+    font-size: calc(12 * var(--vp-s));
+    line-height: calc(16 * var(--vp-s));
+    font-style: normal;
+    vertical-align: middle;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__panel[hidden] {
+    display: none;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__content {
+    display: grid;
+    grid-template-columns: calc(515 * var(--vp-s)) minmax(0, 1fr);
+    min-height: calc(var(--pb-content-height) * var(--vp-s));
+    border-radius: calc(10 * var(--vp-s));
+    background: #fff5e5;
+    overflow: hidden;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__media {
+    position: relative;
+    min-height: calc(var(--pb-content-height) * var(--vp-s));
+    background-color: #eadbc7;
+    background-image: var(--pb-media-bg-image);
+    background-position: var(--pb-media-bg-position);
+    background-size: var(--pb-media-bg-size);
+    background-repeat: no-repeat;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__badge {
+    position: absolute;
+    top: calc(var(--pb-badge-top) * var(--vp-s));
+    left: calc(var(--pb-badge-left) * var(--vp-s));
+    z-index: 3;
+    width: calc(var(--pb-badge-width) * var(--vp-s));
+    height: calc(var(--pb-badge-height) * var(--vp-s));
+    display: grid;
+    place-items: center;
+    padding: calc(8 * var(--vp-s)) calc(6 * var(--vp-s)) calc(14 * var(--vp-s));
+    color: var(--pb-badge-color);
+    font-size: calc(18 * var(--vp-s));
+    line-height: calc(18 * var(--vp-s));
+    font-weight: 900;
+    text-align: center;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__badge img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__badge span {
+    position: relative;
+    z-index: 1;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__products {
+    min-width: 0;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: calc(18 * var(--vp-s));
+    padding: calc(18 * var(--vp-s)) calc(14 * var(--vp-s)) calc(20 * var(--vp-s));
+    background: var(--pb-card-bg);
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__carousel-shell {
+    display: grid;
+    grid-template-columns: calc(30 * var(--vp-s)) minmax(0, 1fr) calc(30 * var(--vp-s));
+    align-items: center;
+    gap: calc(6 * var(--vp-s));
+    min-width: 0;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__viewport {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__carousel {
+    display: flex;
+    gap: calc(12 * var(--vp-s));
+    height: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product {
+    position: relative;
+    flex: 0 0 calc(var(--pb-slide-width) - calc(12 * var(--vp-s)));
+    min-height: calc(242 * var(--vp-s));
+    padding: calc(16 * var(--vp-s)) calc(12 * var(--vp-s)) calc(14 * var(--vp-s));
+    border: calc(2 * var(--vp-s)) solid transparent;
+    border-radius: calc(8 * var(--vp-s));
+    background: #fff;
+    cursor: pointer;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product.is-selected {
+    border-color: var(--pb-accent);
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__check {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__checkmark {
+    position: absolute;
+    top: calc(8 * var(--vp-s));
+    right: calc(8 * var(--vp-s));
+    width: calc(20 * var(--vp-s));
+    height: calc(20 * var(--vp-s));
+    border-radius: calc(5 * var(--vp-s));
+    background: #d9d9d9;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__check:checked + .prime-bundles__checkmark {
+    background: var(--pb-accent);
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__check:checked + .prime-bundles__checkmark::after {
+    content: "";
+    position: absolute;
+    left: calc(6 * var(--vp-s));
+    top: calc(3 * var(--vp-s));
+    width: calc(6 * var(--vp-s));
+    height: calc(10 * var(--vp-s));
+    border-right: calc(2 * var(--vp-s)) solid #fff;
+    border-bottom: calc(2 * var(--vp-s)) solid #fff;
+    transform: rotate(45deg);
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(150 * var(--vp-s));
+    margin-bottom: calc(14 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product-media img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product-title {
+    display: block;
+    min-height: calc(30 * var(--vp-s));
+    margin-bottom: calc(8 * var(--vp-s));
+    color: #202020;
+    font-size: calc(12 * var(--vp-s));
+    line-height: calc(15 * var(--vp-s));
+    font-weight: 800;
+    text-align: center;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: calc(6 * var(--vp-s));
+    color: #1f1f1f;
+    font-size: calc(13 * var(--vp-s));
+    line-height: calc(16 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product-price strong {
+    font-weight: 900;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__product-price s {
+    color: #9a9a9a;
+    font-size: calc(11 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__arrow {
+    width: calc(30 * var(--vp-s));
+    height: calc(30 * var(--vp-s));
+    padding: 0;
+    border: 0;
+    border-radius: calc(999 * var(--vp-s));
+    background: #fff;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 calc(4 * var(--vp-s)) calc(12 * var(--vp-s)) rgba(0, 0, 0, 0.12);
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__arrow svg {
+    width: calc(18 * var(--vp-s));
+    height: calc(18 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__summary {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: calc(16 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__total-wrap {
+    display: grid;
+    gap: calc(8 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__total-label {
+    color: #2b2420;
+    font-size: calc({{ section.settings.total_label_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.total_label_line_height }} * var(--vp-s));
+    font-weight: 900;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__total {
+    color: #2b2420;
+    font-size: calc({{ section.settings.total_price_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.total_price_line_height }} * var(--vp-s));
+    font-weight: 900;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__price-row {
+    display: flex;
+    align-items: center;
+    gap: calc(8 * var(--vp-s));
+    flex-wrap: wrap;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__compare-total {
+    color: #9a9a9a;
+    font-size: calc({{ section.settings.compare_price_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.compare_price_line_height }} * var(--vp-s));
+    font-weight: 600;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__discount-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(22 * var(--vp-s));
+    padding: calc(3 * var(--vp-s)) calc(10 * var(--vp-s));
+    border-radius: calc(999 * var(--vp-s));
+    background: var(--pb-discount-label-bg);
+    color: var(--pb-discount-label-color);
+    font-size: calc({{ section.settings.discount_label_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.discount_label_line_height }} * var(--vp-s));
+    font-weight: 900;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__discount-label[hidden] {
+    display: none;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__actions {
+    display: inline-flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: calc(999 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__shop,
+  #prime-bundles-{{ section.id }} .prime-bundles__cart {
+    min-height: calc(38 * var(--vp-s));
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__shop {
+    min-width: calc(126 * var(--vp-s));
+    padding: calc(9 * var(--vp-s)) calc(30 * var(--vp-s));
+    background: var(--pb-shop-bg);
+    font-size: calc({{ section.settings.shop_label_size }} * var(--vp-s));
+    line-height: calc({{ section.settings.shop_label_line_height }} * var(--vp-s));
+    font-weight: 800;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__cart {
+    width: calc(52 * var(--vp-s));
+    padding: 0;
+    background: var(--pb-cart-bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__cart svg {
+    width: calc(22 * var(--vp-s));
+    height: calc(22 * var(--vp-s));
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(28 * var(--vp-s));
+    z-index: 9999;
+    padding: calc(10 * var(--vp-s)) calc(18 * var(--vp-s));
+    border-radius: calc(999 * var(--vp-s));
+    background: rgba(0, 0, 0, 0.82);
+    color: #fff;
+    font-size: calc(14 * var(--vp-s));
+    line-height: calc(18 * var(--vp-s));
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: opacity 0.25s ease;
+  }
+
+  #prime-bundles-{{ section.id }} .prime-bundles__toast.is-visible {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 849px) {
+    #prime-bundles-{{ section.id }} {
+      padding: calc(var(--pb-section-pt-mobile) * var(--vp-s)) 0 calc(var(--pb-section-pb-mobile) * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__inner {
+      width: calc(var(--pb-content-width-mobile) * var(--vp-s));
+      max-width: calc(100% - calc(24 * var(--vp-s)));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__header {
+      margin-bottom: calc(22 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .xmax_section__title {
+      font-size: calc({{ section.settings.title_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.title_line_height_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .xmax_section__title-icon {
+      width: calc({{ section.settings.title_icon_size_mobile }} * var(--vp-s));
+      height: calc({{ section.settings.title_icon_size_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .xmas-sub-heading {
+      font-size: calc({{ section.settings.sub_heading_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.sub_heading_line_height_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__tabs {
+      justify-content: flex-start;
+      gap: calc(6 * var(--vp-s));
+      margin-bottom: calc(16 * var(--vp-s));
+      padding-inline: calc(2 * var(--vp-s));
+      margin-inline: calc(-2 * var(--vp-s));
+      max-width: calc(100% + calc(4 * var(--vp-s)));
+      overflow-x: auto;
+      scroll-padding-inline: calc(2 * var(--vp-s));
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__tab {
+      flex: 0 0 auto;
+      min-width: calc(96 * var(--vp-s));
+      min-height: calc(32 * var(--vp-s));
+      padding: calc(5 * var(--vp-s)) calc(18 * var(--vp-s));
+      font-size: calc(13 * var(--vp-s));
+      line-height: calc(18 * var(--vp-s));
+      white-space: nowrap;
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__tab em {
+      min-height: calc(18 * var(--vp-s));
+      padding: calc(1 * var(--vp-s)) calc(5 * var(--vp-s));
+      font-size: calc(10 * var(--vp-s));
+      line-height: calc(14 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__content {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      border-radius: calc(8 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__media {
+      min-height: calc(220 * var(--vp-s));
+      background-image: var(--pb-media-bg-image-mobile, var(--pb-media-bg-image));
+      background-position: var(--pb-media-bg-position-mobile);
+      background-size: var(--pb-media-bg-size-mobile);
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__badge {
+      top: calc(var(--pb-badge-top-mobile) * var(--vp-s));
+      left: calc(var(--pb-badge-left-mobile) * var(--vp-s));
+      width: calc(var(--pb-badge-width-mobile) * var(--vp-s));
+      height: calc(var(--pb-badge-height-mobile) * var(--vp-s));
+      font-size: calc(14 * var(--vp-s));
+      line-height: calc(14 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__products {
+      gap: calc(12 * var(--vp-s));
+      padding: calc(10 * var(--vp-s)) calc(10 * var(--vp-s)) calc(12 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__carousel-shell {
+      display: block;
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__product {
+      flex-basis: calc(var(--pb-slide-width-mobile) - calc(8 * var(--vp-s)));
+      min-height: calc(198 * var(--vp-s));
+      padding: calc(10 * var(--vp-s)) calc(8 * var(--vp-s)) calc(10 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__product-media {
+      height: calc(112 * var(--vp-s));
+      margin-bottom: calc(10 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__product-title {
+      min-height: calc(32 * var(--vp-s));
+      margin-bottom: calc(6 * var(--vp-s));
+      font-size: calc(11 * var(--vp-s));
+      line-height: calc(14 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__arrow {
+      display: none;
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__summary {
+      display: grid;
+      align-items: start;
+      justify-content: stretch;
+      gap: calc(10 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__total-wrap {
+      gap: calc(7 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__price-row {
+      gap: calc(7 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__total-label {
+      font-size: calc({{ section.settings.total_label_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.total_label_line_height_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__total {
+      font-size: calc({{ section.settings.total_price_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.total_price_line_height_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__compare-total {
+      font-size: calc({{ section.settings.compare_price_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.compare_price_line_height_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__discount-label {
+      min-height: calc(18 * var(--vp-s));
+      padding: calc(2 * var(--vp-s)) calc(8 * var(--vp-s));
+      font-size: calc({{ section.settings.discount_label_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.discount_label_line_height_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__actions {
+      width: 100%;
+      display: flex;
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__shop {
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: calc(38 * var(--vp-s));
+      padding: calc(8 * var(--vp-s)) calc(16 * var(--vp-s));
+      font-size: calc({{ section.settings.shop_label_size_mobile }} * var(--vp-s));
+      line-height: calc({{ section.settings.shop_label_line_height_mobile }} * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__cart {
+      flex: 0 0 calc(86 * var(--vp-s));
+      width: calc(86 * var(--vp-s));
+      min-height: calc(38 * var(--vp-s));
+    }
+
+    #prime-bundles-{{ section.id }} .prime-bundles__cart svg {
+      width: calc(20 * var(--vp-s));
+      height: calc(20 * var(--vp-s));
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    var root = document.getElementById('prime-bundles-{{ section.id }}');
+    if (!root) return;
+
+    var moneyFormat = root.getAttribute('data-money-format') || '';
+    var cartAddUrl = root.getAttribute('data-cart-add-url') || '/cart/add.js';
+    var checkoutUrl = root.getAttribute('data-checkout-url') || '/checkout';
+    var toastTimer = null;
+
+    /**
+     * Formats cents with the store money format when Shopify helpers are unavailable.
+     */
+    function formatMoney(cents) {
+      if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
+        return window.Shopify.formatMoney(cents, moneyFormat);
+      }
+
+      var value = (Number(cents || 0) / 100).toFixed(2);
+      if (!moneyFormat) {
+        return '$' + value;
+      }
+      return moneyFormat
+        .replace(/\{\{\s*amount\s*\}\}/, value)
+        .replace(/\{\{\s*amount_no_decimals\s*\}\}/, Math.round(Number(cents || 0) / 100));
+    }
+
+    /**
+     * Shows a short status message for add-to-cart and validation feedback.
+     */
+    function showToast(message) {
+      var toast = root.querySelector('.prime-bundles__toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function() {
+        toast.classList.remove('is-visible');
+      }, 2000);
+    }
+
+    /**
+     * Returns selected variant ids for a panel and keeps the total in sync.
+     */
+    function getSelectedItems(panel) {
+      var items = [];
+      var total = 0;
+      var compareTotal = 0;
+      var hasComparePrice = false;
+
+      panel.querySelectorAll('[data-pb-product]:checked').forEach(function(input) {
+        var variantId = input.getAttribute('data-variant-id');
+        var price = Number(input.getAttribute('data-price') || 0);
+        var comparePrice = Number(input.getAttribute('data-compare-price') || price);
+        if (!variantId) return;
+        total += price;
+        if (comparePrice > price) {
+          hasComparePrice = true;
+        }
+        compareTotal += comparePrice > 0 ? comparePrice : price;
+        items.push({ id: Number(variantId), quantity: 1 });
+      });
+
+      var compareDiscount = parseFloat(panel.getAttribute('data-compare-discount') || '');
+      if (items.length > 1 && !isNaN(compareDiscount) && compareDiscount >= 0) {
+        total = Math.round(total * (compareDiscount / 100));
+      }
+
+      var totalEl = panel.querySelector('[data-pb-total]');
+      if (totalEl) {
+        totalEl.textContent = formatMoney(total);
+      }
+
+      var compareTotalEl = panel.querySelector('[data-pb-compare-total]');
+      if (compareTotalEl) {
+        compareTotalEl.textContent = formatMoney(compareTotal);
+        compareTotalEl.hidden = !hasComparePrice || compareTotal <= 0;
+      }
+
+      var discountLabelEl = panel.querySelector('[data-pb-discount-label]');
+      if (discountLabelEl) {
+        var savingPercent = compareTotal > total ? Math.round((compareTotal - total) / compareTotal * 100) : 0;
+        discountLabelEl.textContent = savingPercent > 0 ? 'SAVE ' + savingPercent + '%' : '';
+        discountLabelEl.hidden = savingPercent <= 0;
+      }
+
+      return items;
+    }
+
+    /**
+     * Adds the selected products in the current tab to Shopify cart.
+     */
+    function addSelectedItems(panel) {
+      var items = getSelectedItems(panel);
+      if (!items.length) {
+        showToast('{{ section.settings.empty_text | escape }}');
+        return Promise.reject(new Error('No selected products'));
+      }
+
+      return fetch(cartAddUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: items })
+      }).then(function(response) {
+        if (!response.ok) throw new Error('Add failed');
+        return response.json();
+      });
+    }
+
+    /**
+     * Opens a new tab, adds selected variants, then redirects that tab to cart.
+     */
+    function openCartWithSelectedItems(panel) {
+      var items = getSelectedItems(panel);
+      if (!items.length) {
+        showToast('{{ section.settings.empty_text | escape }}');
+        return;
+      }
+
+      var targetName = 'prime-bundles-cart-' + Date.now();
+      var cartWindow = window.open('about:blank', targetName);
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action = '/cart/add';
+      form.target = targetName;
+      form.style.display = 'none';
+
+      items.forEach(function(item, index) {
+        var idInput = document.createElement('input');
+        idInput.type = 'hidden';
+        idInput.name = 'items[' + index + '][id]';
+        idInput.value = item.id;
+        form.appendChild(idInput);
+
+        var quantityInput = document.createElement('input');
+        quantityInput.type = 'hidden';
+        quantityInput.name = 'items[' + index + '][quantity]';
+        quantityInput.value = item.quantity || 1;
+        form.appendChild(quantityInput);
+      });
+
+      var returnInput = document.createElement('input');
+      returnInput.type = 'hidden';
+      returnInput.name = 'return_to';
+      returnInput.value = '/cart';
+      form.appendChild(returnInput);
+
+      document.body.appendChild(form);
+      form.submit();
+      setTimeout(function() {
+        form.remove();
+      }, 1000);
+
+      if (!cartWindow) {
+        showToast('{{ section.settings.added_text | escape }}');
+      }
+    }
+
+    /**
+     * Activates the selected tab and refreshes its total.
+     */
+    function activateTab(tab) {
+      var target = tab.getAttribute('data-pb-tab');
+      if (!target) return;
+
+      root.querySelectorAll('[data-pb-tab]').forEach(function(item) {
+        var isActive = item === tab;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      root.querySelectorAll('[data-pb-panel]').forEach(function(panel) {
+        var isActive = panel.getAttribute('data-pb-panel') === target;
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+        if (isActive) {
+          getSelectedItems(panel);
+        }
+      });
+    }
+
+    root.querySelectorAll('[data-pb-panel]').forEach(function(panel) {
+      getSelectedItems(panel);
+    });
+
+    root.addEventListener('change', function(event) {
+      if (!event.target.matches('[data-pb-product]')) return;
+      var productCard = event.target.closest('.prime-bundles__product');
+      if (productCard) {
+        productCard.classList.toggle('is-selected', event.target.checked);
+      }
+      var panel = event.target.closest('[data-pb-panel]');
+      if (panel) {
+        getSelectedItems(panel);
+      }
+    });
+
+    root.addEventListener('click', function(event) {
+      var tab = event.target.closest('[data-pb-tab]');
+      if (tab) {
+        activateTab(tab);
+        return;
+      }
+
+      var panel = event.target.closest('[data-pb-panel]');
+      if (!panel) return;
+
+      var carousel = panel.querySelector('[data-pb-carousel]');
+      if (event.target.closest('[data-pb-prev]') && carousel) {
+        carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+        return;
+      }
+
+      if (event.target.closest('[data-pb-next]') && carousel) {
+        carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+        return;
+      }
+
+      if (event.target.closest('[data-pb-cart]')) {
+        openCartWithSelectedItems(panel);
+        return;
+      }
+
+      var shopButton = event.target.closest('[data-pb-shop]');
+      if (shopButton) {
+        var checkoutLink = shopButton.getAttribute('data-checkout-link');
+        addSelectedItems(panel).then(function() {
+          window.location.href = checkoutLink || checkoutUrl || '/checkout';
+        }).catch(function(error) {
+          if (error.message !== 'No selected products') {
+            showToast('{{ section.settings.error_text | escape }}');
+          }
+        });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Prime Bundles",
+  "class": "section-prime-bundles",
+  "settings": [
+    { "type": "header", "content": "Header Settings" },
+    { "type": "textarea", "id": "title", "label": "Section Title", "default": "Prime Day Value Bundles" },
+    { "type": "checkbox", "id": "show_title_icons", "label": "Show Title Icons", "default": true },
+    { "type": "image_picker", "id": "title_icon", "label": "Title Icon" },
+    { "type": "range", "id": "title_icon_size", "min": 20, "max": 100, "step": 2, "unit": "px", "label": "Title Icon Size", "default": 40 },
+    { "type": "range", "id": "title_icon_size_mobile", "min": 10, "max": 80, "step": 2, "unit": "px", "label": "Mobile Icon Size", "default": 30 },
+    { "type": "checkbox", "id": "title_icon_mirror_right", "label": "Mirror Right Icon", "default": true },
+    { "type": "textarea", "id": "sub_heading", "label": "Description", "default": "Exclusive Hassle-Free Bundle Set. Bigger Savings." },
+    { "type": "checkbox", "id": "show_sub_heading", "label": "Show Description", "default": true },
+    { "type": "url", "id": "view_more_link", "label": "View More Link" },
+    { "type": "text", "id": "view_more_label", "label": "View More Label", "default": "View More" },
+    { "type": "color", "id": "title_color", "label": "Title Color", "default": "#2b2929" },
+    { "type": "color", "id": "sub_heading_color", "label": "Description Color", "default": "#666666" },
+    { "type": "range", "id": "title_size", "min": 18, "max": 60, "step": 1, "unit": "px", "label": "Title Size", "default": 30 },
+    { "type": "range", "id": "title_size_mobile", "min": 16, "max": 40, "step": 1, "unit": "px", "label": "Mobile Title Size", "default": 24 },
+    { "type": "range", "id": "title_line_height", "min": 20, "max": 76, "step": 1, "unit": "px", "label": "Title Line Height", "default": 38 },
+    { "type": "range", "id": "title_line_height_mobile", "min": 18, "max": 52, "step": 1, "unit": "px", "label": "Mobile Title Line Height", "default": 30 },
+    { "type": "range", "id": "sub_heading_size", "min": 10, "max": 28, "step": 1, "unit": "px", "label": "Description Size", "default": 16 },
+    { "type": "range", "id": "sub_heading_size_mobile", "min": 10, "max": 22, "step": 1, "unit": "px", "label": "Mobile Description Size", "default": 13 },
+    { "type": "range", "id": "sub_heading_line_height", "min": 12, "max": 36, "step": 1, "unit": "px", "label": "Description Line Height", "default": 22 },
+    { "type": "range", "id": "sub_heading_line_height_mobile", "min": 12, "max": 30, "step": 1, "unit": "px", "label": "Mobile Description Line Height", "default": 18 },
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fff8ef" },
+    { "type": "range", "id": "content_width", "label": "PC section width", "min": 800, "max": 1500, "step": 10, "unit": "px", "default": 980 },
+    { "type": "range", "id": "content_width_mobile", "label": "Mobile section width", "min": 300, "max": 375, "step": 5, "unit": "px", "default": 345 },
+    { "type": "range", "id": "content_height", "label": "PC content height", "min": 260, "max": 700, "step": 10, "unit": "px", "default": 360 },
+    { "type": "range", "id": "padding_top", "label": "PC top margin", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 38 },
+    { "type": "range", "id": "padding_bottom", "label": "PC bottom margin", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 46 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top margin", "min": 0, "max": 100, "step": 2, "unit": "px", "default": 28 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom margin", "min": 0, "max": 100, "step": 2, "unit": "px", "default": 34 },
+    { "type": "color", "id": "accent_color", "label": "Active color", "default": "#ff9f3f" },
+    { "type": "color", "id": "card_bg", "label": "Product area background", "default": "#fff1dc" },
+    { "type": "color_background", "id": "shop_button_bg", "label": "Shop Now background", "default": "linear-gradient(90deg, #0fcbd2 0%, #1eb8c8 100%)" },
+    { "type": "color", "id": "cart_button_bg", "label": "Cart icon background", "default": "#124b82" },
+    { "type": "header", "content": "Actions" },
+    { "type": "text", "id": "total_label", "label": "Total label", "default": "TOTAL:" },
+    { "type": "range", "id": "total_label_size", "label": "PC total label size", "min": 10, "max": 28, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range", "id": "total_label_line_height", "label": "PC total label line height", "min": 12, "max": 34, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "total_label_size_mobile", "label": "Mobile total label size", "min": 10, "max": 24, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "total_label_line_height_mobile", "label": "Mobile total label line height", "min": 12, "max": 30, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "total_price_size", "label": "PC total price size", "min": 14, "max": 42, "step": 1, "unit": "px", "default": 22 },
+    { "type": "range", "id": "total_price_line_height", "label": "PC total price line height", "min": 16, "max": 48, "step": 1, "unit": "px", "default": 24 },
+    { "type": "range", "id": "total_price_size_mobile", "label": "Mobile total price size", "min": 12, "max": 34, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "total_price_line_height_mobile", "label": "Mobile total price line height", "min": 14, "max": 40, "step": 1, "unit": "px", "default": 22 },
+    { "type": "range", "id": "compare_price_size", "label": "PC compare price size", "min": 10, "max": 28, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "compare_price_line_height", "label": "PC compare price line height", "min": 12, "max": 34, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "compare_price_size_mobile", "label": "Mobile compare price size", "min": 9, "max": 24, "step": 1, "unit": "px", "default": 10 },
+    { "type": "range", "id": "compare_price_line_height_mobile", "label": "Mobile compare price line height", "min": 11, "max": 30, "step": 1, "unit": "px", "default": 14 },
+    { "type": "color", "id": "discount_label_bg", "label": "Discount label background", "default": "#ff9f3f" },
+    { "type": "color", "id": "discount_label_color", "label": "Discount label color", "default": "#ffffff" },
+    { "type": "range", "id": "discount_label_size", "label": "PC discount label size", "min": 9, "max": 24, "step": 1, "unit": "px", "default": 11 },
+    { "type": "range", "id": "discount_label_line_height", "label": "PC discount label line height", "min": 11, "max": 30, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range", "id": "discount_label_size_mobile", "label": "Mobile discount label size", "min": 9, "max": 22, "step": 1, "unit": "px", "default": 10 },
+    { "type": "range", "id": "discount_label_line_height_mobile", "label": "Mobile discount label line height", "min": 11, "max": 28, "step": 1, "unit": "px", "default": 12 },
+    { "type": "text", "id": "shop_label", "label": "Shop Now text", "default": "Shop Now" },
+    { "type": "range", "id": "shop_label_size", "label": "PC Shop Now size", "min": 10, "max": 24, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "shop_label_line_height", "label": "PC Shop Now line height", "min": 12, "max": 30, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "shop_label_size_mobile", "label": "Mobile Shop Now size", "min": 9, "max": 22, "step": 1, "unit": "px", "default": 11 },
+    { "type": "range", "id": "shop_label_line_height_mobile", "label": "Mobile Shop Now line height", "min": 11, "max": 28, "step": 1, "unit": "px", "default": 14 },
+    { "type": "url", "id": "checkout_link", "label": "Checkout link" },
+    { "type": "text", "id": "cart_aria_label", "label": "Cart icon aria label", "default": "Add selected products to cart" },
+    { "type": "text", "id": "empty_text", "label": "Empty selection message", "default": "Please select a product." },
+    { "type": "text", "id": "added_text", "label": "Added message", "default": "Added to cart." },
+    { "type": "text", "id": "error_text", "label": "Error message", "default": "Please try again." }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Bundle Tab",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "tab_label", "label": "Tab text" },
+        { "type": "text", "id": "tab_badge", "label": "Tab badge" },
+        { "type": "image_picker", "id": "media_bg_pc", "label": "Left image PC" },
+        { "type": "image_picker", "id": "media_bg_mobile", "label": "Left image mobile" },
+        { "type": "text", "id": "media_bg_position", "label": "PC image position", "default": "center center" },
+        { "type": "text", "id": "media_bg_position_mobile", "label": "Mobile image position", "default": "center center" },
+        { "type": "select", "id": "media_bg_size", "label": "PC image size", "options": [
+          { "value": "cover", "label": "Cover" },
+          { "value": "contain", "label": "Contain" },
+          { "value": "100% auto", "label": "Full width" },
+          { "value": "auto 100%", "label": "Full height" }
+        ], "default": "cover" },
+        { "type": "select", "id": "media_bg_size_mobile", "label": "Mobile image size", "options": [
+          { "value": "cover", "label": "Cover" },
+          { "value": "contain", "label": "Contain" },
+          { "value": "100% auto", "label": "Full width" },
+          { "value": "auto 100%", "label": "Full height" }
+        ], "default": "cover" },
+        { "type": "checkbox", "id": "show_badge", "label": "Show discount badge", "default": true },
+        { "type": "textarea", "id": "badge_text", "label": "Discount badge text", "default": "20%\nOFF" },
+        { "type": "image_picker", "id": "badge_bg_image", "label": "Discount badge background" },
+        { "type": "color", "id": "badge_text_color", "label": "Discount text color", "default": "#ffffff" },
+        { "type": "range", "id": "badge_top", "label": "Badge top PC", "min": -80, "max": 120, "step": 2, "unit": "px", "default": 0 },
+        { "type": "range", "id": "badge_left", "label": "Badge left PC", "min": -80, "max": 120, "step": 2, "unit": "px", "default": 30 },
+        { "type": "range", "id": "badge_width", "label": "Badge width PC", "min": 30, "max": 120, "step": 2, "unit": "px", "default": 66 },
+        { "type": "range", "id": "badge_height", "label": "Badge height PC", "min": 40, "max": 140, "step": 2, "unit": "px", "default": 78 },
+        { "type": "range", "id": "badge_top_mobile", "label": "Badge top mobile", "min": -60, "max": 100, "step": 2, "unit": "px", "default": 0 },
+        { "type": "range", "id": "badge_left_mobile", "label": "Badge left mobile", "min": -60, "max": 100, "step": 2, "unit": "px", "default": 20 },
+        { "type": "range", "id": "badge_width_mobile", "label": "Badge width mobile", "min": 28, "max": 100, "step": 2, "unit": "px", "default": 54 },
+        { "type": "range", "id": "badge_height_mobile", "label": "Badge height mobile", "min": 36, "max": 120, "step": 2, "unit": "px", "default": 64 },
+        { "type": "text", "id": "slides_count", "label": "PC visible products", "default": "2.2" },
+        { "type": "text", "id": "slides_count_mobile", "label": "Mobile visible products", "default": "2.1" },
+        { "type": "range", "id": "compare_discount_percent", "label": "Compare discount percent", "info": "Applies to the selected product total only when more than one product is selected. 100 keeps the total unchanged. 90 shows 90% of the selected total.", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 100 },
+        { "type": "collection", "id": "product_collection", "label": "Product collection" },
+        { "type": "range", "id": "product_limit", "label": "Products to show", "min": 1, "max": 12, "step": 1, "default": 6 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Prime Bundles",
+      "blocks": [
+        { "type": "tab" },
+        { "type": "tab" },
+        { "type": "tab" },
+        { "type": "tab" }
+      ]
+    }
+  ]
+}
+{% endschema %}

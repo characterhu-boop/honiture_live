@@ -1,0 +1,360 @@
+{%- liquid
+  assign coupon_uid = coupon_uid | default: block.id | default: section.id | default: 'default'
+  assign coupon_root_id = 'hntr-coupon-code-2-' | append: coupon_uid
+
+  assign left_label_text = left_label_text | default: block.settings.left_label_text | default: 'Save'
+  assign left_value_text = left_value_text | default: block.settings.left_value_text | default: '30%'
+
+  assign right_richtext_top = right_richtext_top | default: block.settings.right_richtext_top | default: ''
+  assign right_richtext_bottom = right_richtext_bottom | default: block.settings.right_richtext_bottom | default: ''
+
+  assign copy_button_label = copy_button_label | default: block.settings.copy_button_label | default: 'Copy code'
+  assign discount_code = discount_code | default: block.settings.discount_code 
+  assign right_bg_image = right_bg_image | default: block.settings.right_bg_image
+  assign coupon_background = coupon_background | default: block.settings.coupon_background | default: 'linear-gradient(90deg, #FFECD2 0%, #FCB69F 100%)'
+  assign left_text_color = left_text_color | default: block.settings.left_text_color | default: '#18181D'
+  assign body_text_color = body_text_color | default: block.settings.body_text_color | default: '#18181D'
+  assign accent_color = accent_color | default: block.settings.accent_color | default: '#E63E3E'
+
+  assign desktop_width_value = desktop_width_value | default: block.settings.desktop_width | default: 0
+  if desktop_width_value and desktop_width_value > 0
+    assign desktop_width_css = desktop_width_value | append: 'px'
+  else
+    assign desktop_width_css = '100%'
+  endif
+
+  assign mobile_width_value = mobile_width_value | default: block.settings.mobile_width | default: 0
+  if mobile_width_value and mobile_width_value > 0
+    assign mobile_width_css = mobile_width_value | append: 'px'
+  else
+    assign mobile_width_css = '100%'
+  endif
+
+  assign desktop_height_value = desktop_height_value | default: block.settings.desktop_height | default: 0
+  if desktop_height_value and desktop_height_value > 0
+    assign desktop_height_css = desktop_height_value | append: 'px'
+  else
+    assign desktop_height_css = 'auto'
+  endif
+
+  assign mobile_height_value = mobile_height_value | default: block.settings.mobile_height | default: 0
+  if mobile_height_value and mobile_height_value > 0
+    assign mobile_height_css = mobile_height_value | append: 'px'
+  else
+    assign mobile_height_css = 'auto'
+  endif
+
+  assign bg_size_desktop_value = bg_size_desktop_value | default: block.settings.right_bg_size_desktop | default: 0
+  if bg_size_desktop_value and bg_size_desktop_value > 0
+    assign bg_size_desktop_css = bg_size_desktop_value | append: 'px'
+  else
+    assign bg_size_desktop_css = '320px'
+  endif
+
+  assign bg_size_mobile_value = bg_size_mobile_value | default: block.settings.right_bg_size_mobile | default: 0
+  if bg_size_mobile_value and bg_size_mobile_value > 0
+    assign bg_size_mobile_css = bg_size_mobile_value | append: 'px'
+  else
+    assign bg_size_mobile_css = bg_size_desktop_css
+  endif
+
+  assign bg_right_desktop_value = bg_right_desktop_value | default: block.settings.right_bg_right_desktop | default: 0
+  assign bg_bottom_desktop_value = bg_bottom_desktop_value | default: block.settings.right_bg_bottom_desktop | default: 0
+  assign bg_right_mobile_value = bg_right_mobile_value | default: block.settings.right_bg_right_mobile | default: bg_right_desktop_value
+  assign bg_bottom_mobile_value = bg_bottom_mobile_value | default: block.settings.right_bg_bottom_mobile | default: bg_bottom_desktop_value
+
+  assign bg_right_desktop_css = bg_right_desktop_value | append: '%'
+  assign bg_bottom_desktop_css = bg_bottom_desktop_value | append: '%'
+  assign bg_right_mobile_css = bg_right_mobile_value | append: '%'
+  assign bg_bottom_mobile_css = bg_bottom_mobile_value | append: '%'
+-%}
+
+<div
+  id="{{ coupon_root_id }}"
+  class="hntr-coupon-code-2"
+  style="--hntr-coupon-code-2-bg: {{ coupon_background }}; --hntr-coupon-code-2-left-color: {{ left_text_color }}; --hntr-coupon-code-2-body-color: {{ body_text_color }}; --hntr-coupon-code-2-accent-color: {{ accent_color }}; --hntr-coupon-code-2-width-desktop: {{ desktop_width_css }}; --hntr-coupon-code-2-width-mobile: {{ mobile_width_css }}; --hntr-coupon-code-2-height-desktop: {{ desktop_height_css }}; --hntr-coupon-code-2-height-mobile: {{ mobile_height_css }}; --hntr-coupon-code-2-right-bg-size-desktop: {{ bg_size_desktop_css }}; --hntr-coupon-code-2-right-bg-size-mobile: {{ bg_size_mobile_css }}; --hntr-coupon-code-2-right-bg-right-desktop: {{ bg_right_desktop_css }}; --hntr-coupon-code-2-right-bg-bottom-desktop: {{ bg_bottom_desktop_css }}; --hntr-coupon-code-2-right-bg-right-mobile: {{ bg_right_mobile_css }}; --hntr-coupon-code-2-right-bg-bottom-mobile: {{ bg_bottom_mobile_css }};"
+  data-hntr-coupon-code-2 
+>
+  <div class="hntr-coupon-code-2__left">
+    <div class="hntr-coupon-code-2__left-content">
+      <div class="hntr-coupon-code-2__left-label">{{ left_label_text }}</div>
+      <div class="hntr-coupon-code-2__left-value">{{ left_value_text }}</div>
+    </div>
+  </div>
+
+  <div class="hntr-coupon-code-2__right">
+    <div class="hntr-coupon-code-2__right-top rte">
+      {{ right_richtext_top }}
+    </div>
+    {% if discount_code != blank %}
+    <button
+      type="button"
+      class="hntr-coupon-code-2__copy-btn"
+      data-hntr-coupon-code-2-copy
+      data-coupon-code="{{ discount_code | escape }}"
+    >
+      {{ copy_button_label }}
+    </button>
+    {% endif %}
+    <div class="hntr-coupon-code-2__right-bottom rte">
+      {{ right_richtext_bottom }}
+    </div>
+
+  </div>
+
+  {%- if right_bg_image != blank -%}
+    <div class="hntr-coupon-code-2__right-bg" aria-hidden="true">
+      {%- render 'responsive-image', image: right_bg_image, sizes: '200x,300x,400x,600x', class: 'hntr-coupon-code-2__right-bg-img' -%}
+    </div>
+  {%- endif -%}
+</div>
+
+<style>
+  #{{ coupon_root_id }}{
+    position:relative;
+    width:var(--hntr-coupon-code-2-width-desktop);
+    max-width:100%;
+    height:var(--hntr-coupon-code-2-height-desktop);
+    display:flex;
+    align-items:stretch;
+    background:var(--hntr-coupon-code-2-bg); 
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    overflow:hidden;
+    color:#18181D;
+        margin-bottom: 20px;
+    -webkit-mask-image:
+      radial-gradient(circle at 0 0, transparent 15px, #000 16px),
+      radial-gradient(circle at 0 100%, transparent 15px, #000 16px),
+      radial-gradient(circle at 100% 0, transparent 15px, #000 16px),
+      radial-gradient(circle at 100% 100%, transparent 15px, #000 16px),
+      radial-gradient(circle at 28% 0, transparent 15px, #000 16px),
+      radial-gradient(circle at 28% 100%, transparent 15px, #000 16px);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-size:100% 100%;
+    -webkit-mask-position:top left, bottom left, top right, bottom right, top, bottom;
+    -webkit-mask-composite:destination-in, destination-in, destination-in, destination-in, destination-in;
+
+    mask-image:
+      radial-gradient(circle at 0 0, transparent 15px, #000 16px),
+      radial-gradient(circle at 0 100%, transparent 15px, #000 16px),
+      radial-gradient(circle at 100% 0, transparent 15px, #000 16px),
+      radial-gradient(circle at 100% 100%, transparent 15px, #000 16px),
+      radial-gradient(circle at 28% 0, transparent 15px, #000 16px),
+      radial-gradient(circle at 28% 100%, transparent 15px, #000 16px);
+    mask-repeat:no-repeat;
+    mask-size:100% 100%;
+    mask-position:top left, bottom left, top right, bottom right, top, bottom;
+    mask-composite:intersect, intersect, intersect, intersect, intersect;
+  }
+ #{{ coupon_root_id }} .hntr-coupon-code-2__left-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+ }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__left{
+    width:26%;
+    min-width:140px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-right:2px dashed rgba(255,255,255,0.6);
+    padding:0 14px;
+    text-align:center;
+    color:var(--hntr-coupon-code-2-left-color);
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__left-label{
+    font-size:20px;
+    line-height:1.2;
+    font-weight:700;
+    align-self: self-start;
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__left-value{
+    margin-top:10px;
+    font-size:44px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:0;
+  }
+
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right{
+    position:relative;
+    flex:1;
+    padding:18px 18px 18px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-top,
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-bottom{
+    position:relative;
+    z-index:2;
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-top,
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-bottom{
+    font-size:14px;
+    line-height:1.35;
+    font-weight:600;
+    color:var(--hntr-coupon-code-2-body-color);
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-top p,
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-bottom p{
+    margin:0;
+  }
+  #{{ coupon_root_id }} a{
+    color:var(--hntr-coupon-code-2-accent-color);
+  }
+  #{{ coupon_root_id }} a:hover{
+    filter:brightness(0.85);
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__copy-btn{
+    position:relative;
+    z-index:2;
+    align-self:flex-start;
+    border:0;
+    background:transparent;
+    color:var(--hntr-coupon-code-2-accent-color);
+    font-size:14px;
+    line-height:1.2;
+    font-weight:700;
+    text-decoration:underline;
+    padding:0;
+    cursor:pointer;
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__copy-btn:hover{
+    filter:brightness(0.85);
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__copy-btn:active{
+    opacity:0.8;
+  }
+
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-bg{
+    position:absolute;
+    right:var(--hntr-coupon-code-2-right-bg-right-desktop);
+    bottom:var(--hntr-coupon-code-2-right-bg-bottom-desktop);
+    width:var(--hntr-coupon-code-2-right-bg-size-desktop);
+    pointer-events:none;
+    z-index:-1;
+  }
+  #{{ coupon_root_id }} .hntr-coupon-code-2__right-bg-img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+
+  .hntr-coupon-code-2__toast{
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:99999;
+    background:rgba(0,0,0,0.78);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:999px;
+    font-size:14px;
+    line-height:1;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 200ms ease, visibility 200ms ease;
+    pointer-events:none;
+  }
+  .hntr-coupon-code-2__toast.is-visible{
+    opacity:1;
+    visibility:visible;
+  }
+
+  @media (max-width: 767px){
+    #{{ coupon_root_id }}{
+      width:var(--hntr-coupon-code-2-width-mobile);
+      height:var(--hntr-coupon-code-2-height-mobile);
+    }
+    #{{ coupon_root_id }} .hntr-coupon-code-2__right-bg{
+      width:var(--hntr-coupon-code-2-right-bg-size-mobile);
+      right:var(--hntr-coupon-code-2-right-bg-right-mobile);
+      bottom:var(--hntr-coupon-code-2-right-bg-bottom-mobile);
+    }
+
+      #{{ coupon_root_id }} .hntr-coupon-code-2__right-bottom{
+    font-size:12px;
+    line-height:1.1;
+    font-weight:600;
+    color:#18181D;
+  }
+    #{{ coupon_root_id }} .hntr-coupon-code-2__left-value{
+    margin-top:10px;
+    font-size:30px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:0;
+  }
+    #{{ coupon_root_id }} .hntr-coupon-code-2__left{
+    width:29%;
+    min-width:90px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-right:2px dashed rgba(255,255,255,0.6);
+    padding:0 14px;
+    text-align:center;
+  }
+  }
+</style>
+
+<script>
+  (function() {
+    var root = document.getElementById({{ coupon_root_id | json }});
+    if (!root) return;
+    var btn = root.querySelector('[data-hntr-coupon-code-2-copy]');
+    if (!btn) return;
+
+    var toastId = {{ coupon_root_id | json }} + '-toast';
+    var toast = document.getElementById(toastId);
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = toastId;
+      toast.className = 'hntr-coupon-code-2__toast';
+      toast.textContent = 'Copied';
+      document.body.appendChild(toast);
+    }
+
+    var toastTimer = null;
+    function showToast() {
+      if (toastTimer) clearTimeout(toastTimer);
+      toast.classList.add('is-visible');
+      toastTimer = setTimeout(function() {
+        toast.classList.remove('is-visible');
+      }, 1200);
+    }
+
+    function fallbackCopy(code) {
+      var textarea = document.createElement('textarea');
+      textarea.value = code;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(textarea);
+    }
+
+    btn.addEventListener('click', function() {
+      var code = btn.getAttribute('data-coupon-code') || '';
+      if (!code) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(showToast).catch(function() {
+          fallbackCopy(code);
+          showToast();
+        });
+        return;
+      }
+      fallbackCopy(code);
+      showToast();
+    });
+  })();
+</script>

@@ -1,0 +1,114 @@
+{%- schema -%}
+{
+  "name": "URL Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Text Content",
+      "default": "Click here"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 112,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 24
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#19586E"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "URL Text",
+      "category": "Custom"
+    }
+  ]
+}
+{%- endschema -%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .url-text-wrapper {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    text-align: {{ section.settings.text_align }};
+  }
+
+  #shopify-section-{{ section.id }} .url-text {
+    font-size: {{ section.settings.font_size }}px;
+    color: {{ section.settings.text_color }};
+    display: inline-block;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #shopify-section-{{ section.id }} .url-text:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .url-text-wrapper {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<div class="url-text-wrapper">
+  <a href="{{ section.settings.link_url }}" class="url-text">
+    {{ section.settings.text_content }}
+  </a>
+</div>

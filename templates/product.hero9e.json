@@ -1,0 +1,794 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "info_box_7k66Fx": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box1.svg",
+            "text": "Hassle-Free Warranty",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_y4JCRF": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box2.svg",
+            "text": "30-Day Guarantee",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_GdBwWT": {
+          "type": "info_box",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify:\/\/shop_images\/info-box3.svg",
+            "text": "Fast & Free Delivery",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "info_box_VFEjxC": {
+          "type": "info_box",
+          "settings": {
+            "icon": "heart",
+            "image": "shopify:\/\/shop_images\/info-box4.svg",
+            "text": "Reliable Support",
+            "link": "",
+            "info_box_bg": "#f0f2f2",
+            "info_box_color": "#000000"
+          }
+        },
+        "label_pBcmz9": {
+          "type": "label",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true,
+            "show_products_rating_average": true,
+            "show_custom_badges": true,
+            "cus_product_description": ""
+          }
+        },
+        "klarna_on_site_messaging_app_block_PkEzmn": {
+          "type": "shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "20",
+            "messagePrefix": ""
+          }
+        },
+        "judge_me_reviews_preview_badge_kAiUjk": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "separator_dMbKEh": {
+          "type": "separator",
+          "settings": {}
+        },
+        "coupon_code_MYxG4z": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "fire",
+            "image": "shopify:\/\/shop_images\/Honiture-coupon-icon.png",
+            "has_background": true,
+            "text": "<p><strong>Summer Sale - Extra 12% OFF! <\/strong><\/p>",
+            "coupon_text": "SUMMERGIFT",
+            "copy_text": "Copy code",
+            "coupon_box_color": "#ea6b24",
+            "coupon_box_color_link": "#00d0cd"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Key Features",
+            "open": true,
+            "use_modal": false,
+            "link": "",
+            "content": "<ol><li>30000PA & 400W Powerful Suction<\/li><li>Max to 45 Mins Running Time<\/li><li>Smart Digital Control Screen<\/li><li>1.2L Dust Cup & Air Filtration System<\/li><li>270°Flexible Rotation & Multi-Scenario Use<\/li><\/ol>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "custom_liquid_YaJFa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default {\n    background-color: #f5f5f5;\n    color: #00000;\n    border-radius: 16px;\n    height: 60px;\n    margin:15px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 16px;\n    font-size: 16px;\n<\/style>\n\n<a href=\"{{ \"shopify-section-template--17320672493615__product_details_mXPkEF\" }}\"\nclass=\"custom-button-default\">\n  {{ \"CHECK SPECS\" }}\n<\/a>"
+          }
+        },
+        "custom_liquid_tCypYt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .custom-button-default2 {\n    background-color: #33A187;\n    color: #B4F4EB;\n    onmouseover:#FFFFFF;\n    border-radius: 12px;\n    height: 60px;\n    margin: 30px 0;\n    display: flex;\n    align-items: center;\n    justify-content: left;\n    padding-left: 20px;\n    font-size: 16px;\n    text-decoration: none;\n  }\n<\/style>\n\n<a href=\"{{ \"https:\/\/www.yaber.com\/\" }}\" class=\"custom-button-default2\">\n\n<span onmouseover=\"this.style.color='#FFFFFF'\" onmouseout=\"this.style.color='#B4F4EB'\">{{ \"Download Manual \"}}<\/span>\n  <\/a>"
+          }
+        },
+        "separator_ffazEp": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker_LbX7fD": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_size": "regular",
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "clipboard",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_K7Fpbx": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_UfETRY": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_4AWGkr": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "But it with",
+            "product_list_limit": 10
+          }
+        },
+        "payment_security_jPUTTW": {
+          "type": "payment_security",
+          "settings": {
+            "has_border": true,
+            "heading": "Supported Payment Types:",
+            "show_payment_icons": true,
+            "security_heading": "Trusted Delivery:",
+            "security_image": "shopify:\/\/shop_images\/honiture-Trusted_-Delivery-icon-1.png",
+            "security_image_width": 220
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_box_7k66Fx",
+        "info_box_y4JCRF",
+        "info_box_GdBwWT",
+        "info_box_VFEjxC",
+        "label_pBcmz9",
+        "title",
+        "klarna_on_site_messaging_app_block_PkEzmn",
+        "judge_me_reviews_preview_badge_kAiUjk",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "separator_dMbKEh",
+        "coupon_code_MYxG4z",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "custom_liquid_YaJFa3",
+        "custom_liquid_tCypYt",
+        "separator_ffazEp",
+        "variant_picker_LbX7fD",
+        "quantity_K7Fpbx",
+        "buy_buttons_UfETRY",
+        "complementary_4AWGkr",
+        "payment_security_jPUTTW",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "custom_css": [
+        ".product--payment-security > div {justify-content: start;}",
+        ".thb-product-detail .product-title {font-size: 28px;}",
+        ".product--payment-security .product--block-heading {margin: inherit;}",
+        ".product--block-heading {font-size: 12px;}",
+        ".product--block-heading-small {width: 114px;}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true,
+        "use_widget": true,
+        "widget_margin_bottom": 100,
+        "widget_margin_left": 100,
+        "widget_width": 80,
+        "widget_height": 80,
+        "widget_margin_bottom_mobile": 20,
+        "widget_margin_left_mobile": 20,
+        "widget_width_mobile": 50,
+        "widget_height_mobile": 50
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 35,
+        "spacer_desktop": 90,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "image_with_text_overlay_MHxnek": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_46jrPg": {
+          "type": "heading",
+          "settings": {
+            "text": "Honiture Hero 9E",
+            "heading_size": "h2",
+            "heading_tag": "adaptive"
+          }
+        },
+        "text_3WXh9f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ideal for maintaining a spotless home with ease, this vacuum offers both power and practicality in one sleek package.<\/p>",
+            "description_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_46jrPg",
+        "text_3WXh9f"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero9e_banner1.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/1_67bdd26c-283a-476f-996a-659a6918fc7a.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "content_width": "small",
+        "content_position": "bottom-left",
+        "text_alignment": "left",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 15,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_hGmbDc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3ae4Mj": {
+          "type": "heading",
+          "settings": {
+            "text": "400W & 30KPa Powerful Suction",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_3meAjL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the power of efficient cleaning with our 400W vacuum cleaner. Engineered to deliver strong suction and reliable performance, this vacuum effortlessly handles dirt and debris, making home maintenance simpler and more effective. Its compact design ensures ease of use without compromising on power, offering a practical solution for everyday cleaning tasks.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3ae4Mj",
+        "text_3meAjL"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "gallery_T36weR": {
+      "type": "gallery",
+      "blocks": {
+        "image_e7VtBr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero9e_motor.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "400W",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_RqJTc9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero93_suction.jpg",
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "",
+            "title": "30KPa",
+            "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "image_e7VtBr",
+        "image_RqJTc9"
+      ],
+      "settings": {
+        "columns_desktop": 2,
+        "full_width": false,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "content_position": "top-left",
+        "text_alignment": "left",
+        "column_spacing": "small",
+        "heading_size": "h2",
+        "description_size": "medium",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_rjfARL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HGmaCy": {
+          "type": "heading",
+          "settings": {
+            "text": "330W Motor",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_pbQnrT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HGmaCy",
+        "text_pbQnrT"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/3_b4a88051-3038-4b8a-b36a-69f5d35302c9.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_xeW8pT": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xTjpcn": {
+          "type": "heading",
+          "settings": {
+            "text": "26KPa Strong Suction",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_gGVwxL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xTjpcn",
+        "text_gGVwxL"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/8_c258e7b0-19e4-41e3-9a81-1902a4a76e9e.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_9VG9VV": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_a6BRbE": {
+          "type": "heading",
+          "settings": {
+            "text": "45 Minutes of Uninterrupted Power",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_mEncEk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy extended cleaning sessions with our vacuum cleaner's impressive 45-minute runtime. This vacuum provides consistent and reliable performance, ensuring your home stays spotless with ease. Experience the freedom to clean every corner thoroughly, all in one go.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_a6BRbE",
+        "text_mEncEk"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero9e_45min-2.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "scrolling_content_GLBzbE": {
+      "type": "scrolling-content",
+      "blocks": {
+        "section_FPzna8": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero9e_detachable.jpg",
+            "badge": "",
+            "subheading": "",
+            "heading": "No More Hard-to-reach",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>270° Flexible rotation, soft bristles, detachable 2-in-1 brushes and long flat brushes. Make every corner reachable, every surface spotless.<\/p>",
+            "description_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "#3f72e5",
+            "color_badge": "#ffffff"
+          }
+        },
+        "section_fmDNfL": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero9e_dust_cup.jpg",
+            "badge": "",
+            "subheading": "",
+            "heading": "1.2L Dust Cup, \nOne Click Empty",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>Capable of accommodating various types of everyday debris like hair, grains, food scraps, and melon peels.<\/p>",
+            "description_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "#3f72e5",
+            "color_badge": "#ffffff"
+          }
+        },
+        "section_xrgi69": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero9e_filtration.jpg",
+            "badge": "",
+            "subheading": "",
+            "heading": "Multi-Layer Filtration",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>Advanced filtration system, with HEPA filter at the core, traps harmful pollutant for cleaner, frsher, heathier air.<\/p>",
+            "description_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "#3f72e5",
+            "color_badge": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "section_FPzna8",
+        "section_fmDNfL",
+        "section_xrgi69"
+      ],
+      "settings": {
+        "desktop_layout": "text_first",
+        "mobile_swipe": true,
+        "dots": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_fLxbGF": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero9e_banner2.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "gallery_pa4iqf": {
+      "type": "gallery",
+      "blocks": {
+        "image_UFCgkC": {
+          "type": "image",
+          "settings": {
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "Add a tagline",
+            "title": "Column",
+            "marker_style": "style1",
+            "text": "Pair text with an image to focus on your chosen image",
+            "link_label": "Explore",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_m93FM7": {
+          "type": "image",
+          "settings": {
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "Add a tagline",
+            "title": "Column",
+            "marker_style": "style1",
+            "text": "Pair text with an image to focus on your chosen image",
+            "link_label": "Explore",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_FGdhqH": {
+          "type": "image",
+          "settings": {
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "Add a tagline",
+            "title": "Column",
+            "marker_style": "style1",
+            "text": "Pair text with an image to focus on your chosen image",
+            "link_label": "Explore",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_Pafie9": {
+          "type": "image",
+          "settings": {
+            "enable_gallery_video": false,
+            "enable_hover_play": false,
+            "subheading": "Add a tagline",
+            "title": "Column",
+            "marker_style": "style1",
+            "text": "Pair text with an image to focus on your chosen image",
+            "link_label": "Explore",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "image_UFCgkC",
+        "image_m93FM7",
+        "image_FGdhqH",
+        "image_Pafie9"
+      ],
+      "disabled": true,
+      "settings": {
+        "columns_desktop": 4,
+        "full_width": false,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "content_position": "bottom-left",
+        "text_alignment": "left",
+        "column_spacing": "small",
+        "heading_size": "h2",
+        "description_size": "medium",
+        "overlay_color": "#000000",
+        "overlay_opacity": 70,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_h89Jp4": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TPQb69": {
+          "type": "heading",
+          "settings": {
+            "text": "Smart Cleaning, Peaceful Home",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_TWNjWK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With low noise and intelligent digital control screen, smooth your cleaning routine in a quient, effortless way.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TPQb69",
+        "text_TWNjWK"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero9e_sum.jpg",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1739436825fbe6f5f8": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_fEEgJU": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_fEEgJU"
+      ],
+      "settings": {
+        "section_width": "grid",
+        "show_toggle_button": false,
+        "max_height_desktop": 600,
+        "max_height_mobile": 100,
+        "button_text": "See More",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>Combine your style with these products<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "16623877721f33fb14",
+    "image_with_text_overlay_MHxnek",
+    "rich_text_hGmbDc",
+    "gallery_T36weR",
+    "image_with_text_rjfARL",
+    "image_with_text_xeW8pT",
+    "image_with_text_9VG9VV",
+    "scrolling_content_GLBzbE",
+    "single_image_fLxbGF",
+    "gallery_pa4iqf",
+    "image_with_text_h89Jp4",
+    "1739436825fbe6f5f8",
+    "product-recommendations"
+  ]
+}

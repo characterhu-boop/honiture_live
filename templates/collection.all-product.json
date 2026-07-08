@@ -1,0 +1,283 @@
+{
+  "sections": {
+    "image_with_text_overlay_MtEY4x": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_nGaaRB": {
+          "type": "heading",
+          "settings": {
+            "text": "Robotic Vacuums & Stick Vacuums",
+            "heading_size": "h2",
+            "heading_tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nGaaRB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/banner.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/all_product_mobile.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "rich_text_VHRa67": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3VyDzg": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Robotic Vacuums & Stick Vacuums",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h1",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_N8pTcw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Find your perfect budget cleaning partner. From the hands-free convenience of a <strong>cleaning robot vacuum<\/strong> to the powerful, flexible reach of a <strong>cheap stick vacuum<\/strong>, Honiture has the ideal solution to keep your home spotless.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3VyDzg",
+        "text_N8pTcw"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 150,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "custom_css": [],
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "pagination_type": "loadmore",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_counts": false,
+        "filter_color_swatches": false,
+        "filters_collapsed": false,
+        "enable_compare": true,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "featured_collection_AdMN6f": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "heading": "Cordless Vacuum Cleaners",
+        "marker_style": "style1",
+        "description": "<p>Our cordless vacuum cleaner series offers powerful suction with the convenience of wireless operation. Designed for effortless cleaning, these vacuums are lightweight, portable, and equipped with advanced features such as anti-tangle technology, LED highlights, and wider cleaning paths. Perfect for daily use, they deliver exceptional performance, whether for quick cleanups or deep cleaning, making home maintenance easier and more efficient.<\/p>",
+        "collection": "cordless-vacuum-cleaners",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collection_list_ez9Mtb": {
+      "type": "collection-list",
+      "disabled": true,
+      "settings": {
+        "heading": "Shop by Category",
+        "marker_style": "style1",
+        "description": "",
+        "heading_size": "small",
+        "collection_list": [
+          "robot-cleaner",
+          "cordless-vacuum-cleaners",
+          "air-purifiers",
+          "pets-cleaning"
+        ],
+        "image_ratio": "portrait",
+        "collection_layout": "grid",
+        "style": "style2",
+        "text_alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#ffffff",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 10,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_3TCNMR": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "collapsible_content_HHAP96": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_KzDjk3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "1. What is the main difference between a robotic vacuum and a stick vacuum?",
+            "open": false,
+            "content": "<p>A robotic vacuum is an autonomous device designed for hands-free, daily maintenance cleaning, while a stick vacuum is a manually operated, cordless vacuum for quick spot cleaning and deep cleaning tasks. The key difference lies in the level of human effort required: one cleans for you, and the other gives you direct control.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_CkNtmf": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "2. Which one should I buy if I have a home with different floor types (hardwood, carpet, tiles)?",
+            "open": false,
+            "content": "<p>Both types can work well on different floor types. However, a stick vacuum with a powerful motor and specialized brush heads is generally better at deep cleaning thick carpets. A robotic vacuum is excellent for maintaining hard floors and low- to medium-pile carpets, with some models featuring automatic suction boost on carpets.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_rneEqe": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "3. Are robotic vacuums as powerful as stick vacuums?",
+            "open": false,
+            "content": "<p>In general, stick vacuums tend to have more powerful suction than robotic vacuums. This makes them more effective for deep cleaning, especially on carpets, and for picking up stubborn debris. Robotic vacuums are optimized for consistent, daily cleanup of surface-level dirt and pet hair.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_Nhg9kX": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "4. How long does the battery last on these vacuums?",
+            "open": false,
+            "content": "<p>The battery life varies by model and usage mode. <a href=\"\/collections\/robot-cleaner\" target=\"_blank\" title=\"Robot Cleaners\"><strong>Robotic vacuums<\/strong><\/a> typically run for 60 to 180 minutes on a single charge and will return to their charging dock automatically. <a href=\"\/collections\/cordless-vacuum-cleaners\" target=\"_blank\" title=\"Cordless Vacuum Cleaners\"><strong>Stick vacuums<\/strong><\/a> usually offer a shorter runtime of 20 to 60 minutes, depending on the power setting, and must be manually recharged.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_Qthc8K": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "5. Are robotic vacuums good for homes with pets?",
+            "open": false,
+            "content": "<p>Yes, they are excellent for homes with pets. Many <strong>robotic vacuums<\/strong> are specifically designed to pick up pet hair and dander on a daily basis, helping to keep floors clean and reduce allergens. Some advanced models even feature obstacle avoidance technology to steer clear of pet messes.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_CCjULj": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "6. Do I have to empty the dustbin and clean the filters often?",
+            "open": false,
+            "content": "<p>Yes, regular maintenance is crucial for optimal performance. You should typically empty the dustbin of a <strong>stick vacuum<\/strong> after each use and a <strong>robotic vacuum<\/strong> every few runs. Filters should be cleaned or replaced periodically, usually every 3-6 months, to maintain suction power and air quality.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_pwFkYw": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "7. Is a cordless vacuum's battery life (e.g., the S13 Pro's 55 minutes) sufficient for cleaning my entire home in one go?",
+            "open": false,
+            "content": "<p>A 55-minute runtime is enough for a thorough cleaning in most small to medium-sized homes. For larger homes, you can make use of its fast-charging feature or clean the house in sections.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_KzDjk3",
+        "collapsible_tab_CkNtmf",
+        "collapsible_tab_rneEqe",
+        "collapsible_tab_Nhg9kX",
+        "collapsible_tab_Qthc8K",
+        "collapsible_tab_CCjULj",
+        "collapsible_tab_pwFkYw"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "FAQ",
+        "marker_style": "style1",
+        "description": "<p>Learn more about stick vaccum and robot vacuum and choose the right cleaning partner for you<\/p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_MtEY4x",
+    "breadcrumbs",
+    "rich_text_VHRa67",
+    "template-header",
+    "product-grid",
+    "featured_collection_AdMN6f",
+    "collection_list_ez9Mtb",
+    "spacer_3TCNMR",
+    "collapsible_content_HHAP96"
+  ]
+}

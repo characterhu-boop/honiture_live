@@ -1,0 +1,840 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    /* background-color: #ae3028; */
+  }
+
+  .xmas-one-card-section {
+    max-width: 1200px;
+    padding: 16px;
+    margin: 0 auto;
+  }
+
+
+  .xmas-one-card-countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .xmas-one-card-product {
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    gap: 40px;
+    position: relative;
+    width: 100%;
+    background:#fff;
+  }
+
+  @media (max-width: 768px) {
+    .xmas-one-card-product {
+      height: auto;
+    }
+
+  }
+
+  .xmas-one-card-product-image {
+    flex: 0 0 45%;
+    position: relative;
+    text-align: center;
+  }
+
+  .xmas-one-card-product-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .xmas-one-card-product-image a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .xmas-one-card-badge {
+    position: absolute;
+top: -4px;
+    left: 28px;
+    {% if section.settings.badge_background_image %}
+      background-image: url("{{ section.settings.badge_background_image | img_url: 'master' }}");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    {% else %}
+      background-color: #ff3d00;
+    {% endif %}
+    color: white;
+    width: 77px;
+    height: 75px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1;
+    /* box-shadow: 0 2px 8px rgba(0,0,0,0.2); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .xmas-one-card-badge-text{
+    line-height: 1;
+  }
+  .xmas-one-card-badge-text span{
+    font-size:35px;
+  }
+  .xmas-one-card-product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 60px;
+  }
+
+  .xmas-one-card-product-title {
+    font-size: 24px;
+    font-weight: 600;
+     color:#E83A3A;
+    line-height: 1.3;
+    margin-bottom: 15px;
+  }
+.xmas-one-card-product .countdown-timer__display{
+      justify-content: flex-start;
+}
+  .xmas-one-card-product-desc {
+    color: #000;
+    font-size: 16px;
+    line-height: 1.6;
+    flex: 1;
+  }
+.xmas-one-card-product-desc p{
+  margin-bottom: 8px;
+}
+  .xmas-one-card-product-price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .xmas-one-card-current-price {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .xmas-one-card-original-price {
+    font-size: 20px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  .xmas-one-card-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+  }
+
+  .xmas-one-card-btn {
+ padding: 8px 20px;
+    width: 150px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .xmas-one-card-btn-primary {
+    background-color: #E4E4E4;
+    color: #595959;
+    transition: all 0.3s ease;
+  }
+
+  .xmas-one-card-btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .xmas-one-card-btn-secondary {
+    background: #06503F;
+    color: #fff;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+
+
+  .xmas-one-card-btn-secondary:hover {
+    border-color: #fff;
+    /* transform: translateY(-2px); */
+    box-shadow: 0 4px 12px rgba(255, 132, 0, 0.3);
+  }
+
+  .xmas-one-card-btn-secondary span {
+    position: relative;
+    z-index: 1;
+  }
+  .xmas-one-card-btn-secondary .smax-btn-cap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -24px);
+    width: 90px;
+  }
+
+  .xmax-one-wrap-bg{
+    padding: 20px;background-color: #06503F;border-radius: 10px;
+    }
+  /* 移动端样式 */
+  @media (max-width: 768px) {
+
+  .xmas-one-card-section .countdown-timer{
+      position: absolute;
+        right: -30px;
+        bottom: -30px;
+        transform: scale(0.6);
+  }
+      .xmax-one-wrap-bg{
+        padding: 10px
+      }
+    #shopify-section-{{ section.id }} {
+    }
+    .xmas-one-card-badge{
+        top: -4px;
+        left: 10px;
+        padding: 0;
+        text-align: center;
+        font-size: 10px;
+        width: 60px;
+        height: 60px;
+    }
+      .xmas-one-card-product-content {
+        padding-right: 0;
+        width: 100%;
+      }
+
+    .xmas-one-card-badge p{
+      font-size: 12px;
+    }
+    .xmas-one-card-section {
+      padding: 0px 15px;
+    }
+    .xmas-one-card-product-image img {
+        width: 100%;
+      object-fit: cover;
+      transform: scale(1.1);
+    }
+    .xmas-one-card-product-image a{
+      transform: unset;
+    }
+
+    .xmas-one-card-product {
+      flex-direction: column;
+      padding: 1px;
+      gap: 15px;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .xmas-one-card-product-image {
+      flex: none;
+      width: 100%;
+    }
+
+    .xmas-one-card-product-title {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 30px;
+    }
+
+    .xmas-one-card-product-desc {
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+  
+    .xmas-one-card-product-price {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .xmas-one-card-current-price {
+      font-size: 24px;
+    }
+
+    .xmas-one-card-original-price {
+      font-size: 16px;
+    }
+
+    .xmas-one-card-buttons {
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .xmas-one-card-btn {
+      width: 120px;
+        padding: 6px 12px;
+        font-size: 12px;
+      margin: 0 0 10px;
+    }
+    .xmas-one-card-badge-text span{
+      font-size:20px;
+    }
+
+  }
+
+
+{%- endstyle -%}
+
+<div class="section xmas-one-card-section">
+
+  {% render 'xmas-section-header', section: section %}
+
+  <div style="" class="xmax-one-wrap-bg">
+    <div class="xmas-one-card-product">
+        {% if section.settings.show_discount_badge %}
+          <span class="xmas-one-card-badge" >
+            <span class="xmas-one-card-badge-text">
+              <span>{{ section.settings.badge_text }}</span><br>%OFF 
+            </span>
+          </span>
+        {% endif %}
+      <div class="xmas-one-card-product-image pc-only">
+        <a href="{{ section.settings.product.url }}" target="_blank">
+          {%- if section.settings.custom_product_image != nil -%}
+            {{
+              section.settings.custom_product_image
+              | image_url: width: 800
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(max-width: 768px) 100vw, 45vw',
+                alt: section.settings.product.title
+            }}
+          {%- else -%}
+            {{
+              section.settings.product.featured_image
+              | image_url: width: 800
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(max-width: 768px) 100vw, 45vw',
+                alt: section.settings.product.title
+            }}
+          {%- endif -%}
+        </a>
+      </div>
+      
+      <div class="xmas-one-card-product-content">
+
+        {% comment %} 移动端才显示 {% endcomment %}
+        <div class="xmas-one-card-product-image mobile-only">
+          {%- assign product_obj = section.settings.product -%}
+          {%- if product_obj != blank and product_obj.title != blank -%}
+            {%- assign alt_text = product_obj.title -%}
+          {%- else -%}
+            {%- assign alt_text = '' -%}
+          {%- endif -%}
+
+          {%- if product_obj != blank and product_obj.url != blank -%}
+            <a href="{{ product_obj.url }}" target="_blank">
+          {%- endif -%}
+
+          {%- if section.settings.custom_product_image_m != nil and section.settings.custom_product_image_m != blank -%}
+            {{
+              section.settings.custom_product_image_m
+              | image_url: width: 800
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(max-width: 768px) 100vw, 45vw',
+                alt: alt_text
+            }}
+          {%- elsif product_obj != blank and product_obj.xmas_image != blank -%}
+            {{
+              product_obj.xmas_image
+              | image_url: width: 800
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(max-width: 768px) 100vw, 45vw',
+                alt: alt_text
+            }}
+          {%- elsif product_obj != blank and product_obj.featured_image != blank -%}
+            {{
+              product_obj.featured_image
+              | image_url: width: 800
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(max-width: 768px) 100vw, 45vw',
+                alt: alt_text
+            }}
+          {%- else -%}
+            <div class="image-placeholder" aria-hidden="true"></div>
+          {%- endif -%}
+
+          {%- if product_obj != blank and product_obj.url != blank -%}
+            </a>
+          {%- endif -%}
+
+        {% for block in section.blocks %}
+          {% if block.type == 'count-down' %}
+            {% render 'count-down', block: block,  cusId: 0 %}
+          {% endif %}
+        {% endfor %}
+
+        </div>
+
+
+
+        <a href="{{ section.settings.product.url }}" target="_blank" class="xmas-one-card-product-title">
+          {{ section.settings.product_title | default: section.settings.product.title }}
+        </a>
+        <div class="xmas-one-card-product-desc">
+          {{ section.settings.product_desc | default: section.settings.product.description }}
+        </div>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'count-down' %}
+            {% render 'count-down', block: block, class:'pc-only', cusId: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% comment %} 优先展示自定义价格 {% endcomment %}
+        <div class="xmas-one-card-product-price">
+              {% if section.settings.custom_sale_price != blank %}
+                      <span class="xmas-one-card-current-price">{{ section.settings.custom_sale_price | money }}</span>
+              {% else %}
+                      <span class="xmas-one-card-current-price">{{ section.settings.product.price | money }}</span>
+              {% endif %}
+
+              {% if section.settings.custom_compare_price != blank %}
+              <span class="xmas-one-card-original-price">{{ section.settings.custom_compare_price | money }}</span>
+              {% else %}
+                    {% if section.settings.product.compare_at_price > section.settings.product.price %}
+                      <span class="xmas-one-card-original-price">{{ section.settings.product.compare_at_price | money }}</span>
+                    {% endif %}
+              {% endif %}
+
+        </div>
+              {% comment %} 复制折扣码 {% endcomment %}
+        <div class="xmas-one-card-buttons">
+          {% comment %} <a  href="/cart/add?id={{ section.settings.product.selected_or_first_available_variant.id }}"
+            class="xmas-one-card-btn xmas-one-card-btn-primary" target="_blank">
+            {{ section.settings.learn_more }}
+          </a> {% endcomment %}
+          {% comment %} shop now 按钮 {% endcomment %}
+          {% comment %} <a href="/cart/add?id={{ section.settings.product.selected_or_first_available_variant.id }}&return_to=/checkout"
+            class="xmas-one-card-btn xmas-one-card-btn-secondary" target="_blank">
+            <span>{{ section.settings.shop_now }}</span>
+            <img class="smax-btn-cap"  src="{{ 'xmax-icon6.png' | asset_url }}" alt="" loading="lazy">
+          </a> {% endcomment %}
+          <a href="{{ section.settings.product.url }}"
+            class="xmas-one-card-btn xmas-one-card-btn-secondary" target="_blank">
+            <span>{{ section.settings.shop_now }}</span>
+            <img class="smax-btn-cap"  src="{{ 'xmax-icon6.png' | asset_url }}" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Xmas One Card",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header 设置"
+    },
+        {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "限时优惠 立省20%"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "副标题",
+      "default": "Combination Offers 8%"
+    },
+    {
+      "type": "text",
+      "id": "view_more_label",
+      "label": "右侧按钮文本",
+      "default": "View More"
+    },
+    {
+      "type": "url",
+      "id": "view_more_link",
+      "label": "右侧按钮链接",
+      "default": "/collections/all"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icons",
+      "label": "主标题左右显示图标",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "title_icon",
+      "label": "主标题图标图片（左右同图，右侧镜像）"
+    },
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "label": "主标题图标尺寸",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "title_icon_mirror_right",
+      "label": "右侧图标镜像显示",
+      "default": true
+    },
+
+    {
+      "type": "product",
+      "id": "product",
+      "label": "选择产品"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_product_image",
+      "label": "自定义产品图"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_product_image_m",
+      "label": "自定义产品图"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "自定义产品标题",
+      "info": "留空则使用产品默认标题"
+    },
+        {
+      "type": "header",
+      "content": "Price Settings"
+    },
+    {
+      "type": "text",
+      "id": "custom_sale_price",
+      "label": "Custom Sale Price",
+      "info": "Enter custom sale price (e.g., $99.99). Leave blank to use product's original price."
+    },
+    {
+      "type": "text",
+      "id": "custom_compare_price",
+      "label": "Custom Compare At Price",
+      "info": "Enter custom compare at price (e.g., $129.99). Leave blank to use product's original compare at price."
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_background_image",
+      "label": "标题背景图片"
+    },
+    {
+      "type": "richtext",
+      "id": "product_desc",
+      "label": "自定义产品描述",
+      "info": "留空则使用产品默认描述"
+    },
+
+
+    {
+      "type": "header",
+      "content": "折扣标签设置"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_discount_badge",
+      "label": "显示折扣标签",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "自定义标签文字",
+      "default": "50"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_background_image",
+      "label": "标签背景图片"
+    },
+    {
+      "type": "header",
+      "content": "按钮设置"
+    },
+    {
+      "type": "text",
+      "id": "shop_now",
+      "label": "Shop now text",
+      "default": "Shop now"
+    },
+    {
+      "type": "text",
+      "id": "learn_more",
+      "label": "Learn more Text",
+      "default": "Learn more"
+    },
+    {
+      "type": "header",
+      "content": "产品图片设置"
+    }
+
+  ],
+    "blocks": [
+      {
+        "type": "count-down",
+        "name": "countdown",
+        "settings": [
+          {
+              "type": "header",
+              "content": "Count down Settings"
+            },
+            {
+            "type": "text",
+            "id": "end_date",
+            "label": "结束日期和时间",
+            "info": "格式: YYYY-MM-DD HH:MM:SS (例如: 2023-12-31 23:59:59)",
+            "default": "2023-12-31 23:59:59"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "标题"
+          },
+          {
+            "type": "text",
+            "id": "message",
+            "label": "结束消息"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_on_complete",
+            "label": "结束后隐藏组件",
+            "default": false
+          },
+          {
+            "type": "header",
+            "content": "显示选项"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_days",
+            "label": "显示天数",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "show_hours",
+            "label": "显示小时",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "show_minutes",
+            "label": "显示分钟",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "show_seconds",
+            "label": "显示秒数",
+            "default": true
+          },
+          {
+            "type": "header",
+            "content": "样式选项"
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "样式",
+            "options": [
+              {
+                "value": "minimal",
+                "label": "简约"
+              },
+              {
+                "value": "rounded",
+                "label": "圆角"
+              },
+              {
+                "value": "boxed",
+                "label": "盒状"
+              },
+              {
+                "value": "modern",
+                "label": "现代"
+              }
+            ],
+            "default": "modern"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "文本对齐",
+            "options": [
+              {
+                "value": "left",
+                "label": "左对齐"
+              },
+              {
+                "value": "center",
+                "label": "居中"
+              },
+              {
+                "value": "right",
+                "label": "右对齐"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "numbers_size",
+            "label": "数字大小",
+            "options": [
+              {
+                "value": "small",
+                "label": "小"
+              },
+              {
+                "value": "medium",
+                "label": "中"
+              },
+              {
+                "value": "large",
+                "label": "大"
+              },
+              {
+                "value": "x-large",
+                "label": "超大"
+              }
+            ],
+            "default": "large"
+          },
+          {
+            "type": "select",
+            "id": "labels_size",
+            "label": "标签大小",
+            "options": [
+              {
+                "value": "small",
+                "label": "小"
+              },
+              {
+                "value": "medium",
+                "label": "中"
+              },
+              {
+                "value": "large",
+                "label": "大"
+              }
+            ],
+            "default": "small"
+          },
+          {
+            "type": "header",
+            "content": "颜色设置"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "背景颜色",
+            "default": "#f9f9f9"
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "标题颜色",
+            "default": "#333333"
+          },
+          {
+            "type": "color",
+            "id": "numbers_color",
+            "label": "数字颜色",
+            "default": "#ffffff"
+          },
+          {
+            "type": "color",
+            "id": "numbers_background",
+            "label": "数字背景颜色",
+            "default": "#ff3d00"
+          },
+          {
+            "type": "color",
+            "id": "labels_color",
+            "label": "标签颜色",
+            "default": "#666666"
+          },
+          {
+            "type": "color",
+            "id": "message_color",
+            "label": "结束消息颜色",
+            "default": "#ff3d00"
+          },
+          {
+            "type": "header",
+            "content": "间距设置"
+          },
+          {
+            "type": "range",
+            "id": "padding_top",
+            "label": "上内边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 30
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "下内边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 30
+          },
+          {
+            "type": "range",
+            "id": "margin_top",
+            "label": "上外边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "margin_bottom",
+            "label": "下外边距",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "default": 30
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "Xmas One Card"
+    }
+  ]
+}
+{% endschema %}

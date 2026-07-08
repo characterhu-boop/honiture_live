@@ -1,0 +1,234 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "single_image_EBthHf": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1a9bbe638bfcfce28365807f959f981.png",
+        "full_width": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_zTwJTL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6iVWm8": {
+          "type": "heading",
+          "settings": {
+            "text": "How it works?",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6iVWm8"
+      ],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_TCEMCX": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_Q9AgD4": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/icons8-1st-100.png",
+            "heading": "",
+            "text": "<p>Subscribe to us<\/p>"
+          }
+        },
+        "icon_E3fgJA": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/icons8-circled-2-100.png",
+            "heading": "",
+            "text": "<p>Submit a Trial Request<\/p>"
+          }
+        },
+        "icon_BARtBM": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/icons8-circled-3-100.png",
+            "heading": "",
+            "text": "<p>We will review your application and notify you of the result within 48 hours.<\/p>"
+          }
+        },
+        "icon_PVK4jB": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/icons8-circled-4-100.png",
+            "heading": "",
+            "text": "<p>If your review is approved, we will send the product as soon as possible!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_Q9AgD4",
+        "icon_E3fgJA",
+        "icon_BARtBM",
+        "icon_PVK4jB"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "large",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "email_signup_4KbheJ": {
+      "type": "email-signup",
+      "blocks": {
+        "heading_id8paA": {
+          "type": "heading",
+          "settings": {
+            "text": "Subscribe to us",
+            "heading_size": "h3"
+          }
+        },
+        "text_86WPGB": {
+          "type": "text",
+          "settings": {
+            "text": "Don't miss the chance to try any of our products for free!",
+            "description_size": "medium"
+          }
+        },
+        "form_ygCTHq": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_id8paA",
+        "text_86WPGB",
+        "form_ygCTHq"
+      ],
+      "settings": {
+        "full_width": false,
+        "background_image": "shopify:\/\/shop_images\/BJ.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#ffffff",
+        "color_heading": "#ffffff",
+        "color_border": "#d3d3d3",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_6gFnHk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3zWKLr": {
+          "type": "heading",
+          "settings": {
+            "text": "Contact Us For Free Trial",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_eYztN8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Calling all testing enthusiasts who have a deep love for cleaners! We highly value your input, as your creativity and unique perspective will enable more customers to benefit from your insights and make informed choices.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3zWKLr",
+        "text_eYztN8"
+      ],
+      "custom_css": [],
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "linear-gradient(272deg, rgba(251, 83, 83, 1), rgba(247, 214, 153, 1) 100%)",
+        "color_text": "#303132",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "contact_form_KeQFpg": {
+      "type": "contact-form",
+      "blocks": {
+        "text_field_zxa3mw": {
+          "type": "text_field",
+          "settings": {
+            "title": "Country",
+            "use_long_text": false,
+            "is_required": true
+          }
+        },
+        "dropdown_field_eH8LGp": {
+          "type": "dropdown_field",
+          "settings": {
+            "title": "Model",
+            "values": "value 1, value 2, value 3"
+          }
+        },
+        "dropdown_field_ngre6U": {
+          "type": "dropdown_field",
+          "settings": {
+            "title": "Custom field",
+            "values": "value 1, value 2, value 3"
+          }
+        }
+      },
+      "block_order": [
+        "text_field_zxa3mw",
+        "dropdown_field_eH8LGp",
+        "dropdown_field_ngre6U"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "show_phone_number": false,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "single_image_EBthHf",
+    "rich_text_zTwJTL",
+    "text_with_icons_TCEMCX",
+    "email_signup_4KbheJ",
+    "rich_text_6gFnHk",
+    "contact_form_KeQFpg"
+  ]
+}

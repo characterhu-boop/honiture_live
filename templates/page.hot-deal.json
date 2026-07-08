@@ -1,0 +1,1077 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_overlay_zbpRQN": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_WDGPfn": {
+          "type": "heading",
+          "settings": {
+            "text": "Upgrade Your Cleaning This Memorial Day",
+            "heading_size": "h2",
+            "heading_tag": "h2"
+          }
+        },
+        "text_apXPUk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Up to 67% OFF Robot Vacuums & Vacuum Cleaners<\/p>",
+            "description_size": "medium"
+          }
+        },
+        "newsletter_myf6ie": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Be the First to Grab the Best Offers",
+            "placeholder": "Email Address",
+            "button_text": "SUBSCRIBE",
+            "agreement_text": "<p>I agree to the HONITURE's Privacy Policy and Terms of Service.<\/p>",
+            "btn_bg_color": "#00d0cd",
+            "btn_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WDGPfn",
+        "text_apXPUk",
+        "newsletter_myf6ie"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/honiture-vacuum-cleaner-memorial-day-sale-banner_2.webp",
+        "mobile_image": "shopify:\/\/shop_images\/honiture-vacuum-cleaner-memorial-day-sale-banner_4.webp",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-auto",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-left",
+        "text_alignment": "left",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "sticky_nav_WEec8f": {
+      "type": "sticky-nav",
+      "blocks": {
+        "nav_item_CDVEfd": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Cordless Vacuums Deal",
+            "target_id": "shopify-section-template--21727532482607__md_best_seller_cKf98m"
+          }
+        },
+        "nav_item_3yqymx": {
+          "type": "nav_item",
+          "settings": {
+            "title": "New Arrival",
+            "target_id": "shopify-section-template--21727532482607__md_product_acc_Vpyg4L"
+          }
+        },
+        "nav_item_Lm7Gtp": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Robot Vacuum Deal",
+            "target_id": "shopify-section-template--21727532482607__md_limited_sale_88LEUW"
+          }
+        },
+        "nav_item_RYpi8d": {
+          "type": "nav_item",
+          "disabled": true,
+          "settings": {
+            "title": "Accessory Deal",
+            "target_id": "shopify-section-template--21566807539759__acc_tab_UMJRcC"
+          }
+        }
+      },
+      "block_order": [
+        "nav_item_CDVEfd",
+        "nav_item_3yqymx",
+        "nav_item_Lm7Gtp",
+        "nav_item_RYpi8d"
+      ],
+      "custom_css": [
+        ".sticky-nav__link:hover,.sticky-nav__link.active {border: none; color: #e44d4d; border-radius: 99px; justify-content: center; background: linear-gradient(90deg, #ffcfcf 0%, #ffd9ae 100%), linear-gradient(90deg, #fae9c8 0%, #efd2a0 100%), linear-gradient(0deg, #be7f4c, #be7f4c), #845e3c;}",
+        ".sticky-nav__link {transition: unset; padding: 5px 20px;}"
+      ],
+      "name": "Sticky Navigation",
+      "settings": {
+        "enable_sticky": true,
+        "top_position": 55,
+        "top_position_mobile": 40,
+        "background": "#00d0cd",
+        "text_color": "#000000",
+        "active_background": "#f5f5f5",
+        "active_text_color": "#000000",
+        "hide_on_mobile": false
+      }
+    },
+    "md_offer_subscribe_QxmjPw": {
+      "type": "md-offer-subscribe",
+      "blocks": {
+        "decoration_jAQqCW": {
+          "type": "decoration",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_1_1.png",
+            "top": 10,
+            "left": 10,
+            "width": 100,
+            "z_index": 1,
+            "hide_on_mobile": false,
+            "hide_on_pc": false,
+            "rotation": 0,
+            "mobile_top": 10,
+            "mobile_left": 0,
+            "mobile_width": 100,
+            "mobile_z_index": 1,
+            "mobile_rotation": 0,
+            "top_offset": 0,
+            "left_offset": 0
+          }
+        },
+        "header_ABBMUC": {
+          "type": "header",
+          "settings": {
+            "title": "Exclusive Offers Only Available in Official",
+            "title_color": "#6c5a48",
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "sub_heading": "",
+            "show_sub_heading": true,
+            "sub_heading_color": "#ffffff",
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#ffffff",
+            "view_more_border_color": "#ffffff",
+            "show_title_icons": false,
+            "title_icon_mirror_right": true,
+            "title_icon_size": 40,
+            "title_icon_size_mobile": 32,
+            "margin_bottom": 50
+          }
+        },
+        "offer_main_GJ6JHx": {
+          "type": "offer_main",
+          "settings": {
+            "title": "Perfect Gifts for Mom",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/33_1_1.webp",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_main_H4Npje": {
+          "type": "offer_main",
+          "settings": {
+            "title": "More Value in Bundle",
+            "sub_title": "",
+            "image": "shopify:\/\/shop_images\/Group_231.webp",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_side_cKEgVb": {
+          "type": "offer_side",
+          "settings": {
+            "title": "Early Bird Savings",
+            "sub_title": "",
+            "icon": "shopify:\/\/shop_images\/honiture_sale_icon_5.png",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_side_mNQt9C": {
+          "type": "offer_side",
+          "settings": {
+            "title": "Limited-Time Offers",
+            "sub_title": "",
+            "icon": "shopify:\/\/shop_images\/honiture_sale_icon_6.png",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "offer_side_tVDziA": {
+          "type": "offer_side",
+          "settings": {
+            "title": "Extra Rewards Await",
+            "sub_title": "",
+            "icon": "shopify:\/\/shop_images\/honiture_sale_icon_8.png",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "coupon_UxMwLx": {
+          "type": "coupon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_212.webp",
+            "caption": "Spend $200 — Get $15 back",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        },
+        "coupon_tBReYH": {
+          "type": "coupon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_210.png",
+            "caption": "Spend $300 → Get $25 back",
+            "button_label": "",
+            "link": "",
+            "bg_color": "#ffffff",
+            "text_color": "#2b2420"
+          }
+        }
+      },
+      "block_order": [
+        "decoration_jAQqCW",
+        "header_ABBMUC",
+        "offer_main_GJ6JHx",
+        "offer_main_H4Npje",
+        "offer_side_cKEgVb",
+        "offer_side_mNQt9C",
+        "offer_side_tVDziA",
+        "coupon_UxMwLx",
+        "coupon_tBReYH"
+      ],
+      "disabled": true,
+      "name": "MD Offer Subscribe",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "content_max_width": 1200,
+        "section_bg": "",
+        "card_bg": "",
+        "text_color": "#2b2420",
+        "button_bg": "#00bfb8",
+        "button_text_color": "#ffffff",
+        "border_color": "#2b2420",
+        "card_radius": 14,
+        "grid_gap": 16,
+        "offer_media_height": 260,
+        "card_title_size": 16,
+        "card_title_size_mobile": 12,
+        "card_sub_title_size": 12,
+        "card_sub_title_size_mobile": 11,
+        "activity_id": "16",
+        "is_test": false,
+        "discount_title": "Spend & Get Rewards",
+        "discount_placeholder": "Email Address",
+        "discount_button_label": "Claim Now",
+        "discount_success_label": "Submitted successfully",
+        "discount_success_message": "Thanks for your order! Gift card will be sent by email after review.",
+        "discount_desc": "After placing your order, enter your order number to claim. The reward will be credited to your account as a gift card within 2 business days, with no restrictions on use."
+      }
+    },
+    "xmas_one_year_ebiacV": {
+      "type": "xmas-one-year",
+      "blocks": {
+        "count_down_extcUf": {
+          "type": "count-down",
+          "settings": {
+            "end_date": "2023-05-20 15:00:00",
+            "heading": "",
+            "message": "",
+            "hide_on_complete": true,
+            "show_days": true,
+            "show_hours": true,
+            "show_minutes": true,
+            "show_seconds": true,
+            "style": "modern",
+            "text_alignment": "center",
+            "numbers_size": "large",
+            "labels_size": "small",
+            "background_color": "#ffffff",
+            "heading_color": "#333333",
+            "numbers_color": "#00d0cd",
+            "numbers_background": "#ff3d00",
+            "labels_color": "#666666",
+            "message_color": "#ff3d00",
+            "padding_top": 20,
+            "padding_bottom": 20
+          }
+        },
+        "wrap_bg_ViEmVW": {
+          "type": "wrap_bg",
+          "settings": {
+            "image_position": "left",
+            "product": "x7",
+            "custom_product_image": "shopify:\/\/shop_images\/X7-2.png",
+            "custom_product_image_m": "shopify:\/\/shop_images\/x7-vaccum-honiture.jpg",
+            "product_title": "",
+            "custom_sale_price": "",
+            "custom_compare_price": "",
+            "extra_discount": 10,
+            "product_desc": "<p>Unmatched Value: Multi-surface cleaning and strong suction at an unbeatable price.<\/p>",
+            "discount_code_label": "Code:",
+            "discount_code": "",
+            "show_discount_badge": true,
+            "badge_bg_image": "shopify:\/\/shop_images\/Vector_41.png",
+            "badge_top": 0,
+            "badge_left": 0,
+            "badge_text": "55%",
+            "text_nowrap": false,
+            "product_top_logo_width": 60,
+            "product_custom_label": "",
+            "product_custom_label_color": "#00ced1",
+            "shop_now": "Shop now",
+            "dec_1_top": 0,
+            "dec_1_left": 90,
+            "dec_1_width": 100,
+            "dec_2_top": 10,
+            "dec_2_left": 10,
+            "dec_2_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "count_down_extcUf",
+        "wrap_bg_ViEmVW"
+      ],
+      "disabled": true,
+      "name": "Xmas One Year (Custom)",
+      "settings": {
+        "title": "限时优惠 立省20%",
+        "sub_heading": "Combination Offers 8%",
+        "show_sub_heading": true,
+        "view_more_label": "",
+        "view_more_link": "",
+        "show_title_icons": false,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true
+      }
+    },
+    "countdown_banner_fUhVWh": {
+      "type": "countdown-banner",
+      "disabled": true,
+      "name": "Countdown banner",
+      "settings": {
+        "full_width": false,
+        "section_layout": "vertical",
+        "desktop_height": "desktop-height-auto",
+        "mobile_height": "mobile-height-auto",
+        "subheading": "",
+        "heading": "",
+        "heading_size": "h2",
+        "content": "",
+        "content_size": "small",
+        "button_text": "",
+        "button_link": "",
+        "timer_year": 2026,
+        "timer_month": "05",
+        "timer_day": "18",
+        "timer_hour": "15",
+        "timer_minute": "00",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 10,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "md_best_seller_cKf98m": {
+      "type": "md-best-seller",
+      "blocks": {
+        "large_card_kBQynC": {
+          "type": "large_card",
+          "settings": {
+            "product": "x7",
+            "image": "shopify:\/\/shop_images\/honiture_x7_cordless_vacuum_cleaner_hot_deal.jpg",
+            "layout_direction": "left",
+            "discount_bg": "shopify:\/\/shop_images\/Group_221.png",
+            "discount_text": "55%",
+            "badge_text_nowrap": true,
+            "tag_text": "No.1 Best Seller",
+            "title": "Honiture X7 Cordless Vacuum",
+            "description": "<p>Unmatched Value: Multi-surface cleaning and strong suction at an unbeatable price.<\/p>",
+            "custom_icon": "shopify:\/\/shop_images\/Group_288_1.png",
+            "price": "",
+            "extra_discount": 10,
+            "code": "MDSX710",
+            "code_label": "Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "large_card_RRNqay": {
+          "type": "large_card",
+          "settings": {
+            "product": "p7-pro-cordless-vacuum",
+            "image": "shopify:\/\/shop_images\/Honiiture-p7-pro-cordless-vacuum-50kpa-new-product.webp",
+            "layout_direction": "right",
+            "discount_bg": "shopify:\/\/shop_images\/Group_221.png",
+            "discount_text": "",
+            "badge_text_nowrap": true,
+            "tag_text": "No.2 Best Seller",
+            "title": "Honiture P7 Pro Cordless Vacuum",
+            "description": "<p>Clean in Style: Elegant Champagne Gold Design, Aroma Slot & Long-Lasting Power.<br\/><br\/><\/p>",
+            "custom_icon": "shopify:\/\/shop_images\/Group_284.png",
+            "price": "",
+            "extra_discount": 0,
+            "code": "",
+            "code_label": "Code:",
+            "btn_text": "Shop Now",
+            "btn_link": "shopify:\/\/products\/p7-pro-cordless-vacuum"
+          }
+        },
+        "large_card_cwjrGe": {
+          "type": "large_card",
+          "settings": {
+            "product": "y10-cordless-stick-vacuum",
+            "image": "shopify:\/\/shop_images\/honiture-y10-cordless-vaccum-easter-day-sale.webp",
+            "layout_direction": "left",
+            "discount_bg": "shopify:\/\/shop_images\/Group_221.png",
+            "discount_text": "67%",
+            "badge_text_nowrap": true,
+            "tag_text": "Budget-Friendly Pick",
+            "title": "Honiture Y10 Cordless Vacuum",
+            "description": "<p>Best Budget Vacuum with a green dust-detection light. Lightweight and easy to handle.<\/p>",
+            "custom_icon": "shopify:\/\/shop_images\/Group_1739332485_1.png",
+            "price": "",
+            "extra_discount": 15,
+            "code": "MDSY1015",
+            "code_label": "Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "large_card_kBQynC",
+        "large_card_RRNqay",
+        "large_card_cwjrGe"
+      ],
+      "custom_css": [
+        ".xmax_section__title {color: #6c5a48;}"
+      ],
+      "name": "MD Best Seller",
+      "settings": {
+        "title": "🎁 Memorial Day Top Picks 🎁",
+        "show_title_icons": true,
+        "title_icon_size": 36,
+        "title_icon_size_mobile": 24,
+        "title_icon_mirror_right": true,
+        "sub_heading": "Refresh your home this holiday weekend with our bestselling cordless vacuums.",
+        "view_more_link": "",
+        "view_more_label": "View More",
+        "show_header_divider": false,
+        "header_divider_color": "#ffffff",
+        "line_position_top": 90,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "bg_color": "#fffefa"
+      }
+    },
+    "md_product_acc_Vpyg4L": {
+      "type": "md-product-acc",
+      "blocks": {
+        "header_A33HGX": {
+          "type": "header",
+          "settings": {
+            "title": "✨Perfect for Pet Owners✨",
+            "title_color": "#212121",
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "sub_heading": "Meet the new X7 Pet Version — designed to keep your home fresh and fur-free.",
+            "show_sub_heading": true,
+            "sub_heading_color": "#6c5a48",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 14,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#2b2420",
+            "view_more_border_color": "#2b2420",
+            "show_title_icons": true,
+            "title_icon_mirror_right": true,
+            "title_icon_size": 60,
+            "title_icon_size_mobile": 32,
+            "text_align": "center",
+            "margin_bottom": 50
+          }
+        },
+        "card_izEqHm": {
+          "type": "card",
+          "settings": {
+            "main_product": "pet-version-cordless-vacuum-x7",
+            "extra_discount_percent": 10,
+            "bg_image": "shopify:\/\/shop_images\/Rectangle_33.webp",
+            "bg_image_mobile": "shopify:\/\/shop_images\/honiture-pet-version-cordless-vacuum.jpg",
+            "discount_text": "58%",
+            "tag_text": "New Arrival",
+            "tag_bg": "linear-gradient(267deg, rgba(255, 217, 174, 1) 4%, rgba(255, 207, 207, 1) 97%)",
+            "tag_text_color": "",
+            "title": "Honiture X7 PET Vacuum",
+            "desc": "Powerful, multi-surface cleaning for pet hair and mess—now at an unbeatable value. Comes with 6 versatile cleaning attachments.",
+            "coupon_image": "shopify:\/\/shop_images\/Group_286_1.png",
+            "coupon_code": "MDSX7PET10",
+            "shop_now_label": "",
+            "shop_now_link": "",
+            "acc_product_1": "pet-grooming-kit-for-honiture-x7",
+            "acc_title_1": "",
+            "acc_product_2": "anti-mite-brush-for-honiture-x7",
+            "acc_title_2": "",
+            "acc_product_3": "sofa-flat-brush-for-honiture-x7",
+            "acc_title_3": "",
+            "acc_product_4": "flexible-extension-hose-for-honiture-x7",
+            "acc_title_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "header_A33HGX",
+        "card_izEqHm"
+      ],
+      "name": "MD Product Acc",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "content_max_width": 1200,
+        "section_bg": "#ffe4",
+        "card_bg": "#ffffff",
+        "text_color": "#2b2420",
+        "discount_bg_img": "shopify:\/\/shop_images\/Group_221.png",
+        "discount_width": 76,
+        "discount_height": 76,
+        "discount_width_mobile": 90,
+        "discount_height_mobile": 90,
+        "discount_bg": "#ff6b6b",
+        "tag_text": "Great Gift",
+        "tag_bg": "#ffe2e8",
+        "tag_text_color": "#b61c4f",
+        "shop_now_label": "Shop Now"
+      }
+    },
+    "sp_best_seller_ytf6tb": {
+      "type": "sp-best-seller",
+      "blocks": {
+        "large_card_Jj7TGn": {
+          "type": "large_card",
+          "settings": {
+            "product": "nl-steelstofzuiger-x7",
+            "image": "shopify:\/\/shop_images\/honiture-vaccumx7-vacuum-cleaner-specifically-for-pets-home..jpg",
+            "discount_text": "8% OFF",
+            "badge_text_nowrap": false,
+            "tag_text": "sss",
+            "title": "Honiture X7 Cordless Vacuum",
+            "description": "<p>Unmatched Value: Multi-Surface Cleaning <br\/>andStrong Suction at an Unbeatable Price!<\/p>",
+            "price": "",
+            "extra_discount": 0,
+            "code": "xxx",
+            "code_label": "Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "large_card_zKAYJD": {
+          "type": "large_card",
+          "settings": {
+            "product": "nl-steelstofzuiger-x7",
+            "image": "shopify:\/\/shop_images\/honiture-vaccumx7-vacuum-cleaner-specifically-for-pets-home..jpg",
+            "discount_text": "8% OFF",
+            "badge_text_nowrap": false,
+            "tag_text": "sss",
+            "title": "Honiture X7 Cordless Vacuum",
+            "description": "<p>Unmatched Value: Multi-Surface Cleaning <br\/>andStrong Suction at an Unbeatable Price!<\/p>",
+            "price": "",
+            "extra_discount": 0,
+            "code": "xxx",
+            "code_label": "Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "large_card_3e6b9R": {
+          "type": "large_card",
+          "settings": {
+            "product": "nl-steelstofzuiger-x7",
+            "image": "shopify:\/\/shop_images\/honiture-vaccumx7-vacuum-cleaner-specifically-for-pets-home..jpg",
+            "discount_text": "8% OFF",
+            "badge_text_nowrap": false,
+            "tag_text": "sss",
+            "title": "Honiture X7 Cordless Vacuum",
+            "description": "<p>Unmatched Value: Multi-Surface Cleaning <br\/>andStrong Suction at an Unbeatable Price!<\/p>",
+            "price": "",
+            "extra_discount": 0,
+            "code": "xxx",
+            "code_label": "Code:",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "large_card_Jj7TGn",
+        "large_card_zKAYJD",
+        "large_card_3e6b9R"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".xmax_section__title {color: #6c5a48;}",
+        ".xmax_section__title {color: #6c5a48;}"
+      ],
+      "name": "SP Best Seller",
+      "settings": {
+        "title": "Flash Sale",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_size_mobile": 30,
+        "title_icon_mirror_right": true,
+        "sub_heading": "",
+        "view_more_link": "",
+        "view_more_label": "View More",
+        "show_header_divider": false,
+        "header_divider_color": "#ffffff",
+        "line_position_top": 90,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "bg_color": "#f6efe7"
+      }
+    },
+    "md_bundle_gift_3wnVmn": {
+      "type": "md-bundle-gift",
+      "blocks": {
+        "header_wVCFtK": {
+          "type": "header",
+          "settings": {
+            "title": "Thoughtful Gift Bundles",
+            "title_color": "#6c5a48",
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "sub_heading": "All-in-one sets with everything she needs.",
+            "show_sub_heading": true,
+            "sub_heading_color": "#2b2420",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 14,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#2b2420",
+            "view_more_border_color": "#2b2420",
+            "show_title_icons": true,
+            "title_icon": "shopify:\/\/shop_images\/honiture_sale_icon_1.png",
+            "title_icon_mirror_right": true,
+            "title_icon_size": 60,
+            "title_icon_size_mobile": 32,
+            "text_align": "center",
+            "margin_bottom": 50
+          }
+        },
+        "hero_jqnbth": {
+          "type": "hero",
+          "settings": {
+            "title": "",
+            "desc": "Bring more value and joy this Mother’s Day.",
+            "image": "shopify:\/\/shop_images\/Rectangle_36_1.webp",
+            "image_mobile": "shopify:\/\/shop_images\/honiture-vacuums-sale-on-monther-s-day.jpg",
+            "link": "shopify:\/\/collections\/vacuum-bundle",
+            "open_in_new_tab": false
+          }
+        },
+        "bundle_JeMLBT": {
+          "type": "bundle",
+          "settings": {
+            "featured": true,
+            "bow_image": "shopify:\/\/shop_images\/image_218.png",
+            "discount_text": "52% OFF",
+            "discount_bg": "shopify:\/\/shop_images\/Vector_2_3ea28f9c-5714-4716-a549-6679965d8631.png",
+            "product": "honiture-p7-pro-cordless-vacuum-t10-robot-vacuum",
+            "product_image": "shopify:\/\/shop_images\/honiture_mothers_day_vacuum_bundle_set_2.jpg",
+            "product_title": "",
+            "custom_title_left": "<p>P7 Pro Cordless Vacuum & T10 Robot Vacuum Set<\/p>",
+            "custom_title_right": "",
+            "product_sub": "Most-Loved Pairing: A perfect duo for every surface—enjoy bundle savings.",
+            "gift_product": "",
+            "gift_title": "",
+            "free_badge": "FREE",
+            "include_gift_in_cart": false,
+            "sale_price": "",
+            "compare_price": "",
+            "add_to_cart_label": "",
+            "shop_now_label": "",
+            "shop_now_link": ""
+          }
+        },
+        "bundle_VQUiVe": {
+          "type": "bundle",
+          "settings": {
+            "featured": true,
+            "bow_image": "shopify:\/\/shop_images\/image_218.png",
+            "discount_text": "51% OFF",
+            "discount_bg": "shopify:\/\/shop_images\/Vector_2_3ea28f9c-5714-4716-a549-6679965d8631.png",
+            "product": "honiture-x7-cordless-vacuum-and-g20-pro-robot-vacuum",
+            "product_image": "shopify:\/\/shop_images\/honiture_mothers_day_vacuum_bundle_set_1.jpg",
+            "product_title": "",
+            "custom_title_left": "<p>X7 Cordless Vacuum & G20 Robot Vacuum Set<\/p>",
+            "custom_title_right": "",
+            "product_sub": "Most-Loved Pairing: A perfect duo for every surface—enjoy bundle savings.",
+            "gift_product": "",
+            "gift_title": "",
+            "free_badge": "FREE",
+            "include_gift_in_cart": false,
+            "sale_price": "",
+            "compare_price": "",
+            "add_to_cart_label": "",
+            "shop_now_label": "",
+            "shop_now_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "header_wVCFtK",
+        "hero_jqnbth",
+        "bundle_JeMLBT",
+        "bundle_VQUiVe"
+      ],
+      "disabled": true,
+      "name": "MD Bundle Gift",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "content_max_width": 1200,
+        "section_bg": "#f6efe7",
+        "card_bg": "#ffffff",
+        "text_color": "#2b2420",
+        "discount_text": "10% OFF",
+        "discount_bg": "#ff6b6b",
+        "add_to_cart_label": "Add to Cart",
+        "shop_now_label": "Shop Now"
+      }
+    },
+    "md_buy_two_i69URK": {
+      "type": "md-buy-two",
+      "blocks": {
+        "header_tBDg9x": {
+          "type": "header",
+          "settings": {
+            "title": "Buy 2 for a Special Rate",
+            "title_color": "#2b2420",
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "sub_heading": "More ways to gift—Pair up any 2 and enjoy 15% OFF instantly. Valid on items in this section only.",
+            "show_sub_heading": true,
+            "sub_heading_color": "#2b2420",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 14,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#2b2420",
+            "view_more_border_color": "#2b2420",
+            "show_title_icons": true,
+            "title_icon_mirror_right": true,
+            "title_icon_size": 40,
+            "title_icon_size_mobile": 32,
+            "text_align": "center",
+            "margin_bottom": 50
+          }
+        }
+      },
+      "block_order": [
+        "header_tBDg9x"
+      ],
+      "disabled": true,
+      "name": "MD Buy Two",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "content_max_width": 1200,
+        "section_bg": "#f6efe7",
+        "card_bg": "#ffffff",
+        "text_color": "#2b2420",
+        "slot_1_title": "Find Your Perfect Pair",
+        "slot_1_desc": "Choose an Item",
+        "slot_1_bg_image": "shopify:\/\/shop_images\/image_191_c4bee5e5-5f7e-4360-a51a-6731a185043b.png",
+        "slot_2_title": "Add One More for the Special Price",
+        "slot_2_desc": "Complete Your Pair",
+        "slot_2_bg_image": "shopify:\/\/shop_images\/image_191_c4bee5e5-5f7e-4360-a51a-6731a185043b.png",
+        "total_label": "Total",
+        "save_label": "Save",
+        "add_to_cart_label": "Add to Cart",
+        "shop_now_label": "Shop Now",
+        "collection": "best-vacuum-cleaners",
+        "per_row": 4,
+        "per_row_mobile": 2,
+        "max_products": 14,
+        "pick_label": "Add to Bundle Offer",
+        "show_more_label": "show more",
+        "show_less_label": "show less",
+        "extra_discount_percent": 15
+      }
+    },
+    "md_limited_sale_88LEUW": {
+      "type": "md-limited-sale",
+      "blocks": {
+        "header_ndAE4c": {
+          "type": "header",
+          "settings": {
+            "title": "🌸Memorial Day Bonus Gifts🌸",
+            "title_color": "#212121",
+            "title_size": 36,
+            "title_size_mobile": 24,
+            "sub_heading": "Unlock exclusive bonus gifts during our Memorial Day Sale.",
+            "show_sub_heading": true,
+            "sub_heading_color": "#2b2420",
+            "sub_heading_size": 18,
+            "sub_heading_size_mobile": 14,
+            "view_more_label": "View More",
+            "view_more_link": "",
+            "view_more_color": "#2b2420",
+            "view_more_border_color": "#2b2420",
+            "show_title_icons": true,
+            "title_icon_mirror_right": true,
+            "title_icon_size": 48,
+            "title_icon_size_mobile": 32,
+            "text_align": "center",
+            "margin_bottom": 50
+          }
+        },
+        "count_down_nwikqt": {
+          "type": "count-down",
+          "settings": {
+            "end_date": "2026-05-24 15:00:00",
+            "heading": "",
+            "message": "",
+            "hide_on_complete": false,
+            "show_days": true,
+            "show_hours": true,
+            "show_minutes": true,
+            "show_seconds": true,
+            "style": "modern",
+            "text_alignment": "center",
+            "numbers_size": "large",
+            "labels_size": "small",
+            "background_color": "#fffefa",
+            "heading_color": "#2b2420",
+            "numbers_color": "#ffffff",
+            "numbers_background": "#ff9fb2",
+            "numbers_background_gradient": "linear-gradient(173deg, rgba(157, 167, 255, 1) 1%, rgba(17, 201, 192, 1) 3%)",
+            "labels_color": "#2b2420",
+            "message_color": "#ff3d00",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "product_gyB4hc": {
+          "type": "product",
+          "settings": {
+            "product": "honiture-t10-robot-vacuum",
+            "custom_title": "",
+            "custom_description": "The T10 Robot Vacuum features Lidar Navigation for precise home mapping, 3-in-1 vacuum mop and sweep.",
+            "badge_text": "62% OFF",
+            "badge_bg_image": "shopify:\/\/shop_images\/Vector_41.png",
+            "badge_text_color": "",
+            "show_progress_bar": true,
+            "progress_percent": 25,
+            "progress_text": "11% Sold",
+            "progress_start_time": "2026-5-14 00:00:00",
+            "progress_end_time": "2026-5-20 00:00:00",
+            "progress_curve": "ease-out",
+            "progress_text_color": "",
+            "progress_bar_color": "linear-gradient(106deg, rgba(0, 208, 205, 1), rgba(249, 208, 163, 1) 100%)",
+            "coupon_code": "Gift",
+            "coupon_button_image": "shopify:\/\/shop_images\/Group_282.png",
+            "custom_sale_price": "",
+            "custom_compare_price": "",
+            "extra_discount_percent": 0,
+            "add_to_cart_label": "",
+            "shop_now_label": "Shop Now",
+            "shop_now_link": "shopify:\/\/products\/honiture-t10-robot-vacuum"
+          }
+        },
+        "product_XjTtQ8": {
+          "type": "product",
+          "settings": {
+            "product": "honiture-robot-vacuum-cleaner-g20pro",
+            "custom_title": "",
+            "custom_description": "The G20 Pro Robot Vacuum delivers 4500Pa powerful suction, 3-in-1 & 180-minute runtime for a spotless home.",
+            "badge_text": "52% OFF",
+            "badge_bg_image": "shopify:\/\/shop_images\/Vector_41.png",
+            "badge_text_color": "",
+            "show_progress_bar": true,
+            "progress_percent": 8,
+            "progress_text": "8% Sold",
+            "progress_start_time": "2026-5-14 00:00:00",
+            "progress_end_time": "2026-5-20 00:00:00",
+            "progress_curve": "linear",
+            "progress_text_color": "",
+            "progress_bar_color": "linear-gradient(84deg, rgba(0, 208, 205, 1), rgba(255, 217, 174, 1) 100%)",
+            "coupon_code": "Gift",
+            "coupon_button_image": "shopify:\/\/shop_images\/Group_281.png",
+            "custom_sale_price": "",
+            "custom_compare_price": "",
+            "extra_discount_percent": 0,
+            "add_to_cart_label": "",
+            "shop_now_label": "Shop Now",
+            "shop_now_link": "shopify:\/\/products\/honiture-robot-vacuum-cleaner-g20pro"
+          }
+        }
+      },
+      "block_order": [
+        "header_ndAE4c",
+        "count_down_nwikqt",
+        "product_gyB4hc",
+        "product_XjTtQ8"
+      ],
+      "name": "MD Limited Sale",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "padding_top_m": 32,
+        "padding_bottom_m": 44,
+        "content_max_width": 1200,
+        "section_bg": "#fffefa",
+        "card_bg": "#ffffff",
+        "text_color": "#2b2420",
+        "primary_color": "#00bfb8",
+        "card_radius": 16,
+        "grid_gap": 18
+      }
+    },
+    "acc_tab_UMJRcC": {
+      "type": "acc-tab",
+      "disabled": true,
+      "custom_css": [
+        ".acc-tab-btn.active {color: #000; background: linear-gradient(90deg, #ffcfcf 0%, #ffd9ae 100%), linear-gradient(90deg, #fae9c8 0%, #efd2a0 100%), linear-gradient(0deg, #be7f4c, #be7f4c), #845e3c;}",
+        ".card-badge.has-bg {color: #e44d4d; font-size: 20px; padding-bottom: 8px;}",
+        "@media (max-width: 768px) {.sp-coupon-single-2 {height: 153px; } .sp-coupon-single-3 {height: 176px; }}"
+      ],
+      "name": "Acc Tab Section",
+      "settings": {
+        "title": "Save More on Accessories",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/Group_240.png",
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "sub_heading": "Special deals on accessories—buy more, save more!",
+        "view_more_link": "shopify:\/\/collections\/accessories",
+        "view_more_label": "Shop More",
+        "coupon_bg": "shopify:\/\/shop_images\/honiture-vacuums-accessories-mother-s-day-sale.jpg",
+        "coupon_bg_mobile": "shopify:\/\/shop_images\/honiture-vacuums-accessories-sale.jpg",
+        "coupon_code_1": "",
+        "coupon_image_2": "shopify:\/\/shop_images\/honiture_coupon_2.png",
+        "coupon_code_2": "ASSY5",
+        "coupon_image_3": "shopify:\/\/shop_images\/honiture_coupon_1.png",
+        "coupon_code_3": "ASSY12",
+        "hide_tab_nav": false,
+        "tab_1_title": "X7",
+        "tab_2_title": "P7 Pro",
+        "tab_3_title": "G20 Pro",
+        "tab_4_title": "V8 Pro",
+        "tab_1_collection": "honiture-x7-vacuum-cleaner-accessories",
+        "tab_2_collection": "honiture-p7-pro-cordless-vacuum-accessories",
+        "tab_3_collection": "honiture-g20-pro-robot-vacuum-accessories",
+        "tab_4_collection": "honiture-v8-pro-robot-vacuum-accessories",
+        "padding_top": 48,
+        "padding_bottom": 50,
+        "bg_color": "#f6efe7",
+        "gift_banner_bg": "linear-gradient(0deg, rgba(228, 232, 255, 1), rgba(255, 232, 240, 1) 100%)",
+        "gift_ribbon_bg": "linear-gradient(90deg, rgba(255, 197, 216, 1), rgba(255, 110, 145, 1) 49%, rgba(255, 197, 216, 1) 100%)",
+        "badge_bg": "shopify:\/\/shop_images\/Vector_2_3ea28f9c-5714-4716-a549-6679965d8631.png",
+        "badge_suffix": "OFF"
+      }
+    },
+    "ny_video_gallery_7mTxFy": {
+      "type": "ny-video-gallery",
+      "blocks": {
+        "video_card_haMTBV": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/honiture p7pro review video.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_Dfhpxw": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/ssstik.io_@honiture_1747299023490.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_TXnTKe": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/X7 If you’re a busy mom who’s always cleaning like me… this vacuum is a GAME CHANGER 😍🙌The suctio.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        },
+        "video_card_qNqDdP": {
+          "type": "video_card",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Y10-cordless-vacuum-review.mp4",
+            "youtube_url": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_card_haMTBV",
+        "video_card_Dfhpxw",
+        "video_card_TXnTKe",
+        "video_card_qNqDdP"
+      ],
+      "custom_css": [
+        ".ny-video-gallery {background: #fffefa;}"
+      ],
+      "name": "NY Video Gallery",
+      "settings": {
+        "title": "Don'T Just Take Our Word For It",
+        "sub_heading": "Trusted by customers worldwide.",
+        "show_sub_heading": true,
+        "view_more_label": "View More",
+        "view_more_link": "",
+        "show_title_icons": true,
+        "title_icon_size": 40,
+        "title_icon_mirror_right": true,
+        "bg_color": "#00d0cd",
+        "bg_gradient": "linear-gradient(270deg, rgba(240, 110, 105, 1), rgba(249, 208, 163, 1) 100%)",
+        "text_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "custom_liquid_UbN34d": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<style>\n#main-content{\nbackground: #fffefa;\n}\n.xmax_section__title,.xmas-sub-heading{\ncolor:#212121!important;\n}\n.template-page-mother-s-day .text-with-icons{\nbackground: #f6efe7;\n}\n@media (max-width: 768px) {\n.image-with-text-overlay{\naspect-ratio: 120 \/ 75;\npadding:0;\n}\n.image-with-text-overlay--heading{\n    text-align: center;\n    font-size: 16px;\n    margin-bottom: 0;\n}\n.description-size--medium{\ntext-align: center;\n    font-size: 10px;\n    margin-bottom: 0;\n}\n.image-with-text-overlay--content-inner{\nposition: absolute;\n    top: 0;\n}\n.image-with-text-overlay--content{padding:0;}\n}\n\n\n<\/style>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_zbpRQN",
+    "sticky_nav_WEec8f",
+    "md_offer_subscribe_QxmjPw",
+    "xmas_one_year_ebiacV",
+    "countdown_banner_fUhVWh",
+    "md_best_seller_cKf98m",
+    "md_product_acc_Vpyg4L",
+    "sp_best_seller_ytf6tb",
+    "md_bundle_gift_3wnVmn",
+    "md_buy_two_i69URK",
+    "md_limited_sale_88LEUW",
+    "acc_tab_UMJRcC",
+    "ny_video_gallery_7mTxFy",
+    "custom_liquid_UbN34d"
+  ]
+}

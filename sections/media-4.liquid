@@ -1,0 +1,187 @@
+{% schema %}
+    {
+      "name": "Four Image Grid",
+      "settings": [
+        {
+				"type": "checkbox",
+				"id": "full_width",
+				"label": "Make section full width",
+				"default": false
+			},
+        {
+          "type": "image_picker",
+          "id": "image_1_desktop",
+          "label": "Image 1 (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1_mobile",
+          "label": "Image 1 (Mobile)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2_desktop",
+          "label": "Image 2 (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2_mobile",
+          "label": "Image 2 (Mobile)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3_desktop",
+          "label": "Image 3 (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3_mobile",
+          "label": "Image 3 (Mobile)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4_desktop",
+          "label": "Image 4 (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4_mobile",
+          "label": "Image 4 (Mobile)"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Four Image Grid",
+          "category": "Image"
+        }
+      ]
+    }
+    {% endschema %}
+
+    <div class="row{% if section.settings.full_width %} full-width-row{% endif %} section-{{ section.id }} animated fadeInUp">
+        <div class="small-12 columns">
+            <div class="four-image-grid">
+                <div class="left">
+                    <div class="image-item" style="background-image: url('{{ section.settings.image_1_desktop | img_url: 'master' }}');"></div>
+                    <div class="image-item" style="background-image: url('{{ section.settings.image_2_desktop | img_url: 'master' }}');"></div>
+                </div>
+                <div class="right">
+                    <div class="image-item" style="background-image: url('{{ section.settings.image_3_desktop | img_url: 'master' }}');"></div>
+                    <div class="image-item" style="background-image: url('{{ section.settings.image_4_desktop | img_url: 'master' }}');"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <style>
+.section-{{ section.id }} .four-image-grid {
+    max-height: 420px;
+    height: 32vw;
+    display: flex;
+    gap: 15px;
+}
+.section-{{ section.id }} .left,
+.section-{{ section.id }} .right {
+    display: flex;
+    gap: 15px;
+}
+.section-{{ section.id }} .right {
+    flex-direction: column;
+    flex: 1;
+}
+.section-{{ section.id }} .left{
+    flex: 0 0 60%;
+}
+.section-{{ section.id }} .image-item {
+    flex: 1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    overflow: hidden; /* 确保放大时不会超出边界 */
+    position: relative; /* 为伪元素定位做准备 */
+    transition: transform 0.3s ease; /* 添加平滑过渡效果 */
+}
+
+/* 使用伪元素来实现背景图片缩放 */
+.section-{{ section.id }} .image-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* transition: transform 0.5s ease; */
+    transition: transform 1.5s cubic-bezier(.22,1,.36,1)
+}
+
+/* 为每个图片项设置背景 */
+.section-{{ section.id }} .four-image-grid .left .image-item:nth-child(1)::after {
+    background-image: url('{{ section.settings.image_1_desktop | img_url: 'master' }}');
+}
+.section-{{ section.id }} .four-image-grid .left .image-item:nth-child(2)::after {
+    background-image: url('{{ section.settings.image_2_desktop | img_url: 'master' }}');
+}
+.section-{{ section.id }} .four-image-grid .right .image-item:nth-child(1)::after {
+    background-image: url('{{ section.settings.image_3_desktop | img_url: 'master' }}');
+}
+.section-{{ section.id }} .four-image-grid .right .image-item:nth-child(2)::after {
+    background-image: url('{{ section.settings.image_4_desktop | img_url: 'master' }}');
+}
+
+/* 悬停效果 */
+.section-{{ section.id }} .image-item:hover::after {
+    transform: scale(1.05); /* 轻微放大效果 */
+}
+/* 悬停效果 */
+.section-{{ section.id }} .image-item:hover {
+  box-shadow: 0 0 10px #000;
+  transition: 0.3s;
+}
+
+@media only screen and (max-width: 768px) {
+    .section-{{ section.id }} .four-image-grid {
+        max-height: 900px;
+        height: 130vw;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .section-{{ section.id }} .left,
+    .section-{{ section.id }} .right {
+        display: flex;
+        gap: 15px;
+    }
+    .section-{{ section.id }} .right {
+        flex-direction: column;
+        flex: 1;
+    }
+    .section-{{ section.id }} .left{
+        flex: 0 0 40%;
+    }
+    .section-{{ section.id }} .image-item {
+        flex: 1;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+    }
+    
+    /* 移动端背景图片设置 */
+    .section-{{ section.id }} .four-image-grid .left .image-item:nth-child(1)::after {
+        background-image: url('{{ section.settings.image_1_mobile | default: section.settings.image_1_desktop | img_url: 'master' }}');
+    }
+    .section-{{ section.id }} .four-image-grid .left .image-item:nth-child(2)::after {
+        background-image: url('{{ section.settings.image_2_mobile | default: section.settings.image_2_desktop | img_url: 'master' }}');
+    }
+    .section-{{ section.id }} .four-image-grid .right .image-item:nth-child(1)::after {
+        background-image: url('{{ section.settings.image_3_mobile | default: section.settings.image_3_desktop | img_url: 'master' }}');
+    }
+    .section-{{ section.id }} .four-image-grid .right .image-item:nth-child(2)::after {
+        background-image: url('{{ section.settings.image_4_mobile | default: section.settings.image_4_desktop | img_url: 'master' }}');
+    }
+}
+</style>

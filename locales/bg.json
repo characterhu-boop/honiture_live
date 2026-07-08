@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "404": {
+      "not_found": "Page not found",
+      "not_found_description": "Страницата, която търсите, не съществува. Може да сте сгрешили адреса или страницата да е била преместена.",
+      "continue_shopping": "Continue shopping"
+    }
+  }
+}

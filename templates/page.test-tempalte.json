@@ -1,0 +1,345 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "prime_bundles_jJdCLW": {
+      "type": "prime-bundles",
+      "blocks": {
+        "tab_idxDWz": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "x7",
+            "tab_badge": "",
+            "media_bg_pc": "shopify:\/\/shop_images\/vacuum-prime-day-deals.webp",
+            "media_bg_position": "center center",
+            "media_bg_position_mobile": "center center",
+            "media_bg_size": "cover",
+            "media_bg_size_mobile": "cover",
+            "show_badge": true,
+            "badge_text": "20%\nOFF",
+            "badge_bg_image": "shopify:\/\/shop_images\/Group_274_1b0fa537-04d2-4a9b-b746-525a01ff89b8.png",
+            "badge_text_color": "#ffffff",
+            "badge_top": -12,
+            "badge_left": 30,
+            "badge_width": 66,
+            "badge_height": 78,
+            "badge_top_mobile": 0,
+            "badge_left_mobile": 20,
+            "badge_width_mobile": 54,
+            "badge_height_mobile": 64,
+            "slides_count": "2.2",
+            "slides_count_mobile": "2.1",
+            "product_collection": "fathers-day-brush-副本",
+            "product_limit": 12
+          }
+        },
+        "tab_CddHVp": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "x7",
+            "tab_badge": "",
+            "media_bg_position": "center center",
+            "media_bg_position_mobile": "center center",
+            "media_bg_size": "cover",
+            "media_bg_size_mobile": "cover",
+            "show_badge": true,
+            "badge_text": "20%\nOFF",
+            "badge_text_color": "#ffffff",
+            "badge_top": 0,
+            "badge_left": 30,
+            "badge_width": 66,
+            "badge_height": 78,
+            "badge_top_mobile": 0,
+            "badge_left_mobile": 20,
+            "badge_width_mobile": 54,
+            "badge_height_mobile": 64,
+            "slides_count": "2.2",
+            "slides_count_mobile": "2.1",
+            "product_collection": "",
+            "product_limit": 6
+          }
+        },
+        "tab_HqdMGT": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "x7",
+            "tab_badge": "",
+            "media_bg_position": "center center",
+            "media_bg_position_mobile": "center center",
+            "media_bg_size": "cover",
+            "media_bg_size_mobile": "cover",
+            "show_badge": true,
+            "badge_text": "20%\nOFF",
+            "badge_text_color": "#ffffff",
+            "badge_top": 0,
+            "badge_left": 30,
+            "badge_width": 66,
+            "badge_height": 78,
+            "badge_top_mobile": 0,
+            "badge_left_mobile": 20,
+            "badge_width_mobile": 54,
+            "badge_height_mobile": 64,
+            "slides_count": "2.2",
+            "slides_count_mobile": "2.1",
+            "product_collection": "",
+            "product_limit": 6
+          }
+        },
+        "tab_CCJwWq": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "",
+            "tab_badge": "",
+            "media_bg_position": "center center",
+            "media_bg_position_mobile": "center center",
+            "media_bg_size": "cover",
+            "media_bg_size_mobile": "cover",
+            "show_badge": true,
+            "badge_text": "20%\nOFF",
+            "badge_text_color": "#ffffff",
+            "badge_top": 0,
+            "badge_left": 30,
+            "badge_width": 66,
+            "badge_height": 78,
+            "badge_top_mobile": 0,
+            "badge_left_mobile": 20,
+            "badge_width_mobile": 54,
+            "badge_height_mobile": 64,
+            "slides_count": "2.2",
+            "slides_count_mobile": "2.1",
+            "product_collection": "",
+            "product_limit": 6
+          }
+        }
+      },
+      "block_order": [
+        "tab_idxDWz",
+        "tab_CddHVp",
+        "tab_HqdMGT",
+        "tab_CCJwWq"
+      ],
+      "name": "Prime Bundles",
+      "settings": {
+        "title": "Prime Day Value Bundles",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/28.png",
+        "title_icon_size": 40,
+        "title_icon_size_mobile": 30,
+        "title_icon_mirror_right": true,
+        "sub_heading": "Exclusive Hassle-Free Bundle Set. Bigger Savings.",
+        "show_sub_heading": true,
+        "view_more_link": "",
+        "view_more_label": "View More",
+        "title_color": "#2b2929",
+        "sub_heading_color": "#666666",
+        "title_size": 30,
+        "title_size_mobile": 24,
+        "title_line_height": 38,
+        "title_line_height_mobile": 30,
+        "sub_heading_size": 16,
+        "sub_heading_size_mobile": 13,
+        "sub_heading_line_height": 22,
+        "sub_heading_line_height_mobile": 18,
+        "bg_color": "#fff8ef",
+        "content_width": 1160,
+        "content_width_mobile": 375,
+        "content_height": 360,
+        "padding_top": 38,
+        "padding_bottom": 46,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 34,
+        "accent_color": "#ff9f3f",
+        "card_bg": "#fff1dc",
+        "shop_button_bg": "linear-gradient(90deg, rgba(15, 203, 210, 1), rgba(30, 184, 200, 1) 100%)",
+        "cart_button_bg": "#124b82",
+        "total_label": "TOTAL:",
+        "total_label_size": 14,
+        "total_label_line_height": 16,
+        "total_label_size_mobile": 12,
+        "total_label_line_height_mobile": 15,
+        "total_price_size": 22,
+        "total_price_line_height": 24,
+        "total_price_size_mobile": 18,
+        "total_price_line_height_mobile": 22,
+        "compare_price_size": 12,
+        "compare_price_line_height": 16,
+        "compare_price_size_mobile": 10,
+        "compare_price_line_height_mobile": 14,
+        "compare_discount_percent": 29,
+        "discount_label_bg": "#ff9f3f",
+        "discount_label_color": "#ffffff",
+        "discount_label_size": 11,
+        "discount_label_line_height": 14,
+        "discount_label_size_mobile": 10,
+        "discount_label_line_height_mobile": 12,
+        "shop_label": "Shop Now",
+        "shop_label_size": 13,
+        "shop_label_line_height": 16,
+        "shop_label_size_mobile": 11,
+        "shop_label_line_height_mobile": 14,
+        "checkout_link": "",
+        "cart_aria_label": "Add selected products to cart",
+        "empty_text": "Please select a product.",
+        "added_text": "Added to cart.",
+        "error_text": "Please try again."
+      }
+    },
+    "reward_guide_nyHJM9": {
+      "type": "reward-guide",
+      "blocks": {
+        "step_rdyWRD": {
+          "type": "step",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/30_92414113-4932-441e-ae03-78dfd33d423c.png",
+            "title": "1.Review",
+            "text": "Share the product with photos or videos."
+          }
+        },
+        "step_3jyqH7": {
+          "type": "step",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/26.png",
+            "title": "2.Social",
+            "text": "Post on social media, website reviews, or send directly via email"
+          }
+        },
+        "step_jKa8ym": {
+          "type": "step",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/28.png",
+            "title": "3.Email",
+            "text": "Contact customer service to register your submission. Receive a free cleaning solution gift"
+          }
+        },
+        "faq_wJ8D8W": {
+          "type": "faq",
+          "settings": {
+            "question": "Which products are eligible?",
+            "answer": "Which products are eligible?"
+          }
+        },
+        "faq_Fpc3XW": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I claim my gift?",
+            "answer": "Which products are eligible?"
+          }
+        },
+        "faq_4wNGqg": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I share on Instagram?",
+            "answer": "Can I share on Instagram?"
+          }
+        },
+        "faq_RRnPDL": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does verification take?",
+            "answer": "Can I share on Instagram?"
+          }
+        }
+      },
+      "block_order": [
+        "step_rdyWRD",
+        "step_3jyqH7",
+        "step_jKa8ym",
+        "faq_wJ8D8W",
+        "faq_Fpc3XW",
+        "faq_4wNGqg",
+        "faq_RRnPDL"
+      ],
+      "name": "Reward Guide",
+      "settings": {
+        "title": "Share Your Cleaning Experience & Get Rewarded",
+        "show_title_icons": true,
+        "title_icon": "shopify:\/\/shop_images\/26.png",
+        "title_icon_size": 40,
+        "title_icon_size_mobile": 30,
+        "title_icon_mirror_right": true,
+        "sub_heading": "",
+        "show_sub_heading": true,
+        "view_more_link": "",
+        "view_more_label": "View More",
+        "title_color": "#242424",
+        "sub_heading_color": "#666666",
+        "title_size": 34,
+        "title_size_mobile": 16,
+        "title_line_height": 42,
+        "title_line_height_mobile": 20,
+        "sub_heading_size": 16,
+        "sub_heading_size_mobile": 13,
+        "sub_heading_line_height": 22,
+        "sub_heading_line_height_mobile": 18,
+        "bg_color": "#fff8ef",
+        "content_bg": "#ffffff",
+        "content_width": 1240,
+        "content_width_mobile": 280,
+        "side_gap_mobile": 12,
+        "padding_top": 54,
+        "padding_bottom": 48,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "banner_pc": "shopify:\/\/shop_images\/Honiture-member.png",
+        "banner_height": 208,
+        "banner_height_mobile": 180,
+        "banner_subtitle": "How to Participate",
+        "banner_subtitle_color": "#111111",
+        "banner_subtitle_size": 28,
+        "banner_subtitle_size_mobile": 13,
+        "banner_subtitle_line_height": 34,
+        "banner_subtitle_line_height_mobile": 18,
+        "banner_subtitle_align": "center",
+        "banner_subtitle_align_mobile": "left",
+        "steps_border_color": "#dddddd",
+        "step_title_color": "#161616",
+        "step_title_mark_color": "#ff9e37",
+        "step_text_color": "#6f6f6f",
+        "step_title_size": 18,
+        "step_title_size_mobile": 10,
+        "step_title_line_height": 20,
+        "step_title_line_height_mobile": 14,
+        "step_text_size": 14,
+        "step_text_size_mobile": 8,
+        "step_text_line_height": 24,
+        "step_text_line_height_mobile": 12,
+        "faq_title": "&FAQ",
+        "faq_desc_pc": "",
+        "faq_desc_mobile": "Eligible for selected wet dry vacuums and vacuum cleaners only.",
+        "faq_title_color": "#111111",
+        "faq_desc_color": "#333333",
+        "faq_question_color": "#333333",
+        "faq_answer_color": "#777777",
+        "faq_border_color": "#e5e5e5",
+        "faq_title_size": 16,
+        "faq_title_size_mobile": 13,
+        "faq_title_line_height": 20,
+        "faq_title_line_height_mobile": 18,
+        "faq_desc_size": 12,
+        "faq_desc_size_mobile": 9,
+        "faq_desc_line_height": 16,
+        "faq_desc_line_height_mobile": 13,
+        "faq_question_size": 13,
+        "faq_question_size_mobile": 9,
+        "faq_question_line_height": 17,
+        "faq_question_line_height_mobile": 13,
+        "faq_answer_size": 11,
+        "faq_answer_size_mobile": 8,
+        "faq_answer_line_height": 15,
+        "faq_answer_line_height_mobile": 12,
+        "faq_title_align": "center",
+        "faq_title_align_mobile": "left",
+        "faq_desc_align": "center",
+        "faq_desc_align_mobile": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "prime_bundles_jJdCLW",
+    "reward_guide_nyHJM9"
+  ]
+}

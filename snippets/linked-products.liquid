@@ -1,0 +1,156 @@
+<div class="linked-products-block" {{ block.shopify_attributes }}>
+          {%- if block.settings.title != blank -%}
+            <span class="linked-products-title">{{ block.settings.title | escape }}</span>
+          {%- endif -%}
+
+          <div class="linked-products-grid">
+            {%- assign p1 = block.settings.product_1 -%}
+            {%- assign t1 = block.settings.product_title_1 | strip -%}
+            {%- if p1 != blank -%}
+              <a class="linked-products-item{% if block.settings.show_images and p1.featured_image %} has-image{% endif %}" href="{{ p1.url }}">
+                {%- if block.settings.show_images and p1.featured_image -%}
+                  {{ p1.featured_image | image_url: width: 480 | image_tag: sizes: '(min-width: 1100px) 16vw, 33vw', widths: '200,300,400,480', class: 'linked-products-image' }}
+                {%- endif -%}
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t1 | default: p1.title }}</div>
+                  {% comment %} <div class="linked-products-item-price">{{ p1.price | money }}</div> {% endcomment %}
+                </div>
+              </a>
+            {%- elsif t1 != blank -%}
+              <div class="linked-products-item">
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t1 }}</div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- assign p2 = block.settings.product_2 -%}
+            {%- assign t2 = block.settings.product_title_2 | strip -%}
+            {%- if p2 != blank -%}
+              <a class="linked-products-item{% if block.settings.show_images and p2.featured_image %} has-image{% endif %}" href="{{ p2.url }}">
+                {%- if block.settings.show_images and p2.featured_image -%}
+                  {{ p2.featured_image | image_url: width: 480 | image_tag: sizes: '(min-width: 1100px) 16vw, 33vw', widths: '200,300,400,480', class: 'linked-products-image' }}
+                {%- endif -%}
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t2 | default: p2.title }}</div>
+                  {% comment %} <div class="linked-products-item-price">{{ p2.price | money }}</div> {% endcomment %}
+                </div>
+              </a>
+            {%- elsif t2 != blank -%}
+              <div class="linked-products-item">
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t2 }}</div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- assign p3 = block.settings.product_3 -%}
+            {%- assign t3 = block.settings.product_title_3 | strip -%}
+            {%- if p3 != blank -%}
+              <a class="linked-products-item{% if block.settings.show_images and p3.featured_image %} has-image{% endif %}" href="{{ p3.url }}">
+                {%- if block.settings.show_images and p3.featured_image -%}
+                  {{ p3.featured_image | image_url: width: 480 | image_tag: sizes: '(min-width: 1100px) 16vw, 33vw', widths: '200,300,400,480', class: 'linked-products-image' }}
+                {%- endif -%}
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t3 | default: p3.title }}</div>
+                  {% comment %} <div class="linked-products-item-price">{{ p3.price | money }}</div> {% endcomment %}
+                </div>
+              </a>
+            {%- elsif t3 != blank -%}
+              <div class="linked-products-item">
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t3 }}</div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- assign p4 = block.settings.product_4 -%}
+            {%- assign t4 = block.settings.product_title_4 | strip -%}
+            {%- if p4 != blank -%}
+              <a class="linked-products-item{% if block.settings.show_images and p4.featured_image %} has-image{% endif %}" href="{{ p4.url }}">
+                {%- if block.settings.show_images and p4.featured_image -%}
+                  {{ p4.featured_image | image_url: width: 480 | image_tag: sizes: '(min-width: 1100px) 16vw, 33vw', widths: '200,300,400,480', class: 'linked-products-image' }}
+                {%- endif -%}
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t4 | default: p4.title }}</div>
+                  {% comment %} <div class="linked-products-item-price">{{ p4.price | money }}</div> {% endcomment %}
+                </div>
+              </a>
+            {%- elsif t4 != blank -%}
+              <div class="linked-products-item">
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t4 }}</div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- assign p5 = block.settings.product_5 -%}
+            {%- assign t5 = block.settings.product_title_5 | strip -%}
+            {%- if p5 != blank -%}
+              <a class="linked-products-item{% if block.settings.show_images and p5.featured_image %} has-image{% endif %}" href="{{ p5.url }}">
+                {%- if block.settings.show_images and p5.featured_image -%}
+                  {{ p5.featured_image | image_url: width: 480 | image_tag: sizes: '(min-width: 1100px) 16vw, 33vw', widths: '200,300,400,480', class: 'linked-products-image' }}
+                {%- endif -%}
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t5 | default: p5.title }}</div>
+                  {% comment %} <div class="linked-products-item-price">{{ p5.price | money }}</div> {% endcomment %}
+                </div>
+              </a>
+            {%- elsif t5 != blank -%}
+              <div class="linked-products-item">
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t5 }}</div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- assign p6 = block.settings.product_6 -%}
+            {%- assign t6 = block.settings.product_title_6 | strip -%}
+            {%- if p6 != blank -%}
+              <a class="linked-products-item{% if block.settings.show_images and p6.featured_image %} has-image{% endif %}" href="{{ p6.url }}">
+                {%- if block.settings.show_images and p6.featured_image -%}
+                  {{ p6.featured_image | image_url: width: 480 | image_tag: sizes: '(min-width: 1100px) 16vw, 33vw', widths: '200,300,400,480', class: 'linked-products-image' }}
+                {%- endif -%}
+                <div class="linked-products-item-content">
+                  <div class="linked-products-item-title small-caption">{{ t6 | default: p6.title }}</div>
+                  {% comment %} <div class="linked-products-item-price">{{ p6.price | money }}</div> {% endcomment %}
+                </div>
+              </a>
+            {%- elsif t6 != blank -%}
+              <div class="linked-products-item">
+                <div class="linked-products-item-title small-caption">{{ t6 }}</div>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <style>
+            .linked-products-block{ margin-bottom: 15px; }
+            .linked-products-title { font-size:15px; font-weight: 500; }
+            .linked-products-grid { display:flex; gap: 16px; margin-top: 15px; overflow-x:auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; flex-wrap: nowrap; flex-direction: row; }
+            .linked-products-item { text-decoration: none; color: inherit; display:flex; align-items:center; flex-direction: column; border: 1px solid #dadce0; border-radius: 5px; flex: 0 0 25%; min-width: 25%; scroll-snap-align: start; }
+            .linked-products-image { width: 100%; height: auto; border-radius: 5px; object-fit: cover; }
+            .linked-products-item-content { flex: 1; display:flex; flex-direction: column; gap: 6px; padding: 8px 12px; text-align: center; }
+            .linked-products-item-title { font-size: 13px; }
+            .linked-products-item-price { font-size: 13px; }
+            .linked-products-item.has-image .linked-products-item-content { 
+              border-top: 1px solid #dadce0; 
+              width: 100%;
+             }
+
+            /* 移动端 */
+            @media screen and (max-width: 767px) {
+              .linked-products-image { 
+                width: 100%; height: auto; border-radius: 5px; object-fit: cover;
+                
+               }
+              .linked-products-item { 
+                flex: 0 0 40%; min-width: 40%; 
+                flex-direction: column;
+              }
+
+            }
+             .linked-products-grid{
+              padding-bottom: 15px;
+             }
+         </style>
+        </div>

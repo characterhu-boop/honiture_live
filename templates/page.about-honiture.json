@@ -1,0 +1,1002 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "6f4c239c-63d1-4be1-b6ff-0780f7b9a27e": {
+      "type": "rich-text",
+      "blocks": {
+        "3586df06-87f2-4594-afe1-b491a9c3a1f3": {
+          "type": "badge",
+          "settings": {
+            "text": "Who We Are?",
+            "color_bg": "#21b7af",
+            "color_text": "#ffffff"
+          }
+        },
+        "template--18200361697574__6f4c239c-63d1-4be1-b6ff-0780f7b9a27e-1679308936a27c3b55-1": {
+          "type": "heading",
+          "settings": {
+            "text": "|Smarter| Home, Better Life.",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd9699"
+          }
+        },
+        "template--18200361697574__6f4c239c-63d1-4be1-b6ff-0780f7b9a27e-1679308936a27c3b55-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Honiture, named from Home & Nature, is an innovator of whole-home smart cleaning solutions, providing an intelligent, comfortable, and hassle-free home lifestyle.<br\/><br\/>Established in 2019, Honiture is a smart digital home brand integrating R&D, production, marketing, and sales. <br\/><\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "3586df06-87f2-4594-afe1-b491a9c3a1f3",
+        "template--18200361697574__6f4c239c-63d1-4be1-b6ff-0780f7b9a27e-1679308936a27c3b55-1",
+        "template--18200361697574__6f4c239c-63d1-4be1-b6ff-0780f7b9a27e-1679308936a27c3b55-2"
+      ],
+      "custom_css": [
+        ".rich-text h2,.rich-text span.animated-marker {background-image: var(--color-heading); -webkit-background-clip: text; background-clip: text; color: transparent;}"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "linear-gradient(90deg, rgba(34, 193, 195, 1), rgba(146, 254, 157, 1) 96%)",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_p6VHXd": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1_fcb0b251-6a18-4d95-8e38-db3c2da521f1.jpg",
+        "full_width": true,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_D4TxTm": {
+      "type": "rich-text",
+      "blocks": {
+        "badge_anwzp3": {
+          "type": "badge",
+          "settings": {
+            "text": "What We Do？",
+            "color_bg": "#21b7af",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_EyfbmH": {
+          "type": "heading",
+          "settings": {
+            "text": "|Household Smart| Cleaning Solution",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_J4zKHq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the future of home cleaning with Honiture's Household Smart Cleaning Solutions.<\/p><p>We are dedicated to the development and production of smart home cleaning products, including smart vacuum cleaners and smart robot vacuum cleaners, air purifications, etc., so that users can say goodbye to tedious housework while having a spotless home.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "badge_anwzp3",
+        "heading_EyfbmH",
+        "text_J4zKHq"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "shop_the_look_jcqbn9": {
+      "type": "shop-the-look",
+      "blocks": {
+        "product_cQL4RE": {
+          "type": "product",
+          "settings": {
+            "product_handle": "honiture-robot-vacuum-cleaner-g20pro",
+            "x_position": 43,
+            "y_position": 87,
+            "x_position_mobile": 21,
+            "y_position_mobile": 93
+          }
+        },
+        "product_L8LHaY": {
+          "type": "product",
+          "settings": {
+            "product_handle": "p7-pro-cordless-vacuum",
+            "x_position": 66,
+            "y_position": 40,
+            "x_position_mobile": 80,
+            "y_position_mobile": 38
+          }
+        },
+        "product_z6LzBR": {
+          "type": "product",
+          "settings": {
+            "product_handle": "x7",
+            "x_position": 66,
+            "y_position": 79,
+            "x_position_mobile": 90,
+            "y_position_mobile": 60
+          }
+        },
+        "product_97JhaV": {
+          "type": "product",
+          "settings": {
+            "product_handle": "m7-wet-dry-vacuum",
+            "x_position": 38,
+            "y_position": 45,
+            "x_position_mobile": 7,
+            "y_position_mobile": 51
+          }
+        }
+      },
+      "block_order": [
+        "product_cQL4RE",
+        "product_L8LHaY",
+        "product_z6LzBR",
+        "product_97JhaV"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-house-cleaning-solution-vacuum-cleaner-for-sale.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-house-cleaning-solution-vacuum-cleaner-for-sale-banner.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_QGJGrh": {
+      "type": "rich-text",
+      "blocks": {
+        "badge_qPDbND": {
+          "type": "badge",
+          "settings": {
+            "text": "Milestones",
+            "color_bg": "#21b7af",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_Fiiqny": {
+          "type": "heading",
+          "settings": {
+            "text": "Milestones that Define Our Journey in Smart Cleaning Solutions",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_RAqCcg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Honiture, founded in 2019, has extensive expertise and experience in providing stable, high-quality products at affordable prices. We're incredibly proud of our achievements but are still going strong. Driven by the desire to solve daily household cleaning challenges, we are now seeking more diverse and creative minds to join us.<br\/><\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "badge_qPDbND",
+        "heading_Fiiqny",
+        "text_RAqCcg"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_with_tabs_kzqHfQ": {
+      "type": "media-with-tabs",
+      "blocks": {
+        "badge_KbKjG8": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "text": "Honiture",
+            "color_bg": "#22c8c9",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_wJUfhJ": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Milestones",
+            "heading_size": "h3"
+          }
+        },
+        "text_Nj33Tm": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Honiture, founded in 2019, has extensive expertise and experience in providing stable, high-quality products at affordable prices. We're incredibly proud of our achievements but are still going strong. Driven by the desire to solve daily household cleaning challenges, we are now seeking more diverse and creative minds to join us.<br\/><\/p>"
+          }
+        },
+        "tab_Um6PVV": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-wet-and-dry-vacuum-cleaner.webp",
+            "use_video": false,
+            "heading_icon": "ruler",
+            "heading": "2026-Wet Dry Vacuum",
+            "description": "Following the steady development of our vacuum cleaners and robot vacuums, we introduced innovative smart wet and dry vacuum cleaners.",
+            "video_autoplay": true
+          }
+        },
+        "tab_7jJxaq": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_3d9849fd-8496-4d1f-ade0-3b87faab86b2.png",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "2024-Revolutionized Cleaning",
+            "description": "Embrace the \nNew Era of Smart Living: \nVacuum Cleaners, Robot Vacuums, Air Purifier, and Pet Cleaning.",
+            "video_autoplay": true
+          }
+        },
+        "tab_hBPzYL": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1.jpg",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "2023-2 Million Units",
+            "description": "Accumulated sales \nvolume exceeded 2 \nmillion units.",
+            "video_autoplay": true
+          }
+        },
+        "tab_gpKL96": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture.jpg",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "2022-Top-Ranked",
+            "description": "Achieved Best Seller status for stick vacuums and robot vacuums on Amazon in the USA, Germany, France, and the UK.",
+            "video_autoplay": true
+          }
+        },
+        "tab_mhVgPN": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bu.png",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "2021-Branch Offices",
+            "description": "Add a shoFounded the US office \nand started to develop retailers and dealers.",
+            "video_autoplay": true
+          }
+        },
+        "tab_AKiekQ": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6_0568f0cb-303d-4dab-b922-399e06243eb5.png",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "2020-First Robot Vacuum",
+            "description": "Honitue launched its first robotic vacuum cleaner.",
+            "video_autoplay": true
+          }
+        },
+        "tab_9Exjaw": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_b702e9b2-3862-4566-a73d-6518ff8e87b6.jpg",
+            "use_video": false,
+            "heading_icon": "none",
+            "heading": "2019-The Beginning of The Story",
+            "description": "Honiture brand was established and launched our first stick vacuum cleaner on the market.",
+            "video_autoplay": true
+          }
+        }
+      },
+      "block_order": [
+        "badge_KbKjG8",
+        "heading_wJUfhJ",
+        "text_Nj33Tm",
+        "tab_Um6PVV",
+        "tab_7jJxaq",
+        "tab_hBPzYL",
+        "tab_gpKL96",
+        "tab_mhVgPN",
+        "tab_AKiekQ",
+        "tab_9Exjaw"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-450",
+        "height": "adapt",
+        "desktop_layout": "image_first",
+        "color_bg": "#f7ebe6",
+        "color_text": "#694534",
+        "color_link": "#3f72e5",
+        "color_border": "#d2cac1",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_8DwqCW": {
+      "type": "rich-text",
+      "blocks": {
+        "badge_jBkCwG": {
+          "type": "badge",
+          "settings": {
+            "text": "Our Vision",
+            "color_bg": "#21b7af",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_eAfLiJ": {
+          "type": "heading",
+          "settings": {
+            "text": "Our Vision for a |Smarter, Healthier| Home",
+            "marker_style": "style3",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_rzDxjA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Honiture, we envision a world where every home is effortlessly spotless, allowing families to spend more time on what truly matters. By integrating cutting-edge technology with intelligent design, we aim to revolutionize household cleaning, making it smarter, more efficient, and environmentally friendly. Our commitment is to provide innovative solutions that enhance the quality of life, ensuring a cleaner, healthier, and more sustainable future for all.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "badge_jBkCwG",
+        "heading_eAfLiJ",
+        "text_rzDxjA"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_RnHkfN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_BC4Tb3": {
+          "type": "heading",
+          "settings": {
+            "text": "Product Concepts",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BC4Tb3"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "7c882761-10ac-4609-919b-c634ffda081b": {
+      "type": "toggle-boxes",
+      "blocks": {
+        "template--18200361697574__7c882761-10ac-4609-919b-c634ffda081b-1679309852d57d6692-0": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_20306ba5-1cff-4d8b-ab35-9c465eb82dd8.png",
+            "image_link": "",
+            "open": false,
+            "heading": "User-Friendly",
+            "text": "<p>Designed for user needs of extreme ease of use, featuring intelligent user interface and human-machine interaction design.<\/p>"
+          }
+        },
+        "template--18200361697574__7c882761-10ac-4609-919b-c634ffda081b-1679309852d57d6692-2": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_b172c441-d65c-43c8-a1f1-07a3636fcc77.png",
+            "image_link": "",
+            "open": false,
+            "heading": "Maintenance-Free",
+            "text": "<p>Avoid manual maintenance to totally free your hands and save your time.<\/p>"
+          }
+        },
+        "template--18200361697574__7c882761-10ac-4609-919b-c634ffda081b-1679309852d57d6692-1": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_74f29164-05ac-4a77-a01d-4261ffdc0a84.png",
+            "image_link": "",
+            "open": false,
+            "heading": "Cost-Effective",
+            "text": "<p>Offering affordability without compromising performance.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18200361697574__7c882761-10ac-4609-919b-c634ffda081b-1679309852d57d6692-0",
+        "template--18200361697574__7c882761-10ac-4609-919b-c634ffda081b-1679309852d57d6692-2",
+        "template--18200361697574__7c882761-10ac-4609-919b-c634ffda081b-1679309852d57d6692-1"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 3,
+        "column_spacing": "medium",
+        "image_ratio": "landscape",
+        "mobile_swipe": true,
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#05b9ba",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_gePnxf": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GRg8qC": {
+          "type": "heading",
+          "settings": {
+            "text": "Highlight Technologies",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_zR9D7q": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In the field of whole-home cleaning, Honiture never stops moving forward. Years of research and development experience have enabled Honiture to stand out with its array of technological innovations. Innovative design and advanced technology allow users to enjoy a convenient, fast, and efficient cleaning experience, truly elevating home cleanliness to a new level.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GRg8qC",
+        "text_zR9D7q"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "toggle_boxes_q8dYwE": {
+      "type": "toggle-boxes",
+      "blocks": {
+        "box_4BCXcd": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4.png",
+            "image_link": "",
+            "open": false,
+            "heading": "High Energy-Density Battery Tech",
+            "text": "<p>We understand that short battery life is a major pain point for users. That's why we're tackling battery technology head-on, aiming to deliver products with exceptional longevity.<\/p>"
+          }
+        },
+        "box_9ffqpg": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_5df62562-d545-4ca9-9e7e-8f92cf7f4961.png",
+            "image_link": "",
+            "open": false,
+            "heading": "High Power Motor Tech",
+            "text": "<p>Motor is the Heart of cleaning appliances. Our advanced digital high-speed motor technology guarantee powerful suction and cleaning ablity, can even inhale up to ten coins.<\/p>"
+          }
+        },
+        "box_NePA8E": {
+          "type": "box",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6.png",
+            "image_link": "",
+            "open": false,
+            "heading": "Smart Sensor & Software Tech",
+            "text": "<p>Our product is equiped with mass intellegent sensors and combined with samrt software sysytem to automaticlly perceive the surrounding environment and Adjust the device to the most suitable state for easy use.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "box_4BCXcd",
+        "box_9ffqpg",
+        "box_NePA8E"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 3,
+        "column_spacing": "medium",
+        "image_ratio": "landscape",
+        "mobile_swipe": true,
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#05b9ba",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_DwQgM4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zPpYDB": {
+          "type": "heading",
+          "settings": {
+            "text": "Honiture at Global Exhibitions",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_VC8pHQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zPpYDB",
+        "text_VC8pHQ"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_prTP4w": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/pr-2.jpg",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_Y9MnVm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dFif3W": {
+          "type": "heading",
+          "settings": {
+            "text": "Our |Sales Channels|",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_ENmJAM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We now sell our products globally across Amazon, AliExpress, Alibaba, our own e-Shop and many other marketplaces from the US, Canada, Mexico to Germany, UK, France, Italy, Spain, as well as Japan, UAE, India and Australia.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dFif3W",
+        "text_ENmJAM"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_xxPTC3": {
+      "type": "single-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/7_46e2ece8-8f20-46f1-8931-32e44df7a7b1.png",
+        "full_width": false,
+        "title": "",
+        "title_alignment": "center",
+        "position_x": 50,
+        "title_size": 24,
+        "position_x_mobile": 50,
+        "title_size_mobile": 24,
+        "content": "",
+        "d_position_x": 50,
+        "d_position_y": 50,
+        "d_content_width": 50,
+        "d_size": 24,
+        "d_position_x_mobile": 50,
+        "d_position_y_mobile": 50,
+        "d_content_width_mobile": 50,
+        "d_size_mobile": 16,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_TzYnrY": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XGngVx": {
+          "type": "heading",
+          "settings": {
+            "text": "Buy on Amazon",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_pPniBL": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Get our products on Amazon now. Enjoy a hassle-free home cleaning journey from now on!<\/p>"
+          }
+        },
+        "button_UhH8VB": {
+          "type": "button",
+          "settings": {
+            "button_text": "Shop Now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_XGngVx",
+        "text_pPniBL",
+        "button_UhH8VB"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/7.png",
+        "use_video": false,
+        "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "large",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#f5e8df",
+        "color_text": "#ee7d7d",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_UjQeBF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WGkEJj": {
+          "type": "heading",
+          "settings": {
+            "text": "Honors & Awards",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_xDjhPQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are proud to have received numerous honors and awards that recognize our dedication to excellence, innovation, and customer satisfaction. These accolades reflect our commitment to delivering the highest quality products\/services and our continuous efforts to push the boundaries of our industry.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WGkEJj",
+        "text_xDjhPQ"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "logo_list_LUfcXH": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_JEcQRi": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_PqtXfY": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/9-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_pHBDVw": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/13-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_9PGmQ8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_aTJLN6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8-removebg-preview.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_JEcQRi",
+        "logo_PqtXfY",
+        "logo_pHBDVw",
+        "logo_9PGmQ8",
+        "logo_aTJLN6"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns": 5,
+        "mobile_swipe": true,
+        "center_align": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false,
+        "color_logo_bg": "rgba(0,0,0,0)",
+        "marker_color": "#fd6262"
+      }
+    },
+    "rich_text_tB4XAc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qmNC3J": {
+          "type": "heading",
+          "settings": {
+            "text": "Quality Assurance",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_dgCG4p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Spanning over 100,000 square meters, our ISO 9001-certified factory boasts intelligent and automated production lines. <\/p><p><br\/>Honiture's commitment to quality is reflected in its global product certifications, including FCC, CE, UKCA, SAA, RCM, and RoH.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qmNC3J",
+        "text_dgCG4p"
+      ],
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "logo_list_UaxaNr": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_hVdWCf": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ce-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_BMFjLw": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/rohs-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_4CJqRT": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fc-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_A4gH99": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/saa-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_LaBkCE": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/rcm-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "logo_RibwJQ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iso-removebg-preview.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_hVdWCf",
+        "logo_BMFjLw",
+        "logo_4CJqRT",
+        "logo_A4gH99",
+        "logo_LaBkCE",
+        "logo_RibwJQ"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns": 6,
+        "mobile_swipe": true,
+        "center_align": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true,
+        "color_logo_bg": "rgba(0,0,0,0)",
+        "marker_color": "#fd6262"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "6f4c239c-63d1-4be1-b6ff-0780f7b9a27e",
+    "single_image_p6VHXd",
+    "rich_text_D4TxTm",
+    "shop_the_look_jcqbn9",
+    "rich_text_QGJGrh",
+    "media_with_tabs_kzqHfQ",
+    "rich_text_8DwqCW",
+    "rich_text_RnHkfN",
+    "7c882761-10ac-4609-919b-c634ffda081b",
+    "rich_text_gePnxf",
+    "toggle_boxes_q8dYwE",
+    "rich_text_DwQgM4",
+    "single_image_prTP4w",
+    "rich_text_Y9MnVm",
+    "single_image_xxPTC3",
+    "image_with_text_TzYnrY",
+    "rich_text_UjQeBF",
+    "logo_list_LUfcXH",
+    "rich_text_tB4XAc",
+    "logo_list_UaxaNr"
+  ]
+}

@@ -1,0 +1,241 @@
+{% include 'shogun-content-handler' %}
+<!doctype html>
+{%- capture dir -%}
+	{%- case request.locale.iso_code -%}
+	  {%- when 'ae' or 'ar' or 'arc' or 'bcc' or 'bqi' or 'ckb' or 'dv' or 'fa' or 'glk' or 'ha' or 'he' or 'he-IL' or 'kwh' or 'ks' or 'ku' or 'mzn' or 'nqo' or 'pnb' or 'ps' or 'sd' or 'ug' or 'ur' or 'yi' -%}
+	    rtl
+	  {%- else -%}
+	    ltr
+	{%- endcase -%}
+{%- endcapture -%}
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ dir }}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+	<meta name="theme-color" content="{{ settings.color_body_bg }}">
+	<link rel="canonical" href="{{ canonical_url }}">
+	<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+	{% render 'head-preload' %}
+
+	<!-- Swiper CSS -->
+	<link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+
+	<!-- Swiper JS -->
+	<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+	<!-- Hotjar Tracking Code for Honiture -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6494007,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+	{% if settings.favicon != blank -%}
+		<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+	{%- endif %}
+
+	<title>
+	{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+	</title>
+
+	{% if page_description %}
+	<meta name="description" content="{{ page_description | escape }}">
+	{% endif %}
+
+	{% comment %} 这个产品不要被搜索引擎检索，后面如果有多个产品时可以改用元字段实现 {% endcomment %}
+	{% if product.id == 8145158766639 %}
+		<meta name="robots" content="noindex">
+	{% endif %}
+
+	{%- unless settings.heading_font.system? and settings.body_font.system? -%}
+		<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+	{%- endunless -%}
+
+	{% render 'social-meta-tags' %}
+
+	{{ 'app.css' | asset_url | stylesheet_tag }}
+	{{ 'product-grid.css' | asset_url | stylesheet_tag }}
+
+	{% render 'head-variables' %}
+
+	<script>
+		window.theme = window.theme || {};
+		theme = {
+			settings: {
+				money_with_currency_format: {{- shop.money_format | json -}},
+				cart_drawer: {{- settings.cart_drawer -}}
+			},
+			routes: {
+				root_url: '{{ routes.root_url }}',
+				cart_url: '{{ routes.cart_url }}',
+				cart_add_url: '{{ routes.cart_add_url }}',
+				search_url: '{{ routes.search_url }}',
+				cart_change_url: '{{ routes.cart_change_url }}',
+				cart_update_url: '{{ routes.cart_update_url }}',
+				predictive_search_url: '{{ routes.predictive_search_url }}',
+			},
+			variantStrings: {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        preOrder: `{{ 'products.product.pre_order' | t }}`,
+      },
+			strings: {
+				requiresTerms: `{{ 'sections.cart.terms_confirm' | t }}`,
+				shippingEstimatorNoResults: `{{ 'sections.cart.shipping_estimator.no_results' | t }}`,
+				shippingEstimatorOneResult: `{{ 'sections.cart.shipping_estimator.one_result' | t }}`,
+				shippingEstimatorMultipleResults: `{{ 'sections.cart.shipping_estimator.multiple_results' | t }}`,
+				shippingEstimatorError: `{{ 'sections.cart.shipping_estimator.error' | t }}`
+			}
+		};
+	</script>
+	{{ content_for_header }} <!-- Header hook for plugins -->
+
+	<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+	{{ settings.custom_html_head }}
+	{%- liquid
+	assign compare = false
+	if template.name contains 'collection' or template.name contains 'search'
+		if settings.enable_compare and settings.show_compare_toggle_on
+			assign compare = true
+		endif
+	endif
+-%}
+
+  {% render 'shogun-head' %}
+{% include 'pagefly-app-header' %}
+{% style %}
+.BLOY-wte .BLOY-page__item_icon svg,.BLOY-wtr .BLOY-page__item_icon svg{display:none!important}
+.BLOY-wte .BLOY-page__item_icon,.BLOY-wtr .BLOY-page__item_icon{height:64px!important;background-repeat:no-repeat;background-position:center;background-size:contain}
+.BLOY-wte .row-bloy>div:nth-child(1) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1zlB6MBekR6Ali46Gls6D8pUnmseBrrTg=s250)}
+.BLOY-wte .row-bloy>div:nth-child(2) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1pjc1jfQdX-xzpCbPDLigXlGiXzxS5rCG=s250)}
+.BLOY-wte .row-bloy>div:nth-child(3) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1UsZjSIgogA0bNLgyxI-ms2yk4apxPatJ=s250)}
+.BLOY-wte .row-bloy>div:nth-child(4) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1wWjmgTg09Z3kE5_1XUSW8E3ehbRslOJI=s250)}
+.BLOY-wte .row-bloy>div:nth-child(5) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1luxDCEcOZVODUss4cfW6Lc359KY8uI14=s250)}
+.BLOY-wte .row-bloy>div:nth-child(6) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/14acfn0SEnqillc6_G8Qq2opIjcgSv3Dq=s250)}
+.BLOY-wte .row-bloy>div:nth-child(7) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/16xpLJk6g2hI5DTmqJTylxLvkiNckAAxR=s250)}
+.BLOY-wte .row-bloy>div:nth-child(8) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1xqdhKkuDeC7i9Hs_5gBHmmFDA7AYkOzS=s250)}
+.BLOY-wte .row-bloy>div:nth-child(9) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1rbprujTe3Gw5j4vrQGgxe1l_XVoI0PIl=s250)}
+.BLOY-wtr .row-bloy>div:nth-child(1) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1ez8ejlT24ITIZc-JeE59HzBJZjFbnAK0=s250)}
+.BLOY-wtr .row-bloy>div:nth-child(2) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1Y8_eTzEOI7GZm7FAU1zjyAjeJG2qw1C0=s250)}
+.BLOY-wtr .row-bloy>div:nth-child(3) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1Y8_eTzEOI7GZm7FAU1zjyAjeJG2qw1C0=s250)}
+.BLOY-wtr .row-bloy>div:nth-child(4) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1urg3DRzKYAlSZgDRNi9S0em8ak8oLVFC=s250)}
+.BLOY-wtr .row-bloy>div:nth-child(5) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1urg3DRzKYAlSZgDRNi9S0em8ak8oLVFC=s250)}
+.BLOY-wtr .row-bloy>div:nth-child(6) .BLOY-page__item_icon{background-image:url(https://lh3.googleusercontent.com/d/1urg3DRzKYAlSZgDRNi9S0em8ak8oLVFC=s250)}
+.BLOY-wte .row-bloy>div{display:flex}
+.BLOY-wte .BLOY-page__earning__item{display:flex;flex-direction:column;width:100%}
+.BLOY-wte .bloy-signup-cta{margin-top:auto;padding-top:16px}
+.BLOY-wte .bloy-signup-cta a{display:block;width:100%;box-sizing:border-box;padding:12px 16px;text-align:center;background:#001584;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;line-height:1.2}
+.BLOY-wte .bloy-signup-cta a:hover{opacity:.9}
+.BLOY-page__balance_points {color: #00d0cd !important;}
+{% endstyle %}
+<script>(function(){var R='https://honiture.com/customer_authentication/redirect?locale=en&region_country=US';function guest(){var u=window.BloyUser;return !u||(!u.id&&!u.email);}function apply(root){var items=root.querySelectorAll('.BLOY-page__earning__item');if(!items.length)return;var g=guest();items.forEach(function(c){var e=c.querySelector('.bloy-signup-cta');if(g){if(!e){var w=document.createElement('div');w.className='bloy-signup-cta';var a=document.createElement('a');a.href=R;a.textContent='Sign up';w.appendChild(a);c.appendChild(w);}}else if(e){e.remove();}});}var ob=null;function watch(){var root=document.querySelector('.BLOY-wte');if(!root)return false;apply(root);if(!ob){ob=new MutationObserver(function(){ob.disconnect();apply(root);ob.observe(root,{childList:true,subtree:true});});ob.observe(root,{childList:true,subtree:true});}return true;}var t=0,iv=setInterval(function(){t++;if(watch()||t>50)clearInterval(iv);},300);document.addEventListener('DOMContentLoaded',watch);})();</script>
+</head>
+<body class="animations-{{ settings.animations }} button-uppercase-{{ settings.button_uppercase }} navigation-uppercase-{{ settings.navigation_uppercase }} product-card-spacing-{{ settings.product_card_spacing }} article-card-spacing-{{ settings.article_card_spacing }} compare-{{ compare }}{% if customer %} customer-logged-in{% endif %} template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | replace: '.', '-' | handle }}" data-product-info="{{ product.id }}">
+	{% if template.name == 'index' %}<h1 style="display: none;">{{ page_title }}</h1>{% endif %}
+	<a class="screen-reader-shortcut" href="#main-content">{{ 'accessibility.skip_to_text' | t }}</a>
+	<div id="{% if template.name == 'index' %}home-wrapper{% else %}wrapper{% endif %}">
+		{%- sections 'header-group' -%}
+		{%- sections 'overlay-group' -%}
+		<div role="main" id="{% if template.name == 'index' %}home-content{% else %}main-content{% endif %}">
+			{{ content_for_layout }}
+		</div>
+		{% sections 'footer-group' %}
+		{% render 'cart-drawer' %}
+		{% render 'product-drawer' %}
+		{% render 'search-drawer' %}
+		<div class="click-capture"></div>
+		<div class="click-capture--product"></div>
+	</div>
+
+	{{ 'vendor.min.js' | asset_url | script_tag }}
+	{% if settings.animations %}
+		{{ 'animations.min.js' | asset_url | script_tag }}
+		<script>
+			gsap.defaults({
+				ease: Power4.easeOut
+			});
+			gsap.config({
+		    nullTargetWarn: false
+		  });
+			gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+		</script>
+	{% endif %}
+	{{ 'slideshow.js' | asset_url | script_tag }}
+	{{ 'app.js' | asset_url | script_tag }}
+	{{ 'product.js' | asset_url | script_tag }}
+	<script type="module" src="{{ 'scroll-shadow.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+	{%- if settings.free_shipping -%}
+		{{ 'free-shipping.js' | asset_url | script_tag }}
+		{{ 'free-shipping.css' | asset_url | stylesheet_tag }}
+	{%- endif -%}
+	{%- if request.design_mode -%}
+		{{ 'theme-editor.js' | asset_url | script_tag }}
+		{% render 'customer-data' %}
+	{%- endif -%}
+	{%- if settings.cart_terms_conditions_enable -%}
+		<script src="{{ 'terms-checkbox.js' | asset_url }}" defer="defer"></script>
+	{%- endif -%}
+	{% render 'back-to-top' %}
+	{%- if settings.preload_links -%}
+		{%- unless request.design_mode -%}
+		<script type="module" src="{{ 'instant-page.js' | asset_url }}" defer="defer"></script>
+		{%- endunless -%}
+	{%- endif -%}
+</body>
+<style>
+.bloy-signup-cta a{
+	font-weight: 900 !important;
+    font-size: 26px !important;
+	background: #FBA441 !important; 
+	}
+.bloy-signup-cta a:hover {
+    text-decoration: underline;
+}
+  #home-wrapper{
+    position: relative;
+  }
+  .header:before{
+    background: initial ;
+  }
+  #home-wrapper .flickity-page-dots .dot.is-selected{
+    background: #00c0cd;
+  }
+  .flickity-page-dots .dot{
+    width:16px;
+  }
+  @media (max-width: 767px) {
+    .row-bloy {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row-bloy > [class*="bloy-col"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    .bloy-signup-cta a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        min-width: 70px;
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+        font-weight: 750 !important;
+        line-height: 1.4 !important;
+        border-radius: 6px;
+    }
+}
+</style>
+</html>

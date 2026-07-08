@@ -1,0 +1,267 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "text_NjjCzj": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "text": "🚚 Free Shipping Sitewide & 60-Day Price Match Guarantee.",
+            "link": "https:\/\/honiture.com\/collections\/all-vacuums",
+            "color_bg": "#00d0cd",
+            "color_text": "#ffffff"
+          }
+        },
+        "text_PbQPWM": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "text": "🎉 Celebrate July 4th with Huge Savings & Exclusive Gifts!",
+            "link": "shopify:\/\/pages\/4th-of-july-deals",
+            "color_bg": "#00D0CD",
+            "color_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "text_NjjCzj",
+        "text_PbQPWM"
+      ],
+      "settings": {
+        "announcement_bar": true,
+        "announcement_bar_homepage_only": false,
+        "show_language_switcher": false,
+        "show_currency_switcher": true,
+        "announcement_bar_layout": "carousel",
+        "direction": "left",
+        "speed": "20s",
+        "use_block_colors": true,
+        "autoplay": true,
+        "autoplay_length": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "megamenu_sidebar_LDGTnb": {
+          "type": "megamenu_sidebar",
+          "settings": {
+            "position": "1",
+            "content_collection_image": false,
+            "content_product_image": true,
+            "default_open_item": false,
+            "selected_numbers": ""
+          }
+        },
+        "megamenu_sidebar_eHYF4Q": {
+          "type": "megamenu_sidebar",
+          "disabled": true,
+          "settings": {
+            "position": "3",
+            "content_collection_image": false,
+            "content_product_image": true,
+            "default_open_item": false,
+            "selected_numbers": ""
+          }
+        },
+        "megamenu_sidebar_hWCdth": {
+          "type": "megamenu_sidebar",
+          "settings": {
+            "position": "4",
+            "content_collection_image": true,
+            "content_product_image": true,
+            "default_open_item": false,
+            "selected_numbers": ""
+          }
+        },
+        "menu_badge_G4LExj": {
+          "type": "menu_badge",
+          "settings": {
+            "badge_position": "3",
+            "text": "New",
+            "color_bg": "#00d0cd",
+            "color_text": "#272422"
+          }
+        },
+        "menu_badge_QrnnjP": {
+          "type": "menu_badge",
+          "settings": {
+            "badge_position": "2",
+            "text": "Hot",
+            "color_bg": "#ce2828",
+            "color_text": "#ffffff"
+          }
+        },
+        "mobile_secondary_menu_6kcrbJ": {
+          "type": "mobile_secondary_menu",
+          "disabled": true,
+          "settings": {
+            "menu": "mb-top"
+          }
+        },
+        "megamenu_dEzVMB": {
+          "type": "megamenu",
+          "disabled": true,
+          "settings": {
+            "position": "2",
+            "limit_columns": false,
+            "max_columns": "4",
+            "promo_1_image": "shopify:\/\/shop_images\/a1473badac9753996076958bfb5546fe.png",
+            "promo_1_heading": "Robot Vacuum Cleaners",
+            "promo_1_content": "",
+            "promo_1_link": "shopify:\/\/collections\/robot-cleaner",
+            "promo_2_image": "shopify:\/\/shop_images\/76fb46344d79b57bf1a5cfa2c9a98e5d.png",
+            "promo_2_heading": "Cordless Vacuum Cleaners",
+            "promo_2_content": "",
+            "promo_2_link": "shopify:\/\/collections\/cordless-vacuum-cleaners",
+            "promo_3_image": "shopify:\/\/shop_images\/ae6c2d993ea5a651328e439a88b7508b.png",
+            "promo_3_heading": "Pets Technology",
+            "promo_3_content": "",
+            "promo_3_link": "shopify:\/\/products\/pl01",
+            "promo_4_image": "shopify:\/\/shop_images\/fad017e2ff29b86f18f6f79c9840cba3.png",
+            "promo_4_heading": "Air Purifiers",
+            "promo_4_content": "",
+            "promo_4_link": "shopify:\/\/products\/honiture-air-purifier-kj01"
+          }
+        },
+        "megamenu_izUNHV": {
+          "type": "megamenu",
+          "disabled": true,
+          "settings": {
+            "position": "3",
+            "limit_columns": false,
+            "max_columns": "4",
+            "promo_1_image": "shopify:\/\/shop_images\/a1473badac9753996076958bfb5546fe.png",
+            "promo_1_heading": "Robot Vacuum Cleaners",
+            "promo_1_content": "",
+            "promo_1_link": "shopify:\/\/collections\/robot-cleaner",
+            "promo_2_image": "shopify:\/\/shop_images\/76fb46344d79b57bf1a5cfa2c9a98e5d.png",
+            "promo_2_heading": "Cordless Vacuum Cleaners",
+            "promo_2_content": "",
+            "promo_2_link": "shopify:\/\/collections\/cordless-vacuum-cleaners",
+            "promo_3_image": "shopify:\/\/shop_images\/ae6c2d993ea5a651328e439a88b7508b.png",
+            "promo_3_heading": "Pets Technology",
+            "promo_3_content": "",
+            "promo_3_link": "shopify:\/\/products\/pl01",
+            "promo_4_image": "shopify:\/\/shop_images\/fad017e2ff29b86f18f6f79c9840cba3.png",
+            "promo_4_heading": "Air Purifiers",
+            "promo_4_content": "",
+            "promo_4_link": "shopify:\/\/products\/honiture-air-purifier-kj01"
+          }
+        },
+        "megamenu_wVy6W6": {
+          "type": "megamenu",
+          "settings": {
+            "position": "4",
+            "limit_columns": true,
+            "max_columns": "5",
+            "promo_1_image": "shopify:\/\/shop_images\/honiture-cordless-vaccums-robots-vaccums.webp",
+            "promo_1_heading": "Unlock More Accessories",
+            "promo_1_content": "",
+            "promo_1_link": "shopify:\/\/collections\/accessories",
+            "promo_2_heading": "",
+            "promo_2_content": "",
+            "promo_2_link": "",
+            "promo_3_heading": "",
+            "promo_3_content": "",
+            "promo_3_link": "",
+            "promo_4_heading": "",
+            "promo_4_content": "",
+            "promo_4_link": ""
+          }
+        },
+        "megamenu_k79YBN": {
+          "type": "megamenu",
+          "settings": {
+            "position": "5",
+            "limit_columns": true,
+            "max_columns": "5",
+            "promo_1_image": "shopify:\/\/shop_images\/t10-robotic-vaccum.webp",
+            "promo_1_heading": "Submit Your Needs!",
+            "promo_1_content": "",
+            "promo_1_link": "shopify:\/\/pages\/contact",
+            "promo_2_heading": "",
+            "promo_2_content": "",
+            "promo_2_link": "",
+            "promo_3_heading": "",
+            "promo_3_content": "",
+            "promo_3_link": "",
+            "promo_4_heading": "",
+            "promo_4_content": "",
+            "promo_4_link": ""
+          }
+        },
+        "megamenu_jw9j7c": {
+          "type": "megamenu",
+          "settings": {
+            "position": "6",
+            "limit_columns": true,
+            "max_columns": "4",
+            "promo_1_image": "shopify:\/\/shop_images\/honiture-m7-best-shop-wet-dry-vac.jpg",
+            "promo_1_heading": "New Arrivals",
+            "promo_1_content": "",
+            "promo_1_link": "shopify:\/\/products\/m7-wet-dry-vacuum",
+            "promo_2_image": "shopify:\/\/shop_images\/honiture-affiliate.webp",
+            "promo_2_heading": "Affiliate Program",
+            "promo_2_content": "",
+            "promo_2_link": "https:\/\/honiture.com\/pages\/affiliate",
+            "promo_3_image": "shopify:\/\/shop_images\/cordless-stick-vaccum-p7-pro.webp",
+            "promo_3_heading": "News & Blogs",
+            "promo_3_content": "",
+            "promo_3_link": "shopify:\/\/blogs\/home-cleaning",
+            "promo_4_image": "shopify:\/\/shop_images\/cordless-vaccum-p7-pro.webp",
+            "promo_4_heading": "Reviews & Videos",
+            "promo_4_content": "",
+            "promo_4_link": "shopify:\/\/pages\/reviews-videos"
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_sidebar_LDGTnb",
+        "megamenu_sidebar_eHYF4Q",
+        "megamenu_sidebar_hWCdth",
+        "menu_badge_G4LExj",
+        "menu_badge_QrnnjP",
+        "mobile_secondary_menu_6kcrbJ",
+        "megamenu_dEzVMB",
+        "megamenu_izUNHV",
+        "megamenu_wVy6W6",
+        "megamenu_k79YBN",
+        "megamenu_jw9j7c"
+      ],
+      "settings": {
+        "sticky_header": false,
+        "full_width": false,
+        "logo": "shopify:\/\/shop_images\/97f61400138a11a77e1253d7a8d83759.svg",
+        "logo_height_range": 22,
+        "logo_height_range_mobile": 20,
+        "style": "style2",
+        "header_shadow": "header--shadow-small",
+        "menu": "main-menu-new-7-18",
+        "cart_icon": "cart",
+        "minimized_search": true,
+        "transparent_header": false,
+        "show_social_links": false,
+        "show_language_switcher": true,
+        "show_currency_switcher": true
+      }
+    },
+    "header-mobile-navigation": {
+      "type": "header-mobile-navigation",
+      "disabled": true,
+      "settings": {
+        "mobile_nav": "main-menu",
+        "color_links": "#00d0cd",
+        "color_bg": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "header-mobile-navigation"
+  ]
+}

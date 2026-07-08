@@ -1,0 +1,114 @@
+{%- liquid
+  assign title_left = block.settings.title_left | default: 'BUY 2 GET 1 FREE'
+  assign subtitle_left = block.settings.subtitle_left | default: '3 for price of 2'
+  assign title_right = block.settings.title_right | default: 'BUY 3 GET 3 FREE'
+  assign subtitle_right = block.settings.subtitle_right | default: '6 for price of 3'
+  assign bottom_text = block.settings.bottom_text | default: 'Add products to grab this deal'
+  assign text_color = block.settings.text_color | default: '#ffffff'
+  assign bg_start = block.settings.bg_start | default: '#fa8b4d'
+  assign bg_end = block.settings.bg_end | default: '#e959a2'
+-%}
+<div id="GiftPromo-{{ block.id }}-{{ section.id }}" class="gift-card">
+  <div class="gift-card__row">
+    <div class="gift-card__col gift-card__col--left">
+      <div class="gift-card__title">{{ title_left }}</div>
+      <div class="gift-card__subtitle">{{ subtitle_left }}</div>
+    </div> 
+    <div class="gift-card__divider" aria-hidden="true"></div>
+    <div class="gift-card__col gift-card__col--right">
+      <div class="gift-card__title">{{ title_right }}</div>
+      <div class="gift-card__subtitle">{{ subtitle_right }}</div>
+    </div>
+  </div>
+  <div class="gift-card__dash" aria-hidden="true"></div>
+  <div class="gift-card__footer">
+    {% render 'svg-icons-inline', icon: 'price_tag' %}
+    <span class="gift-card__bottom-text">{{ bottom_text }}</span>
+  </div>
+</div>
+<style>
+  #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card {
+    --_text: {{ text_color }};
+    --_bg-start: {{ bg_start }};
+    --_bg-end: {{ bg_end }};
+    color: var(--_text);
+    background: linear-gradient(90deg, var(--_bg-start), var(--_bg-end));
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  /* 票券左右缺口 */
+  #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::before,
+  #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::after {
+    content: '';
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    width: 18px; height: 18px;
+    background: #fff; /* 页面背景色回退 */
+    border-radius: 50%;
+  }
+  #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::before { left: -9px; }
+  #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::after { right: -9px; }
+
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+  }
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__col { text-align: center; }
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__title {
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__subtitle {
+    font-size: 14px;
+    opacity: .95;
+    margin-top: 6px;
+  }
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__divider {
+    width: 1px;
+    height: 44px;
+    background: rgba(255,255,255,.55);
+  }
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__dash {
+    border-top: 2px dashed rgba(255,255,255,.6);
+    margin: 6px 0 0;
+  }
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__footer svg {
+    width: 16px; height: 16px; fill: currentColor;
+  }
+
+  /* 移动端适配：保持左右布局但缩小字体与间距 */
+  @media (max-width: 768px) {
+    #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card { padding: 12px; gap: 8px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__row { gap: 12px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__title { font-size: 18px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__subtitle { font-size: 13px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__divider { height: 40px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }} .gift-card__footer { font-size: 13px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::before,
+    #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::after { width: 16px; height: 16px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::before { left: -8px; }
+    #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::after { right: -8px; }
+      #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::before,
+  #GiftPromo-{{ block.id }}-{{ section.id }}.gift-card::after {
+    top: 73%;
+  }
+  }
+</style>

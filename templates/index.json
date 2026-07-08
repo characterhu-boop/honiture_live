@@ -1,0 +1,1033 @@
+{
+  "sections": {
+    "slideshow_EhT6td": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_RP9HmR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Honiture_4th_of_July_Sale_1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Honiture_4th_of_July_Sale_2.jpg",
+            "slide_link": "shopify:\/\/pages\/4th-of-july-deals",
+            "video_background": false,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Stars, Stripes & Big Savings",
+            "heading_size": "h2",
+            "content": "4th of July Sale Now Live. Save Up to 72% Off and Free Gifts!",
+            "description_size": "large",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "large",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#070707",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "regular",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop The Deal",
+            "button_2_color": "accent",
+            "button_2_link": "shopify:\/\/pages\/4th-of-july-deals",
+            "use_text_button_2": false
+          }
+        },
+        "slide_yPrJhN": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuums-cleaner-banner.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-m7-floor-washer-for-sale.jpg",
+            "slide_link": "https:\/\/honiture.com\/products\/m7-wet-dry-vacuum?utm_source=homepage&utm_medium=banner&utm_campaign=homepage_banner&utm_content=m7_hero",
+            "video_background": false,
+            "show_content": true,
+            "badge_text": "New Launch",
+            "subheading": "",
+            "heading": "Achieve a Higher-Level Cleaning Experience",
+            "heading_size": "h2",
+            "content": "Meet the M7 wet dry vacuum: it vacuums, mops, washes, and self-dries, all in one go.",
+            "description_size": "medium",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#ffffff",
+            "color_badge_bg": "#ffffff",
+            "color_badge_text": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "Shop M7",
+            "button_2_color": "accent",
+            "button_2_link": "https:\/\/honiture.com\/products\/m7-wet-dry-vacuum?utm_source=homepage&utm_medium=banner&utm_campaign=homepage_banner&utm_content=m7_hero",
+            "use_text_button_2": false
+          }
+        },
+        "slide_VR3XWM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-vaccumx7-vacuum-cleaner-specifically-for-pets-home..jpg",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-x7--cordless-vacuum-pet-version_1.webp",
+            "slide_link": "shopify:\/\/products\/pet-version-cordless-vacuum-x7",
+            "video_background": true,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "All-New X7 Pet Vacuum Makes Zero Pet Hair",
+            "heading_size": "h2",
+            "content": "Just One Click, Up to 60 Minutes Runtime. Clean Your Entire Home in One Go.",
+            "description_size": "medium",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#19586e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": true,
+            "button_2_text": "Shop Now",
+            "button_2_color": "accent",
+            "button_2_link": "shopify:\/\/products\/pet-version-cordless-vacuum-x7",
+            "use_text_button_2": false
+          }
+        },
+        "slide_kX6AbQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/vaccum-p7-pro-7-layer-HEPA.webp",
+            "mobile_image": "shopify:\/\/shop_images\/Stong-suction-cordless-vacuum-cleaner-honiture-p7-pro_1.webp",
+            "slide_link": "",
+            "video_background": true,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Meet The 600W Strong Suction Honiture P7 Pro",
+            "heading_size": "h2",
+            "content": "Experience the Honiture upgraded Edition with ultra-powerful suction and an anti-tangle design.",
+            "description_size": "medium",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#19586e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": true,
+            "button_2_text": "Shop P7 Pro",
+            "button_2_color": "accent",
+            "button_2_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+            "use_text_button_2": false
+          }
+        },
+        "slide_4dYCP8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-cordless-vacuum-cleaner.webp",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-powerful-cordless-vacuum.webp",
+            "slide_link": "",
+            "video_background": true,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Honiture Top-Rated Cordless Vacuum X7",
+            "heading_size": "h2",
+            "content": "Sleek and lightweight design. Self-standing & 3-in-1 versatile stick vacuum.",
+            "description_size": "medium",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#19586e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": true,
+            "button_2_text": "Shop X7 Now",
+            "button_2_color": "accent",
+            "button_2_link": "shopify:\/\/products\/x7",
+            "use_text_button_2": false
+          }
+        },
+        "slide_wXjb8X": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/best-vacuum-cleaner-oline-shop.webp",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-vacuum-deal.webp",
+            "slide_link": "shopify:\/\/collections\/all-vacuums",
+            "video_background": true,
+            "show_content": true,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Deep Clean Every Corner",
+            "heading_size": "h2",
+            "content": "Explore Powerful Cordless Vacuum and Budget-friendly Robot Vacuum | Twice the Power, Zero the Effort.",
+            "description_size": "medium",
+            "content_position": "middle-left",
+            "text_alignment": "left",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#19586e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": true,
+            "button_2_text": "Discover Now",
+            "button_2_color": "accent",
+            "button_2_link": "shopify:\/\/collections\/all-vacuums",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_RP9HmR",
+        "slide_yPrJhN",
+        "slide_VR3XWM",
+        "slide_kX6AbQ",
+        "slide_4dYCP8",
+        "slide_wXjb8X"
+      ],
+      "custom_css": [],
+      "settings": {
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-image",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "transition": "slide",
+        "controls": "dots",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_kJNAVU": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 20,
+        "spacer_desktop": 30,
+        "border_separator": false,
+        "border_separator_full": true
+      }
+    },
+    "rich_text_3PzJFd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pCLkWz": {
+          "type": "heading",
+          "settings": {
+            "text": "EXPLORE NEXT-LEVEL CLEANING",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pCLkWz"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": true,
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#19586E",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_1_JL8dLj": {
+      "type": "media-grid-1",
+      "blocks": {
+        "media_wW9wf3": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-cordless-vacuum.png",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-cordless-vacuum-x7.png",
+            "slide_link": "shopify:\/\/products\/x7",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "custom_tag": "Top-Rated",
+            "subheading": "45KPa Suction | 550W Motor | Self-Standing Design",
+            "heading": "Honiture Vacuum X7",
+            "heading_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/x7",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "subheading_color": "#666666",
+            "overlay_opacity": 0
+          }
+        },
+        "media_CPMnRF": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2025-New_Release-Honiture-P7-Pro-Cordless-Vacuum.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/2025-New_Release-Honiture-P7-Pro-Cordless-Vacuum-Cleaner.jpg",
+            "slide_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "custom_tag": "Best-Selling",
+            "subheading": "50KPa Suction | 600W Motor | Anti-Tangle Roller",
+            "heading": "Honiture Vacuum P7 Pro",
+            "heading_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/p7-pro-cordless-vacuum",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "subheading_color": "#666666",
+            "overlay_opacity": 0
+          }
+        },
+        "media_yYRGGG": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-cordless-vac.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-m7-wet-dry-vacuum-self-cleaning-vacuum-cleaner.jpg",
+            "slide_link": "shopify:\/\/products\/m7-wet-dry-vacuum",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "custom_tag": "New Arrival",
+            "subheading": "3-in-1 Vacuum Mop Wash | Self-Cleaning | Flash Dry",
+            "heading": "Honiture Wet Dry Vacuum M7",
+            "heading_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/m7-wet-dry-vacuum",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "subheading_color": "#666666",
+            "overlay_opacity": 0
+          }
+        },
+        "media_D4rCEm": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/robot-vacuum-cleaner.png",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-robot-vacuum-white.png",
+            "slide_link": "shopify:\/\/products\/honiture-t10-robot-vacuum",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "custom_tag": "Hot",
+            "subheading": "Lidar Navigation | Vacuum & Mop | Ultra-Slim 3.3\"",
+            "heading": "Honiture Robot Vacuum T10",
+            "heading_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/honiture-t10-robot-vacuum",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "subheading_color": "#666666",
+            "overlay_opacity": 0
+          }
+        },
+        "media_LwpFhq": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-Y10-cordless-vacuum-cleaner-sale-38kpa.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/honiture-Y10-cordless-vacuum-sale-38kpa.jpg",
+            "slide_link": "shopify:\/\/products\/y10-cordless-stick-vacuum",
+            "use_video": false,
+            "video_autoplay": false,
+            "column": 2,
+            "row": 2,
+            "custom_tag": "Hot",
+            "subheading": "38KPa Suction | 400W Motor | Anti-Tangle Roller",
+            "heading": "Honiture Vacuum Y10",
+            "heading_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/y10-cordless-stick-vacuum",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "subheading_color": "#666666",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_wW9wf3",
+        "media_CPMnRF",
+        "media_yYRGGG",
+        "media_D4rCEm",
+        "media_LwpFhq"
+      ],
+      "name": "Media grid with slider",
+      "settings": {
+        "desktop_height": 400,
+        "column_spacing": "medium",
+        "mobile_swipe": true,
+        "show_view_all": true,
+        "view_all_text": "View All",
+        "view_all_link": "shopify:\/\/collections\/all-vacuums",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_8RMQK6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MaGC8B": {
+          "type": "heading",
+          "settings": {
+            "text": "WE’VE GOT EVERY CORNER COVERED!",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_A4xUpt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Simplify your life with Honiture’s cordless and robotic vacuums. Experience the future of clean.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MaGC8B",
+        "text_A4xUpt"
+      ],
+      "custom_css": [],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": true,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#19586E",
+        "color_text": "#a6a6a6",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_4Qg9VU": {
+      "type": "rich-text",
+      "blocks": {
+        "button_hdQ6QB": {
+          "type": "button",
+          "settings": {
+            "link_label": "Shop All Vacuums",
+            "link": "shopify:\/\/collections\/all-vacuums"
+          }
+        }
+      },
+      "block_order": [
+        "button_hdQ6QB"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "small",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#00d0cd",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_TmrRJX": {
+      "type": "media-grid",
+      "blocks": {
+        "media_pYne64": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-best-handheld-vacuum-x7.jpg",
+            "slide_link": "shopify:\/\/collections\/cordless-vacuum-cleaners",
+            "heading_font_size": 1.5,
+            "heading_color": "#ffffff",
+            "subheading_font_size": 1,
+            "subheading_color": "#ffffff",
+            "link_font_size": 1,
+            "link_color": "#00d0cd",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "",
+            "heading": "Cordless Vacuums",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/collections\/cordless-vacuum-cleaners",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_9iaGFq": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/shop-vacuum.jpg",
+            "slide_link": "shopify:\/\/collections\/robot-cleaner",
+            "heading_font_size": 1.5,
+            "heading_color": "#ffffff",
+            "subheading_font_size": 1,
+            "subheading_color": "#ffffff",
+            "link_font_size": 1,
+            "link_color": "#00d0cd",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "",
+            "heading": "Smart Robot Vacuums",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/collections\/robot-cleaner",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_RpwFFJ": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-m7-wet-and-dry-vacuum-cleaner.webp",
+            "slide_link": "shopify:\/\/products\/m7-wet-dry-vacuum",
+            "heading_font_size": 1.5,
+            "heading_color": "#ffffff",
+            "subheading_font_size": 1,
+            "subheading_color": "#ffffff",
+            "link_font_size": 1,
+            "link_color": "#00d0cd",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "Wet Dry Vacuum",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/products\/m7-wet-dry-vacuum",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 6
+          }
+        },
+        "media_DiDJxK": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honiture-best-cleaner.jpg",
+            "slide_link": "shopify:\/\/collections\/accessories",
+            "heading_font_size": 1.5,
+            "heading_color": "#ffffff",
+            "subheading_font_size": 1,
+            "subheading_color": "#ffffff",
+            "link_font_size": 1,
+            "link_color": "#00d0cd",
+            "link_top": 0,
+            "link_left": 0,
+            "link_width": 100,
+            "link_height": 100,
+            "use_video": false,
+            "video_controls": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "Accessories",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "button_link": "shopify:\/\/collections\/accessories",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_width": 100,
+            "content_m_left": 0,
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#00d0cd",
+            "overlay_color": "#000000",
+            "overlay_opacity": 6
+          }
+        }
+      },
+      "block_order": [
+        "media_pYne64",
+        "media_9iaGFq",
+        "media_RpwFFJ",
+        "media_DiDJxK"
+      ],
+      "name": "Media grid",
+      "settings": {
+        "desktop_height": 380,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "mobile_swipe": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_THkLBc": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Qxw8Qc": {
+          "type": "subheading",
+          "settings": {
+            "text": "Honiture Vacuum Cleaner"
+          }
+        },
+        "heading_4Mangt": {
+          "type": "heading",
+          "settings": {
+            "text": "SMART CLEANING SOLUTION",
+            "marker_style": "style1",
+            "size": "h3",
+            "heading_tag": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_iAgpww": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Redefine home cleaning. Bid farewell to tedious chores. Enjoy a spotless home. The combination of the cordless vacuum X7 and the robot vacuum makes cleaning twice as efficient.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Qxw8Qc",
+        "heading_4Mangt",
+        "text_iAgpww"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "enable_fade_effect": false,
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#0D7D8E",
+        "color_text": "#000000",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "custom_image_with_text_4DnVTt": {
+      "type": "custom-image-with-text",
+      "blocks": {
+        "item_8A4w8c": {
+          "type": "item",
+          "settings": {
+            "item_text": "Wet Dry Vacuum",
+            "item_link": "shopify:\/\/products\/m7-wet-dry-vacuum",
+            "item_position_x": 29,
+            "item_position_y": 50
+          }
+        },
+        "item_NGeHQy": {
+          "type": "item",
+          "settings": {
+            "item_text": "Cordless Vacuum",
+            "item_link": "shopify:\/\/collections\/cordless-vacuum-cleaners",
+            "item_position_x": 62,
+            "item_position_y": 70
+          }
+        },
+        "item_xWVJRU": {
+          "type": "item",
+          "settings": {
+            "item_text": "Robot Vacuum",
+            "item_link": "shopify:\/\/collections\/robot-cleaner",
+            "item_position_x": 35,
+            "item_position_y": 85
+          }
+        }
+      },
+      "block_order": [
+        "item_8A4w8c",
+        "item_NGeHQy",
+        "item_xWVJRU"
+      ],
+      "name": "Custom Image with Text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Honiture-house-cleaning-solution-vacuum-cleaner-for-sale.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Honiture-house-cleaning-solution-vacuum-cleaner-for-sale-banner.jpg",
+        "title": "",
+        "text": "",
+        "text_alignment": "center"
+      }
+    },
+    "media_carousel_up_4eFMQU": {
+      "type": "media-carousel-up",
+      "blocks": {
+        "slide_ntPJDK": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/ssstik.io_@aaamgrr_1773656451244.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_D74EKB": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/P7 pro review.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_h6H3Mn": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/10月27日(1).mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_NfwHbK": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/Influencer-test-honiture-cordless-vacuum-x7-cleaner.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        },
+        "slide_P8CbdL": {
+          "type": "slide",
+          "settings": {
+            "media_type": "uploaded_video",
+            "video_url": "",
+            "uploaded_video": "shopify:\/\/files\/videos\/honiture p7pro review video.mp4",
+            "video_autoplay": false,
+            "link": "",
+            "card_title": "",
+            "card_text": "",
+            "channel": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_ntPJDK",
+        "slide_D74EKB",
+        "slide_h6H3Mn",
+        "slide_NfwHbK",
+        "slide_P8CbdL"
+      ],
+      "custom_css": [
+        ".swiper-header .title p {color: #19586e; font-size: 24px; line-height: 1.4;}",
+        ".swiper-slide-media video {border-radius: 10px;}",
+        "@media screen and (min-width: 768px) {.swiper-container {padding: 100px 0 0; }}",
+        ".swiper-pagination {display: block !important;}"
+      ],
+      "name": "media-carousel-up",
+      "settings": {
+        "title": "<p>DON'T JUST TAKE OUR WORD FOR IT<\/p>",
+        "full_width": false,
+        "padding_top": 100,
+        "padding_top_mobile": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mobile": 36,
+        "slide_card_height": 100,
+        "slide_card_height_mobile": 120,
+        "slide_aspect_ratio": 200,
+        "slide_aspect_ratio_mobile": 188,
+        "slides_per_view": 4,
+        "slides_per_view_tablet": 2,
+        "slides_per_view_mobile": 2,
+        "space_between": 30,
+        "space_between_tablet": 20,
+        "space_between_mobile": 5,
+        "centered_slides": false,
+        "loop": true,
+        "alignment": "start",
+        "autoplay": false,
+        "autoplay_speed": 3,
+        "disable_autoplay_on_interaction": true,
+        "show_navigation": true,
+        "navigation_color": "#000000",
+        "show_pagination": true,
+        "pagination_type": "bullets",
+        "pagination_color": "#1d665e"
+      }
+    },
+    "custom_container_text_V47wHY": {
+      "type": "custom-container-text",
+      "name": "Custom Container",
+      "settings": {
+        "title_prefix": "WHY BUY AT",
+        "title_highlight": "HONITURE.COM",
+        "title_suffix": "?",
+        "description": "Discover cutting-edge smart home solutions backed by 6 years of expertise. Unbeatable prices and exceptional customer service—all in one trusted place. Shop smarter, live better!",
+        "button_text": "Learn More >",
+        "button_link": "shopify:\/\/pages\/about-us",
+        "enable_fade_in": true
+      }
+    },
+    "video_9JNWwR": {
+      "type": "video",
+      "name": "Video",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify:\/\/files\/videos\/IFA宣传视频(3)-10S_e74ebb7f-a294-45d1-b258-9730a95e06e5.mp4",
+        "video_autoplay": true,
+        "show_progress": false,
+        "disable_download": false,
+        "playback_rate": 1,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "logo_list_ffb8CE": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_MyNJC3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gitex-global-2023-logo---black.webp",
+            "link": ""
+          }
+        },
+        "logo_gwkAMb": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ces-logo.png",
+            "link": ""
+          }
+        },
+        "logo_7gqWzD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ifa-logo.jpg",
+            "link": ""
+          }
+        },
+        "logo_GJLWEA": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7_2x_04a279fe-cafb-4c4e-94ff-00b27d5d2a69.png",
+            "link": ""
+          }
+        },
+        "logo_JkXDeD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/rohs-mark-icon-isolated-on-white-background.jpg",
+            "link": ""
+          }
+        },
+        "logo_6kYyqe": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/rcm.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_MyNJC3",
+        "logo_gwkAMb",
+        "logo_7gqWzD",
+        "logo_GJLWEA",
+        "logo_JkXDeD",
+        "logo_6kYyqe"
+      ],
+      "custom_css": [],
+      "name": "Logo list",
+      "settings": {
+        "heading": "HONITURE INDUSTRY SHOWCASES",
+        "marker_style": "style1",
+        "description": "<p>Honiture has showcased its products at top industry events, from tech expos to global trade shows. With certifications from authorities, Honiture ensure that every product we offer meets the high standards of safety, reliability, and performance.<\/p>",
+        "columns": 6,
+        "mobile_swipe": true,
+        "center_align": true,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false,
+        "color_logo_bg": "#ffffff",
+        "marker_color": "#ffffff"
+      }
+    },
+    "featured_blog_gK7kdM": {
+      "type": "featured-blog",
+      "custom_css": [
+        ".section-header--title {color: #19586e; font-size: calc(var(--font-heading-scale) * 28px); line-height: calc( var(--font-heading-line-height-scale) * calc(var(--font-heading-scale) * 36px) );}",
+        ".section-header--description {color: #999;}"
+      ],
+      "name": "Blog posts",
+      "settings": {
+        "heading": "LATEST NEWS",
+        "marker_style": "style1",
+        "description": "<p>Stay updated with the latest news and tips to enhance the quality of life and health for you and your family. <\/p>",
+        "blog": "home-cleaning",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "article_list": [
+          "home-cleaning\/best-cordless-stick-vacuum-for-carpet-cleaning-2026",
+          "cordless-vacuum\/the-5-best-affordable-cordless-vacuums",
+          "home-cleaning\/vacuums-suction-power"
+        ],
+        "mobile_swipe": true,
+        "image_ratio": "square",
+        "show_date": true,
+        "show_excerpt": false,
+        "show_read_more": true,
+        "show_view_all": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "slideshow_EhT6td",
+    "spacer_kJNAVU",
+    "rich_text_3PzJFd",
+    "media_grid_1_JL8dLj",
+    "rich_text_8RMQK6",
+    "rich_text_4Qg9VU",
+    "media_grid_TmrRJX",
+    "rich_text_THkLBc",
+    "custom_image_with_text_4DnVTt",
+    "media_carousel_up_4eFMQU",
+    "custom_container_text_V47wHY",
+    "video_9JNWwR",
+    "logo_list_ffb8CE",
+    "featured_blog_gK7kdM"
+  ]
+}
