@@ -668,6 +668,7 @@ width: 120px;
             {% capture tab_title_key %}tab_{{ i }}_title{% endcapture %}
             {% capture tab_collection_key %}tab_{{ i }}_collection{% endcapture %}
             {% assign tab_collection = section.settings[tab_collection_key] %}
+            {% assign collection_product_limit = section.settings.collection_product_limit | default: 12 %}
             
             {% if section.settings[tab_title_key] != blank %}
               <div class="acc-tab-panel {% if i == 1 %}active{% endif %}" id="tab-panel-{{ i }}-{{ section.id }}">
@@ -676,7 +677,7 @@ width: 120px;
                 
                 {% if tab_collection != blank %}
                   {% comment %} Collection Logic {% endcomment %}
-                  {% for product in collections[tab_collection].products limit: 12 %}
+                  {% for product in collections[tab_collection].products limit: collection_product_limit %}
                     {% assign visible_count = visible_count | plus: 1 %}
                     {% assign title = product.title %}
                     {% assign image = product.featured_image %}
@@ -1174,6 +1175,15 @@ width: 120px;
       "id": "hide_tab_nav",
       "label": "Hide Tab Navigation",
       "default": false
+    },
+    {
+      "type": "range",
+      "id": "collection_product_limit",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "label": "Collection Products Limit",
+      "default": 12
     },
     {
       "type": "text",

@@ -165,7 +165,14 @@
             {% assign show_gift_product_card = true %}
           {% endif %}
           {% assign has_gift_product_card_content = false %}
-          {% if gift_product_1 != blank or gift_product_2 != blank or request.design_mode %}
+          {% assign gift_product_count = 0 %}
+          {% if gift_product_1 != blank %}
+            {% assign gift_product_count = gift_product_count | plus: 1 %}
+          {% endif %}
+          {% if gift_product_2 != blank %}
+            {% assign gift_product_count = gift_product_count | plus: 1 %}
+          {% endif %}
+          {% if gift_product_count > 0 %}
             {% assign has_gift_product_card_content = true %}
           {% endif %}
           {% if show_gift_product_card and has_gift_product_card_content %}
@@ -184,7 +191,7 @@
                 {% if section.settings.gift_card_title != blank %}
                   <div class="member-new-arrivel__gift-heading">{{ section.settings.gift_card_title | escape }}</div>
                 {% endif %}
-                <div class="member-new-arrivel__gift-body">
+                <div class="member-new-arrivel__gift-body {% if gift_product_count > 1 %}is-double{% else %}is-single{% endif %}">
                   {% for gift_index in (1..2) %}
                     {% liquid
                       if gift_index == 1
@@ -208,16 +215,11 @@
                         assign gift_compare = gift_product.price | money
                       endif
                     %}
-                    {% if request.design_mode and gift_product == blank and gift_title == blank %}
-                      {% capture gift_title %}Select gift product {{ gift_index }}{% endcapture %}
-                    {% endif %}
-                    {% if gift_product != blank or request.design_mode %}
+                    {% if gift_product != blank %}
                       <a class="member-new-arrivel__gift-product" href="{{ gift_product.url | default: card_url | default: '#' }}">
                         <span class="member-new-arrivel__gift-product-media">
                           {% if gift_image != blank %}
                             {{ gift_image | image_url: width: 260 | image_tag: loading: 'lazy', alt: gift_title }}
-                          {% elsif request.design_mode %}
-                            {{ 'product-1' | placeholder_svg_tag }}
                           {% endif %}
                         </span>
                         <span class="member-new-arrivel__gift-product-info">
@@ -478,9 +480,13 @@
 
   #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     min-height: calc(84 * var(--vp-s));
     padding: calc(12 * var(--vp-s)) calc(14 * var(--vp-s)) calc(10 * var(--vp-s));
+  }
+
+  #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product {
@@ -878,8 +884,8 @@
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product + .member-new-arrivel__gift-product {
-      padding-left: calc(10 * var(--vp-s));
-      margin-left: calc(10 * var(--vp-s));
+      padding-left: calc(5 * var(--vp-s));
+      margin-left: calc(5 * var(--vp-s));
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product-media {

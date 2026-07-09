@@ -340,7 +340,7 @@
 
   .fd-best--{{ section.id }} .fd-best__gift {
     position: relative;
-    width: var(--fd-gift-width, calc(440 * var(--vp-s)));
+    width: min(100%, calc(440 * var(--vp-s)));
     max-width: 100%;
     margin-top: calc(4 * var(--vp-s));
     margin-left: var(--fd-gift-align-margin-left, 0);
@@ -450,8 +450,8 @@
 
   .fd-best--{{ section.id }} .fd-best__gift-body.is-double .fd-best__gift-product + .fd-best__gift-product {
     border-left: calc(1 * var(--vp-s)) solid rgba(25, 25, 25, 0.18);
-    padding-left: calc(24 * var(--vp-s));
-    margin-left: calc(24 * var(--vp-s));
+    padding-left: calc(0 * var(--vp-s));
+    margin-left: calc(0 * var(--vp-s));
   }
 
   .fd-best--{{ section.id }} .fd-best__gift-media {
@@ -852,7 +852,7 @@
     }
 
     .fd-best--{{ section.id }} .fd-best__gift {
-      width: var(--fd-gift-width-mobile, min(100%, calc(335 * var(--vp-s))));
+      width: min(100%, calc(335 * var(--vp-s)));
       margin-left: auto;
       margin-right: auto;
       padding-top: calc(18 * var(--vp-s));
@@ -893,10 +893,17 @@
     .fd-best--{{ section.id }} .fd-best__gift-body.is-double .fd-best__gift-product {
       gap: calc(6 * var(--vp-s));
     }
+    .fd-best--{{ section.id }} .fd-best__gift-body.is-single .fd-best__gift-info,
+    .fd-best--{{ section.id }} .fd-best__gift-body.is-single .fd-best__gift-title {
+      text-align: left;
+    }
 
+    .fd-best--{{ section.id }} .fd-best__gift-body.is-single .fd-best__gift-price {
+      justify-content: flex-start;
+    }
     .fd-best--{{ section.id }} .fd-best__gift-body.is-double .fd-best__gift-product + .fd-best__gift-product {
-      padding-left: calc(12 * var(--vp-s));
-      margin-left: calc(12 * var(--vp-s));
+      padding-left: calc(0 * var(--vp-s));
+      margin-left: calc(0 * var(--vp-s));
     }
 
     .fd-best--{{ section.id }} .fd-best__gift-media {
