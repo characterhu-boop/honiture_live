@@ -74,12 +74,27 @@
                 {% if gift_compare_text == blank and gift_product != blank %}
                   {% assign gift_compare_text = gift_product.price | money %}
                 {% endif %}
+                {% assign gift_product_2 = block.settings.gift_product_2 %}
+                {% assign gift_title_2 = block.settings.gift_product_title_2 | default: gift_product_2.title %}
+                {% assign gift_image_2 = block.settings.gift_product_image_2 | default: gift_product_2.featured_image %}
+                {% assign gift_image_mobile_2 = block.settings.gift_product_image_mobile_2 | default: gift_image_2 %}
+                {% assign gift_compare_text_2 = block.settings.gift_compare_price_2 %}
+                {% if gift_compare_text_2 == blank and gift_product_2 != blank %}
+                  {% assign gift_compare_text_2 = gift_product_2.price | money %}
+                {% endif %}
                 {% assign gift_heading = block.settings.gift_heading %}
                 {% if gift_heading == blank %}
                   {% capture gift_heading %}Gifts for {{ title | strip_html }}{% endcapture %}
                 {% endif %}
                 {% assign show_gift_product = false %}
+                {% assign gift_product_count = 0 %}
                 {% if gift_product != blank or gift_title != blank or gift_image != blank %}
+                  {% assign gift_product_count = gift_product_count | plus: 1 %}
+                {% endif %}
+                {% if gift_product_2 != blank or gift_title_2 != blank or gift_image_2 != blank %}
+                  {% assign gift_product_count = gift_product_count | plus: 1 %}
+                {% endif %}
+                {% if gift_product_count > 0 %}
                   {% assign show_gift_product = true %}
                 {% endif %}
                 {% assign block_discount_code = block.settings.discount_code %}
@@ -134,7 +149,7 @@
                   {% endif %}
                   {% if show_gift_product %}
                     <div
-                      class="acce-card__gift-product"
+                      class="acce-card__gift-product acce-card__gift-product--count-{{ gift_product_count }}"
                       style="
                         --gift-product-width: {{ block.settings.gift_product_width | default: 330 }};
                         --gift-product-width-mobile: {{ block.settings.gift_product_width_mobile | default: 280 }};
@@ -165,27 +180,48 @@
                       <div class="acce-card__gift-product-inner">
                         <div class="acce-card__gift-product-heading">{{ gift_heading | escape }}</div>
                         <div class="acce-card__gift-product-body">
-                          <a class="acce-card__gift-product-media" href="{{ gift_product.url | default: prod.url }}" target="_blank" rel="noopener">
-                            {% if gift_image != blank %}
-                              <picture>
-                                {% if gift_image_mobile != blank %}
-                                  <source media="(max-width: 849px)" srcset="{{ gift_image_mobile | image_url: width: 300 }}">
-                                {% endif %}
-                                {{ gift_image | image_url: width: 360 | image_tag: loading: 'lazy', alt: gift_title }}
-                              </picture>
+                          {% for gift_index in (1..2) %}
+                            {% liquid
+                              if gift_index == 1
+                                assign current_gift_product = gift_product
+                                assign current_gift_title = gift_title
+                                assign current_gift_image = gift_image
+                                assign current_gift_image_mobile = gift_image_mobile
+                                assign current_gift_compare_text = gift_compare_text
+                              else
+                                assign current_gift_product = gift_product_2
+                                assign current_gift_title = gift_title_2
+                                assign current_gift_image = gift_image_2
+                                assign current_gift_image_mobile = gift_image_mobile_2
+                                assign current_gift_compare_text = gift_compare_text_2
+                              endif
+                            %}
+                            {% if current_gift_product != blank or current_gift_title != blank or current_gift_image != blank %}
+                              <a class="acce-card__gift-product-item" href="{{ current_gift_product.url | default: prod.url }}" target="_blank" rel="noopener">
+                                <span class="acce-card__gift-product-media">
+                                  {% if current_gift_image != blank %}
+                                    <picture>
+                                      {% if current_gift_image_mobile != blank %}
+                                        <source media="(max-width: 849px)" srcset="{{ current_gift_image_mobile | image_url: width: 300 }}">
+                                      {% endif %}
+                                      {{ current_gift_image | image_url: width: 360 | image_tag: loading: 'lazy', alt: current_gift_title }}
+                                    </picture>
+                                  {% endif %}
+                                </span>
+                                <span class="acce-card__gift-product-info">
+                                  {% if current_gift_title != blank %}
+                                    <span class="acce-card__gift-product-title">{{ current_gift_title | escape }}</span>
+                                  {% endif %}
+                                  <span class="acce-card__gift-product-price">
+                                    <span>{{ block.settings.gift_free_label | default: 'FREE' | escape }}</span>
+                                    {% if current_gift_compare_text != blank %}
+                                      <s>{{ current_gift_compare_text | escape }}</s>
+                                    {% endif %}
+                                  </span>
+                                </span>
+                              </a>
                             {% endif %}
-                          </a>
-                          <div class="acce-card__gift-product-info">
-                            {% if gift_title != blank %}
-                              <a class="acce-card__gift-product-title" href="{{ gift_product.url | default: prod.url }}" target="_blank" rel="noopener">{{ gift_title | escape }}</a>
-                            {% endif %}
-                            <div class="acce-card__gift-product-price">
-                              <span>{{ block.settings.gift_free_label | default: 'FREE' | escape }}</span>
-                              {% if gift_compare_text != blank %}
-                                <s>{{ gift_compare_text | escape }}</s>
-                              {% endif %}
-                            </div>
-                          </div>
+                          {% endfor %}
                         </div>
                       </div>
                     </div>
@@ -606,17 +642,34 @@
 
   .member-acce .acce-card__gift-product-body {
     display: grid;
-    grid-template-columns: calc(var(--gift-product-image-width, 96) * var(--vp-s)) minmax(0, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(calc(110 * var(--vp-s)), 1fr));
     align-items: center;
-    gap: calc(16 * var(--vp-s));
     min-height: calc(110 * var(--vp-s));
     padding: calc(14 * var(--vp-s)) calc(18 * var(--vp-s));
+  }
+
+  .member-acce .acce-card__gift-product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    color: #111;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .member-acce .acce-card__gift-product-item + .acce-card__gift-product-item {
+    border-left: calc(1 * var(--vp-s)) solid rgba(17, 17, 17, 0.16);
+    padding-left: calc(16 * var(--vp-s));
+    margin-left: calc(16 * var(--vp-s));
   }
 
   .member-acce .acce-card__gift-product-media,
   .member-acce .acce-card__gift-product-media picture {
     display: block;
     width: calc(var(--gift-product-image-width, 96) * var(--vp-s));
+    margin: 0 auto;
   }
 
   .member-acce .acce-card__gift-product-media img {
@@ -638,6 +691,7 @@
   .member-acce .acce-card__gift-product-price {
     display: flex;
     align-items: baseline;
+    justify-content: center;
     gap: calc(12 * var(--vp-s));
     margin-top: calc(8 * var(--vp-s));
     font-size: calc(15 * var(--vp-s));
@@ -652,6 +706,40 @@
   .member-acce .acce-card__gift-product-price s {
     color: #999;
     font-weight: 500;
+  }
+
+  .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-body {
+    display: flex;
+    align-items: center;
+    min-height: calc(82 * var(--vp-s));
+    padding: calc(8 * var(--vp-s)) calc(14 * var(--vp-s));
+  }
+
+  .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: calc(14 * var(--vp-s));
+    width: 100%;
+    text-align: left;
+  }
+
+  .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-media,
+  .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-media picture {
+    flex: 0 0 calc(var(--gift-product-image-width, 96) * var(--vp-s));
+    margin: 0;
+  }
+
+  .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-info {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-price {
+    justify-content: flex-start;
+    gap: calc(8 * var(--vp-s));
+    margin-top: calc(3 * var(--vp-s));
   }
 
   .member-acce .xmas-one-card-discount-code {
@@ -769,6 +857,7 @@
     justify-content: space-between;
     gap: calc(12 * var(--vp-s));
     border-bottom: 1px dashed #919191;
+    padding-bottom: 10px;
   }
 
   @media screen and (max-width: 1024px) {
@@ -882,10 +971,13 @@
       line-height: calc(18 * var(--vp-s));
     }
     .member-acce .acce-card__gift-product-body {
-      grid-template-columns: calc(var(--gift-product-image-width-mobile, 74) * var(--vp-s)) minmax(0, 1fr);
-      gap: calc(10 * var(--vp-s));
+      grid-template-columns: repeat(auto-fit, minmax(calc(88 * var(--vp-s)), 1fr));
       min-height: calc(82 * var(--vp-s));
       padding: calc(10 * var(--vp-s)) calc(12 * var(--vp-s));
+    }
+    .member-acce .acce-card__gift-product-item + .acce-card__gift-product-item {
+      padding-left: calc(10 * var(--vp-s));
+      margin-left: calc(10 * var(--vp-s));
     }
     .member-acce .acce-card__gift-product-media,
     .member-acce .acce-card__gift-product-media picture {
@@ -901,14 +993,30 @@
       font-size: calc(12 * var(--vp-s));
       line-height: calc(16 * var(--vp-s));
     }
+    .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-body {
+      min-height: calc(68 * var(--vp-s));
+      padding: calc(7 * var(--vp-s)) calc(10 * var(--vp-s));
+    }
+    .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-item {
+      gap: calc(10 * var(--vp-s));
+    }
+    .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-media,
+    .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-media picture {
+      flex-basis: calc(var(--gift-product-image-width-mobile, 74) * var(--vp-s));
+    }
+    .member-acce .acce-card__gift-product--count-1 .acce-card__gift-product-price {
+      gap: calc(6 * var(--vp-s));
+      margin-top: calc(2 * var(--vp-s));
+    }
     .member-acce .acce__container .xmas-one-card-discount-code {
       min-height: calc(34 * var(--vp-s));
       padding: calc(6 * var(--vp-s)) calc(8 * var(--vp-s)) calc(6 * var(--vp-s)) calc(12 * var(--vp-s));
       font-size: calc(10 * var(--vp-s));
       line-height: calc(13 * var(--vp-s));
+      gap: calc(5 * var(--vp-s));
     }
     .member-acce .xmas-one-card-copy-btn {
-      min-width: calc(62 * var(--vp-s));
+      min-width: calc(50 * var(--vp-s));
       min-height: calc(22 * var(--vp-s));
       padding: calc(3 * var(--vp-s)) calc(12 * var(--vp-s));
       font-size: calc(10 * var(--vp-s));
@@ -1108,6 +1216,11 @@
         { "type": "image_picker", "id": "gift_product_image", "label": "Gift product image PC" },
         { "type": "image_picker", "id": "gift_product_image_mobile", "label": "Gift product image mobile" },
         { "type": "text", "id": "gift_product_title", "label": "Gift product title override" },
+        { "type": "product", "id": "gift_product_2", "label": "Gift product 2" },
+        { "type": "image_picker", "id": "gift_product_image_2", "label": "Gift product image 2 PC" },
+        { "type": "image_picker", "id": "gift_product_image_mobile_2", "label": "Gift product image 2 mobile" },
+        { "type": "text", "id": "gift_product_title_2", "label": "Gift product title 2 override" },
+        { "type": "text", "id": "gift_compare_price_2", "label": "Gift compare price 2 override" },
         { "type": "text", "id": "gift_free_label", "label": "Gift free label", "default": "FREE" },
         { "type": "text", "id": "gift_compare_price", "label": "Gift compare price override" },
         { "type": "range", "id": "gift_product_width", "label": "Gift card width PC", "min": 160, "max": 380, "step": 5, "unit": "px", "default": 330 },

@@ -399,7 +399,7 @@
     flex: 0 0 calc(var(--pb-slide-width) - calc(12 * var(--vp-s)));
     min-height: calc(242 * var(--vp-s));
     padding: calc(16 * var(--vp-s)) calc(12 * var(--vp-s)) calc(14 * var(--vp-s));
-    border: calc(2 * var(--vp-s)) solid transparent;
+    border: calc(2 * var(--vp-s)) solid #D2E7FF;
     border-radius: calc(8 * var(--vp-s));
     background: #fff;
     cursor: pointer;
@@ -519,6 +519,8 @@
   #prime-bundles-{{ section.id }} .prime-bundles__total-wrap {
     display: grid;
     gap: calc(8 * var(--vp-s));
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   #prime-bundles-{{ section.id }} .prime-bundles__total-label {
@@ -570,6 +572,7 @@
   #prime-bundles-{{ section.id }} .prime-bundles__actions {
     display: inline-flex;
     align-items: stretch;
+    flex: 0 0 auto;
     overflow: hidden;
     border-radius: calc(999 * var(--vp-s));
   }
@@ -815,23 +818,73 @@
     var moneyFormat = root.getAttribute('data-money-format') || '';
     var cartAddUrl = root.getAttribute('data-cart-add-url') || '/cart/add.js';
     var checkoutUrl = root.getAttribute('data-checkout-url') || '/checkout';
+    var moneyPlaceholderPattern = /\{\{\s*\w+\s*\}\}/;
     var toastTimer = null;
+    var refreshTimer = null;
 
     /**
      * Formats cents with the store money format when Shopify helpers are unavailable.
      */
     function formatMoney(cents) {
+      var safeCents = Number(cents || 0);
+      if (!isFinite(safeCents)) safeCents = 0;
+
       if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
-        return window.Shopify.formatMoney(cents, moneyFormat);
+        try {
+          var shopifyValue = window.Shopify.formatMoney(safeCents, moneyFormat);
+          if (shopifyValue && !moneyPlaceholderPattern.test(shopifyValue)) {
+            return shopifyValue;
+          }
+        } catch (error) {
+        }
       }
 
-      var value = (Number(cents || 0) / 100).toFixed(2);
-      if (!moneyFormat) {
-        return '$' + value;
+      function formatWithDelimiters(amount, precision, thousands, decimal) {
+        var number = Number(amount);
+        if (!isFinite(number)) return '0';
+        var fixed = (number / 100).toFixed(precision);
+        var parts = fixed.split('.');
+        var dollars = parts[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + thousands);
+        if (precision === 0) return dollars;
+        return dollars + decimal + (parts[1] || '');
       }
-      return moneyFormat
-        .replace(/\{\{\s*amount\s*\}\}/, value)
-        .replace(/\{\{\s*amount_no_decimals\s*\}\}/, Math.round(Number(cents || 0) / 100));
+
+      var format = moneyFormat || '$' + '{' + '{amount}' + '}';
+      var match = format.match(/\{\{\s*(\w+)\s*\}\}/);
+      var placeholder = match ? match[1] : 'amount';
+      var formats = {
+        amount: [2, ',', '.'],
+        amount_no_decimals: [0, ',', '.'],
+        amount_with_comma_separator: [2, '.', ','],
+        amount_no_decimals_with_comma_separator: [0, '.', ','],
+        amount_with_apostrophe_separator: [2, "'", '.'],
+        amount_with_space_separator: [2, ' ', ','],
+        amount_no_decimals_with_space_separator: [0, ' ', ','],
+        amount_with_period_and_space_separator: [2, ' ', '.'],
+        amount_no_decimals_with_period_and_space_separator: [0, ' ', '.'],
+        amount_with_comma_and_space_separator: [2, ' ', ','],
+        amount_no_decimals_with_comma_and_space_separator: [0, ' ', ',']
+      };
+      var selectedFormat = formats[placeholder] || formats.amount;
+      var value = formatWithDelimiters(safeCents, selectedFormat[0], selectedFormat[1], selectedFormat[2]);
+      return match ? format.replace(match[0], value) : '$' + value;
+    }
+
+    function syncProductPrices(panel) {
+      panel.querySelectorAll('[data-pb-product]').forEach(function(input) {
+        var productCard = input.closest('.prime-bundles__product');
+        if (!productCard) return;
+
+        var priceEl = productCard.querySelector('.prime-bundles__product-price strong');
+        if (priceEl) {
+          priceEl.textContent = formatMoney(Number(input.getAttribute('data-price') || 0));
+        }
+
+        var comparePriceEl = productCard.querySelector('.prime-bundles__product-price s');
+        if (comparePriceEl) {
+          comparePriceEl.textContent = formatMoney(Number(input.getAttribute('data-compare-price') || 0));
+        }
+      });
     }
 
     /**
@@ -856,6 +909,8 @@
       var total = 0;
       var compareTotal = 0;
       var hasComparePrice = false;
+
+      syncProductPrices(panel);
 
       panel.querySelectorAll('[data-pb-product]:checked').forEach(function(input) {
         var variantId = input.getAttribute('data-variant-id');
@@ -894,6 +949,17 @@
       }
 
       return items;
+    }
+
+    function refreshAllPanels() {
+      root.querySelectorAll('[data-pb-panel]').forEach(function(panel) {
+        getSelectedItems(panel);
+      });
+    }
+
+    function queueRefreshAllPanels() {
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(refreshAllPanels, 50);
     }
 
     /**
@@ -988,9 +1054,22 @@
       });
     }
 
-    root.querySelectorAll('[data-pb-panel]').forEach(function(panel) {
-      getSelectedItems(panel);
-    });
+    refreshAllPanels();
+
+    if (window.MutationObserver) {
+      new MutationObserver(function(mutations) {
+        for (var index = 0; index < mutations.length; index += 1) {
+          var target = mutations[index].target.nodeType === 3 ? mutations[index].target.parentElement : mutations[index].target;
+          if (target && target.closest && target.closest('.prime-bundles__summary, .prime-bundles__product-price') && moneyPlaceholderPattern.test(target.textContent || '')) {
+            queueRefreshAllPanels();
+            break;
+          }
+        }
+      }).observe(root, { childList: true, characterData: true, subtree: true });
+    }
+
+    document.addEventListener('shopify:currency:change', queueRefreshAllPanels);
+    document.addEventListener('currency:changed', queueRefreshAllPanels);
 
     root.addEventListener('change', function(event) {
       if (!event.target.matches('[data-pb-product]')) return;

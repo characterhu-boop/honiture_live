@@ -100,12 +100,12 @@
             "icon": "ruler",
             "image": "shopify:\/\/shop_images\/26.png",
             "has_background": true,
-            "text": "<p><strong>🌟4th of July Sale: Save an Extra 10% Today!<\/strong><\/p>",
-            "coupon_text": "JULY10",
+            "text": "<p>🏖️<strong>Summer Sale: Save an Extra 8% Today!<\/strong><\/p>",
+            "coupon_text": "SUMMER8",
             "copy_text": "Copy code",
             "coupon_box_color": "#070707",
-            "coupon_box_color_link": "#09D4D4",
-            "coupon_bg_color": "#FDF1EA"
+            "coupon_box_color_link": "#09d4d4",
+            "coupon_bg_color": "#fdf1ea"
           }
         },
         "hextom_timer_bar_ctb_custom_placement_WfxzWc": {

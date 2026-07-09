@@ -32,7 +32,7 @@
             "badge_height_mobile": 64,
             "slides_count": "2.2",
             "slides_count_mobile": "2.1",
-            "product_collection": "fathers-day-brush-副本",
+            "product_collection": "promotion-battery",
             "product_limit": 12
           }
         },
@@ -168,7 +168,6 @@
         "compare_price_line_height": 16,
         "compare_price_size_mobile": 10,
         "compare_price_line_height_mobile": 14,
-        "compare_discount_percent": 29,
         "discount_label_bg": "#ff9f3f",
         "discount_label_color": "#ffffff",
         "discount_label_size": 11,

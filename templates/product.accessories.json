@@ -93,6 +93,13 @@
             "bg_end": "#86f5fa"
           }
         },
+        "text_LGCaw3": {
+          "type": "text",
+          "settings": {
+            "text": "🌟All Filter Packs: Get the 2nd One 50% Off",
+            "text_style": "style_body"
+          }
+        },
         "image_WtHENz": {
           "type": "image",
           "disabled": true,
@@ -200,6 +207,7 @@
         "judge_me_reviews_preview_badge_RXyWzA",
         "separator_HPtzYr",
         "coupon_gift_PwUtnb",
+        "text_LGCaw3",
         "image_WtHENz",
         "separator_ffazEp",
         "0b3e272b-c86a-4dba-946c-c6912251371c",

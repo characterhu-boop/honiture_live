@@ -40,11 +40,11 @@
         "promotion_7wGRTe": {
           "type": "promotion",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Honiture_Independence_Day_sale_3.jpg",
-            "title": "Independence Day Sale",
+            "image": "shopify:\/\/shop_images\/honiture-robot-vacuum-summer-deal.jpg",
+            "title": "Summer Sale - Up to 72% OFF",
             "button_text": "Explore",
-            "button_link": "shopify:\/\/pages\/4th-of-july-deals",
-            "block_link": "shopify:\/\/pages\/4th-of-july-deals"
+            "button_link": "shopify:\/\/pages\/summer-sale",
+            "block_link": "shopify:\/\/pages\/summer-sale"
           }
         },
         "promotion_zHE6jM": {

@@ -53,52 +53,52 @@
           "type": "nav_item",
           "settings": {
             "title": "Top Pick Vacuums",
-            "target_id": "shopify-section-template--22180004757551__fd_best_seller_pro_WqrH7n"
+            "target_id": "shopify-section-template--22248145682479__fd_best_seller_pro_WqrH7n"
+          }
+        },
+        "nav_item_RYpi8d": {
+          "type": "nav_item",
+          "settings": {
+            "title": "Summer Lucky Draw",
+            "target_id": "shopify-section-template--22248145682479__email_prize_draw_MRCLiK"
           }
         },
         "nav_item_CDVEfd": {
           "type": "nav_item",
           "settings": {
             "title": "Wet Dry Vacuum",
-            "target_id": "shopify-section-template--22180004757551__member_new_arrivel_CwY8W4"
+            "target_id": "shopify-section-template--22248145682479__member_new_arrivel_CwY8W4"
           }
         },
         "nav_item_Lm7Gtp": {
           "type": "nav_item",
           "settings": {
             "title": "Vacuum Bundles",
-            "target_id": "shopify-section-template--22180004757551__prime_bundles_jJdCLW"
+            "target_id": "shopify-section-template--22248145682479__prime_bundles_jJdCLW"
           }
         },
         "nav_item_PWVxMj": {
           "type": "nav_item",
           "settings": {
             "title": "Robot Vacuums",
-            "target_id": "shopify-section-template--22180004757551__member_acce_gwTCJJ"
+            "target_id": "shopify-section-template--22248145682479__member_acce_gwTCJJ"
           }
         },
         "nav_item_JrQVyB": {
           "type": "nav_item",
           "settings": {
             "title": "Accessory Deal",
-            "target_id": "shopify-section-template--22180004757551__common_acc_tab_g6qxYe"
-          }
-        },
-        "nav_item_RYpi8d": {
-          "type": "nav_item",
-          "settings": {
-            "title": "Share & Rewards",
-            "target_id": "shopify-section-template--22180004757551__reward_guide_nyHJM9"
+            "target_id": "shopify-section-template--22248145682479__common_acc_tab_g6qxYe"
           }
         }
       },
       "block_order": [
         "nav_item_3yqymx",
+        "nav_item_RYpi8d",
         "nav_item_CDVEfd",
         "nav_item_Lm7Gtp",
         "nav_item_PWVxMj",
-        "nav_item_JrQVyB",
-        "nav_item_RYpi8d"
+        "nav_item_JrQVyB"
       ],
       "custom_css": [
         ".sticky-nav__link {padding: 5px 30px; border: 1px solid; border-radius: 99px;}"
@@ -125,16 +125,7 @@
           "settings": {
             "icon": "ruler",
             "image": "shopify:\/\/shop_images\/icon_4_8338fcdf-9460-4ec7-a219-f07e061bdd30.png",
-            "heading": "Up to 68% Off",
-            "text": ""
-          }
-        },
-        "icon_xDnWgD": {
-          "type": "icon",
-          "settings": {
-            "icon": "ruler",
-            "image": "shopify:\/\/shop_images\/icon_2_e318eddb-01f7-4080-8568-bc9953a7921f.png",
-            "heading": "Gift with Selected Model",
+            "heading": "Up to 72% Off",
             "text": ""
           }
         },
@@ -144,6 +135,15 @@
             "icon": "ruler",
             "image": "shopify:\/\/shop_images\/huaban-5661718420.webp",
             "heading": "Summer Giveaway",
+            "text": ""
+          }
+        },
+        "icon_xDnWgD": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify:\/\/shop_images\/icon_2_e318eddb-01f7-4080-8568-bc9953a7921f.png",
+            "heading": "Gift with Selected Model",
             "text": ""
           }
         },
@@ -177,8 +177,8 @@
       },
       "block_order": [
         "icon_mm8q6P",
-        "icon_xDnWgD",
         "icon_TwRG8B",
+        "icon_xDnWgD",
         "icon_7eCntL",
         "icon_VPLqUW",
         "icon_FdkGNz"
@@ -223,6 +223,7 @@
       "blocks": {
         "count_down_zbFTV3": {
           "type": "count-down",
+          "disabled": true,
           "settings": {
             "end_date": "2026-07-05 15:00:00",
             "heading": "",
@@ -280,10 +281,13 @@
             "description_image_width_mobile": 300,
             "show_gift_card": false,
             "gift_card_product": "",
+            "gift_card_product_2": "",
             "gift_card_heading": "",
             "gift_card_item_title": "",
+            "gift_card_item_title_2": "",
             "gift_card_free_label": "FREE",
             "gift_card_compare_price": "",
+            "gift_card_compare_price_2": "",
             "gift_card_align": "center",
             "gift_card_width": 360,
             "gift_card_width_mobile": 335,
@@ -302,7 +306,7 @@
             "gift_card_free_color": "#00c7c9",
             "show_progress_bar": true,
             "progress_start_time": "2026-7-08 00:00:00",
-            "progress_end_time": "2026-7-15 00:00:00",
+            "progress_end_time": "2026-7-20 00:00:00",
             "progress_bezier": "0.42,0,1,1",
             "progress_label": "",
             "progress_min_percent": 8,
@@ -330,12 +334,12 @@
             "discount_bg": "shopify:\/\/shop_images\/Group_432.png",
             "discount_text": "52%",
             "badge_text_nowrap": false,
-            "badge_top": 14,
+            "badge_top": -6,
             "badge_left": 14,
-            "badge_top_mobile": 10,
+            "badge_top_mobile": -6,
             "badge_left_mobile": 10,
-            "badge_text_rotate": -14,
-            "title_label": "Top 2",
+            "badge_text_rotate": 0,
+            "title_label": "TOP 2",
             "title_label_icon": "shopify:\/\/shop_images\/huaban-5166429463_1_2c29f50d-9734-4018-96f5-0d4ee7a95a2f.png",
             "title_label_bg": "linear-gradient(90deg, rgba(13, 183, 215, 1), rgba(53, 217, 222, 1) 100%)",
             "title_label_width": 150,
@@ -346,7 +350,7 @@
             "title": "",
             "title_text_align": "left",
             "title_text_align_mobile": "center",
-            "description": "<p>✨Long battery life for whole-home coverage.<br\/>✨Built-in DIY aroma slot for a fresh scent while cleaning.<br\/>✨Multi-surface performance in one device<\/p>",
+            "description": "<p>✨Long battery life for whole-home coverage.<br\/>✨Built-in DIY aroma slot for a fresh scent while cleaning.<\/p>",
             "description_text_align": "left",
             "description_text_align_mobile": "center",
             "description_image_align": "left",
@@ -354,19 +358,22 @@
             "description_image_width_mobile": 180,
             "show_gift_card": false,
             "gift_card_product": "roller-brush-for-honiture-p7-pro",
+            "gift_card_product_2": "",
             "gift_card_heading": "Free Gift While Supplies Last",
             "gift_card_icon": "shopify:\/\/shop_images\/e9105222e82d4d1bc5284a1b07b6a03f3549e3df.png",
             "gift_card_item_title": "",
+            "gift_card_item_title_2": "",
             "gift_card_free_label": "FREE",
             "gift_card_compare_price": "",
+            "gift_card_compare_price_2": "",
             "gift_card_align": "left",
-            "gift_card_width": 440,
-            "gift_card_width_mobile": 335,
-            "gift_card_image_width": 110,
+            "gift_card_width": 380,
+            "gift_card_width_mobile": 290,
+            "gift_card_image_width": 70,
             "gift_card_image_width_mobile": 82,
-            "gift_card_icon_width": 78,
-            "gift_card_icon_width_mobile": 62,
-            "gift_card_icon_left": -30,
+            "gift_card_icon_width": 60,
+            "gift_card_icon_width_mobile": 48,
+            "gift_card_icon_left": -22,
             "gift_card_icon_left_mobile": -14,
             "gift_card_icon_rotate": -14,
             "gift_card_border_color": "#418eff",
@@ -376,11 +383,11 @@
             "gift_card_title_color": "#191919",
             "gift_card_free_color": "#00c7c9",
             "show_progress_bar": true,
-            "progress_start_time": "2026-12-01 00:00:00",
-            "progress_end_time": "2026-12-31 23:59:59",
-            "progress_bezier": "0,0,1,1",
+            "progress_start_time": "2026-07-07 00:00:00",
+            "progress_end_time": "2026-07-30 23:59:59",
+            "progress_bezier": "0.42,0,0.58,1",
             "progress_label": "Sold",
-            "progress_min_percent": 2,
+            "progress_min_percent": 5,
             "progress_fallback_percent": 75,
             "coupon_code": "SUMMER8",
             "coupon_text": "Extra 8% OFF: SUMMER8",
@@ -393,14 +400,124 @@
             "extra_discount": 8,
             "show_add_button": false,
             "button_label": "Shop Now",
-            "btn_link": ""
+            "btn_link": "shopify:\/\/products\/p7-pro-cordless-vacuum"
+          }
+        },
+        "small_card_JyRjye": {
+          "type": "small_card",
+          "settings": {
+            "product": "pet-version-cordless-vacuum-x7",
+            "image": "shopify:\/\/shop_images\/Honiture-x7-pet-vacuum-cleaner-for-pet-family.jpg",
+            "image_height": 332,
+            "image_height_mobile": 220,
+            "show_discount_badge": true,
+            "discount_text": "58%",
+            "discount_off_text": "OFF",
+            "discount_text_split": true,
+            "discount_badge_bg": "#418EFF",
+            "discount_badge_color": "#ffffff",
+            "discount_badge_bg_mobile": "#418EFF",
+            "discount_badge_color_mobile": "#ffffff",
+            "discount_badge_width": 56,
+            "discount_badge_height": 70,
+            "discount_badge_width_mobile": 48,
+            "discount_badge_height_mobile": 60,
+            "discount_badge_font_size": 18,
+            "discount_badge_font_size_mobile": 14,
+            "discount_badge_top": 0,
+            "discount_badge_left": 24,
+            "discount_badge_top_mobile": 0,
+            "discount_badge_left_mobile": 16,
+            "discount_badge_text_top": 0,
+            "discount_badge_text_left": 0,
+            "discount_badge_text_top_mobile": 0,
+            "discount_badge_text_left_mobile": 0,
+            "title": "",
+            "selling_point_1": "✨ Groom & Vacuum in One Step",
+            "selling_point_2": "✨ Versatile Cleaning Attachments",
+            "selling_point_3": "",
+            "selling_point_bg": "#d8e5ff",
+            "selling_point_color": "#2f3642",
+            "coupon_code": "SUMMER10",
+            "coupon_text": "Extra 10 % OFF: SUNNER10",
+            "coupon_background": "#418EFF",
+            "coupon_text_color": "#ffffff",
+            "coupon_claim_label": "Claim",
+            "coupon_claim_bg": "#ffffff",
+            "coupon_claim_color": "#1f1f1f",
+            "price": "",
+            "extra_discount": 0,
+            "learn_button_label": "",
+            "learn_button_link": "",
+            "learn_button_bg": "#d9d9d9",
+            "learn_button_color": "#ffffff",
+            "shop_button_label": "Shop Now",
+            "shop_button_link": "",
+            "shop_button_bg": "linear-gradient(90deg, rgba(13, 183, 215, 1), rgba(53, 217, 222, 1) 100%)",
+            "shop_button_color": "#ffffff"
+          }
+        },
+        "small_card_6yjLP4": {
+          "type": "small_card",
+          "settings": {
+            "product": "y10-cordless-stick-vacuum",
+            "image": "shopify:\/\/shop_images\/honiture-Y10-cordless-vacuum-cleaner-sale-38kpa.jpg",
+            "image_height": 332,
+            "image_height_mobile": 220,
+            "show_discount_badge": true,
+            "discount_text": "72%",
+            "discount_off_text": "OFF",
+            "discount_text_split": true,
+            "discount_badge_bg": "#418EFF",
+            "discount_badge_color": "#ffffff",
+            "discount_badge_bg_mobile": "#418EFF",
+            "discount_badge_color_mobile": "#ffffff",
+            "discount_badge_width": 56,
+            "discount_badge_height": 70,
+            "discount_badge_width_mobile": 48,
+            "discount_badge_height_mobile": 60,
+            "discount_badge_font_size": 18,
+            "discount_badge_font_size_mobile": 14,
+            "discount_badge_top": 0,
+            "discount_badge_left": 24,
+            "discount_badge_top_mobile": 0,
+            "discount_badge_left_mobile": 16,
+            "discount_badge_text_top": 0,
+            "discount_badge_text_left": 0,
+            "discount_badge_text_top_mobile": 0,
+            "discount_badge_text_left_mobile": 0,
+            "title": "",
+            "selling_point_1": "✨ Green LED Headlight",
+            "selling_point_2": "✨ Lightweight & Easy to Handle",
+            "selling_point_3": "",
+            "selling_point_bg": "#d8e5ff",
+            "selling_point_color": "#2f3642",
+            "coupon_code": "SUMMER20",
+            "coupon_text": "Extra 20 % OFF: SUMMER20",
+            "coupon_background": "#418EFF",
+            "coupon_text_color": "#ffffff",
+            "coupon_claim_label": "Claim",
+            "coupon_claim_bg": "#ffffff",
+            "coupon_claim_color": "#1f1f1f",
+            "price": "",
+            "extra_discount": 0,
+            "learn_button_label": "",
+            "learn_button_link": "",
+            "learn_button_bg": "#d9d9d9",
+            "learn_button_color": "#ffffff",
+            "shop_button_label": "Shop Now",
+            "shop_button_link": "",
+            "shop_button_bg": "linear-gradient(90deg, rgba(13, 183, 215, 1), rgba(53, 217, 222, 1) 100%)",
+            "shop_button_color": "#ffffff"
           }
         }
       },
       "block_order": [
         "count_down_zbFTV3",
         "large_card_E7JHLX",
-        "large_card_CYwXz9"
+        "large_card_CYwXz9",
+        "small_card_JyRjye",
+        "small_card_6yjLP4"
       ],
       "name": "FD Best Seller Pro",
       "settings": {
@@ -428,13 +545,58 @@
         "description_image_width_mobile": 180
       }
     },
+    "email_prize_draw_MRCLiK": {
+      "type": "email-prize-draw",
+      "name": "Email Prize Draw",
+      "settings": {
+        "activity_id": "21",
+        "is_test": false,
+        "title": "☀️Enter your email to receive 1 lucky draw entry!",
+        "email_placeholder": "Enter email",
+        "button_label": "Enter Now",
+        "loading_label": "Drawing...",
+        "open_button_label": "OPEN",
+        "rules_title": "How It Works:",
+        "rules": "• Enter your order email & draw a gift pack.\n• Copy and apply your coupon within 60 days.\n• Gift card winners get a code by email later.\n• When you win a free gift, it will be delivered to you within a week.",
+        "board_image": "shopify:\/\/shop_images\/Group_473_1.webp",
+        "tile_image": "shopify:\/\/shop_images\/Group_434_1.png",
+        "tile_alt": "Prize tile",
+        "open_button_image": "shopify:\/\/shop_images\/Group_419_1.png",
+        "modal_bg": "shopify:\/\/shop_images\/bg_c71f04fc-e5fb-488c-8b30-2c06e08e2bb0.jpg",
+        "no_prize_title": "Thank you!",
+        "no_prize_description": "Thank you for your trust and support in Honiture, and look forward to your 100% lucky index next time!",
+        "coupon_title": "Congratulations!<br>Get a Honiture coupon!<br>Use it quickly!",
+        "coupon_description": "Each discount code is limited to one time.",
+        "gift_title": "Congratulations!",
+        "gift_description": "We will deliver free gifts to your hands within a week! Stay tuned.",
+        "page_background": "#e9f5ff",
+        "panel_background": "#ffffff",
+        "text_color": "#202020",
+        "muted_color": "#7d7d7d",
+        "accent_color": "#4695ff",
+        "error_color": "#da2b2b",
+        "modal_text_color": "#482c00",
+        "title_size_desktop": 25,
+        "title_line_height_desktop": 38,
+        "title_size_mobile": 21,
+        "title_line_height_mobile": 31,
+        "desc_size_desktop": 16,
+        "desc_line_height_desktop": 20,
+        "desc_size_mobile": 13,
+        "desc_line_height_mobile": 18,
+        "padding_top_desktop": 15,
+        "padding_bottom_desktop": 15,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 36
+      }
+    },
     "member_new_arrivel_CwY8W4": {
       "type": "member-new-arrivel",
       "blocks": {
         "header_G6gLXj": {
           "type": "header",
           "settings": {
-            "title": "Summer Pick | All-in-One Wet & Dry Cleaner",
+            "title": "Summer Pick | All-in-One Floor Washer",
             "sub_heading": "",
             "show_sub_heading": true,
             "view_more_label": "View More",
@@ -444,13 +606,13 @@
             "show_title_icons": true,
             "title_icon": "shopify:\/\/shop_images\/huaban-4827702431.webp",
             "title_icon_size": 50,
-            "title_icon_size_mobile": 30,
+            "title_icon_size_mobile": 28,
             "title_icon_mirror_right": true,
             "text_align": "center",
             "margin_bottom": 50,
             "title_color": "#000",
-            "title_size": 32,
-            "title_size_mobile": 24,
+            "title_size": 30,
+            "title_size_mobile": 20,
             "sub_heading_color": "#000",
             "sub_heading_size": 18,
             "sub_heading_size_mobile": 14
@@ -500,6 +662,9 @@
         "feature_HNFhUd",
         "feature_D99g3P"
       ],
+      "custom_css": [
+        ".xmax_section__header {margin-top: 0;}"
+      ],
       "name": "Member New Arrivel",
       "settings": {
         "product": "m7-wet-dry-vacuum",
@@ -514,10 +679,10 @@
         "gift_alt": "Gifts for Honiture M7",
         "show_gift_product_card": true,
         "gift_card_title": "Gifts for Honiture M7",
-        "gift_product_1": "2-in-1-brush-for-honiture-s12",
+        "gift_product_1": "roller-brush-for-honiture-m7",
         "gift_product_1_title": "",
         "gift_product_1_compare_price": "",
-        "gift_product_2": "",
+        "gift_product_2": "hepa-filters-for-honiture-m7",
         "gift_product_2_title": "",
         "gift_product_2_compare_price": "",
         "gift_free_label": "FREE",
@@ -659,9 +824,9 @@
         "title_accent_color": "#dd2938",
         "title_gradient_enabled": false,
         "title_gradient_start": "#0a95e6",
-        "title_gradient_end": "#FA710F",
+        "title_gradient_end": "#fa710f",
         "title_gradient_angle": 90,
-        "panel_color": "#0c4e74",
+        "panel_color": "#8fbed9",
         "panel_opacity": 0,
         "feature_bar_color": "#07a1f9",
         "feature_bar_opacity": 41,
@@ -736,7 +901,7 @@
         "tab_HqdMGT": {
           "type": "tab",
           "settings": {
-            "tab_label": "Upstairs & Downstairs Cleaning",
+            "tab_label": "Ideal for Multi-Level Homes",
             "tab_badge": "",
             "media_bg_pc": "shopify:\/\/shop_images\/honiture-vacuum-cleaner-for-sale-home-cleaing-solution.jpg",
             "media_bg_position": "center center",
@@ -757,7 +922,7 @@
             "slides_count": "2.2",
             "slides_count_mobile": "2.1",
             "compare_discount_percent": 100,
-            "product_collection": "prime-day-power-bundle-副本",
+            "product_collection": "summer-bundle",
             "product_limit": 6
           }
         },
@@ -822,9 +987,9 @@
         "content_width": 1270,
         "content_width_mobile": 375,
         "content_height": 410,
-        "padding_top": 38,
+        "padding_top": 80,
         "padding_bottom": 46,
-        "padding_top_mobile": 28,
+        "padding_top_mobile": 80,
         "padding_bottom_mobile": 34,
         "accent_color": "#1b4f9c",
         "card_bg": "#fbfbfb",
@@ -874,6 +1039,9 @@
             "gift_product": "",
             "gift_heading": "",
             "gift_product_title": "",
+            "gift_product_2": "",
+            "gift_product_title_2": "",
+            "gift_compare_price_2": "",
             "gift_free_label": "FREE",
             "gift_compare_price": "",
             "gift_product_width": 355,
@@ -891,7 +1059,7 @@
             "gift_heading_color": "#ffffff",
             "gift_free_color": "#00c7c9",
             "extra_discount_percent": 20,
-            "discount_badge_percent": "57%",
+            "discount_badge_percent": "62%",
             "custom_description": "",
             "code_label": "Summer 20% OFF:",
             "discount_code": "SUMMER20",
@@ -930,6 +1098,9 @@
             "gift_product": "",
             "gift_heading": "",
             "gift_product_title": "",
+            "gift_product_2": "",
+            "gift_product_title_2": "",
+            "gift_compare_price_2": "",
             "gift_free_label": "FREE",
             "gift_compare_price": "",
             "gift_product_width": 330,
@@ -947,7 +1118,7 @@
             "gift_heading_color": "#ffffff",
             "gift_free_color": "#00c7c9",
             "extra_discount_percent": 8,
-            "discount_badge_percent": "58%",
+            "discount_badge_percent": "56%",
             "custom_description": "",
             "code_label": "Summer 8% OFF:",
             "discount_code": "SUMMER8",
@@ -986,6 +1157,9 @@
             "gift_product": "",
             "gift_heading": "",
             "gift_product_title": "",
+            "gift_product_2": "",
+            "gift_product_title_2": "",
+            "gift_compare_price_2": "",
             "gift_free_label": "",
             "gift_compare_price": "",
             "gift_product_width": 330,
@@ -1003,7 +1177,7 @@
             "gift_heading_color": "#ffffff",
             "gift_free_color": "#00c7c9",
             "extra_discount_percent": 8,
-            "discount_badge_percent": "59%",
+            "discount_badge_percent": "57%",
             "custom_description": "",
             "code_label": "Summer 8% OFF:",
             "discount_code": "SUMMER8",
@@ -1041,7 +1215,7 @@
       "name": "Member Acce",
       "settings": {
         "background_color": "#e9f5ff",
-        "title": "Smart Floor Cleaning",
+        "title": "Robot Vacuum Summer Sale",
         "title_color": "#000000",
         "title_size": 32,
         "title_size_mobile": 20,
@@ -1099,50 +1273,6 @@
         "product_title_size": 16,
         "product_title_size_mobile": 14,
         "shop_button_bg_gradient": "linear-gradient(90deg, rgba(0, 208, 205, 1), rgba(0, 208, 205, 1) 100%)"
-      }
-    },
-    "email_prize_draw_MRCLiK": {
-      "type": "email-prize-draw",
-      "name": "Email Prize Draw",
-      "settings": {
-        "activity_id": "21",
-        "is_test": true,
-        "title": "Enter your email to receive 1\nlucky draw entry!",
-        "email_placeholder": "Enter email",
-        "button_label": "Enter Now",
-        "loading_label": "Drawing...",
-        "open_button_label": "OPEN",
-        "rules_title": "How It Works:",
-        "rules": "• Enter your order email & draw a gift pack.\n• Copy and apply your coupon within 60 days.\n• Gift card winners get a code by email later.\n• When you win a free gift, it will be delivered to you within a week.",
-        "board_image": "shopify:\/\/shop_images\/Group_473_1.webp",
-        "tile_image": "shopify:\/\/shop_images\/Group_434_1.png",
-        "tile_alt": "Prize tile",
-        "open_button_image": "shopify:\/\/shop_images\/Group_419_1.png",
-        "no_prize_title": "Thank you!",
-        "no_prize_description": "Thank you for your trust and support in Honiture, and look forward to your 100% lucky index next time!",
-        "coupon_title": "Congratulations!<br>Get a Honiture coupon!<br>Use it quickly!",
-        "coupon_description": "Each discount code is limited to one time.",
-        "gift_title": "Congratulations!",
-        "gift_description": "We will deliver free gifts to your hands within a week! Stay tuned.",
-        "page_background": "#e9f5ff",
-        "panel_background": "#ffffff",
-        "text_color": "#202020",
-        "muted_color": "#7d7d7d",
-        "accent_color": "#4695ff",
-        "error_color": "#da2b2b",
-        "modal_text_color": "#482c00",
-        "title_size_desktop": 25,
-        "title_line_height_desktop": 38,
-        "title_size_mobile": 21,
-        "title_line_height_mobile": 31,
-        "desc_size_desktop": 16,
-        "desc_line_height_desktop": 20,
-        "desc_size_mobile": 13,
-        "desc_line_height_mobile": 18,
-        "padding_top_desktop": 15,
-        "padding_bottom_desktop": 15,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 36
       }
     },
     "common_acc_tab_g6qxYe": {
@@ -1213,13 +1343,13 @@
           "type": "product_card",
           "settings": {
             "tab_group": "1",
-            "product": "",
+            "product": "honiture-x7-hepa-filters",
             "badge_text": "",
-            "gift_product": "",
-            "add_gift_enabled": false,
+            "gift_product": "honiture-x7-hepa-filters",
+            "add_gift_enabled": true,
             "add_to_cart_text": "Add To Cart",
             "gift_variant_id": "",
-            "gift_ribbon_text": "50%",
+            "gift_ribbon_text": "-50%",
             "gift_title": "Get 50% Off the 2nd",
             "gift_price": "",
             "gift_compare_price": "",
@@ -1234,13 +1364,13 @@
           "type": "product_card",
           "settings": {
             "tab_group": "1",
-            "product": "",
+            "product": "hepa-filters-for-honiture-p7-pro",
             "badge_text": "",
-            "gift_product": "",
-            "add_gift_enabled": false,
+            "gift_product": "hepa-filters-for-honiture-p7-pro",
+            "add_gift_enabled": true,
             "add_to_cart_text": "Add To Cart",
             "gift_variant_id": "",
-            "gift_ribbon_text": "50%",
+            "gift_ribbon_text": "-50%",
             "gift_title": "Get 50% Off the 2nd",
             "gift_price": "",
             "gift_compare_price": "",
@@ -1255,14 +1385,77 @@
           "type": "product_card",
           "settings": {
             "tab_group": "1",
-            "product": "",
+            "product": "hepa-filters-for-honiture-m7",
             "badge_text": "",
-            "gift_product": "",
-            "add_gift_enabled": false,
+            "gift_product": "hepa-filters-for-honiture-m7",
+            "add_gift_enabled": true,
             "add_to_cart_text": "Add To Cart",
             "gift_variant_id": "",
-            "gift_ribbon_text": "",
-            "gift_title": "",
+            "gift_ribbon_text": "-50%",
+            "gift_title": "Get 50% Off the 2nd",
+            "gift_price": "",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_HDyzrm": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "honiture-s12-hepa-filters",
+            "badge_text": "",
+            "gift_product": "honiture-s12-hepa-filters",
+            "add_gift_enabled": true,
+            "add_to_cart_text": "Add To Cart",
+            "gift_variant_id": "",
+            "gift_ribbon_text": "-50%",
+            "gift_title": "Get 50% Off the 2nd",
+            "gift_price": "",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_47h7Jn": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "honiture-v8-pro-dust-bin-filter",
+            "badge_text": "",
+            "gift_product": "honiture-v8-pro-dust-bin-filter",
+            "add_gift_enabled": true,
+            "add_to_cart_text": "Add To Cart",
+            "gift_variant_id": "",
+            "gift_ribbon_text": "-50%",
+            "gift_title": "Get 50% Off the 2nd",
+            "gift_price": "",
+            "gift_compare_price": "",
+            "title": "",
+            "custom_price": "",
+            "custom_compare_price": "",
+            "btn_text": "Shop Now",
+            "btn_link": ""
+          }
+        },
+        "product_card_RBpGFP": {
+          "type": "product_card",
+          "settings": {
+            "tab_group": "1",
+            "product": "replacement-filter-for-honiture-t10",
+            "badge_text": "",
+            "gift_product": "replacement-filter-for-honiture-t10",
+            "add_gift_enabled": true,
+            "add_to_cart_text": "Add To Cart",
+            "gift_variant_id": "",
+            "gift_ribbon_text": "-50%",
+            "gift_title": "Get 50% Off the 2nd",
             "gift_price": "",
             "gift_compare_price": "",
             "title": "",
@@ -1277,7 +1470,10 @@
         "coupon_banner_KyErFw",
         "product_card_FP3kxB",
         "product_card_bJrALX",
-        "product_card_gQwgLf"
+        "product_card_gQwgLf",
+        "product_card_HDyzrm",
+        "product_card_47h7Jn",
+        "product_card_RBpGFP"
       ],
       "name": "Common Acc Tab",
       "settings": {
@@ -1299,21 +1495,20 @@
         "tab_nav_text_color": "#666666",
         "tab_nav_active_bg": "#4094F7",
         "tab_nav_active_text_color": "#FFFFFF",
-        "tab_1_title": "For X7",
-        "tab_2_title": "For P7 Pro",
-        "tab_3_title": "For V8 Pro",
-        "tab_4_title": "For S12",
-        "tab_1_collection": "honiture-x7-vacuum-cleaner-accessories",
-        "tab_2_collection": "honiture-p7-pro-cordless-vacuum-accessories",
-        "tab_3_collection": "honiture-v8-pro-robot-vacuum-accessories",
-        "tab_4_collection": "honiture-s12-vacuum-cleaner-accessories",
+        "tab_1_title": "HEPA Filter",
+        "tab_2_title": "Battery",
+        "tab_3_title": "Brush",
+        "tab_4_title": "Bundle",
+        "tab_1_collection": "",
+        "tab_2_collection": "promotion-battery",
+        "tab_3_collection": "promotion-brush",
+        "tab_4_collection": "accessories-bundle",
         "padding_top": 50,
         "padding_bottom": 50,
         "bg_color": "#e9f5ff",
-        "gift_banner_bg": "#FFFFF",
+        "gift_banner_bg": "linear-gradient(135deg, #EAF8FF 0%, #CFEFFF 100%)",
         "gift_ribbon_bg": "#FBA441",
         "gift_ribbon_text": "FREE",
-        "badge_bg": "shopify:\/\/shop_images\/bfbc1b27181e67f0f0d2e410935b7582.svg",
         "badge_text_color": "#ffffff",
         "badge_suffix": "OFF",
         "badge_width": 56,
@@ -1403,7 +1598,6 @@
         "faq_4wNGqg",
         "faq_RRnPDL"
       ],
-      "disabled": true,
       "custom_css": [
         ".section-reward-guide {background: #e9f5ff;}"
       ],
@@ -1411,7 +1605,7 @@
       "settings": {
         "title": "Share Your Cleaning Experience & Get Rewarded",
         "show_title_icons": true,
-        "title_icon": "shopify:\/\/shop_images\/Group_421.png",
+        "title_icon": "shopify:\/\/shop_images\/huaban-5793999997.webp",
         "title_icon_size": 50,
         "title_icon_size_mobile": 30,
         "title_icon_mirror_right": true,
@@ -1438,7 +1632,7 @@
         "padding_bottom": 48,
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
-        "banner_pc": "shopify:\/\/shop_images\/honiture-vacuums-best-deals-prime-day.png",
+        "banner_pc": "shopify:\/\/shop_images\/honiture_product_review.png",
         "banner_mobile": "shopify:\/\/shop_images\/honiture-vacuums-prime-day-big-deals.png",
         "banner_bg_color": "#e9f5ff",
         "banner_height": 324,
@@ -1565,10 +1759,10 @@
     "sticky_nav_WEec8f",
     "text_with_icons_new_Npabdr",
     "fd_best_seller_pro_WqrH7n",
+    "email_prize_draw_MRCLiK",
     "member_new_arrivel_CwY8W4",
     "prime_bundles_jJdCLW",
     "member_acce_gwTCJJ",
-    "email_prize_draw_MRCLiK",
     "common_acc_tab_g6qxYe",
     "reward_guide_nyHJM9",
     "ny_video_gallery_qzWK7q"

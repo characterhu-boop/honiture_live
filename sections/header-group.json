@@ -5,6 +5,16 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "text_PbQPWM": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "text": "☀️Unwrap Summer Savings & Spin to Win Today! >>>",
+            "link": "shopify:\/\/pages\/summer-sale",
+            "color_bg": "#00d0cd",
+            "color_text": "#ffffff"
+          }
+        },
         "text_NjjCzj": {
           "type": "text",
           "settings": {
@@ -14,21 +24,11 @@
             "color_bg": "#00d0cd",
             "color_text": "#ffffff"
           }
-        },
-        "text_PbQPWM": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "text": "🎉 Celebrate July 4th with Huge Savings & Exclusive Gifts!",
-            "link": "shopify:\/\/pages\/4th-of-july-deals",
-            "color_bg": "#00D0CD",
-            "color_text": "#ffffff"
-          }
         }
       },
       "block_order": [
-        "text_NjjCzj",
-        "text_PbQPWM"
+        "text_PbQPWM",
+        "text_NjjCzj"
       ],
       "settings": {
         "announcement_bar": true,

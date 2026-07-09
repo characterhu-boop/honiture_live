@@ -86,13 +86,12 @@
         },
         "coupon_code_jhc64q": {
           "type": "coupon_code",
-          "disabled": true,
           "settings": {
             "icon": "heart",
-            "image": "shopify:\/\/shop_images\/Frame_1739332567_1.png",
+            "image": "shopify:\/\/shop_images\/Group_240.png",
             "has_background": true,
-            "text": "<p><strong>Earth Day Flash Sale: Saave Extra 12% OFF Now!<\/strong><\/p>",
-            "coupon_text": "EARTH12",
+            "text": "<p><strong>🏖️Summer Sale: Get Extra 8% OFF Now!<\/strong><\/p>",
+            "coupon_text": "SUMMER8",
             "copy_text": "Apply Discount",
             "coupon_box_color": "#f68403",
             "coupon_box_color_link": "#00d0cd",

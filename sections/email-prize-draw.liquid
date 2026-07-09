@@ -185,7 +185,7 @@
     top: calc(224 * var(--vp-s));
     left: calc(674 * var(--vp-s));
     width: calc(527 * var(--vp-s));
-    z-index: 0;
+    z-index: 1;
   }
 
   .section-{{ section.id }} .epd__title {
@@ -461,8 +461,8 @@
     }
 
     .section-{{ section.id }} .epd__inner {
-      width: calc(343 * var(--vp-s));
-      max-width: calc(100% - calc(32 * var(--vp-s)));
+      width: calc(347 * var(--vp-s));
+      max-width: calc(100% - calc(28 * var(--vp-s)));
       min-height: auto;
       display: flex;
       flex-direction: column;
@@ -479,75 +479,133 @@
 
     .section-{{ section.id }} .epd__panel {
       order: 2;
-      width: calc(343 * var(--vp-s));
+      width: calc(347 * var(--vp-s));
       height: auto;
-      min-height: calc(350 * var(--vp-s));
-      margin-top: calc(-55 * var(--vp-s));
-      border-radius: calc(14 * var(--vp-s));
+      min-height: calc(420 * var(--vp-s));
+      margin-top: calc(-20 * var(--vp-s));
+      border-radius: calc(10 * var(--vp-s));
     }
 
     .section-{{ section.id }} .epd__game {
       order: 1;
-      width: calc(343 * var(--vp-s));
-      height: calc(374 * var(--vp-s));
+      width: calc(412.07 * var(--vp-s));
+      height: calc(430.41 * var(--vp-s));
+      margin-top: calc(22 * var(--vp-s));
       z-index: 2;
+          background-position: 3px -5px;
+    background-size: 104% 103%;
     }
 
     .section-{{ section.id }} .epd__grid {
-      top: calc(68 * var(--vp-s));
-      left: calc(20 * var(--vp-s));
-      grid-template-columns: repeat(3, calc(93 * var(--vp-s)));
-      grid-template-rows: repeat(3, calc(93 * var(--vp-s)));
-      gap: calc(6 * var(--vp-s));
-      width: calc(291 * var(--vp-s));
-      height: calc(291 * var(--vp-s));
+      top: calc(97.5 * var(--vp-s));
+      left: calc(59.17 * var(--vp-s));
+      grid-template-columns: repeat(3, calc(94.51 * var(--vp-s)));
+      grid-template-rows: repeat(3, calc(94.51 * var(--vp-s)));
+      gap: calc(5.1 * var(--vp-s));
+      width: calc(293.73 * var(--vp-s));
+      height: calc(293.73 * var(--vp-s));
     }
 
     .section-{{ section.id }} .epd__grid::before {
       top: calc(-6 * var(--vp-s));
       left: calc(-6 * var(--vp-s));
-      width: calc(303 * var(--vp-s));
-      height: calc(303 * var(--vp-s));
-      border-radius: calc(14 * var(--vp-s));
+      width: calc(305.31 * var(--vp-s));
+      height: calc(305.31 * var(--vp-s));
+      border-radius: calc(15.71 * var(--vp-s));
+      backdrop-filter: blur(calc(1.1 * var(--vp-s)));
+      -webkit-backdrop-filter: blur(calc(1.1 * var(--vp-s)));
     }
 
     .section-{{ section.id }} .epd__tile,
     .section-{{ section.id }} .epd__open {
-      width: calc(93 * var(--vp-s));
-      height: calc(93 * var(--vp-s));
-      border-radius: calc(8 * var(--vp-s));
+      width: calc(94.51 * var(--vp-s));
+      height: calc(94.51 * var(--vp-s));
+      border-radius: calc(10.2 * var(--vp-s));
+    }
+
+    .section-{{ section.id }} .epd__open {
+      width: calc(91.79 * var(--vp-s));
+      height: calc(91.79 * var(--vp-s));
+      border-radius: calc(9.69 * var(--vp-s));
+      align-self: center;
+      justify-self: center;
+      box-shadow: 0 calc(2.72 * var(--vp-s)) 0 #a35109,
+        inset calc(0.65 * var(--vp-s)) calc(0.65 * var(--vp-s)) calc(0.74 * var(--vp-s)) rgba(255, 255, 255, 0.82),
+        inset calc(1.94 * var(--vp-s)) calc(1.94 * var(--vp-s)) calc(1.29 * var(--vp-s)) #ffffff,
+        inset calc(-1.94 * var(--vp-s)) calc(-1.94 * var(--vp-s)) calc(1.1 * var(--vp-s)) calc(-0.65 * var(--vp-s)) rgba(125, 130, 156, 0.52);
+    }
+
+    .section-{{ section.id }} .epd__open span {
+      font-size: calc(21.25 * var(--vp-s));
+      line-height: calc(21.25 * var(--vp-s));
+      text-shadow: calc(1.36 * var(--vp-s)) calc(1.36 * var(--vp-s)) 0 #ea7227;
     }
 
     .section-{{ section.id }} .epd__content {
       order: 3;
-      width: calc(287 * var(--vp-s));
-      margin-top: calc(-298 * var(--vp-s));
-      padding-bottom: calc(28 * var(--vp-s));
-      z-index: 3;
+      width: calc(326.5 * var(--vp-s));
+      margin-top: calc(-385 * var(--vp-s));
+      padding-bottom: calc(20 * var(--vp-s));
+      z-index: 1;
     }
 
     .section-{{ section.id }} .epd__title {
-      margin-bottom: calc(18 * var(--vp-s));
-      font-size: calc({{ section.settings.title_size_mobile }} * var(--vp-s));
-      line-height: calc({{ section.settings.title_line_height_mobile }} * var(--vp-s));
-      text-align: left;
+      width: calc(310 * var(--vp-s));
+      margin: 0 auto calc(14.5 * var(--vp-s));
+      font-size: calc(17.5 * var(--vp-s));
+      line-height: calc(26 * var(--vp-s));
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .section-{{ section.id }} .epd__form {
+      width: calc(316.55 * var(--vp-s));
+      margin: 0 auto;
     }
 
     .section-{{ section.id }} .epd__field,
     .section-{{ section.id }} .epd__submit {
-      height: calc(42 * var(--vp-s));
-      font-size: calc(14 * var(--vp-s));
-      line-height: calc(20 * var(--vp-s));
+      font-size: calc(15 * var(--vp-s));
+      text-align: center;
+    }
+
+    .section-{{ section.id }} .epd__field {
+      height: calc(34.53 * var(--vp-s));
+      border: calc(1 * var(--vp-s)) solid var(--epd-accent);
+      padding: 0 calc(10 * var(--vp-s));
+      color: #222222;
+      line-height: calc(22.5 * var(--vp-s));
+    }
+
+    .section-{{ section.id }} .epd__field::placeholder {
+      color: #949494;
+    }
+
+    .section-{{ section.id }} .epd__submit {
+      height: calc(35.11 * var(--vp-s));
+      margin-top: calc(10.86 * var(--vp-s));
+      line-height: calc(18 * var(--vp-s));
+    }
+
+    .section-{{ section.id }} .epd__message {
+      min-height: calc(14 * var(--vp-s));
+      margin-top: calc(4 * var(--vp-s));
+      font-size: calc(10 * var(--vp-s));
+      line-height: calc(14 * var(--vp-s));
     }
 
     .section-{{ section.id }} .epd__rules-title {
-      font-size: calc(15 * var(--vp-s));
-      line-height: calc(19 * var(--vp-s));
+      margin: calc(17.5 * var(--vp-s)) 0 calc(8 * var(--vp-s));
+      color: #000000;
+      font-size: calc(13.55 * var(--vp-s));
+      line-height: calc(20.5 * var(--vp-s));
     }
 
     .section-{{ section.id }} .epd__rules {
-      font-size: calc({{ section.settings.desc_size_mobile }} * var(--vp-s));
-      line-height: calc({{ section.settings.desc_line_height_mobile }} * var(--vp-s));
+      width: calc(326.5 * var(--vp-s));
+      color: #838181;
+      font-size: calc(12.5 * var(--vp-s));
+      line-height: calc(18.75 * var(--vp-s));
     }
 
     .section-{{ section.id }} .epd__dialog {
@@ -1179,13 +1237,13 @@
       "type": "number",
       "id": "title_size_mobile",
       "label": "Title size (M)",
-      "default": 21
+      "default": 17
     },
     {
       "type": "number",
       "id": "title_line_height_mobile",
       "label": "Title line height (M)",
-      "default": 31
+      "default": 26
     },
     {
       "type": "number",
@@ -1203,7 +1261,7 @@
       "type": "number",
       "id": "desc_size_mobile",
       "label": "Rules size (M)",
-      "default": 13
+      "default": 12
     },
     {
       "type": "number",
