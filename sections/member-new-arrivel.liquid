@@ -130,38 +130,7 @@
           </div>
         {% endif %}
 
-        <div class="member-new-arrivel__mobile-features">
-          {% assign rendered_mobile_features = 0 %}
-          {% for block in section.blocks %}
-            {% if block.type == 'feature' and rendered_mobile_features < 4 %}
-              {% assign rendered_mobile_features = rendered_mobile_features | plus: 1 %}
-              <div class="member-new-arrivel__feature member-new-arrivel__mobile-feature" {{ block.shopify_attributes }}>
-                <div class="member-new-arrivel__feature-icon">
-                  {% if block.settings.icon_image != blank %}
-                    {{ block.settings.icon_image | image_url: width: 100 | image_tag: loading: 'lazy', alt: block.settings.text }}
-                  {% else %}
-                    <svg viewBox="0 0 48 48" aria-hidden="true">
-                      {% case block.settings.icon %}
-                        {% when 'steam' %}
-                          <path d="M17 9c-5 6 5 9 0 16m10-16c-5 6 5 9 0 16m10-16c-5 6 5 9 0 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"/>
-                        {% when 'drop' %}
-                          <path d="M24 5s13 14 13 25c0 7-5 12-13 12S11 37 11 30C11 19 24 5 24 5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/>
-                        {% when 'wave' %}
-                          <path d="M7 29c6-13 11-13 17 0s11 13 17 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"/>
-                        {% when 'pet' %}
-                          <path d="M17 21c3 0 4-4 2-7s-6-2-7 1 1 6 5 6Zm14 0c4 0 6-3 5-6s-5-4-7-1-1 7 2 7ZM17 39c-5 0-7-5-4-9 2-3 5-4 7-7 2-2 6-2 8 0 2 3 5 4 7 7 3 4 1 9-4 9-3 0-5-2-7-2s-4 2-7 2Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/>
-                        {% else %}
-                          <path d="m24 6 3 10 10 3-10 3-3 10-3-10-10-3 10-3 3-10Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/>
-                          <path d="m12 30 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2.5"/>
-                      {% endcase %}
-                    </svg>
-                  {% endif %}
-                </div>
-                <div class="member-new-arrivel__feature-text">{{ block.settings.text | escape }}</div>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
+        
 
           {% assign gift_product_1 = section.settings.gift_product_1 %}
           {% assign gift_product_2 = section.settings.gift_product_2 %}
@@ -271,7 +240,7 @@
           {% endif %}
 
 
-        <div class="member-new-arrivel__mobile-divider" aria-hidden="true"></div>
+       
 
         <div class="member-new-arrivel__price-row">
           {% if sale_price != blank %}
@@ -304,8 +273,40 @@
             </a>
           {% endif %}
         </div>
+        
       </div>
-
+      <div class="member-new-arrivel__mobile-features">
+          {% assign rendered_mobile_features = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' and rendered_mobile_features < 4 %}
+              {% assign rendered_mobile_features = rendered_mobile_features | plus: 1 %}
+              <div class="member-new-arrivel__feature member-new-arrivel__mobile-feature" {{ block.shopify_attributes }}>
+                <div class="member-new-arrivel__feature-icon">
+                  {% if block.settings.icon_image != blank %}
+                    {{ block.settings.icon_image | image_url: width: 100 | image_tag: loading: 'lazy', alt: block.settings.text }}
+                  {% else %}
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                      {% case block.settings.icon %}
+                        {% when 'steam' %}
+                          <path d="M17 9c-5 6 5 9 0 16m10-16c-5 6 5 9 0 16m10-16c-5 6 5 9 0 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"/>
+                        {% when 'drop' %}
+                          <path d="M24 5s13 14 13 25c0 7-5 12-13 12S11 37 11 30C11 19 24 5 24 5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/>
+                        {% when 'wave' %}
+                          <path d="M7 29c6-13 11-13 17 0s11 13 17 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"/>
+                        {% when 'pet' %}
+                          <path d="M17 21c3 0 4-4 2-7s-6-2-7 1 1 6 5 6Zm14 0c4 0 6-3 5-6s-5-4-7-1-1 7 2 7ZM17 39c-5 0-7-5-4-9 2-3 5-4 7-7 2-2 6-2 8 0 2 3 5 4 7 7 3 4 1 9-4 9-3 0-5-2-7-2s-4 2-7 2Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/>
+                        {% else %}
+                          <path d="m24 6 3 10 10 3-10 3-3 10-3-10-10-3 10-3 3-10Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/>
+                          <path d="m12 30 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2.5"/>
+                      {% endcase %}
+                    </svg>
+                  {% endif %}
+                </div>
+                <div class="member-new-arrivel__feature-text">{{ block.settings.text | escape }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       {% if section.settings.bottom_image != blank or section.settings.mobile_bottom_image != blank %}
         <div class="member-new-arrivel__bottom-image">
           <picture>
@@ -538,15 +539,45 @@
     text-decoration: none;
   }
 
+  #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-content: start;
+    text-align: center;
+    gap: calc(8 * var(--vp-s));
+  }
+
   #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product + .member-new-arrivel__gift-product {
     border-left: calc(1 * var(--vp-s)) solid {{ section.settings.gift_card_divider_color | default: '#DDDDDD' }};
     padding-left: calc(16 * var(--vp-s));
     margin-left: calc(14 * var(--vp-s));
   }
 
+  #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product + .member-new-arrivel__gift-product {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product + .member-new-arrivel__gift-product::before {
+    content: "";
+    position: absolute;
+    top: calc(8 * var(--vp-s));
+    bottom: calc(8 * var(--vp-s));
+    left: 0;
+    width: calc(1 * var(--vp-s));
+    background: {{ section.settings.gift_card_divider_color | default: '#DDDDDD' }};
+    transform: translateX(calc(-0.5 * var(--vp-s)));
+  }
+
   #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product-media {
     display: block;
     width: calc(58 * var(--vp-s));
+  }
+
+  #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product-media {
+    width: calc(72 * var(--vp-s));
   }
 
   #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift img,
@@ -566,6 +597,13 @@
     font-size: calc(14 * var(--vp-s));
     line-height: calc(13 * var(--vp-s));
     font-weight: 400;
+  }
+
+  #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
   }
 
   #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product-price {
@@ -815,13 +853,13 @@
       min-height: 0;
       padding: 0;
       border-radius: calc({{ section.settings.mobile_card_radius }} * var(--vp-s));
-      background-color: rgba(var(--mna-panel-rgb), 1);
+      background-color: #C4DAF3;
       background-image: none;
       background-position: {{ section.settings.mobile_background_position }};
       box-shadow: none;
       display: flex;
       flex-direction: column;
-      overflow: visible;
+      overflow: hidden;
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__badge-wrap--desktop {
@@ -882,6 +920,7 @@
       margin-bottom: calc({{ section.settings.mobile_subtitle_margin_bottom }} * var(--vp-s));
       font-size: calc({{ section.settings.mobile_subtitle_size }} * var(--vp-s));
       line-height: calc({{ section.settings.mobile_subtitle_line_height }} * var(--vp-s));
+      color: #4A4A4A;
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__mobile-features {
@@ -889,7 +928,18 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: calc({{ section.settings.mobile_feature_gap }} * var(--vp-s)) calc({{ section.settings.mobile_feature_column_gap }} * var(--vp-s));
-      margin-bottom: calc({{ section.settings.mobile_feature_margin_bottom }} * var(--vp-s));
+      box-sizing: border-box;
+      width: calc(100% + {{ section.settings.mobile_card_padding_x | times: 2 }} * var(--vp-s));
+      max-width: calc(100% + {{ section.settings.mobile_card_padding_x | times: 2 }} * var(--vp-s));
+      margin-top: calc(0 * var(--vp-s));
+      margin-right: calc(-{{ section.settings.mobile_card_padding_x }} * var(--vp-s));
+      margin-bottom: calc(0 * var(--vp-s));
+      margin-left: calc(0 * var(--vp-s));
+      padding: calc({{ section.settings.mobile_feature_padding_y }} * var(--vp-s)) calc({{ section.settings.mobile_feature_padding_x }} * var(--vp-s));
+      background: #6F7B86;
+      border-bottom-right-radius: calc({{ section.settings.mobile_card_radius }} * var(--vp-s));
+      border-bottom-left-radius: calc({{ section.settings.mobile_card_radius }} * var(--vp-s));
+      color: #ffffff;
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__mobile-feature {
@@ -897,6 +947,7 @@
       align-items: center;
       justify-content: flex-start;
       gap: calc({{ section.settings.mobile_feature_icon_gap }} * var(--vp-s));
+      min-width: 0;
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__mobile-feature .member-new-arrivel__feature-icon {
@@ -906,9 +957,13 @@
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__mobile-feature .member-new-arrivel__feature-text {
-      font-size: calc({{ section.settings.mobile_feature_text_size }} * var(--vp-s));
-      line-height: calc({{ section.settings.mobile_feature_line_height }} * var(--vp-s));
+      min-width: 0;
+      max-width: 100%;
+      font-size: min(calc({{ section.settings.mobile_feature_text_size }} * var(--vp-s)), calc(10 * var(--vp-s)));
+      line-height: min(calc({{ section.settings.mobile_feature_line_height }} * var(--vp-s)), calc(13 * var(--vp-s)));
       font-weight: 800;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift {
@@ -920,7 +975,7 @@
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-badge {
       top: calc(-14 * var(--vp-s));
       left: calc(-12 * var(--vp-s));
-      width: calc(48 * var(--vp-s));
+      width: calc(60 * var(--vp-s));
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-heading {
@@ -935,9 +990,21 @@
       padding: calc(10 * var(--vp-s)) calc(10 * var(--vp-s)) calc(8 * var(--vp-s));
     }
 
+    #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double {
+      min-height: calc(112 * var(--vp-s));
+      padding: calc(11 * var(--vp-s)) calc(16 * var(--vp-s)) calc(10 * var(--vp-s));
+    }
+
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product {
       grid-template-columns: calc(44 * var(--vp-s)) minmax(0, 1fr);
       gap: calc(6 * var(--vp-s));
+    }
+
+    #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      text-align: center;
+      gap: calc(7 * var(--vp-s));
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product + .member-new-arrivel__gift-product {
@@ -945,8 +1012,23 @@
       margin-left: calc(5 * var(--vp-s));
     }
 
+    #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product + .member-new-arrivel__gift-product {
+      border-left: 0;
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product + .member-new-arrivel__gift-product::before {
+      top: calc(9 * var(--vp-s));
+      bottom: calc(9 * var(--vp-s));
+    }
+
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product-media {
       width: calc(44 * var(--vp-s));
+    }
+
+    #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-body.is-double .member-new-arrivel__gift-product-media {
+      width: calc(58 * var(--vp-s));
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__gift-product-title {
@@ -972,7 +1054,7 @@
       grid-column: 1 / -1;
       display: block;
       width: 100%;
-      height: calc({{ section.settings.mobile_divider_height }} * var(--vp-s));
+      height: calc(0 * var(--vp-s));
       margin-bottom: calc({{ section.settings.mobile_divider_margin_bottom }} * var(--vp-s));
       background: {{ section.settings.mobile_divider_color }};
     }
@@ -981,9 +1063,9 @@
       gap: calc({{ section.settings.mobile_price_gap }} * var(--vp-s));
       margin-bottom: calc({{ section.settings.mobile_price_margin_bottom }} * var(--vp-s));
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      grid-column: 1;
+      flex-direction: row;
+      align-items: baseline;
+      grid-column: 1 / -1;
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__price {
@@ -994,18 +1076,22 @@
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__compare {
       font-size: calc({{ section.settings.mobile_compare_size }} * var(--vp-s));
       line-height: calc({{ section.settings.mobile_compare_line_height }} * var(--vp-s));
+      color: #afa6a6;
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__actions {
       position: static;
-      grid-column: 2;
-      justify-self: end;
-      flex-direction: column;
+      grid-column: 1 / -1;
+      justify-self: stretch;
+      width: 100%;
+      flex-direction: row;
       gap: calc({{ section.settings.mobile_button_gap }} * var(--vp-s));
     }
 
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__btn {
-      width: calc({{ section.settings.mobile_button_width }} * var(--vp-s));
+      flex: 1 1 0;
+      width: auto;
+      min-width: 0;
       min-height: calc({{ section.settings.mobile_button_height }} * var(--vp-s));
       padding-right: calc({{ section.settings.mobile_button_padding_x }} * var(--vp-s));
       padding-left: calc({{ section.settings.mobile_button_padding_x }} * var(--vp-s));
@@ -1887,7 +1973,7 @@
       "max": 40,
       "step": 1,
       "unit": "px",
-      "default": 18
+      "default": 0
     },
     {
       "type": "range",
@@ -2126,7 +2212,7 @@
       "max": 38,
       "step": 1,
       "unit": "px",
-      "default": 24
+      "default": 20
     },
     {
       "type": "range",
@@ -2166,7 +2252,7 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "default": 15
+      "default": 12
     },
     {
       "type": "range",
@@ -2176,7 +2262,7 @@
       "max": 34,
       "step": 1,
       "unit": "px",
-      "default": 21
+      "default": 18
     },
     {
       "type": "range",
@@ -2242,11 +2328,11 @@
       "type": "range",
       "id": "mobile_divider_height",
       "label": "Mobile divider height",
-      "min": 1,
+      "min": 0,
       "max": 4,
       "step": 1,
       "unit": "px",
-      "default": 1
+      "default": 0
     },
     {
       "type": "range",
