@@ -90,12 +90,12 @@
         },
         "coupon_code_TEQPHj": {
           "type": "coupon_code",
-          "disabled": true,
           "settings": {
             "icon": "heart",
+            "image": "shopify:\/\/shop_images\/huaban-5661718420.webp",
             "has_background": true,
-            "text": "<p><strong>Early Bird Special: Get 10% OFF the All-New M7 Wet-Dry Vacuum.<\/strong><\/p>",
-            "coupon_text": "M7EBD10",
+            "text": "<p><strong>🏖️Summer Sale: Get Extra 8% OFF Now!<\/strong><\/p>",
+            "coupon_text": "SUMMER8",
             "copy_text": "Copy code",
             "coupon_box_color": "#ea6b24",
             "coupon_box_color_link": "#00d0cd",
