@@ -5,16 +5,6 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "text_PbQPWM": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "text": "☀️Unwrap Summer Savings & Spin to Win Today! >>>",
-            "link": "shopify:\/\/pages\/summer-sale",
-            "color_bg": "#00d0cd",
-            "color_text": "#ffffff"
-          }
-        },
         "text_NjjCzj": {
           "type": "text",
           "settings": {
@@ -24,11 +14,21 @@
             "color_bg": "#00d0cd",
             "color_text": "#ffffff"
           }
+        },
+        "text_PbQPWM": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "text": "☀️ Unwrap Summer Savings & Spin to Win Today! >>>",
+            "link": "shopify:\/\/pages\/summer-sale",
+            "color_bg": "#00d0cd",
+            "color_text": "#ffffff"
+          }
         }
       },
       "block_order": [
-        "text_PbQPWM",
-        "text_NjjCzj"
+        "text_NjjCzj",
+        "text_PbQPWM"
       ],
       "settings": {
         "announcement_bar": true,
