@@ -854,8 +854,10 @@
       padding: 0;
       border-radius: calc({{ section.settings.mobile_card_radius }} * var(--vp-s));
       background-color: #C4DAF3;
-      background-image: none;
-      background-position: {{ section.settings.mobile_background_position }};
+      background-image: var(--mna-bg-mobile);
+      background-size: 100% auto;
+      background-position: top center;
+      background-repeat: no-repeat;
       box-shadow: none;
       display: flex;
       flex-direction: column;
@@ -888,10 +890,7 @@
       display: block;
       width: 100%;
       height: calc({{ section.settings.mobile_visual_height }} * var(--vp-s));
-      background-image: var(--mna-bg-mobile);
-      background-size: cover;
-      background-position: {{ section.settings.mobile_background_position }};
-      background-repeat: no-repeat;
+      background: transparent;
       border-top-left-radius: calc({{ section.settings.mobile_card_radius }} * var(--vp-s));
       border-top-right-radius: calc({{ section.settings.mobile_card_radius }} * var(--vp-s));
       flex: 0 0 auto;
@@ -900,6 +899,16 @@
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__content {
       width: 100%;
       padding: calc({{ section.settings.mobile_content_padding_top }} * var(--vp-s)) calc({{ section.settings.mobile_card_padding_x }} * var(--vp-s)) calc({{ section.settings.mobile_card_padding_bottom }} * var(--vp-s));
+      {% if section.settings.mobile_content_background_type == 'image' and section.settings.mobile_content_background_image != blank %}
+        background-color: transparent;
+        background-image: url('{{ section.settings.mobile_content_background_image | image_url: width: 900 }}');
+        background-size: cover;
+        background-position: {{ section.settings.mobile_background_position }};
+        background-repeat: no-repeat;
+      {% elsif section.settings.mobile_content_background_type == 'color' %}
+        background-color: transparent;
+        background-image: none;
+      {% endif %}
       display: grid;
       grid-template-columns: minmax(0, 1fr) calc({{ section.settings.mobile_button_width }} * var(--vp-s));
       column-gap: calc({{ section.settings.mobile_price_button_gap }} * var(--vp-s));
@@ -909,6 +918,7 @@
     #member-new-arrivel-{{ section.id }} .member-new-arrivel__title {
       grid-column: 1 / -1;
       max-width: calc({{ section.settings.mobile_title_width }} * var(--vp-s));
+      margin-top: calc(50 * var(--vp-s));
       margin-bottom: calc({{ section.settings.mobile_title_margin_bottom }} * var(--vp-s));
       font-size: calc({{ section.settings.mobile_title_size }} * var(--vp-s));
       line-height: calc({{ section.settings.mobile_title_line_height }} * var(--vp-s));
@@ -1964,6 +1974,27 @@
       "step": 1,
       "unit": "px",
       "default": 18
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_background_type",
+      "label": "Mobile content background type",
+      "options": [
+        { "value": "color", "label": "Color" },
+        { "value": "image", "label": "Image" }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "mobile_content_background_color",
+      "label": "Mobile content background color",
+      "default": "#C4DAF3"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_content_background_image",
+      "label": "Mobile content background image"
     },
     {
       "type": "range",

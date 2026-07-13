@@ -146,10 +146,8 @@
         "top_position": 55,
         "top_position_mobile": 40,
         "background": "#fba441",
-        "background_gradient": "",
         "text_color": "#ffffff",
         "active_background": "#ffffff",
-        "active_background_gradient": "",
         "active_text_color": "#fba441",
         "hide_on_mobile": false
       }
@@ -636,7 +634,6 @@
         "coupon_code_2": "",
         "coupon_code_3": "",
         "hide_tab_nav": false,
-        "collection_product_limit": 30,
         "tab_1_title": "Free Battery",
         "tab_2_title": "20% OFF Coupon",
         "tab_3_title": "25% OFF Coupon",
